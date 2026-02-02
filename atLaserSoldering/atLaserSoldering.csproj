@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{40E714F7-22C7-45F5-BF8F-7BE18C1A71EC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>atLaserSoldering</RootNamespace>
+    <AssemblyName>atLaserSoldering</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cognex.VisionPro, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
+    <Reference Include="Cognex.VisionPro.Controls, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
+    <Reference Include="Cognex.VisionPro.Core, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
+    <Reference Include="Cognex.VisionPro.Database, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
+    <Reference Include="Cognex.VisionPro.Inspection, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
+    <Reference Include="Cognex.VisionPro.Inspection.Controls, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
+    <Reference Include="Cognex.VisionPro.ToolGroup, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
+    <Reference Include="Cognex.VisionPro.ToolGroup.Controls, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="atLaserSoldering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="atLaserSoldering.Designer.cs">
+      <DependentUpon>atLaserSoldering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPages\MotionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPages\MotionControl.designer.cs">
+      <DependentUpon>MotionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPages\RemoteIOControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPages\RemoteIOControl.designer.cs">
+      <DependentUpon>RemoteIOControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="atLaserSoldering.resx">
+      <DependentUpon>atLaserSoldering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPages\MotionControl.resx">
+      <DependentUpon>MotionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPages\RemoteIOControl.resx">
+      <DependentUpon>RemoteIOControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disconnect_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disconnect_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Library\AiCControlLibrary\AiCControlLibrary\AiCControlLibrary.csproj">
+      <Project>{8689df06-271f-4142-990e-302eb1d5eb82}</Project>
+      <Name>AiCControlLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="Library\ArioMudbusLibrary\ArioMudbusLibrary\ArioModbusLibrary.csproj">
+      <Project>{9395f6d7-5cee-4549-afa9-2f1bf440f985}</Project>
+      <Name>ArioModbusLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="Library\BaslerCamera\BaslerCamera.csproj">
+      <Project>{2600afac-f152-48ed-8a1b-854df03a4e07}</Project>
+      <Name>BaslerCamera</Name>
+    </ProjectReference>
+    <ProjectReference Include="Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\CoherentCompactMini.csproj">
+      <Project>{a56f395d-a78d-4764-b74e-af66763c3af4}</Project>
+      <Name>CoherentCompactMini</Name>
+    </ProjectReference>
+    <ProjectReference Include="Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\CompactSECommunication.csproj">
+      <Project>{03a92e9e-5da1-483a-b438-286286a0b909}</Project>
+      <Name>CompactSECommunication</Name>
+    </ProjectReference>
+    <ProjectReference Include="Library\IOLibrary\RecipeManager.csproj">
+      <Project>{03022a76-0fb0-41e4-bed3-ed108203bb96}</Project>
+      <Name>RecipeManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="Library\LaserSolderingLibrary\LaserSolderingLibrary\LaserSoldering.csproj">
+      <Project>{2e6c4b83-6839-4235-8200-1bb000491521}</Project>
+      <Name>LaserSoldering</Name>
+    </ProjectReference>
+    <ProjectReference Include="Library\LogLibrary\LogLibrary.csproj">
+      <Project>{d3f9449d-4dbe-4bc9-b24c-fac0934e862f}</Project>
+      <Name>LogLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

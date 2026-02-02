@@ -1,0 +1,17 @@
+D:\Work\Visual_C++\2026\TestARIO\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioModbusLibrary.csprojAssemblyReference.cache
+D:\Work\Visual_C++\2026\TestARIO\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioModbusLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Visual_C++\2026\TestARIO\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.dll
+D:\Work\Visual_C++\2026\TestARIO\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.pdb
+D:\Work\Visual_C++\2026\TestARIO\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.dll
+D:\Work\Visual_C++\2026\TestARIO\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.pdb
+D:\Work\Visual_C++\2026\TestARIO\TestArioMR\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioModbusLibrary.csprojAssemblyReference.cache
+D:\Work\Visual_C++\2026\TestARIO\TestArioMR\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioModbusLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Visual_C++\2026\TestARIO\TestArioMR\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.dll
+D:\Work\Visual_C++\2026\TestARIO\TestArioMR\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.pdb
+D:\Work\Visual_C++\2026\TestARIO\TestArioMR\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.dll
+D:\Work\Visual_C++\2026\TestARIO\TestArioMR\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioModbusLibrary.csprojResolveAssemblyReference.cache
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.pdb

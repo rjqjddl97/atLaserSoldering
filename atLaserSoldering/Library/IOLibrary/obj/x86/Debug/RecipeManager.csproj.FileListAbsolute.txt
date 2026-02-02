@@ -1,0 +1,16 @@
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\NLog.config
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\NLog.xsd
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\RecipeManager.dll
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\RecipeManager.pdb
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\INIFileParser.dll
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\LogLibrary.dll
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\RJCP.SerialPortStream.dll
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\NLog.dll
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\LogLibrary.pdb
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\INIFileParser.xml
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\RJCP.SerialPortStream.pdb
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\RJCP.SerialPortStream.xml
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\bin\x86\Debug\NLog.xml
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\obj\x86\Debug\RecipeManager.csprojResolveAssemblyReference.cache
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\obj\x86\Debug\RecipeManager.dll
+D:\Work\C_Sharp\2025\PhotoOpticalInspect\atOpticalDecenter\IOLibrary\obj\x86\Debug\RecipeManager.pdb

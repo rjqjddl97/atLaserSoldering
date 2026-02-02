@@ -1,0 +1,10 @@
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\bin\x64\Release\NLog.config
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\bin\x64\Release\NLog.xsd
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\bin\x64\Release\LogLibrary.dll
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\bin\x64\Release\LogLibrary.pdb
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\bin\x64\Release\NLog.dll
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\bin\x64\Release\NLog.xml
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\obj\x64\Release\LogLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\obj\x64\Release\LogLibrary.csproj.CopyComplete
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\obj\x64\Release\LogLibrary.dll
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\obj\x64\Release\LogLibrary.pdb
