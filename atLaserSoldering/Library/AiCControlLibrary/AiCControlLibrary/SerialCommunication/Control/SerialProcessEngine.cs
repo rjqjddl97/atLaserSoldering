@@ -50,11 +50,13 @@ namespace AiCControlLibrary.SerialCommunication.Control
         public event Action<AiCData> ReceiveAiCData;
 
         public delegate void RequestData(byte[] buffer, int offset, int count);
-        //public delegate void ReceiveMT4xData(MT4xPanelMeta data);
-        public event RequestData RequestDataEventHandler;        
+        
+        public event RequestData RequestDataEventHandler;
+        public bool IsResponseReceiveError { get; set; } = false;
         public bool IsReceiveStart { get; set; }
-
+        public bool IsReceiveAck { get; set; } = true;
         public bool IsConnected { get; set; }
+        public UInt32 uiReceiveCount { get; set; } = 0;
         public SerialProcessEngine()
         {
             IsConnected = false;
@@ -224,72 +226,76 @@ namespace AiCControlLibrary.SerialCommunication.Control
         {
             int i;
             byte ReData = 0;
-            UInt32 buffsize = m_SerialHandler.mQueue.GetFilledSize();
+            UInt32 buffsize = (UInt32)m_SerialHandler._ReceiveDataQueue.Count;
             if (buffsize != 0)
-            {                               
-                int ReCounter = 0;
-                for (i = 0; i < buffsize; i++)
+            {   
+                byte[] recvData = m_SerialHandler._ReceiveDataQueue.Dequeue();
+
+                for (i = 0; i < recvData.Length; i++)
                 {
-                    m_SerialHandler.mQueue.Pop(ref ReData);
+                    ReData = recvData[i];
                     if ( (IsReceiveStart == false) && (ReData == 0x01) )
                     {
                         IsReceiveStart = true;
-                        ReCounter = 0;
+                        uiReceiveCount = 0;
                     }                        
 
                     if (IsReceiveStart)
                     {
-                        ReceivePacketBuff[ReCounter] = ReData;
-                        ReCounter++;
+                        ReceivePacketBuff[uiReceiveCount] = ReData;
+                        uiReceiveCount++;
                     }
 
-                    if (ReCounter > 2)
+                    if (uiReceiveCount > 2)
                     {
                         if (ReceivePacketBuff[1] > (byte)ModbusRTU.FunctionCodes.Exception)
                         {
-                            if (ReCounter == 5)
+                            if (uiReceiveCount == 5)
                             {                                
-                                for (int j = 0; j < ReCounter; j++) ReceivePacketBuff[j] = 0;
-                                ReCounter = 0;
+                                //for (int j = 0; j < uiReceiveCount; j++) ReceivePacketBuff[j] = 0;
+                                uiReceiveCount = 0;
                                 IsReceiveStart = false;
                             }
-                            else if (ReCounter > 5)
+                            else if (uiReceiveCount > 5)
                             {
-                                for (int j = 0; j < ReCounter; j++) ReceivePacketBuff[j] = 0;
-                                ReCounter = 0;
+                                //for (int j = 0; j < uiReceiveCount; j++) ReceivePacketBuff[j] = 0;
+                                uiReceiveCount = 0;
                                 IsReceiveStart = false;
                             }
                         }
                         else if ((ReceivePacketBuff[1] != (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) && (ReceivePacketBuff[1] != (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister) && (ReceivePacketBuff[1] != (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleCoils) && (ReceivePacketBuff[1] != (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters))
                         {
-                            if (ReCounter == ReceivePacketBuff[2] + 5)
+                            if (uiReceiveCount == ReceivePacketBuff[2] + 5)
                             {
-                                byte[] MainBuffer = new byte[ReCounter];
-                                Buffer.BlockCopy(ReceivePacketBuff, 0, MainBuffer, 0, ReCounter);
+                                byte[] MainBuffer = new byte[uiReceiveCount];
+                                Buffer.BlockCopy(ReceivePacketBuff, 0, MainBuffer, 0, (int)uiReceiveCount);
                                 ParsingData(ReceivePacketBuff);
-                                ReCounter = 0;
+                                uiReceiveCount = 0;
                                 IsReceiveStart = false;
+                                IsReceiveAck = true;
                             }
-                            else if (ReCounter > ReceivePacketBuff[2] + 5)
+                            else if (uiReceiveCount > ReceivePacketBuff[2] + 5)
                             {
-                                for (int j = 0; j < ReCounter; j++) ReceivePacketBuff[j] = 0;
-                                ReCounter = 0;
+                                //for (int j = 0; j < ReCounter; j++) ReceivePacketBuff[j] = 0;
+                                uiReceiveCount = 0;
                                 IsReceiveStart = false;
+                                IsReceiveAck = true;
                             }
                         }
                         else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
                         {
-                            if (ReCounter == 8)
+                            if (uiReceiveCount == 8)
                             {
                                 //ParsingData(MainData);
-                                ReCounter = 0;
+                                uiReceiveCount = 0;
                                 IsReceiveStart = false;                                
                             }
-                            else if (ReCounter > 8)
+                            else if (uiReceiveCount > 8)
                             {
-                                for (int j = 0; j < ReCounter; j++) ReceivePacketBuff[j] = 0;
-                                ReCounter = 0;
+                                //for (int j = 0; j < ReCounter; j++) ReceivePacketBuff[j] = 0;
+                                uiReceiveCount = 0;
                                 IsReceiveStart = false;
+                                IsReceiveAck = true;
                             }
                         }
                     }
@@ -308,6 +314,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
                     {
                         mCommandList.Clear();
                         mDataTransferList.Clear();
+                        m_SerialHandler._ReceiveDataQueue.Clear();
                         m_AiCDataCtrl.ClearRequestedCommand();
                         IsEnqueueData = IsDequeueData = false;
                         Thread.Sleep(EngineSleepTime);
@@ -321,7 +328,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
                         
                     }
                     // receive Data Packet Parsor 구문 추가 필요.
-                    if (m_SerialHandler.mQueue.GetFilledSize() != 0)
+                    if (m_SerialHandler._ReceiveDataQueue.Count > 0)
                     {
                         ReceivePacket();
                     }

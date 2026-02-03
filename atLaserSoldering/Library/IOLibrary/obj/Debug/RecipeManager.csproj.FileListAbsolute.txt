@@ -280,3 +280,15 @@ D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Libr
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\IOLibrary\obj\Debug\RecipeManager.csprojResolveAssemblyReference.cache
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\IOLibrary\obj\Debug\RecipeManager.dll
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\IOLibrary\obj\Debug\RecipeManager.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\NLog.config
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\NLog.xsd
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\RecipeManager.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\RecipeManager.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\LogLibrary.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\NLog.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\LogLibrary.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\obj\Debug\RecipeManager.csprojAssemblyReference.cache
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\obj\Debug\RecipeManager.csproj.CoreCompileInputs.cache
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\obj\Debug\RecipeManager.csproj.CopyComplete
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\obj\Debug\RecipeManager.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\IOLibrary\obj\Debug\RecipeManager.pdb

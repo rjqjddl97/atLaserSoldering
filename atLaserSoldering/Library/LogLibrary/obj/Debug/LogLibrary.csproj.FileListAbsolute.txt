@@ -164,3 +164,12 @@ D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Libr
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csprojResolveAssemblyReference.cache
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.dll
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\NLog.config
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\NLog.xsd
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\LogLibrary.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\LogLibrary.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csprojAssemblyReference.cache
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csproj.CopyComplete
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.pdb

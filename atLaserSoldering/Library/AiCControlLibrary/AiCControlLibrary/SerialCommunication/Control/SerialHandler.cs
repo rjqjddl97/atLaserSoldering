@@ -22,8 +22,6 @@ namespace AiCControlLibrary.SerialCommunication.Control
         }
         public Action<CommunicateStateInfo> CommunicateStateInfoEvent;
         private SerialPort mSerialPort;
-        private Base64 mBase64;
-        public Queue mQueue;        
         public void SendData(byte[] buffer) => SendData(buffer, 0, buffer.Length);        
         List<byte> ReceivedData = new List<byte>();        
         public bool IsRightValueSetted { get; private set; } = false;
@@ -31,15 +29,14 @@ namespace AiCControlLibrary.SerialCommunication.Control
         private const int readbuffsize = 4096;
         private byte[] readBuffer = new byte[readbuffsize];
         //public event Action<byte[]> SendDataEvent;            // Send Data Log 기록이벤트      
-        //public event Action<byte[]> ParsedDataReceivedEvent;
-        public delegate void ReceiveQueueData(byte[] data,int length);
+        public delegate void ReceiveQueueData(byte[] data, int length);
+        public delegate void ReceiveRawData(byte[] data);
         //public event ReceiveQueueData ReceivedQueueDataEventHandler;
-        public event Action<byte[], int> ReceivedQueueDataEventHandler;
+        public event Action<byte[]> ReceivePacketRawDataEvent;
+        public Queue<byte[]> _ReceiveDataQueue = new Queue<byte[]>();
         public SerialHandler()
         {
             mSerialPort = new SerialPort();
-            mBase64 = new Base64();
-            mQueue = new Queue(4096);
             mSerialPort.DataReceived += new SerialDataReceivedEventHandler(ReceiveData);            
         }
         public void SetSettings(SerialPortSetData data)
@@ -151,11 +148,10 @@ namespace AiCControlLibrary.SerialCommunication.Control
                 if (mSerialPort.IsOpen)
                 {
                     int Length = mSerialPort.Read(readBuffer, 0, readbuffsize);
-                    for (int i = 0; i < Length; i++)
-                    {
-                        mQueue.Push(readBuffer[i]);
-                    }
-                    //ReceivedQueueDataEventHandler?.BeginInvoke(readBuffer, Length, null, null);
+                    byte[] tempbuff = new byte[Length];
+                    Buffer.BlockCopy(readBuffer, 0, tempbuff, 0, Length);
+                    _ReceiveDataQueue.Enqueue(tempbuff);
+                    //ReceivePacketRawDataEvent.BeginInvoke(tempbuff, null, null);
                 }
                 else
                 {

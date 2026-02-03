@@ -198,5 +198,9 @@ namespace AiCControlLibrary.SerialCommunication.Control
         {
             return mSerialHandler.IsOpen;
         }
+        public bool IsReceiveAck()
+        {
+            return mSerialEngine.IsReceiveAck;
+        }
     }
 }

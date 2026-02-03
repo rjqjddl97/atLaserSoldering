@@ -34,3 +34,11 @@ D:\Work\Visual_C++\2026\TestLaserOptical\TestCoherentLaserWithLasersolderlib\Las
 D:\Work\Visual_C++\2026\TestLaserOptical\TestCoherentLaserWithLasersolderlib\LaserSolderingLibrary\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.csproj.CopyComplete
 D:\Work\Visual_C++\2026\TestLaserOptical\TestCoherentLaserWithLasersolderlib\LaserSolderingLibrary\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.dll
 D:\Work\Visual_C++\2026\TestLaserOptical\TestCoherentLaserWithLasersolderlib\LaserSolderingLibrary\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\bin\Debug\CompactSECommunication.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\bin\Debug\CompactSECommunication.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\bin\Debug\SuperSimpleTcp.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\bin\Debug\SuperSimpleTcp.xml
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.csproj.CoreCompileInputs.cache
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.csproj.CopyComplete
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.pdb
