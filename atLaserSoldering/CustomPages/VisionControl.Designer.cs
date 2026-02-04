@@ -106,10 +106,11 @@
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.layoutControl2);
-            this.layoutControl1.Location = new System.Drawing.Point(5, 6);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(746, 416);
+            this.layoutControl1.Size = new System.Drawing.Size(755, 408);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -119,7 +120,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(6, 6);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(734, 404);
+            this.layoutControl2.Size = new System.Drawing.Size(743, 396);
             this.layoutControl2.TabIndex = 4;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -130,7 +131,7 @@
             this.panelControl1.Controls.Add(this.GroupControlCamera);
             this.panelControl1.Location = new System.Drawing.Point(6, 6);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(722, 392);
+            this.panelControl1.Size = new System.Drawing.Size(731, 384);
             this.panelControl1.TabIndex = 4;
             // 
             // groupControlLight
@@ -146,7 +147,7 @@
             this.groupControlLight.Controls.Add(this.labelControlLedBright);
             this.groupControlLight.Controls.Add(this.labelControlLightChannel);
             this.groupControlLight.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControlLight.Location = new System.Drawing.Point(5, 267);
+            this.groupControlLight.Location = new System.Drawing.Point(5, 262);
             this.groupControlLight.Name = "groupControlLight";
             this.groupControlLight.Size = new System.Drawing.Size(270, 120);
             this.groupControlLight.TabIndex = 2;
@@ -258,9 +259,9 @@
             this.groupControlProcessing.Controls.Add(this.cogRecordDisplayProcessing);
             this.groupControlProcessing.Controls.Add(this.labelControlVisionReceipe);
             this.groupControlProcessing.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControlProcessing.Location = new System.Drawing.Point(281, 5);
+            this.groupControlProcessing.Location = new System.Drawing.Point(281, 1);
             this.groupControlProcessing.Name = "groupControlProcessing";
-            this.groupControlProcessing.Size = new System.Drawing.Size(434, 382);
+            this.groupControlProcessing.Size = new System.Drawing.Size(434, 381);
             this.groupControlProcessing.TabIndex = 2;
             this.groupControlProcessing.Text = "Image Process";
             // 
@@ -331,7 +332,7 @@
             this.GroupControlCamera.Controls.Add(this.labelControlExposureTime);
             this.GroupControlCamera.Controls.Add(this.labelControlCamera);
             this.GroupControlCamera.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.GroupControlCamera.Location = new System.Drawing.Point(5, 5);
+            this.GroupControlCamera.Location = new System.Drawing.Point(5, 1);
             this.GroupControlCamera.Name = "GroupControlCamera";
             this.GroupControlCamera.Size = new System.Drawing.Size(270, 261);
             this.GroupControlCamera.TabIndex = 2;
@@ -469,7 +470,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(734, 404);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(743, 396);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -477,7 +478,7 @@
             this.layoutControlItem2.Control = this.panelControl1;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(726, 396);
+            this.layoutControlItem2.Size = new System.Drawing.Size(735, 388);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -489,7 +490,7 @@
             this.layoutControlItem1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.Root.Size = new System.Drawing.Size(746, 416);
+            this.Root.Size = new System.Drawing.Size(755, 408);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -497,7 +498,7 @@
             this.layoutControlItem1.Control = this.layoutControl2;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(738, 408);
+            this.layoutControlItem1.Size = new System.Drawing.Size(747, 400);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -507,7 +508,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Name = "VisionControl";
-            this.Size = new System.Drawing.Size(755, 422);
+            this.Size = new System.Drawing.Size(755, 408);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();

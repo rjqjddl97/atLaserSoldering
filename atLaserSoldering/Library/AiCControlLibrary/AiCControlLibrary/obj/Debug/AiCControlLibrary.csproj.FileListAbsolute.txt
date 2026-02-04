@@ -109,8 +109,6 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\AiCControlLibrary
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\AiCControlLibrary\AiCControlLibrary\bin\Debug\NLog.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\AiCControlLibrary\AiCControlLibrary\bin\Debug\RecipeManager.pdb
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\AiCControlLibrary\AiCControlLibrary\bin\Debug\LogLibrary.pdb
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\AiCControlLibrary\AiCControlLibrary\bin\Debug\INIFileParser.xml
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\AiCControlLibrary\AiCControlLibrary\bin\Debug\NLog.xml
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\AiCControlLibrary\AiCControlLibrary\obj\Debug\AiCControlLibrary.csprojResolveAssemblyReference.cache
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\AiCControlLibrary\AiCControlLibrary\obj\Debug\AiCControlLibrary.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\AiCControlLibrary\AiCControlLibrary\obj\Debug\AiCControlLibrary.pdb

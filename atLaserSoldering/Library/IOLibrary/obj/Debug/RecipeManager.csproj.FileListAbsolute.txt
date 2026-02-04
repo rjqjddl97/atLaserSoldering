@@ -259,10 +259,6 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Deb
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\LogLibrary.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\NLog.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\LogLibrary.pdb
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\INIFileParser.xml
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\RJCP.SerialPortStream.pdb
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\RJCP.SerialPortStream.xml
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\IOLibrary\bin\Debug\NLog.xml
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\IOLibrary\obj\Debug\RecipeManager.csprojResolveAssemblyReference.cache
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\IOLibrary\obj\Debug\RecipeManager.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\IOLibrary\obj\Debug\RecipeManager.pdb

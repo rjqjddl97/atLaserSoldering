@@ -511,7 +511,6 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\NLog.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\LogLibrary.pdb
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\Basler.Pylon.xml
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\NLog.xml
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\obj\Debug\BaslerCamera.csprojResolveAssemblyReference.cache
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\obj\Debug\BaslerCamera.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\obj\Debug\BaslerCamera.pdb

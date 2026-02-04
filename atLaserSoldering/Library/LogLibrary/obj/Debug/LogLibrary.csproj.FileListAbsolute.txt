@@ -152,7 +152,6 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\De
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\NLog.xsd
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\LogLibrary.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\LogLibrary.pdb
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\NLog.xml
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csprojResolveAssemblyReference.cache
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.pdb
