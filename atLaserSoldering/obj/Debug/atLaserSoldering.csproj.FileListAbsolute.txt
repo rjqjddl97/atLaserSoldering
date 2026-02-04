@@ -672,3 +672,17 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSo
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csproj.CopyComplete
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.exe
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\CustomPages.VisionControl.resources
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.ImageFile.Controls.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.ImageProcessing.Controls.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.PMAlign.Controls.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.PMAlign.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.XtraGauges.v18.2.Core.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.XtraGauges.v18.2.Win.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.PMAlign.xml
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.XtraGauges.v18.2.Core.xml
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.XtraGauges.v18.2.Win.xml
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\de\DevExpress.XtraGauges.v18.2.Core.resources.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\es\DevExpress.XtraGauges.v18.2.Core.resources.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\ja\DevExpress.XtraGauges.v18.2.Core.resources.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\ru\DevExpress.XtraGauges.v18.2.Core.resources.dll

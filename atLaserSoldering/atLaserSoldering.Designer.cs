@@ -77,27 +77,29 @@
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabControlMainCtrl = new DevExpress.XtraTab.XtraTabControl();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabPageMain = new DevExpress.XtraTab.XtraTabPage();
-            this.xtraTabPageImageProcess = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.xtraTabPageImageProcess = new DevExpress.XtraTab.XtraTabPage();
+            this.layoutControl6 = new DevExpress.XtraLayout.LayoutControl();
+            this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.xtraTabPageMotion = new DevExpress.XtraTab.XtraTabPage();
+            this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
+            this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
+            this.remoteIOControl1 = new CustomPages.RemoteIOControl();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.motionControl1 = new CustomPages.MotionControl();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabPageLaserSolder = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPageStatics = new DevExpress.XtraTab.XtraTabPage();
-            this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.motionControl1 = new CustomPages.MotionControl();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.remoteIOControl1 = new CustomPages.RemoteIOControl();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -108,25 +110,28 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMainCtrl)).BeginInit();
             this.xtraTabControlMainCtrl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.xtraTabPageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            this.xtraTabPageImageProcess.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             this.xtraTabPageMotion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
             this.layoutControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
             this.layoutControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -564,6 +569,176 @@
             this.layoutControl2.TabIndex = 4;
             this.layoutControl2.Text = "layoutControl2";
             // 
+            // xtraTabControlMainCtrl
+            // 
+            this.xtraTabControlMainCtrl.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Right;
+            this.xtraTabControlMainCtrl.Location = new System.Drawing.Point(12, 12);
+            this.xtraTabControlMainCtrl.Name = "xtraTabControlMainCtrl";
+            this.xtraTabControlMainCtrl.SelectedTabPage = this.xtraTabPageMain;
+            this.xtraTabControlMainCtrl.Size = new System.Drawing.Size(978, 422);
+            this.xtraTabControlMainCtrl.TabIndex = 4;
+            this.xtraTabControlMainCtrl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPageMain,
+            this.xtraTabPageImageProcess,
+            this.xtraTabPageMotion,
+            this.xtraTabPageLaserSolder,
+            this.xtraTabPageStatics});
+            // 
+            // xtraTabPageMain
+            // 
+            this.xtraTabPageMain.Controls.Add(this.layoutControl3);
+            this.xtraTabPageMain.Name = "xtraTabPageMain";
+            this.xtraTabPageMain.Size = new System.Drawing.Size(948, 416);
+            this.xtraTabPageMain.Text = "Main";
+            // 
+            // layoutControl3
+            // 
+            this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl3.Name = "layoutControl3";
+            this.layoutControl3.Root = this.layoutControlGroup2;
+            this.layoutControl3.Size = new System.Drawing.Size(948, 416);
+            this.layoutControl3.TabIndex = 0;
+            this.layoutControl3.Text = "layoutControl3";
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup2.GroupBordersVisible = false;
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(948, 416);
+            this.layoutControlGroup2.TextVisible = false;
+            // 
+            // xtraTabPageImageProcess
+            // 
+            this.xtraTabPageImageProcess.AutoScroll = true;
+            this.xtraTabPageImageProcess.Controls.Add(this.layoutControl6);
+            this.xtraTabPageImageProcess.Name = "xtraTabPageImageProcess";
+            this.xtraTabPageImageProcess.Size = new System.Drawing.Size(948, 416);
+            this.xtraTabPageImageProcess.Text = "이미지 처리";
+            // 
+            // layoutControl6
+            // 
+            this.layoutControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl6.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl6.Name = "layoutControl6";
+            this.layoutControl6.Root = this.layoutControlGroup5;
+            this.layoutControl6.Size = new System.Drawing.Size(948, 416);
+            this.layoutControl6.TabIndex = 0;
+            // 
+            // layoutControlGroup5
+            // 
+            this.layoutControlGroup5.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup5.GroupBordersVisible = false;
+            this.layoutControlGroup5.Name = "layoutControlGroup5";
+            this.layoutControlGroup5.Size = new System.Drawing.Size(948, 416);
+            this.layoutControlGroup5.TextVisible = false;
+            // 
+            // xtraTabPageMotion
+            // 
+            this.xtraTabPageMotion.Controls.Add(this.layoutControl4);
+            this.xtraTabPageMotion.Name = "xtraTabPageMotion";
+            this.xtraTabPageMotion.Size = new System.Drawing.Size(948, 416);
+            this.xtraTabPageMotion.Text = "모션 제어";
+            // 
+            // layoutControl4
+            // 
+            this.layoutControl4.Controls.Add(this.layoutControl5);
+            this.layoutControl4.Controls.Add(this.motionControl1);
+            this.layoutControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl4.Name = "layoutControl4";
+            this.layoutControl4.Root = this.layoutControlGroup3;
+            this.layoutControl4.Size = new System.Drawing.Size(948, 416);
+            this.layoutControl4.TabIndex = 0;
+            this.layoutControl4.Text = "layoutControl4";
+            // 
+            // layoutControl5
+            // 
+            this.layoutControl5.Controls.Add(this.remoteIOControl1);
+            this.layoutControl5.Location = new System.Drawing.Point(502, 12);
+            this.layoutControl5.Name = "layoutControl5";
+            this.layoutControl5.Root = this.layoutControlGroup4;
+            this.layoutControl5.Size = new System.Drawing.Size(434, 392);
+            this.layoutControl5.TabIndex = 5;
+            this.layoutControl5.Text = "layoutControl5";
+            // 
+            // remoteIOControl1
+            // 
+            this.remoteIOControl1.Location = new System.Drawing.Point(4, 4);
+            this.remoteIOControl1.Name = "remoteIOControl1";
+            this.remoteIOControl1.Size = new System.Drawing.Size(426, 384);
+            this.remoteIOControl1.TabIndex = 4;
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup4.GroupBordersVisible = false;
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem5});
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(434, 392);
+            this.layoutControlGroup4.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.remoteIOControl1;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(430, 388);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // motionControl1
+            // 
+            this.motionControl1.Location = new System.Drawing.Point(12, 12);
+            this.motionControl1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.motionControl1.Name = "motionControl1";
+            this.motionControl1.Size = new System.Drawing.Size(486, 392);
+            this.motionControl1.TabIndex = 4;
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup3.GroupBordersVisible = false;
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3,
+            this.layoutControlItem4});
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(948, 416);
+            this.layoutControlGroup3.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.motionControl1;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(490, 396);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.layoutControl5;
+            this.layoutControlItem4.Location = new System.Drawing.Point(490, 0);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(438, 396);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // xtraTabPageLaserSolder
+            // 
+            this.xtraTabPageLaserSolder.Name = "xtraTabPageLaserSolder";
+            this.xtraTabPageLaserSolder.Size = new System.Drawing.Size(948, 416);
+            this.xtraTabPageLaserSolder.Text = "레이저 납땜";
+            // 
+            // xtraTabPageStatics
+            // 
+            this.xtraTabPageStatics.Name = "xtraTabPageStatics";
+            this.xtraTabPageStatics.Size = new System.Drawing.Size(948, 416);
+            this.xtraTabPageStatics.Text = "통계";
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -573,6 +748,15 @@
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1002, 446);
             this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.xtraTabControlMainCtrl;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(982, 426);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // Root
             // 
@@ -593,167 +777,6 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(1006, 450);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // xtraTabControlMainCtrl
-            // 
-            this.xtraTabControlMainCtrl.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Right;
-            this.xtraTabControlMainCtrl.Location = new System.Drawing.Point(12, 12);
-            this.xtraTabControlMainCtrl.Name = "xtraTabControlMainCtrl";
-            this.xtraTabControlMainCtrl.SelectedTabPage = this.xtraTabPageMain;
-            this.xtraTabControlMainCtrl.Size = new System.Drawing.Size(978, 422);
-            this.xtraTabControlMainCtrl.TabIndex = 4;
-            this.xtraTabControlMainCtrl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPageMain,
-            this.xtraTabPageImageProcess,
-            this.xtraTabPageMotion,
-            this.xtraTabPageLaserSolder,
-            this.xtraTabPageStatics});
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.xtraTabControlMainCtrl;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(982, 426);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // xtraTabPageMain
-            // 
-            this.xtraTabPageMain.Controls.Add(this.layoutControl3);
-            this.xtraTabPageMain.Name = "xtraTabPageMain";
-            this.xtraTabPageMain.Size = new System.Drawing.Size(948, 416);
-            this.xtraTabPageMain.Text = "Main";
-            // 
-            // xtraTabPageImageProcess
-            // 
-            this.xtraTabPageImageProcess.Name = "xtraTabPageImageProcess";
-            this.xtraTabPageImageProcess.Size = new System.Drawing.Size(948, 416);
-            this.xtraTabPageImageProcess.Text = "이미지 처리";
-            // 
-            // layoutControl3
-            // 
-            this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl3.Name = "layoutControl3";
-            this.layoutControl3.Root = this.layoutControlGroup2;
-            this.layoutControl3.Size = new System.Drawing.Size(948, 416);
-            this.layoutControl3.TabIndex = 0;
-            this.layoutControl3.Text = "layoutControl3";
-            // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup2.GroupBordersVisible = false;
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(948, 416);
-            this.layoutControlGroup2.TextVisible = false;
-            // 
-            // xtraTabPageMotion
-            // 
-            this.xtraTabPageMotion.Controls.Add(this.layoutControl4);
-            this.xtraTabPageMotion.Name = "xtraTabPageMotion";
-            this.xtraTabPageMotion.Size = new System.Drawing.Size(948, 416);
-            this.xtraTabPageMotion.Text = "모션 제어";
-            // 
-            // xtraTabPageLaserSolder
-            // 
-            this.xtraTabPageLaserSolder.Name = "xtraTabPageLaserSolder";
-            this.xtraTabPageLaserSolder.Size = new System.Drawing.Size(948, 416);
-            this.xtraTabPageLaserSolder.Text = "레이저 납땜";
-            // 
-            // xtraTabPageStatics
-            // 
-            this.xtraTabPageStatics.Name = "xtraTabPageStatics";
-            this.xtraTabPageStatics.Size = new System.Drawing.Size(948, 416);
-            this.xtraTabPageStatics.Text = "통계";
-            // 
-            // layoutControl4
-            // 
-            this.layoutControl4.Controls.Add(this.layoutControl5);
-            this.layoutControl4.Controls.Add(this.motionControl1);
-            this.layoutControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl4.Name = "layoutControl4";
-            this.layoutControl4.Root = this.layoutControlGroup3;
-            this.layoutControl4.Size = new System.Drawing.Size(948, 416);
-            this.layoutControl4.TabIndex = 0;
-            this.layoutControl4.Text = "layoutControl4";
-            // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup3.GroupBordersVisible = false;
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlItem4});
-            this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(948, 416);
-            this.layoutControlGroup3.TextVisible = false;
-            // 
-            // motionControl1
-            // 
-            this.motionControl1.Location = new System.Drawing.Point(12, 12);
-            this.motionControl1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.motionControl1.Name = "motionControl1";
-            this.motionControl1.Size = new System.Drawing.Size(486, 392);
-            this.motionControl1.TabIndex = 4;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.motionControl1;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(490, 396);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
-            // 
-            // layoutControl5
-            // 
-            this.layoutControl5.Controls.Add(this.remoteIOControl1);
-            this.layoutControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl5.Location = new System.Drawing.Point(502, 12);
-            this.layoutControl5.Name = "layoutControl5";
-            this.layoutControl5.Root = this.layoutControlGroup4;
-            this.layoutControl5.Size = new System.Drawing.Size(434, 392);
-            this.layoutControl5.TabIndex = 5;
-            this.layoutControl5.Text = "layoutControl5";
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.layoutControl5;
-            this.layoutControlItem4.Location = new System.Drawing.Point(490, 0);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(438, 396);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
-            // 
-            // layoutControlGroup4
-            // 
-            this.layoutControlGroup4.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup4.GroupBordersVisible = false;
-            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem5});
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup4.Size = new System.Drawing.Size(434, 392);
-            this.layoutControlGroup4.TextVisible = false;
-            // 
-            // remoteIOControl1
-            // 
-            this.remoteIOControl1.Location = new System.Drawing.Point(4, 4);
-            this.remoteIOControl1.Name = "remoteIOControl1";
-            this.remoteIOControl1.Size = new System.Drawing.Size(426, 384);
-            this.remoteIOControl1.TabIndex = 4;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.remoteIOControl1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(430, 388);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
             // 
             // atLaserSoldering
             // 
@@ -778,25 +801,28 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMainCtrl)).EndInit();
             this.xtraTabControlMainCtrl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.xtraTabPageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            this.xtraTabPageImageProcess.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             this.xtraTabPageMotion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
             this.layoutControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
             this.layoutControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -872,5 +898,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private CustomPages.RemoteIOControl remoteIOControl1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControl layoutControl6;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
     }
 }

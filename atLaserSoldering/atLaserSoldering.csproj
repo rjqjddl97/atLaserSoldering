@@ -36,9 +36,17 @@
     <Reference Include="Cognex.VisionPro, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
     <Reference Include="Cognex.VisionPro.Controls, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
     <Reference Include="Cognex.VisionPro.Core, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
+    <Reference Include="Cognex.VisionPro.CorePlus, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64" />
     <Reference Include="Cognex.VisionPro.Database, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
+    <Reference Include="Cognex.VisionPro.Display.Controls, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64" />
+    <Reference Include="Cognex.VisionPro.ImageFile, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64" />
+    <Reference Include="Cognex.VisionPro.ImageFile.Controls, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64" />
+    <Reference Include="Cognex.VisionPro.ImageProcessing, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64" />
+    <Reference Include="Cognex.VisionPro.ImageProcessing.Controls, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64" />
     <Reference Include="Cognex.VisionPro.Inspection, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
     <Reference Include="Cognex.VisionPro.Inspection.Controls, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
+    <Reference Include="Cognex.VisionPro.PMAlign, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64" />
+    <Reference Include="Cognex.VisionPro.PMAlign.Controls, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64" />
     <Reference Include="Cognex.VisionPro.ToolGroup, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505" />
     <Reference Include="Cognex.VisionPro.ToolGroup.Controls, Version=71.2.0.0, Culture=neutral, PublicKeyToken=ef0f902af9dee505, processorArchitecture=AMD64" />
     <Reference Include="DevExpress.Data.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -46,6 +54,8 @@
     <Reference Include="DevExpress.Utils.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Core, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Win, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v18.2, Version=18.2.18.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -81,6 +91,12 @@
     <Compile Include="CustomPages\RemoteIOControl.designer.cs">
       <DependentUpon>RemoteIOControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomPages\VisionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPages\VisionControl.Designer.cs">
+      <DependentUpon>VisionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="atLaserSoldering.resx">
@@ -91,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPages\RemoteIOControl.resx">
       <DependentUpon>RemoteIOControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPages\VisionControl.resx">
+      <DependentUpon>VisionControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -161,6 +180,9 @@
       <Project>{d3f9449d-4dbe-4bc9-b24c-fac0934e862f}</Project>
       <Name>LogLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsetredtoblack4_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
