@@ -90,6 +90,8 @@
     <Compile Include="Params\AicParams.cs" />
     <Compile Include="Params\InspectAngleParam.cs" />
     <Compile Include="Params\InspectDistanceParam.cs" />
+    <Compile Include="Params\LaserParams.cs" />
+    <Compile Include="Params\LightParams.cs" />
     <Compile Include="Params\PhotoInspectWorkParams.cs" />
     <Compile Include="Params\RemoteIOParams.cs" />
     <Compile Include="Params\MotionParams.cs" />

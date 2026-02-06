@@ -302,7 +302,7 @@ namespace RecipeManager
             systemParam.InspectionProductsOffset = Convert.ToDouble(systemData[SystemParamSections[6]]["Product's Offset"]);
 
             // SaveResult Parameters
-            systemParam._saveResultLEDMeasurement = Convert.ToBoolean(systemData[SystemParamSections[7]]["InspectionImageCheck"]);
+            systemParam._saveResultVisionProcessImage = Convert.ToBoolean(systemData[SystemParamSections[7]]["InspectionImageCheck"]);
             systemParam._saveResultStatistics = Convert.ToBoolean(systemData[SystemParamSections[7]]["SaveStatistics"]);
             // Language Parameters
             systemParam._SystemLanguageKoreaUse = Convert.ToBoolean(systemData[SystemParamSections[8]]["CheckUseKoreaLanguage"]);            
@@ -418,7 +418,7 @@ namespace RecipeManager
 
             // SaveResult Parameters
             systemData.Sections.AddSection(SystemParamSections[7]);
-            systemData[SystemParamSections[7]].AddKey("InspectionImageCheck", systemParam._saveResultLEDMeasurement.ToString());
+            systemData[SystemParamSections[7]].AddKey("InspectionImageCheck", systemParam._saveResultVisionProcessImage.ToString());
             systemData[SystemParamSections[7]].AddKey("SaveStatistics", systemParam._saveResultStatistics.ToString());
 
             // Language Parameters

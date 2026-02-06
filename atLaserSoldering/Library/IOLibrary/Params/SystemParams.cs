@@ -15,9 +15,12 @@ namespace RecipeManager
         public AiCParams _AiCParams = new AiCParams();
         public RemoteIOParams _remoteIOParams = new RemoteIOParams();
         public ADMSParams _admsParams = new ADMSParams();
+        public AiCParams _FeederParams = new AiCParams();
+        public LightParams _LightParams = new LightParams();
+        public LaserParams _LaserParams = new LaserParams();
         public string LatestUsedRecipe = string.Empty;
 
-        public bool _saveResultLEDMeasurement { get; set; } = false;
+        public bool _saveResultVisionProcessImage { get; set; } = false;
         public bool _saveResultStatistics { get; set; } = true;
 
         public bool _SystemLanguageKoreaUse { get; set; } = true;
