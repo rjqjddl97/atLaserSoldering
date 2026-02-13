@@ -1,4 +1,4 @@
-﻿namespace atOpticalDecenter
+﻿namespace atLaserSoldering
 {
     partial class SystemDirectorySetting
     {
@@ -31,11 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SystemDirectorySetting));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.simpleButtonCancel = new DevExpress.XtraEditors.SimpleButton();
             this.buttonEditRootFolderPath = new DevExpress.XtraEditors.ButtonEdit();
             this.buttonEditLogFolderPath = new DevExpress.XtraEditors.ButtonEdit();
             this.buttonEditRecipeFolderPath = new DevExpress.XtraEditors.ButtonEdit();
             this.buttonEditResultDataFolderPath = new DevExpress.XtraEditors.ButtonEdit();
             this.buttonEditSystemFolderPath = new DevExpress.XtraEditors.ButtonEdit();
+            this.simpleButtonOK = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -44,11 +46,11 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.xtraFolderBrowserDialog1 = new DevExpress.XtraEditors.XtraFolderBrowserDialog(this.components);
-            this.simpleButtonCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonOK = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.xtraFolderBrowserDialog1 = new DevExpress.XtraEditors.XtraFolderBrowserDialog(this.components);
+            this.buttonEditImageFolderPath = new DevExpress.XtraEditors.ButtonEdit();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEditRootFolderPath.Properties)).BeginInit();
@@ -66,6 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEditImageFolderPath.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -77,6 +81,7 @@
             this.layoutControl1.Controls.Add(this.buttonEditResultDataFolderPath);
             this.layoutControl1.Controls.Add(this.buttonEditSystemFolderPath);
             this.layoutControl1.Controls.Add(this.simpleButtonOK);
+            this.layoutControl1.Controls.Add(this.buttonEditImageFolderPath);
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1004, 84, 650, 400);
@@ -86,56 +91,81 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // simpleButtonCancel
+            // 
+            this.simpleButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.simpleButtonCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCancel.ImageOptions.Image")));
+            this.simpleButtonCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButtonCancel.Location = new System.Drawing.Point(441, 163);
+            this.simpleButtonCancel.Name = "simpleButtonCancel";
+            this.simpleButtonCancel.Size = new System.Drawing.Size(142, 22);
+            this.simpleButtonCancel.StyleController = this.layoutControl1;
+            this.simpleButtonCancel.TabIndex = 11;
+            this.simpleButtonCancel.Text = "취소";
+            // 
             // buttonEditRootFolderPath
             // 
-            this.buttonEditRootFolderPath.Location = new System.Drawing.Point(88, 7);
+            this.buttonEditRootFolderPath.Location = new System.Drawing.Point(112, 7);
             this.buttonEditRootFolderPath.Name = "buttonEditRootFolderPath";
             this.buttonEditRootFolderPath.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEditRootFolderPath.Size = new System.Drawing.Size(495, 20);
+            this.buttonEditRootFolderPath.Size = new System.Drawing.Size(471, 20);
             this.buttonEditRootFolderPath.StyleController = this.layoutControl1;
             this.buttonEditRootFolderPath.TabIndex = 4;
             this.buttonEditRootFolderPath.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEditRootFolderPath_ButtonClick);
             // 
             // buttonEditLogFolderPath
             // 
-            this.buttonEditLogFolderPath.Location = new System.Drawing.Point(88, 31);
+            this.buttonEditLogFolderPath.Location = new System.Drawing.Point(112, 31);
             this.buttonEditLogFolderPath.Name = "buttonEditLogFolderPath";
             this.buttonEditLogFolderPath.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEditLogFolderPath.Size = new System.Drawing.Size(495, 20);
+            this.buttonEditLogFolderPath.Size = new System.Drawing.Size(471, 20);
             this.buttonEditLogFolderPath.StyleController = this.layoutControl1;
             this.buttonEditLogFolderPath.TabIndex = 7;
             // 
             // buttonEditRecipeFolderPath
             // 
-            this.buttonEditRecipeFolderPath.Location = new System.Drawing.Point(88, 55);
+            this.buttonEditRecipeFolderPath.Location = new System.Drawing.Point(112, 55);
             this.buttonEditRecipeFolderPath.Name = "buttonEditRecipeFolderPath";
             this.buttonEditRecipeFolderPath.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEditRecipeFolderPath.Size = new System.Drawing.Size(495, 20);
+            this.buttonEditRecipeFolderPath.Size = new System.Drawing.Size(471, 20);
             this.buttonEditRecipeFolderPath.StyleController = this.layoutControl1;
             this.buttonEditRecipeFolderPath.TabIndex = 6;
             // 
             // buttonEditResultDataFolderPath
             // 
-            this.buttonEditResultDataFolderPath.Location = new System.Drawing.Point(88, 79);
+            this.buttonEditResultDataFolderPath.Location = new System.Drawing.Point(112, 79);
             this.buttonEditResultDataFolderPath.Name = "buttonEditResultDataFolderPath";
             this.buttonEditResultDataFolderPath.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEditResultDataFolderPath.Size = new System.Drawing.Size(495, 20);
+            this.buttonEditResultDataFolderPath.Size = new System.Drawing.Size(471, 20);
             this.buttonEditResultDataFolderPath.StyleController = this.layoutControl1;
             this.buttonEditResultDataFolderPath.TabIndex = 8;
             // 
             // buttonEditSystemFolderPath
             // 
-            this.buttonEditSystemFolderPath.Location = new System.Drawing.Point(88, 103);
+            this.buttonEditSystemFolderPath.Location = new System.Drawing.Point(112, 103);
             this.buttonEditSystemFolderPath.Name = "buttonEditSystemFolderPath";
             this.buttonEditSystemFolderPath.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEditSystemFolderPath.Size = new System.Drawing.Size(495, 20);
+            this.buttonEditSystemFolderPath.Size = new System.Drawing.Size(471, 20);
             this.buttonEditSystemFolderPath.StyleController = this.layoutControl1;
             this.buttonEditSystemFolderPath.TabIndex = 5;
+            // 
+            // simpleButtonOK
+            // 
+            this.simpleButtonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.simpleButtonOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonOK.ImageOptions.Image")));
+            this.simpleButtonOK.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButtonOK.Location = new System.Drawing.Point(296, 163);
+            this.simpleButtonOK.Name = "simpleButtonOK";
+            this.simpleButtonOK.Size = new System.Drawing.Size(141, 22);
+            this.simpleButtonOK.StyleController = this.layoutControl1;
+            this.simpleButtonOK.TabIndex = 9;
+            this.simpleButtonOK.Text = "확인";
+            this.simpleButtonOK.Click += new System.EventHandler(this.simpleButtonOK_Click);
             // 
             // Root
             // 
@@ -150,7 +180,8 @@
             this.emptySpaceItem2,
             this.emptySpaceItem1,
             this.layoutControlItem8,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutControlItem7});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.Root.Size = new System.Drawing.Size(590, 192);
@@ -164,7 +195,7 @@
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(580, 24);
             this.layoutControlItem1.Text = "루트 폴더 경로";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(78, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(102, 14);
             // 
             // layoutControlItem4
             // 
@@ -174,7 +205,7 @@
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(580, 24);
             this.layoutControlItem4.Text = "로그 폴더 경로";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(78, 14);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(102, 14);
             // 
             // layoutControlItem3
             // 
@@ -184,7 +215,7 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(580, 24);
             this.layoutControlItem3.Text = "레시피 폴더 경로";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(78, 14);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(102, 14);
             // 
             // layoutControlItem5
             // 
@@ -194,7 +225,7 @@
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(580, 24);
             this.layoutControlItem5.Text = "결과 저장 경로";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(78, 14);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(102, 14);
             // 
             // layoutControlItem2
             // 
@@ -204,15 +235,15 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(580, 24);
             this.layoutControlItem2.Text = "시스템 폴더 경로";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(78, 14);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(102, 14);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 120);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 144);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(580, 36);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(580, 12);
             this.emptySpaceItem2.Text = "emptySpaceItem1";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -224,35 +255,6 @@
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(289, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // xtraFolderBrowserDialog1
-            // 
-            this.xtraFolderBrowserDialog1.SelectedPath = "D:\\";
-            // 
-            // simpleButtonCancel
-            // 
-            this.simpleButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.simpleButtonCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonCancel.ImageOptions.Image")));
-            this.simpleButtonCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButtonCancel.Location = new System.Drawing.Point(441, 163);
-            this.simpleButtonCancel.Name = "simpleButtonCancel";
-            this.simpleButtonCancel.Size = new System.Drawing.Size(142, 22);
-            this.simpleButtonCancel.StyleController = this.layoutControl1;
-            this.simpleButtonCancel.TabIndex = 11;
-            this.simpleButtonCancel.Text = "취소";
-            // 
-            // simpleButtonOK
-            // 
-            this.simpleButtonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.simpleButtonOK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonOK.ImageOptions.Image")));
-            this.simpleButtonOK.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButtonOK.Location = new System.Drawing.Point(296, 163);
-            this.simpleButtonOK.Name = "simpleButtonOK";
-            this.simpleButtonOK.Size = new System.Drawing.Size(141, 22);
-            this.simpleButtonOK.StyleController = this.layoutControl1;
-            this.simpleButtonOK.TabIndex = 9;
-            this.simpleButtonOK.Text = "확인";
-            this.simpleButtonOK.Click += new System.EventHandler(this.simpleButtonOK_Click);
             // 
             // layoutControlItem8
             // 
@@ -276,6 +278,30 @@
             this.layoutControlItem6.Size = new System.Drawing.Size(146, 26);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
+            // 
+            // xtraFolderBrowserDialog1
+            // 
+            this.xtraFolderBrowserDialog1.SelectedPath = "D:\\";
+            // 
+            // buttonEditImageFolderPath
+            // 
+            this.buttonEditImageFolderPath.Location = new System.Drawing.Point(112, 127);
+            this.buttonEditImageFolderPath.Name = "buttonEditImageFolderPath";
+            this.buttonEditImageFolderPath.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.buttonEditImageFolderPath.Size = new System.Drawing.Size(471, 20);
+            this.buttonEditImageFolderPath.StyleController = this.layoutControl1;
+            this.buttonEditImageFolderPath.TabIndex = 5;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.buttonEditImageFolderPath;
+            this.layoutControlItem7.CustomizationFormText = "이미지 저장 폴더 경로";
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(580, 24);
+            this.layoutControlItem7.Text = "이미지 저장 폴더 경로";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(102, 14);
             // 
             // SystemDirectorySetting
             // 
@@ -305,6 +331,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEditImageFolderPath.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,6 +358,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraEditors.SimpleButton simpleButtonCancel;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        
+        private DevExpress.XtraEditors.ButtonEdit buttonEditImageFolderPath;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
     }
 }

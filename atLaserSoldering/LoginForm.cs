@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace atOpticalDecenter
+namespace atLaserSoldering
 {
     public partial class LoginForm : DevExpress.XtraEditors.XtraForm
     {

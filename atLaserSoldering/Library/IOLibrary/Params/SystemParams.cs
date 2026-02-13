@@ -15,7 +15,7 @@ namespace RecipeManager
         public AiCParams _AiCParams = new AiCParams();
         public RemoteIOParams _remoteIOParams = new RemoteIOParams();
         public ADMSParams _admsParams = new ADMSParams();
-        public AiCParams _FeederParams = new AiCParams();
+        public FeederParams _FeederParams = new FeederParams();
         public LightParams _LightParams = new LightParams();
         public LaserParams _LaserParams = new LaserParams();
         public string LatestUsedRecipe = string.Empty;

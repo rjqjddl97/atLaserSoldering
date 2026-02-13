@@ -381,7 +381,34 @@ namespace atLaserSoldering
             _systemParameters._admsParams._dbschemaname = Convert.ToString(rowSystemADMSSchemaName.Properties.Value);
             _systemParameters._admsParams._productname = Convert.ToString(rowSystemADMSProductDBName.Properties.Value);
 
-            // System Parameter의 검출체 오프셋 초기화
+            // System Parameter의 Light 파라미터 초기화            
+            _systemParameters._LightParams.SerialParameters.PortName = Convert.ToString(rowLightCommunicationPortName.Properties.Value);
+            _systemParameters._LightParams.SerialParameters.BaudRates = Convert.ToInt32(rowLightCommunicationBaudRate.Properties.Value);
+            _systemParameters._LightParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowLightCommunicationParity.Properties.Value));
+            _systemParameters._LightParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowLightCommunicationStopBit.Properties.Value));
+            _systemParameters._LightParams.SerialParameters.DataBits = Convert.ToInt32(rowLightCommunicationDataBit.Properties.Value);
+            _systemParameters._LightParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowLightCommunicationFlowControl.Properties.Value));
+
+            // System Parameter의 Feeder 파라미터 초기화            
+            _systemParameters._FeederParams.SerialParameters.PortName = Convert.ToString(rowFeederCommunicationPortName.Properties.Value);
+            _systemParameters._FeederParams.SerialParameters.BaudRates = Convert.ToInt32(rowFeederCommunicationBaudRate.Properties.Value);
+            _systemParameters._FeederParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowFeederCommunicationParity.Properties.Value));
+            _systemParameters._FeederParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowFeederCommunicationStopBit.Properties.Value));
+            _systemParameters._FeederParams.SerialParameters.DataBits = Convert.ToInt32(rowFeederCommunicationDataBit.Properties.Value);
+            _systemParameters._FeederParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowFeederCommunicationFlowControl.Properties.Value));
+            _systemParameters._FeederParams.FeederCommunicationID = Convert.ToInt32(rowFeederCommunicationIDNumber.Properties.Value);
+            _systemParameters._FeederParams.FeederGearRatio = Convert.ToDouble(rowFeederGearRatio.Properties.Value);
+            _systemParameters._FeederParams.FeederDiameter = Convert.ToDouble(rowFeederDiameter.Properties.Value);
+            _systemParameters._FeederParams.FeederResolution = Convert.ToDouble(rowFeederResolution.Properties.Value);
+            _systemParameters._FeederParams.FeederMoveVelocity = Convert.ToDouble(rowFeederVelocity.Properties.Value);
+
+            // System Parameter의 Laser 파라미터 초기화            
+            _systemParameters._LaserParams.SerialParameters.PortName = Convert.ToString(rowLaserCommunicationPortName.Properties.Value);
+            _systemParameters._LaserParams.SerialParameters.BaudRates = Convert.ToInt32(rowLaserCommunicationBaudRate.Properties.Value);
+            _systemParameters._LaserParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowLaserCommunicationParity.Properties.Value));
+            _systemParameters._LaserParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowLaserCommunicationStopBit.Properties.Value));
+            _systemParameters._LaserParams.SerialParameters.DataBits = Convert.ToInt32(rowLaserCommunicationDataBit.Properties.Value);
+            _systemParameters._LaserParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowLaserCommunicationFlowControl.Properties.Value));
 
             // Save Result
             _systemParameters._saveResultVisionProcessImage = Convert.ToBoolean(rowSaveResultImageProcess.Properties.Value);
@@ -499,8 +526,34 @@ namespace atLaserSoldering
             rowSystemADMSSchemaName.Properties.Value = _systemParameters._admsParams._dbschemaname;
             rowSystemADMSProductDBName.Properties.Value = _systemParameters._admsParams._productname;
 
-            // System Relector Offset Parameters
+            // System Light 파라미터 초기화
+            rowLightCommunicationPortName.Properties.Value = _systemParameters._LightParams.SerialParameters.PortName;
+            rowLightCommunicationBaudRate.Properties.Value = _systemParameters._LightParams.SerialParameters.BaudRates;
+            rowLightCommunicationDataBit.Properties.Value = _systemParameters._LightParams.SerialParameters.DataBits;
+            rowLightCommunicationStopBit.Properties.Value = _systemParameters._LightParams.SerialParameters.StopBits;
+            rowLightCommunicationParity.Properties.Value = _systemParameters._LightParams.SerialParameters.Parity;
+            rowLightCommunicationFlowControl.Properties.Value = _systemParameters._LightParams.SerialParameters.Handshake;
 
+            // System Feeder 파라미터 초기화
+            rowFeederCommunicationPortName.Properties.Value = _systemParameters._FeederParams.SerialParameters.PortName;
+            rowFeederCommunicationBaudRate.Properties.Value = _systemParameters._FeederParams.SerialParameters.BaudRates;
+            rowFeederCommunicationDataBit.Properties.Value = _systemParameters._FeederParams.SerialParameters.DataBits;
+            rowFeederCommunicationStopBit.Properties.Value = _systemParameters._FeederParams.SerialParameters.StopBits;
+            rowFeederCommunicationParity.Properties.Value = _systemParameters._FeederParams.SerialParameters.Parity;
+            rowFeederCommunicationFlowControl.Properties.Value = _systemParameters._FeederParams.SerialParameters.Handshake;
+            rowFeederCommunicationIDNumber.Properties.Value = _systemParameters._FeederParams.FeederCommunicationID;
+            rowFeederGearRatio.Properties.Value = _systemParameters._FeederParams.FeederGearRatio;
+            rowFeederDiameter.Properties.Value = _systemParameters._FeederParams.FeederDiameter;
+            rowFeederResolution.Properties.Value = _systemParameters._FeederParams.FeederResolution;
+            rowFeederVelocity.Properties.Value = _systemParameters._FeederParams.FeederMoveVelocity;
+
+            // System Laser 파라미터 초기화
+            rowLaserCommunicationPortName.Properties.Value = _systemParameters._LaserParams.SerialParameters.PortName;
+            rowLaserCommunicationBaudRate.Properties.Value = _systemParameters._LaserParams.SerialParameters.BaudRates;
+            rowLaserCommunicationDataBit.Properties.Value = _systemParameters._LaserParams.SerialParameters.DataBits;
+            rowLaserCommunicationStopBit.Properties.Value = _systemParameters._LaserParams.SerialParameters.StopBits;
+            rowLaserCommunicationParity.Properties.Value = _systemParameters._LaserParams.SerialParameters.Parity;
+            rowLaserCommunicationFlowControl.Properties.Value = _systemParameters._LaserParams.SerialParameters.Handshake;
 
             // Save Result
 
@@ -581,7 +634,7 @@ namespace atLaserSoldering
                 simpleButtonSystemFileSave.Enabled = true;
                 _systemParameters._cameraParams.OnePixelResolution = fValue;
                 _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("카메라 픽셀 해상도가 {0}로 변경되었습니다.", _systemParameters._cameraParams.OnePixelResolution.ToString()));
-            } 
+            }
             else if (currentRow == rowCoordinateSwitch)
             {
                 bool check = Convert.ToBoolean(rowCoordinateSwitch.Properties.Value);
@@ -1548,7 +1601,7 @@ namespace atLaserSoldering
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\n통신 포트 값은 COM1~20 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowLightCommunicationPortName.Properties.Value = _systemParameters._LightParams.SerialParameters.PortName;
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1574,7 +1627,7 @@ namespace atLaserSoldering
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\nBaudRates 값은 9600, 19200, 38400, 57600, 115200 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowLightCommunicationBaudRate.Properties.Value = _systemParameters._LightParams.SerialParameters.BaudRates;
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1598,9 +1651,9 @@ namespace atLaserSoldering
 
                 if (!IsValidate)
                 {
-                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n정지 비트 값은 None, One, Two, One5 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);                    
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n정지 비트 값은 None, One, Two, One5 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowLightCommunicationStopBit.Properties.Value = Enum.GetName(typeof(StopBits), (StopBits)_systemParameters._LightParams.SerialParameters.StopBits);
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1626,7 +1679,7 @@ namespace atLaserSoldering
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\nDataBits 값은 4, 5, 6, 7, 8 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowLightCommunicationDataBit.Properties.Value = _systemParameters._LightParams.SerialParameters.DataBits;
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1650,9 +1703,9 @@ namespace atLaserSoldering
 
                 if (!IsValidate)
                 {
-                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n흐름 제어 값은 None, XonXoff, RequestToSend, RequestToSendXonXoff 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);                    
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n흐름 제어 값은 None, XonXoff, RequestToSend, RequestToSendXonXoff 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowLightCommunicationFlowControl.Properties.Value = Enum.GetName(typeof(Handshake), (Handshake)_systemParameters._LightParams.SerialParameters.Handshake);
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1680,7 +1733,7 @@ namespace atLaserSoldering
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\n패리티 값은 None, Odd, Even, Mark, Space 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     //rowPanelMeterCommunicationParity.Properties.Value = _systemParameters._panelmeterParams.SerialParameters.Parity;
                     rowLightCommunicationParity.Properties.Value = Enum.GetName(typeof(Parity), (Parity)_systemParameters._LightParams.SerialParameters.Parity);
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1688,6 +1741,66 @@ namespace atLaserSoldering
 
                 _systemParameters._LightParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), strTemp);
                 _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Light 통신 parity를 {0}로 변경되었습니다.", _systemParameters._LightParams.SerialParameters.Parity.ToString()));
+            }
+            else if (currentRow == rowFeederGearRatio)
+            {                
+                fValue = Convert.ToSingle(rowFeederGearRatio.Properties.Value);
+                if (fValue <= 0)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\nFeeder 기어비 값은 1보다 큰 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowFeederGearRatio.Properties.Value = _systemParameters._FeederParams.FeederGearRatio;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+                simpleButtonSystemFileSave.Enabled = true;
+
+                _systemParameters._FeederParams.FeederGearRatio = (double)fValue;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Feeder 기어비를 {0}로 변경되었습니다.", _systemParameters._FeederParams.FeederGearRatio.ToString()));
+            }
+            else if (currentRow == rowFeederDiameter)
+            {
+                fValue = Convert.ToSingle(rowFeederDiameter.Properties.Value);
+                if (fValue <= 0)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\nFeeder 풀리지름 값은 1보다 큰 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowFeederDiameter.Properties.Value = _systemParameters._FeederParams.FeederDiameter;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+                simpleButtonSystemFileSave.Enabled = true;
+
+                _systemParameters._FeederParams.FeederDiameter = (double)fValue;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Feeder 풀리지름이 {0}로 변경되었습니다.", _systemParameters._FeederParams.FeederDiameter.ToString()));
+            }
+            else if (currentRow == rowFeederResolution)
+            {
+                fValue = Convert.ToSingle(rowFeederResolution.Properties.Value);
+                if (fValue <= 0)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\nFeeder 분해능 값은 1보다 큰 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowFeederResolution.Properties.Value = _systemParameters._FeederParams.FeederResolution;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+                simpleButtonSystemFileSave.Enabled = true;
+
+                _systemParameters._FeederParams.FeederResolution = (double)fValue;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Feeder 분해능이 {0}로 변경되었습니다.", _systemParameters._FeederParams.FeederResolution.ToString()));
+            }
+            else if (currentRow == rowFeederVelocity)
+            {
+                fValue = Convert.ToSingle(rowFeederVelocity.Properties.Value);
+                if (fValue <= 0)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\nFeeder 이동속도 값은 1보다 큰 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowFeederVelocity.Properties.Value = _systemParameters._FeederParams.FeederMoveVelocity;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+                simpleButtonSystemFileSave.Enabled = true;
+
+                _systemParameters._FeederParams.FeederMoveVelocity = (double)fValue;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Feeder 이동속도가 {0}로 변경되었습니다.", _systemParameters._FeederParams.FeederMoveVelocity.ToString()));
             }
             else if (currentRow == rowFeederCommunicationPortName)
             {
@@ -1707,7 +1820,7 @@ namespace atLaserSoldering
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\n통신 포트 값은 COM1~20 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowFeederCommunicationPortName.Properties.Value = _systemParameters._FeederParams.SerialParameters.PortName;
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1733,7 +1846,7 @@ namespace atLaserSoldering
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\nBaudRates 값은 9600, 19200, 38400, 57600, 115200 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowFeederCommunicationBaudRate.Properties.Value = _systemParameters._FeederParams.SerialParameters.BaudRates;
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1759,7 +1872,7 @@ namespace atLaserSoldering
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\n정지 비트 값은 None, One, Two, One5 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowFeederCommunicationStopBit.Properties.Value = Enum.GetName(typeof(StopBits), (StopBits)_systemParameters._FeederParams.SerialParameters.StopBits);
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1785,7 +1898,7 @@ namespace atLaserSoldering
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\nDataBits 값은 4, 5, 6, 7, 8 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowFeederCommunicationDataBit.Properties.Value = _systemParameters._FeederParams.SerialParameters.DataBits;
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1811,7 +1924,7 @@ namespace atLaserSoldering
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\n흐름 제어 값은 None, XonXoff, RequestToSend, RequestToSendXonXoff 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowFeederCommunicationFlowControl.Properties.Value = Enum.GetName(typeof(Handshake), (Handshake)_systemParameters._FeederParams.SerialParameters.Handshake);
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1839,7 +1952,7 @@ namespace atLaserSoldering
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\n패리티 값은 None, Odd, Even, Mark, Space 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     //rowPanelMeterCommunicationParity.Properties.Value = _systemParameters._panelmeterParams.SerialParameters.Parity;
                     rowFeederCommunicationParity.Properties.Value = Enum.GetName(typeof(Parity), (Parity)_systemParameters._FeederParams.SerialParameters.Parity);
-                    vGridControlSystemParameters.Refresh();
+                    vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
 
@@ -1847,6 +1960,181 @@ namespace atLaserSoldering
 
                 _systemParameters._FeederParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), strTemp);
                 _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Feeder 통신 parity를 {0}로 변경되었습니다.", _systemParameters._FeederParams.SerialParameters.Parity.ToString()));
+            }
+            else if (currentRow == rowFeederCommunicationIDNumber)
+            {                
+                value = Convert.ToInt32(rowFeederCommunicationIDNumber.Properties.Value);
+
+                if (value <= 0)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n국번ID 값은 1보다 큰 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);                    
+                    rowFeederCommunicationIDNumber.Properties.Value = _systemParameters._FeederParams.FeederCommunicationID;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+                _systemParameters._FeederParams.FeederCommunicationID = value;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Feeder 통신 ID를 {0}로 변경되었습니다.", _systemParameters._FeederParams.FeederCommunicationID.ToString()));
+            }
+            else if (currentRow == rowLaserCommunicationPortName)
+            {
+                bool IsValidate = false;
+                strTemp = Convert.ToString(rowLaserCommunicationPortName.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxLaserCommunicationPortName.Items.Count; ++i)
+                {
+                    if (strTemp == Convert.ToString(repositoryItemComboBoxLaserCommunicationPortName.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n통신 포트 값은 COM1~20 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowLaserCommunicationPortName.Properties.Value = _systemParameters._LaserParams.SerialParameters.PortName;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+                _systemParameters._LaserParams.SerialParameters.PortName = strTemp;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Laser 통신 포트를 {0}로 변경되었습니다.", _systemParameters._LaserParams.SerialParameters.PortName));
+            }
+            else if (currentRow == rowLaserCommunicationBaudRate)
+            {
+                bool IsValidate = false;
+                value = Convert.ToInt32(rowLaserCommunicationBaudRate.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxLaserCommunicationBaudRate.Items.Count; ++i)
+                {
+                    if (value == Convert.ToInt32(repositoryItemComboBoxLaserCommunicationBaudRate.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\nBaudRates 값은 9600, 19200, 38400, 57600, 115200 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowLaserCommunicationBaudRate.Properties.Value = _systemParameters._LaserParams.SerialParameters.BaudRates;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+                _systemParameters._LaserParams.SerialParameters.BaudRates = value;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Laser 통신 속도를 {0}로 변경되었습니다.", _systemParameters._LaserParams.SerialParameters.BaudRates.ToString()));
+            }
+            else if (currentRow == rowLaserCommunicationStopBit)
+            {
+                bool IsValidate = false;
+                strTemp = Convert.ToString(rowLaserCommunicationStopBit.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxLaserCommunicationStopBit.Items.Count; ++i)
+                {
+                    if (strTemp == Convert.ToString(repositoryItemComboBoxLaserCommunicationStopBit.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n정지 비트 값은 None, One, Two, One5 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowLaserCommunicationStopBit.Properties.Value = Enum.GetName(typeof(StopBits), (StopBits)_systemParameters._LaserParams.SerialParameters.StopBits);
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+                _systemParameters._LaserParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), strTemp);
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Laser 통신 정지 비트를 {0}로 변경되었습니다.", _systemParameters._LaserParams.SerialParameters.StopBits.ToString()));
+            }
+            else if (currentRow == rowLaserCommunicationDataBit)
+            {
+                bool IsValidate = false;
+                value = Convert.ToInt32(rowLaserCommunicationDataBit.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxLaserCommunicationDataBit.Items.Count; ++i)
+                {
+                    if (value == Convert.ToInt32(repositoryItemComboBoxLaserCommunicationDataBit.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\nDataBits 값은 4, 5, 6, 7, 8 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowLaserCommunicationDataBit.Properties.Value = _systemParameters._LaserParams.SerialParameters.DataBits;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+                _systemParameters._LaserParams.SerialParameters.DataBits = value;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Laser 통신 데이터 비트를 {0}로 변경되었습니다.", _systemParameters._LaserParams.SerialParameters.DataBits.ToString()));
+            }
+            else if (currentRow == rowLaserCommunicationFlowControl)
+            {
+                bool IsValidate = false;
+                strTemp = Convert.ToString(rowLaserCommunicationFlowControl.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxLaserCommunicationFlowControl.Items.Count; ++i)
+                {
+                    if (strTemp == Convert.ToString(repositoryItemComboBoxLaserCommunicationFlowControl.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n흐름 제어 값은 None, XonXoff, RequestToSend, RequestToSendXonXoff 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowLaserCommunicationFlowControl.Properties.Value = Enum.GetName(typeof(Handshake), (Handshake)_systemParameters._LaserParams.SerialParameters.Handshake);
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+
+                _systemParameters._LaserParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), strTemp);
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Laser 통신 흐름 제어를 {0}로 변경되었습니다.", _systemParameters._LaserParams.SerialParameters.Handshake.ToString()));
+            }
+            else if (currentRow == rowLaserCommunicationParity)
+            {
+                bool IsValidate = false;
+                strTemp = Convert.ToString(rowLaserCommunicationParity.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxLaserCommunicationParity.Items.Count; ++i)
+                {
+                    if (strTemp == Convert.ToString(repositoryItemComboBoxLaserCommunicationParity.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n패리티 값은 None, Odd, Even, Mark, Space 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //rowPanelMeterCommunicationParity.Properties.Value = _systemParameters._panelmeterParams.SerialParameters.Parity;
+                    rowLaserCommunicationParity.Properties.Value = Enum.GetName(typeof(Parity), (Parity)_systemParameters._LaserParams.SerialParameters.Parity);
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+
+                _systemParameters._LaserParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), strTemp);
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Laser 통신 parity를 {0}로 변경되었습니다.", _systemParameters._LaserParams.SerialParameters.Parity.ToString()));
             }
         }
 

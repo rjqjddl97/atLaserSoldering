@@ -712,9 +712,7 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\es\DevExpress.X
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\ja\DevExpress.XtraGrid.v18.2.resources.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\ru\DevExpress.XtraGrid.v18.2.resources.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.SystemEditor.resources
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atOpticalDecenter.LoginForm.resources
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.RecipeEditor.resources
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atOpticalDecenter.SystemDirectorySetting.resources
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.SystemEditor.resources
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.Dialogs.v18.2.Core.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.XtraDialogs.v18.2.dll
@@ -729,3 +727,5 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\de\DevExp
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\es\DevExpress.XtraGrid.v18.2.resources.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\ja\DevExpress.XtraGrid.v18.2.resources.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\ru\DevExpress.XtraGrid.v18.2.resources.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.SystemDirectorySetting.resources
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.LoginForm.resources

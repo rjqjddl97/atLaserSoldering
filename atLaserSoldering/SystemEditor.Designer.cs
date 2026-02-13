@@ -1087,7 +1087,7 @@
             // 
             // vGridControlSystemParametersSecond
             // 
-            this.vGridControlSystemParametersSecond.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.vGridControlSystemParametersSecond.Cursor = System.Windows.Forms.Cursors.Default;
             this.vGridControlSystemParametersSecond.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControlSystemParametersSecond.Location = new System.Drawing.Point(404, 12);
             this.vGridControlSystemParametersSecond.Name = "vGridControlSystemParametersSecond";
@@ -1119,6 +1119,7 @@
             this.categoryLaserParameter});
             this.vGridControlSystemParametersSecond.Size = new System.Drawing.Size(292, 721);
             this.vGridControlSystemParametersSecond.TabIndex = 6;
+            this.vGridControlSystemParametersSecond.CellValueChanged += new DevExpress.XtraVerticalGrid.Events.CellValueChangedEventHandler(this.vGridControlSystemParameters_CellValueChanged);
             // 
             // repositoryItemComboBoxLightCommunicationPortName
             // 

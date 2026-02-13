@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using RecipeManager;
 
-namespace atOpticalDecenter
+namespace atLaserSoldering
 {
     public partial class SystemDirectorySetting : DevExpress.XtraEditors.XtraForm
     {
@@ -19,6 +19,7 @@ namespace atOpticalDecenter
         string _strRecipeFolderPath = string.Empty;
         string _strResultFolderPath = string.Empty;
         string _strSystemFolderPath = string.Empty;
+        string _strImageFolderPath = string.Empty;
         public string RootFolderPath
         {
             get { return _strRootFolderPath; }
@@ -43,7 +44,10 @@ namespace atOpticalDecenter
         {
             get { return _strSystemFolderPath; }
         }
-
+        public string ImageFolderPath
+        {
+            get { return _strImageFolderPath; }
+        }
         public SystemDirectorySetting()
         {
             InitializeComponent();
@@ -53,17 +57,20 @@ namespace atOpticalDecenter
             _strRecipeFolderPath = SystemDirectoryParams.RecipeFolderPath;
             _strResultFolderPath = SystemDirectoryParams.ResultFolderPath;
             _strSystemFolderPath = SystemDirectoryParams.SystemFolderPath;
+            _strImageFolderPath = SystemDirectoryParams.ImageFolderPath;
 
             buttonEditRootFolderPath.Text = SystemDirectoryParams.RootFolderPath;
             buttonEditLogFolderPath.Text = SystemDirectoryParams.LogFolderPath;
             buttonEditRecipeFolderPath.Text = SystemDirectoryParams.RecipeFolderPath;
             buttonEditResultDataFolderPath.Text = SystemDirectoryParams.ResultFolderPath;
             buttonEditSystemFolderPath.Text = SystemDirectoryParams.SystemFolderPath;
+            buttonEditImageFolderPath.Text = SystemDirectoryParams.ImageFolderPath;
 
             buttonEditLogFolderPath.Enabled = false;
             buttonEditRecipeFolderPath.Enabled = false;
             buttonEditResultDataFolderPath.Enabled = false;
             buttonEditSystemFolderPath.Enabled = false;
+            buttonEditImageFolderPath.Enabled = false;
         }
 
         private void buttonEditRootFolderPath_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -74,19 +81,21 @@ namespace atOpticalDecenter
             {
                 if (MessageBox.Show("루트 폴더를 변경하면, 나머지 폴더의 경로가 자동변경됩니다.\r\n모두 변경하시겠습니까?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    string strNewRoot = string.Format(@"{0}\Autonics\atOpticalDecenters", xtraFolderBrowserDialog1.SelectedPath);
+                    string strNewRoot = string.Format(@"{0}\Autonics\atLaserSoldering", xtraFolderBrowserDialog1.SelectedPath);
 
                     _strRootFolderPath = strNewRoot;
                     _strLogFolderPath = string.Format(@"{0}\Log", strNewRoot);
                     _strRecipeFolderPath = string.Format(@"{0}\Recipe", strNewRoot);
                     _strResultFolderPath = string.Format(@"{0}\Result", strNewRoot);
                     _strSystemFolderPath = string.Format(@"{0}\System", strNewRoot);
+                    _strImageFolderPath = string.Format(@"{0}\Image", strNewRoot);
 
                     buttonEditRootFolderPath.Text = _strRootFolderPath;
                     buttonEditLogFolderPath.Text = _strLogFolderPath;
                     buttonEditRecipeFolderPath.Text = _strRecipeFolderPath;
                     buttonEditResultDataFolderPath.Text = _strResultFolderPath;
                     buttonEditSystemFolderPath.Text = _strSystemFolderPath;
+                    buttonEditImageFolderPath.Text = _strImageFolderPath;
                 }
             }
         }

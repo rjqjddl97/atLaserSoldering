@@ -88,6 +88,7 @@
     <Compile Include="Params\CalibrationParams.cs" />
     <Compile Include="Params\CameraParams.cs" />
     <Compile Include="Params\AicParams.cs" />
+    <Compile Include="Params\FeederParams.cs" />
     <Compile Include="Params\InspectAngleParam.cs" />
     <Compile Include="Params\InspectDistanceParam.cs" />
     <Compile Include="Params\LaserParams.cs" />

@@ -1,4 +1,4 @@
-﻿namespace atOpticalDecenter
+﻿namespace atLaserSoldering
 {
     partial class LoginForm
     {
