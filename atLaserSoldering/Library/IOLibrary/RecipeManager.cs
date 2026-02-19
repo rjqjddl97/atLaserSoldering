@@ -26,16 +26,16 @@ namespace RecipeManager
         static public string[] SerialParity = new string[] { "None", "Odd", "Even"};
         //static public string[] SerialEncoding = new string[] { "ASCII", "Unicode", "UTF8", "UTF32" };
 
-        static string[] SystemParamSections = new string[] { "Camera Parameters","Calibration Parameters", "Motion Parameters", "AiC Parameters", "RemoteIO Parameters", "AMDS Parameters","Reflector Offset" ,"Save Results","Language" };
+        static string[] SystemParamSections = new string[] { "Camera Parameters","Calibration Parameters", "Motion Parameters", "AiC Parameters", "RemoteIO Parameters", "AMDS Parameters","Save Results","Language", "Light Parameters", "Feeder Parameters", "Laser Parameters" };
         static string[] WorkParamSections = new string[] { "Recipe Information", "Product Infomation", "Distance Inspection", "Inspection Positions" };
 
-        static public string[] ProductSeries = new string[] {"BTS", "BTF", "BJ", "BJP", "BEN", "BPS" };        
-        static public string[] ProductType = new string[] { "MirrorReflective", "FixedDistanceReflective", "DiffuseReflective", "BGSReflective", "LimitedReflective", "TransmitLight", "ReceiveLight" };
-        static public string[] ProductOperationMode = new string[] { "LightON", "DarkON" };
-        static public string[] ProductOutputType = new string[] { "NPN", "PNP" };
-        static public string[] ProductDetectMeterial = new string[] { "None", "Mirror", "WhitePaper", "BlackPaper", "Glass" };//{ "NONE", "Mirror","WhitePage","BlackPage","Glass" };
+        //static public string[] ProductSeries = new string[] {"BTS", "BTF", "BJ", "BJP", "BEN", "BPS" };        
+        //static public string[] ProductType = new string[] { "MirrorReflective", "FixedDistanceReflective", "DiffuseReflective", "BGSReflective", "LimitedReflective", "TransmitLight", "ReceiveLight" };
+        //static public string[] ProductOperationMode = new string[] { "LightON", "DarkON" };
+        //static public string[] ProductOutputType = new string[] { "NPN", "PNP" };
+        //static public string[] ProductDetectMeterial = new string[] { "None", "Mirror", "WhitePaper", "BlackPaper", "Glass" };//{ "NONE", "Mirror","WhitePage","BlackPage","Glass" };
 
-        static public string[] InspectionPositionType = new string[] { "Inspection", "MaxDistance", "MinOrigin" ,"OpticalBase" ,"Ready"};
+        //static public string[] InspectionPositionType = new string[] { "Inspection", "MaxDistance", "MinOrigin" ,"OpticalBase" ,"Ready"};
         static public string[] TransitionCoordinate = new string[] { "1","-1" };
 
         static public void ReadRecipeFile(WorkParams workParam, string strFilePath)
@@ -168,14 +168,8 @@ namespace RecipeManager
             systemParam._calibrationParams._imagetoSystemYcoordi = Convert.ToSingle(systemData[SystemParamSections[1]]["ImageToSystemCoordinateY"]);
             systemParam._calibrationParams._CoordinateCalibrationActive = Convert.ToBoolean(systemData[SystemParamSections[1]]["CoordinateCalibrationActive"]);
             systemParam._calibrationParams._X_reference_Distance = Convert.ToSingle(systemData[SystemParamSections[1]]["ReferenceXdistance"]);
-            systemParam._calibrationParams._X_DeltaX = Convert.ToSingle(systemData[SystemParamSections[1]]["X_DeltaX"]);
-            systemParam._calibrationParams._X_DeltaZ = Convert.ToSingle(systemData[SystemParamSections[1]]["X_DeltaZ"]);
-            systemParam._calibrationParams._Z_reference_Distance = Convert.ToSingle(systemData[SystemParamSections[1]]["ReferenceZdistance"]);
-            systemParam._calibrationParams._Z_DeltaX = Convert.ToSingle(systemData[SystemParamSections[1]]["Z_DeltaX"]);
-            systemParam._calibrationParams._Z_DeltaZ = Convert.ToSingle(systemData[SystemParamSections[1]]["Z_DeltaZ"]);
             systemParam._calibrationParams._Y_reference_Distance = Convert.ToSingle(systemData[SystemParamSections[1]]["ReferenceYdistance"]);
-            systemParam._calibrationParams._Y_DeltaX = Convert.ToSingle(systemData[SystemParamSections[1]]["Y_DeltaX"]);
-            systemParam._calibrationParams._Y_DeltaZ = Convert.ToSingle(systemData[SystemParamSections[1]]["X_DeltaZ"]);
+            systemParam._calibrationParams._Z_reference_Distance = Convert.ToSingle(systemData[SystemParamSections[1]]["ReferenceZdistance"]);
 
             // Motion Parameters
             systemParam._motionParams.MenualMoveVelocity = Convert.ToSingle(systemData[SystemParamSections[2]]["MenualMoveVelocity"]);
@@ -296,17 +290,39 @@ namespace RecipeManager
             systemParam._admsParams._equipmentname = Convert.ToString(systemData[SystemParamSections[5]]["EquipmentDBName"]);
             systemParam._admsParams._productname = Convert.ToString(systemData[SystemParamSections[5]]["ProductName"]);
 
-            // Inspection Reflector's Offset
-            systemParam.InspectionReflectorsOffset = Convert.ToDouble(systemData[SystemParamSections[6]]["Reflector's Offset"]);
-            systemParam.InspectionGlassOffset = Convert.ToDouble(systemData[SystemParamSections[6]]["Glass Offset"]);
-            systemParam.InspectionProductsOffset = Convert.ToDouble(systemData[SystemParamSections[6]]["Product's Offset"]);
-
             // SaveResult Parameters
-            systemParam._saveResultVisionProcessImage = Convert.ToBoolean(systemData[SystemParamSections[7]]["InspectionImageCheck"]);
-            systemParam._saveResultStatistics = Convert.ToBoolean(systemData[SystemParamSections[7]]["SaveStatistics"]);
+            systemParam._saveResultVisionProcessImage = Convert.ToBoolean(systemData[SystemParamSections[6]]["InspectionImageCheck"]);
+            systemParam._saveResultStatistics = Convert.ToBoolean(systemData[SystemParamSections[6]]["SaveStatistics"]);
             // Language Parameters
-            systemParam._SystemLanguageKoreaUse = Convert.ToBoolean(systemData[SystemParamSections[8]]["CheckUseKoreaLanguage"]);            
+            systemParam._SystemLanguageKoreaUse = Convert.ToBoolean(systemData[SystemParamSections[7]]["CheckUseKoreaLanguage"]);
 
+            // Light Parameters
+            systemParam._LightParams.SerialParameters.PortName = Convert.ToString(systemData[SystemParamSections[8]]["SerialPortName"]);
+            systemParam._LightParams.SerialParameters.BaudRates = Convert.ToInt32(systemData[SystemParamSections[8]]["SerialBaudRates"]);
+            systemParam._LightParams.SerialParameters.DataBits = Convert.ToInt32(systemData[SystemParamSections[8]]["SerialDataBits"]);
+            systemParam._LightParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(systemData[SystemParamSections[8]]["SerialParity"]));
+            systemParam._LightParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(systemData[SystemParamSections[8]]["SerialStopBits"]));
+            systemParam._LightParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(systemData[SystemParamSections[8]]["SerialHandshake"]));
+
+            // Feeder Parameters
+            systemParam._FeederParams.FeederGearRatio = Convert.ToSingle(systemData[SystemParamSections[9]]["GearRatio"]);
+            systemParam._FeederParams.FeederDiameter = Convert.ToSingle(systemData[SystemParamSections[9]]["Diameter"]);
+            systemParam._FeederParams.FeederResolution = Convert.ToSingle(systemData[SystemParamSections[9]]["Resolution"]);
+            systemParam._FeederParams.FeederMoveVelocity = Convert.ToSingle(systemData[SystemParamSections[9]]["MoveVelocity"]);
+            systemParam._FeederParams.SerialParameters.PortName = Convert.ToString(systemData[SystemParamSections[9]]["SerialPortName"]);
+            systemParam._FeederParams.SerialParameters.BaudRates = Convert.ToInt32(systemData[SystemParamSections[9]]["SerialBaudRates"]);
+            systemParam._FeederParams.SerialParameters.DataBits = Convert.ToInt32(systemData[SystemParamSections[9]]["SerialDataBits"]);
+            systemParam._FeederParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(systemData[SystemParamSections[9]]["SerialParity"]));
+            systemParam._FeederParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(systemData[SystemParamSections[9]]["SerialStopBits"]));
+            systemParam._FeederParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(systemData[SystemParamSections[9]]["SerialHandshake"]));
+            systemParam._FeederParams.FeederCommunicationID = Convert.ToInt32(systemData[SystemParamSections[9]]["ID"]);
+            // Laser Parameters
+            systemParam._LaserParams.SerialParameters.PortName = Convert.ToString(systemData[SystemParamSections[10]]["SerialPortName"]);
+            systemParam._LaserParams.SerialParameters.BaudRates = Convert.ToInt32(systemData[SystemParamSections[10]]["SerialBaudRates"]);
+            systemParam._LaserParams.SerialParameters.DataBits = Convert.ToInt32(systemData[SystemParamSections[10]]["SerialDataBits"]);
+            systemParam._LaserParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(systemData[SystemParamSections[10]]["SerialParity"]));
+            systemParam._LaserParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(systemData[SystemParamSections[10]]["SerialStopBits"]));
+            systemParam._LaserParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(systemData[SystemParamSections[10]]["SerialHandshake"]));
         }
 
         static public void WriteSystemFile(SystemParams systemParam, string strFilePath)
@@ -335,17 +351,8 @@ namespace RecipeManager
             systemData[SystemParamSections[1]].AddKey("ImageToSystemCoordinateY", systemParam._calibrationParams._imagetoSystemYcoordi.ToString());
             systemData[SystemParamSections[1]].AddKey("CoordinateCalibrationActive", systemParam._calibrationParams._CoordinateCalibrationActive.ToString());
             systemData[SystemParamSections[1]].AddKey("ReferenceXdistance", systemParam._calibrationParams._X_reference_Distance.ToString());
-            systemData[SystemParamSections[1]].AddKey("X_DeltaX", systemParam._calibrationParams._X_DeltaX.ToString());
-            systemData[SystemParamSections[1]].AddKey("X_DeltaZ", systemParam._calibrationParams._X_DeltaZ.ToString());
-            systemData[SystemParamSections[1]].AddKey("ReferenceZdistance", systemParam._calibrationParams._X_reference_Distance.ToString());
-            systemData[SystemParamSections[1]].AddKey("Z_DeltaX", systemParam._calibrationParams._X_DeltaX.ToString());
-            systemData[SystemParamSections[1]].AddKey("Z_DeltaZ", systemParam._calibrationParams._X_DeltaZ.ToString());
-            systemData[SystemParamSections[1]].AddKey("ReferenceY1distance", systemParam._calibrationParams._X_reference_Distance.ToString());
-            systemData[SystemParamSections[1]].AddKey("Y1_DeltaX", systemParam._calibrationParams._X_DeltaX.ToString());
-            systemData[SystemParamSections[1]].AddKey("Y1_DeltaZ", systemParam._calibrationParams._X_DeltaZ.ToString());
-            systemData[SystemParamSections[1]].AddKey("ReferenceY2distance", systemParam._calibrationParams._X_reference_Distance.ToString());
-            systemData[SystemParamSections[1]].AddKey("Y2_DeltaX", systemParam._calibrationParams._X_DeltaX.ToString());
-            systemData[SystemParamSections[1]].AddKey("Y2_DeltaZ", systemParam._calibrationParams._X_DeltaZ.ToString());
+            systemData[SystemParamSections[1]].AddKey("ReferenceYdistance", systemParam._calibrationParams._Y_reference_Distance.ToString());
+            systemData[SystemParamSections[1]].AddKey("ReferenceZdistance", systemParam._calibrationParams._Z_reference_Distance.ToString());            
 
             // Motion Parameters
             systemData.Sections.AddSection(SystemParamSections[2]);
@@ -410,22 +417,46 @@ namespace RecipeManager
             systemData[SystemParamSections[5]].AddKey("EquipmentDBName", systemParam._admsParams._equipmentname);
             systemData[SystemParamSections[5]].AddKey("ProductName", systemParam._admsParams._productname);
 
-            // Inspection Reflector's Offset
-            systemData.Sections.AddSection(SystemParamSections[6]);
-            systemData[SystemParamSections[6]].AddKey("Reflector's Offset", systemParam.InspectionReflectorsOffset.ToString());
-            systemData[SystemParamSections[6]].AddKey("Glass Offset", systemParam.InspectionGlassOffset.ToString());
-            systemData[SystemParamSections[6]].AddKey("Product's Offset", systemParam.InspectionProductsOffset.ToString());            
 
             // SaveResult Parameters
-            systemData.Sections.AddSection(SystemParamSections[7]);
-            systemData[SystemParamSections[7]].AddKey("InspectionImageCheck", systemParam._saveResultVisionProcessImage.ToString());
-            systemData[SystemParamSections[7]].AddKey("SaveStatistics", systemParam._saveResultStatistics.ToString());
+            systemData.Sections.AddSection(SystemParamSections[6]);
+            systemData[SystemParamSections[6]].AddKey("InspectionImageCheck", systemParam._saveResultVisionProcessImage.ToString());
+            systemData[SystemParamSections[6]].AddKey("SaveStatistics", systemParam._saveResultStatistics.ToString());
 
             // Language Parameters
+            systemData.Sections.AddSection(SystemParamSections[7]);
+            systemData[SystemParamSections[7]].AddKey("CheckUseKoreaLanguage", systemParam._SystemLanguageKoreaUse.ToString());
+
+            // Light Parameters
             systemData.Sections.AddSection(SystemParamSections[8]);
-            systemData[SystemParamSections[8]].AddKey("CheckUseKoreaLanguage", systemParam._SystemLanguageKoreaUse.ToString());
+            systemData[SystemParamSections[8]].AddKey("SerialPortName", systemParam._LightParams.SerialParameters.PortName);
+            systemData[SystemParamSections[8]].AddKey("SerialBaudRates", systemParam._LightParams.SerialParameters.BaudRates.ToString());
+            systemData[SystemParamSections[8]].AddKey("SerialDataBits", systemParam._LightParams.SerialParameters.DataBits.ToString());
+            systemData[SystemParamSections[8]].AddKey("SerialParity", Enum.GetName(typeof(Parity), (Parity)systemParam._LightParams.SerialParameters.Parity));
+            systemData[SystemParamSections[8]].AddKey("SerialStopBits", Enum.GetName(typeof(StopBits), (StopBits)systemParam._LightParams.SerialParameters.StopBits));
+            systemData[SystemParamSections[8]].AddKey("SerialHandshake", Enum.GetName(typeof(Handshake), (Handshake)systemParam._LightParams.SerialParameters.Handshake));
 
+            // Feeder Parameters
+            systemData.Sections.AddSection(SystemParamSections[9]);
+            systemData[SystemParamSections[9]].AddKey("GearRatio", systemParam._FeederParams.FeederGearRatio.ToString());
+            systemData[SystemParamSections[9]].AddKey("Diameter", systemParam._FeederParams.FeederDiameter.ToString());
+            systemData[SystemParamSections[9]].AddKey("Resolution", systemParam._FeederParams.FeederResolution.ToString());
+            systemData[SystemParamSections[9]].AddKey("MoveVelocity", systemParam._FeederParams.FeederMoveVelocity.ToString());
+            systemData[SystemParamSections[9]].AddKey("SerialPortName", systemParam._FeederParams.SerialParameters.PortName);
+            systemData[SystemParamSections[9]].AddKey("SerialBaudRates", systemParam._FeederParams.SerialParameters.BaudRates.ToString());
+            systemData[SystemParamSections[9]].AddKey("SerialDataBits", systemParam._FeederParams.SerialParameters.DataBits.ToString());
+            systemData[SystemParamSections[9]].AddKey("SerialParity", Enum.GetName(typeof(Parity), (Parity)systemParam._FeederParams.SerialParameters.Parity));
+            systemData[SystemParamSections[9]].AddKey("SerialStopBits", Enum.GetName(typeof(StopBits), (StopBits)systemParam._FeederParams.SerialParameters.StopBits));
+            systemData[SystemParamSections[9]].AddKey("SerialHandshake", Enum.GetName(typeof(Handshake), (Handshake)systemParam._FeederParams.SerialParameters.Handshake));
+            systemData[SystemParamSections[9]].AddKey("ID", systemParam._FeederParams.FeederCommunicationID.ToString());
 
+            // Laser Parameters
+            systemData[SystemParamSections[10]].AddKey("SerialPortName", systemParam._LaserParams.SerialParameters.PortName);
+            systemData[SystemParamSections[10]].AddKey("SerialBaudRates", systemParam._LaserParams.SerialParameters.BaudRates.ToString());
+            systemData[SystemParamSections[10]].AddKey("SerialDataBits", systemParam._LaserParams.SerialParameters.DataBits.ToString());
+            systemData[SystemParamSections[10]].AddKey("SerialParity", Enum.GetName(typeof(Parity), (Parity)systemParam._LaserParams.SerialParameters.Parity));
+            systemData[SystemParamSections[10]].AddKey("SerialStopBits", Enum.GetName(typeof(StopBits), (StopBits)systemParam._LaserParams.SerialParameters.StopBits));
+            systemData[SystemParamSections[10]].AddKey("SerialHandshake", Enum.GetName(typeof(Handshake), (Handshake)systemParam._LaserParams.SerialParameters.Handshake));
             parser.WriteFile(strFilePath, systemData);
         }
         static public StatisticParams ReadInspectionStatisticsFile(string strFilePath, int arrayCount)

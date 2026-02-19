@@ -33,32 +33,32 @@ namespace atLaserSoldering
         }
         public void InitialRecipeParameters()
         {
-            for (int i = 0; i < RecipeFileIO.ProductSeries.Length; ++i)
-            {
-                repositoryItemComboBoxProductSeries.Items.Add(RecipeFileIO.ProductSeries[i]);
-            }
+            //for (int i = 0; i < RecipeFileIO.ProductSeries.Length; ++i)
+            //{
+            //    repositoryItemComboBoxProductSeries.Items.Add(RecipeFileIO.ProductSeries[i]);
+            //}
 
-            for (int i = 0; i < RecipeFileIO.ProductType.Length; ++i)
-            {
-                repositoryItemComboBoxProductType.Items.Add(RecipeFileIO.ProductType[i]);
-            }
+            //for (int i = 0; i < RecipeFileIO.ProductType.Length; ++i)
+            //{
+            //    repositoryItemComboBoxProductType.Items.Add(RecipeFileIO.ProductType[i]);
+            //}
 
-            for (int i = 0; i < RecipeFileIO.ProductOperationMode.Length; ++i)
-            {
-                repositoryItemComboBoxProductOpMode.Items.Add(RecipeFileIO.ProductOperationMode[i]);
-            }
-            for (int i = 0; i < RecipeFileIO.ProductDetectMeterial.Length; ++i)
-            {
-                repositoryItemComboBoxProductDetectMeterial.Items.Add(RecipeFileIO.ProductDetectMeterial[i]);
-            }
-            for (int i = 0; i < RecipeFileIO.ProductOutputType.Length; ++i)
-            {
-                repositoryItemComboBoxProductOutputType.Items.Add(RecipeFileIO.ProductOutputType[i]);
-            }
-            for (int i = 0; i < RecipeFileIO.InspectionPositionType.Length; ++i)
-            {
-                comboBoxEditInspectionPositionType.Properties.Items.Add(RecipeFileIO.InspectionPositionType[i]);
-            }
+            //for (int i = 0; i < RecipeFileIO.ProductOperationMode.Length; ++i)
+            //{
+            //    repositoryItemComboBoxProductOpMode.Items.Add(RecipeFileIO.ProductOperationMode[i]);
+            //}
+            //for (int i = 0; i < RecipeFileIO.ProductDetectMeterial.Length; ++i)
+            //{
+            //    repositoryItemComboBoxProductDetectMeterial.Items.Add(RecipeFileIO.ProductDetectMeterial[i]);
+            //}
+            //for (int i = 0; i < RecipeFileIO.ProductOutputType.Length; ++i)
+            //{
+            //    repositoryItemComboBoxProductOutputType.Items.Add(RecipeFileIO.ProductOutputType[i]);
+            //}
+            //for (int i = 0; i < RecipeFileIO.InspectionPositionType.Length; ++i)
+            //{
+            //    comboBoxEditInspectionPositionType.Properties.Items.Add(RecipeFileIO.InspectionPositionType[i]);
+            //}
             rowProductSeries.Properties.Value = repositoryItemComboBoxProductSeries.Items[0].ToString();
             rowProductType.Properties.Value = repositoryItemComboBoxProductType.Items[0].ToString();
             rowProductOpMode.Properties.Value = repositoryItemComboBoxProductOpMode.Items[0].ToString();

@@ -87,7 +87,7 @@ namespace atLaserSoldering
                     string strRootFolder = string.Empty;
                     string strTempFolder = string.Empty;
 
-                    strRootFolder = string.Format(@"{0}\Autonics\atPhotoInspect", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+                    strRootFolder = string.Format(@"{0}\Autonics\atLaserSoldering", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
                     global::atLaserSoldering.Properties.Settings.Default.strRootFolderPath = strRootFolder;
                     SystemDirectoryParams.RootFolderPath = strRootFolder;
 
@@ -193,6 +193,59 @@ namespace atLaserSoldering
             catch (Exception)
             {
                 mLog.WriteLog(LogLevel.Error, LogClass.atPhoto.ToString(), "시스템 폴더 경로를 설정하지 못햇습니다.");
+            }
+        }
+
+        private void atLaserSoldering_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                mLog.WriteLogViewer += LogUpdated;
+                motionControl.LogWriteEvent += Motion_StringToLogWriteEvent;
+                remoteIOControl.LogWriteEvent += RemoteIO_StringToLogWriteEvent;
+                gridControlLog.DataSource = mLogList;
+                InitializeFileSystem();
+                string strTemp = string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName);
+
+                if (File.Exists(strTemp))
+                {
+                    // System 파일 열기
+                    RecipeFileIO.ReadSystemFile(_systemParams, strTemp);
+                    _systemParams._motionParams.SetParameterInitial();
+                    mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), string.Format("시스템 파일 읽기 성공:{0}", strTemp));
+                }
+                else
+                {
+                    // Default File 생성
+                    mLog.WriteLog(LogLevel.Fatal, LogClass.atPhoto.ToString(), string.Format("시스템 파라미터를 읽을 수 없습니다.{0}", strTemp));
+                    mLog.WriteLog(LogLevel.Fatal, LogClass.atPhoto.ToString(), string.Format("메뉴-시스템 편집기를 이용하여, 시스템 파일을 생성하십시오."));
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        private void Motion_StringToLogWriteEvent(string strLog)
+        {
+            try
+            {
+                mLog.WriteLog(LogLevel.Info, LogClass.MotionControl.ToString(), strLog);
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atPhoto.ToString(), "모션 로그 이벤트에 오류가 있습니다.");
+            }
+        }
+        private void RemoteIO_StringToLogWriteEvent(string strLog)
+        {
+            try
+            {
+                mLog.WriteLog(LogLevel.Info, LogClass.RemoteIO.ToString(), strLog);
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atPhoto.ToString(), "RemoteIO 로그 이벤트에 오류가 있습니다.");
             }
         }
     }

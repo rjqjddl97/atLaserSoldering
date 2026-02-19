@@ -248,37 +248,55 @@ namespace atLaserSoldering
             for (int i = 0; i < RecipeFileIO.SerialPortName.Length; ++i)
             {
                 repositoryItemComboBoxAiCCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
-                repositoryItemComboBoxRemoteIOCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
+                repositoryItemComboBoxRemoteIOCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);                
+                repositoryItemComboBoxLaserCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
+                repositoryItemComboBoxFeederCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
+                repositoryItemComboBoxLightCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
             }
 
             for (int i = 0; i < RecipeFileIO.SerialBaudRates.Length; ++i)
             {
                 repositoryItemComboBoxAiCCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
                 repositoryItemComboBoxRemoteIOCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
+                repositoryItemComboBoxLaserCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
+                repositoryItemComboBoxFeederCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
+                repositoryItemComboBoxLightCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
             }
 
             for (int i = 0; i < RecipeFileIO.SerialDataBits.Length; ++i)
             {
                 repositoryItemComboBoxAiCCommunicationDatabit.Items.Add(RecipeFileIO.SerialDataBits[i]);
                 repositoryItemComboBoxRemoteIOCommunicationDatabit.Items.Add(RecipeFileIO.SerialDataBits[i]);
+                repositoryItemComboBoxLaserCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
+                repositoryItemComboBoxFeederCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
+                repositoryItemComboBoxLightCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
             }
 
             foreach (string strParity in Enum.GetNames(typeof(Parity)))
             {
                 repositoryItemComboBoxAiCCommunicationParity.Items.Add(strParity);
                 repositoryItemComboBoxRemoteIOCommunicationParity.Items.Add(strParity);
+                repositoryItemComboBoxLaserCommunicationParity.Items.Add(strParity);
+                repositoryItemComboBoxFeederCommunicationParity.Items.Add(strParity);
+                repositoryItemComboBoxLightCommunicationParity.Items.Add(strParity);
             }
 
             foreach (string strStopbits in Enum.GetNames(typeof(StopBits)))
             {
                 repositoryItemComboBoxAiCCommunicationStopbit.Items.Add(strStopbits);
                 repositoryItemComboBoxRemoteIOCommunicationStopbit.Items.Add(strStopbits);
+                repositoryItemComboBoxLaserCommunicationStopBit.Items.Add(strStopbits);
+                repositoryItemComboBoxFeederCommunicationStopBit.Items.Add(strStopbits);
+                repositoryItemComboBoxLightCommunicationStopBit.Items.Add(strStopbits);
             }
 
             foreach (string strHandshake in Enum.GetNames(typeof(Handshake)))
             {
                 repositoryItemComboBoxAiCCommunicationHandshake.Items.Add(strHandshake);
                 repositoryItemComboBoxRemoteIOCommunicationHandshake.Items.Add(strHandshake);
+                repositoryItemComboBoxLaserCommunicationFlowControl.Items.Add(strHandshake);
+                repositoryItemComboBoxFeederCommunicationFlowControl.Items.Add(strHandshake);
+                repositoryItemComboBoxLightCommunicationFlowControl.Items.Add(strHandshake);
             }
             for (int i = 0; i < RecipeFileIO.TransitionCoordinate.Length; i++)
             {
@@ -287,7 +305,7 @@ namespace atLaserSoldering
             }
             // System Parameter의 Light Serial 초기화
             rowAiCCommunicationPortName.Properties.Value = repositoryItemComboBoxAiCCommunicationPortName.Items[0].ToString();
-            rowAiCCommunicationBaudRate.Properties.Value = repositoryItemComboBoxAiCCommunicationBaudRate.Items[2].ToString();
+            rowAiCCommunicationBaudRate.Properties.Value = repositoryItemComboBoxAiCCommunicationBaudRate.Items[4].ToString();
             rowAiCCommunicationDatabit.Properties.Value = repositoryItemComboBoxAiCCommunicationDatabit.Items[4].ToString();
             rowAiCCommunicationParity.Properties.Value = repositoryItemComboBoxAiCCommunicationParity.Items[0].ToString();
             rowAiCCommunicationStopbit.Properties.Value = repositoryItemComboBoxAiCCommunicationStopbit.Items[0].ToString();
@@ -382,6 +400,13 @@ namespace atLaserSoldering
             _systemParameters._admsParams._productname = Convert.ToString(rowSystemADMSProductDBName.Properties.Value);
 
             // System Parameter의 Light 파라미터 초기화            
+            rowLightCommunicationPortName.Properties.Value = repositoryItemComboBoxLightCommunicationPortName.Items[2].ToString();
+            rowLightCommunicationBaudRate.Properties.Value = repositoryItemComboBoxLightCommunicationBaudRate.Items[0].ToString();
+            rowLightCommunicationDataBit.Properties.Value = repositoryItemComboBoxLightCommunicationDataBit.Items[4].ToString();
+            rowLightCommunicationParity.Properties.Value = repositoryItemComboBoxLightCommunicationParity.Items[0].ToString();
+            rowLightCommunicationStopBit.Properties.Value = repositoryItemComboBoxLightCommunicationStopBit.Items[0].ToString();
+            rowLightCommunicationFlowControl.Properties.Value = repositoryItemComboBoxLightCommunicationFlowControl.Items[0].ToString();
+
             _systemParameters._LightParams.SerialParameters.PortName = Convert.ToString(rowLightCommunicationPortName.Properties.Value);
             _systemParameters._LightParams.SerialParameters.BaudRates = Convert.ToInt32(rowLightCommunicationBaudRate.Properties.Value);
             _systemParameters._LightParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowLightCommunicationParity.Properties.Value));
@@ -390,6 +415,13 @@ namespace atLaserSoldering
             _systemParameters._LightParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowLightCommunicationFlowControl.Properties.Value));
 
             // System Parameter의 Feeder 파라미터 초기화            
+            rowFeederCommunicationPortName.Properties.Value = repositoryItemComboBoxFeederCommunicationPortName.Items[3].ToString();
+            rowFeederCommunicationBaudRate.Properties.Value = repositoryItemComboBoxFeederCommunicationBaudRate.Items[4].ToString();
+            rowFeederCommunicationDataBit.Properties.Value = repositoryItemComboBoxFeederCommunicationDataBit.Items[4].ToString();
+            rowFeederCommunicationParity.Properties.Value = repositoryItemComboBoxFeederCommunicationParity.Items[0].ToString();
+            rowFeederCommunicationStopBit.Properties.Value = repositoryItemComboBoxFeederCommunicationStopBit.Items[0].ToString();
+            rowFeederCommunicationFlowControl.Properties.Value = repositoryItemComboBoxFeederCommunicationFlowControl.Items[0].ToString();
+
             _systemParameters._FeederParams.SerialParameters.PortName = Convert.ToString(rowFeederCommunicationPortName.Properties.Value);
             _systemParameters._FeederParams.SerialParameters.BaudRates = Convert.ToInt32(rowFeederCommunicationBaudRate.Properties.Value);
             _systemParameters._FeederParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowFeederCommunicationParity.Properties.Value));
@@ -402,7 +434,14 @@ namespace atLaserSoldering
             _systemParameters._FeederParams.FeederResolution = Convert.ToDouble(rowFeederResolution.Properties.Value);
             _systemParameters._FeederParams.FeederMoveVelocity = Convert.ToDouble(rowFeederVelocity.Properties.Value);
 
-            // System Parameter의 Laser 파라미터 초기화            
+            // System Parameter의 Laser 파라미터 초기화        
+            rowLaserCommunicationPortName.Properties.Value = repositoryItemComboBoxLaserCommunicationPortName.Items[4].ToString();
+            rowLaserCommunicationBaudRate.Properties.Value = repositoryItemComboBoxLaserCommunicationBaudRate.Items[4].ToString();
+            rowLaserCommunicationDataBit.Properties.Value = repositoryItemComboBoxLaserCommunicationDataBit.Items[4].ToString();
+            rowLaserCommunicationParity.Properties.Value = repositoryItemComboBoxLaserCommunicationParity.Items[0].ToString();
+            rowLaserCommunicationStopBit.Properties.Value = repositoryItemComboBoxLaserCommunicationStopBit.Items[0].ToString();
+            rowLaserCommunicationFlowControl.Properties.Value = repositoryItemComboBoxLaserCommunicationFlowControl.Items[0].ToString();
+
             _systemParameters._LaserParams.SerialParameters.PortName = Convert.ToString(rowLaserCommunicationPortName.Properties.Value);
             _systemParameters._LaserParams.SerialParameters.BaudRates = Convert.ToInt32(rowLaserCommunicationBaudRate.Properties.Value);
             _systemParameters._LaserParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowLaserCommunicationParity.Properties.Value));

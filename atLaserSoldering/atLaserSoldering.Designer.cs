@@ -133,10 +133,10 @@
             this.xtraTabPageMotion = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
-            this.remoteIOControl1 = new CustomPages.RemoteIOControl();
+            this.remoteIOControl = new CustomPages.RemoteIOControl();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.motionControl1 = new CustomPages.MotionControl();
+            this.motionControl = new CustomPages.MotionControl();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -1232,7 +1232,7 @@
             // layoutControl4
             // 
             this.layoutControl4.Controls.Add(this.layoutControl5);
-            this.layoutControl4.Controls.Add(this.motionControl1);
+            this.layoutControl4.Controls.Add(this.motionControl);
             this.layoutControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl4.Location = new System.Drawing.Point(0, 0);
             this.layoutControl4.Name = "layoutControl4";
@@ -1243,7 +1243,7 @@
             // 
             // layoutControl5
             // 
-            this.layoutControl5.Controls.Add(this.remoteIOControl1);
+            this.layoutControl5.Controls.Add(this.remoteIOControl);
             this.layoutControl5.Location = new System.Drawing.Point(502, 12);
             this.layoutControl5.Name = "layoutControl5";
             this.layoutControl5.Root = this.layoutControlGroup4;
@@ -1251,12 +1251,12 @@
             this.layoutControl5.TabIndex = 5;
             this.layoutControl5.Text = "layoutControl5";
             // 
-            // remoteIOControl1
+            // remoteIOControl
             // 
-            this.remoteIOControl1.Location = new System.Drawing.Point(4, 4);
-            this.remoteIOControl1.Name = "remoteIOControl1";
-            this.remoteIOControl1.Size = new System.Drawing.Size(426, 382);
-            this.remoteIOControl1.TabIndex = 4;
+            this.remoteIOControl.Location = new System.Drawing.Point(4, 4);
+            this.remoteIOControl.Name = "remoteIOControl";
+            this.remoteIOControl.Size = new System.Drawing.Size(426, 382);
+            this.remoteIOControl.TabIndex = 4;
             // 
             // layoutControlGroup4
             // 
@@ -1271,20 +1271,20 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.remoteIOControl1;
+            this.layoutControlItem5.Control = this.remoteIOControl;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(430, 386);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // motionControl1
+            // motionControl
             // 
-            this.motionControl1.Location = new System.Drawing.Point(12, 12);
-            this.motionControl1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.motionControl1.Name = "motionControl1";
-            this.motionControl1.Size = new System.Drawing.Size(486, 390);
-            this.motionControl1.TabIndex = 4;
+            this.motionControl.Location = new System.Drawing.Point(12, 12);
+            this.motionControl.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.motionControl.Name = "motionControl";
+            this.motionControl.Size = new System.Drawing.Size(486, 390);
+            this.motionControl.TabIndex = 4;
             // 
             // layoutControlGroup3
             // 
@@ -1299,7 +1299,7 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.motionControl1;
+            this.layoutControlItem3.Control = this.motionControl;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(490, 394);
@@ -1407,6 +1407,7 @@
             this.Ribbon = this.ribbonControl;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "atLaserSoldering";
+            this.Load += new System.EventHandler(this.atLaserSoldering_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
@@ -1538,7 +1539,7 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPageImageProcess;
         private DevExpress.XtraTab.XtraTabPage xtraTabPageMotion;
         private DevExpress.XtraLayout.LayoutControl layoutControl4;
-        private CustomPages.MotionControl motionControl1;
+        private CustomPages.MotionControl motionControl;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraTab.XtraTabPage xtraTabPageLaserSolder;
@@ -1547,7 +1548,7 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl5;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private CustomPages.RemoteIOControl remoteIOControl1;
+        private CustomPages.RemoteIOControl remoteIOControl;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControl layoutControl6;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;
