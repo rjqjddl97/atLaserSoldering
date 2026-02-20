@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecipeEditor));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItemNewRecipe = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemRecipeOpen = new DevExpress.XtraBars.BarButtonItem();
@@ -47,24 +46,15 @@
             this.openFileDialogRecipeOpen = new System.Windows.Forms.OpenFileDialog();
             this.xtraFolderBrowserDialog = new DevExpress.XtraEditors.XtraFolderBrowserDialog(this.components);
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.vGridControlInspectionParam = new DevExpress.XtraVerticalGrid.VGridControl();
             this.repositoryItemDateEditRecipeCreateTime = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.categoryRecipeInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
             this.rowRecipeName = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowRecipeCreateTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowRecipeCreatorName = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.categoryProductInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
-            this.rowProductSeries = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowProductModelName = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowProductType = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowProductDistance = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowProductOpMode = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowProductOutputType = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowProductDetectMeterial = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowProductDistanceMargin = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowProductMaxDistanceProcessEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowProductOriginDistanceProcessEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowProductMinObjectDetectProcessEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.categoryPCBInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
+            this.rowPCBModelName = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowPCBHorizontalSize = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowPCBVerticalSize = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.categoryLEDInspectionInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
             this.rowLEDInspectionUseEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLEDInspectionShortDistance = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
@@ -76,52 +66,23 @@
             this.rowLEDInspectionSpotMinSize = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLEDInspectionSpotMaxSize = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLEDInspectionAlignmentDistance = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionDivergenceAngle = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowLEDInspectionDivergenceHMinAngle = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowLEDInspectionDivergenceHMaxAngle = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowLEDInspectionDivergenceVMinAngle = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowLEDInspectionDivergenceVMaxAngle = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLEDInspectionWorkAreaLeft = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLEDInspectionWorkAreaTop = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLEDInspectionWorkAreaWidth = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLEDInspectionWorkAreaHeight = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.vGridControlInspectionParam = new DevExpress.XtraVerticalGrid.VGridControl();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.vGridControl1 = new DevExpress.XtraVerticalGrid.VGridControl();
-            this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.categoryRow1 = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
-            this.editorRow1 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow2 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow3 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.categoryRow2 = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
-            this.editorRow4 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow5 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow6 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow7 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow8 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow9 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow10 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow11 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow12 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow13 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow14 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.categoryRow3 = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
-            this.editorRow15 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow16 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow17 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow18 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow19 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow20 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow21 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow22 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow23 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow24 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow25 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow26 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow27 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow28 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.editorRow29 = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -133,7 +94,7 @@
             this.simpleButtonInspectionPositionDelete = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonInspectionPositionRegister = new DevExpress.XtraEditors.SimpleButton();
             this.textEditInspectionPositionZ = new DevExpress.XtraEditors.TextEdit();
-            this.textEditInspectionPositionY1 = new DevExpress.XtraEditors.TextEdit();
+            this.textEditInspectionPositionY = new DevExpress.XtraEditors.TextEdit();
             this.textEditInspectionPositionX = new DevExpress.XtraEditors.TextEdit();
             this.gridControlInspectionPosition = new DevExpress.XtraGrid.GridControl();
             this.gridViewInspectionPositions = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -155,6 +116,12 @@
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.rowPCBLayoutFilePath = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.repositoryItemButtonEditPCBLayoutFilePath = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductSeries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductType)).BeginInit();
@@ -163,21 +130,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductDetectMeterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductDistance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vGridControlInspectionParam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vGridControlInspectionParam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vGridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -186,7 +151,7 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditInspectionPositionType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionZ.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionY1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionY.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionX.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectionPosition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectionPositions)).BeginInit();
@@ -203,6 +168,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
+            this.layoutControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditPCBLayoutFilePath)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -216,6 +187,7 @@
             this.barButtonItemRecipeOpen,
             this.barButtonItemRecipeSave});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
+            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ribbonControl1.MaxItemId = 4;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -230,7 +202,8 @@
             // 
             this.barButtonItemNewRecipe.Caption = "새 레시피";
             this.barButtonItemNewRecipe.Id = 1;
-            this.barButtonItemNewRecipe.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemNewRecipe.ImageOptions.LargeImage")));
+            this.barButtonItemNewRecipe.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.textbox_16x16;
+            this.barButtonItemNewRecipe.ImageOptions.LargeImage = global::atLaserSoldering.Properties.Resources.textbox_32x32;
             this.barButtonItemNewRecipe.Name = "barButtonItemNewRecipe";
             this.barButtonItemNewRecipe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewRecipe_ItemClick);
             // 
@@ -238,8 +211,8 @@
             // 
             this.barButtonItemRecipeOpen.Caption = "불러 오기";
             this.barButtonItemRecipeOpen.Id = 2;
-            this.barButtonItemRecipeOpen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemRecipeOpen.ImageOptions.Image")));
-            this.barButtonItemRecipeOpen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemRecipeOpen.ImageOptions.LargeImage")));
+            this.barButtonItemRecipeOpen.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.open_16x16;
+            this.barButtonItemRecipeOpen.ImageOptions.LargeImage = global::atLaserSoldering.Properties.Resources.open_32x32;
             this.barButtonItemRecipeOpen.Name = "barButtonItemRecipeOpen";
             this.barButtonItemRecipeOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRecipeOpen_ItemClick);
             // 
@@ -247,8 +220,8 @@
             // 
             this.barButtonItemRecipeSave.Caption = "저장하기";
             this.barButtonItemRecipeSave.Id = 3;
-            this.barButtonItemRecipeSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemRecipeSave.ImageOptions.Image")));
-            this.barButtonItemRecipeSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemRecipeSave.ImageOptions.LargeImage")));
+            this.barButtonItemRecipeSave.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.exportfile_16x16;
+            this.barButtonItemRecipeSave.ImageOptions.LargeImage = global::atLaserSoldering.Properties.Resources.exportfile_32x32;
             this.barButtonItemRecipeSave.Name = "barButtonItemRecipeSave";
             this.barButtonItemRecipeSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRecipeSave_ItemClick);
             // 
@@ -269,7 +242,8 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 668);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 736);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1014, 31);
@@ -333,17 +307,6 @@
             this.layoutControlGroup2.Size = new System.Drawing.Size(910, 475);
             this.layoutControlGroup2.TextVisible = false;
             // 
-            // vGridControlInspectionParam
-            // 
-            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Default;
-            this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
-            this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
-            this.vGridControlInspectionParam.Name = "vGridControlInspectionParam";
-            this.vGridControlInspectionParam.Size = new System.Drawing.Size(233, 486);
-            this.vGridControlInspectionParam.TabIndex = 0;
-            this.vGridControlInspectionParam.CellValueChanged += new DevExpress.XtraVerticalGrid.Events.CellValueChangedEventHandler(this.vGridControlInspectionParam_CellValueChanged);
-            this.vGridControlInspectionParam.Leave += new System.EventHandler(this.vGridControlInspectionParam_Leave);
-            // 
             // repositoryItemDateEditRecipeCreateTime
             // 
             this.repositoryItemDateEditRecipeCreateTime.AutoHeight = false;
@@ -355,7 +318,11 @@
             // 
             // categoryRecipeInformation
             // 
-            this.categoryRecipeInformation.Height = 19;
+            this.categoryRecipeInformation.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.rowRecipeName,
+            this.rowRecipeCreateTime,
+            this.rowRecipeCreatorName});
+            this.categoryRecipeInformation.Height = 12;
             this.categoryRecipeInformation.Name = "categoryRecipeInformation";
             this.categoryRecipeInformation.Properties.Caption = "레시피 정보";
             // 
@@ -375,6 +342,7 @@
             this.rowRecipeCreateTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.rowRecipeCreateTime.Name = "rowRecipeCreateTime";
             this.rowRecipeCreateTime.Properties.Caption = "레시피 생성 시간";
+            this.rowRecipeCreateTime.Properties.RowEdit = this.repositoryItemDateEditRecipeCreateTime;
             this.rowRecipeCreateTime.Properties.Value = new System.DateTime(2023, 9, 8, 13, 28, 0, 0);
             // 
             // rowRecipeCreatorName
@@ -386,115 +354,68 @@
             this.rowRecipeCreatorName.Properties.Caption = "레시피 생성자 이름";
             this.rowRecipeCreatorName.Properties.Value = "소속-이름";
             // 
-            // categoryProductInformation
+            // categoryPCBInformation
             // 
-            this.categoryProductInformation.Expanded = false;
-            this.categoryProductInformation.Height = 19;
-            this.categoryProductInformation.Name = "categoryProductInformation";
-            this.categoryProductInformation.Properties.Caption = "검사 제품 정보";
+            this.categoryPCBInformation.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.rowPCBModelName,
+            this.rowPCBHorizontalSize,
+            this.rowPCBVerticalSize,
+            this.rowPCBLayoutFilePath});
+            this.categoryPCBInformation.Height = 12;
+            this.categoryPCBInformation.Name = "categoryPCBInformation";
+            this.categoryPCBInformation.Properties.Caption = "PCB 정보 등록";
             // 
-            // rowProductSeries
+            // rowPCBModelName
             // 
-            this.rowProductSeries.Appearance.Options.UseTextOptions = true;
-            this.rowProductSeries.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowProductSeries.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowProductSeries.Name = "rowProductSeries";
-            this.rowProductSeries.Properties.Caption = "제품 분류";
-            this.rowProductSeries.Properties.Value = "BTS";
+            this.rowPCBModelName.Appearance.Options.UseTextOptions = true;
+            this.rowPCBModelName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowPCBModelName.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowPCBModelName.Name = "rowPCBModelName";
+            this.rowPCBModelName.Properties.Caption = "PCB 모델 이름";
+            this.rowPCBModelName.Properties.RowEdit = this.repositoryItemComboBoxProductSeries;
+            this.rowPCBModelName.Properties.Value = "PCB22014";
             // 
-            // rowProductModelName
+            // rowPCBHorizontalSize
             // 
-            this.rowProductModelName.Appearance.Options.UseTextOptions = true;
-            this.rowProductModelName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowProductModelName.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowProductModelName.Name = "rowProductModelName";
-            this.rowProductModelName.Properties.Caption = "제품 모델명";
-            this.rowProductModelName.Properties.Value = "BTS200-PDTL";
+            this.rowPCBHorizontalSize.Appearance.Options.UseTextOptions = true;
+            this.rowPCBHorizontalSize.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowPCBHorizontalSize.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowPCBHorizontalSize.Name = "rowPCBHorizontalSize";
+            this.rowPCBHorizontalSize.Properties.Caption = "PCB 가로 크기[mm]";
+            this.rowPCBHorizontalSize.Properties.Value = 50D;
             // 
-            // rowProductType
+            // rowPCBVerticalSize
             // 
-            this.rowProductType.Appearance.Options.UseTextOptions = true;
-            this.rowProductType.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowProductType.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowProductType.Name = "rowProductType";
-            this.rowProductType.Properties.Caption = "제품 형태";
-            this.rowProductType.Properties.Value = "미러반사형";
-            // 
-            // rowProductDistance
-            // 
-            this.rowProductDistance.Appearance.Options.UseTextOptions = true;
-            this.rowProductDistance.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowProductDistance.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowProductDistance.Name = "rowProductDistance";
-            this.rowProductDistance.Properties.Caption = "제품 거리[mm]";
-            this.rowProductDistance.Properties.Value = "200";
-            // 
-            // rowProductOpMode
-            // 
-            this.rowProductOpMode.Appearance.Options.UseTextOptions = true;
-            this.rowProductOpMode.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowProductOpMode.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowProductOpMode.Name = "rowProductOpMode";
-            this.rowProductOpMode.Properties.Caption = "제품 동작 모드";
-            this.rowProductOpMode.Properties.Value = "LightOn";
-            // 
-            // rowProductOutputType
-            // 
-            this.rowProductOutputType.Appearance.Options.UseTextOptions = true;
-            this.rowProductOutputType.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowProductOutputType.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowProductOutputType.Name = "rowProductOutputType";
-            this.rowProductOutputType.Properties.Caption = "제품 출력 형태";
-            this.rowProductOutputType.Properties.Value = "NPN";
-            // 
-            // rowProductDetectMeterial
-            // 
-            this.rowProductDetectMeterial.Appearance.Options.UseTextOptions = true;
-            this.rowProductDetectMeterial.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowProductDetectMeterial.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowProductDetectMeterial.Name = "rowProductDetectMeterial";
-            this.rowProductDetectMeterial.Properties.Caption = "검출체 종류";
-            this.rowProductDetectMeterial.Properties.Value = "백색지";
-            // 
-            // rowProductDistanceMargin
-            // 
-            this.rowProductDistanceMargin.Appearance.Options.UseTextOptions = true;
-            this.rowProductDistanceMargin.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowProductDistanceMargin.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowProductDistanceMargin.Name = "rowProductDistanceMargin";
-            this.rowProductDistanceMargin.Properties.Caption = "제품 거리마진율[%]";
-            this.rowProductDistanceMargin.Properties.Value = "20";
-            // 
-            // rowProductMaxDistanceProcessEnable
-            // 
-            this.rowProductMaxDistanceProcessEnable.Appearance.Options.UseTextOptions = true;
-            this.rowProductMaxDistanceProcessEnable.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowProductMaxDistanceProcessEnable.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowProductMaxDistanceProcessEnable.Name = "rowProductMaxDistanceProcessEnable";
-            this.rowProductMaxDistanceProcessEnable.Properties.Caption = "최대거리 검출 동작유무";
-            this.rowProductMaxDistanceProcessEnable.Properties.Value = false;
-            // 
-            // rowProductOriginDistanceProcessEnable
-            // 
-            this.rowProductOriginDistanceProcessEnable.Appearance.Options.UseTextOptions = true;
-            this.rowProductOriginDistanceProcessEnable.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowProductOriginDistanceProcessEnable.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowProductOriginDistanceProcessEnable.Name = "rowProductOriginDistanceProcessEnable";
-            this.rowProductOriginDistanceProcessEnable.Properties.Caption = "복귀 지점 검출 동작유무";
-            this.rowProductOriginDistanceProcessEnable.Properties.Value = false;
-            // 
-            // rowProductMinObjectDetectProcessEnable
-            // 
-            this.rowProductMinObjectDetectProcessEnable.Appearance.Options.UseTextOptions = true;
-            this.rowProductMinObjectDetectProcessEnable.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowProductMinObjectDetectProcessEnable.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowProductMinObjectDetectProcessEnable.Name = "rowProductMinObjectDetectProcessEnable";
-            this.rowProductMinObjectDetectProcessEnable.Properties.Caption = "최초 검출 물체 동작유무";
-            this.rowProductMinObjectDetectProcessEnable.Properties.Value = false;
+            this.rowPCBVerticalSize.Appearance.Options.UseTextOptions = true;
+            this.rowPCBVerticalSize.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowPCBVerticalSize.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowPCBVerticalSize.Name = "rowPCBVerticalSize";
+            this.rowPCBVerticalSize.Properties.Caption = "PCB 세로 크기[mm]";
+            this.rowPCBVerticalSize.Properties.RowEdit = this.repositoryItemComboBoxProductType;
+            this.rowPCBVerticalSize.Properties.Value = 60D;
             // 
             // categoryLEDInspectionInformation
             // 
-            this.categoryLEDInspectionInformation.Height = 19;
+            this.categoryLEDInspectionInformation.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.rowLEDInspectionUseEnable,
+            this.rowLEDInspectionShortDistance,
+            this.rowLedInspectionCameraMoveDistance,
+            this.rowLEDInspectionExposureTime,
+            this.rowLEDInspectionAcquisitionDelayTime,
+            this.rowLEDInspectionReferenceThresholdH,
+            this.rowLEDInspectionReferenceThresholdV,
+            this.rowLEDInspectionSpotMinSize,
+            this.rowLEDInspectionSpotMaxSize,
+            this.rowLEDInspectionAlignmentDistance,
+            this.rowLEDInspectionDivergenceHMinAngle,
+            this.rowLEDInspectionDivergenceHMaxAngle,
+            this.rowLEDInspectionDivergenceVMinAngle,
+            this.rowLEDInspectionDivergenceVMaxAngle,
+            this.rowLEDInspectionWorkAreaLeft,
+            this.rowLEDInspectionWorkAreaTop,
+            this.rowLEDInspectionWorkAreaWidth,
+            this.rowLEDInspectionWorkAreaHeight});
+            this.categoryLEDInspectionInformation.Height = 12;
             this.categoryLEDInspectionInformation.Name = "categoryLEDInspectionInformation";
             this.categoryLEDInspectionInformation.Properties.Caption = "투광 소자 검사 정보";
             // 
@@ -504,7 +425,7 @@
             this.rowLEDInspectionUseEnable.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.rowLEDInspectionUseEnable.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.rowLEDInspectionUseEnable.Name = "rowLEDInspectionUseEnable";
-            this.rowLEDInspectionUseEnable.Properties.Caption = "투광 검사 유무";
+            this.rowLEDInspectionUseEnable.Properties.Caption = "투광 단축 검사 유무";
             this.rowLEDInspectionUseEnable.Properties.Value = false;
             // 
             // rowLEDInspectionShortDistance
@@ -588,14 +509,41 @@
             this.rowLEDInspectionAlignmentDistance.Properties.Caption = "편심 합격거리[mm]";
             this.rowLEDInspectionAlignmentDistance.Properties.Value = "2";
             // 
-            // rowLEDInspectionDivergenceAngle
+            // rowLEDInspectionDivergenceHMinAngle
             // 
-            this.rowLEDInspectionDivergenceAngle.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionDivergenceAngle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionDivergenceAngle.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionDivergenceAngle.Name = "rowLEDInspectionDivergenceAngle";
-            this.rowLEDInspectionDivergenceAngle.Properties.Caption = "발산각 합격각도[˚]";
-            this.rowLEDInspectionDivergenceAngle.Properties.Value = 5;
+            this.rowLEDInspectionDivergenceHMinAngle.Appearance.Options.UseTextOptions = true;
+            this.rowLEDInspectionDivergenceHMinAngle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowLEDInspectionDivergenceHMinAngle.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowLEDInspectionDivergenceHMinAngle.Name = "rowLEDInspectionDivergenceHMinAngle";
+            this.rowLEDInspectionDivergenceHMinAngle.Properties.Caption = "편심각 합격 범위 X축 최소각도[˚]";
+            this.rowLEDInspectionDivergenceHMinAngle.Properties.Value = -4;
+            // 
+            // rowLEDInspectionDivergenceHMaxAngle
+            // 
+            this.rowLEDInspectionDivergenceHMaxAngle.Appearance.Options.UseTextOptions = true;
+            this.rowLEDInspectionDivergenceHMaxAngle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowLEDInspectionDivergenceHMaxAngle.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowLEDInspectionDivergenceHMaxAngle.Name = "rowLEDInspectionDivergenceHMaxAngle";
+            this.rowLEDInspectionDivergenceHMaxAngle.Properties.Caption = "편심각 합격 범위 X축 최대각도[˚]";
+            this.rowLEDInspectionDivergenceHMaxAngle.Properties.Value = 4;
+            // 
+            // rowLEDInspectionDivergenceVMinAngle
+            // 
+            this.rowLEDInspectionDivergenceVMinAngle.Appearance.Options.UseTextOptions = true;
+            this.rowLEDInspectionDivergenceVMinAngle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowLEDInspectionDivergenceVMinAngle.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowLEDInspectionDivergenceVMinAngle.Name = "rowLEDInspectionDivergenceVMinAngle";
+            this.rowLEDInspectionDivergenceVMinAngle.Properties.Caption = "편심각 합격 범위 Y축 최소각도[˚]";
+            this.rowLEDInspectionDivergenceVMinAngle.Properties.Value = -4;
+            // 
+            // rowLEDInspectionDivergenceVMaxAngle
+            // 
+            this.rowLEDInspectionDivergenceVMaxAngle.Appearance.Options.UseTextOptions = true;
+            this.rowLEDInspectionDivergenceVMaxAngle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowLEDInspectionDivergenceVMaxAngle.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowLEDInspectionDivergenceVMaxAngle.Name = "rowLEDInspectionDivergenceVMaxAngle";
+            this.rowLEDInspectionDivergenceVMaxAngle.Properties.Caption = "편심각 합격 범위 Y축 최대각도[˚]";
+            this.rowLEDInspectionDivergenceVMaxAngle.Properties.Value = 4;
             // 
             // rowLEDInspectionWorkAreaLeft
             // 
@@ -604,7 +552,7 @@
             this.rowLEDInspectionWorkAreaLeft.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.rowLEDInspectionWorkAreaLeft.Name = "rowLEDInspectionWorkAreaLeft";
             this.rowLEDInspectionWorkAreaLeft.Properties.Caption = "검사 영역 X점[픽셀]";
-            this.rowLEDInspectionWorkAreaLeft.Properties.Value = 200;
+            this.rowLEDInspectionWorkAreaLeft.Properties.Value = 1;
             // 
             // rowLEDInspectionWorkAreaTop
             // 
@@ -613,7 +561,7 @@
             this.rowLEDInspectionWorkAreaTop.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.rowLEDInspectionWorkAreaTop.Name = "rowLEDInspectionWorkAreaTop";
             this.rowLEDInspectionWorkAreaTop.Properties.Caption = "검사 영역 Y점[픽셀]";
-            this.rowLEDInspectionWorkAreaTop.Properties.Value = 300;
+            this.rowLEDInspectionWorkAreaTop.Properties.Value = 1;
             // 
             // rowLEDInspectionWorkAreaWidth
             // 
@@ -622,7 +570,7 @@
             this.rowLEDInspectionWorkAreaWidth.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.rowLEDInspectionWorkAreaWidth.Name = "rowLEDInspectionWorkAreaWidth";
             this.rowLEDInspectionWorkAreaWidth.Properties.Caption = "검사 영역 폭[픽셀]";
-            this.rowLEDInspectionWorkAreaWidth.Properties.Value = 600;
+            this.rowLEDInspectionWorkAreaWidth.Properties.Value = 1599;
             // 
             // rowLEDInspectionWorkAreaHeight
             // 
@@ -631,46 +579,63 @@
             this.rowLEDInspectionWorkAreaHeight.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.rowLEDInspectionWorkAreaHeight.Name = "rowLEDInspectionWorkAreaHeight";
             this.rowLEDInspectionWorkAreaHeight.Properties.Caption = "검사 영역 높이[픽셀]";
-            this.rowLEDInspectionWorkAreaHeight.Properties.Value = 600;
+            this.rowLEDInspectionWorkAreaHeight.Properties.Value = 1199;
             // 
             // layoutControl3
             // 
-            this.layoutControl3.Location = new System.Drawing.Point(282, 3);
+            this.layoutControl3.Location = new System.Drawing.Point(0, 0);
             this.layoutControl3.Name = "layoutControl3";
-            this.layoutControl3.Root = this.layoutControlGroup3;
-            this.layoutControl3.Size = new System.Drawing.Size(20, 486);
-            this.layoutControl3.TabIndex = 1;
-            this.layoutControl3.Text = "layoutControl3";
+            this.layoutControl3.Root = this.layoutControlGroup6;
+            this.layoutControl3.Size = new System.Drawing.Size(180, 120);
+            this.layoutControl3.TabIndex = 0;
+            // 
+            // layoutControlGroup6
+            // 
+            this.layoutControlGroup6.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup6.GroupBordersVisible = false;
+            this.layoutControlGroup6.Name = "layoutControlGroup6";
+            this.layoutControlGroup6.Size = new System.Drawing.Size(180, 120);
             // 
             // layoutControlGroup3
             // 
-            this.layoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup3.GroupBordersVisible = false;
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(20, 486);
-            this.layoutControlGroup3.TextVisible = false;
+            this.layoutControlGroup3.Size = new System.Drawing.Size(50, 26);
             // 
             // layoutControlGroup1
             // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(305, 492);
-            this.layoutControlGroup1.TextVisible = false;
+            this.layoutControlGroup1.Size = new System.Drawing.Size(50, 26);
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.vGridControlInspectionParam;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(237, 490);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
+            this.layoutControlItem3.Size = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(50, 20);
+            // 
+            // vGridControlInspectionParam
+            // 
+            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
+            this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
+            this.vGridControlInspectionParam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.vGridControlInspectionParam.Name = "vGridControlInspectionParam";
+            this.vGridControlInspectionParam.OptionsView.MaxRowAutoHeight = 100;
+            this.vGridControlInspectionParam.RecordWidth = 79;
+            this.vGridControlInspectionParam.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemDateEditRecipeCreateTime,
+            this.repositoryItemButtonEditPCBLayoutFilePath});
+            this.vGridControlInspectionParam.RowHeaderWidth = 121;
+            this.vGridControlInspectionParam.Rows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.categoryRecipeInformation,
+            this.categoryPCBInformation,
+            this.categoryLEDInspectionInformation});
+            this.vGridControlInspectionParam.Size = new System.Drawing.Size(333, 552);
+            this.vGridControlInspectionParam.TabIndex = 0;
+            this.vGridControlInspectionParam.CellValueChanged += new DevExpress.XtraVerticalGrid.Events.CellValueChangedEventHandler(this.vGridControlInspectionParam_CellValueChanged);
+            this.vGridControlInspectionParam.Leave += new System.EventHandler(this.vGridControlInspectionParam_Leave);
             // 
             // layoutControlItem1
             // 
@@ -684,367 +649,25 @@
             // groupControl2
             // 
             this.groupControl2.Controls.Add(this.layoutControl2);
-            this.groupControl2.Location = new System.Drawing.Point(0, 147);
+            this.groupControl2.Location = new System.Drawing.Point(4, 4);
+            this.groupControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(354, 515);
+            this.groupControl2.Size = new System.Drawing.Size(343, 581);
             this.groupControl2.TabIndex = 4;
             this.groupControl2.Text = "거리검사 레시피 설정";
             // 
             // layoutControl2
             // 
-            this.layoutControl2.Controls.Add(this.vGridControl1);
+            this.layoutControl2.Controls.Add(this.vGridControlInspectionParam);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(2, 21);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl2.Root = this.layoutControlGroup4;
-            this.layoutControl2.Size = new System.Drawing.Size(350, 492);
+            this.layoutControl2.Size = new System.Drawing.Size(339, 558);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
-            // 
-            // vGridControl1
-            // 
-            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.SizeNS;
-            this.vGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
-            this.vGridControl1.Location = new System.Drawing.Point(3, 3);
-            this.vGridControl1.Name = "vGridControl1";
-            this.vGridControl1.OptionsView.MaxRowAutoHeight = 100;
-            this.vGridControl1.RecordWidth = 73;
-            this.vGridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemDateEdit1});
-            this.vGridControl1.RowHeaderWidth = 127;
-            this.vGridControl1.Rows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
-            this.categoryRow1,
-            this.categoryRow2,
-            this.categoryRow3});
-            this.vGridControl1.Size = new System.Drawing.Size(344, 486);
-            this.vGridControl1.TabIndex = 0;
-            // 
-            // repositoryItemDateEdit1
-            // 
-            this.repositoryItemDateEdit1.AutoHeight = false;
-            this.repositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
-            // 
-            // categoryRow1
-            // 
-            this.categoryRow1.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
-            this.editorRow1,
-            this.editorRow2,
-            this.editorRow3});
-            this.categoryRow1.Height = 19;
-            this.categoryRow1.Name = "categoryRow1";
-            this.categoryRow1.Properties.Caption = "레시피 정보";
-            // 
-            // editorRow1
-            // 
-            this.editorRow1.Appearance.Options.UseTextOptions = true;
-            this.editorRow1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow1.Name = "editorRow1";
-            this.editorRow1.Properties.Caption = "레시피 이름";
-            this.editorRow1.Properties.Value = "Recipe001";
-            // 
-            // editorRow2
-            // 
-            this.editorRow2.Appearance.Options.UseTextOptions = true;
-            this.editorRow2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow2.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow2.Name = "editorRow2";
-            this.editorRow2.Properties.Caption = "레시피 생성 시간";
-            this.editorRow2.Properties.RowEdit = this.repositoryItemDateEdit1;
-            this.editorRow2.Properties.Value = new System.DateTime(2023, 9, 8, 13, 28, 0, 0);
-            // 
-            // editorRow3
-            // 
-            this.editorRow3.Appearance.Options.UseTextOptions = true;
-            this.editorRow3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow3.Name = "editorRow3";
-            this.editorRow3.Properties.Caption = "레시피 생성자 이름";
-            this.editorRow3.Properties.Value = "소속-이름";
-            // 
-            // categoryRow2
-            // 
-            this.categoryRow2.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
-            this.editorRow4,
-            this.editorRow5,
-            this.editorRow6,
-            this.editorRow7,
-            this.editorRow8,
-            this.editorRow9,
-            this.editorRow10,
-            this.editorRow11,
-            this.editorRow12,
-            this.editorRow13,
-            this.editorRow14});
-            this.categoryRow2.Height = 19;
-            this.categoryRow2.Name = "categoryRow2";
-            this.categoryRow2.Properties.Caption = "검사 제품 정보";
-            // 
-            // editorRow4
-            // 
-            this.editorRow4.Appearance.Options.UseTextOptions = true;
-            this.editorRow4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow4.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow4.Name = "editorRow4";
-            this.editorRow4.Properties.Caption = "제품 분류";
-            this.editorRow4.Properties.RowEdit = this.repositoryItemComboBoxProductSeries;
-            this.editorRow4.Properties.Value = "BTS";
-            // 
-            // editorRow5
-            // 
-            this.editorRow5.Appearance.Options.UseTextOptions = true;
-            this.editorRow5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow5.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow5.Name = "editorRow5";
-            this.editorRow5.Properties.Caption = "제품 모델명";
-            this.editorRow5.Properties.Value = "BTS200-PDTL";
-            // 
-            // editorRow6
-            // 
-            this.editorRow6.Appearance.Options.UseTextOptions = true;
-            this.editorRow6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow6.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow6.Name = "editorRow6";
-            this.editorRow6.Properties.Caption = "제품 형태";
-            this.editorRow6.Properties.RowEdit = this.repositoryItemComboBoxProductType;
-            this.editorRow6.Properties.Value = "미러반사형";
-            // 
-            // editorRow7
-            // 
-            this.editorRow7.Appearance.Options.UseTextOptions = true;
-            this.editorRow7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow7.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow7.Name = "editorRow7";
-            this.editorRow7.Properties.Caption = "제품 거리[mm]";
-            this.editorRow7.Properties.Value = "200";
-            // 
-            // editorRow8
-            // 
-            this.editorRow8.Appearance.Options.UseTextOptions = true;
-            this.editorRow8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow8.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow8.Name = "editorRow8";
-            this.editorRow8.Properties.Caption = "제품 동작 모드";
-            this.editorRow8.Properties.RowEdit = this.repositoryItemComboBoxProductOpMode;
-            this.editorRow8.Properties.Value = "LightOn";
-            // 
-            // editorRow9
-            // 
-            this.editorRow9.Appearance.Options.UseTextOptions = true;
-            this.editorRow9.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow9.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow9.Name = "editorRow9";
-            this.editorRow9.Properties.Caption = "제품 출력 형태";
-            this.editorRow9.Properties.RowEdit = this.repositoryItemComboBoxProductOutputType;
-            this.editorRow9.Properties.Value = "NPN";
-            // 
-            // editorRow10
-            // 
-            this.editorRow10.Appearance.Options.UseTextOptions = true;
-            this.editorRow10.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow10.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow10.Name = "editorRow10";
-            this.editorRow10.Properties.Caption = "검출체 종류";
-            this.editorRow10.Properties.RowEdit = this.repositoryItemComboBoxProductDetectMeterial;
-            this.editorRow10.Properties.Value = "백색지";
-            // 
-            // editorRow11
-            // 
-            this.editorRow11.Appearance.Options.UseTextOptions = true;
-            this.editorRow11.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow11.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow11.Name = "editorRow11";
-            this.editorRow11.Properties.Caption = "제품 거리마진율[%]";
-            this.editorRow11.Properties.Value = "20";
-            // 
-            // editorRow12
-            // 
-            this.editorRow12.Appearance.Options.UseTextOptions = true;
-            this.editorRow12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow12.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow12.Name = "editorRow12";
-            this.editorRow12.Properties.Caption = "최대거리 검출 동작유무";
-            this.editorRow12.Properties.Value = false;
-            // 
-            // editorRow13
-            // 
-            this.editorRow13.Appearance.Options.UseTextOptions = true;
-            this.editorRow13.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow13.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow13.Name = "editorRow13";
-            this.editorRow13.Properties.Caption = "복귀 지점 검출 동작유무";
-            this.editorRow13.Properties.Value = false;
-            // 
-            // editorRow14
-            // 
-            this.editorRow14.Appearance.Options.UseTextOptions = true;
-            this.editorRow14.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow14.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow14.Name = "editorRow14";
-            this.editorRow14.Properties.Caption = "최초 검출 물체 동작유무";
-            this.editorRow14.Properties.Value = false;
-            // 
-            // categoryRow3
-            // 
-            this.categoryRow3.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
-            this.editorRow15,
-            this.editorRow16,
-            this.editorRow17,
-            this.editorRow18,
-            this.editorRow19,
-            this.editorRow20,
-            this.editorRow21,
-            this.editorRow22,
-            this.editorRow23,
-            this.editorRow24,
-            this.editorRow25,
-            this.editorRow26,
-            this.editorRow27,
-            this.editorRow28,
-            this.editorRow29});
-            this.categoryRow3.Height = 19;
-            this.categoryRow3.Name = "categoryRow3";
-            this.categoryRow3.Properties.Caption = "투광 소자 검사 정보";
-            // 
-            // editorRow15
-            // 
-            this.editorRow15.Appearance.Options.UseTextOptions = true;
-            this.editorRow15.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow15.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow15.Name = "editorRow15";
-            this.editorRow15.Properties.Caption = "투광 검사 유무";
-            this.editorRow15.Properties.Value = false;
-            // 
-            // editorRow16
-            // 
-            this.editorRow16.Appearance.Options.UseTextOptions = true;
-            this.editorRow16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow16.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow16.Name = "editorRow16";
-            this.editorRow16.Properties.Caption = "투광 단축검사거리[mm]";
-            this.editorRow16.Properties.Value = 500;
-            // 
-            // editorRow17
-            // 
-            this.editorRow17.Appearance.Options.UseTextOptions = true;
-            this.editorRow17.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow17.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow17.Name = "editorRow17";
-            this.editorRow17.Properties.Caption = "카메라 이동거리[mm]";
-            this.editorRow17.Properties.Value = 150;
-            // 
-            // editorRow18
-            // 
-            this.editorRow18.Appearance.Options.UseTextOptions = true;
-            this.editorRow18.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow18.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow18.Name = "editorRow18";
-            this.editorRow18.Properties.Caption = "카메라 노출시간[us]";
-            this.editorRow18.Properties.Value = 7000;
-            // 
-            // editorRow19
-            // 
-            this.editorRow19.Appearance.Options.UseTextOptions = true;
-            this.editorRow19.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow19.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow19.Name = "editorRow19";
-            this.editorRow19.Properties.Caption = "이미지 취득지연 시간[ms]";
-            this.editorRow19.Properties.Value = 1000;
-            // 
-            // editorRow20
-            // 
-            this.editorRow20.Appearance.Options.UseTextOptions = true;
-            this.editorRow20.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow20.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow20.Name = "editorRow20";
-            this.editorRow20.Properties.Caption = "수평 인식 임계값[0~255]";
-            this.editorRow20.Properties.Value = 128;
-            // 
-            // editorRow21
-            // 
-            this.editorRow21.Appearance.Options.UseTextOptions = true;
-            this.editorRow21.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow21.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow21.Name = "editorRow21";
-            this.editorRow21.Properties.Caption = "수직 인식 임계값[0~255]";
-            this.editorRow21.Properties.Value = 128;
-            // 
-            // editorRow22
-            // 
-            this.editorRow22.Appearance.Options.UseTextOptions = true;
-            this.editorRow22.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow22.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow22.Name = "editorRow22";
-            this.editorRow22.Properties.Caption = "광원 최소크기[mm]";
-            this.editorRow22.Properties.Value = 10;
-            // 
-            // editorRow23
-            // 
-            this.editorRow23.Appearance.Options.UseTextOptions = true;
-            this.editorRow23.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow23.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow23.Name = "editorRow23";
-            this.editorRow23.Properties.Caption = "광원 최대크기[mm]";
-            this.editorRow23.Properties.Value = 100;
-            // 
-            // editorRow24
-            // 
-            this.editorRow24.Appearance.Options.UseTextOptions = true;
-            this.editorRow24.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow24.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow24.Name = "editorRow24";
-            this.editorRow24.Properties.Caption = "편심 합격거리[mm]";
-            this.editorRow24.Properties.Value = "2";
-            // 
-            // editorRow25
-            // 
-            this.editorRow25.Appearance.Options.UseTextOptions = true;
-            this.editorRow25.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow25.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow25.Name = "editorRow25";
-            this.editorRow25.Properties.Caption = "발산각 합격각도[˚]";
-            this.editorRow25.Properties.Value = 5;
-            // 
-            // editorRow26
-            // 
-            this.editorRow26.Appearance.Options.UseTextOptions = true;
-            this.editorRow26.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow26.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow26.Name = "editorRow26";
-            this.editorRow26.Properties.Caption = "검사 영역 X점[픽셀]";
-            this.editorRow26.Properties.Value = 200;
-            // 
-            // editorRow27
-            // 
-            this.editorRow27.Appearance.Options.UseTextOptions = true;
-            this.editorRow27.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow27.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow27.Name = "editorRow27";
-            this.editorRow27.Properties.Caption = "검사 영역 Y점[픽셀]";
-            this.editorRow27.Properties.Value = 300;
-            // 
-            // editorRow28
-            // 
-            this.editorRow28.Appearance.Options.UseTextOptions = true;
-            this.editorRow28.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow28.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow28.Name = "editorRow28";
-            this.editorRow28.Properties.Caption = "검사 영역 폭[픽셀]";
-            this.editorRow28.Properties.Value = 600;
-            // 
-            // editorRow29
-            // 
-            this.editorRow29.Appearance.Options.UseTextOptions = true;
-            this.editorRow29.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.editorRow29.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.editorRow29.Name = "editorRow29";
-            this.editorRow29.Properties.Caption = "검사 영역 높이[픽셀]";
-            this.editorRow29.Properties.Value = 600;
             // 
             // layoutControlGroup4
             // 
@@ -1052,26 +675,27 @@
             this.layoutControlGroup4.GroupBordersVisible = false;
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2});
-            this.layoutControlGroup4.Name = "layoutControlGroup1";
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup4.Size = new System.Drawing.Size(350, 492);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(339, 558);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.vGridControl1;
+            this.layoutControlItem2.Control = this.vGridControlInspectionParam;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem3";
-            this.layoutControlItem2.Size = new System.Drawing.Size(348, 490);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(337, 556);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.layoutControl1);
-            this.groupControl1.Location = new System.Drawing.Point(355, 147);
+            this.groupControl1.Location = new System.Drawing.Point(351, 4);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(659, 515);
+            this.groupControl1.Size = new System.Drawing.Size(659, 581);
             this.groupControl1.TabIndex = 6;
             this.groupControl1.Text = "검사 거리 정보";
             // 
@@ -1084,108 +708,125 @@
             this.layoutControl1.Controls.Add(this.simpleButtonInspectionPositionDelete);
             this.layoutControl1.Controls.Add(this.simpleButtonInspectionPositionRegister);
             this.layoutControl1.Controls.Add(this.textEditInspectionPositionZ);
-            this.layoutControl1.Controls.Add(this.textEditInspectionPositionY1);
+            this.layoutControl1.Controls.Add(this.textEditInspectionPositionY);
             this.layoutControl1.Controls.Add(this.textEditInspectionPositionX);
             this.layoutControl1.Controls.Add(this.gridControlInspectionPosition);
             this.layoutControl1.Controls.Add(this.pictureEditInspectImage);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(2, 21);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(481, 178, 650, 400);
             this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl1.Root = this.layoutControlGroup5;
-            this.layoutControl1.Size = new System.Drawing.Size(655, 492);
+            this.layoutControl1.Size = new System.Drawing.Size(655, 558);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // comboBoxEditInspectionPositionType
             // 
-            this.comboBoxEditInspectionPositionType.Location = new System.Drawing.Point(51, 202);
+            this.comboBoxEditInspectionPositionType.Location = new System.Drawing.Point(51, 229);
+            this.comboBoxEditInspectionPositionType.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBoxEditInspectionPositionType.MenuManager = this.ribbonControl1;
             this.comboBoxEditInspectionPositionType.Name = "comboBoxEditInspectionPositionType";
             this.comboBoxEditInspectionPositionType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditInspectionPositionType.Size = new System.Drawing.Size(62, 20);
+            this.comboBoxEditInspectionPositionType.Size = new System.Drawing.Size(66, 20);
             this.comboBoxEditInspectionPositionType.StyleController = this.layoutControl1;
             this.comboBoxEditInspectionPositionType.TabIndex = 15;
             // 
             // simpleButtonReplaceUp
             // 
-            this.simpleButtonReplaceUp.Location = new System.Drawing.Point(631, 202);
+            this.simpleButtonReplaceUp.Location = new System.Drawing.Point(626, 229);
+            this.simpleButtonReplaceUp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonReplaceUp.Name = "simpleButtonReplaceUp";
-            this.simpleButtonReplaceUp.Size = new System.Drawing.Size(21, 22);
+            this.simpleButtonReplaceUp.Size = new System.Drawing.Size(26, 22);
             this.simpleButtonReplaceUp.StyleController = this.layoutControl1;
             this.simpleButtonReplaceUp.TabIndex = 14;
             this.simpleButtonReplaceUp.Text = "▲";
+            this.simpleButtonReplaceUp.Click += new System.EventHandler(this.simpleButtonReplaceUp_Click);
             // 
             // simpleButtonReplaceDown
             // 
-            this.simpleButtonReplaceDown.Location = new System.Drawing.Point(606, 202);
+            this.simpleButtonReplaceDown.Location = new System.Drawing.Point(597, 229);
+            this.simpleButtonReplaceDown.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonReplaceDown.Name = "simpleButtonReplaceDown";
-            this.simpleButtonReplaceDown.Size = new System.Drawing.Size(21, 22);
+            this.simpleButtonReplaceDown.Size = new System.Drawing.Size(25, 22);
             this.simpleButtonReplaceDown.StyleController = this.layoutControl1;
             this.simpleButtonReplaceDown.TabIndex = 13;
             this.simpleButtonReplaceDown.Text = "▼";
+            this.simpleButtonReplaceDown.Click += new System.EventHandler(this.simpleButtonReplaceDown_Click);
             // 
             // simpleButtonInspectionPositionEdit
             // 
-            this.simpleButtonInspectionPositionEdit.Location = new System.Drawing.Point(556, 202);
+            this.simpleButtonInspectionPositionEdit.Location = new System.Drawing.Point(558, 229);
+            this.simpleButtonInspectionPositionEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionEdit.Name = "simpleButtonInspectionPositionEdit";
-            this.simpleButtonInspectionPositionEdit.Size = new System.Drawing.Size(46, 22);
+            this.simpleButtonInspectionPositionEdit.Size = new System.Drawing.Size(35, 22);
             this.simpleButtonInspectionPositionEdit.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionEdit.TabIndex = 12;
             this.simpleButtonInspectionPositionEdit.Text = "수정";
+            this.simpleButtonInspectionPositionEdit.Click += new System.EventHandler(this.simpleButtonInspectionPositionEdit_Click);
             // 
             // simpleButtonInspectionPositionDelete
             // 
-            this.simpleButtonInspectionPositionDelete.Location = new System.Drawing.Point(508, 202);
+            this.simpleButtonInspectionPositionDelete.Location = new System.Drawing.Point(519, 229);
+            this.simpleButtonInspectionPositionDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionDelete.Name = "simpleButtonInspectionPositionDelete";
-            this.simpleButtonInspectionPositionDelete.Size = new System.Drawing.Size(44, 22);
+            this.simpleButtonInspectionPositionDelete.Size = new System.Drawing.Size(35, 22);
             this.simpleButtonInspectionPositionDelete.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionDelete.TabIndex = 11;
             this.simpleButtonInspectionPositionDelete.Text = "삭제";
+            this.simpleButtonInspectionPositionDelete.Click += new System.EventHandler(this.simpleButtonInspectionPositionDelete_Click);
             // 
             // simpleButtonInspectionPositionRegister
             // 
-            this.simpleButtonInspectionPositionRegister.Location = new System.Drawing.Point(462, 202);
+            this.simpleButtonInspectionPositionRegister.Location = new System.Drawing.Point(463, 229);
+            this.simpleButtonInspectionPositionRegister.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionRegister.Name = "simpleButtonInspectionPositionRegister";
-            this.simpleButtonInspectionPositionRegister.Size = new System.Drawing.Size(42, 22);
+            this.simpleButtonInspectionPositionRegister.Size = new System.Drawing.Size(52, 22);
             this.simpleButtonInspectionPositionRegister.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionRegister.TabIndex = 10;
             this.simpleButtonInspectionPositionRegister.Text = "등록";
+            this.simpleButtonInspectionPositionRegister.Click += new System.EventHandler(this.simpleButtonInspectionPositionRegister_Click);
             // 
             // textEditInspectionPositionZ
             // 
-            this.textEditInspectionPositionZ.Location = new System.Drawing.Point(377, 202);
+            this.textEditInspectionPositionZ.Location = new System.Drawing.Point(393, 229);
+            this.textEditInspectionPositionZ.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditInspectionPositionZ.Name = "textEditInspectionPositionZ";
-            this.textEditInspectionPositionZ.Size = new System.Drawing.Size(81, 20);
+            this.textEditInspectionPositionZ.Size = new System.Drawing.Size(66, 20);
             this.textEditInspectionPositionZ.StyleController = this.layoutControl1;
             this.textEditInspectionPositionZ.TabIndex = 9;
             // 
-            // textEditInspectionPositionY1
+            // textEditInspectionPositionY
             // 
-            this.textEditInspectionPositionY1.Location = new System.Drawing.Point(268, 202);
-            this.textEditInspectionPositionY1.MenuManager = this.ribbonControl1;
-            this.textEditInspectionPositionY1.Name = "textEditInspectionPositionY1";
-            this.textEditInspectionPositionY1.Size = new System.Drawing.Size(63, 20);
-            this.textEditInspectionPositionY1.StyleController = this.layoutControl1;
-            this.textEditInspectionPositionY1.TabIndex = 7;
+            this.textEditInspectionPositionY.Location = new System.Drawing.Point(281, 229);
+            this.textEditInspectionPositionY.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textEditInspectionPositionY.MenuManager = this.ribbonControl1;
+            this.textEditInspectionPositionY.Name = "textEditInspectionPositionY";
+            this.textEditInspectionPositionY.Size = new System.Drawing.Size(66, 20);
+            this.textEditInspectionPositionY.StyleController = this.layoutControl1;
+            this.textEditInspectionPositionY.TabIndex = 7;
             // 
             // textEditInspectionPositionX
             // 
-            this.textEditInspectionPositionX.Location = new System.Drawing.Point(159, 202);
+            this.textEditInspectionPositionX.Location = new System.Drawing.Point(163, 229);
+            this.textEditInspectionPositionX.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditInspectionPositionX.MenuManager = this.ribbonControl1;
             this.textEditInspectionPositionX.Name = "textEditInspectionPositionX";
-            this.textEditInspectionPositionX.Size = new System.Drawing.Size(57, 20);
+            this.textEditInspectionPositionX.Size = new System.Drawing.Size(66, 20);
             this.textEditInspectionPositionX.StyleController = this.layoutControl1;
             this.textEditInspectionPositionX.TabIndex = 6;
             // 
             // gridControlInspectionPosition
             // 
-            this.gridControlInspectionPosition.Location = new System.Drawing.Point(3, 228);
+            this.gridControlInspectionPosition.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gridControlInspectionPosition.Location = new System.Drawing.Point(3, 255);
             this.gridControlInspectionPosition.MainView = this.gridViewInspectionPositions;
+            this.gridControlInspectionPosition.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gridControlInspectionPosition.Name = "gridControlInspectionPosition";
-            this.gridControlInspectionPosition.Size = new System.Drawing.Size(649, 261);
+            this.gridControlInspectionPosition.Size = new System.Drawing.Size(649, 300);
             this.gridControlInspectionPosition.TabIndex = 5;
             this.gridControlInspectionPosition.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewInspectionPositions});
@@ -1223,6 +864,7 @@
             this.gridViewInspectionPositions.OptionsView.AllowHtmlDrawGroups = false;
             this.gridViewInspectionPositions.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.Hidden;
             this.gridViewInspectionPositions.OptionsView.ShowGroupPanel = false;
+            this.gridViewInspectionPositions.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewInspectionPositions_RowClick);
             // 
             // gridColumnIndex
             // 
@@ -1247,7 +889,7 @@
             this.gridColumnPositionType.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnPositionType.Caption = "Type";
             this.gridColumnPositionType.FieldName = "ePositionType";
-            this.gridColumnPositionType.MaxWidth = 200;
+            this.gridColumnPositionType.MaxWidth = 199;
             this.gridColumnPositionType.MinWidth = 14;
             this.gridColumnPositionType.Name = "gridColumnPositionType";
             this.gridColumnPositionType.OptionsColumn.FixedWidth = true;
@@ -1300,10 +942,11 @@
             // pictureEditInspectImage
             // 
             this.pictureEditInspectImage.Location = new System.Drawing.Point(3, 3);
+            this.pictureEditInspectImage.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureEditInspectImage.MenuManager = this.ribbonControl1;
             this.pictureEditInspectImage.Name = "pictureEditInspectImage";
             this.pictureEditInspectImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEditInspectImage.Size = new System.Drawing.Size(649, 195);
+            this.pictureEditInspectImage.Size = new System.Drawing.Size(649, 222);
             this.pictureEditInspectImage.StyleController = this.layoutControl1;
             this.pictureEditInspectImage.TabIndex = 4;
             // 
@@ -1325,7 +968,7 @@
             this.layoutControlItem17});
             this.layoutControlGroup5.Name = "Root";
             this.layoutControlGroup5.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup5.Size = new System.Drawing.Size(655, 492);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(655, 558);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // layoutControlItem4
@@ -1333,16 +976,16 @@
             this.layoutControlItem4.Control = this.pictureEditInspectImage;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(653, 199);
+            this.layoutControlItem4.Size = new System.Drawing.Size(653, 226);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.textEditInspectionPositionX;
-            this.layoutControlItem6.Location = new System.Drawing.Point(114, 199);
+            this.layoutControlItem6.Location = new System.Drawing.Point(118, 226);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(103, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(112, 26);
             this.layoutControlItem6.Text = "위치(X)";
             this.layoutControlItem6.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(37, 14);
@@ -1350,19 +993,19 @@
             // 
             // layoutControlItem7
             // 
-            this.layoutControlItem7.Control = this.textEditInspectionPositionY1;
-            this.layoutControlItem7.Location = new System.Drawing.Point(217, 199);
+            this.layoutControlItem7.Control = this.textEditInspectionPositionY;
+            this.layoutControlItem7.Location = new System.Drawing.Point(230, 226);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(115, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(118, 26);
             this.layoutControlItem7.Text = "위치(Y1)";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(45, 14);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.textEditInspectionPositionZ;
-            this.layoutControlItem9.Location = new System.Drawing.Point(332, 199);
+            this.layoutControlItem9.Location = new System.Drawing.Point(348, 226);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(127, 26);
+            this.layoutControlItem9.Size = new System.Drawing.Size(112, 26);
             this.layoutControlItem9.Text = "위치(Z)";
             this.layoutControlItem9.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem9.TextSize = new System.Drawing.Size(37, 14);
@@ -1371,75 +1014,130 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.simpleButtonInspectionPositionRegister;
-            this.layoutControlItem10.Location = new System.Drawing.Point(459, 199);
+            this.layoutControlItem10.Location = new System.Drawing.Point(460, 226);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(46, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(56, 26);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.simpleButtonInspectionPositionDelete;
-            this.layoutControlItem11.Location = new System.Drawing.Point(505, 199);
+            this.layoutControlItem11.Location = new System.Drawing.Point(516, 226);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(48, 26);
+            this.layoutControlItem11.Size = new System.Drawing.Size(39, 26);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.simpleButtonInspectionPositionEdit;
-            this.layoutControlItem12.Location = new System.Drawing.Point(553, 199);
+            this.layoutControlItem12.Location = new System.Drawing.Point(555, 226);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(50, 26);
+            this.layoutControlItem12.Size = new System.Drawing.Size(39, 26);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
             // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.simpleButtonReplaceDown;
-            this.layoutControlItem13.Location = new System.Drawing.Point(603, 199);
+            this.layoutControlItem13.Location = new System.Drawing.Point(594, 226);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(25, 26);
+            this.layoutControlItem13.Size = new System.Drawing.Size(29, 26);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.simpleButtonReplaceUp;
-            this.layoutControlItem14.Location = new System.Drawing.Point(628, 199);
+            this.layoutControlItem14.Location = new System.Drawing.Point(623, 226);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(25, 26);
+            this.layoutControlItem14.Size = new System.Drawing.Size(30, 26);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.comboBoxEditInspectionPositionType;
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 199);
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 226);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(114, 26);
+            this.layoutControlItem15.Size = new System.Drawing.Size(118, 26);
             this.layoutControlItem15.Text = "위치형태";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(45, 14);
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.gridControlInspectionPosition;
-            this.layoutControlItem17.Location = new System.Drawing.Point(0, 225);
+            this.layoutControlItem17.Location = new System.Drawing.Point(0, 252);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(653, 265);
+            this.layoutControlItem17.Size = new System.Drawing.Size(653, 304);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
+            // 
+            // layoutControl4
+            // 
+            this.layoutControl4.Controls.Add(this.groupControl1);
+            this.layoutControl4.Controls.Add(this.groupControl2);
+            this.layoutControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl4.Location = new System.Drawing.Point(0, 147);
+            this.layoutControl4.Name = "layoutControl4";
+            this.layoutControl4.Root = this.Root;
+            this.layoutControl4.Size = new System.Drawing.Size(1014, 589);
+            this.layoutControl4.TabIndex = 9;
+            this.layoutControl4.Text = "layoutControl4";
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem5,
+            this.layoutControlItem8});
+            this.Root.Name = "Root";
+            this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.Root.Size = new System.Drawing.Size(1014, 589);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.groupControl2;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(347, 585);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.groupControl1;
+            this.layoutControlItem8.Location = new System.Drawing.Point(347, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(663, 585);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
+            // rowPCBLayoutFilePath
+            // 
+            this.rowPCBLayoutFilePath.Name = "rowPCBLayoutFilePath";
+            this.rowPCBLayoutFilePath.Properties.Caption = "PCB 레이아웃 파일경로";
+            this.rowPCBLayoutFilePath.Properties.RowEdit = this.repositoryItemButtonEditPCBLayoutFilePath;
+            // 
+            // repositoryItemButtonEditPCBLayoutFilePath
+            // 
+            this.repositoryItemButtonEditPCBLayoutFilePath.AutoHeight = false;
+            this.repositoryItemButtonEditPCBLayoutFilePath.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEditPCBLayoutFilePath.Name = "repositoryItemButtonEditPCBLayoutFilePath";
             // 
             // RecipeEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 699);
-            this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.groupControl2);
+            this.ClientSize = new System.Drawing.Size(1014, 767);
+            this.Controls.Add(this.layoutControl4);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl1);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "RecipeEditor";
             this.Ribbon = this.ribbonControl1;
             this.ShowIcon = false;
@@ -1456,21 +1154,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductDetectMeterial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductDistance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vGridControlInspectionParam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vGridControlInspectionParam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.vGridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -1479,7 +1175,7 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditInspectionPositionType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionZ.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionY1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionY.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionX.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectionPosition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectionPositions)).EndInit();
@@ -1496,6 +1192,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
+            this.layoutControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditPCBLayoutFilePath)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1520,24 +1222,15 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxProductOutputType;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxProductDetectMeterial;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraVerticalGrid.VGridControl vGridControlInspectionParam;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEditRecipeCreateTime;
         private DevExpress.XtraVerticalGrid.Rows.CategoryRow categoryRecipeInformation;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowRecipeName;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowRecipeCreateTime;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowRecipeCreatorName;
-        private DevExpress.XtraVerticalGrid.Rows.CategoryRow categoryProductInformation;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowProductSeries;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowProductModelName;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowProductType;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowProductDistance;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowProductOpMode;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowProductOutputType;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowProductDetectMeterial;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowProductDistanceMargin;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowProductMaxDistanceProcessEnable;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowProductOriginDistanceProcessEnable;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowProductMinObjectDetectProcessEnable;
+        private DevExpress.XtraVerticalGrid.Rows.CategoryRow categoryPCBInformation;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPCBModelName;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPCBHorizontalSize;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPCBVerticalSize;
         private DevExpress.XtraVerticalGrid.Rows.CategoryRow categoryLEDInspectionInformation;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionUseEnable;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionShortDistance;
@@ -1549,7 +1242,7 @@
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionSpotMinSize;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionSpotMaxSize;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionAlignmentDistance;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionDivergenceAngle;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionDivergenceHMinAngle;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionWorkAreaLeft;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionWorkAreaTop;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionWorkAreaWidth;
@@ -1561,40 +1254,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraLayout.LayoutControl layoutControl2;
-        private DevExpress.XtraVerticalGrid.VGridControl vGridControl1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repositoryItemDateEdit1;
-        private DevExpress.XtraVerticalGrid.Rows.CategoryRow categoryRow1;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow1;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow2;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow3;
-        private DevExpress.XtraVerticalGrid.Rows.CategoryRow categoryRow2;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow4;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow5;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow6;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow7;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow8;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow9;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow10;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow11;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow12;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow13;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow14;
-        private DevExpress.XtraVerticalGrid.Rows.CategoryRow categoryRow3;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow15;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow16;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow17;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow18;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow19;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow20;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow21;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow22;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow23;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow24;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow25;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow26;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow27;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow28;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow editorRow29;
+        private DevExpress.XtraVerticalGrid.VGridControl vGridControlInspectionParam;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
@@ -1606,7 +1266,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonInspectionPositionDelete;
         private DevExpress.XtraEditors.SimpleButton simpleButtonInspectionPositionRegister;
         private DevExpress.XtraEditors.TextEdit textEditInspectionPositionZ;
-        private DevExpress.XtraEditors.TextEdit textEditInspectionPositionY1;
+        private DevExpress.XtraEditors.TextEdit textEditInspectionPositionY;
         private DevExpress.XtraEditors.TextEdit textEditInspectionPositionX;
         private DevExpress.XtraGrid.GridControl gridControlInspectionPosition;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewInspectionPositions;
@@ -1628,5 +1288,15 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup6;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionDivergenceHMaxAngle;
+        private DevExpress.XtraLayout.LayoutControl layoutControl4;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionDivergenceVMinAngle;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionDivergenceVMaxAngle;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPCBLayoutFilePath;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEditPCBLayoutFilePath;
     }
 }

@@ -235,5 +235,26 @@
   <ItemGroup>
     <None Include="Resources\cancel_16x16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pageorientationportrait_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textbox_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textbox_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportfile_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exportfile_16x16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
