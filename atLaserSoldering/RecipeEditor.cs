@@ -52,25 +52,14 @@ namespace atLaserSoldering
                 rowPCBVerticalSize.Properties.Caption = "PCB Vertical Size";
                 rowPCBLayoutFilePath.Properties.Caption = "PCB Layout File Path";
 
-                categoryLEDInspectionInformation.Properties.Caption = "Spot Inspection Information";
-                rowLEDInspectionUseEnable.Properties.Caption = "Use Short Distance";
-                rowLEDInspectionShortDistance.Properties.Caption = "Short Distance[mm]";
-                rowLedInspectionCameraMoveDistance.Properties.Caption = "Camera Move Distance[mm]";
-                rowLEDInspectionExposureTime.Properties.Caption = "Exposure Time[us]";
-                rowLEDInspectionAcquisitionDelayTime.Properties.Caption = "Acquisition Delay Time[ms]";
-                rowLEDInspectionReferenceThresholdH.Properties.Caption = "Threshold Horizon[0~255]";
-                rowLEDInspectionReferenceThresholdV.Properties.Caption = "Threshold Vertical[0~255]";
-                rowLEDInspectionSpotMinSize.Properties.Caption = "Min Spot Size[mm]";
-                rowLEDInspectionSpotMaxSize.Properties.Caption = "Max Spot Size[mm]";
-                rowLEDInspectionAlignmentDistance.Properties.Caption = "Reference Eccentricity[mm]";
-                rowLEDInspectionDivergenceHMinAngle.Properties.Caption = "Reference Eccentricity Horizon Min Angle[˚]";
-                rowLEDInspectionDivergenceHMaxAngle.Properties.Caption = "Reference Eccentricity Horizon Max Angle[˚]";
-                rowLEDInspectionDivergenceVMinAngle.Properties.Caption = "Reference Eccentricity Vertical Min Angle[˚]";
-                rowLEDInspectionDivergenceVMaxAngle.Properties.Caption = "Reference Eccentricity Vertical Max Angle[˚]";
-                rowLEDInspectionWorkAreaLeft.Properties.Caption = "ROI Left[Pixel]";
-                rowLEDInspectionWorkAreaTop.Properties.Caption = "ROI Top[Pixel]";
-                rowLEDInspectionWorkAreaWidth.Properties.Caption = "ROI Width[Pixel]";
-                rowLEDInspectionWorkAreaHeight.Properties.Caption = "ROI Height[Pixel]";
+                categoryInspectionInformation.Properties.Caption = "Spot Inspection Information";
+                rowReferenceInspectionLightBright.Properties.Caption = "Inspect Light Bright[0~1024]";
+                rowReferenceInspectionExposureTime.Properties.Caption = "Inspect Exposure Time[us]";                
+                rowReferenceInspectionVisionRecipeFilePath.Properties.Caption = "Inspect Vision Recipe FilePath";
+                rowSolderingInspectionLightBright.Properties.Caption = "Sodering Light Bright[0~1024]";
+                rowSolderingInspectionExposureTime.Properties.Caption = "Sodering Exposure Time[us]";
+                rowSolderingInspectionVisionRecipeFilePath.Properties.Caption = "Sodering Vision Recipe FilePath";
+                rowInspectionAcquisitionDelayTime.Properties.Caption = "Acquisition Delay Time[ms]";
 
                 groupControl2.Text = "Setup Recipe";
                 groupControl1.Text = "Inspection Information";
@@ -103,26 +92,14 @@ namespace atLaserSoldering
                 rowPCBVerticalSize.Properties.Caption = "PCB 세로 크기[mm]";
                 rowPCBLayoutFilePath.Properties.Caption = "PCB 레이아웃 파일 경로";
 
-                categoryLEDInspectionInformation.Properties.Caption = "투광 소자 검사 정보";
-                rowLEDInspectionUseEnable.Properties.Caption = "투광 단축 검사 유무";
-                rowLEDInspectionShortDistance.Properties.Caption = "투광 단축 검사거리[mm]";
-                rowLedInspectionCameraMoveDistance.Properties.Caption = "카메라 이동거리[mm]";
-                rowLEDInspectionExposureTime.Properties.Caption = "카메라 노출시간[us]";
-                rowLEDInspectionAcquisitionDelayTime.Properties.Caption = "이미지 취득지연 시간[ms]";
-                rowLEDInspectionReferenceThresholdH.Properties.Caption = "수평 인식 임계값[0~255]";
-                rowLEDInspectionReferenceThresholdV.Properties.Caption = "수직 인식 임계값[0~255]";
-                rowLEDInspectionSpotMinSize.Properties.Caption = "광원 최소크기[mm]";
-                rowLEDInspectionSpotMaxSize.Properties.Caption = "광원 최대크기[mm]";
-                rowLEDInspectionAlignmentDistance.Properties.Caption = "편심 합격거리[mm]";
-                rowLEDInspectionDivergenceHMinAngle.Properties.Caption = "편심각 합격범위 수평 최소각도[˚]";
-                rowLEDInspectionDivergenceHMaxAngle.Properties.Caption = "편심각 합격범위 수평 최대각도[˚]";
-                rowLEDInspectionDivergenceVMinAngle.Properties.Caption = "편심각 합격범위 수직 최소각도[˚]";
-                rowLEDInspectionDivergenceVMaxAngle.Properties.Caption = "편심각 합격범위 수직 최대각도[˚]";
-                rowLEDInspectionWorkAreaLeft.Properties.Caption = "검사 영역 X점[픽셀]";
-                rowLEDInspectionWorkAreaTop.Properties.Caption = "검사 영역 Y점[픽셀]";
-                rowLEDInspectionWorkAreaWidth.Properties.Caption = "검사 영역 폭[픽셀]";
-                rowLEDInspectionWorkAreaHeight.Properties.Caption = "검사 영역 높이[픽셀]";
-
+                categoryInspectionInformation.Properties.Caption = "비젼 검사 정보";
+                rowReferenceInspectionLightBright.Properties.Caption = "위치 보정 조명 밝기[0~1024]";
+                rowReferenceInspectionExposureTime.Properties.Caption = "위치 보정 카메라 노출시간[us]";                
+                rowReferenceInspectionVisionRecipeFilePath.Properties.Caption = "위치 보정 비젼레시피 파일경로";
+                rowSolderingInspectionLightBright.Properties.Caption = "납땜 검사 조명 밝기[0~1024]";
+                rowSolderingInspectionExposureTime.Properties.Caption = "납땜 검사 카메라 노출시간[us]";
+                rowSolderingInspectionVisionRecipeFilePath.Properties.Caption = "납땜 검사 비젼레시피 파일경로";
+                rowInspectionAcquisitionDelayTime.Properties.Caption = "이미지 취득 안정화 시간[ms]";
 
                 groupControl2.Text = "거리검사 레시피 설정";
                 groupControl1.Text = "검사 거리 정보";
@@ -203,16 +180,6 @@ namespace atLaserSoldering
             //_workParam._LedInspectionWorkAreaWidth = Convert.ToInt32(rowLEDInspectionWorkAreaWidth.Properties.Value);
             //_workParam._LedInspectionWorkAreaHeight = Convert.ToInt32(rowLEDInspectionWorkAreaHeight.Properties.Value);
             //gridControlInspectionPosition.DataSource = _workParam.InspectionPositions;
-
-            if (_workParam._LEDInspectionUseEnable)
-                rowLEDInspectionShortDistance.Enabled = true;
-            else
-                rowLEDInspectionShortDistance.Enabled = false;
-
-            rowLEDInspectionDivergenceHMinAngle.Enabled = true;
-            rowLEDInspectionDivergenceHMaxAngle.Enabled = true;
-            rowLEDInspectionDivergenceVMinAngle.Enabled = false;
-            rowLEDInspectionDivergenceVMaxAngle.Enabled = false;
         }
         private void barButtonItemNewRecipe_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -255,11 +222,6 @@ namespace atLaserSoldering
             vGridControlInspectionParam.Refresh();
 
             barButtonItemRecipeSave.Enabled = false;
-
-            rowLEDInspectionDivergenceHMinAngle.Enabled = true;
-            rowLEDInspectionDivergenceHMaxAngle.Enabled = true;
-            rowLEDInspectionDivergenceVMinAngle.Enabled = false;
-            rowLEDInspectionDivergenceVMaxAngle.Enabled = false;
 
             this.Text = string.Format("{0} - {1}.rcp", _strOldTitle, "NewRecipe.rcp");
 
@@ -914,62 +876,17 @@ namespace atLaserSoldering
 
                 _workParam._ProductType = (int)Enum.Parse(typeof(ModelType), strTemp);
 
-                if (_workParam._ProductType == (int)RecipeManager.ModelType.MirrorReflective)
-                {
-                    rowLEDInspectionDivergenceHMinAngle.Enabled = true;
-                    rowLEDInspectionDivergenceHMaxAngle.Enabled = true;
-                    rowLEDInspectionDivergenceVMinAngle.Enabled = true;
-                    rowLEDInspectionDivergenceVMaxAngle.Enabled = true;
-                }
-                else
-                {
-                    rowLEDInspectionDivergenceVMinAngle.Enabled = false;
-                    rowLEDInspectionDivergenceVMaxAngle.Enabled = false;
-                }
-
                 barButtonItemRecipeSave.Enabled = true;
                 _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("모델 유형이 {0}로 변경되었습니다.", _workParam._ProductType.ToString()));
             } 
-            else if (e.Row == rowLEDInspectionUseEnable)
+            else if (e.Row == rowReferenceInspectionLightBright)
             {
-                bool check = Convert.ToBoolean(rowLEDInspectionUseEnable.Properties.Value);
-                _workParam._LEDInspectionUseEnable = check;
-
-                if (check)
-                {
-                    rowLEDInspectionShortDistance.Enabled = true;
-                    MessageBox.Show("단축거리 검사 위치 X 좌표를 추가 하거나 수정하십시오.", "알람", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                    rowLEDInspectionShortDistance.Enabled = false;
-
-                barButtonItemRecipeSave.Enabled = true;
-                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("단축 거리 검사 유무가 {0}로 변경되었습니다.", _workParam._LEDInspectionUseEnable.ToString()));
-            }
-            else if (e.Row == rowLEDInspectionShortDistance)
-            {
-                fValue = Convert.ToSingle(rowLEDInspectionShortDistance.Properties.Value);
-
-                if (fValue <= 0 || fValue > 900)
-                {
-                    MessageBox.Show("단축거리 설정이 잘못 입력되었습니다.\r\n단축거리의 최대 거리는 900mm입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowLEDInspectionShortDistance.Properties.Value = _workParam._LEDInspectionShortDistance;
-                    vGridControlInspectionParam.Refresh();
-
-                    return;
-                }
-                _workParam._LEDInspectionShortDistance = fValue;
-                barButtonItemRecipeSave.Enabled = true;
-                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("단축거리가 {0}로 설정이 변경되었습니다.", _workParam._LEDInspectionShortDistance));
-            }
-            else if (e.Row == rowLedInspectionCameraMoveDistance)
-            {
-                fValue = Convert.ToSingle(rowLedInspectionCameraMoveDistance.Properties.Value);
+                fValue = Convert.ToSingle(rowReferenceInspectionLightBright.Properties.Value);
 
                 if (fValue <= 0 || fValue > 200)
                 {
                     MessageBox.Show("카메라 이동거리 설정이 잘못 입력되었습니다.\r\n카메라 거리의 최대 거리는 200mm입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowLedInspectionCameraMoveDistance.Properties.Value = _workParam._LEDInspectionCameraDistance;
+                    rowReferenceInspectionLightBright.Properties.Value = _workParam._LEDInspectionCameraDistance;
                     vGridControlInspectionParam.Refresh();
 
                     return;
@@ -978,14 +895,14 @@ namespace atLaserSoldering
                 barButtonItemRecipeSave.Enabled = true;
                 _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("카메라 이동거리가 {0}로 변경되었습니다.", _workParam._LEDInspectionCameraDistance));
             }
-            else if (e.Row == rowLEDInspectionExposureTime)
+            else if (e.Row == rowReferenceInspectionExposureTime)
             {
-                value = Convert.ToInt32(rowLEDInspectionExposureTime.Properties.Value);
+                value = Convert.ToInt32(rowReferenceInspectionExposureTime.Properties.Value);
 
                 if (value <= 0 || value > 1000000)
                 {
                     MessageBox.Show(string.Format("카메라 노출 시간을 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowLEDInspectionExposureTime.Properties.Value = _workParam._LEDInspectionExposureTime;
+                    rowReferenceInspectionExposureTime.Properties.Value = _workParam._LEDInspectionExposureTime;
                     vGridControlInspectionParam.Refresh();
                     return;
                 }
@@ -995,14 +912,14 @@ namespace atLaserSoldering
                 barButtonItemRecipeSave.Enabled = true;
                 _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("카메라 노출 시간이 {0}로 변경되었습니다.", _workParam._LEDInspectionExposureTime));
             }
-            else if (e.Row == rowLEDInspectionAcquisitionDelayTime)
+            else if (e.Row == rowInspectionAcquisitionDelayTime)
             {
-                value = Convert.ToInt32(rowLEDInspectionAcquisitionDelayTime.Properties.Value);
+                value = Convert.ToInt32(rowInspectionAcquisitionDelayTime.Properties.Value);
 
                 if (value <= 0 || value > 10000)
                 {
                     MessageBox.Show(string.Format("이미지 취득 대기 시간을 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowLEDInspectionAcquisitionDelayTime.Properties.Value = _workParam._LEDInspectionAcquisitionDelaytime;
+                    rowInspectionAcquisitionDelayTime.Properties.Value = _workParam._LEDInspectionAcquisitionDelaytime;
                     vGridControlInspectionParam.Refresh();
                     return;
                 }
@@ -1012,14 +929,14 @@ namespace atLaserSoldering
                 barButtonItemRecipeSave.Enabled = true;
                 _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("이미지 취득 대기 시간이 {0}로 변경되었습니다.", _workParam._LEDInspectionAcquisitionDelaytime));
             }
-            else if (e.Row == rowLEDInspectionReferenceThresholdH)
+            else if (e.Row == rowReferenceInspectionVisionRecipeFilePath)
             {
-                value = Convert.ToInt32(rowLEDInspectionReferenceThresholdH.Properties.Value);
+                value = Convert.ToInt32(rowReferenceInspectionVisionRecipeFilePath.Properties.Value);
 
                 if (value < 0 || value > 255)
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\n임계치 값은 0~255사이의 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowLEDInspectionReferenceThresholdH.Properties.Value = _workParam._LEDInspectionReferenceThresholdH;
+                    rowReferenceInspectionVisionRecipeFilePath.Properties.Value = _workParam._LEDInspectionReferenceThresholdH;
                     vGridControlInspectionParam.Refresh();
                     return;
                 }
@@ -1028,14 +945,14 @@ namespace atLaserSoldering
                 barButtonItemRecipeSave.Enabled = true;
                 _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("이미지 처리 수평 임계값이  {0}로 변경되었습니다.", _workParam._LEDInspectionReferenceThresholdH));
             }
-            else if (e.Row == rowLEDInspectionReferenceThresholdV)
+            else if (e.Row == rowSolderingInspectionLightBright)
             {
-                value = Convert.ToInt32(rowLEDInspectionReferenceThresholdV.Properties.Value);
+                value = Convert.ToInt32(rowSolderingInspectionLightBright.Properties.Value);
 
                 if (value < 0 || value > 255)
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\n임계치 값은 0~255사이의 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowLEDInspectionReferenceThresholdV.Properties.Value = _workParam._LEDInspectionReferenceThresholdV;
+                    rowSolderingInspectionLightBright.Properties.Value = _workParam._LEDInspectionReferenceThresholdV;
                     vGridControlInspectionParam.Refresh();
                     return;
                 }
@@ -1076,11 +993,6 @@ namespace atLaserSoldering
             //rowLEDInspectionWorkAreaTop.Properties.Value = _workParam._LEDInspectionWorkAreaTop;
             //rowLEDInspectionWorkAreaWidth.Properties.Value = _workParam._LedInspectionWorkAreaWidth;
             //rowLEDInspectionWorkAreaHeight.Properties.Value = _workParam._LedInspectionWorkAreaHeight;
-
-            if (_workParam._LEDInspectionUseEnable)
-                rowLEDInspectionShortDistance.Enabled = true;
-            else
-                rowLEDInspectionShortDistance.Enabled = false;
 
             gridViewInspectionPositions.RefreshData();
             vGridControlInspectionParam.Refresh();
@@ -1219,25 +1131,12 @@ namespace atLaserSoldering
 
             _workParam._ProductType = (int)Enum.Parse(typeof(ModelType), strTemp);
 
-            if (_workParam._ProductType == (int)RecipeManager.ModelType.MirrorReflective)
-            {
-                rowLEDInspectionDivergenceHMinAngle.Enabled = true;
-                rowLEDInspectionDivergenceHMaxAngle.Enabled = true;
-                rowLEDInspectionDivergenceVMinAngle.Enabled = true;
-                rowLEDInspectionDivergenceVMaxAngle.Enabled = true;
-            }
-            else
-            {
-                rowLEDInspectionDivergenceVMinAngle.Enabled = false;
-                rowLEDInspectionDivergenceVMaxAngle.Enabled = false;
-            }
-
-            fValue = Convert.ToSingle(rowLEDInspectionAlignmentDistance.Properties.Value);
+            fValue = Convert.ToSingle(rowInspectionAcquisitionDelayTime.Properties.Value);
 
             if (fValue <= 0 || fValue > 50)
             {
                 MessageBox.Show("편심 거리 설정이 잘못 입력되었습니다.\r\n편심의 최대 거리는 50mm입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                rowLEDInspectionAlignmentDistance.Properties.Value = _workParam._LEDInspectionAlignmentDistance;
+                rowInspectionAcquisitionDelayTime.Properties.Value = _workParam._LEDInspectionAlignmentDistance;
                 vGridControlInspectionParam.Refresh();
 
                 return;

@@ -55,25 +55,16 @@
             this.rowPCBModelName = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowPCBHorizontalSize = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowPCBVerticalSize = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.categoryLEDInspectionInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
-            this.rowLEDInspectionUseEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionShortDistance = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLedInspectionCameraMoveDistance = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionExposureTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionAcquisitionDelayTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionReferenceThresholdH = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionReferenceThresholdV = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionSpotMinSize = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionSpotMaxSize = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionAlignmentDistance = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionDivergenceHMinAngle = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionDivergenceHMaxAngle = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionDivergenceVMinAngle = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionDivergenceVMaxAngle = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionWorkAreaLeft = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionWorkAreaTop = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionWorkAreaWidth = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.rowLEDInspectionWorkAreaHeight = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowPCBLayoutFilePath = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.repositoryItemButtonEditPCBLayoutFilePath = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.categoryInspectionInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
+            this.rowReferenceInspectionLightBright = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowReferenceInspectionExposureTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowReferenceInspectionVisionRecipeFilePath = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowSolderingInspectionLightBright = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowSolderingInspectionExposureTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowSolderingInspectionVisionRecipeFilePath = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowInspectionAcquisitionDelayTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -120,8 +111,6 @@
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.rowPCBLayoutFilePath = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
-            this.repositoryItemButtonEditPCBLayoutFilePath = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductSeries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductType)).BeginInit();
@@ -132,6 +121,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditPCBLayoutFilePath)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
@@ -173,7 +163,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditPCBLayoutFilePath)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -394,192 +383,93 @@
             this.rowPCBVerticalSize.Properties.RowEdit = this.repositoryItemComboBoxProductType;
             this.rowPCBVerticalSize.Properties.Value = 60D;
             // 
-            // categoryLEDInspectionInformation
+            // rowPCBLayoutFilePath
             // 
-            this.categoryLEDInspectionInformation.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
-            this.rowLEDInspectionUseEnable,
-            this.rowLEDInspectionShortDistance,
-            this.rowLedInspectionCameraMoveDistance,
-            this.rowLEDInspectionExposureTime,
-            this.rowLEDInspectionAcquisitionDelayTime,
-            this.rowLEDInspectionReferenceThresholdH,
-            this.rowLEDInspectionReferenceThresholdV,
-            this.rowLEDInspectionSpotMinSize,
-            this.rowLEDInspectionSpotMaxSize,
-            this.rowLEDInspectionAlignmentDistance,
-            this.rowLEDInspectionDivergenceHMinAngle,
-            this.rowLEDInspectionDivergenceHMaxAngle,
-            this.rowLEDInspectionDivergenceVMinAngle,
-            this.rowLEDInspectionDivergenceVMaxAngle,
-            this.rowLEDInspectionWorkAreaLeft,
-            this.rowLEDInspectionWorkAreaTop,
-            this.rowLEDInspectionWorkAreaWidth,
-            this.rowLEDInspectionWorkAreaHeight});
-            this.categoryLEDInspectionInformation.Height = 12;
-            this.categoryLEDInspectionInformation.Name = "categoryLEDInspectionInformation";
-            this.categoryLEDInspectionInformation.Properties.Caption = "투광 소자 검사 정보";
+            this.rowPCBLayoutFilePath.Name = "rowPCBLayoutFilePath";
+            this.rowPCBLayoutFilePath.Properties.Caption = "PCB 레이아웃 파일경로";
+            this.rowPCBLayoutFilePath.Properties.RowEdit = this.repositoryItemButtonEditPCBLayoutFilePath;
             // 
-            // rowLEDInspectionUseEnable
+            // repositoryItemButtonEditPCBLayoutFilePath
             // 
-            this.rowLEDInspectionUseEnable.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionUseEnable.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionUseEnable.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionUseEnable.Name = "rowLEDInspectionUseEnable";
-            this.rowLEDInspectionUseEnable.Properties.Caption = "투광 단축 검사 유무";
-            this.rowLEDInspectionUseEnable.Properties.Value = false;
+            this.repositoryItemButtonEditPCBLayoutFilePath.AutoHeight = false;
+            this.repositoryItemButtonEditPCBLayoutFilePath.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.repositoryItemButtonEditPCBLayoutFilePath.Name = "repositoryItemButtonEditPCBLayoutFilePath";
             // 
-            // rowLEDInspectionShortDistance
+            // categoryInspectionInformation
             // 
-            this.rowLEDInspectionShortDistance.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionShortDistance.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionShortDistance.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionShortDistance.Name = "rowLEDInspectionShortDistance";
-            this.rowLEDInspectionShortDistance.Properties.Caption = "투광 단축검사거리[mm]";
-            this.rowLEDInspectionShortDistance.Properties.Value = 500;
+            this.categoryInspectionInformation.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.rowReferenceInspectionLightBright,
+            this.rowReferenceInspectionExposureTime,
+            this.rowReferenceInspectionVisionRecipeFilePath,
+            this.rowSolderingInspectionLightBright,
+            this.rowSolderingInspectionExposureTime,
+            this.rowSolderingInspectionVisionRecipeFilePath,
+            this.rowInspectionAcquisitionDelayTime});
+            this.categoryInspectionInformation.Height = 12;
+            this.categoryInspectionInformation.Name = "categoryInspectionInformation";
+            this.categoryInspectionInformation.Properties.Caption = "비젼 검사 정보";
             // 
-            // rowLedInspectionCameraMoveDistance
+            // rowReferenceInspectionLightBright
             // 
-            this.rowLedInspectionCameraMoveDistance.Appearance.Options.UseTextOptions = true;
-            this.rowLedInspectionCameraMoveDistance.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLedInspectionCameraMoveDistance.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLedInspectionCameraMoveDistance.Name = "rowLedInspectionCameraMoveDistance";
-            this.rowLedInspectionCameraMoveDistance.Properties.Caption = "카메라 이동거리[mm]";
-            this.rowLedInspectionCameraMoveDistance.Properties.Value = 150;
+            this.rowReferenceInspectionLightBright.Appearance.Options.UseTextOptions = true;
+            this.rowReferenceInspectionLightBright.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowReferenceInspectionLightBright.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowReferenceInspectionLightBright.Name = "rowReferenceInspectionLightBright";
+            this.rowReferenceInspectionLightBright.Properties.Caption = "위치보정 조명 밝기[0~1024]";
+            this.rowReferenceInspectionLightBright.Properties.Value = 256;
             // 
-            // rowLEDInspectionExposureTime
+            // rowReferenceInspectionExposureTime
             // 
-            this.rowLEDInspectionExposureTime.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionExposureTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionExposureTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionExposureTime.Name = "rowLEDInspectionExposureTime";
-            this.rowLEDInspectionExposureTime.Properties.Caption = "카메라 노출시간[us]";
-            this.rowLEDInspectionExposureTime.Properties.Value = 7000;
+            this.rowReferenceInspectionExposureTime.Appearance.Options.UseTextOptions = true;
+            this.rowReferenceInspectionExposureTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowReferenceInspectionExposureTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowReferenceInspectionExposureTime.Name = "rowReferenceInspectionExposureTime";
+            this.rowReferenceInspectionExposureTime.Properties.Caption = "위치 보정 카메라 노출시간[us]";
+            this.rowReferenceInspectionExposureTime.Properties.Value = 7000;
             // 
-            // rowLEDInspectionAcquisitionDelayTime
+            // rowReferenceInspectionVisionRecipeFilePath
             // 
-            this.rowLEDInspectionAcquisitionDelayTime.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionAcquisitionDelayTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionAcquisitionDelayTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionAcquisitionDelayTime.Name = "rowLEDInspectionAcquisitionDelayTime";
-            this.rowLEDInspectionAcquisitionDelayTime.Properties.Caption = "이미지 취득지연 시간[ms]";
-            this.rowLEDInspectionAcquisitionDelayTime.Properties.Value = 1000;
+            this.rowReferenceInspectionVisionRecipeFilePath.Appearance.Options.UseTextOptions = true;
+            this.rowReferenceInspectionVisionRecipeFilePath.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowReferenceInspectionVisionRecipeFilePath.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowReferenceInspectionVisionRecipeFilePath.Name = "rowReferenceInspectionVisionRecipeFilePath";
+            this.rowReferenceInspectionVisionRecipeFilePath.Properties.Caption = "위치 보정 비젼레시피 파일경로";
             // 
-            // rowLEDInspectionReferenceThresholdH
+            // rowSolderingInspectionLightBright
             // 
-            this.rowLEDInspectionReferenceThresholdH.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionReferenceThresholdH.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionReferenceThresholdH.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionReferenceThresholdH.Name = "rowLEDInspectionReferenceThresholdH";
-            this.rowLEDInspectionReferenceThresholdH.Properties.Caption = "수평 인식 임계값[0~255]";
-            this.rowLEDInspectionReferenceThresholdH.Properties.Value = 128;
+            this.rowSolderingInspectionLightBright.Appearance.Options.UseTextOptions = true;
+            this.rowSolderingInspectionLightBright.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowSolderingInspectionLightBright.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowSolderingInspectionLightBright.Name = "rowSolderingInspectionLightBright";
+            this.rowSolderingInspectionLightBright.Properties.Caption = "납땜 검사 조명 밝기[0~1024]";
+            this.rowSolderingInspectionLightBright.Properties.Value = 256;
             // 
-            // rowLEDInspectionReferenceThresholdV
+            // rowSolderingInspectionExposureTime
             // 
-            this.rowLEDInspectionReferenceThresholdV.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionReferenceThresholdV.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionReferenceThresholdV.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionReferenceThresholdV.Name = "rowLEDInspectionReferenceThresholdV";
-            this.rowLEDInspectionReferenceThresholdV.Properties.Caption = "수직 인식 임계값[0~255]";
-            this.rowLEDInspectionReferenceThresholdV.Properties.Value = 128;
+            this.rowSolderingInspectionExposureTime.Appearance.Options.UseTextOptions = true;
+            this.rowSolderingInspectionExposureTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowSolderingInspectionExposureTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowSolderingInspectionExposureTime.Name = "rowSolderingInspectionExposureTime";
+            this.rowSolderingInspectionExposureTime.Properties.Caption = "납땜 검사 카메라 노출시간[us]";
+            this.rowSolderingInspectionExposureTime.Properties.Value = 7000;
             // 
-            // rowLEDInspectionSpotMinSize
+            // rowSolderingInspectionVisionRecipeFilePath
             // 
-            this.rowLEDInspectionSpotMinSize.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionSpotMinSize.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionSpotMinSize.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionSpotMinSize.Name = "rowLEDInspectionSpotMinSize";
-            this.rowLEDInspectionSpotMinSize.Properties.Caption = "광원 최소크기[mm]";
-            this.rowLEDInspectionSpotMinSize.Properties.Value = 10;
+            this.rowSolderingInspectionVisionRecipeFilePath.Appearance.Options.UseTextOptions = true;
+            this.rowSolderingInspectionVisionRecipeFilePath.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowSolderingInspectionVisionRecipeFilePath.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowSolderingInspectionVisionRecipeFilePath.Name = "rowSolderingInspectionVisionRecipeFilePath";
+            this.rowSolderingInspectionVisionRecipeFilePath.Properties.Caption = "납땜 검사 비젼레시피 파일경로";
             // 
-            // rowLEDInspectionSpotMaxSize
+            // rowInspectionAcquisitionDelayTime
             // 
-            this.rowLEDInspectionSpotMaxSize.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionSpotMaxSize.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionSpotMaxSize.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionSpotMaxSize.Name = "rowLEDInspectionSpotMaxSize";
-            this.rowLEDInspectionSpotMaxSize.Properties.Caption = "광원 최대크기[mm]";
-            this.rowLEDInspectionSpotMaxSize.Properties.Value = 100;
-            // 
-            // rowLEDInspectionAlignmentDistance
-            // 
-            this.rowLEDInspectionAlignmentDistance.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionAlignmentDistance.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionAlignmentDistance.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionAlignmentDistance.Name = "rowLEDInspectionAlignmentDistance";
-            this.rowLEDInspectionAlignmentDistance.Properties.Caption = "편심 합격거리[mm]";
-            this.rowLEDInspectionAlignmentDistance.Properties.Value = "2";
-            // 
-            // rowLEDInspectionDivergenceHMinAngle
-            // 
-            this.rowLEDInspectionDivergenceHMinAngle.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionDivergenceHMinAngle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionDivergenceHMinAngle.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionDivergenceHMinAngle.Name = "rowLEDInspectionDivergenceHMinAngle";
-            this.rowLEDInspectionDivergenceHMinAngle.Properties.Caption = "편심각 합격 범위 X축 최소각도[˚]";
-            this.rowLEDInspectionDivergenceHMinAngle.Properties.Value = -4;
-            // 
-            // rowLEDInspectionDivergenceHMaxAngle
-            // 
-            this.rowLEDInspectionDivergenceHMaxAngle.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionDivergenceHMaxAngle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionDivergenceHMaxAngle.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionDivergenceHMaxAngle.Name = "rowLEDInspectionDivergenceHMaxAngle";
-            this.rowLEDInspectionDivergenceHMaxAngle.Properties.Caption = "편심각 합격 범위 X축 최대각도[˚]";
-            this.rowLEDInspectionDivergenceHMaxAngle.Properties.Value = 4;
-            // 
-            // rowLEDInspectionDivergenceVMinAngle
-            // 
-            this.rowLEDInspectionDivergenceVMinAngle.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionDivergenceVMinAngle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionDivergenceVMinAngle.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionDivergenceVMinAngle.Name = "rowLEDInspectionDivergenceVMinAngle";
-            this.rowLEDInspectionDivergenceVMinAngle.Properties.Caption = "편심각 합격 범위 Y축 최소각도[˚]";
-            this.rowLEDInspectionDivergenceVMinAngle.Properties.Value = -4;
-            // 
-            // rowLEDInspectionDivergenceVMaxAngle
-            // 
-            this.rowLEDInspectionDivergenceVMaxAngle.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionDivergenceVMaxAngle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionDivergenceVMaxAngle.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionDivergenceVMaxAngle.Name = "rowLEDInspectionDivergenceVMaxAngle";
-            this.rowLEDInspectionDivergenceVMaxAngle.Properties.Caption = "편심각 합격 범위 Y축 최대각도[˚]";
-            this.rowLEDInspectionDivergenceVMaxAngle.Properties.Value = 4;
-            // 
-            // rowLEDInspectionWorkAreaLeft
-            // 
-            this.rowLEDInspectionWorkAreaLeft.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionWorkAreaLeft.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionWorkAreaLeft.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionWorkAreaLeft.Name = "rowLEDInspectionWorkAreaLeft";
-            this.rowLEDInspectionWorkAreaLeft.Properties.Caption = "검사 영역 X점[픽셀]";
-            this.rowLEDInspectionWorkAreaLeft.Properties.Value = 1;
-            // 
-            // rowLEDInspectionWorkAreaTop
-            // 
-            this.rowLEDInspectionWorkAreaTop.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionWorkAreaTop.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionWorkAreaTop.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionWorkAreaTop.Name = "rowLEDInspectionWorkAreaTop";
-            this.rowLEDInspectionWorkAreaTop.Properties.Caption = "검사 영역 Y점[픽셀]";
-            this.rowLEDInspectionWorkAreaTop.Properties.Value = 1;
-            // 
-            // rowLEDInspectionWorkAreaWidth
-            // 
-            this.rowLEDInspectionWorkAreaWidth.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionWorkAreaWidth.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionWorkAreaWidth.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionWorkAreaWidth.Name = "rowLEDInspectionWorkAreaWidth";
-            this.rowLEDInspectionWorkAreaWidth.Properties.Caption = "검사 영역 폭[픽셀]";
-            this.rowLEDInspectionWorkAreaWidth.Properties.Value = 1599;
-            // 
-            // rowLEDInspectionWorkAreaHeight
-            // 
-            this.rowLEDInspectionWorkAreaHeight.Appearance.Options.UseTextOptions = true;
-            this.rowLEDInspectionWorkAreaHeight.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLEDInspectionWorkAreaHeight.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLEDInspectionWorkAreaHeight.Name = "rowLEDInspectionWorkAreaHeight";
-            this.rowLEDInspectionWorkAreaHeight.Properties.Caption = "검사 영역 높이[픽셀]";
-            this.rowLEDInspectionWorkAreaHeight.Properties.Value = 1199;
+            this.rowInspectionAcquisitionDelayTime.Appearance.Options.UseTextOptions = true;
+            this.rowInspectionAcquisitionDelayTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowInspectionAcquisitionDelayTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowInspectionAcquisitionDelayTime.Name = "rowInspectionAcquisitionDelayTime";
+            this.rowInspectionAcquisitionDelayTime.Properties.Caption = "이미지 취득 안정화시간[ms]";
+            this.rowInspectionAcquisitionDelayTime.Properties.Value = "1000";
             // 
             // layoutControl3
             // 
@@ -631,7 +521,7 @@
             this.vGridControlInspectionParam.Rows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
             this.categoryRecipeInformation,
             this.categoryPCBInformation,
-            this.categoryLEDInspectionInformation});
+            this.categoryInspectionInformation});
             this.vGridControlInspectionParam.Size = new System.Drawing.Size(333, 552);
             this.vGridControlInspectionParam.TabIndex = 0;
             this.vGridControlInspectionParam.CellValueChanged += new DevExpress.XtraVerticalGrid.Events.CellValueChangedEventHandler(this.vGridControlInspectionParam_CellValueChanged);
@@ -1116,19 +1006,6 @@
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
-            // rowPCBLayoutFilePath
-            // 
-            this.rowPCBLayoutFilePath.Name = "rowPCBLayoutFilePath";
-            this.rowPCBLayoutFilePath.Properties.Caption = "PCB 레이아웃 파일경로";
-            this.rowPCBLayoutFilePath.Properties.RowEdit = this.repositoryItemButtonEditPCBLayoutFilePath;
-            // 
-            // repositoryItemButtonEditPCBLayoutFilePath
-            // 
-            this.repositoryItemButtonEditPCBLayoutFilePath.AutoHeight = false;
-            this.repositoryItemButtonEditPCBLayoutFilePath.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEditPCBLayoutFilePath.Name = "repositoryItemButtonEditPCBLayoutFilePath";
-            // 
             // RecipeEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1156,6 +1033,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditPCBLayoutFilePath)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
@@ -1197,7 +1075,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditPCBLayoutFilePath)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1231,22 +1108,14 @@
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPCBModelName;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPCBHorizontalSize;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPCBVerticalSize;
-        private DevExpress.XtraVerticalGrid.Rows.CategoryRow categoryLEDInspectionInformation;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionUseEnable;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionShortDistance;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLedInspectionCameraMoveDistance;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionExposureTime;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionAcquisitionDelayTime;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionReferenceThresholdH;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionReferenceThresholdV;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionSpotMinSize;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionSpotMaxSize;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionAlignmentDistance;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionDivergenceHMinAngle;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionWorkAreaLeft;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionWorkAreaTop;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionWorkAreaWidth;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionWorkAreaHeight;
+        private DevExpress.XtraVerticalGrid.Rows.CategoryRow categoryInspectionInformation;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowReferenceInspectionLightBright;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowReferenceInspectionExposureTime;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowReferenceInspectionVisionRecipeFilePath;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowSolderingInspectionLightBright;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowSolderingInspectionExposureTime;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowSolderingInspectionVisionRecipeFilePath;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowInspectionAcquisitionDelayTime;
         private DevExpress.XtraLayout.LayoutControl layoutControl3;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
@@ -1289,13 +1158,10 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup6;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionDivergenceHMaxAngle;
         private DevExpress.XtraLayout.LayoutControl layoutControl4;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionDivergenceVMinAngle;
-        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLEDInspectionDivergenceVMaxAngle;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPCBLayoutFilePath;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEditPCBLayoutFilePath;
     }
