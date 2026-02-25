@@ -111,6 +111,8 @@
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.rowReferenceInspectionEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowSoderingInspectionEnale = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductSeries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductType)).BeginInit();
@@ -399,9 +401,11 @@
             // categoryInspectionInformation
             // 
             this.categoryInspectionInformation.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.rowReferenceInspectionEnable,
             this.rowReferenceInspectionLightBright,
             this.rowReferenceInspectionExposureTime,
             this.rowReferenceInspectionVisionRecipeFilePath,
+            this.rowSoderingInspectionEnale,
             this.rowSolderingInspectionLightBright,
             this.rowSolderingInspectionExposureTime,
             this.rowSolderingInspectionVisionRecipeFilePath,
@@ -507,7 +511,7 @@
             // 
             // vGridControlInspectionParam
             // 
-            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Default;
             this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
             this.vGridControlInspectionParam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -1006,6 +1010,18 @@
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
+            // rowReferenceInspectionEnable
+            // 
+            this.rowReferenceInspectionEnable.Name = "rowReferenceInspectionEnable";
+            this.rowReferenceInspectionEnable.Properties.Caption = "PCB 위치 보정 사용 유무";
+            this.rowReferenceInspectionEnable.Properties.Value = true;
+            // 
+            // rowSoderingInspectionEnale
+            // 
+            this.rowSoderingInspectionEnale.Name = "rowSoderingInspectionEnale";
+            this.rowSoderingInspectionEnale.Properties.Caption = "납땜 검사 사용 유무";
+            this.rowSoderingInspectionEnale.Properties.Value = true;
+            // 
             // RecipeEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1164,5 +1180,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPCBLayoutFilePath;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEditPCBLayoutFilePath;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowReferenceInspectionEnable;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowSoderingInspectionEnale;
     }
 }

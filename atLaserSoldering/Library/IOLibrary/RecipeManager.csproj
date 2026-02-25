@@ -89,16 +89,14 @@
     <Compile Include="Params\CameraParams.cs" />
     <Compile Include="Params\AicParams.cs" />
     <Compile Include="Params\FeederParams.cs" />
-    <Compile Include="Params\InspectAngleParam.cs" />
-    <Compile Include="Params\InspectDistanceParam.cs" />
     <Compile Include="Params\LaserParams.cs" />
     <Compile Include="Params\LightParams.cs" />
-    <Compile Include="Params\PhotoInspectWorkParams.cs" />
     <Compile Include="Params\RemoteIOParams.cs" />
     <Compile Include="Params\MotionParams.cs" />
     <Compile Include="Params\PositionParams.cs" />
     <Compile Include="Params\RobotInformation.cs" />
     <Compile Include="Params\SerialParams.cs" />
+    <Compile Include="Params\SoderingParams.cs" />
     <Compile Include="Params\StatisticParams.cs" />
     <Compile Include="Params\SystemDirectoryParams.cs" />
     <Compile Include="Params\SystemParams.cs" />
