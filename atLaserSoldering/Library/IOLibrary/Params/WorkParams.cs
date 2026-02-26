@@ -42,6 +42,12 @@ namespace RecipeManager
         public int _LedInspectionWorkAreaWidth { get; set; } = 600;
         public int _LedInspectionWorkAreaHeight { get; set; } = 600;
 
+        public double _FiducialMarkA_X { get; set; } = 0;
+        public double _FiducialMarkA_Y { get; set; } = 0;
+
+        public double _FiducialMarkB_X { get; set; } = 0;
+        public double _FiducialMarkB_Y { get; set; } = 0;
+
         // 단축 거리 검사 파라미터
         public bool _InspectionShortDistanceEnable { get; set; } = false;
         public bool _InspectionPerformanceEnable { get; set; } = false;

@@ -21,6 +21,21 @@ namespace RecipeManager
         private double _ReverseAcceleration = 0;
         private int _LaserOnTime = 0;
 
+        INSPECTION_POSITION_MODE _positiontype = INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE;
+        private double _positionX = 0;
+        private double _positionY = 0;
+        private double _positionZ = 0;
+        private double _positionRx = 0;
+        private double _positionRy = 0;
+        private double _positionRz = 0;
+
+        public INSPECTION_POSITION_MODE ePositionType { get { return _positiontype; } set { _positiontype = value; } }
+        public double PositionX { get { return _positionX; } set { _positionX = value; } }
+        public double PositionY { get { return _positionY; } set { _positionY = value; } }
+        public double PositionZ { get { return _positionZ; } set { _positionZ = value; } }
+        public double PositionRx { get { return _positionRx; } set { _positionRx = value; } }
+        public double PositionRy { get { return _positionRy; } set { _positionRy = value; } }
+        public double PositionRz { get { return _positionRz; } set { _positionRz = value; } }
         public int PreheatPowerRatio { get { return _PreheatPowerRatio; } set { _PreheatPowerRatio = value; } }
         public int HeatPowerRatio { get { return _HeatPowerRatio; } set { _HeatPowerRatio = value; } }
         public int ReadyTime { get { return _ReadyTime; } set { _ReadyTime = value; } }
