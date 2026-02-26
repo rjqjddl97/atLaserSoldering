@@ -113,6 +113,29 @@
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
+            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.pictureEditLaserProfile = new DevExpress.XtraEditors.PictureEdit();
+            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.textEditReadyWaitTime = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.textEditPreHeatTime = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.textEditHeatTime = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.textEditPreHeatPowerRatio = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.textEditHeatPowerRatio = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.textEditForwardFeedLength = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.textEditForwardFeedVelocity = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.textEditReverseFeedLength = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.textEditReverseFeedVelocity = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem27 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductSeries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductType)).BeginInit();
@@ -165,6 +188,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
+            this.layoutControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditLaserProfile.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReadyWaitTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatPowerRatio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatPowerRatio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedLength.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedVelocity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedLength.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedVelocity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -523,7 +570,7 @@
             // 
             // vGridControlInspectionParam
             // 
-            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Default;
             this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
             this.vGridControlInspectionParam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -607,6 +654,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.layoutControl5);
             this.layoutControl1.Controls.Add(this.comboBoxEditInspectionPositionType);
             this.layoutControl1.Controls.Add(this.simpleButtonReplaceUp);
             this.layoutControl1.Controls.Add(this.simpleButtonReplaceDown);
@@ -852,7 +900,7 @@
             this.pictureEditInspectImage.MenuManager = this.ribbonControl1;
             this.pictureEditInspectImage.Name = "pictureEditInspectImage";
             this.pictureEditInspectImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEditInspectImage.Size = new System.Drawing.Size(664, 222);
+            this.pictureEditInspectImage.Size = new System.Drawing.Size(243, 222);
             this.pictureEditInspectImage.StyleController = this.layoutControl1;
             this.pictureEditInspectImage.TabIndex = 4;
             // 
@@ -871,7 +919,8 @@
             this.layoutControlItem13,
             this.layoutControlItem14,
             this.layoutControlItem15,
-            this.layoutControlItem17});
+            this.layoutControlItem17,
+            this.layoutControlItem16});
             this.layoutControlGroup5.Name = "Root";
             this.layoutControlGroup5.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutControlGroup5.Size = new System.Drawing.Size(670, 558);
@@ -882,7 +931,7 @@
             this.layoutControlItem4.Control = this.pictureEditInspectImage;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(668, 226);
+            this.layoutControlItem4.Size = new System.Drawing.Size(247, 226);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -1022,6 +1071,235 @@
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
+            // layoutControl5
+            // 
+            this.layoutControl5.Controls.Add(this.textEditReverseFeedVelocity);
+            this.layoutControl5.Controls.Add(this.textEditReverseFeedLength);
+            this.layoutControl5.Controls.Add(this.textEditForwardFeedVelocity);
+            this.layoutControl5.Controls.Add(this.textEditForwardFeedLength);
+            this.layoutControl5.Controls.Add(this.textEditHeatPowerRatio);
+            this.layoutControl5.Controls.Add(this.textEditPreHeatPowerRatio);
+            this.layoutControl5.Controls.Add(this.textEditHeatTime);
+            this.layoutControl5.Controls.Add(this.textEditPreHeatTime);
+            this.layoutControl5.Controls.Add(this.textEditReadyWaitTime);
+            this.layoutControl5.Controls.Add(this.pictureEditLaserProfile);
+            this.layoutControl5.Location = new System.Drawing.Point(250, 3);
+            this.layoutControl5.Name = "layoutControl5";
+            this.layoutControl5.Root = this.layoutControlGroup7;
+            this.layoutControl5.Size = new System.Drawing.Size(417, 222);
+            this.layoutControl5.TabIndex = 16;
+            this.layoutControl5.Text = "layoutControl5";
+            // 
+            // layoutControlItem16
+            // 
+            this.layoutControlItem16.Control = this.layoutControl5;
+            this.layoutControlItem16.Location = new System.Drawing.Point(247, 0);
+            this.layoutControlItem16.Name = "layoutControlItem16";
+            this.layoutControlItem16.Size = new System.Drawing.Size(421, 226);
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem16.TextVisible = false;
+            // 
+            // layoutControlGroup7
+            // 
+            this.layoutControlGroup7.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup7.GroupBordersVisible = false;
+            this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem18,
+            this.layoutControlItem19,
+            this.layoutControlItem20,
+            this.layoutControlItem21,
+            this.layoutControlItem22,
+            this.layoutControlItem23,
+            this.layoutControlItem24,
+            this.layoutControlItem25,
+            this.layoutControlItem26,
+            this.layoutControlItem27});
+            this.layoutControlGroup7.Name = "layoutControlGroup7";
+            this.layoutControlGroup7.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(417, 222);
+            this.layoutControlGroup7.TextVisible = false;
+            // 
+            // pictureEditLaserProfile
+            // 
+            this.pictureEditLaserProfile.Location = new System.Drawing.Point(190, 3);
+            this.pictureEditLaserProfile.MenuManager = this.ribbonControl1;
+            this.pictureEditLaserProfile.Name = "pictureEditLaserProfile";
+            this.pictureEditLaserProfile.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEditLaserProfile.Size = new System.Drawing.Size(224, 216);
+            this.pictureEditLaserProfile.StyleController = this.layoutControl5;
+            this.pictureEditLaserProfile.TabIndex = 4;
+            // 
+            // layoutControlItem18
+            // 
+            this.layoutControlItem18.Control = this.pictureEditLaserProfile;
+            this.layoutControlItem18.Location = new System.Drawing.Point(187, 0);
+            this.layoutControlItem18.Name = "layoutControlItem18";
+            this.layoutControlItem18.Size = new System.Drawing.Size(228, 220);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem18.TextVisible = false;
+            // 
+            // textEditReadyWaitTime
+            // 
+            this.textEditReadyWaitTime.Location = new System.Drawing.Point(136, 3);
+            this.textEditReadyWaitTime.MenuManager = this.ribbonControl1;
+            this.textEditReadyWaitTime.Name = "textEditReadyWaitTime";
+            this.textEditReadyWaitTime.Size = new System.Drawing.Size(50, 20);
+            this.textEditReadyWaitTime.StyleController = this.layoutControl5;
+            this.textEditReadyWaitTime.TabIndex = 5;
+            // 
+            // layoutControlItem19
+            // 
+            this.layoutControlItem19.Control = this.textEditReadyWaitTime;
+            this.layoutControlItem19.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem19.Name = "layoutControlItem19";
+            this.layoutControlItem19.Size = new System.Drawing.Size(187, 24);
+            this.layoutControlItem19.Text = "Ready Time[ms]";
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // textEditPreHeatTime
+            // 
+            this.textEditPreHeatTime.Location = new System.Drawing.Point(136, 27);
+            this.textEditPreHeatTime.MenuManager = this.ribbonControl1;
+            this.textEditPreHeatTime.Name = "textEditPreHeatTime";
+            this.textEditPreHeatTime.Size = new System.Drawing.Size(50, 20);
+            this.textEditPreHeatTime.StyleController = this.layoutControl5;
+            this.textEditPreHeatTime.TabIndex = 6;
+            // 
+            // layoutControlItem20
+            // 
+            this.layoutControlItem20.Control = this.textEditPreHeatTime;
+            this.layoutControlItem20.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem20.Name = "layoutControlItem20";
+            this.layoutControlItem20.Size = new System.Drawing.Size(187, 24);
+            this.layoutControlItem20.Text = "PreHeat Time[ms]";
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // textEditHeatTime
+            // 
+            this.textEditHeatTime.Location = new System.Drawing.Point(136, 75);
+            this.textEditHeatTime.MenuManager = this.ribbonControl1;
+            this.textEditHeatTime.Name = "textEditHeatTime";
+            this.textEditHeatTime.Size = new System.Drawing.Size(50, 20);
+            this.textEditHeatTime.StyleController = this.layoutControl5;
+            this.textEditHeatTime.TabIndex = 7;
+            // 
+            // layoutControlItem21
+            // 
+            this.layoutControlItem21.Control = this.textEditHeatTime;
+            this.layoutControlItem21.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem21.Name = "layoutControlItem21";
+            this.layoutControlItem21.Size = new System.Drawing.Size(187, 24);
+            this.layoutControlItem21.Text = "Heat Time[ms]";
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // textEditPreHeatPowerRatio
+            // 
+            this.textEditPreHeatPowerRatio.Location = new System.Drawing.Point(136, 51);
+            this.textEditPreHeatPowerRatio.MenuManager = this.ribbonControl1;
+            this.textEditPreHeatPowerRatio.Name = "textEditPreHeatPowerRatio";
+            this.textEditPreHeatPowerRatio.Size = new System.Drawing.Size(50, 20);
+            this.textEditPreHeatPowerRatio.StyleController = this.layoutControl5;
+            this.textEditPreHeatPowerRatio.TabIndex = 8;
+            // 
+            // layoutControlItem22
+            // 
+            this.layoutControlItem22.Control = this.textEditPreHeatPowerRatio;
+            this.layoutControlItem22.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem22.Name = "layoutControlItem22";
+            this.layoutControlItem22.Size = new System.Drawing.Size(187, 24);
+            this.layoutControlItem22.Text = "PreHeat P. Ratio[%]";
+            this.layoutControlItem22.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // textEditHeatPowerRatio
+            // 
+            this.textEditHeatPowerRatio.Location = new System.Drawing.Point(136, 99);
+            this.textEditHeatPowerRatio.MenuManager = this.ribbonControl1;
+            this.textEditHeatPowerRatio.Name = "textEditHeatPowerRatio";
+            this.textEditHeatPowerRatio.Size = new System.Drawing.Size(50, 20);
+            this.textEditHeatPowerRatio.StyleController = this.layoutControl5;
+            this.textEditHeatPowerRatio.TabIndex = 9;
+            // 
+            // layoutControlItem23
+            // 
+            this.layoutControlItem23.Control = this.textEditHeatPowerRatio;
+            this.layoutControlItem23.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem23.Name = "layoutControlItem23";
+            this.layoutControlItem23.Size = new System.Drawing.Size(187, 24);
+            this.layoutControlItem23.Text = "Heat P. Ratio[%]";
+            this.layoutControlItem23.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // textEditForwardFeedLength
+            // 
+            this.textEditForwardFeedLength.Location = new System.Drawing.Point(136, 123);
+            this.textEditForwardFeedLength.MenuManager = this.ribbonControl1;
+            this.textEditForwardFeedLength.Name = "textEditForwardFeedLength";
+            this.textEditForwardFeedLength.Size = new System.Drawing.Size(50, 20);
+            this.textEditForwardFeedLength.StyleController = this.layoutControl5;
+            this.textEditForwardFeedLength.TabIndex = 10;
+            // 
+            // layoutControlItem24
+            // 
+            this.layoutControlItem24.Control = this.textEditForwardFeedLength;
+            this.layoutControlItem24.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem24.Name = "layoutControlItem24";
+            this.layoutControlItem24.Size = new System.Drawing.Size(187, 24);
+            this.layoutControlItem24.Text = "F. Feed Length[mm]";
+            this.layoutControlItem24.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // textEditForwardFeedVelocity
+            // 
+            this.textEditForwardFeedVelocity.Location = new System.Drawing.Point(136, 147);
+            this.textEditForwardFeedVelocity.MenuManager = this.ribbonControl1;
+            this.textEditForwardFeedVelocity.Name = "textEditForwardFeedVelocity";
+            this.textEditForwardFeedVelocity.Size = new System.Drawing.Size(50, 20);
+            this.textEditForwardFeedVelocity.StyleController = this.layoutControl5;
+            this.textEditForwardFeedVelocity.TabIndex = 11;
+            // 
+            // layoutControlItem25
+            // 
+            this.layoutControlItem25.Control = this.textEditForwardFeedVelocity;
+            this.layoutControlItem25.Location = new System.Drawing.Point(0, 144);
+            this.layoutControlItem25.Name = "layoutControlItem25";
+            this.layoutControlItem25.Size = new System.Drawing.Size(187, 24);
+            this.layoutControlItem25.Text = "F. Feed Velocity[mm/s]";
+            this.layoutControlItem25.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // textEditReverseFeedLength
+            // 
+            this.textEditReverseFeedLength.Location = new System.Drawing.Point(136, 171);
+            this.textEditReverseFeedLength.MenuManager = this.ribbonControl1;
+            this.textEditReverseFeedLength.Name = "textEditReverseFeedLength";
+            this.textEditReverseFeedLength.Size = new System.Drawing.Size(50, 20);
+            this.textEditReverseFeedLength.StyleController = this.layoutControl5;
+            this.textEditReverseFeedLength.TabIndex = 12;
+            // 
+            // layoutControlItem26
+            // 
+            this.layoutControlItem26.Control = this.textEditReverseFeedLength;
+            this.layoutControlItem26.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem26.Name = "layoutControlItem26";
+            this.layoutControlItem26.Size = new System.Drawing.Size(187, 24);
+            this.layoutControlItem26.Text = "R. Feed Length[mm]";
+            this.layoutControlItem26.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // textEditReverseFeedVelocity
+            // 
+            this.textEditReverseFeedVelocity.Location = new System.Drawing.Point(136, 195);
+            this.textEditReverseFeedVelocity.MenuManager = this.ribbonControl1;
+            this.textEditReverseFeedVelocity.Name = "textEditReverseFeedVelocity";
+            this.textEditReverseFeedVelocity.Size = new System.Drawing.Size(50, 20);
+            this.textEditReverseFeedVelocity.StyleController = this.layoutControl5;
+            this.textEditReverseFeedVelocity.TabIndex = 13;
+            // 
+            // layoutControlItem27
+            // 
+            this.layoutControlItem27.Control = this.textEditReverseFeedVelocity;
+            this.layoutControlItem27.Location = new System.Drawing.Point(0, 192);
+            this.layoutControlItem27.Name = "layoutControlItem27";
+            this.layoutControlItem27.Size = new System.Drawing.Size(187, 28);
+            this.layoutControlItem27.Text = "R. Feed Velocity[mm/s]";
+            this.layoutControlItem27.TextSize = new System.Drawing.Size(129, 14);
+            // 
             // RecipeEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1091,6 +1369,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
+            this.layoutControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditLaserProfile.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReadyWaitTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatPowerRatio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatPowerRatio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedLength.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedVelocity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedLength.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedVelocity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1182,5 +1484,28 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEditPCBLayoutFilePath;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowReferenceInspectionEnable;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowSoderingInspectionEnale;
+        private DevExpress.XtraLayout.LayoutControl layoutControl5;
+        private DevExpress.XtraEditors.TextEdit textEditPreHeatTime;
+        private DevExpress.XtraEditors.TextEdit textEditReadyWaitTime;
+        private DevExpress.XtraEditors.PictureEdit pictureEditLaserProfile;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup7;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
+        private DevExpress.XtraEditors.TextEdit textEditHeatTime;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem21;
+        private DevExpress.XtraEditors.TextEdit textEditHeatPowerRatio;
+        private DevExpress.XtraEditors.TextEdit textEditPreHeatPowerRatio;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem22;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem23;
+        private DevExpress.XtraEditors.TextEdit textEditForwardFeedLength;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem24;
+        private DevExpress.XtraEditors.TextEdit textEditReverseFeedVelocity;
+        private DevExpress.XtraEditors.TextEdit textEditReverseFeedLength;
+        private DevExpress.XtraEditors.TextEdit textEditForwardFeedVelocity;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem25;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem26;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem27;
     }
 }
