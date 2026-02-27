@@ -256,5 +256,8 @@
   <ItemGroup>
     <None Include="Resources\exportfile_16x16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Solderingprofile.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

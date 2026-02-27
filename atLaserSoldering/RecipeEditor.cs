@@ -146,8 +146,7 @@ namespace atLaserSoldering
             //{
             //    comboBoxEditInspectionPositionType.Properties.Items.Add(RecipeFileIO.InspectionPositionType[i]);
             //}
-            rowPCBModelName.Properties.Value = repositoryItemComboBoxProductSeries.Items[0].ToString();
-            rowPCBVerticalSize.Properties.Value = repositoryItemComboBoxProductType.Items[0].ToString();
+            rowPCBModelName.Properties.Value = repositoryItemComboBoxPCBModelName.Items[0].ToString();            
             
             comboBoxEditInspectionPositionType.SelectedIndex = 0;
             // Recipe의 Recipe Infomation 초기화

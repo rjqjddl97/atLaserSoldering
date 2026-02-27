@@ -248,5 +248,23 @@ namespace atLaserSoldering
                 mLog.WriteLog(LogLevel.Error, LogClass.atPhoto.ToString(), "RemoteIO 로그 이벤트에 오류가 있습니다.");
             }
         }
+
+        private void barButtonItemRecipeEditorOpen_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (_systemParams != null)
+                {
+                    RecipeEditor edit = new RecipeEditor(_systemParams._SystemLanguageKoreaUse);
+                    edit.SetSystemParam(_systemParams);
+                    edit._log.WriteLogViewer += LogUpdated;
+                    edit.Show(this);
+                }
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atPhoto.ToString(), "레시피 편집기 실행을 하지 못햇습니다.");
+            }
+        }
     }
 }

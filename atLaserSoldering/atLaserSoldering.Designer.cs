@@ -313,6 +313,7 @@
             this.barButtonItemRecipeEditorOpen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemRecipeEditorOpen.ImageOptions.Image")));
             this.barButtonItemRecipeEditorOpen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemRecipeEditorOpen.ImageOptions.LargeImage")));
             this.barButtonItemRecipeEditorOpen.Name = "barButtonItemRecipeEditorOpen";
+            this.barButtonItemRecipeEditorOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemRecipeEditorOpen_ItemClick);
             // 
             // barButtonItemCameraListRefresh
             // 

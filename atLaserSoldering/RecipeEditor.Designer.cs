@@ -73,6 +73,10 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.vGridControlInspectionParam = new DevExpress.XtraVerticalGrid.VGridControl();
+            this.categoryLaserSolderingInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
+            this.rowLaserSolderingEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowLaserSolderingLaserEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowLaserSolderingFeedEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -80,6 +84,29 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.buttonEditPCBLayoutFilePath = new DevExpress.XtraEditors.ButtonEdit();
+            this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
+            this.textEditReverseFeedVelocity = new DevExpress.XtraEditors.TextEdit();
+            this.textEditReverseFeedLength = new DevExpress.XtraEditors.TextEdit();
+            this.textEditForwardFeedVelocity = new DevExpress.XtraEditors.TextEdit();
+            this.textEditForwardFeedLength = new DevExpress.XtraEditors.TextEdit();
+            this.textEditHeatPowerRatio = new DevExpress.XtraEditors.TextEdit();
+            this.textEditPreHeatPowerRatio = new DevExpress.XtraEditors.TextEdit();
+            this.textEditHeatTime = new DevExpress.XtraEditors.TextEdit();
+            this.textEditPreHeatTime = new DevExpress.XtraEditors.TextEdit();
+            this.textEditReadyWaitTime = new DevExpress.XtraEditors.TextEdit();
+            this.pictureEditLaserProfile = new DevExpress.XtraEditors.PictureEdit();
+            this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem27 = new DevExpress.XtraLayout.LayoutControlItem();
             this.comboBoxEditInspectionPositionType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.simpleButtonReplaceUp = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonReplaceDown = new DevExpress.XtraEditors.SimpleButton();
@@ -109,33 +136,13 @@
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem28 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.pictureEditLaserProfile = new DevExpress.XtraEditors.PictureEdit();
-            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEditReadyWaitTime = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEditPreHeatTime = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEditHeatTime = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEditPreHeatPowerRatio = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEditHeatPowerRatio = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEditForwardFeedLength = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEditForwardFeedVelocity = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEditReverseFeedLength = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.textEditReverseFeedVelocity = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem27 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.repositoryItemComboBoxPCBModelName = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductSeries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductType)).BeginInit();
@@ -164,6 +171,30 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEditPCBLayoutFilePath.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
+            this.layoutControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedVelocity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedLength.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedVelocity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedLength.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatPowerRatio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatPowerRatio.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReadyWaitTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditLaserProfile.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditInspectionPositionType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionZ.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionY.Properties)).BeginInit();
@@ -183,35 +214,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
             this.layoutControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
-            this.layoutControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEditLaserProfile.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditReadyWaitTime.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatTime.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatTime.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatPowerRatio.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatPowerRatio.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedLength.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedVelocity.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedLength.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedVelocity.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPCBModelName)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -410,7 +420,7 @@
             this.rowPCBModelName.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.rowPCBModelName.Name = "rowPCBModelName";
             this.rowPCBModelName.Properties.Caption = "PCB 모델 이름";
-            this.rowPCBModelName.Properties.RowEdit = this.repositoryItemComboBoxProductSeries;
+            this.rowPCBModelName.Properties.RowEdit = this.repositoryItemComboBoxPCBModelName;
             this.rowPCBModelName.Properties.Value = "PCB22014";
             // 
             // rowPCBHorizontalSize
@@ -570,7 +580,7 @@
             // 
             // vGridControlInspectionParam
             // 
-            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Default;
+            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
             this.vGridControlInspectionParam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -579,16 +589,45 @@
             this.vGridControlInspectionParam.RecordWidth = 79;
             this.vGridControlInspectionParam.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemDateEditRecipeCreateTime,
-            this.repositoryItemButtonEditPCBLayoutFilePath});
+            this.repositoryItemButtonEditPCBLayoutFilePath,
+            this.repositoryItemComboBoxPCBModelName});
             this.vGridControlInspectionParam.RowHeaderWidth = 121;
             this.vGridControlInspectionParam.Rows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
             this.categoryRecipeInformation,
             this.categoryPCBInformation,
-            this.categoryInspectionInformation});
-            this.vGridControlInspectionParam.Size = new System.Drawing.Size(318, 552);
+            this.categoryInspectionInformation,
+            this.categoryLaserSolderingInformation});
+            this.vGridControlInspectionParam.Size = new System.Drawing.Size(310, 552);
             this.vGridControlInspectionParam.TabIndex = 0;
             this.vGridControlInspectionParam.CellValueChanged += new DevExpress.XtraVerticalGrid.Events.CellValueChangedEventHandler(this.vGridControlInspectionParam_CellValueChanged);
             this.vGridControlInspectionParam.Leave += new System.EventHandler(this.vGridControlInspectionParam_Leave);
+            // 
+            // categoryLaserSolderingInformation
+            // 
+            this.categoryLaserSolderingInformation.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.rowLaserSolderingEnable,
+            this.rowLaserSolderingLaserEnable,
+            this.rowLaserSolderingFeedEnable});
+            this.categoryLaserSolderingInformation.Name = "categoryLaserSolderingInformation";
+            this.categoryLaserSolderingInformation.Properties.Caption = "레이저 납땜 정보";
+            // 
+            // rowLaserSolderingEnable
+            // 
+            this.rowLaserSolderingEnable.Name = "rowLaserSolderingEnable";
+            this.rowLaserSolderingEnable.Properties.Caption = "레이저 납땜 작업 유무";
+            this.rowLaserSolderingEnable.Properties.Value = true;
+            // 
+            // rowLaserSolderingLaserEnable
+            // 
+            this.rowLaserSolderingLaserEnable.Name = "rowLaserSolderingLaserEnable";
+            this.rowLaserSolderingLaserEnable.Properties.Caption = "레이저 사용 유무";
+            this.rowLaserSolderingLaserEnable.Properties.Value = true;
+            // 
+            // rowLaserSolderingFeedEnable
+            // 
+            this.rowLaserSolderingFeedEnable.Name = "rowLaserSolderingFeedEnable";
+            this.rowLaserSolderingFeedEnable.Properties.Caption = "납 공급기 사용 유무";
+            this.rowLaserSolderingFeedEnable.Properties.Value = true;
             // 
             // layoutControlItem1
             // 
@@ -605,9 +644,9 @@
             this.groupControl2.Location = new System.Drawing.Point(4, 4);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(328, 581);
+            this.groupControl2.Size = new System.Drawing.Size(320, 581);
             this.groupControl2.TabIndex = 4;
-            this.groupControl2.Text = "거리검사 레시피 설정";
+            this.groupControl2.Text = "레이저납땜 레시피 설정";
             // 
             // layoutControl2
             // 
@@ -618,7 +657,7 @@
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl2.Root = this.layoutControlGroup4;
-            this.layoutControl2.Size = new System.Drawing.Size(324, 558);
+            this.layoutControl2.Size = new System.Drawing.Size(316, 558);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -630,7 +669,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup4.Size = new System.Drawing.Size(324, 558);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(316, 558);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlItem2
@@ -638,22 +677,23 @@
             this.layoutControlItem2.Control = this.vGridControlInspectionParam;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(322, 556);
+            this.layoutControlItem2.Size = new System.Drawing.Size(314, 556);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.layoutControl1);
-            this.groupControl1.Location = new System.Drawing.Point(336, 4);
+            this.groupControl1.Location = new System.Drawing.Point(328, 4);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(674, 581);
+            this.groupControl1.Size = new System.Drawing.Size(682, 581);
             this.groupControl1.TabIndex = 6;
-            this.groupControl1.Text = "검사 거리 정보";
+            this.groupControl1.Text = "납땜 정보";
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.buttonEditPCBLayoutFilePath);
             this.layoutControl1.Controls.Add(this.layoutControl5);
             this.layoutControl1.Controls.Add(this.comboBoxEditInspectionPositionType);
             this.layoutControl1.Controls.Add(this.simpleButtonReplaceUp);
@@ -673,28 +713,261 @@
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(481, 178, 650, 400);
             this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl1.Root = this.layoutControlGroup5;
-            this.layoutControl1.Size = new System.Drawing.Size(670, 558);
+            this.layoutControl1.Size = new System.Drawing.Size(678, 558);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // buttonEditPCBLayoutFilePath
+            // 
+            this.buttonEditPCBLayoutFilePath.Location = new System.Drawing.Point(64, 3);
+            this.buttonEditPCBLayoutFilePath.MenuManager = this.ribbonControl1;
+            this.buttonEditPCBLayoutFilePath.Name = "buttonEditPCBLayoutFilePath";
+            this.buttonEditPCBLayoutFilePath.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.buttonEditPCBLayoutFilePath.Size = new System.Drawing.Size(180, 20);
+            this.buttonEditPCBLayoutFilePath.StyleController = this.layoutControl1;
+            this.buttonEditPCBLayoutFilePath.TabIndex = 17;
+            // 
+            // layoutControl5
+            // 
+            this.layoutControl5.Controls.Add(this.textEditReverseFeedVelocity);
+            this.layoutControl5.Controls.Add(this.textEditReverseFeedLength);
+            this.layoutControl5.Controls.Add(this.textEditForwardFeedVelocity);
+            this.layoutControl5.Controls.Add(this.textEditForwardFeedLength);
+            this.layoutControl5.Controls.Add(this.textEditHeatPowerRatio);
+            this.layoutControl5.Controls.Add(this.textEditPreHeatPowerRatio);
+            this.layoutControl5.Controls.Add(this.textEditHeatTime);
+            this.layoutControl5.Controls.Add(this.textEditPreHeatTime);
+            this.layoutControl5.Controls.Add(this.textEditReadyWaitTime);
+            this.layoutControl5.Controls.Add(this.pictureEditLaserProfile);
+            this.layoutControl5.Location = new System.Drawing.Point(248, 3);
+            this.layoutControl5.Name = "layoutControl5";
+            this.layoutControl5.Root = this.layoutControlGroup7;
+            this.layoutControl5.Size = new System.Drawing.Size(427, 251);
+            this.layoutControl5.TabIndex = 16;
+            this.layoutControl5.Text = "layoutControl5";
+            // 
+            // textEditReverseFeedVelocity
+            // 
+            this.textEditReverseFeedVelocity.Location = new System.Drawing.Point(135, 195);
+            this.textEditReverseFeedVelocity.MenuManager = this.ribbonControl1;
+            this.textEditReverseFeedVelocity.Name = "textEditReverseFeedVelocity";
+            this.textEditReverseFeedVelocity.Size = new System.Drawing.Size(58, 20);
+            this.textEditReverseFeedVelocity.StyleController = this.layoutControl5;
+            this.textEditReverseFeedVelocity.TabIndex = 13;
+            // 
+            // textEditReverseFeedLength
+            // 
+            this.textEditReverseFeedLength.Location = new System.Drawing.Point(135, 171);
+            this.textEditReverseFeedLength.MenuManager = this.ribbonControl1;
+            this.textEditReverseFeedLength.Name = "textEditReverseFeedLength";
+            this.textEditReverseFeedLength.Size = new System.Drawing.Size(58, 20);
+            this.textEditReverseFeedLength.StyleController = this.layoutControl5;
+            this.textEditReverseFeedLength.TabIndex = 12;
+            // 
+            // textEditForwardFeedVelocity
+            // 
+            this.textEditForwardFeedVelocity.Location = new System.Drawing.Point(135, 147);
+            this.textEditForwardFeedVelocity.MenuManager = this.ribbonControl1;
+            this.textEditForwardFeedVelocity.Name = "textEditForwardFeedVelocity";
+            this.textEditForwardFeedVelocity.Size = new System.Drawing.Size(58, 20);
+            this.textEditForwardFeedVelocity.StyleController = this.layoutControl5;
+            this.textEditForwardFeedVelocity.TabIndex = 11;
+            // 
+            // textEditForwardFeedLength
+            // 
+            this.textEditForwardFeedLength.Location = new System.Drawing.Point(135, 123);
+            this.textEditForwardFeedLength.MenuManager = this.ribbonControl1;
+            this.textEditForwardFeedLength.Name = "textEditForwardFeedLength";
+            this.textEditForwardFeedLength.Size = new System.Drawing.Size(58, 20);
+            this.textEditForwardFeedLength.StyleController = this.layoutControl5;
+            this.textEditForwardFeedLength.TabIndex = 10;
+            // 
+            // textEditHeatPowerRatio
+            // 
+            this.textEditHeatPowerRatio.Location = new System.Drawing.Point(135, 99);
+            this.textEditHeatPowerRatio.MenuManager = this.ribbonControl1;
+            this.textEditHeatPowerRatio.Name = "textEditHeatPowerRatio";
+            this.textEditHeatPowerRatio.Size = new System.Drawing.Size(58, 20);
+            this.textEditHeatPowerRatio.StyleController = this.layoutControl5;
+            this.textEditHeatPowerRatio.TabIndex = 9;
+            // 
+            // textEditPreHeatPowerRatio
+            // 
+            this.textEditPreHeatPowerRatio.Location = new System.Drawing.Point(135, 51);
+            this.textEditPreHeatPowerRatio.MenuManager = this.ribbonControl1;
+            this.textEditPreHeatPowerRatio.Name = "textEditPreHeatPowerRatio";
+            this.textEditPreHeatPowerRatio.Size = new System.Drawing.Size(58, 20);
+            this.textEditPreHeatPowerRatio.StyleController = this.layoutControl5;
+            this.textEditPreHeatPowerRatio.TabIndex = 8;
+            // 
+            // textEditHeatTime
+            // 
+            this.textEditHeatTime.Location = new System.Drawing.Point(135, 75);
+            this.textEditHeatTime.MenuManager = this.ribbonControl1;
+            this.textEditHeatTime.Name = "textEditHeatTime";
+            this.textEditHeatTime.Size = new System.Drawing.Size(58, 20);
+            this.textEditHeatTime.StyleController = this.layoutControl5;
+            this.textEditHeatTime.TabIndex = 7;
+            // 
+            // textEditPreHeatTime
+            // 
+            this.textEditPreHeatTime.Location = new System.Drawing.Point(135, 27);
+            this.textEditPreHeatTime.MenuManager = this.ribbonControl1;
+            this.textEditPreHeatTime.Name = "textEditPreHeatTime";
+            this.textEditPreHeatTime.Size = new System.Drawing.Size(58, 20);
+            this.textEditPreHeatTime.StyleController = this.layoutControl5;
+            this.textEditPreHeatTime.TabIndex = 6;
+            // 
+            // textEditReadyWaitTime
+            // 
+            this.textEditReadyWaitTime.Location = new System.Drawing.Point(135, 3);
+            this.textEditReadyWaitTime.MenuManager = this.ribbonControl1;
+            this.textEditReadyWaitTime.Name = "textEditReadyWaitTime";
+            this.textEditReadyWaitTime.Size = new System.Drawing.Size(58, 20);
+            this.textEditReadyWaitTime.StyleController = this.layoutControl5;
+            this.textEditReadyWaitTime.TabIndex = 5;
+            // 
+            // pictureEditLaserProfile
+            // 
+            this.pictureEditLaserProfile.EditValue = global::atLaserSoldering.Properties.Resources.Solderingprofile;
+            this.pictureEditLaserProfile.Location = new System.Drawing.Point(197, 3);
+            this.pictureEditLaserProfile.MenuManager = this.ribbonControl1;
+            this.pictureEditLaserProfile.Name = "pictureEditLaserProfile";
+            this.pictureEditLaserProfile.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEditLaserProfile.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.pictureEditLaserProfile.Size = new System.Drawing.Size(227, 245);
+            this.pictureEditLaserProfile.StyleController = this.layoutControl5;
+            this.pictureEditLaserProfile.TabIndex = 4;
+            // 
+            // layoutControlGroup7
+            // 
+            this.layoutControlGroup7.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup7.GroupBordersVisible = false;
+            this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem18,
+            this.layoutControlItem19,
+            this.layoutControlItem20,
+            this.layoutControlItem21,
+            this.layoutControlItem22,
+            this.layoutControlItem23,
+            this.layoutControlItem24,
+            this.layoutControlItem25,
+            this.layoutControlItem26,
+            this.layoutControlItem27});
+            this.layoutControlGroup7.Name = "layoutControlGroup7";
+            this.layoutControlGroup7.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(427, 251);
+            this.layoutControlGroup7.TextVisible = false;
+            // 
+            // layoutControlItem18
+            // 
+            this.layoutControlItem18.Control = this.pictureEditLaserProfile;
+            this.layoutControlItem18.Location = new System.Drawing.Point(194, 0);
+            this.layoutControlItem18.Name = "layoutControlItem18";
+            this.layoutControlItem18.Size = new System.Drawing.Size(231, 249);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem18.TextVisible = false;
+            // 
+            // layoutControlItem19
+            // 
+            this.layoutControlItem19.Control = this.textEditReadyWaitTime;
+            this.layoutControlItem19.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem19.Name = "layoutControlItem19";
+            this.layoutControlItem19.Size = new System.Drawing.Size(194, 24);
+            this.layoutControlItem19.Text = "Ready Time[ms]";
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // layoutControlItem20
+            // 
+            this.layoutControlItem20.Control = this.textEditPreHeatTime;
+            this.layoutControlItem20.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem20.Name = "layoutControlItem20";
+            this.layoutControlItem20.Size = new System.Drawing.Size(194, 24);
+            this.layoutControlItem20.Text = "PreHeat Time[ms]";
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // layoutControlItem21
+            // 
+            this.layoutControlItem21.Control = this.textEditHeatTime;
+            this.layoutControlItem21.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem21.Name = "layoutControlItem21";
+            this.layoutControlItem21.Size = new System.Drawing.Size(194, 24);
+            this.layoutControlItem21.Text = "Heat Time[ms]";
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // layoutControlItem22
+            // 
+            this.layoutControlItem22.Control = this.textEditPreHeatPowerRatio;
+            this.layoutControlItem22.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem22.Name = "layoutControlItem22";
+            this.layoutControlItem22.Size = new System.Drawing.Size(194, 24);
+            this.layoutControlItem22.Text = "PreHeat P. Ratio[%]";
+            this.layoutControlItem22.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // layoutControlItem23
+            // 
+            this.layoutControlItem23.Control = this.textEditHeatPowerRatio;
+            this.layoutControlItem23.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem23.Name = "layoutControlItem23";
+            this.layoutControlItem23.Size = new System.Drawing.Size(194, 24);
+            this.layoutControlItem23.Text = "Heat P. Ratio[%]";
+            this.layoutControlItem23.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // layoutControlItem24
+            // 
+            this.layoutControlItem24.Control = this.textEditForwardFeedLength;
+            this.layoutControlItem24.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem24.Name = "layoutControlItem24";
+            this.layoutControlItem24.Size = new System.Drawing.Size(194, 24);
+            this.layoutControlItem24.Text = "F. Feed Length[mm]";
+            this.layoutControlItem24.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // layoutControlItem25
+            // 
+            this.layoutControlItem25.Control = this.textEditForwardFeedVelocity;
+            this.layoutControlItem25.Location = new System.Drawing.Point(0, 144);
+            this.layoutControlItem25.Name = "layoutControlItem25";
+            this.layoutControlItem25.Size = new System.Drawing.Size(194, 24);
+            this.layoutControlItem25.Text = "F. Feed Velocity[mm/s]";
+            this.layoutControlItem25.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // layoutControlItem26
+            // 
+            this.layoutControlItem26.Control = this.textEditReverseFeedLength;
+            this.layoutControlItem26.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem26.Name = "layoutControlItem26";
+            this.layoutControlItem26.Size = new System.Drawing.Size(194, 24);
+            this.layoutControlItem26.Text = "R. Feed Length[mm]";
+            this.layoutControlItem26.TextSize = new System.Drawing.Size(129, 14);
+            // 
+            // layoutControlItem27
+            // 
+            this.layoutControlItem27.Control = this.textEditReverseFeedVelocity;
+            this.layoutControlItem27.Location = new System.Drawing.Point(0, 192);
+            this.layoutControlItem27.Name = "layoutControlItem27";
+            this.layoutControlItem27.Size = new System.Drawing.Size(194, 57);
+            this.layoutControlItem27.Text = "R. Feed Velocity[mm/s]";
+            this.layoutControlItem27.TextSize = new System.Drawing.Size(129, 14);
+            // 
             // comboBoxEditInspectionPositionType
             // 
-            this.comboBoxEditInspectionPositionType.Location = new System.Drawing.Point(51, 229);
+            this.comboBoxEditInspectionPositionType.Location = new System.Drawing.Point(64, 258);
             this.comboBoxEditInspectionPositionType.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.comboBoxEditInspectionPositionType.MenuManager = this.ribbonControl1;
             this.comboBoxEditInspectionPositionType.Name = "comboBoxEditInspectionPositionType";
             this.comboBoxEditInspectionPositionType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditInspectionPositionType.Size = new System.Drawing.Size(69, 20);
+            this.comboBoxEditInspectionPositionType.Size = new System.Drawing.Size(50, 20);
             this.comboBoxEditInspectionPositionType.StyleController = this.layoutControl1;
             this.comboBoxEditInspectionPositionType.TabIndex = 15;
             // 
             // simpleButtonReplaceUp
             // 
-            this.simpleButtonReplaceUp.Location = new System.Drawing.Point(640, 229);
+            this.simpleButtonReplaceUp.Location = new System.Drawing.Point(583, 258);
             this.simpleButtonReplaceUp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonReplaceUp.Name = "simpleButtonReplaceUp";
-            this.simpleButtonReplaceUp.Size = new System.Drawing.Size(27, 22);
+            this.simpleButtonReplaceUp.Size = new System.Drawing.Size(92, 22);
             this.simpleButtonReplaceUp.StyleController = this.layoutControl1;
             this.simpleButtonReplaceUp.TabIndex = 14;
             this.simpleButtonReplaceUp.Text = "▲";
@@ -702,10 +975,10 @@
             // 
             // simpleButtonReplaceDown
             // 
-            this.simpleButtonReplaceDown.Location = new System.Drawing.Point(611, 229);
+            this.simpleButtonReplaceDown.Location = new System.Drawing.Point(558, 258);
             this.simpleButtonReplaceDown.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonReplaceDown.Name = "simpleButtonReplaceDown";
-            this.simpleButtonReplaceDown.Size = new System.Drawing.Size(25, 22);
+            this.simpleButtonReplaceDown.Size = new System.Drawing.Size(21, 22);
             this.simpleButtonReplaceDown.StyleController = this.layoutControl1;
             this.simpleButtonReplaceDown.TabIndex = 13;
             this.simpleButtonReplaceDown.Text = "▼";
@@ -713,10 +986,10 @@
             // 
             // simpleButtonInspectionPositionEdit
             // 
-            this.simpleButtonInspectionPositionEdit.Location = new System.Drawing.Point(571, 229);
+            this.simpleButtonInspectionPositionEdit.Location = new System.Drawing.Point(525, 258);
             this.simpleButtonInspectionPositionEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionEdit.Name = "simpleButtonInspectionPositionEdit";
-            this.simpleButtonInspectionPositionEdit.Size = new System.Drawing.Size(36, 22);
+            this.simpleButtonInspectionPositionEdit.Size = new System.Drawing.Size(29, 22);
             this.simpleButtonInspectionPositionEdit.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionEdit.TabIndex = 12;
             this.simpleButtonInspectionPositionEdit.Text = "수정";
@@ -724,10 +997,10 @@
             // 
             // simpleButtonInspectionPositionDelete
             // 
-            this.simpleButtonInspectionPositionDelete.Location = new System.Drawing.Point(531, 229);
+            this.simpleButtonInspectionPositionDelete.Location = new System.Drawing.Point(492, 258);
             this.simpleButtonInspectionPositionDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionDelete.Name = "simpleButtonInspectionPositionDelete";
-            this.simpleButtonInspectionPositionDelete.Size = new System.Drawing.Size(36, 22);
+            this.simpleButtonInspectionPositionDelete.Size = new System.Drawing.Size(29, 22);
             this.simpleButtonInspectionPositionDelete.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionDelete.TabIndex = 11;
             this.simpleButtonInspectionPositionDelete.Text = "삭제";
@@ -735,10 +1008,10 @@
             // 
             // simpleButtonInspectionPositionRegister
             // 
-            this.simpleButtonInspectionPositionRegister.Location = new System.Drawing.Point(474, 229);
+            this.simpleButtonInspectionPositionRegister.Location = new System.Drawing.Point(459, 258);
             this.simpleButtonInspectionPositionRegister.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionRegister.Name = "simpleButtonInspectionPositionRegister";
-            this.simpleButtonInspectionPositionRegister.Size = new System.Drawing.Size(53, 22);
+            this.simpleButtonInspectionPositionRegister.Size = new System.Drawing.Size(29, 22);
             this.simpleButtonInspectionPositionRegister.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionRegister.TabIndex = 10;
             this.simpleButtonInspectionPositionRegister.Text = "등록";
@@ -746,41 +1019,41 @@
             // 
             // textEditInspectionPositionZ
             // 
-            this.textEditInspectionPositionZ.Location = new System.Drawing.Point(402, 229);
+            this.textEditInspectionPositionZ.Location = new System.Drawing.Point(405, 258);
             this.textEditInspectionPositionZ.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditInspectionPositionZ.Name = "textEditInspectionPositionZ";
-            this.textEditInspectionPositionZ.Size = new System.Drawing.Size(68, 20);
+            this.textEditInspectionPositionZ.Size = new System.Drawing.Size(50, 20);
             this.textEditInspectionPositionZ.StyleController = this.layoutControl1;
             this.textEditInspectionPositionZ.TabIndex = 9;
             // 
             // textEditInspectionPositionY
             // 
-            this.textEditInspectionPositionY.Location = new System.Drawing.Point(287, 229);
+            this.textEditInspectionPositionY.Location = new System.Drawing.Point(309, 258);
             this.textEditInspectionPositionY.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditInspectionPositionY.MenuManager = this.ribbonControl1;
             this.textEditInspectionPositionY.Name = "textEditInspectionPositionY";
-            this.textEditInspectionPositionY.Size = new System.Drawing.Size(69, 20);
+            this.textEditInspectionPositionY.Size = new System.Drawing.Size(50, 20);
             this.textEditInspectionPositionY.StyleController = this.layoutControl1;
             this.textEditInspectionPositionY.TabIndex = 7;
             // 
             // textEditInspectionPositionX
             // 
-            this.textEditInspectionPositionX.Location = new System.Drawing.Point(166, 229);
+            this.textEditInspectionPositionX.Location = new System.Drawing.Point(160, 258);
             this.textEditInspectionPositionX.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditInspectionPositionX.MenuManager = this.ribbonControl1;
             this.textEditInspectionPositionX.Name = "textEditInspectionPositionX";
-            this.textEditInspectionPositionX.Size = new System.Drawing.Size(69, 20);
+            this.textEditInspectionPositionX.Size = new System.Drawing.Size(84, 20);
             this.textEditInspectionPositionX.StyleController = this.layoutControl1;
             this.textEditInspectionPositionX.TabIndex = 6;
             // 
             // gridControlInspectionPosition
             // 
             this.gridControlInspectionPosition.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gridControlInspectionPosition.Location = new System.Drawing.Point(3, 255);
+            this.gridControlInspectionPosition.Location = new System.Drawing.Point(3, 284);
             this.gridControlInspectionPosition.MainView = this.gridViewInspectionPositions;
             this.gridControlInspectionPosition.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gridControlInspectionPosition.Name = "gridControlInspectionPosition";
-            this.gridControlInspectionPosition.Size = new System.Drawing.Size(664, 300);
+            this.gridControlInspectionPosition.Size = new System.Drawing.Size(672, 271);
             this.gridControlInspectionPosition.TabIndex = 5;
             this.gridControlInspectionPosition.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewInspectionPositions});
@@ -895,12 +1168,12 @@
             // 
             // pictureEditInspectImage
             // 
-            this.pictureEditInspectImage.Location = new System.Drawing.Point(3, 3);
+            this.pictureEditInspectImage.Location = new System.Drawing.Point(3, 27);
             this.pictureEditInspectImage.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureEditInspectImage.MenuManager = this.ribbonControl1;
             this.pictureEditInspectImage.Name = "pictureEditInspectImage";
             this.pictureEditInspectImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEditInspectImage.Size = new System.Drawing.Size(243, 222);
+            this.pictureEditInspectImage.Size = new System.Drawing.Size(241, 227);
             this.pictureEditInspectImage.StyleController = this.layoutControl1;
             this.pictureEditInspectImage.TabIndex = 4;
             // 
@@ -920,27 +1193,28 @@
             this.layoutControlItem14,
             this.layoutControlItem15,
             this.layoutControlItem17,
-            this.layoutControlItem16});
+            this.layoutControlItem16,
+            this.layoutControlItem28});
             this.layoutControlGroup5.Name = "Root";
             this.layoutControlGroup5.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup5.Size = new System.Drawing.Size(670, 558);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(678, 558);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.pictureEditInspectImage;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(247, 226);
+            this.layoutControlItem4.Size = new System.Drawing.Size(245, 231);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.textEditInspectionPositionX;
-            this.layoutControlItem6.Location = new System.Drawing.Point(121, 226);
+            this.layoutControlItem6.Location = new System.Drawing.Point(115, 255);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(115, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(130, 26);
             this.layoutControlItem6.Text = "위치(X)";
             this.layoutControlItem6.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(37, 14);
@@ -949,18 +1223,18 @@
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.textEditInspectionPositionY;
-            this.layoutControlItem7.Location = new System.Drawing.Point(236, 226);
+            this.layoutControlItem7.Location = new System.Drawing.Point(245, 255);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(121, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(115, 26);
             this.layoutControlItem7.Text = "위치(Y1)";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(45, 14);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(58, 14);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.textEditInspectionPositionZ;
-            this.layoutControlItem9.Location = new System.Drawing.Point(357, 226);
+            this.layoutControlItem9.Location = new System.Drawing.Point(360, 255);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(114, 26);
+            this.layoutControlItem9.Size = new System.Drawing.Size(96, 26);
             this.layoutControlItem9.Text = "위치(Z)";
             this.layoutControlItem9.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem9.TextSize = new System.Drawing.Size(37, 14);
@@ -969,65 +1243,83 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.simpleButtonInspectionPositionRegister;
-            this.layoutControlItem10.Location = new System.Drawing.Point(471, 226);
+            this.layoutControlItem10.Location = new System.Drawing.Point(456, 255);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(57, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(33, 26);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.simpleButtonInspectionPositionDelete;
-            this.layoutControlItem11.Location = new System.Drawing.Point(528, 226);
+            this.layoutControlItem11.Location = new System.Drawing.Point(489, 255);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(40, 26);
+            this.layoutControlItem11.Size = new System.Drawing.Size(33, 26);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.simpleButtonInspectionPositionEdit;
-            this.layoutControlItem12.Location = new System.Drawing.Point(568, 226);
+            this.layoutControlItem12.Location = new System.Drawing.Point(522, 255);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(40, 26);
+            this.layoutControlItem12.Size = new System.Drawing.Size(33, 26);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
             // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.simpleButtonReplaceDown;
-            this.layoutControlItem13.Location = new System.Drawing.Point(608, 226);
+            this.layoutControlItem13.Location = new System.Drawing.Point(555, 255);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(29, 26);
+            this.layoutControlItem13.Size = new System.Drawing.Size(25, 26);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.simpleButtonReplaceUp;
-            this.layoutControlItem14.Location = new System.Drawing.Point(637, 226);
+            this.layoutControlItem14.Location = new System.Drawing.Point(580, 255);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(31, 26);
+            this.layoutControlItem14.Size = new System.Drawing.Size(96, 26);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.comboBoxEditInspectionPositionType;
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 226);
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 255);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(121, 26);
+            this.layoutControlItem15.Size = new System.Drawing.Size(115, 26);
             this.layoutControlItem15.Text = "위치형태";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(45, 14);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(58, 14);
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.gridControlInspectionPosition;
-            this.layoutControlItem17.Location = new System.Drawing.Point(0, 252);
+            this.layoutControlItem17.Location = new System.Drawing.Point(0, 281);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(668, 304);
+            this.layoutControlItem17.Size = new System.Drawing.Size(676, 275);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
+            // 
+            // layoutControlItem16
+            // 
+            this.layoutControlItem16.Control = this.layoutControl5;
+            this.layoutControlItem16.Location = new System.Drawing.Point(245, 0);
+            this.layoutControlItem16.Name = "layoutControlItem16";
+            this.layoutControlItem16.Size = new System.Drawing.Size(431, 255);
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem16.TextVisible = false;
+            // 
+            // layoutControlItem28
+            // 
+            this.layoutControlItem28.Control = this.buttonEditPCBLayoutFilePath;
+            this.layoutControlItem28.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem28.Name = "layoutControlItem28";
+            this.layoutControlItem28.Size = new System.Drawing.Size(245, 24);
+            this.layoutControlItem28.Text = "PCB layout";
+            this.layoutControlItem28.TextSize = new System.Drawing.Size(58, 14);
             // 
             // layoutControl4
             // 
@@ -1058,247 +1350,25 @@
             this.layoutControlItem5.Control = this.groupControl2;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(332, 585);
+            this.layoutControlItem5.Size = new System.Drawing.Size(324, 585);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.groupControl1;
-            this.layoutControlItem8.Location = new System.Drawing.Point(332, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(324, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(678, 585);
+            this.layoutControlItem8.Size = new System.Drawing.Size(686, 585);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
-            // layoutControl5
+            // repositoryItemComboBoxPCBModelName
             // 
-            this.layoutControl5.Controls.Add(this.textEditReverseFeedVelocity);
-            this.layoutControl5.Controls.Add(this.textEditReverseFeedLength);
-            this.layoutControl5.Controls.Add(this.textEditForwardFeedVelocity);
-            this.layoutControl5.Controls.Add(this.textEditForwardFeedLength);
-            this.layoutControl5.Controls.Add(this.textEditHeatPowerRatio);
-            this.layoutControl5.Controls.Add(this.textEditPreHeatPowerRatio);
-            this.layoutControl5.Controls.Add(this.textEditHeatTime);
-            this.layoutControl5.Controls.Add(this.textEditPreHeatTime);
-            this.layoutControl5.Controls.Add(this.textEditReadyWaitTime);
-            this.layoutControl5.Controls.Add(this.pictureEditLaserProfile);
-            this.layoutControl5.Location = new System.Drawing.Point(250, 3);
-            this.layoutControl5.Name = "layoutControl5";
-            this.layoutControl5.Root = this.layoutControlGroup7;
-            this.layoutControl5.Size = new System.Drawing.Size(417, 222);
-            this.layoutControl5.TabIndex = 16;
-            this.layoutControl5.Text = "layoutControl5";
-            // 
-            // layoutControlItem16
-            // 
-            this.layoutControlItem16.Control = this.layoutControl5;
-            this.layoutControlItem16.Location = new System.Drawing.Point(247, 0);
-            this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(421, 226);
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem16.TextVisible = false;
-            // 
-            // layoutControlGroup7
-            // 
-            this.layoutControlGroup7.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup7.GroupBordersVisible = false;
-            this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem18,
-            this.layoutControlItem19,
-            this.layoutControlItem20,
-            this.layoutControlItem21,
-            this.layoutControlItem22,
-            this.layoutControlItem23,
-            this.layoutControlItem24,
-            this.layoutControlItem25,
-            this.layoutControlItem26,
-            this.layoutControlItem27});
-            this.layoutControlGroup7.Name = "layoutControlGroup7";
-            this.layoutControlGroup7.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup7.Size = new System.Drawing.Size(417, 222);
-            this.layoutControlGroup7.TextVisible = false;
-            // 
-            // pictureEditLaserProfile
-            // 
-            this.pictureEditLaserProfile.Location = new System.Drawing.Point(190, 3);
-            this.pictureEditLaserProfile.MenuManager = this.ribbonControl1;
-            this.pictureEditLaserProfile.Name = "pictureEditLaserProfile";
-            this.pictureEditLaserProfile.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEditLaserProfile.Size = new System.Drawing.Size(224, 216);
-            this.pictureEditLaserProfile.StyleController = this.layoutControl5;
-            this.pictureEditLaserProfile.TabIndex = 4;
-            // 
-            // layoutControlItem18
-            // 
-            this.layoutControlItem18.Control = this.pictureEditLaserProfile;
-            this.layoutControlItem18.Location = new System.Drawing.Point(187, 0);
-            this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(228, 220);
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem18.TextVisible = false;
-            // 
-            // textEditReadyWaitTime
-            // 
-            this.textEditReadyWaitTime.Location = new System.Drawing.Point(136, 3);
-            this.textEditReadyWaitTime.MenuManager = this.ribbonControl1;
-            this.textEditReadyWaitTime.Name = "textEditReadyWaitTime";
-            this.textEditReadyWaitTime.Size = new System.Drawing.Size(50, 20);
-            this.textEditReadyWaitTime.StyleController = this.layoutControl5;
-            this.textEditReadyWaitTime.TabIndex = 5;
-            // 
-            // layoutControlItem19
-            // 
-            this.layoutControlItem19.Control = this.textEditReadyWaitTime;
-            this.layoutControlItem19.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(187, 24);
-            this.layoutControlItem19.Text = "Ready Time[ms]";
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(129, 14);
-            // 
-            // textEditPreHeatTime
-            // 
-            this.textEditPreHeatTime.Location = new System.Drawing.Point(136, 27);
-            this.textEditPreHeatTime.MenuManager = this.ribbonControl1;
-            this.textEditPreHeatTime.Name = "textEditPreHeatTime";
-            this.textEditPreHeatTime.Size = new System.Drawing.Size(50, 20);
-            this.textEditPreHeatTime.StyleController = this.layoutControl5;
-            this.textEditPreHeatTime.TabIndex = 6;
-            // 
-            // layoutControlItem20
-            // 
-            this.layoutControlItem20.Control = this.textEditPreHeatTime;
-            this.layoutControlItem20.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(187, 24);
-            this.layoutControlItem20.Text = "PreHeat Time[ms]";
-            this.layoutControlItem20.TextSize = new System.Drawing.Size(129, 14);
-            // 
-            // textEditHeatTime
-            // 
-            this.textEditHeatTime.Location = new System.Drawing.Point(136, 75);
-            this.textEditHeatTime.MenuManager = this.ribbonControl1;
-            this.textEditHeatTime.Name = "textEditHeatTime";
-            this.textEditHeatTime.Size = new System.Drawing.Size(50, 20);
-            this.textEditHeatTime.StyleController = this.layoutControl5;
-            this.textEditHeatTime.TabIndex = 7;
-            // 
-            // layoutControlItem21
-            // 
-            this.layoutControlItem21.Control = this.textEditHeatTime;
-            this.layoutControlItem21.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem21.Name = "layoutControlItem21";
-            this.layoutControlItem21.Size = new System.Drawing.Size(187, 24);
-            this.layoutControlItem21.Text = "Heat Time[ms]";
-            this.layoutControlItem21.TextSize = new System.Drawing.Size(129, 14);
-            // 
-            // textEditPreHeatPowerRatio
-            // 
-            this.textEditPreHeatPowerRatio.Location = new System.Drawing.Point(136, 51);
-            this.textEditPreHeatPowerRatio.MenuManager = this.ribbonControl1;
-            this.textEditPreHeatPowerRatio.Name = "textEditPreHeatPowerRatio";
-            this.textEditPreHeatPowerRatio.Size = new System.Drawing.Size(50, 20);
-            this.textEditPreHeatPowerRatio.StyleController = this.layoutControl5;
-            this.textEditPreHeatPowerRatio.TabIndex = 8;
-            // 
-            // layoutControlItem22
-            // 
-            this.layoutControlItem22.Control = this.textEditPreHeatPowerRatio;
-            this.layoutControlItem22.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem22.Name = "layoutControlItem22";
-            this.layoutControlItem22.Size = new System.Drawing.Size(187, 24);
-            this.layoutControlItem22.Text = "PreHeat P. Ratio[%]";
-            this.layoutControlItem22.TextSize = new System.Drawing.Size(129, 14);
-            // 
-            // textEditHeatPowerRatio
-            // 
-            this.textEditHeatPowerRatio.Location = new System.Drawing.Point(136, 99);
-            this.textEditHeatPowerRatio.MenuManager = this.ribbonControl1;
-            this.textEditHeatPowerRatio.Name = "textEditHeatPowerRatio";
-            this.textEditHeatPowerRatio.Size = new System.Drawing.Size(50, 20);
-            this.textEditHeatPowerRatio.StyleController = this.layoutControl5;
-            this.textEditHeatPowerRatio.TabIndex = 9;
-            // 
-            // layoutControlItem23
-            // 
-            this.layoutControlItem23.Control = this.textEditHeatPowerRatio;
-            this.layoutControlItem23.Location = new System.Drawing.Point(0, 96);
-            this.layoutControlItem23.Name = "layoutControlItem23";
-            this.layoutControlItem23.Size = new System.Drawing.Size(187, 24);
-            this.layoutControlItem23.Text = "Heat P. Ratio[%]";
-            this.layoutControlItem23.TextSize = new System.Drawing.Size(129, 14);
-            // 
-            // textEditForwardFeedLength
-            // 
-            this.textEditForwardFeedLength.Location = new System.Drawing.Point(136, 123);
-            this.textEditForwardFeedLength.MenuManager = this.ribbonControl1;
-            this.textEditForwardFeedLength.Name = "textEditForwardFeedLength";
-            this.textEditForwardFeedLength.Size = new System.Drawing.Size(50, 20);
-            this.textEditForwardFeedLength.StyleController = this.layoutControl5;
-            this.textEditForwardFeedLength.TabIndex = 10;
-            // 
-            // layoutControlItem24
-            // 
-            this.layoutControlItem24.Control = this.textEditForwardFeedLength;
-            this.layoutControlItem24.Location = new System.Drawing.Point(0, 120);
-            this.layoutControlItem24.Name = "layoutControlItem24";
-            this.layoutControlItem24.Size = new System.Drawing.Size(187, 24);
-            this.layoutControlItem24.Text = "F. Feed Length[mm]";
-            this.layoutControlItem24.TextSize = new System.Drawing.Size(129, 14);
-            // 
-            // textEditForwardFeedVelocity
-            // 
-            this.textEditForwardFeedVelocity.Location = new System.Drawing.Point(136, 147);
-            this.textEditForwardFeedVelocity.MenuManager = this.ribbonControl1;
-            this.textEditForwardFeedVelocity.Name = "textEditForwardFeedVelocity";
-            this.textEditForwardFeedVelocity.Size = new System.Drawing.Size(50, 20);
-            this.textEditForwardFeedVelocity.StyleController = this.layoutControl5;
-            this.textEditForwardFeedVelocity.TabIndex = 11;
-            // 
-            // layoutControlItem25
-            // 
-            this.layoutControlItem25.Control = this.textEditForwardFeedVelocity;
-            this.layoutControlItem25.Location = new System.Drawing.Point(0, 144);
-            this.layoutControlItem25.Name = "layoutControlItem25";
-            this.layoutControlItem25.Size = new System.Drawing.Size(187, 24);
-            this.layoutControlItem25.Text = "F. Feed Velocity[mm/s]";
-            this.layoutControlItem25.TextSize = new System.Drawing.Size(129, 14);
-            // 
-            // textEditReverseFeedLength
-            // 
-            this.textEditReverseFeedLength.Location = new System.Drawing.Point(136, 171);
-            this.textEditReverseFeedLength.MenuManager = this.ribbonControl1;
-            this.textEditReverseFeedLength.Name = "textEditReverseFeedLength";
-            this.textEditReverseFeedLength.Size = new System.Drawing.Size(50, 20);
-            this.textEditReverseFeedLength.StyleController = this.layoutControl5;
-            this.textEditReverseFeedLength.TabIndex = 12;
-            // 
-            // layoutControlItem26
-            // 
-            this.layoutControlItem26.Control = this.textEditReverseFeedLength;
-            this.layoutControlItem26.Location = new System.Drawing.Point(0, 168);
-            this.layoutControlItem26.Name = "layoutControlItem26";
-            this.layoutControlItem26.Size = new System.Drawing.Size(187, 24);
-            this.layoutControlItem26.Text = "R. Feed Length[mm]";
-            this.layoutControlItem26.TextSize = new System.Drawing.Size(129, 14);
-            // 
-            // textEditReverseFeedVelocity
-            // 
-            this.textEditReverseFeedVelocity.Location = new System.Drawing.Point(136, 195);
-            this.textEditReverseFeedVelocity.MenuManager = this.ribbonControl1;
-            this.textEditReverseFeedVelocity.Name = "textEditReverseFeedVelocity";
-            this.textEditReverseFeedVelocity.Size = new System.Drawing.Size(50, 20);
-            this.textEditReverseFeedVelocity.StyleController = this.layoutControl5;
-            this.textEditReverseFeedVelocity.TabIndex = 13;
-            // 
-            // layoutControlItem27
-            // 
-            this.layoutControlItem27.Control = this.textEditReverseFeedVelocity;
-            this.layoutControlItem27.Location = new System.Drawing.Point(0, 192);
-            this.layoutControlItem27.Name = "layoutControlItem27";
-            this.layoutControlItem27.Size = new System.Drawing.Size(187, 28);
-            this.layoutControlItem27.Text = "R. Feed Velocity[mm/s]";
-            this.layoutControlItem27.TextSize = new System.Drawing.Size(129, 14);
+            this.repositoryItemComboBoxPCBModelName.AutoHeight = false;
+            this.repositoryItemComboBoxPCBModelName.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBoxPCBModelName.Name = "repositoryItemComboBoxPCBModelName";
             // 
             // RecipeEditor
             // 
@@ -1345,6 +1415,30 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.buttonEditPCBLayoutFilePath.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
+            this.layoutControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedVelocity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedLength.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedVelocity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedLength.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatPowerRatio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatPowerRatio.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditReadyWaitTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditLaserProfile.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditInspectionPositionType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionZ.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditInspectionPositionY.Properties)).EndInit();
@@ -1364,35 +1458,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
             this.layoutControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
-            this.layoutControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEditLaserProfile.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditReadyWaitTime.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatTime.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatTime.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatPowerRatio.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditHeatPowerRatio.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedLength.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedVelocity.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedLength.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedVelocity.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPCBModelName)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1507,5 +1580,12 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem25;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem26;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem27;
+        private DevExpress.XtraVerticalGrid.Rows.CategoryRow categoryLaserSolderingInformation;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLaserSolderingEnable;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLaserSolderingLaserEnable;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLaserSolderingFeedEnable;
+        private DevExpress.XtraEditors.ButtonEdit buttonEditPCBLayoutFilePath;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem28;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxPCBModelName;
     }
 }
