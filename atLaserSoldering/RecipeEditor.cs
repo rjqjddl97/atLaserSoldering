@@ -68,10 +68,19 @@ namespace atLaserSoldering
                 simpleButtonInspectionPositionDelete.Text = "Delete";
                 simpleButtonInspectionPositionRegister.Text = "Register";
 
-                layoutControlItem6.Text = "Pos(X)";
-                layoutControlItem7.Text = "Pos(Y)";
-                layoutControlItem9.Text = "Pos(Z)";
-                layoutControlItem15.Text = "Type";
+                layoutControlItem15.Text = "1. Insepction Mode";
+                layoutControlItem29.Text = "2. Position X";
+                layoutControlItem30.Text = "3. Position Y";
+                layoutControlItem31.Text = "4. Position Z";
+                layoutControlItem19.Text = "5. Ready Time[ms]";
+                layoutControlItem20.Text = "6. PreHeat Time[ms]";
+                layoutControlItem22.Text = "7. PreHeat P. Ratio[%]";
+                layoutControlItem21.Text = "8. Heat Time[ms]";
+                layoutControlItem23.Text = "9. Heat P. Ratio[%]";
+                layoutControlItem24.Text = "10. F. Feed Length[mm]";
+                layoutControlItem25.Text = "11. F. Feed Velocity[mm/s]";
+                layoutControlItem26.Text = "12. R. Feed Length[mm]";
+                layoutControlItem27.Text = "13. R. Feed Velocity[mm/s]";
             }
             else
             {
@@ -108,10 +117,19 @@ namespace atLaserSoldering
                 simpleButtonInspectionPositionDelete.Text = "삭제";
                 simpleButtonInspectionPositionRegister.Text = "등록";
 
-                layoutControlItem6.Text = "위치(X)";
-                layoutControlItem7.Text = "위치(Y)";
-                layoutControlItem9.Text = "위치(Z)";
-                layoutControlItem15.Text = "위치형태";
+                layoutControlItem15.Text = "1. Insepction Mode";
+                layoutControlItem29.Text = "2. Position X";
+                layoutControlItem30.Text = "3. Position Y";
+                layoutControlItem31.Text = "4. Position Z";
+                layoutControlItem19.Text = "5. Ready Time[ms]";
+                layoutControlItem20.Text = "6. PreHeat Time[ms]";
+                layoutControlItem22.Text = "7. PreHeat P. Ratio[%]";
+                layoutControlItem21.Text = "8. Heat Time[ms]";
+                layoutControlItem23.Text = "9. Heat P. Ratio[%]";
+                layoutControlItem24.Text = "10. F. Feed Length[mm]";
+                layoutControlItem25.Text = "11. F. Feed Velocity[mm/s]";
+                layoutControlItem26.Text = "12. R. Feed Length[mm]";
+                layoutControlItem27.Text = "13. R. Feed Velocity[mm/s]";
             }
         }
         public void SetSystemParam(SystemParams sysParam)
@@ -120,11 +138,6 @@ namespace atLaserSoldering
         }
         public void InitialRecipeParameters()
         {
-            //for (int i = 0; i < RecipeFileIO.ProductSeries.Length; ++i)
-            //{
-            //    repositoryItemComboBoxProductSeries.Items.Add(RecipeFileIO.ProductSeries[i]);
-            //}
-
             //for (int i = 0; i < RecipeFileIO.ProductType.Length; ++i)
             //{
             //    repositoryItemComboBoxProductType.Items.Add(RecipeFileIO.ProductType[i]);
@@ -146,9 +159,7 @@ namespace atLaserSoldering
             //{
             //    comboBoxEditInspectionPositionType.Properties.Items.Add(RecipeFileIO.InspectionPositionType[i]);
             //}
-            rowPCBModelName.Properties.Value = repositoryItemComboBoxPCBModelName.Items[0].ToString();            
-            
-            comboBoxEditInspectionPositionType.SelectedIndex = 0;
+            comboBoxEditInspectionModeType.SelectedIndex = 0;
             // Recipe의 Recipe Infomation 초기화
             _workParam.RecipeName = Convert.ToString(rowRecipeName.Properties.Value);
             _workParam.RecipeCreatorName = Convert.ToString(rowRecipeCreatorName.Properties.Value);
@@ -1147,70 +1158,35 @@ namespace atLaserSoldering
 
             float fResult;
 
-            if (float.TryParse(textEditInspectionPositionX.Text, out fResult))
-            {                
-                if (fResult >= 15 && fResult <= 780)
-                    inspectionPos.PositionX = fResult;
-                else
-                {
-                    if (fResult < 15)
-                        inspectionPos.PositionX = 15;
-                    if (fResult > 780)
-                        inspectionPos.PositionX = 780;
-                }                
-            }
-            else
-            {
-                MessageBox.Show("잘못된 X 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //if (float.TryParse(textEditInspectionPositionX.Text, out fResult))
+            //{                
+            //    if (fResult >= 15 && fResult <= 780)
+            //        inspectionPos.PositionX = fResult;
+            //    else
+            //    {
+            //        if (fResult < 15)
+            //            inspectionPos.PositionX = 15;
+            //        if (fResult > 780)
+            //            inspectionPos.PositionX = 780;
+            //    }                
+            //}
+            //else
+            //{
+            //    MessageBox.Show("잘못된 X 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                return;
-            }
+            //    return;
+            //}
 
-            if (float.TryParse(textEditInspectionPositionY.Text, out fResult))
-            {
-                if (fResult >= -20 && fResult <= 90)
-                    inspectionPos.PositionY = fResult;
-                else
-                {
-                    if (fResult < -20)
-                        inspectionPos.PositionY = -20;
-                    if (fResult > 90)
-                        inspectionPos.PositionY = 90;
-                }
-            }
-            else
-            {
-                MessageBox.Show("잘못된 Y 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    
 
-                return;
-            }
-
-            if (float.TryParse(textEditInspectionPositionZ.Text, out fResult))
-            {
-                if (fResult >= -20 && fResult <= 90)
-                    inspectionPos.PositionZ = fResult;
-                else
-                {
-                    if (fResult < -20)
-                        inspectionPos.PositionY = -20;
-                    if (fResult > 90)
-                        inspectionPos.PositionY = 90;
-                }
-            }
-            else
-            {
-                MessageBox.Show("잘못된 Z 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return;
-            }
 
             //inspectionPos.ePositionType = (INSPECTION_POSITION_MODE)comboBoxEditInspectionPositionType.SelectedIndex;
 
-            if (comboBoxEditInspectionPositionType.SelectedIndex == 0)
+            if (comboBoxEditInspectionModeType.SelectedIndex == 0)
                 inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_READY_MODE;
-            else if (comboBoxEditInspectionPositionType.SelectedIndex == 1)
+            else if (comboBoxEditInspectionModeType.SelectedIndex == 1)
                 inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_MAX_DISTANCE_MODE;
-            else if (comboBoxEditInspectionPositionType.SelectedIndex == 2)
+            else if (comboBoxEditInspectionModeType.SelectedIndex == 2)
                 inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_MIN_ORIGIN_DISTANCE_MODE;
             else
             {
@@ -1364,68 +1340,32 @@ namespace atLaserSoldering
 
             inspectionPos.Index = rowIndex + 1;
 
-            if (float.TryParse(textEditInspectionPositionX.Text, out fResult))
-            {
-                if (fResult >= 15 && fResult <= 780)
-                    inspectionPos.PositionX = fResult;
-                else
-                {
-                    if (fResult < 15)
-                        inspectionPos.PositionX = 15;
-                    if (fResult > 780)
-                        inspectionPos.PositionX = 780;
-                }
-            }
-            else
-            {
-                MessageBox.Show("잘못된 X 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //if (float.TryParse(textEditInspectionPositionX.Text, out fResult))
+            //{
+            //    if (fResult >= 15 && fResult <= 780)
+            //        inspectionPos.PositionX = fResult;
+            //    else
+            //    {
+            //        if (fResult < 15)
+            //            inspectionPos.PositionX = 15;
+            //        if (fResult > 780)
+            //            inspectionPos.PositionX = 780;
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("잘못된 X 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                return;
-            }
+            //    return;
+            //}
 
-            if (float.TryParse(textEditInspectionPositionY.Text, out fResult))
-            {
-                if (fResult >= -20 && fResult <= 90)
-                    inspectionPos.PositionY = fResult;
-                else
-                {
-                    if (fResult < -20)
-                        inspectionPos.PositionY = -20;
-                    if (fResult > 90)
-                        inspectionPos.PositionY = 90;
-                }
-            }
-            else
-            {
-                MessageBox.Show("잘못된 Y1 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+ 
 
-                return;
-            }
-
-            if (float.TryParse(textEditInspectionPositionZ.Text, out fResult))
-            {
-                if (fResult >= -20 && fResult <= 90)
-                    inspectionPos.PositionZ = fResult;
-                else
-                {
-                    if (fResult < -20)
-                        inspectionPos.PositionZ = -20;
-                    if (fResult > 90)
-                        inspectionPos.PositionZ = 90;
-                }
-            }
-            else
-            {
-                MessageBox.Show("잘못된 Z 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return;
-            }
-
-            if (comboBoxEditInspectionPositionType.SelectedIndex == 0)
+            if (comboBoxEditInspectionModeType.SelectedIndex == 0)
                 inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_READY_MODE;
-            else if (comboBoxEditInspectionPositionType.SelectedIndex == 1)
+            else if (comboBoxEditInspectionModeType.SelectedIndex == 1)
                 inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_MAX_DISTANCE_MODE;
-            else if (comboBoxEditInspectionPositionType.SelectedIndex == 2)
+            else if (comboBoxEditInspectionModeType.SelectedIndex == 2)
                 inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_MIN_ORIGIN_DISTANCE_MODE;
             else
             {
@@ -1573,12 +1513,63 @@ namespace atLaserSoldering
             if (_gridRowIndex < 0 || _gridRowIndex >= _workParam.InspectionPositions.Count)
                 return;
 
-            textEditInspectionPositionX.Text = _workParam.InspectionPositions[_gridRowIndex].PositionX.ToString();
-            textEditInspectionPositionY.Text = _workParam.InspectionPositions[_gridRowIndex].PositionY.ToString();
-            textEditInspectionPositionZ.Text = _workParam.InspectionPositions[_gridRowIndex].PositionZ.ToString();
-            comboBoxEditInspectionPositionType.SelectedIndex = (int)_workParam.InspectionPositions[_gridRowIndex].ePositionType;
+            textEditPositionX.Text = _workParam.InspectionPositions[_gridRowIndex].PositionX.ToString();
+            textEditPositionY.Text = _workParam.InspectionPositions[_gridRowIndex].PositionY.ToString();
+            textEditPositionZ.Text = _workParam.InspectionPositions[_gridRowIndex].PositionZ.ToString();
+            comboBoxEditInspectionModeType.SelectedIndex = (int)_workParam.InspectionPositions[_gridRowIndex].ePositionType;
 
             pictureEditInspectImage.Refresh();
+        }
+
+        private void buttonEditPCBLayoutFilePath_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            try
+            {
+                if (openFileDialogTemplateImage.ShowDialog() == DialogResult.OK)
+                {
+                    OpenPCBOpenLayoutImageFile(openFileDialogTemplateImage.FileName);
+
+                    barButtonItemRecipeSave.Enabled = true;
+
+                    //_log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("PCB Layout 경로 이미지를 설정합니다.{0}", _workParam.PCBLayoutFilePath));
+                    //_log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("PCB Layout Zoom 배율:{0}", pictureEditPCBImage.Properties.ZoomPercent));
+                }
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
+        private void OpenPCBOpenLayoutImageFile(string strFilePath)
+        {
+            //buttonEditPCBLayoutFilePath.Text = strFilePath;
+            //rowPCBLayoutFilePath.Properties.Value = strFilePath;
+            //_workParam.PCBLayoutFilePath = strFilePath;
+
+            //using (FileStream fs = new FileStream(strFilePath, FileMode.Open, FileAccess.Read))
+            //{
+            //    if (pictureEditInspectImage.Image != null)
+            //    {
+            //        pictureEditInspectImage.Image.Dispose();
+            //        pictureEditInspectImage.Image = null;
+            //    }
+
+            //    pictureEditPCBImage.Image = Image.FromStream(fs);
+            //}
+
+            //PictureEdit edit = pictureEditPCBImage as PictureEdit;
+            //PictureEditViewInfo vi = edit.GetViewInfo() as PictureEditViewInfo;
+
+            //float fVScale = (float)vi.ClientRect.Height / edit.Image.Size.Height;
+            //float fHScale = (float)vi.ClientRect.Width / edit.Image.Size.Width;
+
+            //_fScale = Math.Min(fHScale, fVScale);
+
+            //pictureEditInspectImage.Properties.ZoomPercent = _fScale * 100;
+
+            //pictureEditInspectImage.Refresh();
+
+            //barButtonItemRecipeSave.Enabled = true;
         }
     }
 }

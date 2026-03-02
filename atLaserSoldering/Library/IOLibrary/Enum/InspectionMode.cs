@@ -14,4 +14,10 @@ namespace RecipeManager
         POSITION_OPTICAL_SPOT_MODE,
         POSITION_READY_MODE
     }
+    public enum INSPECTION_MODE
+    {
+        INSPECTION_MODE_NONE,
+        INSPECTION_MODE_ALINE,
+        INSPECTION_SOLDERING        
+    }
 }

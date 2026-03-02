@@ -43,3 +43,10 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLas
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.csproj.CopyComplete
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\bin\Debug\CompactSECommunication.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\bin\Debug\CompactSECommunication.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\bin\Debug\SuperSimpleTcp.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\bin\Debug\SuperSimpleTcp.xml
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.csprojResolveAssemblyReference.cache
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\obj\Debug\CompactSECommunication.pdb

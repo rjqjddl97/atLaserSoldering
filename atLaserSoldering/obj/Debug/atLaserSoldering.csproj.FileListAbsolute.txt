@@ -729,3 +729,6 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSo
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csproj.CopyComplete
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.exe
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.LoginForm.resources
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.RecipeEditor.resources
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.SystemDirectorySetting.resources
