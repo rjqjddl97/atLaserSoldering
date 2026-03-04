@@ -21,9 +21,11 @@ namespace RecipeManager
         public int _ProductOutputType { get; set; } = 0;            //  0: NPN, 1: PNP 
         public int _ProductDetectMerterial { get; set; } = 2;       // 0: 없음, 1: 거울, 2: 백색지, 3: 흑색지, 4: 유리체 
         public float _ProductDistanceMargin { get; set; } = 0.2F;
-        public bool _ProductMaxDistanceProcessEnable { get; set; } = false;
-        public bool _ProductOriginDistanceProcessEnable { get; set; } = false;
-        public bool _ProductMinObjectDetectProcessEnable { get; set; } = false;
+        public bool _PCBAlignVisionEnable { get; set; } = false;
+        public bool _SolderingInspectVisionEnable { get; set; } = false;
+        public bool _SolderingProcessEnable { get; set; } = false;
+        public bool _UseLaserEnable { get; set; } = false;
+        public bool _UseFeederEnable { get; set; } = false;
 
         // 투광 편심 검사 파라미터
         public bool _LEDInspectionUseEnable { get; set; } = false;
@@ -41,6 +43,9 @@ namespace RecipeManager
         public int _LEDInspectionWorkAreaTop { get; set; } = 300;
         public int _LedInspectionWorkAreaWidth { get; set; } = 600;
         public int _LedInspectionWorkAreaHeight { get; set; } = 600;
+
+        public int _InspectionLightBright { get; set; } = 100;
+        public int _SolderingInspectionLightBright { get; set; } = 100;
 
         public double _FiducialMarkA_X { get; set; } = 0;
         public double _FiducialMarkA_Y { get; set; } = 0;
@@ -61,10 +66,10 @@ namespace RecipeManager
         public bool _InspectionMaxDistanceUseEnable { get; set; } = false;
 
         public int _WorkPositionsCount { get; set; } = 0;
-        //public List<PositionParams> _WorkPositionParams = new List<PositionParams>();
-        List<InspectionPosition> _listInspectionPositions = new List<InspectionPosition>();
-        List<Blob> _blobs = new List<Blob>();
 
+        //public List<PositionParams> _WorkPositionParams = new List<PositionParams>();
+        List<SolderingPosition> _listSolderPositionParams = new List<SolderingPosition>();
+                
         public int ImageCenterX = 800;
         public int ImageCenterY = 600;
 
@@ -106,18 +111,11 @@ namespace RecipeManager
         {
             get { return _strRecipeCreatorName; }
             set { _strRecipeCreatorName = value; }
-        }
-
-          public List<Blob> Blobs
+        }        
+        public List<SolderingPosition> SolderPositionParams
         {
-            get { return _blobs; }
-            set { _blobs = value; }
-        }
-        
-        public List<InspectionPosition> InspectionPositions
-        {
-            get { return _listInspectionPositions; }
-            set { _listInspectionPositions = value; }
+            get { return _listSolderPositionParams; }
+            set { _listSolderPositionParams = value; }
         }
    
         public PointF AreaStart
@@ -188,9 +186,11 @@ namespace RecipeManager
             temp._ProductType = this._ProductType;            
             temp._ProductDetectMerterial = this._ProductDetectMerterial;
             temp._ProductDistanceMargin = this._ProductDistanceMargin;
-            temp._ProductMaxDistanceProcessEnable = this._ProductMaxDistanceProcessEnable;
-            temp._ProductOriginDistanceProcessEnable = this._ProductOriginDistanceProcessEnable;
-            temp._ProductMinObjectDetectProcessEnable = this._ProductMinObjectDetectProcessEnable;
+            temp._PCBAlignVisionEnable = this._PCBAlignVisionEnable;
+            temp._SolderingInspectVisionEnable = this._SolderingInspectVisionEnable;
+            temp._SolderingProcessEnable = this._SolderingProcessEnable;
+            temp._UseLaserEnable = this._UseLaserEnable;
+            temp._UseFeederEnable = this._UseFeederEnable;
 
             temp._LEDInspectionUseEnable = this._LEDInspectionUseEnable;
             temp._LEDInspectionShortDistance = this._LEDInspectionShortDistance;
@@ -206,12 +206,11 @@ namespace RecipeManager
             temp._LEDInspectionWorkAreaTop = this._LEDInspectionWorkAreaTop;
             temp._LedInspectionWorkAreaWidth = this._LedInspectionWorkAreaWidth;
             temp._LedInspectionWorkAreaHeight = this._LedInspectionWorkAreaHeight;
-         
-            for (i = 0; i < this._listInspectionPositions.Count; ++i)
-                temp._listInspectionPositions.Add(this._listInspectionPositions[i]);
+            temp._InspectionLightBright = this._InspectionLightBright;
+            temp._SolderingInspectionLightBright = this._SolderingInspectionLightBright;
 
-            for (i = 0; i < this._blobs.Count; ++i)
-                temp._blobs.Add(this._blobs[i]);
+            for (i = 0; i < this._listSolderPositionParams.Count; ++i)
+                temp._listSolderPositionParams.Add(this._listSolderPositionParams[i]);
 
             temp._isBinaryInverse = this._isBinaryInverse;
 

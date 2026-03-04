@@ -194,7 +194,7 @@ namespace atLaserSoldering
         private void barButtonItemNewRecipe_ItemClick(object sender, ItemClickEventArgs e)
         {
             _workParam = new WorkParams();
-            _workParam.InspectionPositions.Clear();
+            _workParam.SolderPositionParams.Clear();
 
             rowRecipeName.Properties.Value = _workParam.RecipeName;
             rowRecipeCreateTime.Properties.Value = _workParam.RecipeCreateTime;
@@ -226,7 +226,7 @@ namespace atLaserSoldering
 
             _gridRowIndex = -1;
 
-            gridControlInspectionPosition.DataSource = _workParam.InspectionPositions;
+            gridControlInspectionPosition.DataSource = _workParam.SolderPositionParams;
 
             gridViewInspectionPositions.RefreshData();
             vGridControlInspectionParam.Refresh();
@@ -888,22 +888,38 @@ namespace atLaserSoldering
 
                 barButtonItemRecipeSave.Enabled = true;
                 _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("모델 유형이 {0}로 변경되었습니다.", _workParam._ProductType.ToString()));
-            } 
+            }
+            else if (e.Row == rowReferenceInspectionEnable)
+            {
+                bool check = Convert.ToBoolean(rowReferenceInspectionEnable.Properties.Value); ;
+                _workParam._PCBAlignVisionEnable = check;
+
+                if (check)
+                {
+                    rowReferenceInspectionEnable.Enabled = true;
+                }
+                else
+                {
+                    rowReferenceInspectionEnable.Enabled = false;
+                }
+                barButtonItemRecipeSave.Enabled = true;
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("PCB Align 검사 유무가 {0}로 변경되었습니다.", _workParam._PCBAlignVisionEnable.ToString()));
+            }
             else if (e.Row == rowReferenceInspectionLightBright)
             {
-                fValue = Convert.ToSingle(rowReferenceInspectionLightBright.Properties.Value);
+                value = Convert.ToInt32(rowReferenceInspectionLightBright.Properties.Value);
 
-                if (fValue <= 0 || fValue > 200)
+                if (value <= 0 || value > 1024)
                 {
-                    MessageBox.Show("카메라 이동거리 설정이 잘못 입력되었습니다.\r\n카메라 거리의 최대 거리는 200mm입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowReferenceInspectionLightBright.Properties.Value = _workParam._LEDInspectionCameraDistance;
+                    MessageBox.Show("조명 밝기 설정이 잘못 입력되었습니다.\r\n카메라 밝기의 최대 값은 1024[digit]입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowReferenceInspectionLightBright.Properties.Value = _workParam._InspectionLightBright;
                     vGridControlInspectionParam.Refresh();
 
                     return;
                 }
-                _workParam._LEDInspectionCameraDistance = fValue;
+                _workParam._InspectionLightBright = value;
                 barButtonItemRecipeSave.Enabled = true;
-                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("카메라 이동거리가 {0}로 변경되었습니다.", _workParam._LEDInspectionCameraDistance));
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("조명 밝기가 {0}로 변경되었습니다.", _workParam._InspectionLightBright));
             }
             else if (e.Row == rowReferenceInspectionExposureTime)
             {
@@ -955,27 +971,90 @@ namespace atLaserSoldering
                 barButtonItemRecipeSave.Enabled = true;
                 _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("이미지 처리 수평 임계값이  {0}로 변경되었습니다.", _workParam._LEDInspectionReferenceThresholdH));
             }
+            else if (e.Row == rowSoderingInspectionEnale)
+            {
+                bool check = Convert.ToBoolean(rowSoderingInspectionEnale.Properties.Value); ;
+                _workParam._SolderingInspectVisionEnable = check;
+
+                if (check)
+                {
+                    rowSoderingInspectionEnale.Enabled = true;
+                }
+                else
+                {
+                    rowSoderingInspectionEnale.Enabled = false;
+                }
+                barButtonItemRecipeSave.Enabled = true;
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("납땜 검사 유무가 {0}로 변경되었습니다.", _workParam._SolderingInspectVisionEnable.ToString()));
+            }
             else if (e.Row == rowSolderingInspectionLightBright)
             {
                 value = Convert.ToInt32(rowSolderingInspectionLightBright.Properties.Value);
 
-                if (value < 0 || value > 255)
+                if (value < 0 || value > 1024)
                 {
-                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n임계치 값은 0~255사이의 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowSolderingInspectionLightBright.Properties.Value = _workParam._LEDInspectionReferenceThresholdV;
+                    MessageBox.Show("조명 밝기 설정이 잘못 입력되었습니다.\r\n카메라 밝기의 최대 값은 1024[digit]입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowSolderingInspectionLightBright.Properties.Value = _workParam._SolderingInspectionLightBright;
                     vGridControlInspectionParam.Refresh();
                     return;
                 }
 
-                _workParam._LEDInspectionReferenceThresholdV = value;
+                _workParam._SolderingInspectionLightBright = value;
                 barButtonItemRecipeSave.Enabled = true;
-                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("이미지 처리 수직 임계값이 {0}로 변경되었습니다.", _workParam._LEDInspectionReferenceThresholdV));
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("조명 밝기가  {0}로 변경되었습니다.", _workParam._SolderingInspectionLightBright));
             }
- 
+            else if (e.Row == rowLaserSolderingEnable)
+            {
+                bool check = Convert.ToBoolean(rowLaserSolderingEnable.Properties.Value); ;
+                _workParam._SolderingProcessEnable = check;
+
+                if (check)
+                {
+                    rowLaserSolderingEnable.Enabled = true;
+                }
+                else
+                {
+                    rowLaserSolderingEnable.Enabled = false;
+                }
+                barButtonItemRecipeSave.Enabled = true;
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레이저 납땜 작업 유무가 {0}로 변경되었습니다.", _workParam._SolderingProcessEnable.ToString()));
+            }
+            else if (e.Row == rowLaserSolderingLaserEnable)
+            {
+                bool check = Convert.ToBoolean(rowLaserSolderingLaserEnable.Properties.Value); ;
+                _workParam._UseLaserEnable = check;
+
+                if (check)
+                {
+                    rowLaserSolderingLaserEnable.Enabled = true;
+                }
+                else
+                {
+                    rowLaserSolderingLaserEnable.Enabled = false;
+                }
+                barButtonItemRecipeSave.Enabled = true;
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레이저 사용 유무가 {0}로 변경되었습니다.", _workParam._UseLaserEnable.ToString()));
+            }
+            else if (e.Row == rowLaserSolderingFeedEnable)
+            {
+                bool check = Convert.ToBoolean(rowLaserSolderingFeedEnable.Properties.Value); ;
+                _workParam._UseFeederEnable = check;
+
+                if (check)
+                {
+                    rowLaserSolderingFeedEnable.Enabled = true;
+                }
+                else
+                {
+                    rowLaserSolderingFeedEnable.Enabled = false;
+                }
+                barButtonItemRecipeSave.Enabled = true;
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("실납 공급기 유무가 {0}로 변경되었습니다.", _workParam._UseFeederEnable.ToString()));
+            }
         }
         private void UpdateRecipeControls()
         {
-            _gridRowIndex = (_workParam.InspectionPositions.Count > 0) ? 0 : -1;
+            _gridRowIndex = (_workParam.SolderPositionParams.Count > 0) ? 0 : -1;
 
             rowRecipeName.Properties.Value = _workParam.RecipeName;
             rowRecipeCreateTime.Properties.Value = _workParam.RecipeCreateTime;
@@ -1154,7 +1233,7 @@ namespace atLaserSoldering
         }
         private void simpleButtonInspectionPositionRegister_Click(object sender, EventArgs e)
         {
-            InspectionPosition inspectionPos = new InspectionPosition();
+            SolderingPosition inspectionPos = new SolderingPosition();
 
             float fResult;
 
@@ -1197,18 +1276,18 @@ namespace atLaserSoldering
                 }
             }
 
-            for (int i = 0; i < _workParam.InspectionPositions.Count; ++i)
+            for (int i = 0; i < _workParam.SolderPositionParams.Count; ++i)
             {
-                float fX = _workParam.InspectionPositions[i].PositionX;
-                float fY = _workParam.InspectionPositions[i].PositionY;
-                float fZ = _workParam.InspectionPositions[i].PositionZ;
+                double fX = _workParam.SolderPositionParams[i].PositionX;
+                double fY = _workParam.SolderPositionParams[i].PositionY;
+                double fZ = _workParam.SolderPositionParams[i].PositionZ;
                 if (fX == inspectionPos.PositionX)
                 {
                     if (fY == inspectionPos.PositionY)
                     {
                         if (fZ == inspectionPos.PositionZ)
                         {
-                            if (inspectionPos.ePositionType == _workParam.InspectionPositions[i].ePositionType)
+                            if (inspectionPos.ePositionType == _workParam.SolderPositionParams[i].ePositionType)
                             {
                                 MessageBox.Show("동일한 위치 좌표가 이미 등록되어 있습니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
@@ -1222,7 +1301,7 @@ namespace atLaserSoldering
             {
                 if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE)
                 {
-                    if (_workParam.InspectionPositions.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE)) == -1)
+                    if (_workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE)) == -1)
                     {
                         string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4} 값을 등록하시겠습니까?",
                                                 gridViewInspectionPositions.RowCount + 1,
@@ -1235,10 +1314,10 @@ namespace atLaserSoldering
                             return;
 
                         inspectionPos.Index = gridViewInspectionPositions.RowCount + 1;
-                        _workParam.InspectionPositions.Add(inspectionPos);
+                        _workParam.SolderPositionParams.Add(inspectionPos);
 
-                        gridViewInspectionPositions.FocusedRowHandle = _workParam.InspectionPositions.Count - 1;
-                        _gridRowIndex = _workParam.InspectionPositions.Count - 1;
+                        gridViewInspectionPositions.FocusedRowHandle = _workParam.SolderPositionParams.Count - 1;
+                        _gridRowIndex = _workParam.SolderPositionParams.Count - 1;
 
                         gridViewInspectionPositions.RefreshData();
 
@@ -1251,7 +1330,7 @@ namespace atLaserSoldering
                 }
                 else
                 {
-                    if (_workParam.InspectionPositions.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_READY_MODE)) == -1)
+                    if (_workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_READY_MODE)) == -1)
                     {
                         string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4} 값을 등록하시겠습니까?",
                          gridViewInspectionPositions.RowCount + 1,
@@ -1264,10 +1343,10 @@ namespace atLaserSoldering
                             return;
 
                         inspectionPos.Index = gridViewInspectionPositions.RowCount + 1;
-                        _workParam.InspectionPositions.Add(inspectionPos);
+                        _workParam.SolderPositionParams.Add(inspectionPos);
 
-                        gridViewInspectionPositions.FocusedRowHandle = _workParam.InspectionPositions.Count - 1;
-                        _gridRowIndex = _workParam.InspectionPositions.Count - 1;
+                        gridViewInspectionPositions.FocusedRowHandle = _workParam.SolderPositionParams.Count - 1;
+                        _gridRowIndex = _workParam.SolderPositionParams.Count - 1;
 
                         gridViewInspectionPositions.RefreshData();
 
@@ -1294,29 +1373,29 @@ namespace atLaserSoldering
                 return;
 
             string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4} 값을 삭제하시겠습니까?",
-                _workParam.InspectionPositions[rowIndex].Index,
-                _workParam.InspectionPositions[rowIndex].ePositionType,
-                _workParam.InspectionPositions[rowIndex].PositionX,
-                _workParam.InspectionPositions[rowIndex].PositionY,
-                _workParam.InspectionPositions[rowIndex].PositionZ);
+                _workParam.SolderPositionParams[rowIndex].Index,
+                _workParam.SolderPositionParams[rowIndex].ePositionType,
+                _workParam.SolderPositionParams[rowIndex].PositionX,
+                _workParam.SolderPositionParams[rowIndex].PositionY,
+                _workParam.SolderPositionParams[rowIndex].PositionZ);
 
             if (MessageBox.Show(strMessage, "삭제", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                 return;
 
             _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
-                string.Format("Type:{0} X:{1}, Y:{2}, Z:{3} 검사모드:{2}를 삭제", _workParam.InspectionPositions[rowIndex].ePositionType.ToString(), _workParam.InspectionPositions[rowIndex].PositionX, _workParam.InspectionPositions[rowIndex].PositionY, _workParam.InspectionPositions[rowIndex].PositionZ));
+                string.Format("Type:{0} X:{1}, Y:{2}, Z:{3} 검사모드:{2}를 삭제", _workParam.SolderPositionParams[rowIndex].ePositionType.ToString(), _workParam.SolderPositionParams[rowIndex].PositionX, _workParam.SolderPositionParams[rowIndex].PositionY, _workParam.SolderPositionParams[rowIndex].PositionZ));
 
-            if (rowIndex < _workParam.InspectionPositions.Count)
+            if (rowIndex < _workParam.SolderPositionParams.Count)
             {
-                _workParam.InspectionPositions.RemoveAt(rowIndex);
+                _workParam.SolderPositionParams.RemoveAt(rowIndex);
 
-                for (int i = 0; i < _workParam.InspectionPositions.Count; ++i)
+                for (int i = 0; i < _workParam.SolderPositionParams.Count; ++i)
                 {
-                    _workParam.InspectionPositions[i].Index = (i + 1);
+                    _workParam.SolderPositionParams[i].Index = (i + 1);
                 }
 
-                if (_gridRowIndex == _workParam.InspectionPositions.Count)
-                    _gridRowIndex = _workParam.InspectionPositions.Count - 1;
+                if (_gridRowIndex == _workParam.SolderPositionParams.Count)
+                    _gridRowIndex = _workParam.SolderPositionParams.Count - 1;
 
                 gridViewInspectionPositions.FocusedRowHandle = _gridRowIndex;
 
@@ -1331,12 +1410,12 @@ namespace atLaserSoldering
         {
             int rowIndex = gridViewInspectionPositions.GetFocusedDataSourceRowIndex();
 
-            if (rowIndex < 0 || rowIndex >= _workParam.InspectionPositions.Count)
+            if (rowIndex < 0 || rowIndex >= _workParam.SolderPositionParams.Count)
                 return;
 
             float fResult;
 
-            InspectionPosition inspectionPos = new InspectionPosition();
+            SolderingPosition inspectionPos = new SolderingPosition();
 
             inspectionPos.Index = rowIndex + 1;
 
@@ -1379,10 +1458,10 @@ namespace atLaserSoldering
             {
                 if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_READY_MODE)
                 {
-                    int postypeindex = _workParam.InspectionPositions.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_READY_MODE));
+                    int postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_READY_MODE));
                     if (postypeindex != -1)
                     {                        
-                        if (_workParam.InspectionPositions[rowIndex].ePositionType == _workParam.InspectionPositions[postypeindex].ePositionType)
+                        if (_workParam.SolderPositionParams[rowIndex].ePositionType == _workParam.SolderPositionParams[postypeindex].ePositionType)
                         {
                             string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y1:{3}, Z:{4} 값을 수정하시겠습니까?",
                                 inspectionPos.Index,
@@ -1394,7 +1473,7 @@ namespace atLaserSoldering
                             if (MessageBox.Show(strMessage, "수정", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                                 return;
 
-                            _workParam.InspectionPositions[rowIndex] = inspectionPos;
+                            _workParam.SolderPositionParams[rowIndex] = inspectionPos;
 
                             gridViewInspectionPositions.RefreshData();
                             pictureEditInspectImage.Refresh();
@@ -1413,10 +1492,10 @@ namespace atLaserSoldering
                 }
                 else
                 {
-                    int postypeindex = _workParam.InspectionPositions.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE));
+                    int postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE));
                     if (postypeindex != -1)
                     {                        
-                        if (_workParam.InspectionPositions[rowIndex].ePositionType == _workParam.InspectionPositions[postypeindex].ePositionType)
+                        if (_workParam.SolderPositionParams[rowIndex].ePositionType == _workParam.SolderPositionParams[postypeindex].ePositionType)
                         {
                             string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y1:{3}, Z:{4} 값을 수정하시겠습니까?",
                                 inspectionPos.Index,
@@ -1428,7 +1507,7 @@ namespace atLaserSoldering
                             if (MessageBox.Show(strMessage, "수정", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                                 return;
 
-                            _workParam.InspectionPositions[rowIndex] = inspectionPos;
+                            _workParam.SolderPositionParams[rowIndex] = inspectionPos;
 
                             gridViewInspectionPositions.RefreshData();
                             pictureEditInspectImage.Refresh();
@@ -1457,18 +1536,18 @@ namespace atLaserSoldering
 
         private void simpleButtonReplaceDown_Click(object sender, EventArgs e)
         {
-            if (_gridRowIndex < 0 || _gridRowIndex == _workParam.InspectionPositions.Count - 1)
+            if (_gridRowIndex < 0 || _gridRowIndex == _workParam.SolderPositionParams.Count - 1)
                 return;
 
-            InspectionPosition tempPos1 = _workParam.InspectionPositions[_gridRowIndex];
-            InspectionPosition tempPos2 = _workParam.InspectionPositions[_gridRowIndex + 1];
+            SolderingPosition tempPos1 = _workParam.SolderPositionParams[_gridRowIndex];
+            SolderingPosition tempPos2 = _workParam.SolderPositionParams[_gridRowIndex + 1];
             int tempIndex = tempPos1.Index;
 
             tempPos1.Index = tempPos2.Index;
             tempPos2.Index = tempIndex;
 
-            _workParam.InspectionPositions[_gridRowIndex] = tempPos2;
-            _workParam.InspectionPositions[_gridRowIndex + 1] = tempPos1;
+            _workParam.SolderPositionParams[_gridRowIndex] = tempPos2;
+            _workParam.SolderPositionParams[_gridRowIndex + 1] = tempPos1;
 
             _gridRowIndex += 1;
             gridViewInspectionPositions.FocusedRowHandle = _gridRowIndex;
@@ -1482,19 +1561,19 @@ namespace atLaserSoldering
 
         private void simpleButtonReplaceUp_Click(object sender, EventArgs e)
         {
-            if (_gridRowIndex <= 0 || _gridRowIndex > _workParam.InspectionPositions.Count - 1)
+            if (_gridRowIndex <= 0 || _gridRowIndex > _workParam.SolderPositionParams.Count - 1)
                 return;
 
-            InspectionPosition tempPos1 = _workParam.InspectionPositions[_gridRowIndex - 1];
-            InspectionPosition tempPos2 = _workParam.InspectionPositions[_gridRowIndex];
+            SolderingPosition tempPos1 = _workParam.SolderPositionParams[_gridRowIndex - 1];
+            SolderingPosition tempPos2 = _workParam.SolderPositionParams[_gridRowIndex];
 
             int tempIndex = tempPos1.Index;
 
             tempPos1.Index = tempPos2.Index;
             tempPos2.Index = tempIndex;
 
-            _workParam.InspectionPositions[_gridRowIndex - 1] = tempPos2;
-            _workParam.InspectionPositions[_gridRowIndex] = tempPos1;
+            _workParam.SolderPositionParams[_gridRowIndex - 1] = tempPos2;
+            _workParam.SolderPositionParams[_gridRowIndex] = tempPos1;
 
             _gridRowIndex -= 1;
             gridViewInspectionPositions.FocusedRowHandle = _gridRowIndex;
@@ -1510,13 +1589,22 @@ namespace atLaserSoldering
         {
             _gridRowIndex = e.RowHandle;
 
-            if (_gridRowIndex < 0 || _gridRowIndex >= _workParam.InspectionPositions.Count)
+            if (_gridRowIndex < 0 || _gridRowIndex >= _workParam.SolderPositionParams.Count)
                 return;
 
-            textEditPositionX.Text = _workParam.InspectionPositions[_gridRowIndex].PositionX.ToString();
-            textEditPositionY.Text = _workParam.InspectionPositions[_gridRowIndex].PositionY.ToString();
-            textEditPositionZ.Text = _workParam.InspectionPositions[_gridRowIndex].PositionZ.ToString();
-            comboBoxEditInspectionModeType.SelectedIndex = (int)_workParam.InspectionPositions[_gridRowIndex].ePositionType;
+            textEditPositionX.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionX.ToString();
+            textEditPositionY.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionY.ToString();
+            textEditPositionZ.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionZ.ToString();
+            textEditReadyWaitTime.Text = _workParam.SolderPositionParams[_gridRowIndex].ReadyTime.ToString();
+            textEditPreHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].PreHeatTime.ToString();
+            textEditPreHeatPowerRatio.Text = _workParam.SolderPositionParams[_gridRowIndex].PreheatPowerRatio.ToString();
+            textEditHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatTime.ToString();
+            textEditHeatPowerRatio.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatPowerRatio.ToString();
+            textEditForwardFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwordingWireLength.ToString();
+            textEditForwardFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwordingVelocity.ToString();
+            textEditReverseFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseWireLength.ToString();
+            textEditReverseFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseVelocity.ToString();                        
+            comboBoxEditInspectionModeType.SelectedIndex = (int)_workParam.SolderPositionParams[_gridRowIndex].ePositionType;
 
             pictureEditInspectImage.Refresh();
         }

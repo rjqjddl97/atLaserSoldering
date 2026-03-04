@@ -68,7 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\InspectionPosition.cs" />
+    <Compile Include="Class\SolderingPosition.cs" />
     <Compile Include="Class\MotionMovementAxis.cs" />
     <Compile Include="Enum\ADMSEquipment.cs" />
     <Compile Include="Enum\CalibrationMode.cs" />

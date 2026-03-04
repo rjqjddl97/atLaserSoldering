@@ -71,19 +71,19 @@ namespace RecipeManager
 
             workParam._WorkPositionsCount = Convert.ToInt32(recipeData[WorkParamSections[3]]["InspectionPositionCount"]);
 
-            workParam.InspectionPositions.Clear();
+            workParam.SolderPositionParams.Clear();
 
             for (int i = 0; i < workParam._WorkPositionsCount; ++i)
             {
-                InspectionPosition pos = new InspectionPosition();
+                SolderingPosition pos = new SolderingPosition();
 
                 pos.Index = i + 1;
                 pos.ePositionType = (INSPECTION_POSITION_MODE)Convert.ToInt32(recipeData[WorkParamSections[3]][string.Format("PositionType{0}", i)]);                
                 pos.PositionX = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("X{0}", i)]);
                 pos.PositionZ = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("Z{0}", i)]);                
                 pos.PositionRz = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("R{0}", i)]);
-                pos.PositionNDFilter = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("Theta{0}", i)]);
-                workParam.InspectionPositions.Add(pos);
+                
+                workParam.SolderPositionParams.Add(pos);
             }
 
             parser = null;
@@ -124,17 +124,17 @@ namespace RecipeManager
             recipeData[WorkParamSections[2]].AddKey("InspectionMaxDistanceEnable", workParam._InspectionMaxDistanceUseEnable.ToString());
 
             recipeData.Sections.AddSection(WorkParamSections[3]);
-            recipeData[WorkParamSections[3]].AddKey("InspectionPositionCount", workParam.InspectionPositions.Count.ToString());
+            recipeData[WorkParamSections[3]].AddKey("InspectionPositionCount", workParam.SolderPositionParams.Count.ToString());
 
-            for (int i = 0; i < workParam.InspectionPositions.Count; ++i)
+            for (int i = 0; i < workParam.SolderPositionParams.Count; ++i)
             {
-                int inspectionMode = (int)workParam.InspectionPositions[i].ePositionType;
+                int inspectionMode = (int)workParam.SolderPositionParams[i].ePositionType;
 
                 recipeData[WorkParamSections[3]].AddKey(string.Format("PositionType{0}", i), inspectionMode.ToString());
-                recipeData[WorkParamSections[3]].AddKey(string.Format("X{0}", i), workParam.InspectionPositions[i].PositionX.ToString());
-                recipeData[WorkParamSections[3]].AddKey(string.Format("Z{0}", i), workParam.InspectionPositions[i].PositionZ.ToString());
-                recipeData[WorkParamSections[3]].AddKey(string.Format("R{0}", i), workParam.InspectionPositions[i].PositionRz.ToString());
-                recipeData[WorkParamSections[3]].AddKey(string.Format("Theta{0}", i), workParam.InspectionPositions[i].PositionNDFilter.ToString());
+                recipeData[WorkParamSections[3]].AddKey(string.Format("X{0}", i), workParam.SolderPositionParams[i].PositionX.ToString());
+                recipeData[WorkParamSections[3]].AddKey(string.Format("Y{0}", i), workParam.SolderPositionParams[i].PositionZ.ToString());
+                recipeData[WorkParamSections[3]].AddKey(string.Format("Z{0}", i), workParam.SolderPositionParams[i].PositionRz.ToString());
+                
             }
 
             parser.WriteFile(strFilePath, recipeData);
