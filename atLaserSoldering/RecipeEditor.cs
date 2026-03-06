@@ -820,74 +820,63 @@ namespace atLaserSoldering
             {
                 strTemp = Convert.ToString(rowPCBModelName.Properties.Value);
 
-                bool IsValidate = false;
-
-                for (int i = 0; i < repositoryItemComboBoxProductSeries.Items.Count; ++i)
-                {
-                    if (strTemp == Convert.ToString(repositoryItemComboBoxProductSeries.Items[i]))
-                    {
-                        IsValidate = true;
-                        break;
-                    }
-                }
-
-                if (string.IsNullOrEmpty(strTemp) || !IsValidate)
+                if (string.IsNullOrEmpty(strTemp))
                 {
                     MessageBox.Show(string.Format("제품 시리즈가 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowPCBModelName.Properties.Value = Enum.GetName(typeof(ModelSeries), (int)_workParam._ProductSeries);
+                    rowPCBModelName.Properties.Value = _workParam._PCBModelName;
                     vGridControlInspectionParam.Refresh();
                     return;
                 }
 
-                _workParam._ProductSeries = (int)Enum.Parse(typeof(ModelSeries), strTemp);
+                _workParam._PCBModelName = strTemp;
 
                 barButtonItemRecipeSave.Enabled = true;
-                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format(" 제품 시리즈 이름이 {0}로 변경되었습니다.", _workParam._ProductSeries.ToString()));
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format(" 제품 시리즈 이름이 {0}로 변경되었습니다.", _workParam._ProductSeries));
             }
             else if (e.Row == rowPCBHorizontalSize)
             {
-                strTemp = Convert.ToString(rowPCBHorizontalSize.Properties.Value);
+                //strTemp = Convert.ToString(rowPCBHorizontalSize.Properties.Value);
 
-                if (string.IsNullOrEmpty(strTemp))
-                {
-                    MessageBox.Show(string.Format("제품 모델명이 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowPCBHorizontalSize.Properties.Value = _workParam._ProductModelName;
-                    vGridControlInspectionParam.Refresh();
-                    return;
-                }
+                //if (string.IsNullOrEmpty(strTemp))
+                //{
+                //    MessageBox.Show(string.Format("제품 모델명이 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    rowPCBHorizontalSize.Properties.Value = _workParam._ProductModelName;
+                //    vGridControlInspectionParam.Refresh();
+                //    return;
+                //}
 
-                _workParam._ProductModelName = strTemp;
+                //_workParam._ProductModelName = strTemp;
 
-                barButtonItemRecipeSave.Enabled = true;
-                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("제품 모델 이름이 {0}로 변경되었습니다.", _workParam._ProductModelName));
+                //barButtonItemRecipeSave.Enabled = true;
+                //_log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("제품 모델 이름이 {0}로 변경되었습니다.", _workParam._ProductModelName));
             }
             else if (e.Row == rowPCBVerticalSize)
             {
-                strTemp = Convert.ToString(rowPCBVerticalSize.Properties.Value);
+                //strTemp = Convert.ToString(rowPCBVerticalSize.Properties.Value);
 
-                bool IsValidate = false;
+                //bool IsValidate = false;
 
-                for (int i = 0; i < repositoryItemComboBoxProductType.Items.Count; ++i)
-                {
-                    if (strTemp == Convert.ToString(repositoryItemComboBoxProductType.Items[i]))
-                    {
-                        IsValidate = true;
-                        break;
-                    }
-                }
+                //for (int i = 0; i < repositoryItemComboBoxProductType.Items.Count; ++i)
+                //{
+                //    if (strTemp == Convert.ToString(repositoryItemComboBoxProductType.Items[i]))
+                //    {
+                //        IsValidate = true;
+                //        break;
+                //    }
+                //}
 
-                if (string.IsNullOrEmpty(strTemp) || !IsValidate)
-                {
-                    MessageBox.Show(string.Format("제품 유형이 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowPCBVerticalSize.Properties.Value = Enum.GetName(typeof(ModelSeries), (int)_workParam._ProductType);
-                    vGridControlInspectionParam.Refresh();
-                    return;
-                }
+                //if (string.IsNullOrEmpty(strTemp) || !IsValidate)
+                //{
+                //    MessageBox.Show(string.Format("제품 유형이 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    rowPCBVerticalSize.Properties.Value = Enum.GetName(typeof(ModelSeries), (int)_workParam._ProductType);
+                //    vGridControlInspectionParam.Refresh();
+                //    return;
+                //}
 
-                _workParam._ProductType = (int)Enum.Parse(typeof(ModelType), strTemp);
+                //_workParam._ProductType = (int)Enum.Parse(typeof(ModelType), strTemp);
 
-                barButtonItemRecipeSave.Enabled = true;
-                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("모델 유형이 {0}로 변경되었습니다.", _workParam._ProductType.ToString()));
+                //barButtonItemRecipeSave.Enabled = true;
+                //_log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("모델 유형이 {0}로 변경되었습니다.", _workParam._ProductType.ToString()));
             }
             else if (e.Row == rowReferenceInspectionEnable)
             {
@@ -911,7 +900,7 @@ namespace atLaserSoldering
 
                 if (value <= 0 || value > 1024)
                 {
-                    MessageBox.Show("조명 밝기 설정이 잘못 입력되었습니다.\r\n카메라 밝기의 최대 값은 1024[digit]입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("조명 밝기 설정이 잘못 입력되었습니다.\r\n조명 밝기의 최대 값은 1024[digit]입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowReferenceInspectionLightBright.Properties.Value = _workParam._InspectionLightBright;
                     vGridControlInspectionParam.Refresh();
 
@@ -925,51 +914,34 @@ namespace atLaserSoldering
             {
                 value = Convert.ToInt32(rowReferenceInspectionExposureTime.Properties.Value);
 
-                if (value <= 0 || value > 1000000)
+                if (value <= 0 || value > 10000000)
                 {
                     MessageBox.Show(string.Format("카메라 노출 시간을 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowReferenceInspectionExposureTime.Properties.Value = _workParam._LEDInspectionExposureTime;
+                    rowReferenceInspectionExposureTime.Properties.Value = _workParam._AlignInspectionExposureTime;
                     vGridControlInspectionParam.Refresh();
                     return;
                 }
 
-                _workParam._LEDInspectionExposureTime = value;
+                _workParam._AlignInspectionExposureTime = value;
 
                 barButtonItemRecipeSave.Enabled = true;
-                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("카메라 노출 시간이 {0}로 변경되었습니다.", _workParam._LEDInspectionExposureTime));
-            }
-            else if (e.Row == rowInspectionAcquisitionDelayTime)
-            {
-                value = Convert.ToInt32(rowInspectionAcquisitionDelayTime.Properties.Value);
-
-                if (value <= 0 || value > 10000)
-                {
-                    MessageBox.Show(string.Format("이미지 취득 대기 시간을 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowInspectionAcquisitionDelayTime.Properties.Value = _workParam._LEDInspectionAcquisitionDelaytime;
-                    vGridControlInspectionParam.Refresh();
-                    return;
-                }
-
-                _workParam._LEDInspectionAcquisitionDelaytime = value;
-
-                barButtonItemRecipeSave.Enabled = true;
-                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("이미지 취득 대기 시간이 {0}로 변경되었습니다.", _workParam._LEDInspectionAcquisitionDelaytime));
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("카메라 노출 시간이 {0}로 변경되었습니다.", _workParam._AlignInspectionExposureTime));
             }
             else if (e.Row == rowReferenceInspectionVisionRecipeFilePath)
             {
-                value = Convert.ToInt32(rowReferenceInspectionVisionRecipeFilePath.Properties.Value);
+                strTemp = Convert.ToString(rowReferenceInspectionVisionRecipeFilePath.Properties.Value);
 
-                if (value < 0 || value > 255)
+                if (string.IsNullOrEmpty(strTemp))
                 {
-                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n임계치 값은 0~255사이의 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowReferenceInspectionVisionRecipeFilePath.Properties.Value = _workParam._LEDInspectionReferenceThresholdH;
+                    MessageBox.Show("PCB Align 비젼 레시피 경로가 입력되지 않았습니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowReferenceInspectionVisionRecipeFilePath.Properties.Value = _workParam._InspectAlignVisionPath;
                     vGridControlInspectionParam.Refresh();
                     return;
                 }
 
-                _workParam._LEDInspectionReferenceThresholdH = value;
+                _workParam._InspectAlignVisionPath = strTemp;
                 barButtonItemRecipeSave.Enabled = true;
-                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("이미지 처리 수평 임계값이  {0}로 변경되었습니다.", _workParam._LEDInspectionReferenceThresholdH));
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("PCB Align 비젼 레시피 경로가 {0}로 변경되었습니다.", _workParam._InspectAlignVisionPath));
             }
             else if (e.Row == rowSoderingInspectionEnale)
             {
@@ -993,7 +965,7 @@ namespace atLaserSoldering
 
                 if (value < 0 || value > 1024)
                 {
-                    MessageBox.Show("조명 밝기 설정이 잘못 입력되었습니다.\r\n카메라 밝기의 최대 값은 1024[digit]입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("조명 밝기 설정이 잘못 입력되었습니다.\r\n조명 밝기의 최대 값은 1024[digit]입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowSolderingInspectionLightBright.Properties.Value = _workParam._SolderingInspectionLightBright;
                     vGridControlInspectionParam.Refresh();
                     return;
@@ -1002,6 +974,56 @@ namespace atLaserSoldering
                 _workParam._SolderingInspectionLightBright = value;
                 barButtonItemRecipeSave.Enabled = true;
                 _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("조명 밝기가  {0}로 변경되었습니다.", _workParam._SolderingInspectionLightBright));
+            }
+            else if (e.Row == rowSolderingInspectionExposureTime)
+            {
+                value = Convert.ToInt32(rowSolderingInspectionExposureTime.Properties.Value);
+
+                if (value <= 0 || value > 10000000)
+                {
+                    MessageBox.Show(string.Format("카메라 노출 시간을 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowSolderingInspectionExposureTime.Properties.Value = _workParam._SolderInspectionExposureTime;
+                    vGridControlInspectionParam.Refresh();
+                    return;
+                }
+
+                _workParam._SolderInspectionExposureTime = value;
+
+                barButtonItemRecipeSave.Enabled = true;
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("카메라 노출 시간이 {0}로 변경되었습니다.", _workParam._SolderInspectionExposureTime));
+            }
+            else if (e.Row == rowSolderingInspectionVisionRecipeFilePath)
+            {
+                strTemp = Convert.ToString(rowSolderingInspectionVisionRecipeFilePath.Properties.Value);
+
+                if (string.IsNullOrEmpty(strTemp))
+                {
+                    MessageBox.Show("Soldering 비젼 레시피 경로가 입력되지 않았습니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowSolderingInspectionVisionRecipeFilePath.Properties.Value = _workParam._InspectSolderingVisionPath;
+                    vGridControlInspectionParam.Refresh();
+                    return;
+                }
+
+                _workParam._InspectSolderingVisionPath = strTemp;
+                barButtonItemRecipeSave.Enabled = true;
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("Soldering 비젼 레시피 경로가 {0}로 변경되었습니다.", _workParam._InspectSolderingVisionPath));
+            }
+            else if (e.Row == rowInspectionAcquisitionDelayTime)
+            {
+                value = Convert.ToInt32(rowInspectionAcquisitionDelayTime.Properties.Value);
+
+                if (value <= 0 || value > 10000)
+                {
+                    MessageBox.Show(string.Format("이미지 취득 대기 시간을 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowInspectionAcquisitionDelayTime.Properties.Value = _workParam._ImageAcquisitionDelaytime;
+                    vGridControlInspectionParam.Refresh();
+                    return;
+                }
+
+                _workParam._ImageAcquisitionDelaytime = value;
+
+                barButtonItemRecipeSave.Enabled = true;
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("이미지 취득 대기 시간이 {0}로 변경되었습니다.", _workParam._ImageAcquisitionDelaytime));
             }
             else if (e.Row == rowLaserSolderingEnable)
             {
@@ -1111,6 +1133,7 @@ namespace atLaserSoldering
             float fValue = 0f;
             int value = 0;
             string strTemp = string.Empty;
+            bool _isvalue = false;
 
             vGridControlInspectionParam.Refresh();
 
@@ -1152,156 +1175,262 @@ namespace atLaserSoldering
             _workParam.RecipeCreatorName = strTemp;
 
             strTemp = Convert.ToString(rowPCBModelName.Properties.Value);
-
-            bool IsValidate = false;
-
-            for (int i = 0; i < repositoryItemComboBoxProductSeries.Items.Count; ++i)
-            {
-                if (strTemp == Convert.ToString(repositoryItemComboBoxProductSeries.Items[i]))
-                {
-                    IsValidate = true;
-                    break;
-                }
-            }
-
-            if (!IsValidate)
-            {
-                MessageBox.Show(string.Format("제품 시리즈가 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                rowPCBModelName.Properties.Value = Enum.GetName(typeof(ModelSeries), (int)_workParam._ProductSeries);
-                vGridControlInspectionParam.Refresh();
-                return;
-            }
-
-            if (!repositoryItemComboBoxProductSeries.Items[_workParam._ProductSeries].Equals(strTemp))
-            {
-                barButtonItemRecipeSave.Enabled = true;
-            }
-            _workParam._ProductSeries = (int)Enum.Parse(typeof(ModelSeries), strTemp);
-
-            strTemp = Convert.ToString(rowPCBHorizontalSize.Properties.Value);
-
+            
             if (string.IsNullOrEmpty(strTemp))
             {
-                MessageBox.Show(string.Format("제품 모델명이 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                rowPCBHorizontalSize.Properties.Value = _workParam._ProductModelName;
+                MessageBox.Show(string.Format("제품 시리즈가 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rowPCBModelName.Properties.Value = _workParam._PCBModelName;
                 vGridControlInspectionParam.Refresh();
                 return;
             }
 
-            if (!_workParam._ProductModelName.Equals(strTemp))
+            if (!_workParam._PCBModelName.Equals(strTemp))
             {
                 barButtonItemRecipeSave.Enabled = true;
             }
+            _workParam._PCBModelName = strTemp;
 
-            _workParam._ProductModelName = Convert.ToString(rowPCBHorizontalSize.Properties.Value);
+            _isvalue = Convert.ToBoolean(rowReferenceInspectionEnable.Properties.Value);
 
-            strTemp = Convert.ToString(rowPCBVerticalSize.Properties.Value);
-
-            for (int i = 0; i < repositoryItemComboBoxProductType.Items.Count; ++i)
-            {
-                if (strTemp == Convert.ToString(repositoryItemComboBoxProductType.Items[i]))
-                {
-                    IsValidate = true;
-                    break;
-                }
-            }
-            if (!IsValidate)
-            {
-                MessageBox.Show(string.Format("제품 형태가 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                rowPCBVerticalSize.Properties.Value = Enum.GetName(typeof(ModelType), (int)_workParam._ProductType);
-                vGridControlInspectionParam.Refresh();
-                return;
-            }
-
-            if (!repositoryItemComboBoxProductType.Items[_workParam._ProductType].Equals(strTemp))
+            if(_workParam._PCBAlignVisionEnable != _isvalue)
             {
                 barButtonItemRecipeSave.Enabled = true;
             }
+            _workParam._PCBAlignVisionEnable = _isvalue;
 
-            _workParam._ProductType = (int)Enum.Parse(typeof(ModelType), strTemp);
+            value = Convert.ToInt32(rowReferenceInspectionLightBright.Properties.Value);
 
-            fValue = Convert.ToSingle(rowInspectionAcquisitionDelayTime.Properties.Value);
-
-            if (fValue <= 0 || fValue > 50)
+            if (value <= 0 || value > 1024)
             {
-                MessageBox.Show("편심 거리 설정이 잘못 입력되었습니다.\r\n편심의 최대 거리는 50mm입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                rowInspectionAcquisitionDelayTime.Properties.Value = _workParam._LEDInspectionAlignmentDistance;
+                MessageBox.Show("조명 밝기 설정이 잘못 입력되었습니다.\r\n카메라 밝기의 최대 값은 1024[digit]입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rowReferenceInspectionLightBright.Properties.Value = _workParam._InspectionLightBright;
                 vGridControlInspectionParam.Refresh();
 
                 return;
             }
-        }
-        private void simpleButtonInspectionPositionRegister_Click(object sender, EventArgs e)
-        {
-            SolderingPosition inspectionPos = new SolderingPosition();
 
-            float fResult;
+            if (_workParam._InspectionLightBright != value)
+            {
+                barButtonItemRecipeSave.Enabled = true;
+            }
+            _workParam._InspectionLightBright = value;
 
-            //if (float.TryParse(textEditInspectionPositionX.Text, out fResult))
-            //{                
-            //    if (fResult >= 15 && fResult <= 780)
-            //        inspectionPos.PositionX = fResult;
-            //    else
-            //    {
-            //        if (fResult < 15)
-            //            inspectionPos.PositionX = 15;
-            //        if (fResult > 780)
-            //            inspectionPos.PositionX = 780;
-            //    }                
-            //}
-            //else
+            value = Convert.ToInt32(rowReferenceInspectionExposureTime.Properties.Value);
+
+            if (value <= 0 || value > 10000000)
+            {
+                MessageBox.Show(string.Format("카메라 노출 시간을 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rowReferenceInspectionExposureTime.Properties.Value = _workParam._AlignInspectionExposureTime;
+                vGridControlInspectionParam.Refresh();
+                return;
+            }
+
+            if (_workParam._AlignInspectionExposureTime != value)
+            {
+                barButtonItemRecipeSave.Enabled = true;
+            }
+            _workParam._AlignInspectionExposureTime = value;
+
+            value = Convert.ToInt32(rowInspectionAcquisitionDelayTime.Properties.Value);
+
+            if (value <= 0 || value > 10000)
+            {
+                MessageBox.Show(string.Format("이미지 취득 대기 시간을 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rowInspectionAcquisitionDelayTime.Properties.Value = _workParam._ImageAcquisitionDelaytime;
+                vGridControlInspectionParam.Refresh();
+                return;
+            }
+
+            if (_workParam._ImageAcquisitionDelaytime != value)
+            {
+                barButtonItemRecipeSave.Enabled = true;
+            }
+            _workParam._ImageAcquisitionDelaytime = value;
+
+            //strTemp = Convert.ToString(rowReferenceInspectionVisionRecipeFilePath.Properties.Value);
+
+            //if (string.IsNullOrEmpty(strTemp))
             //{
-            //    MessageBox.Show("잘못된 X 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            //    MessageBox.Show(string.Format("PCB Align 비젼 레시피 경로가 입력되지 않았습니다."), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    rowReferenceInspectionVisionRecipeFilePath.Properties.Value = _workParam._InspectAlignVisionPath;
+            //    vGridControlInspectionParam.Refresh();
             //    return;
             //}
 
-    
+            //if (!_workParam._InspectAlignVisionPath.Equals(strTemp))
+            //{
+            //    barButtonItemRecipeSave.Enabled = true;
+            //}
+            //_workParam._InspectAlignVisionPath = strTemp;
 
+            _isvalue = Convert.ToBoolean(rowSoderingInspectionEnale.Properties.Value);
 
-            //inspectionPos.ePositionType = (INSPECTION_POSITION_MODE)comboBoxEditInspectionPositionType.SelectedIndex;
+            if (_workParam._SolderingInspectVisionEnable != _isvalue)
+            {
+                barButtonItemRecipeSave.Enabled = true;
+            }
+            _workParam._SolderingInspectVisionEnable = _isvalue;
+
+            value = Convert.ToInt32(rowSolderingInspectionLightBright.Properties.Value);
+
+            if (value <= 0 || value > 1024)
+            {
+                MessageBox.Show("조명 밝기 설정이 잘못 입력되었습니다.\r\n카메라 밝기의 최대 값은 1024[digit]입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rowSolderingInspectionLightBright.Properties.Value = _workParam._SolderingInspectionLightBright;
+                vGridControlInspectionParam.Refresh();
+
+                return;
+            }
+
+            if (_workParam._SolderingInspectionLightBright != value)
+            {
+                barButtonItemRecipeSave.Enabled = true;
+            }
+            _workParam._SolderingInspectionLightBright = value;
+
+            value = Convert.ToInt32(rowSolderingInspectionExposureTime.Properties.Value);
+
+            if (value <= 0 || value > 10000000)
+            {
+                MessageBox.Show(string.Format("카메라 노출 시간을 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rowSolderingInspectionExposureTime.Properties.Value = _workParam;
+                vGridControlInspectionParam.Refresh();
+                return;
+            }
+
+            if (_workParam._InspectionLightBright != value)
+            {
+                barButtonItemRecipeSave.Enabled = true;
+            }
+            _workParam._InspectionLightBright = value;
+
+            //strTemp = Convert.ToString(rowSolderingInspectionVisionRecipeFilePath.Properties.Value);
+
+            //if (string.IsNullOrEmpty(strTemp))
+            //{
+            //    MessageBox.Show(string.Format("PCB Align 비젼 레시피 경로가 입력되지 않았습니다."), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    rowSolderingInspectionVisionRecipeFilePath.Properties.Value = _workParam._InspectSolderingVisionPath;
+            //    vGridControlInspectionParam.Refresh();
+            //    return;
+            //}
+
+            //if (!_workParam._InspectSolderingVisionPath.Equals(strTemp))
+            //{
+            //    barButtonItemRecipeSave.Enabled = true;
+            //}
+            //_workParam._InspectSolderingVisionPath = strTemp;
+
+            _isvalue = Convert.ToBoolean(rowLaserSolderingEnable.Properties.Value);
+
+            if (_workParam._SolderingProcessEnable != _isvalue)
+            {
+                barButtonItemRecipeSave.Enabled = true;
+            }
+            _workParam._SolderingProcessEnable = _isvalue;
+
+            _isvalue = Convert.ToBoolean(rowLaserSolderingLaserEnable.Properties.Value);
+
+            if (_workParam._UseLaserEnable != _isvalue)
+            {
+                barButtonItemRecipeSave.Enabled = true;
+            }
+            _workParam._UseLaserEnable = _isvalue;
+
+            _isvalue = Convert.ToBoolean(rowLaserSolderingFeedEnable.Properties.Value);
+
+            if (_workParam._UseFeederEnable != _isvalue)
+            {
+                barButtonItemRecipeSave.Enabled = true;
+            }
+            _workParam._UseFeederEnable = _isvalue;
+        }
+        private void simpleButtonInspectionPositionRegister_Click(object sender, EventArgs e)
+        {
+            SolderingPosition inspectionPos = new SolderingPosition();            
 
             if (comboBoxEditInspectionModeType.SelectedIndex == 0)
-                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_READY_MODE;
+                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE;
             else if (comboBoxEditInspectionModeType.SelectedIndex == 1)
-                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_MAX_DISTANCE_MODE;
+                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE;
             else if (comboBoxEditInspectionModeType.SelectedIndex == 2)
-                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_MIN_ORIGIN_DISTANCE_MODE;
+                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE;
             else
+                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE;
+
+            double dResult = 0;
+            int iResult = 0;
+            if (double.TryParse(textEditPositionX.Text, out dResult))
             {
-                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE;
-                if (_workParam._LEDInspectionUseEnable)
+                if (dResult >= 0 && dResult <= 400)
                 {
-                    inspectionPos.PositionX = _workParam._LEDInspectionShortDistance;                    
+                    inspectionPos.PositionX = dResult;
+                }
+                else
+                {
+                    MessageBox.Show("잘못된 X 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            if (double.TryParse(textEditPositionY.Text, out dResult))
+            {
+                if (dResult >= 0 && dResult <= 400)
+                {
+                    inspectionPos.PositionY = dResult;
+                }
+                else
+                {
+                    MessageBox.Show("잘못된 Y 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            if (double.TryParse(textEditPositionZ.Text, out dResult))
+            {
+                if (dResult >= 0 && dResult <= 150)
+                {
+                    inspectionPos.PositionZ = dResult;
+                }
+                else
+                {
+                    MessageBox.Show("잘못된 Z 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
 
-            for (int i = 0; i < _workParam.SolderPositionParams.Count; ++i)
-            {
-                double fX = _workParam.SolderPositionParams[i].PositionX;
-                double fY = _workParam.SolderPositionParams[i].PositionY;
-                double fZ = _workParam.SolderPositionParams[i].PositionZ;
-                if (fX == inspectionPos.PositionX)
-                {
-                    if (fY == inspectionPos.PositionY)
-                    {
-                        if (fZ == inspectionPos.PositionZ)
-                        {
-                            if (inspectionPos.ePositionType == _workParam.SolderPositionParams[i].ePositionType)
-                            {
-                                MessageBox.Show("동일한 위치 좌표가 이미 등록되어 있습니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
-                        }
-                    }
-                }
-            }
+            //for (int i = 0; i < _workParam.SolderPositionParams.Count; ++i)
+            //{
+            //    double fX = _workParam.SolderPositionParams[i].PositionX;
+            //    double fY = _workParam.SolderPositionParams[i].PositionY;
+            //    double fZ = _workParam.SolderPositionParams[i].PositionZ;
+            //    if (fX == inspectionPos.PositionX)
+            //    {
+            //        if (fY == inspectionPos.PositionY)
+            //        {
+            //            if (fZ == inspectionPos.PositionZ)
+            //            {
+            //                if (inspectionPos.ePositionType == _workParam.SolderPositionParams[i].ePositionType)
+            //                {
+            //                    MessageBox.Show("동일한 위치 좌표가 이미 등록되어 있습니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //                    return;
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
 
-            if ((inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_READY_MODE))
+            if ((inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
+                || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE))
             {
-                if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE)
+                if ((inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE))
                 {
-                    if (_workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE)) == -1)
+                    int postypeindex = 0;
+                    if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE)
+                        postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE));
+                    else if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
+                        postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE));
+                    else if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE)
+                        postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE));
+
+                    if (postypeindex != -1)
                     {
                         string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4} 값을 등록하시겠습니까?",
                                                 gridViewInspectionPositions.RowCount + 1,
@@ -1321,23 +1450,154 @@ namespace atLaserSoldering
 
                         gridViewInspectionPositions.RefreshData();
 
-                        barButtonItemRecipeSave.Enabled = true;                        
+                        barButtonItemRecipeSave.Enabled = true;
+
+                        _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
+                            string.Format("Type:{0} X:{1}, Y:{2}, Z:{3} 위치 데이터를 등록", inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ));
                     }
                     else
                     {
-                        MessageBox.Show("동일 위치 형식이 있습니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("위치 형식 데이터가 없습니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레시피 등록 중 위치 형식 데이터가 없습니다."));
                     }
                 }
                 else
                 {
-                    if (_workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_READY_MODE)) == -1)
+                    int postypeindex = 0;
+                    if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE)
+                        postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE));
+
+                    if (int.TryParse(textEditReadyWaitTime.Text, out iResult))
                     {
-                        string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4} 값을 등록하시겠습니까?",
-                         gridViewInspectionPositions.RowCount + 1,
-                         inspectionPos.ePositionType,
-                         inspectionPos.PositionX,
-                         inspectionPos.PositionY,
-                         inspectionPos.PositionZ);
+                        if (iResult >= 0)
+                        {
+                            inspectionPos.ReadyTime = iResult;
+                        }
+                        else
+                        {
+                            MessageBox.Show("잘못된 ReadyTime 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    if (int.TryParse(textEditPreHeatTime.Text, out iResult))
+                    {
+                        if (iResult >= 0)
+                        {
+                            inspectionPos.PreHeatTime = iResult;
+                        }
+                        else
+                        {
+                            MessageBox.Show("잘못된 PreHeat Time 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    if (int.TryParse(textEditPreHeatPowerRatio.Text, out iResult))
+                    {
+                        if (iResult >= 0)
+                        {
+                            inspectionPos.PreheatPowerRatio = iResult;
+                        }
+                        else
+                        {
+                            MessageBox.Show("잘못된 PreHeat Power Ratio 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    if (int.TryParse(textEditHeatTime.Text, out iResult))
+                    {
+                        if (iResult >= 0)
+                        {
+                            inspectionPos.HeatTime = iResult;
+                        }
+                        else
+                        {
+                            MessageBox.Show("잘못된 Heat Time 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    if (int.TryParse(textEditHeatPowerRatio.Text, out iResult))
+                    {
+                        if (iResult >= 0)
+                        {
+                            inspectionPos.HeatPowerRatio = iResult;
+                        }
+                        else
+                        {
+                            MessageBox.Show("잘못된 Heat Power Ratio 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    if (double.TryParse(textEditForwardFeedLength.Text, out dResult))
+                    {
+                        if (dResult >= 0 && dResult <= 50)
+                        {
+                            inspectionPos.ForwordingWireLength = dResult;
+                        }
+                        else
+                        {
+                            MessageBox.Show("잘못된 정방향 Feeding 양입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    if (double.TryParse(textEditForwardFeedVelocity.Text, out dResult))
+                    {
+                        if (dResult >= 0 && dResult <= 50)
+                        {
+                            inspectionPos.ForwordingVelocity = dResult;
+                        }
+                        else
+                        {
+                            MessageBox.Show("잘못된 정방향 Feeding 속도입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    if (double.TryParse(textEditReverseFeedLength.Text, out dResult))
+                    {
+                        if (dResult >= 0 && dResult <= 50)
+                        {
+                            inspectionPos.ReverseWireLength = dResult;
+                        }
+                        else
+                        {
+                            MessageBox.Show("잘못된 역방향 Feeding 양입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    if (double.TryParse(textEditReverseFeedVelocity.Text, out dResult))
+                    {
+                        if (dResult >= 0 && dResult <= 50)
+                        {
+                            inspectionPos.ReverseVelocity = dResult;
+                        }
+                        else
+                        {
+                            MessageBox.Show("잘못된 역방향 Feeding 속도입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    if (postypeindex != -1)
+                    {
+                        string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4}, ReadyTime:{5}, PreHeatTime:{6}, PreHeatPower:{7}" +
+                            "HeatTime:{8}, HeatPower:{9}, F FeedLength:{10}, F FeedVelocity:{11}, R FeedLength:{12}, R FeedVelocity:{13} 값을 등록하시겠습니까?",
+                            gridViewInspectionPositions.RowCount + 1,
+                            inspectionPos.ePositionType,
+                            inspectionPos.PositionX,
+                            inspectionPos.PositionY,
+                            inspectionPos.PositionZ,
+                            inspectionPos.ReadyTime,
+                            inspectionPos.PreHeatTime,
+                            inspectionPos.PreheatPowerRatio,
+                            inspectionPos.HeatTime,
+                            inspectionPos.HeatPowerRatio,
+                            inspectionPos.ForwordingWireLength,
+                            inspectionPos.ForwordingVelocity,
+                            inspectionPos.ReverseWireLength,
+                            inspectionPos.ReverseVelocity
+                            );
 
                         if (MessageBox.Show(strMessage, "등록", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                             return;
@@ -1351,19 +1611,21 @@ namespace atLaserSoldering
                         gridViewInspectionPositions.RefreshData();
 
                         barButtonItemRecipeSave.Enabled = true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("동일 위치 형식이 있습니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
+                            string.Format("Type:{0}, X:{1}, Y:{2}, Z:{3}, ReadyTime:{4}, PreHeatTime:{5}, PreHeatPower:{6}" +
+                                        "HeatTime:{7}, HeatPower:{8}, F FeedLength:{9}, F FeedVelocity:{10}, R FeedLength:{11}, R FeedVelocity:{12}를 수정",
+                                        inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ,
+                                        inspectionPos.ReadyTime, inspectionPos.PreHeatTime, inspectionPos.PreheatPowerRatio, inspectionPos.HeatTime, inspectionPos.HeatPowerRatio,
+                                        inspectionPos.ForwordingWireLength, inspectionPos.ForwordingVelocity, inspectionPos.ReverseWireLength, inspectionPos.ReverseVelocity));
                     }
                 }
             }
             else
             {
                 MessageBox.Show("지원하지 않은 위치 형식입니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레시피 등록 중 지원하지 않는 위치 형식입니다."));
             }
-            _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
-                string.Format("Type:{0} X:{1}, Y:{2}, Z:{3} 검사모드:{2}를 등록", inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ));
         }
         private void simpleButtonInspectionPositionDelete_Click(object sender, EventArgs e)
         {
@@ -1372,18 +1634,12 @@ namespace atLaserSoldering
             if (rowIndex < 0)
                 return;
 
-            string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4} 값을 삭제하시겠습니까?",
-                _workParam.SolderPositionParams[rowIndex].Index,
-                _workParam.SolderPositionParams[rowIndex].ePositionType,
-                _workParam.SolderPositionParams[rowIndex].PositionX,
-                _workParam.SolderPositionParams[rowIndex].PositionY,
-                _workParam.SolderPositionParams[rowIndex].PositionZ);
+            string strMessage = string.Format("Index:{0} 값을 삭제하시겠습니까?", _workParam.SolderPositionParams[rowIndex].Index);
 
             if (MessageBox.Show(strMessage, "삭제", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                 return;
 
-            _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
-                string.Format("Type:{0} X:{1}, Y:{2}, Z:{3} 검사모드:{2}를 삭제", _workParam.SolderPositionParams[rowIndex].ePositionType.ToString(), _workParam.SolderPositionParams[rowIndex].PositionX, _workParam.SolderPositionParams[rowIndex].PositionY, _workParam.SolderPositionParams[rowIndex].PositionZ));
+            _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레시피 위치 데이터를 삭제하였습니다."));
 
             if (rowIndex < _workParam.SolderPositionParams.Count)
             {
@@ -1413,52 +1669,73 @@ namespace atLaserSoldering
             if (rowIndex < 0 || rowIndex >= _workParam.SolderPositionParams.Count)
                 return;
 
-            float fResult;
+            double dResult = 0;
+            int iResult = 0;
 
             SolderingPosition inspectionPos = new SolderingPosition();
 
             inspectionPos.Index = rowIndex + 1;
 
-            //if (float.TryParse(textEditInspectionPositionX.Text, out fResult))
-            //{
-            //    if (fResult >= 15 && fResult <= 780)
-            //        inspectionPos.PositionX = fResult;
-            //    else
-            //    {
-            //        if (fResult < 15)
-            //            inspectionPos.PositionX = 15;
-            //        if (fResult > 780)
-            //            inspectionPos.PositionX = 780;
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("잘못된 X 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            //    return;
-            //}
-
- 
-
-            if (comboBoxEditInspectionModeType.SelectedIndex == 0)
-                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_READY_MODE;
-            else if (comboBoxEditInspectionModeType.SelectedIndex == 1)
-                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_MAX_DISTANCE_MODE;
-            else if (comboBoxEditInspectionModeType.SelectedIndex == 2)
-                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_MIN_ORIGIN_DISTANCE_MODE;
-            else
+            if (double.TryParse(textEditPositionX.Text, out dResult))
             {
-                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE;
-                if (_workParam._LEDInspectionUseEnable)
+                if (dResult >= 0 && dResult <= 400)
                 {
-                    inspectionPos.PositionX = _workParam._LEDInspectionShortDistance;                    
+                    inspectionPos.PositionX = dResult;
+                }
+                else
+                {
+                    MessageBox.Show("잘못된 X 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
-            if ((inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_READY_MODE))
+            if (double.TryParse(textEditPositionY.Text, out dResult))
             {
-                if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_READY_MODE)
+                if (dResult >= 0 && dResult <= 400)
                 {
-                    int postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_READY_MODE));
+                    inspectionPos.PositionY = dResult;
+                }
+                else
+                {
+                    MessageBox.Show("잘못된 Y 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            if (double.TryParse(textEditPositionZ.Text, out dResult))
+            {
+                if (dResult >= 0 && dResult <= 150)
+                {
+                    inspectionPos.PositionZ = dResult;
+                }
+                else
+                {
+                    MessageBox.Show("잘못된 Z 위치입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            if (comboBoxEditInspectionModeType.SelectedIndex == 0)
+                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE;
+            else if (comboBoxEditInspectionModeType.SelectedIndex == 1)
+                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE;
+            else if (comboBoxEditInspectionModeType.SelectedIndex == 2)
+                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE;
+            else
+            {
+                inspectionPos.ePositionType = INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE;
+            }
+            if ((inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
+                || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE))
+            {
+                if ((inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE))
+                {
+                    int postypeindex = 0;
+                    if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE)
+                        postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE));
+                    else if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
+                        postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE));
+                    else if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE)
+                        postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE));
+
                     if (postypeindex != -1)
                     {                        
                         if (_workParam.SolderPositionParams[rowIndex].ePositionType == _workParam.SolderPositionParams[postypeindex].ePositionType)
@@ -1488,21 +1765,146 @@ namespace atLaserSoldering
                     else
                     {
                         MessageBox.Show("위치 데이터가 없습니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레시피 수정 중 위치 형식 데이터가 없습니다."));
                     }                    
                 }
                 else
                 {
-                    int postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_OPTICAL_SPOT_MODE));
+                    int postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE));
                     if (postypeindex != -1)
                     {                        
                         if (_workParam.SolderPositionParams[rowIndex].ePositionType == _workParam.SolderPositionParams[postypeindex].ePositionType)
                         {
-                            string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y1:{3}, Z:{4} 값을 수정하시겠습니까?",
+                            if (int.TryParse(textEditReadyWaitTime.Text, out iResult))
+                            {
+                                if (iResult >= 0)
+                                {
+                                    inspectionPos.ReadyTime = iResult;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("잘못된 ReadyTime 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+
+                            if (int.TryParse(textEditPreHeatTime.Text, out iResult))
+                            {
+                                if (iResult >= 0)
+                                {
+                                    inspectionPos.PreHeatTime = iResult;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("잘못된 PreHeat Time 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+
+                            if (int.TryParse(textEditPreHeatPowerRatio.Text, out iResult))
+                            {
+                                if (iResult >= 0)
+                                {
+                                    inspectionPos.PreheatPowerRatio = iResult;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("잘못된 PreHeat Power Ratio 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+
+                            if (int.TryParse(textEditHeatTime.Text, out iResult))
+                            {
+                                if (iResult >= 0)
+                                {
+                                    inspectionPos.HeatTime = iResult;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("잘못된 Heat Time 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+
+                            if (int.TryParse(textEditHeatPowerRatio.Text, out iResult))
+                            {
+                                if (iResult >= 0)
+                                {
+                                    inspectionPos.HeatPowerRatio = iResult;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("잘못된 Heat Power Ratio 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+                            if (double.TryParse(textEditForwardFeedLength.Text, out dResult))
+                            {
+                                if (dResult >= 0 && dResult <= 50)
+                                {
+                                    inspectionPos.ForwordingWireLength = dResult;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("잘못된 정방향 Feeding 양입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+                            if (double.TryParse(textEditForwardFeedVelocity.Text, out dResult))
+                            {
+                                if (dResult >= 0 && dResult <= 50)
+                                {
+                                    inspectionPos.ForwordingVelocity = dResult;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("잘못된 정방향 Feeding 속도입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+                            if (double.TryParse(textEditReverseFeedLength.Text, out dResult))
+                            {
+                                if (dResult >= 0 && dResult <= 50)
+                                {
+                                    inspectionPos.ReverseWireLength = dResult;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("잘못된 역방향 Feeding 양입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+                            if (double.TryParse(textEditReverseFeedVelocity.Text, out dResult))
+                            {
+                                if (dResult >= 0 && dResult <= 50)
+                                {
+                                    inspectionPos.ReverseVelocity = dResult;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("잘못된 역방향 Feeding 속도입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+
+                            string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4}, ReadyTime:{5}, PreHeatTime:{6}, PreHeatPower:{7}" +
+                            "HeatTime:{8}, HeatPower:{9}, F FeedLength:{10}, F FeedVelocity:{11}, R FeedLength:{12}, R FeedVelocity:{13} 값을 등록하시겠습니까?",
                                 inspectionPos.Index,
                                 inspectionPos.ePositionType,
                                 inspectionPos.PositionX,
                                 inspectionPos.PositionY,
-                                inspectionPos.PositionZ);
+                                inspectionPos.PositionZ,
+                                inspectionPos.ReadyTime,
+                                inspectionPos.PreHeatTime,
+                                inspectionPos.PreheatPowerRatio,
+                                inspectionPos.HeatTime,
+                                inspectionPos.HeatPowerRatio,
+                                inspectionPos.ForwordingWireLength,
+                                inspectionPos.ForwordingVelocity,
+                                inspectionPos.ReverseWireLength,
+                                inspectionPos.ReverseVelocity
+                                );
 
                             if (MessageBox.Show(strMessage, "수정", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
                                 return;
@@ -1513,6 +1915,12 @@ namespace atLaserSoldering
                             pictureEditInspectImage.Refresh();
                             
                             barButtonItemRecipeSave.Enabled = true;
+
+                            _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),string.Format("Type:{0}, X:{1}, Y:{2}, Z:{3}, ReadyTime:{4}, PreHeatTime:{5}, PreHeatPower:{6}" +
+                                "HeatTime:{7}, HeatPower:{8}, F FeedLength:{9}, F FeedVelocity:{10}, R FeedLength:{11}, R FeedVelocity:{12}를 수정",
+                                inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ,
+                                inspectionPos.ReadyTime, inspectionPos.PreHeatTime, inspectionPos.PreheatPowerRatio, inspectionPos.HeatTime, inspectionPos.HeatPowerRatio,
+                                inspectionPos.ForwordingWireLength, inspectionPos.ForwordingVelocity, inspectionPos.ReverseWireLength, inspectionPos.ReverseVelocity));
                         }
                         else
                         {
@@ -1522,16 +1930,15 @@ namespace atLaserSoldering
                     else
                     {
                         MessageBox.Show("위치 데이터가 없습니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레시피 수정 중 위치 형식 데이터가 없습니다."));
                     }
                 }
             }
             else
             {
                 MessageBox.Show("지원하지 않은 위치 형식입니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레시피 수정 중 위치 형식 데이터가 없습니다."));
             }
-
-            _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
-                string.Format("Type:{0} X:{1}, Y:{2}, Z:{3} 검사모드:{2}를 수정", inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ));
         }
 
         private void simpleButtonReplaceDown_Click(object sender, EventArgs e)

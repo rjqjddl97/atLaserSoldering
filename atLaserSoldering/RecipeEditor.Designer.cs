@@ -1060,6 +1060,8 @@
             // 
             // simpleButtonInspectionPositionEdit
             // 
+            this.simpleButtonInspectionPositionEdit.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.scripts_16x16;
+            this.simpleButtonInspectionPositionEdit.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
             this.simpleButtonInspectionPositionEdit.Location = new System.Drawing.Point(335, 325);
             this.simpleButtonInspectionPositionEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionEdit.Name = "simpleButtonInspectionPositionEdit";
@@ -1071,6 +1073,8 @@
             // 
             // simpleButtonInspectionPositionDelete
             // 
+            this.simpleButtonInspectionPositionDelete.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.clear_16x16;
+            this.simpleButtonInspectionPositionDelete.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
             this.simpleButtonInspectionPositionDelete.Location = new System.Drawing.Point(169, 325);
             this.simpleButtonInspectionPositionDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionDelete.Name = "simpleButtonInspectionPositionDelete";
@@ -1082,6 +1086,8 @@
             // 
             // simpleButtonInspectionPositionRegister
             // 
+            this.simpleButtonInspectionPositionRegister.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.showtestreport_16x16;
+            this.simpleButtonInspectionPositionRegister.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
             this.simpleButtonInspectionPositionRegister.Location = new System.Drawing.Point(3, 325);
             this.simpleButtonInspectionPositionRegister.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionRegister.Name = "simpleButtonInspectionPositionRegister";

@@ -838,7 +838,7 @@
             this.rowRemoteIOCommunicationBaudRate.Name = "rowRemoteIOCommunicationBaudRate";
             this.rowRemoteIOCommunicationBaudRate.Properties.Caption = "통신속도[bps]";
             this.rowRemoteIOCommunicationBaudRate.Properties.RowEdit = this.repositoryItemComboBoxRemoteIOCommunicationBaudRate;
-            this.rowRemoteIOCommunicationBaudRate.Properties.Value = 115200;
+            this.rowRemoteIOCommunicationBaudRate.Properties.Value = 57600;
             // 
             // rowRemoteIOCommunicationDatabit
             // 

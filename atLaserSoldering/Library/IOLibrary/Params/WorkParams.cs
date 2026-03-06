@@ -16,6 +16,7 @@ namespace RecipeManager
         public int _ProductSeries { get; set; } = 0;                // 0: BTS, 1: BTF, 2: BJ, 3: BJP, 4: BEN,  5: BSP
         public string _ProductModelName { get; set; } = "BTS200-PDTL";
         public int _ProductType { get; set; } = 0;                  // 0: 미러반사형, 1: 한정거리반사, 2: 확산반사, 3: BGS반사, 4: 협시계반사, 5: 투광, 6: 수광
+        public string _PCBModelName { get; set; } = "PCB260001";
         public float _ProductDistance { get; set; } = 200F;
         public int _ProductOperatingMdoe { get; set; } = 0;         //  0: Light ON, 1: Dark ON
         public int _ProductOutputType { get; set; } = 0;            //  0: NPN, 1: PNP 
@@ -31,8 +32,11 @@ namespace RecipeManager
         public bool _LEDInspectionUseEnable { get; set; } = false;
         public float _LEDInspectionShortDistance { get; set; } = 600F;
         public float _LEDInspectionCameraDistance { get; set; } = 150F;
-        public int _LEDInspectionExposureTime { get; set; } = 7000;
-        public int _LEDInspectionAcquisitionDelaytime { get; set;} = 1000;
+        public int _AlignInspectionExposureTime { get; set; } = 7000;
+        public int _SolderInspectionExposureTime { get; set; } = 7000;
+        public int _ImageAcquisitionDelaytime { get; set;} = 1000;
+        public string _InspectAlignVisionPath { get; set; } = string.Empty;
+        public string _InspectSolderingVisionPath { get; set; } = string.Empty;
         public int _LEDInspectionReferenceThresholdH { get; set; } = 128;
         public int _LEDInspectionReferenceThresholdV { get; set; } = 128;
         public float _LEDInspectionSpotMinSize { get; set; } = 20F;
@@ -194,8 +198,9 @@ namespace RecipeManager
 
             temp._LEDInspectionUseEnable = this._LEDInspectionUseEnable;
             temp._LEDInspectionShortDistance = this._LEDInspectionShortDistance;
-            temp._LEDInspectionExposureTime = this._LEDInspectionExposureTime;
-            temp._LEDInspectionAcquisitionDelaytime = this._LEDInspectionAcquisitionDelaytime;
+            temp._AlignInspectionExposureTime = this._AlignInspectionExposureTime;
+            temp._SolderInspectionExposureTime = this._SolderInspectionExposureTime;
+            temp._ImageAcquisitionDelaytime = this._ImageAcquisitionDelaytime;
             temp._LEDInspectionReferenceThresholdH = this._LEDInspectionReferenceThresholdH;
             temp._LEDInspectionReferenceThresholdV = this._LEDInspectionReferenceThresholdV;
             temp._LEDInspectionSpotMinSize = this._LEDInspectionSpotMinSize;
