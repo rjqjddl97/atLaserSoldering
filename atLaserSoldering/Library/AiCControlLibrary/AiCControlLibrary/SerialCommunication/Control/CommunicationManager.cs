@@ -40,6 +40,15 @@ namespace AiCControlLibrary.SerialCommunication.Control
             mDrvCtrl = mSerialEngine.m_AiCDataCtrl;
             //ConnectEvents();
         }
+        public CommunicationManager(byte id)
+        {
+            mSerialEngine = new SerialProcessEngine();
+            //mSerialHandler = new SerialHandler();
+            
+            mSerialHandler = mSerialEngine.m_SerialHandler;
+            mDrvCtrl = mSerialEngine.m_AiCDataCtrl;
+            //ConnectEvents();
+        }
         ~CommunicationManager() 
         {
             StopEngine();

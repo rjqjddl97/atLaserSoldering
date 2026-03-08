@@ -28,7 +28,7 @@ namespace atLaserSoldering
         public RecipeEditor()
         {
             InitializeComponent();            
-            //InitialRecipeParameters();
+            InitialRecipeParameters();
         }
         public RecipeEditor(bool _bsystemlanguage)
         {
@@ -155,10 +155,10 @@ namespace atLaserSoldering
             //{
             //    repositoryItemComboBoxProductOutputType.Items.Add(RecipeFileIO.ProductOutputType[i]);
             //}
-            //for (int i = 0; i < RecipeFileIO.InspectionPositionType.Length; ++i)
-            //{
-            //    comboBoxEditInspectionPositionType.Properties.Items.Add(RecipeFileIO.InspectionPositionType[i]);
-            //}
+            for (int i = 0; i < RecipeFileIO.PositionType.Length; ++i)
+            {
+                comboBoxEditInspectionModeType.Properties.Items.Add(RecipeFileIO.PositionType[i]);
+            }
             comboBoxEditInspectionModeType.SelectedIndex = 0;
             // Recipe의 Recipe Infomation 초기화
             _workParam.RecipeName = Convert.ToString(rowRecipeName.Properties.Value);
@@ -189,7 +189,7 @@ namespace atLaserSoldering
             //_workParam._LEDInspectionWorkAreaTop = Convert.ToInt32(rowLEDInspectionWorkAreaTop.Properties.Value);
             //_workParam._LedInspectionWorkAreaWidth = Convert.ToInt32(rowLEDInspectionWorkAreaWidth.Properties.Value);
             //_workParam._LedInspectionWorkAreaHeight = Convert.ToInt32(rowLEDInspectionWorkAreaHeight.Properties.Value);
-            //gridControlInspectionPosition.DataSource = _workParam.InspectionPositions;
+            gridControlInspectionPosition.DataSource = _workParam.SolderPositionParams;
         }
         private void barButtonItemNewRecipe_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -1082,28 +1082,38 @@ namespace atLaserSoldering
             rowRecipeCreateTime.Properties.Value = _workParam.RecipeCreateTime;
             rowRecipeCreatorName.Properties.Value = _workParam.RecipeCreatorName;
 
-            rowPCBModelName.Properties.Value = Convert.ToString(repositoryItemComboBoxProductSeries.Items[_workParam._ProductSeries]);
-            rowPCBHorizontalSize.Properties.Value = _workParam._ProductModelName;
-            rowPCBVerticalSize.Properties.Value = Convert.ToString(repositoryItemComboBoxProductType.Items[_workParam._ProductType]);
+            rowPCBModelName.Properties.Value = _workParam._PCBModelName;
+            //rowPCBHorizontalSize.Properties.Value = _workParam;
+            //rowPCBVerticalSize.Properties.Value = Convert.ToString(repositoryItemComboBoxProductType.Items[_workParam._ProductType]);
+            rowPCBLayoutFilePath.Properties.Value = _workParam._PCBLayoutPath;
 
-            //rowLEDInspectionUseEnable.Properties.Value = _workParam._LEDInspectionUseEnable;
-            //rowLEDInspectionShortDistance.Properties.Value = _workParam._LEDInspectionShortDistance;
-            //rowLedInspectionCameraMoveDistance.Properties.Value = _workParam._LEDInspectionCameraDistance;
-            //rowLEDInspectionExposureTime.Properties.Value = _workParam._LEDInspectionExposureTime;
-            //rowLEDInspectionAcquisitionDelayTime.Properties.Value = _workParam._LEDInspectionAcquisitionDelaytime;
-            //rowLEDInspectionAlignmentDistance.Properties.Value = _workParam._LEDInspectionAlignmentDistance;
-            //rowLEDInspectionDivergenceHMinAngle.Properties.Value = _workParam._LEDInspectionDivergenceHMinAngle;
-            //rowLEDInspectionDivergenceHMaxAngle.Properties.Value = _workParam._LEDInspectionDivergenceHMaxAngle;
-            //rowLEDInspectionDivergenceVMinAngle.Properties.Value = _workParam._LEDInspectionDivergenceVMinAngle;
-            //rowLEDInspectionDivergenceVMaxAngle.Properties.Value = _workParam._LEDInspectionDivergenceVMaxAngle;
-            //rowLEDInspectionReferenceThresholdH.Properties.Value = _workParam._LEDInspectionReferenceThresholdH;
-            //rowLEDInspectionReferenceThresholdV.Properties.Value = _workParam._LEDInspectionReferenceThresholdV;
-            //rowLEDInspectionSpotMinSize.Properties.Value = _workParam._LEDInspectionSpotMinSize;
-            //rowLEDInspectionSpotMaxSize.Properties.Value = _workParam._LEDInspectionSpotMaxSize;
-            //rowLEDInspectionWorkAreaLeft.Properties.Value = _workParam._LEDInspectionWorkAreaLeft;
-            //rowLEDInspectionWorkAreaTop.Properties.Value = _workParam._LEDInspectionWorkAreaTop;
-            //rowLEDInspectionWorkAreaWidth.Properties.Value = _workParam._LedInspectionWorkAreaWidth;
-            //rowLEDInspectionWorkAreaHeight.Properties.Value = _workParam._LedInspectionWorkAreaHeight;
+            rowReferenceInspectionEnable.Properties.Value = _workParam._PCBAlignVisionEnable;
+            rowReferenceInspectionLightBright.Properties.Value = _workParam._InspectionLightBright;
+            rowReferenceInspectionExposureTime.Properties.Value = _workParam._AlignInspectionExposureTime;
+            rowReferenceInspectionVisionRecipeFilePath.Properties.Value = _workParam._InspectAlignVisionPath;
+            rowSoderingInspectionEnale.Properties.Value = _workParam._SolderingInspectVisionEnable;
+            rowSolderingInspectionLightBright.Properties.Value = _workParam._SolderingInspectionLightBright;
+            rowSolderingInspectionExposureTime.Properties.Value = _workParam._SolderInspectionExposureTime;
+            rowSolderingInspectionVisionRecipeFilePath.Properties.Value = _workParam._InspectSolderingVisionPath;
+            rowInspectionAcquisitionDelayTime.Properties.Value = _workParam._ImageAcquisitionDelaytime;
+
+            rowLaserSolderingEnable.Properties.Value = _workParam._SolderingProcessEnable;
+            rowLaserSolderingLaserEnable.Properties.Value = _workParam._UseLaserEnable;
+            rowLaserSolderingFeedEnable.Properties.Value = _workParam._UseFeederEnable;
+
+            //comboBoxEditInspectionModeType.SelectedIndex = _workParam.SolderPositionParams[_gridRowIndex].Index;
+            //textEditPositionX.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionX.ToString();
+            //textEditPositionY.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionY.ToString();
+            //textEditPositionZ.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionZ.ToString();
+            //textEditReadyWaitTime.Text = _workParam.SolderPositionParams[_gridRowIndex].ReadyTime.ToString();
+            //textEditPreHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].PreHeatTime.ToString();
+            //textEditPreHeatPowerRatio.Text = _workParam.SolderPositionParams[_gridRowIndex].PreheatPowerRatio.ToString();
+            //textEditHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatTime.ToString();
+            //textEditHeatPowerRatio.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatPowerRatio.ToString();
+            //textEditForwardFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwordingWireLength.ToString();
+            //textEditForwardFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwordingVelocity.ToString();
+            //textEditReverseFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseWireLength.ToString();
+            //textEditReverseFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseVelocity.ToString(); 
 
             gridViewInspectionPositions.RefreshData();
             vGridControlInspectionParam.Refresh();
@@ -1396,77 +1406,37 @@ namespace atLaserSoldering
                 }
             }
 
-            //for (int i = 0; i < _workParam.SolderPositionParams.Count; ++i)
-            //{
-            //    double fX = _workParam.SolderPositionParams[i].PositionX;
-            //    double fY = _workParam.SolderPositionParams[i].PositionY;
-            //    double fZ = _workParam.SolderPositionParams[i].PositionZ;
-            //    if (fX == inspectionPos.PositionX)
-            //    {
-            //        if (fY == inspectionPos.PositionY)
-            //        {
-            //            if (fZ == inspectionPos.PositionZ)
-            //            {
-            //                if (inspectionPos.ePositionType == _workParam.SolderPositionParams[i].ePositionType)
-            //                {
-            //                    MessageBox.Show("동일한 위치 좌표가 이미 등록되어 있습니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //                    return;
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-
             if ((inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
                 || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE))
             {
                 if ((inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE) || (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE))
                 {
-                    int postypeindex = 0;
-                    if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE)
-                        postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_NOMAL_MODE));
-                    else if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
-                        postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE));
-                    else if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE)
-                        postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_INSPECTION_MODE));
+                    string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4} 값을 등록하시겠습니까?",
+                                            gridViewInspectionPositions.RowCount + 1,
+                                            inspectionPos.ePositionType,
+                                            inspectionPos.PositionX,
+                                            inspectionPos.PositionY,
+                                            inspectionPos.PositionZ);
 
-                    if (postypeindex != -1)
-                    {
-                        string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4} 값을 등록하시겠습니까?",
-                                                gridViewInspectionPositions.RowCount + 1,
-                                                inspectionPos.ePositionType,
-                                                inspectionPos.PositionX,
-                                                inspectionPos.PositionY,
-                                                inspectionPos.PositionZ);
+                    if (MessageBox.Show(strMessage, "등록", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                        return;
 
-                        if (MessageBox.Show(strMessage, "등록", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
-                            return;
+                    inspectionPos.Index = gridViewInspectionPositions.RowCount + 1;
+                    _workParam.SolderPositionParams.Add(inspectionPos);
 
-                        inspectionPos.Index = gridViewInspectionPositions.RowCount + 1;
-                        _workParam.SolderPositionParams.Add(inspectionPos);
+                    gridViewInspectionPositions.FocusedRowHandle = _workParam.SolderPositionParams.Count - 1;
+                    _gridRowIndex = _workParam.SolderPositionParams.Count - 1;
 
-                        gridViewInspectionPositions.FocusedRowHandle = _workParam.SolderPositionParams.Count - 1;
-                        _gridRowIndex = _workParam.SolderPositionParams.Count - 1;
+                    gridViewInspectionPositions.RefreshData();
 
-                        gridViewInspectionPositions.RefreshData();
+                    barButtonItemRecipeSave.Enabled = true;
 
-                        barButtonItemRecipeSave.Enabled = true;
+                    _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
+                        string.Format("Type:{0} X:{1}, Y:{2}, Z:{3} 위치 데이터를 등록", inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ));
 
-                        _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
-                            string.Format("Type:{0} X:{1}, Y:{2}, Z:{3} 위치 데이터를 등록", inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ));
-                    }
-                    else
-                    {
-                        MessageBox.Show("위치 형식 데이터가 없습니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레시피 등록 중 위치 형식 데이터가 없습니다."));
-                    }
                 }
                 else
                 {
-                    int postypeindex = 0;
-                    if (inspectionPos.ePositionType == INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE)
-                        postypeindex = _workParam.SolderPositionParams.FindIndex(item => item.ePositionType.Equals(INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE));
-
                     if (int.TryParse(textEditReadyWaitTime.Text, out iResult))
                     {
                         if (iResult >= 0)
@@ -1497,7 +1467,7 @@ namespace atLaserSoldering
                     {
                         if (iResult >= 0)
                         {
-                            inspectionPos.PreheatPowerRatio = iResult;
+                            inspectionPos.PreHeatPowerRatio = iResult;
                         }
                         else
                         {
@@ -1535,7 +1505,7 @@ namespace atLaserSoldering
                     {
                         if (dResult >= 0 && dResult <= 50)
                         {
-                            inspectionPos.ForwordingWireLength = dResult;
+                            inspectionPos.ForwardFeedLength = dResult;
                         }
                         else
                         {
@@ -1547,7 +1517,7 @@ namespace atLaserSoldering
                     {
                         if (dResult >= 0 && dResult <= 50)
                         {
-                            inspectionPos.ForwordingVelocity = dResult;
+                            inspectionPos.ForwardFeedVelocity = dResult;
                         }
                         else
                         {
@@ -1559,7 +1529,7 @@ namespace atLaserSoldering
                     {
                         if (dResult >= 0 && dResult <= 50)
                         {
-                            inspectionPos.ReverseWireLength = dResult;
+                            inspectionPos.ReverseFeedLength = dResult;
                         }
                         else
                         {
@@ -1571,7 +1541,7 @@ namespace atLaserSoldering
                     {
                         if (dResult >= 0 && dResult <= 50)
                         {
-                            inspectionPos.ReverseVelocity = dResult;
+                            inspectionPos.ReverseFeedVelocity = dResult;
                         }
                         else
                         {
@@ -1579,46 +1549,45 @@ namespace atLaserSoldering
                             return;
                         }
                     }
-                    if (postypeindex != -1)
-                    {
-                        string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4}, ReadyTime:{5}, PreHeatTime:{6}, PreHeatPower:{7}" +
-                            "HeatTime:{8}, HeatPower:{9}, F FeedLength:{10}, F FeedVelocity:{11}, R FeedLength:{12}, R FeedVelocity:{13} 값을 등록하시겠습니까?",
-                            gridViewInspectionPositions.RowCount + 1,
-                            inspectionPos.ePositionType,
-                            inspectionPos.PositionX,
-                            inspectionPos.PositionY,
-                            inspectionPos.PositionZ,
-                            inspectionPos.ReadyTime,
-                            inspectionPos.PreHeatTime,
-                            inspectionPos.PreheatPowerRatio,
-                            inspectionPos.HeatTime,
-                            inspectionPos.HeatPowerRatio,
-                            inspectionPos.ForwordingWireLength,
-                            inspectionPos.ForwordingVelocity,
-                            inspectionPos.ReverseWireLength,
-                            inspectionPos.ReverseVelocity
-                            );
+                    
+                    string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4}, ReadyTime:{5}, PreHeatTime:{6}, PreHeatPower:{7}" +
+                        "HeatTime:{8}, HeatPower:{9}, F FeedLength:{10}, F FeedVelocity:{11}, R FeedLength:{12}, R FeedVelocity:{13} 값을 등록하시겠습니까?",
+                        gridViewInspectionPositions.RowCount + 1,
+                        inspectionPos.ePositionType,
+                        inspectionPos.PositionX,
+                        inspectionPos.PositionY,
+                        inspectionPos.PositionZ,
+                        inspectionPos.ReadyTime,
+                        inspectionPos.PreHeatTime,
+                        inspectionPos.PreHeatPowerRatio,
+                        inspectionPos.HeatTime,
+                        inspectionPos.HeatPowerRatio,
+                        inspectionPos.ForwardFeedLength,
+                        inspectionPos.ForwardFeedVelocity,
+                        inspectionPos.ReverseFeedLength,
+                        inspectionPos.ReverseFeedVelocity
+                        );
 
-                        if (MessageBox.Show(strMessage, "등록", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
-                            return;
+                    if (MessageBox.Show(strMessage, "등록", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+                        return;
 
-                        inspectionPos.Index = gridViewInspectionPositions.RowCount + 1;
-                        _workParam.SolderPositionParams.Add(inspectionPos);
+                    inspectionPos.Index = gridViewInspectionPositions.RowCount + 1;
+                    _workParam.SolderPositionParams.Add(inspectionPos);
 
-                        gridViewInspectionPositions.FocusedRowHandle = _workParam.SolderPositionParams.Count - 1;
-                        _gridRowIndex = _workParam.SolderPositionParams.Count - 1;
+                    gridViewInspectionPositions.FocusedRowHandle = _workParam.SolderPositionParams.Count - 1;
+                    _gridRowIndex = _workParam.SolderPositionParams.Count - 1;
 
-                        gridViewInspectionPositions.RefreshData();
+                    gridViewInspectionPositions.RefreshData();
 
-                        barButtonItemRecipeSave.Enabled = true;
+                    barButtonItemRecipeSave.Enabled = true;
 
-                        _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
-                            string.Format("Type:{0}, X:{1}, Y:{2}, Z:{3}, ReadyTime:{4}, PreHeatTime:{5}, PreHeatPower:{6}" +
-                                        "HeatTime:{7}, HeatPower:{8}, F FeedLength:{9}, F FeedVelocity:{10}, R FeedLength:{11}, R FeedVelocity:{12}를 수정",
-                                        inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ,
-                                        inspectionPos.ReadyTime, inspectionPos.PreHeatTime, inspectionPos.PreheatPowerRatio, inspectionPos.HeatTime, inspectionPos.HeatPowerRatio,
-                                        inspectionPos.ForwordingWireLength, inspectionPos.ForwordingVelocity, inspectionPos.ReverseWireLength, inspectionPos.ReverseVelocity));
-                    }
+                    _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
+                        string.Format("Type:{0}, X:{1}, Y:{2}, Z:{3}, ReadyTime:{4}, PreHeatTime:{5}, PreHeatPower:{6}" +
+                                    "HeatTime:{7}, HeatPower:{8}, F FeedLength:{9}, F FeedVelocity:{10}, R FeedLength:{11}, R FeedVelocity:{12}를 수정",
+                                    inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ,
+                                    inspectionPos.ReadyTime, inspectionPos.PreHeatTime, inspectionPos.PreHeatPowerRatio, inspectionPos.HeatTime, inspectionPos.HeatPowerRatio,
+                                    inspectionPos.ForwardFeedLength, inspectionPos.ForwardFeedVelocity, inspectionPos.ReverseFeedLength, inspectionPos.ReverseFeedVelocity));
+                    
                 }
             }
             else
@@ -1805,7 +1774,7 @@ namespace atLaserSoldering
                             {
                                 if (iResult >= 0)
                                 {
-                                    inspectionPos.PreheatPowerRatio = iResult;
+                                    inspectionPos.PreHeatPowerRatio = iResult;
                                 }
                                 else
                                 {
@@ -1843,7 +1812,7 @@ namespace atLaserSoldering
                             {
                                 if (dResult >= 0 && dResult <= 50)
                                 {
-                                    inspectionPos.ForwordingWireLength = dResult;
+                                    inspectionPos.ForwardFeedLength = dResult;
                                 }
                                 else
                                 {
@@ -1855,7 +1824,7 @@ namespace atLaserSoldering
                             {
                                 if (dResult >= 0 && dResult <= 50)
                                 {
-                                    inspectionPos.ForwordingVelocity = dResult;
+                                    inspectionPos.ForwardFeedVelocity = dResult;
                                 }
                                 else
                                 {
@@ -1867,7 +1836,7 @@ namespace atLaserSoldering
                             {
                                 if (dResult >= 0 && dResult <= 50)
                                 {
-                                    inspectionPos.ReverseWireLength = dResult;
+                                    inspectionPos.ReverseFeedLength = dResult;
                                 }
                                 else
                                 {
@@ -1879,7 +1848,7 @@ namespace atLaserSoldering
                             {
                                 if (dResult >= 0 && dResult <= 50)
                                 {
-                                    inspectionPos.ReverseVelocity = dResult;
+                                    inspectionPos.ReverseFeedVelocity = dResult;
                                 }
                                 else
                                 {
@@ -1897,13 +1866,13 @@ namespace atLaserSoldering
                                 inspectionPos.PositionZ,
                                 inspectionPos.ReadyTime,
                                 inspectionPos.PreHeatTime,
-                                inspectionPos.PreheatPowerRatio,
+                                inspectionPos.PreHeatPowerRatio,
                                 inspectionPos.HeatTime,
                                 inspectionPos.HeatPowerRatio,
-                                inspectionPos.ForwordingWireLength,
-                                inspectionPos.ForwordingVelocity,
-                                inspectionPos.ReverseWireLength,
-                                inspectionPos.ReverseVelocity
+                                inspectionPos.ForwardFeedLength,
+                                inspectionPos.ForwardFeedVelocity,
+                                inspectionPos.ReverseFeedLength,
+                                inspectionPos.ReverseFeedVelocity
                                 );
 
                             if (MessageBox.Show(strMessage, "수정", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
@@ -1919,8 +1888,8 @@ namespace atLaserSoldering
                             _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),string.Format("Type:{0}, X:{1}, Y:{2}, Z:{3}, ReadyTime:{4}, PreHeatTime:{5}, PreHeatPower:{6}" +
                                 "HeatTime:{7}, HeatPower:{8}, F FeedLength:{9}, F FeedVelocity:{10}, R FeedLength:{11}, R FeedVelocity:{12}를 수정",
                                 inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ,
-                                inspectionPos.ReadyTime, inspectionPos.PreHeatTime, inspectionPos.PreheatPowerRatio, inspectionPos.HeatTime, inspectionPos.HeatPowerRatio,
-                                inspectionPos.ForwordingWireLength, inspectionPos.ForwordingVelocity, inspectionPos.ReverseWireLength, inspectionPos.ReverseVelocity));
+                                inspectionPos.ReadyTime, inspectionPos.PreHeatTime, inspectionPos.PreHeatPowerRatio, inspectionPos.HeatTime, inspectionPos.HeatPowerRatio,
+                                inspectionPos.ForwardFeedLength, inspectionPos.ForwardFeedVelocity, inspectionPos.ReverseFeedLength, inspectionPos.ReverseFeedVelocity));
                         }
                         else
                         {
@@ -2004,13 +1973,13 @@ namespace atLaserSoldering
             textEditPositionZ.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionZ.ToString();
             textEditReadyWaitTime.Text = _workParam.SolderPositionParams[_gridRowIndex].ReadyTime.ToString();
             textEditPreHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].PreHeatTime.ToString();
-            textEditPreHeatPowerRatio.Text = _workParam.SolderPositionParams[_gridRowIndex].PreheatPowerRatio.ToString();
+            textEditPreHeatPowerRatio.Text = _workParam.SolderPositionParams[_gridRowIndex].PreHeatPowerRatio.ToString();
             textEditHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatTime.ToString();
             textEditHeatPowerRatio.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatPowerRatio.ToString();
-            textEditForwardFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwordingWireLength.ToString();
-            textEditForwardFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwordingVelocity.ToString();
-            textEditReverseFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseWireLength.ToString();
-            textEditReverseFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseVelocity.ToString();                        
+            textEditForwardFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwardFeedLength.ToString();
+            textEditForwardFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwardFeedVelocity.ToString();
+            textEditReverseFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseFeedLength.ToString();
+            textEditReverseFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseFeedVelocity.ToString();                        
             comboBoxEditInspectionModeType.SelectedIndex = (int)_workParam.SolderPositionParams[_gridRowIndex].ePositionType;
 
             pictureEditInspectImage.Refresh();

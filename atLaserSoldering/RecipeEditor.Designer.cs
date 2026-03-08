@@ -1161,11 +1161,11 @@
             this.gridColumnIndex.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnIndex.Caption = "Index";
             this.gridColumnIndex.FieldName = "Index";
-            this.gridColumnIndex.MaxWidth = 50;
+            this.gridColumnIndex.MaxWidth = 20;
             this.gridColumnIndex.Name = "gridColumnIndex";
             this.gridColumnIndex.Visible = true;
             this.gridColumnIndex.VisibleIndex = 0;
-            this.gridColumnIndex.Width = 50;
+            this.gridColumnIndex.Width = 20;
             // 
             // gridColumnInspectionModeType
             // 
@@ -1175,12 +1175,12 @@
             this.gridColumnInspectionModeType.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnInspectionModeType.Caption = "1";
             this.gridColumnInspectionModeType.FieldName = "ePositionType";
-            this.gridColumnInspectionModeType.MaxWidth = 199;
+            this.gridColumnInspectionModeType.MaxWidth = 50;
             this.gridColumnInspectionModeType.MinWidth = 14;
             this.gridColumnInspectionModeType.Name = "gridColumnInspectionModeType";
             this.gridColumnInspectionModeType.Visible = true;
             this.gridColumnInspectionModeType.VisibleIndex = 1;
-            this.gridColumnInspectionModeType.Width = 56;
+            this.gridColumnInspectionModeType.Width = 50;
             // 
             // gridColumnPositionX
             // 
@@ -1190,10 +1190,11 @@
             this.gridColumnPositionX.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnPositionX.Caption = "2";
             this.gridColumnPositionX.FieldName = "PositionX";
+            this.gridColumnPositionX.MaxWidth = 50;
             this.gridColumnPositionX.Name = "gridColumnPositionX";
             this.gridColumnPositionX.Visible = true;
             this.gridColumnPositionX.VisibleIndex = 2;
-            this.gridColumnPositionX.Width = 55;
+            this.gridColumnPositionX.Width = 50;
             // 
             // gridColumnPositionY
             // 
@@ -1203,10 +1204,11 @@
             this.gridColumnPositionY.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnPositionY.Caption = "3";
             this.gridColumnPositionY.FieldName = "PositionY";
+            this.gridColumnPositionY.MaxWidth = 50;
             this.gridColumnPositionY.Name = "gridColumnPositionY";
             this.gridColumnPositionY.Visible = true;
             this.gridColumnPositionY.VisibleIndex = 3;
-            this.gridColumnPositionY.Width = 55;
+            this.gridColumnPositionY.Width = 50;
             // 
             // gridColumnPositionZ
             // 
@@ -1216,10 +1218,11 @@
             this.gridColumnPositionZ.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnPositionZ.Caption = "4";
             this.gridColumnPositionZ.FieldName = "PositionZ";
+            this.gridColumnPositionZ.MaxWidth = 50;
             this.gridColumnPositionZ.Name = "gridColumnPositionZ";
             this.gridColumnPositionZ.Visible = true;
             this.gridColumnPositionZ.VisibleIndex = 4;
-            this.gridColumnPositionZ.Width = 40;
+            this.gridColumnPositionZ.Width = 50;
             // 
             // gridColumnReadyTime
             // 
@@ -1228,10 +1231,11 @@
             this.gridColumnReadyTime.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnReadyTime.Caption = "5";
             this.gridColumnReadyTime.FieldName = "ReadyTime";
+            this.gridColumnReadyTime.MaxWidth = 50;
             this.gridColumnReadyTime.Name = "gridColumnReadyTime";
             this.gridColumnReadyTime.Visible = true;
             this.gridColumnReadyTime.VisibleIndex = 5;
-            this.gridColumnReadyTime.Width = 40;
+            this.gridColumnReadyTime.Width = 50;
             // 
             // gridColumnPreHeatTime
             // 
@@ -1240,10 +1244,11 @@
             this.gridColumnPreHeatTime.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnPreHeatTime.Caption = "6";
             this.gridColumnPreHeatTime.FieldName = "PreHeatTime";
+            this.gridColumnPreHeatTime.MaxWidth = 50;
             this.gridColumnPreHeatTime.Name = "gridColumnPreHeatTime";
             this.gridColumnPreHeatTime.Visible = true;
             this.gridColumnPreHeatTime.VisibleIndex = 6;
-            this.gridColumnPreHeatTime.Width = 40;
+            this.gridColumnPreHeatTime.Width = 50;
             // 
             // gridColumnPreHeatPowerRatio
             // 
@@ -1252,10 +1257,11 @@
             this.gridColumnPreHeatPowerRatio.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnPreHeatPowerRatio.Caption = "7";
             this.gridColumnPreHeatPowerRatio.FieldName = "PreHeatPowerRatio";
+            this.gridColumnPreHeatPowerRatio.MaxWidth = 50;
             this.gridColumnPreHeatPowerRatio.Name = "gridColumnPreHeatPowerRatio";
             this.gridColumnPreHeatPowerRatio.Visible = true;
             this.gridColumnPreHeatPowerRatio.VisibleIndex = 7;
-            this.gridColumnPreHeatPowerRatio.Width = 40;
+            this.gridColumnPreHeatPowerRatio.Width = 50;
             // 
             // gridColumnHeatTime
             // 
@@ -1264,10 +1270,11 @@
             this.gridColumnHeatTime.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnHeatTime.Caption = "8";
             this.gridColumnHeatTime.FieldName = "HeatTime";
+            this.gridColumnHeatTime.MaxWidth = 50;
             this.gridColumnHeatTime.Name = "gridColumnHeatTime";
             this.gridColumnHeatTime.Visible = true;
             this.gridColumnHeatTime.VisibleIndex = 8;
-            this.gridColumnHeatTime.Width = 40;
+            this.gridColumnHeatTime.Width = 50;
             // 
             // gridColumnHeatPowerRatio
             // 
@@ -1276,10 +1283,11 @@
             this.gridColumnHeatPowerRatio.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnHeatPowerRatio.Caption = "9";
             this.gridColumnHeatPowerRatio.FieldName = "HeatPowerRatio";
+            this.gridColumnHeatPowerRatio.MaxWidth = 50;
             this.gridColumnHeatPowerRatio.Name = "gridColumnHeatPowerRatio";
             this.gridColumnHeatPowerRatio.Visible = true;
             this.gridColumnHeatPowerRatio.VisibleIndex = 9;
-            this.gridColumnHeatPowerRatio.Width = 40;
+            this.gridColumnHeatPowerRatio.Width = 50;
             // 
             // gridColumnForwardFeedLength
             // 
@@ -1288,10 +1296,11 @@
             this.gridColumnForwardFeedLength.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnForwardFeedLength.Caption = "10";
             this.gridColumnForwardFeedLength.FieldName = "ForwardFeedLength";
+            this.gridColumnForwardFeedLength.MaxWidth = 46;
             this.gridColumnForwardFeedLength.Name = "gridColumnForwardFeedLength";
             this.gridColumnForwardFeedLength.Visible = true;
             this.gridColumnForwardFeedLength.VisibleIndex = 10;
-            this.gridColumnForwardFeedLength.Width = 55;
+            this.gridColumnForwardFeedLength.Width = 46;
             // 
             // gridColumnForwardFeedVelocity
             // 
@@ -1300,10 +1309,11 @@
             this.gridColumnForwardFeedVelocity.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnForwardFeedVelocity.Caption = "11";
             this.gridColumnForwardFeedVelocity.FieldName = "ForwardFeedVelocity";
+            this.gridColumnForwardFeedVelocity.MaxWidth = 46;
             this.gridColumnForwardFeedVelocity.Name = "gridColumnForwardFeedVelocity";
             this.gridColumnForwardFeedVelocity.Visible = true;
             this.gridColumnForwardFeedVelocity.VisibleIndex = 11;
-            this.gridColumnForwardFeedVelocity.Width = 55;
+            this.gridColumnForwardFeedVelocity.Width = 46;
             // 
             // gridColumnReverseFeedLength
             // 
@@ -1312,10 +1322,11 @@
             this.gridColumnReverseFeedLength.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnReverseFeedLength.Caption = "12";
             this.gridColumnReverseFeedLength.FieldName = "ReverseFeedLength";
+            this.gridColumnReverseFeedLength.MaxWidth = 46;
             this.gridColumnReverseFeedLength.Name = "gridColumnReverseFeedLength";
             this.gridColumnReverseFeedLength.Visible = true;
             this.gridColumnReverseFeedLength.VisibleIndex = 12;
-            this.gridColumnReverseFeedLength.Width = 55;
+            this.gridColumnReverseFeedLength.Width = 46;
             // 
             // gridColumnReverseFeedVelocity
             // 
@@ -1324,10 +1335,11 @@
             this.gridColumnReverseFeedVelocity.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnReverseFeedVelocity.Caption = "13";
             this.gridColumnReverseFeedVelocity.FieldName = "ReverseFeedVelocity";
+            this.gridColumnReverseFeedVelocity.MaxWidth = 46;
             this.gridColumnReverseFeedVelocity.Name = "gridColumnReverseFeedVelocity";
             this.gridColumnReverseFeedVelocity.Visible = true;
             this.gridColumnReverseFeedVelocity.VisibleIndex = 13;
-            this.gridColumnReverseFeedVelocity.Width = 55;
+            this.gridColumnReverseFeedVelocity.Width = 46;
             // 
             // pictureEditInspectImage
             // 

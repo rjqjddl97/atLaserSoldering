@@ -17,6 +17,7 @@ namespace RecipeManager
         public string _ProductModelName { get; set; } = "BTS200-PDTL";
         public int _ProductType { get; set; } = 0;                  // 0: 미러반사형, 1: 한정거리반사, 2: 확산반사, 3: BGS반사, 4: 협시계반사, 5: 투광, 6: 수광
         public string _PCBModelName { get; set; } = "PCB260001";
+        public string _PCBLayoutPath { get; set; } = string.Empty;
         public float _ProductDistance { get; set; } = 200F;
         public int _ProductOperatingMdoe { get; set; } = 0;         //  0: Light ON, 1: Dark ON
         public int _ProductOutputType { get; set; } = 0;            //  0: NPN, 1: PNP 

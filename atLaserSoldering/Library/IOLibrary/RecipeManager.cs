@@ -35,7 +35,7 @@ namespace RecipeManager
         //static public string[] ProductOutputType = new string[] { "NPN", "PNP" };
         //static public string[] ProductDetectMeterial = new string[] { "None", "Mirror", "WhitePaper", "BlackPaper", "Glass" };//{ "NONE", "Mirror","WhitePage","BlackPage","Glass" };
 
-        //static public string[] InspectionPositionType = new string[] { "Inspection", "MaxDistance", "MinOrigin" ,"OpticalBase" ,"Ready"};
+        static public string[] PositionType = new string[] { "Normal", "Align", "Inspect" ,"Soldering"};
         static public string[] TransitionCoordinate = new string[] { "1","-1" };
 
         static public void ReadRecipeFile(WorkParams workParam, string strFilePath)

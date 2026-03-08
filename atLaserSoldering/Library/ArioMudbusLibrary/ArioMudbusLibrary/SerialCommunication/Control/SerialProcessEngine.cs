@@ -38,6 +38,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
         private bool IsDequeueData = false;                   
         private bool IsEnqueueData = false;
         private SerialReceiveStep mReceiveStep;
+        private byte _bID = 5;
 
         private byte[] ReceivePacketBuff = new byte[ReceiveBuffSize];
         //private int ReceiveCountIndex;
@@ -55,15 +56,16 @@ namespace ArioModbusLibrary.SerialCommunication.Control
         public bool IsReceiveAck { get; set; } = true;
         public bool IsConnected { get; set; }
         public UInt32 uiReceiveCount { get; set; } = 0;        
+
         public SerialProcessEngine()
         {
             IsConnected = false;
             m_SerialHandler = new SerialHandler();
             m_ARioDataCtrl = new ArioMRData();
             mSerialEngineStep = SerialEngineStep.Idle;
-            mReceiveStep = SerialReceiveStep.Idle;            
-            InitCheckDatas();
-            Array.Clear(ReceivePacketBuff, 0x00, ReceiveBuffSize);            
+            mReceiveStep = SerialReceiveStep.Idle;
+            InitCheckDatas(5);            
+            Array.Clear(ReceivePacketBuff, 0x00, ReceiveBuffSize);
             engine = new Thread(Run);
             engine.Start();
         }
@@ -90,11 +92,11 @@ namespace ArioModbusLibrary.SerialCommunication.Control
             if (mMode != SerialEngineStep.Idle)
                 mSerialEngineStep = mMode;
         }
-        private void InitCheckDatas()
+        private void InitCheckDatas(byte _id)
         {
             //Get Info. 주기적 요청.
-            mContinuousCheckList.Add(m_ARioDataCtrl.GetSettingInputs(1,1));
-            mContinuousCheckList.Add(m_ARioDataCtrl.GetSettingOutputs(1,1));
+            mContinuousCheckList.Add(m_ARioDataCtrl.GetSettingInputs(_id, 1));
+            mContinuousCheckList.Add(m_ARioDataCtrl.GetSettingOutputs(_id, 1));
             //mContinuousCheckList.Add(RobotDataHandler.GetCommand(RobotData.ROBOT_MSG.MSG_GET_INFO)[0]);
         }
         public void ParsingData(byte[] data)
@@ -173,7 +175,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                 for (i = 0; i < recvData.Length; i++)
                 {
                     ReData = recvData[i];
-                    if ((IsReceiveStart == false) && ((ReData == 0x01) || (ReData == 0x02)))
+                    if ( (IsReceiveStart == false) && (ReData == _bID) )
                     {
                         IsReceiveStart = true;
                         uiReceiveCount = 0;
@@ -188,14 +190,8 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                     {
                         if (ReceivePacketBuff[1] > (byte)ModbusRTU.FunctionCodes.Exception)
                         {
-                            if (uiReceiveCount == 5)
-                            {
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;
-                            }
-                            else if (uiReceiveCount > 5)
-                            {
-                                //for (int j = 0; j < ReCounter; j++) ReceivePacketBuff[j] = 0;
+                            if (uiReceiveCount >= 5)
+                            {                                
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
                                 IsReceiveAck = true;
@@ -203,18 +199,12 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                         }
                         else if ((ReceivePacketBuff[1] != (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) && (ReceivePacketBuff[1] != (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister) && (ReceivePacketBuff[1] != (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleCoils) && (ReceivePacketBuff[1] != (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters))
                         {
-                            if (uiReceiveCount == ReceivePacketBuff[2] + 5)
+                            if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
                             {
                                 byte[] MainData = new byte[uiReceiveCount];
                                 Buffer.BlockCopy(ReceivePacketBuff, 0, MainData, 0, (int)uiReceiveCount);
-                                ParsingData(MainData);
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;
-                                IsReceiveAck = true;
-                            }
-                            else if (uiReceiveCount > ReceivePacketBuff[2] + 5)
-                            {
-                                //for (int j = 0; j < uiReceiveCount; j++) ReceivePacketBuff[j] = 0;
+                                if (uiReceiveCount == ReceivePacketBuff[2] + 5)
+                                    ParsingData(MainData);
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
                                 IsReceiveAck = true;
