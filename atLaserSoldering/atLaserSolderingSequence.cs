@@ -1,0 +1,396 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
+using RecipeManager;
+using System.IO;
+using System.IO.Ports;
+using System.Timers;
+using System.Threading;
+using System.Diagnostics;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using CustomPages;
+using LogLibrary;
+using AiCControlLibrary;
+using ArioModbusLibrary;
+using LaserSoldering;
+using atLaserSoldering;
+
+namespace atLaserSoldering
+{
+    public partial class atLaserSoldering
+    {
+        private void backgroundWorkerAutoSoldering_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                //if (sender is BackgroundWorker worker)
+                //{
+                //    Functions.Time.TimeChecker mTimeChecker = new Functions.Time.TimeChecker();
+                //    int RunningIndex = 0;
+                //    bool AlarmTriggedToPLC = false;
+                //    Functions.StepHandler.Base.StepHandlerBase.RetType mWorkingStatus;
+                //    while (_InspectionWorking)
+                //    {
+                //        TimeSpan ts = CheckTackTime.Elapsed;
+                //        barStaticItemInspectionTime.Caption = string.Format("검사 시간: 00:{0:00}:{1:00}.{2}", ts.Minutes, ts.Seconds, ts.Milliseconds);
+                //        if (RunningIndex < mPhotoInspectionList.Count)
+                //            barStaticItemInspectionStatus.Caption = string.Format("진행: ") + ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation;
+
+                //        barEditItemInspectionResult.EditValue = "Running";
+                //        repositoryItemTextEditInspectionResult.Appearance.ForeColor = System.Drawing.Color.Black;
+
+                //        if (_bRadarChartUpdateEnable)
+                //        {
+                //            //if ((mRobotInformation.mStatus & 0x00000052) == 0x00000052)
+                //            {
+                //                if (_workParams._ProductType == (int)PhotoProduct.Enums.ProductType.Transmitter)
+                //                {
+                //                    if (_workParams._ProductSeries == (int)PhotoProduct.Enums.ProductSeries.BPS)
+                //                    {
+                //                        UpdateRadarChartInspectResult((float)mRobotInformation.PositionR, mRobotInformation.mInputData.B6 ? 0F : 1F);
+                //                    }
+                //                    else
+                //                    {
+                //                        UpdateRadarChartInspectResult((float)mRobotInformation.PositionR, mRobotInformation.mInputData.B6 ? 1F : 0F);
+                //                    }
+                //                }
+                //                else
+                //                {
+                //                    if (_workParams._ProductOperatingMdoe == (int)PhotoProduct.Enums.OperatingMode.LightOn)
+                //                        UpdateRadarChartInspectResult((float)mRobotInformation.PositionR, mRobotInformation.mInputData.B2 ? 1F : 0F);
+                //                    else
+                //                        UpdateRadarChartInspectResult((float)mRobotInformation.PositionR, mRobotInformation.mInputData.B2 ? 0F : 1F);
+                //                }
+                //                _bRadarChartUpdateEnable = false;
+                //            }
+                //        }
+
+                //        switch (mInspectStep)
+                //        {
+                //            case InspectionStepType.Idle:
+                //                AlarmTriggedToPLC = false;
+                //                break;
+                //            case InspectionStepType.CheckWaitRobotReady:
+                //                // Robot 체크후 준비 상태면 실행 상태로 변환 아니면 대기!! 
+                //                RunningIndex = 0;
+                //                mInspectStep = InspectionStepType.ExcuteInspection;
+
+                //                break;
+                //            case InspectionStepType.ExcuteInspection:
+                //                if (RunningIndex < mPhotoInspectionList.Count)
+                //                {
+                //                    if (RunningIndex == 0)
+                //                    {
+                //                    }
+                //                    if (mPhotoInspectionList[RunningIndex].Execute() != Functions.StepHandler.Base.StepHandlerBase.RetType.Error)
+                //                    {
+                //                        mInspectStep = InspectionStepType.CheckInspection;
+                //                        //mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "Excute:"+((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation);
+                //                    }
+                //                    else
+                //                    {
+                //                        mInspectStep = InspectionStepType.ErrorOccurred;
+                //                    }
+                //                }
+                //                else
+                //                {
+                //                    mInspectStep = InspectionStepType.FinishedInspection;
+                //                    //mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "Excute:"+((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation);
+                //                }
+                //                break;
+                //            case InspectionStepType.CheckInspection:
+                //                mWorkingStatus = mPhotoInspectionList[RunningIndex].GetStatus();
+                //                if (mWorkingStatus == Functions.StepHandler.Base.StepHandlerBase.RetType.Busy)
+                //                {
+                //                    ;
+                //                }
+                //                else if (mWorkingStatus == Functions.StepHandler.Base.StepHandlerBase.RetType.Ready)
+                //                {
+                //                    RunningIndex++;
+                //                    mInspectStep = InspectionStepType.ExcuteInspection;
+                //                }
+                //                else
+                //                {
+                //                    mInspectStep = InspectionStepType.ErrorOccurred;
+                //                }
+                //                break;
+                //            case InspectionStepType.FinishedInspection:
+                //                mInspectStep = InspectionStepType.Idle;
+                //                mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "Finish:" + ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex - 1]).StepInformation);
+                //                _InspectionWorking = false;
+                //                break;
+                //            case InspectionStepType.ErrorOccurred:
+                //                _InspectionWorking = false;
+                //                _isInspectError = true;
+                //                barEditItemInspectionResult.EditValue = "Error" + ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation;
+                //                repositoryItemTextEditInspectionResult.Appearance.ForeColor = System.Drawing.Color.Red;
+                //                break;
+                //            default: break;
+                //        }
+
+                //        if (mInspectStep == InspectionStepType.Idle)
+                //        {
+                //            _backgroundWorkerOpticalDecenterInspection.ReportProgress(RunningIndex, new WorkingStateInfo()
+                //            {
+                //                WorkingStatus = WorkingStateInfo.WorkingType.Checking
+                //            });
+                //        }
+                //        else if (mInspectStep == InspectionStepType.ExcuteInspection)
+                //        {
+                //            if (RunningIndex < mPhotoInspectionList.Count)
+                //            {
+                //                _backgroundWorkerOpticalDecenterInspection.ReportProgress(RunningIndex, new WorkingStateInfo()
+                //                {
+                //                    WorkingStatus = WorkingStateInfo.WorkingType.CorrectionAndInspection,
+                //                    CurrentStep = RunningIndex,
+                //                    CurrentStepName = ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation,
+                //                    LastStep = mPhotoInspectionList.Count,
+                //                    ElapsedTime = mStepBase.GetOptionInspectionElapseTime
+                //                });
+
+                //            }
+                //        }
+                //        else if (mInspectStep == InspectionStepType.FinishedInspection)
+                //        {
+                //            _backgroundWorkerOpticalDecenterInspection.ReportProgress(RunningIndex, new WorkingStateInfo()
+                //            {
+                //                WorkingStatus = WorkingStateInfo.WorkingType.CorrectionAndInspection,
+                //                CurrentStep = mPhotoInspectionList.Count,
+                //                CurrentStepName = ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[mPhotoInspectionList.Count - 1]).StepInformation,
+                //                LastStep = mPhotoInspectionList.Count,
+                //                ElapsedTime = mStepBase.GetOptionInspectionElapseTime
+                //            });
+                //            mResultData = mStepBase.UpdateInspectdData();
+                //        }
+                //        else if (mInspectStep == InspectionStepType.ErrorOccurred)
+                //        {
+                //            _backgroundWorkerOpticalDecenterInspection.ReportProgress(RunningIndex, new WorkingStateInfo()
+                //            {
+                //                WorkingStatus = WorkingStateInfo.WorkingType.Error,
+                //                CurrentStep = RunningIndex,
+                //            });
+                //            _isInspectError = true;
+                //            string strerr = string.Empty;
+                //            strerr = "Error : " + ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation;
+                //            mLog.WriteLog(LogLevel.Error, LogClass.atPhoto.ToString(), strerr);
+                //            barEditItemInspectionResult.EditValue = "Error";
+                //            MessageBox.Show(strerr, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                //            break;
+                //        }
+                //        System.Threading.Thread.Sleep(197);
+                //        //11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
+                //        //101, 103, 107, 109, 113, 127, 131, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,479
+                //    }
+                //}
+            }
+            catch (Exception ex)
+            {
+                mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), string.Format("{0}\r\n{1}", ex.Message, ex.StackTrace));
+            }
+        }
+        private void backgroundWorkerAutoSoldering_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                //_isInspecting = false;
+                //_InspectionWorking = false;
+                //UpdateProcessTime(false);
+                //barCheckItemInspectionStart.Caption = string.Format("검사 시작");
+                //barStaticItemInspectionStatus.Caption = string.Format("진행: 검사 완료");
+                //if ((!_isInspectError) && (!_isInspectCancel))
+                //{
+                //    InpsectResultUpdate();
+                //    UpdateRadarChartResult();
+                //    CreateResultFile(mResultData.bTotalResult);
+                //    //UpdateChartAngle();
+                //    //UpdateChartDistance();
+                //    UpdateStaticsData();
+                //    System.Console.WriteLine("bacground work Photo Inspection run worker completed");
+                //}
+                //_isInspectCancel = false;
+                //barEditItemInspectionProgress.EditValue = 100;
+                //AutoStartButtonRelease();
+                //barCheckItemInspectionStart.Checked = false;
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "포토 센서 자동 검사 완료작업을 하지 못햇습니다.");
+            }
+        }
+        private void backgroundWorkerAutoSoldering_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            try
+            {
+                //WorkingStateInfo mStateInfo = (WorkingStateInfo)e.UserState;
+                //barStaticItemInspectionStatus.Caption = string.Format("진행: ") + mStateInfo.CurrentStepName;
+                //if (mStateInfo.WorkingStatus == WorkingStateInfo.WorkingType.Checking)
+                //{
+                //}
+                //else if (mStateInfo.WorkingStatus == WorkingStateInfo.WorkingType.CorrectionAndInspection)
+                //{
+                //    int position = 0;
+                //    if ((mStateInfo.CurrentStep != 0) && (mStateInfo.LastStep != 0))
+                //        position = (int)(((double)mStateInfo.CurrentStep / (double)mStateInfo.LastStep) * 100);
+
+                //    barEditItemInspectionProgress.EditValue = position;
+                //}
+                //else if (mStateInfo.WorkingStatus == WorkingStateInfo.WorkingType.Error)
+                //{
+                //    ;
+                //}
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "작업 상태 갱신 실패.");
+            }
+        }
+        private void backgroundWorkerMotionHome_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                //RobotInformation info = e.Argument as RobotInformation;
+                //int _homestep = 0;
+                //bool _motionflag = false;
+                //if (sender is BackgroundWorker worker)
+                //{
+                //    _IsHommingCancle = false;
+                //    if (_mMotionControlCommManager.IsOpen())
+                //    {
+                //        if (!_IsHommingFinished)
+                //        {
+                //            byte[] SeData = new byte[8];
+                //            if (MessageBox.Show("원점복귀를 진행을 합니다.", "원점복귀", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly) == DialogResult.Yes)
+                //            {
+                //                //SeData = _mRemteIOCommManager.mRemoteIOCtrl.Output1byteCommand(_mRemteIOCommManager.mRemoteIOCtrl.DrvID[0], ARMLibrary.SerialCommunication.Data.ARMData.OUTPUT_CONTROL_MAP.Output3, (ushort)0x0000);
+                //                _mRemteIOCommManager.SendData(SeData);
+                //                _HommingProcess = true;
+                //                _IsHommingCancle = false;
+                //                //mRobotInformation.SetStatus(RobotInformation.RobotStatus.OperationReady, _IsHommingFinished);
+                //                mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "실린더3 초기화");
+                //            }
+                //            else
+                //                _IsHommingCancle = true;
+
+                //            while (_HommingProcess)
+                //            {
+                //                switch (_homestep)
+                //                {
+                //                    case 0:
+                //                        if (mRobotInformation.mInputData.B12)
+                //                        {
+                //                            SeData = _mRemteIOCommManager.mRemoteIOCtrl.Output1byteCommand(_mRemteIOCommManager.mRemoteIOCtrl.DrvID[0], ARMLibrary.SerialCommunication.Data.ARMData.OUTPUT_CONTROL_MAP.Output1, (ushort)0x0000);
+                //                            _mRemteIOCommManager.SendData(SeData);
+                //                            SeData = _mRemteIOCommManager.mRemoteIOCtrl.Output1byteCommand(_mRemteIOCommManager.mRemoteIOCtrl.DrvID[0], ARMLibrary.SerialCommunication.Data.ARMData.OUTPUT_CONTROL_MAP.Output5, (ushort)0x0000);
+                //                            _mRemteIOCommManager.SendData(SeData);
+                //                            mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "실린더3 센서 점검완료 및 실린더1,5 초기화");
+                //                            _homestep = 1;
+                //                        }
+                //                        break;
+                //                    case 1:
+                //                        if (mRobotInformation.mInputData.B8)
+                //                        {
+                //                            SeData = _mRemteIOCommManager.mRemoteIOCtrl.Output1byteCommand(_mRemteIOCommManager.mRemoteIOCtrl.DrvID[0], ARMLibrary.SerialCommunication.Data.ARMData.OUTPUT_CONTROL_MAP.Output2, (ushort)0x0000);
+                //                            _mRemteIOCommManager.SendData(SeData);
+                //                            _homestep = 2;
+                //                            mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "실린더1,5 센서 점검완료 및 실린더2 초기화");
+                //                        }
+                //                        break;
+                //                    case 2:
+                //                        if (mRobotInformation.mInputData.B10)
+                //                        {
+                //                            SeData = _mRemteIOCommManager.mRemoteIOCtrl.Output1byteCommand(_mRemteIOCommManager.mRemoteIOCtrl.DrvID[0], ARMLibrary.SerialCommunication.Data.ARMData.OUTPUT_CONTROL_MAP.Output4, (ushort)0x0000);
+                //                            _mRemteIOCommManager.SendData(SeData);
+                //                            _homestep = 3;
+                //                            mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "실린더2 센서 점검완료 및 실린더4 초기화");
+                //                        }
+                //                        break;
+                //                    case 3:
+                //                        if (mRobotInformation.mInputData.B14)
+                //                        {
+                //                            for (int i = 0; i < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; i++)
+                //                            {
+                //                                SeData = _mMotionControlCommManager.mDrvCtrl.HomeStartCommand((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[i]);
+                //                                _mMotionControlCommManager.SendData(SeData);
+                //                            }
+                //                            _homestep = 4;
+                //                            mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "실린더4 센서 점검완료 및 모션 원점 복귀 시작");
+                //                        }
+                //                        break;
+                //                    case 4:
+                //                        if (!_motionflag)
+                //                        {
+                //                            _motionflag = true;
+                //                        }
+                //                        else
+                //                        {
+                //                            _homestep = 5;
+                //                        }
+                //                        break;
+                //                    case 5:
+                //                        if ((mRobotInformation.mStatus & 0x00000052) == 0x00000052)
+                //                        {
+                //                            _HommingProcess = false;
+                //                            _IsHommingFinished = true;
+                //                            mRobotInformation.SetStatus(RobotInformation.RobotStatus.OperationReady, _IsHommingFinished);
+                //                        }
+                //                        break;
+                //                    default:
+                //                        _HommingProcess = false;
+                //                        _IsHommingCancle = true;
+                //                        mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "실린더 센서 점검 및 모션 원점 복귀 진행을 하지 못하였습니다.");
+                //                        break;
+                //                }
+                //                Thread.Sleep(500);
+                //            }
+                //        }
+                //    }
+                //    else
+                //    {
+                //        _IsHommingFinished = false;
+                //        _IsHommingCancle = true;
+                //    }
+                //}
+            }
+            catch (Exception ex)
+            {
+                mLog.WriteLog(LogLevel.Warn, LogClass.atLaser.ToString(), string.Format("{0}\r\n{1}", ex.Message, ex.StackTrace));
+            }
+        }
+        private void backgroundWorkerMotionHome_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            try
+            {
+                //AutoStartButtonRelease();
+                //if (_IsHommingCancle)
+                //{
+                //    if (_mMotionControlCommManager.IsOpen())
+                //    {
+                //        byte[] SeData = new byte[8];
+                //        for (int i = 0; i < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; i++)
+                //        {
+                //            SeData = _mMotionControlCommManager.mDrvCtrl.MoveStopCommand((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[i]);
+                //            _mMotionControlCommManager.SendData(SeData);
+                //        }
+                //    }
+                //    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "원점 복귀 진행 취소");
+                //    _IsHommingCancle = false;
+                //}
+                //else
+                //    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "원점 복귀 진행 완료");
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "원점 복귀 시퀀스를 완료하지 못햇습니다.");
+            }
+        }
+    }
+}

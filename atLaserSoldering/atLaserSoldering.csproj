@@ -91,6 +91,9 @@
     <Compile Include="atLaserSoldering.Designer.cs">
       <DependentUpon>atLaserSoldering.cs</DependentUpon>
     </Compile>
+    <Compile Include="atLaserSolderingSequence.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CustomPages\MotionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -267,6 +270,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\scripts_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connectedall_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connectedpart_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disconnectedall_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -98,6 +98,8 @@ namespace AiCControlLibrary.SerialCommunication.Control
         {
             //Get Info. 주기적 요청.
             mContinuousCheckList.Add(m_AiCDataCtrl.GetSettingMotionDatas(1));
+            mContinuousCheckList.Add(m_AiCDataCtrl.GetSettingMotionDatas(2));
+            mContinuousCheckList.Add(m_AiCDataCtrl.GetSettingMotionDatas(3));
         }
         public void ParsingData(byte[] data)
         {

@@ -8,7 +8,7 @@ namespace LogLibrary
 {
      public enum LogClass
     {
-        atPhoto,
+        atLaser,
         Log,
         Image,
         NetWork,
