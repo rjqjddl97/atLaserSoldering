@@ -170,25 +170,22 @@ namespace atLaserSoldering
             _workParam._ProductModelName = Convert.ToString(rowPCBHorizontalSize.Properties.Value);
             _workParam._ProductType = Convert.ToInt32(repositoryItemComboBoxProductType.Items.Contains(rowPCBVerticalSize.Properties.Value)) - 1;
 
-            // Recipe의 투광LED 검사 Infomation 초기화
+            // Recipe의 Soldering 검사 Infomation 초기화
 
-            //_workParam._LEDInspectionUseEnable = Convert.ToBoolean(rowLEDInspectionUseEnable.Properties.Value);
-            //_workParam._LEDInspectionShortDistance = Convert.ToSingle(rowLEDInspectionShortDistance.Properties.Value);
-            //_workParam._LEDInspectionExposureTime = Convert.ToInt32(rowLEDInspectionExposureTime.Properties.Value);
-            //_workParam._LEDInspectionAcquisitionDelaytime = Convert.ToInt32(rowLEDInspectionAcquisitionDelayTime.Properties.Value);
-            //_workParam._LEDInspectionReferenceThresholdH = Convert.ToInt32(rowLEDInspectionReferenceThresholdH.Properties.Value);
-            //_workParam._LEDInspectionReferenceThresholdV = Convert.ToInt32(rowLEDInspectionReferenceThresholdV.Properties.Value);
-            //_workParam._LEDInspectionAlignmentDistance = Convert.ToSingle(rowLEDInspectionAlignmentDistance.Properties.Value);
-            //_workParam._LEDInspectionDivergenceHMinAngle = Convert.ToSingle(rowLEDInspectionDivergenceHMinAngle.Properties.Value);
-            //_workParam._LEDInspectionDivergenceHMaxAngle = Convert.ToSingle(rowLEDInspectionDivergenceHMaxAngle.Properties.Value);
-            //_workParam._LEDInspectionDivergenceVMinAngle = Convert.ToSingle(rowLEDInspectionDivergenceVMinAngle.Properties.Value);
-            //_workParam._LEDInspectionDivergenceVMaxAngle = Convert.ToSingle(rowLEDInspectionDivergenceVMaxAngle.Properties.Value);
-            //_workParam._LEDInspectionSpotMinSize = Convert.ToSingle(rowLEDInspectionSpotMinSize.Properties.Value);
-            //_workParam._LEDInspectionSpotMaxSize = Convert.ToSingle(rowLEDInspectionSpotMaxSize.Properties.Value);
-            //_workParam._LEDInspectionWorkAreaLeft = Convert.ToInt32(rowLEDInspectionWorkAreaLeft.Properties.Value);
-            //_workParam._LEDInspectionWorkAreaTop = Convert.ToInt32(rowLEDInspectionWorkAreaTop.Properties.Value);
-            //_workParam._LedInspectionWorkAreaWidth = Convert.ToInt32(rowLEDInspectionWorkAreaWidth.Properties.Value);
-            //_workParam._LedInspectionWorkAreaHeight = Convert.ToInt32(rowLEDInspectionWorkAreaHeight.Properties.Value);
+            comboBoxEditInspectionModeType.SelectedIndex = 0;
+            //textEditPositionX.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionX.ToString();
+            //textEditPositionY.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionY.ToString();
+            //textEditPositionZ.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionZ.ToString();
+            //textEditReadyWaitTime.Text = _workParam.SolderPositionParams[_gridRowIndex].ReadyTime.ToString();
+            //textEditPreHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].PreHeatTime.ToString();
+            //textEditPreHeatPowerRatio.Text = _workParam.SolderPositionParams[_gridRowIndex].PreheatPowerRatio.ToString();
+            //textEditHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatTime.ToString();
+            //textEditHeatPowerRatio.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatPowerRatio.ToString();
+            //textEditForwardFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwordingWireLength.ToString();
+            //textEditForwardFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwordingVelocity.ToString();
+            //textEditReverseFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseWireLength.ToString();
+            //textEditReverseFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseVelocity.ToString();
+
             gridControlInspectionPosition.DataSource = _workParam.SolderPositionParams;
         }
         private void barButtonItemNewRecipe_ItemClick(object sender, ItemClickEventArgs e)
