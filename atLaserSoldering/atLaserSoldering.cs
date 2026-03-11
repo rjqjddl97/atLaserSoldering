@@ -71,6 +71,9 @@ namespace atLaserSoldering
         public atLaserSoldering()
         {
             InitializeComponent();
+            _mMotionControlCommManager = new AiCControlLibrary.SerialCommunication.Control.CommunicationManager();
+            _mRemoteIOCommManager = new ArioModbusLibrary.SerialCommunication.Control.CommunicationManager();
+            _mLaserSoldering = new LaserSodering();
         }
 
         private void barButtonItemSystemEditor_ItemClick(object sender, ItemClickEventArgs e)

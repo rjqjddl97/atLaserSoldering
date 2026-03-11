@@ -26,3 +26,9 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMini
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\bin\Debug\CoherentCompactMini.pdb
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\obj\Debug\CoherentCompactMini.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\obj\Debug\CoherentCompactMini.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\bin\Debug\CoherentCompactMini.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\bin\Debug\CoherentCompactMini.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\obj\Debug\CoherentCompactMini.csprojAssemblyReference.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\obj\Debug\CoherentCompactMini.csproj.CoreCompileInputs.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\obj\Debug\CoherentCompactMini.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\obj\Debug\CoherentCompactMini.pdb
