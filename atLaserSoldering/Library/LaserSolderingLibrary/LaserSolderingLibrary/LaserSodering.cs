@@ -18,7 +18,7 @@ using AiCControlLibrary.SerialCommunication.DataProcessor;
 
 namespace LaserSoldering
 {
-    public class LaserSodering
+    public class LaserSoderingProcess
     {
         public enum LaserSolderStepType
         {
@@ -119,7 +119,7 @@ namespace LaserSoldering
         public int mCurrentReadyTime = 0;
         public int mCurrentPreHeatTime = 0;
         public int mCurrentHeatTime = 0;
-        public LaserSodering()
+        public LaserSoderingProcess()
         {
             _FeederParam = new FeederParameter();
             _LaserSolderParam = new LaserSolderParameter();
@@ -135,7 +135,7 @@ namespace LaserSoldering
             ProcessEngine = new Thread(SolderingRun);
             ProcessEngine.Start();            
         }
-        ~LaserSodering()
+        ~LaserSoderingProcess()
         {
             _FeederParam = null;
             _LaserSolderParam = null;
@@ -219,7 +219,7 @@ namespace LaserSoldering
             else
                 _LaserSource = LaserModule.CompactSE;
         }
-        public void SetCommunicationParam(CoherentCompactMini.SerialCommunication.Control.SerialPortSetData laser, AiCControlLibrary.SerialCommunication.Control.SerialPortSetData feeder)
+        public void SetCommunicationParam(CoherentCompactMini.SerialCommunication.Control.SerialPortSetData laser, AiCControlLibrary.SerialCommunication.Control.SerialPortSetData feeder, byte id)
         {
             try
             {
@@ -227,6 +227,7 @@ namespace LaserSoldering
                 {
                     _mCompactMiniComm.SetSerialData(laser);
                     _mFeederComm.SetSerialData(feeder);
+                    _mFeederComm.InitialPeriodData(id);
                 }
             }
             catch (Exception ex)
@@ -235,7 +236,7 @@ namespace LaserSoldering
             }
 
         }
-        public void SetCommunicationParam(CompactSECommunication.Communication.Control.TcpIpSetData laser, AiCControlLibrary.SerialCommunication.Control.SerialPortSetData feeder)
+        public void SetCommunicationParam(CompactSECommunication.Communication.Control.TcpIpSetData laser, AiCControlLibrary.SerialCommunication.Control.SerialPortSetData feeder, byte id)
         {
             try
             {
@@ -243,6 +244,7 @@ namespace LaserSoldering
                 {
                     _mCompactSEComm.SetTcpIpData(laser);
                     _mFeederComm.SetSerialData(feeder);
+                    _mFeederComm.InitialPeriodData(id);
                 }
             }
             catch (Exception ex)

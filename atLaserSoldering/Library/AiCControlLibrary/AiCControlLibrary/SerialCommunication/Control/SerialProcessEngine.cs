@@ -57,6 +57,11 @@ namespace AiCControlLibrary.SerialCommunication.Control
         public bool IsReceiveAck { get; set; } = true;
         public bool IsConnected { get; set; }
         public UInt32 uiReceiveCount { get; set; } = 0;
+        public List<byte[]> _ContinuousDataList
+        {
+            get { return mContinuousCheckList; }
+            set { mContinuousCheckList = value; }
+        }
         public SerialProcessEngine()
         {
             IsConnected = false;
@@ -64,7 +69,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
             m_AiCDataCtrl = new AiCData();
             mSerialEngineStep = SerialEngineStep.Idle;
             mReceiveStep = SerialReceiveStep.Idle;            
-            InitCheckDatas();
+            //InitCheckDatas();
             Array.Clear(ReceivePacketBuff, 0x00, ReceiveBuffSize);
             //ReceiveCountIndex = 0;
             engine = new Thread(Run);
@@ -100,6 +105,11 @@ namespace AiCControlLibrary.SerialCommunication.Control
             mContinuousCheckList.Add(m_AiCDataCtrl.GetSettingMotionDatas(1));
             mContinuousCheckList.Add(m_AiCDataCtrl.GetSettingMotionDatas(2));
             mContinuousCheckList.Add(m_AiCDataCtrl.GetSettingMotionDatas(3));
+        }
+        public void InitialPeriodRequest(byte[] id)
+        {
+            for(int i = 0; i < id.Length ;i++)
+                _ContinuousDataList.Add(m_AiCDataCtrl.GetSettingMotionDatas(id[i]));
         }
         public void ParsingData(byte[] data)
         {

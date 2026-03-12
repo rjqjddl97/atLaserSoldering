@@ -74,7 +74,19 @@ namespace AiCControlLibrary.SerialCommunication.Control
             DataSendRequestEvent -= SendDataToEngine;
             DataSendMsgRequestEvent -= SendCommandWithmessage;
         }
-
+        public void InitialPeriodData(byte[] ids)
+        {
+            List<byte[]> reqData = new List<byte[]>();
+            for (int i = 0; i < ids.Length; i++)
+                reqData.Add(mDrvCtrl.GetSettingMotionDatas(ids[i]));
+            mSerialEngine._ContinuousDataList = reqData;
+        }
+        public void InitialPeriodData(byte id)
+        {
+            List<byte[]> reqData = new List<byte[]>();
+            reqData.Add(mDrvCtrl.GetSettingMotionDatas(id));
+            mSerialEngine._ContinuousDataList = reqData;
+        }
         public void SetSerialData(SerialPortSetData data)
         {
             mSerialHandler.SetSettings(data);

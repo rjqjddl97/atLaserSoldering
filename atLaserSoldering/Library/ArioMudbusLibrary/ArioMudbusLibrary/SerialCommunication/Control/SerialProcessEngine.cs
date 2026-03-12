@@ -55,8 +55,12 @@ namespace ArioModbusLibrary.SerialCommunication.Control
         public bool IsResponseReceiveError { get; set; } = false;
         public bool IsReceiveAck { get; set; } = true;
         public bool IsConnected { get; set; }
-        public UInt32 uiReceiveCount { get; set; } = 0;        
-
+        public UInt32 uiReceiveCount { get; set; } = 0;
+        public List<byte[]> _ContinuousDataList
+        {
+            get { return mContinuousCheckList; }
+            set { mContinuousCheckList = value; }
+        }
         public SerialProcessEngine()
         {
             IsConnected = false;

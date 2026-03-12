@@ -35,7 +35,10 @@ namespace atLaserSoldering
 
         public AiCControlLibrary.SerialCommunication.Control.CommunicationManager _mMotionControlCommManager = null;
         public ArioModbusLibrary.SerialCommunication.Control.CommunicationManager _mRemoteIOCommManager = null;
-        public LaserSodering _mLaserSoldering = null;
+
+        public AiCControlLibrary.SerialCommunication.Control.CommunicationManager _mFeederCommManager = null;
+        public CoherentCompactMini.SerialCommunication.Control.CommunicationManager _mLaserCommManager = null;
+        public LaserSoderingProcess _mLaserSoldering = null;
         //DBControl _JobWorkDbCtrl = new DBControl();
         public ADMSEquipmentInfo _admsEquipment = new ADMSEquipmentInfo();
         public ADMSProductInfo _admsProduct = new ADMSProductInfo();
@@ -73,7 +76,11 @@ namespace atLaserSoldering
             InitializeComponent();
             _mMotionControlCommManager = new AiCControlLibrary.SerialCommunication.Control.CommunicationManager();
             _mRemoteIOCommManager = new ArioModbusLibrary.SerialCommunication.Control.CommunicationManager();
-            _mLaserSoldering = new LaserSodering();
+
+            _mFeederCommManager = new AiCControlLibrary.SerialCommunication.Control.CommunicationManager();
+            _mLaserCommManager = new CoherentCompactMini.SerialCommunication.Control.CommunicationManager();
+            _mLaserSoldering = new LaserSoderingProcess();
+            //_mLaserSoldering.InitialCommunication(_mLaserCommManager, _mFeederCommManager);
         }
 
         private void barButtonItemSystemEditor_ItemClick(object sender, ItemClickEventArgs e)
@@ -467,8 +474,9 @@ namespace atLaserSoldering
                     motionControl.ChangeSystemLanguage(_systemParams._SystemLanguageKoreaUse);
 
                 motionControl.SetCommunicateManager(ref _mMotionControlCommManager);
-                motionControl.SetMotionParam(ref _systemParams._motionParams);
-                byte[] _id = new byte[4];
+                motionControl.SetMotionParam(ref _systemParams._motionParams);               
+                
+                byte[] _id = new byte[3];
                 for (int i = 0; i < 3; i++)
                 {
                     if (i == 0)

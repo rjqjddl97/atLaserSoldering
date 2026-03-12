@@ -121,8 +121,8 @@
   <data name="open_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="textbox_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\textbox_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="connectedpart_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\connectedpart_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exportfile_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exportfile_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,11 +136,17 @@
   <data name="connect_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\connect_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="disconnectedall_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\disconnectedall_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pageorientationportrait_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pageorientationportrait_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="open_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="scripts_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\scripts_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exportfile_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exportfile_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,22 +166,22 @@
   <data name="disconnect_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\disconnect_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="textbox_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\textbox_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="textbox_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\textbox_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="iconsetredtoblack4_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconsetredtoblack4_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="scripts_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\scripts_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="connectedall_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\connectedall_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="connectedpart_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\connectedpart_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="textbox_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\textbox_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="disconnectedall_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\disconnectedall_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IconSetSigns3_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconSetSigns3_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="iconsetredtoblack4_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconsetredtoblack4_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

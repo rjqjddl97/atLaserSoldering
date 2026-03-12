@@ -36,10 +36,21 @@ namespace ArioModbusLibrary.SerialCommunication.Control
             mSerialHandler = mSerialEngine.m_SerialHandler;
             mRemoteIOCtrl = mSerialEngine.m_ARioDataCtrl;
             //ConnectEvents();
+            
         }
         ~CommunicationManager() 
         {
             StopEngine();
+        }
+        public void InitialPeriodData(byte[] ids)
+        {
+            List<byte[]> reqData = new List<byte[]>();
+            for (int i = 0; i < ids.Length; i++)
+            {
+                reqData.Add(mRemoteIOCtrl.GetSettingInputs(ids[i], 1));
+                reqData.Add(mRemoteIOCtrl.GetSettingOutputs(ids[i], 1)); 
+            }
+            mSerialEngine._ContinuousDataList = reqData;
         }
         private void ConnectEvents()
         {

@@ -60,8 +60,6 @@ D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Libr
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\obj\Debug\LaserSoldering.csprojResolveAssemblyReference.cache
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\obj\Debug\LaserSoldering.dll
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\obj\Debug\LaserSoldering.pdb
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.config
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.xsd
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LaserSoldering.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LaserSoldering.pdb
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\AiCControlLibrary.dll

@@ -407,7 +407,8 @@ namespace CustomPages
         }
         public void SetCommunicationData(int idnum, byte[] idarry)
         {
-            _mAiCCommunicationManager.mDrvCtrl.SetIDNumber(idnum, idarry);            
+            _mAiCCommunicationManager.mDrvCtrl.SetIDNumber(idnum, idarry);
+            _mAiCCommunicationManager.InitialPeriodData(idarry);
             _mAiCData = _mAiCCommunicationManager.mDrvCtrl;            
         }
         public void SetMotionParam(ref RecipeManager.MotionParams _param)

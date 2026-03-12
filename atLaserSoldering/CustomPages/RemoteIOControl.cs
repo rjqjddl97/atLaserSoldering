@@ -201,6 +201,7 @@ namespace CustomPages
         public void SetCommunicationData(int idnum, byte[] idarry)
         {
             _mArioCommunicationManager.mRemoteIOCtrl.SetIDNumber(idnum, idarry);
+            _mArioCommunicationManager.InitialPeriodData(idarry);
             _mArioData = _mArioCommunicationManager.mRemoteIOCtrl;
         }
         private void OutputControl_Click(object sender, EventArgs e)

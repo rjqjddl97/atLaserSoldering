@@ -931,3 +931,4 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csp
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csproj.CopyComplete
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.exe
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\CustomPages.SolderingControl.resources

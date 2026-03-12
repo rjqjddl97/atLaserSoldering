@@ -94,6 +94,12 @@
     <Compile Include="atLaserSolderingSequence.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CustomPages\SolderingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPages\SolderingControl.Designer.cs">
+      <DependentUpon>SolderingControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomPages\MotionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </Compile>
     <EmbeddedResource Include="atLaserSoldering.resx">
       <DependentUpon>atLaserSoldering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPages\SolderingControl.resx">
+      <DependentUpon>SolderingControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomPages\MotionControl.resx">
       <DependentUpon>MotionControl.cs</DependentUpon>
@@ -279,6 +288,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\disconnectedall_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconSetSigns3_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
