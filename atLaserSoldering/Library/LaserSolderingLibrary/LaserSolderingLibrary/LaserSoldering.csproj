@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FeederParameter.cs" />
-    <Compile Include="LaserSodering.cs" />
+    <Compile Include="LaserSoderingProcess.cs" />
     <Compile Include="LaserSolderParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserInformation.cs" />

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Text;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
@@ -32,7 +33,7 @@ namespace CustomPages
         private AiCData _mFeederData = new AiCData();
         private CoherentCompactMini.SerialCommunication.Control.CommunicationManager _mLaserCommunicationManager = null;
         private CompactMiniData _mLaserData = new CompactMiniData();
-        LaserSoldering.LaserSoderingProcess _mLaserSoldering = new LaserSoderingProcess();
+        LaserSoldering.LaserSoderingProcess _mLaserSoldering = null;
         private RecipeManager.FeederParams _FeederParam = null;
 
         public event Action<string> LogWriteEvent;
@@ -42,8 +43,7 @@ namespace CustomPages
 
         public SolderingControl()
         {
-            InitializeComponent();
-            _mLaserSoldering = new LaserSoderingProcess();
+            InitializeComponent();            
         }
         public void ChangeSystemLanguage(bool _bsystemlanguage)
         {
@@ -82,14 +82,15 @@ namespace CustomPages
             simpleButtonLaserPowerOn.Text = "Power On";
             simpleButtonPilotOn.Text = "Pilot On";
             simpleButtonLaserReset.Text = "Reset";
-        }
-        public void SetCommunicateManager(ref AiCControlLibrary.SerialCommunication.Control.CommunicationManager feedmanager, ref CoherentCompactMini.SerialCommunication.Control.CommunicationManager lasermanager)
+        }        
+        public void SetCommunicateManager(ref LaserSoderingProcess solder,ref AiCControlLibrary.SerialCommunication.Control.CommunicationManager feedmanager, ref CoherentCompactMini.SerialCommunication.Control.CommunicationManager lasermanager)
         {
             //_mFeederCommunicationManager = feedmanager;
             //_mLaserCommunicationManager = lasermanager;
+            _mLaserSoldering = solder;
             _mLaserSoldering.InitialCommunication(lasermanager, feedmanager);            
         }
-        public void SetCommunicationParams(CoherentCompactMini.SerialCommunication.Control.SerialPortSetData laser, AiCControlLibrary.SerialCommunication.Control.SerialPortSetData feeder, byte id)
+        public void SetCommunicationParams(ref LaserSoderingProcess solder,CoherentCompactMini.SerialCommunication.Control.SerialPortSetData laser, AiCControlLibrary.SerialCommunication.Control.SerialPortSetData feeder, byte id)
         {
             //_mFeederCommunicationManager.mDrvCtrl.SetIDNumber(idnum, idarry);
             //_mFeederCommunicationManager.InitialPeriodData(idarry);            
@@ -157,29 +158,170 @@ namespace CustomPages
         }
         private void simpleButtonLaserOn_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (_mLaserCommunicationManager.IsOpen())
+                {
+                    int datasize = 0;
+                    datasize = _mLaserData.GetSetLaserOnPacketSize();
+                    byte[] data = new byte[datasize];
+                    if (_mLaserCommunicationManager.IsReceiveAck())
+                    {
+                        if (_mLaserSoldering.IsLaserOn)
+                        {
+                            data = _mLaserData.GetSetLaserOn(false);
+                            //simpleButtonLaserOn.Text = "Laser On";
+                        }
+                        else
+                        {
+                            data = _mLaserData.GetSetLaserOn(true);
+                            //simpleButtonLaserOn.Text = "Laser Off";
+                        }
+                        _mLaserCommunicationManager.SendData(data);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
         }
 
         private void simpleButtonLaserPowerOn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (_mLaserCommunicationManager.IsOpen())
+                {
+                    int datasize = 0;
+                    datasize = _mLaserData.GetSetPowerOnPacketSize();
+                    byte[] data = new byte[datasize];
+                    if (_mLaserCommunicationManager.IsReceiveAck())
+                    {
+                        if (_mLaserData.Status.B0)
+                        {
+                            data = _mLaserData.GetSetPowerOn(false);
+                            //simpleButtonLaserOn.Text = "Power On";
+                        }
+                        else
+                        {
+                            data = _mLaserData.GetSetPowerOn(true);
+                            //simpleButtonLaserOn.Text = "Power Off";
+                        }
+                        _mLaserCommunicationManager.SendData(data);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
         }
 
         private void simpleButtonPilotOn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (_mLaserCommunicationManager.IsOpen())
+                {
+                    int datasize = 0;
+                    datasize = _mLaserData.GetSetPositionLaserOnPacketSize();
+                    byte[] data = new byte[datasize];
+                    if (_mLaserCommunicationManager.IsReceiveAck())
+                    {
+                        if (_mLaserData.Status.B0)
+                        {
+                            data = _mLaserData.GetSetPositioningLaserOn(false);
+                            //simpleButtonPilotOn.Text = "Piolt On";
+                        }
+                        else
+                        {
+                            data = _mLaserData.GetSetPositioningLaserOn(true);
+                            //simpleButtonPilotOn.Text = "Piolt Off";
+                        }
+                        _mLaserCommunicationManager.SendData(data);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
         }
 
         private void simpleButtonLaserReset_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (_mLaserCommunicationManager.IsOpen())
+                {
+                    int datasize = 0;
+                    datasize = _mLaserData.GetSetErrorResetPacketSize();
+                    byte[] data = new byte[datasize];
+                    if (_mLaserCommunicationManager.IsReceiveAck())
+                    {
+                        if (_mLaserData.Status.B0)
+                        {
+                            data = _mLaserData.GetSetErrorReset();
+                            //simpleButtonLaserOn.Text = "Reset On";
+                        }
+                        else
+                        {
+                            data = _mLaserData.GetSetErrorReset();
+                            //simpleButtonLaserOn.Text = "Reset Off";
+                        }
+                        _mLaserCommunicationManager.SendData(data);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
         }
 
         private void simpleButtonSolderingStart_Click(object sender, EventArgs e)
         {
 
         }
-
+        public void InitialCompactMiniControl()
+        {
+            try
+            {
+                // 초기화 backgroudworker(Thead) 구문으로 변경필요!
+                int datasize = 0;
+                if (_mLaserCommunicationManager.IsOpen())
+                {
+                    datasize = _mLaserData.GetSetVT100ModePacketSize(0);
+                    byte[] data = new byte[datasize];
+                    data = _mLaserData.GetSetVT100Mode(0);
+                    if (_mLaserCommunicationManager.IsReceiveAck())
+                    {
+                        _mLaserCommunicationManager.SendData(data);
+                    }
+                    Thread.Sleep(500);
+                    datasize = _mLaserData.GetLaserCurrentSetPacketSize();
+                    byte[] subdata1 = new byte[datasize];
+                    subdata1 = _mLaserData.GetLaserCurrentSet(0);
+                    if (_mLaserCommunicationManager.IsReceiveAck())
+                    {
+                        _mLaserCommunicationManager.SendData(subdata1);
+                    }
+                    Thread.Sleep(500);
+                    datasize = _mLaserData.GetSetLaserControlPacketSize();
+                    byte[] subdata2 = new byte[datasize];
+                    subdata2 = _mLaserData.GetSetLaserControl(0);
+                    if (_mLaserCommunicationManager.IsReceiveAck())
+                    {
+                        _mLaserCommunicationManager.SendData(subdata2);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
         private void timerUpdateTime_Tick(object sender, EventArgs e)
         {
             if (_mLaserData.Status.B0)
