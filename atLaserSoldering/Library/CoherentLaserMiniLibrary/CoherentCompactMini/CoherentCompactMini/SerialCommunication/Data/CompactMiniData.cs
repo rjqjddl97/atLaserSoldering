@@ -592,7 +592,7 @@ namespace CoherentCompactMini.SerialCommunication.Data
         public byte[] GetLaserStatus()
         {
             string strcmd = "Rdx\r";
-            SetRequestedCommand(CommandMessage.RDX);
+            //SetRequestedCommand(CommandMessage.RDX);
             return Encoding.UTF8.GetBytes(strcmd);
         }
         public int GetSetLaserPowerPacketSize(int data)

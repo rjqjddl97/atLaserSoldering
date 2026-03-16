@@ -48,10 +48,6 @@
     <Compile Include="UserInformation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AiCControlLibrary\AiCControlLibrary\AiCControlLibrary.csproj">
-      <Project>{8689df06-271f-4142-990e-302eb1d5eb82}</Project>
-      <Name>AiCControlLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\CoherentCompactMini.csproj">
       <Project>{a56f395d-a78d-4764-b74e-af66763c3af4}</Project>
       <Name>CoherentCompactMini</Name>
@@ -59,6 +55,10 @@
     <ProjectReference Include="..\..\CoherentLaserSELibrary\TestCompactSELibrary\TestCompactSELibrary\CompactSECommunication.csproj">
       <Project>{03a92e9e-5da1-483a-b438-286286a0b909}</Project>
       <Name>CompactSECommunication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FeederControlLibrary\FeederControlLibrary\FeederControlLibrary.csproj">
+      <Project>{4ec01901-0391-4970-a0cc-975d79da1039}</Project>
+      <Name>FeederControlLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

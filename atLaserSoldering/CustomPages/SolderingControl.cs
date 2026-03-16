@@ -12,10 +12,10 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.IO;
 using System.IO.Ports;
-using AiCControlLibrary.SerialCommunication;
-using AiCControlLibrary.SerialCommunication.Control;
-using AiCControlLibrary.SerialCommunication.Data;
-using AiCControlLibrary.SerialCommunication.DataProcessor;
+using FeederControlLibrary.SerialCommunication;
+using FeederControlLibrary.SerialCommunication.Control;
+using FeederControlLibrary.SerialCommunication.Data;
+using FeederControlLibrary.SerialCommunication.DataProcessor;
 using CoherentCompactMini.SerialCommunication.Control;
 using CoherentCompactMini.SerialCommunication.Data;
 using CoherentCompactMini.SerialCommunication.DataProcessor;
@@ -29,8 +29,8 @@ namespace CustomPages
 {
     public partial class SolderingControl : DevExpress.XtraEditors.XtraUserControl
     {
-        private AiCControlLibrary.SerialCommunication.Control.CommunicationManager _mFeederCommunicationManager = null;
-        private AiCData _mFeederData = new AiCData();
+        private FeederControlLibrary.SerialCommunication.Control.CommunicationManager _mFeederCommunicationManager = null;
+        private FeedData _mFeederData = new FeedData();
         private CoherentCompactMini.SerialCommunication.Control.CommunicationManager _mLaserCommunicationManager = null;
         private CompactMiniData _mLaserData = new CompactMiniData();
         LaserSoldering.LaserSoderingProcess _mLaserSoldering = null;
@@ -83,14 +83,23 @@ namespace CustomPages
             simpleButtonPilotOn.Text = "Pilot On";
             simpleButtonLaserReset.Text = "Reset";
         }        
-        public void SetCommunicateManager(ref LaserSoderingProcess solder,ref AiCControlLibrary.SerialCommunication.Control.CommunicationManager feedmanager, ref CoherentCompactMini.SerialCommunication.Control.CommunicationManager lasermanager)
+        public void SetCommunicateManager(LaserSoderingProcess solder,ref FeederControlLibrary.SerialCommunication.Control.CommunicationManager feedmanager, ref CoherentCompactMini.SerialCommunication.Control.CommunicationManager lasermanager)
         {
-            //_mFeederCommunicationManager = feedmanager;
-            //_mLaserCommunicationManager = lasermanager;
+            _mFeederCommunicationManager = feedmanager;
+            _mLaserCommunicationManager = lasermanager;
             _mLaserSoldering = solder;
-            _mLaserSoldering.InitialCommunication(lasermanager, feedmanager);            
+            _mLaserSoldering.InitialCommunication(ref lasermanager,ref feedmanager);
+            //_mFeederCommunicationManager = _mLaserSoldering.FeederComm;
+            //_mLaserCommunicationManager = _mLaserSoldering.CompactMiniComm;
         }
-        public void SetCommunicationParams(ref LaserSoderingProcess solder,CoherentCompactMini.SerialCommunication.Control.SerialPortSetData laser, AiCControlLibrary.SerialCommunication.Control.SerialPortSetData feeder, byte id)
+        public void SetCommunicateManager(LaserSoderingProcess solder, FeederControlLibrary.SerialCommunication.Control.CommunicationManager feedmanager, CoherentCompactMini.SerialCommunication.Control.CommunicationManager lasermanager)
+        {
+            _mFeederCommunicationManager = feedmanager;
+            _mLaserCommunicationManager = lasermanager;
+            _mLaserSoldering = solder;
+            _mLaserSoldering.InitialCommunication(ref lasermanager, ref feedmanager);
+        }
+        public void SetCommunicationParams(CoherentCompactMini.SerialCommunication.Control.SerialPortSetData laser, FeederControlLibrary.SerialCommunication.Control.SerialPortSetData feeder, byte id)
         {
             //_mFeederCommunicationManager.mDrvCtrl.SetIDNumber(idnum, idarry);
             //_mFeederCommunicationManager.InitialPeriodData(idarry);            
@@ -99,15 +108,21 @@ namespace CustomPages
             _mLaserData = _mLaserSoldering.CompactMiniData;
             
         }
-        public void ConnectionOpen(CoherentCompactMini.SerialCommunication.Control.SerialPortSetData setPortLaser,AiCControlLibrary.SerialCommunication.Control.SerialPortSetData setPortFeed, byte id)
+        public void ConnectionOpen(CoherentCompactMini.SerialCommunication.Control.SerialPortSetData setPortLaser, FeederControlLibrary.SerialCommunication.Control.SerialPortSetData setPortFeed, byte id)
         {
+            byte[] ids = new byte[1];
+            ids[0] = id;
             _mLaserSoldering.SetCommunicationParam(setPortLaser, setPortFeed, id);
-            _mFeederData = _mLaserSoldering.FeederData;
-            _mLaserData = _mLaserSoldering.CompactMiniData;
+            _mLaserSoldering.FeederComm.mFeedCtrl.SetIDNumber(1, ids);
+            _mFeederData = _mLaserSoldering.FeederComm.mFeedCtrl;
+            _mLaserData = _mLaserSoldering.CompactMiniComm.mLaserSourceCtrl;
             _mLaserSoldering.ConnectDeviceModule();
+            IsOpenStatus = _mLaserSoldering.IsSolderingConnect;
+            _mLaserSoldering.ReceiveDataLaserUpdateEvent += UpdateReceiveLaserData;
+            _mLaserSoldering.ReceiveDataFeederUpdateEvent += UpdateReceiveFeederData;
             LogWriteEvent?.Invoke(string.Format("Feeder 제어 통신({0})과 레이저 제어 통신({1})이 연결 되었습니다", setPortFeed.PortName, setPortLaser.PortName));
         }
-        public void ConnectionOpen(CoherentCompactMini.SerialCommunication.Control.SerialPortSetData setPortLaser, AiCControlLibrary.SerialCommunication.Control.SerialPortSetData setPortFeed)
+        public void ConnectionOpen(CoherentCompactMini.SerialCommunication.Control.SerialPortSetData setPortLaser, FeederControlLibrary.SerialCommunication.Control.SerialPortSetData setPortFeed)
         {
             //_mFeederCommunicationManager.SetSerialData(setPortFeed);
             //_mLaserCommunicationManager.SetSerialData(setPortLaser);            
@@ -130,6 +145,9 @@ namespace CustomPages
         public void ConnectionClosed()
         {
             _mLaserSoldering.DisconnectDeviceModule();
+            _mLaserSoldering.ReceiveDataLaserUpdateEvent -= UpdateReceiveLaserData;
+            _mLaserSoldering.ReceiveDataFeederUpdateEvent -= UpdateReceiveFeederData;
+            IsOpenStatus = _mLaserSoldering.IsSolderingConnect;
             LogWriteEvent?.Invoke(string.Format("Feeder 및 레이저 제어 통신이 연결해제 되었습니다"));
             //if (_mFeederCommunicationManager.IsOpen() && _mLaserCommunicationManager.IsOpen())
             //{
@@ -144,7 +162,7 @@ namespace CustomPages
             //    LogWriteEvent?.Invoke(string.Format("Feeder 및 레이저 제어 통신이 연결해제 되었습니다"));
             //}
         }
-        public void UpdateReceiveFeederData(AiCData update)
+        public void UpdateReceiveFeederData(FeedData update)
         {
             _mFeederData = update;            
         }
@@ -152,7 +170,7 @@ namespace CustomPages
         {
             _mLaserData = update;
         }
-        public void SetMotionParam(ref RecipeManager.FeederParams _param)
+        public void SetFeederParam(RecipeManager.FeederParams _param)
         {
             _FeederParam = _param;
         }

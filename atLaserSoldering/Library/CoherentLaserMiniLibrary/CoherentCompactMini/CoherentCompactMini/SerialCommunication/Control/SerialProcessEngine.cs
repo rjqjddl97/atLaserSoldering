@@ -93,7 +93,7 @@ namespace CoherentCompactMini.SerialCommunication.Control
         {
 
             //Laser Status. 주기적 요청.
-            //mContinuousCheckList.Add(m_CompactMiniDataCtrl.GetLaserStatus());
+            mContinuousCheckList.Add(m_CompactMiniDataCtrl.GetLaserStatus());
         }
         public void ParsingData(byte[] data)
         {
@@ -332,6 +332,7 @@ namespace CoherentCompactMini.SerialCommunication.Control
                                 else if (mContinuousCheckList.Count != 0)
                                 {   
                                     data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
+                                    m_CompactMiniDataCtrl.SetRequestedCommand(CompactMiniData.CommandMessage.RDX);
                                     if (mContinuousCheckIndex >= mContinuousCheckList.Count)
                                         mContinuousCheckIndex = 0;                                    
                                 }

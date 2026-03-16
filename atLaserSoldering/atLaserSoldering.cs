@@ -20,6 +20,7 @@ using System.Drawing.Imaging;
 using CustomPages;
 using LogLibrary;
 using AiCControlLibrary;
+using FeederControlLibrary;
 using ArioModbusLibrary;
 using LaserSoldering;
 using atLaserSoldering;
@@ -36,7 +37,7 @@ namespace atLaserSoldering
         public AiCControlLibrary.SerialCommunication.Control.CommunicationManager _mMotionControlCommManager = null;
         public ArioModbusLibrary.SerialCommunication.Control.CommunicationManager _mRemoteIOCommManager = null;
 
-        public AiCControlLibrary.SerialCommunication.Control.CommunicationManager _mFeederCommManager = null;
+        public FeederControlLibrary.SerialCommunication.Control.CommunicationManager _mFeederCommManager = null;
         public CoherentCompactMini.SerialCommunication.Control.CommunicationManager _mLaserCommManager = null;
         public LaserSoderingProcess _mLaserSoldering = null;
         //DBControl _JobWorkDbCtrl = new DBControl();
@@ -77,9 +78,9 @@ namespace atLaserSoldering
             _mMotionControlCommManager = new AiCControlLibrary.SerialCommunication.Control.CommunicationManager();
             _mRemoteIOCommManager = new ArioModbusLibrary.SerialCommunication.Control.CommunicationManager();
 
-            _mFeederCommManager = new AiCControlLibrary.SerialCommunication.Control.CommunicationManager();
+            _mFeederCommManager = new FeederControlLibrary.SerialCommunication.Control.CommunicationManager();
             _mLaserCommManager = new CoherentCompactMini.SerialCommunication.Control.CommunicationManager();
-            _mLaserSoldering = new LaserSoderingProcess();
+            _mLaserSoldering = new LaserSoldering.LaserSoderingProcess();
             //_mLaserSoldering.InitialCommunication(_mLaserCommManager, _mFeederCommManager);
         }
 
@@ -287,6 +288,7 @@ namespace atLaserSoldering
                 // Motion Control Initial - Communication,
                 InitializeMotionDriveModule();
                 InitializeArioRemoteIOModule();
+                InitializeSolderingModule();
 
                 //InitializeStatistics();
                 //InitializeTackTimes();
@@ -634,6 +636,87 @@ namespace atLaserSoldering
             catch (Exception)
             {
                 mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "ARM 통신 해제를 하지 못햇습니다.");
+                return false;
+            }
+        }
+        public bool InitializeSolderingModule()
+        {
+            try
+            {
+                if (_systemParams != null)
+                {
+                    laserSolderingControl.ChangeSystemLanguage(_systemParams._SystemLanguageKoreaUse);
+                    laserSolderingControl.SetFeederParam(_systemParams._FeederParams);
+                }
+                laserSolderingControl.SetCommunicateManager(_mLaserSoldering,ref _mFeederCommManager,ref _mLaserCommManager);
+                
+                LaserSolderingModuleConnect();// connect command
+                return true;
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Soldering 모듈 초기화를 하지 못햇습니다.");
+                return false;
+            }
+        }
+        private bool LaserSolderingModuleConnect(string sComport = null)
+        {
+            try
+            {
+                if ((!_mLaserCommManager.IsOpen() && (_mLaserCommManager != null)) && (!_mFeederCommManager.IsOpen() && (_mFeederCommManager != null)))
+                {
+                    FeederControlLibrary.SerialCommunication.Control.SerialPortSetData feedsetPort = new FeederControlLibrary.SerialCommunication.Control.SerialPortSetData();
+                    feedsetPort.PortName = _systemParams._FeederParams.SerialParameters.PortName;
+                    feedsetPort.BaudRate = (int)_systemParams._FeederParams.SerialParameters.BaudRates;
+                    feedsetPort.DataBits = (int)_systemParams._FeederParams.SerialParameters.DataBits;
+                    feedsetPort.StopBits = System.IO.Ports.StopBits.One; //(StopBits)_systemParams._AiCParams.SerialParameters.StopBits;
+                    feedsetPort.Parity = System.IO.Ports.Parity.None;
+
+                    CoherentCompactMini.SerialCommunication.Control.SerialPortSetData lasersetPort = new CoherentCompactMini.SerialCommunication.Control.SerialPortSetData();
+                    lasersetPort.PortName = _systemParams._LaserParams.SerialParameters.PortName;
+                    lasersetPort.BaudRate = (int)_systemParams._LaserParams.SerialParameters.BaudRates;
+                    lasersetPort.DataBits = (int)_systemParams._LaserParams.SerialParameters.DataBits;
+                    lasersetPort.StopBits = System.IO.Ports.StopBits.One; //(StopBits)_systemParams._AiCParams.SerialParameters.StopBits;
+                    lasersetPort.Parity = System.IO.Ports.Parity.None;
+
+                    //laserSolderingControl.SetCommunicationParams(lasersetPort, feedsetPort, (byte)_systemParams._FeederParams.FeederCommunicationID);
+                    laserSolderingControl.ConnectionOpen(lasersetPort, feedsetPort, (byte)_systemParams._FeederParams.FeederCommunicationID);
+
+                    if (laserSolderingControl.IsOpenStatus)
+                    {
+                        //laserSolderingControl.RobotInfomationUpdatedEvent += UpdateRobotInfomation;
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Soldering 통신 연결 성공."));
+                    }
+                    else
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Soldering 통신 연결 실패."));
+                }
+                else
+                {
+                    laserSolderingControl.ConnectionClosed();
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Soldering 통신 연결 해제 성공."));
+                }
+                return laserSolderingControl.IsOpenStatus;
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Soldering 통신 연결을 하지 못햇습니다.");
+                return false;
+            }
+        }
+        private bool LaserSolderingModuleDisConnect()
+        {
+            try
+            {
+                if ((_mLaserCommManager.IsOpen() && (_mLaserCommManager != null)) && (_mFeederCommManager.IsOpen() && (_mFeederCommManager != null)))
+                {
+                    laserSolderingControl.ConnectionClosed();
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Soldering 통신 연결 해제 성공."));
+                }
+                return laserSolderingControl.IsOpenStatus;
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Soldering 통신 해제를 하지 못햇습니다.");
                 return false;
             }
         }

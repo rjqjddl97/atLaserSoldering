@@ -1,0 +1,12 @@
+C:\Work\Software\atPhotoInspect2025\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\bin\Release\AiCControlLibrary.dll
+C:\Work\Software\atPhotoInspect2025\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\bin\Release\AiCControlLibrary.pdb
+C:\Work\Software\atPhotoInspect2025\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\obj\Release\AiCControlLibrary.csprojAssemblyReference.cache
+C:\Work\Software\atPhotoInspect2025\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\obj\Release\AiCControlLibrary.csproj.CoreCompileInputs.cache
+C:\Work\Software\atPhotoInspect2025\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\obj\Release\AiCControlLibrary.dll
+C:\Work\Software\atPhotoInspect2025\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\obj\Release\AiCControlLibrary.pdb
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\bin\Release\AiCControlLibrary.dll
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\bin\Release\AiCControlLibrary.pdb
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\obj\Release\AiCControlLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\obj\Release\AiCControlLibrary.dll
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\obj\Release\AiCControlLibrary.pdb
+D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\AiCControlLibrary\AiCControlLibrary\obj\Release\AiCControlLibrary.csprojAssemblyReference.cache

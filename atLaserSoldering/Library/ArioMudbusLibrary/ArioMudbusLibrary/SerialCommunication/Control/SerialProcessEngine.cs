@@ -26,7 +26,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
         };
         private Thread engine;
 
-        private const int EngineSleepTime = 73;
+        private const int EngineSleepTime = 47;
         private const int ReceiveBuffSize = 4096;
         private SerialEngineStep mSerialEngineStep;
         private List<byte[]> mContinuousCheckList = new List<byte[]>();
@@ -121,8 +121,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                     else if(data[1] == (byte)DataProcessor.ModbusRTU.ReadFunctionCodes.ReadHoldingRegisters)
                     {
                         m_ARioDataCtrl.ReceiveSetOutput(data);
-                    }
-                    ReceiveARioData.Invoke(m_ARioDataCtrl);
+                    }                    
                     //reCommMassege = m_ARMDataCtrl.GetRequestedCommand();
                     //if (reCommMassege == ARMData.CommandMassege.MSG_INPUT)
                     //    m_ARMDataCtrl.ReceiveSetInput(data);
@@ -208,7 +207,10 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                                 byte[] MainData = new byte[uiReceiveCount];
                                 Buffer.BlockCopy(ReceivePacketBuff, 0, MainData, 0, (int)uiReceiveCount);
                                 if (uiReceiveCount == ReceivePacketBuff[2] + 5)
+                                {
                                     ParsingData(MainData);
+                                    ReceiveARioData.Invoke(m_ARioDataCtrl);
+                                }
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
                                 IsReceiveAck = true;
@@ -260,6 +262,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                     if (m_SerialHandler._ReceiveDataQueue.Count > 0)
                     {
                         ReceivePacket();
+                        //IsReceiveAck = true;
                     }
                     /////////////////////////////////////////////
                     switch (mSerialEngineStep)
@@ -273,7 +276,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                             break;
 
                         case SerialEngineStep.RequestPeriodData:
-                            if (IsReceiveAck)
+                            //if (IsReceiveAck)
                             {
                                 if ((mDataTransferList.Count != 0) && !IsEnqueueData)
                                 {

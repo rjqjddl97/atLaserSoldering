@@ -12,9 +12,9 @@ using CompactSECommunication.Communication.Data;
 using CoherentCompactMini.SerialCommunication.Control;
 using CoherentCompactMini.SerialCommunication.Data;
 using CoherentCompactMini.SerialCommunication.DataProcessor;
-using AiCControlLibrary.SerialCommunication.Control;
-using AiCControlLibrary.SerialCommunication.Data;
-using AiCControlLibrary.SerialCommunication.DataProcessor;
+using FeederControlLibrary.SerialCommunication.Control;
+using FeederControlLibrary.SerialCommunication.Data;
+using FeederControlLibrary.SerialCommunication.DataProcessor;
 
 namespace LaserSoldering
 {
@@ -53,11 +53,12 @@ namespace LaserSoldering
         private CompactSECommunication.Communication.Data.UserCompactSEData _mCompactSEData = null;
         private CoherentCompactMini.SerialCommunication.Control.CommunicationManager _mCompactMiniComm = null;
         private CoherentCompactMini.SerialCommunication.Data.CompactMiniData _mCompactMiniData = null;
-        private AiCControlLibrary.SerialCommunication.Control.CommunicationManager _mFeederComm = null;
-        private AiCControlLibrary.SerialCommunication.Data.AiCData _mFeederData = null;
+        private FeederControlLibrary.SerialCommunication.Control.CommunicationManager _mFeederComm = null;
+        private FeederControlLibrary.SerialCommunication.Data.FeedData _mFeederData = null;
         private string _TcpIpAddress = string.Format("192.168.3.11");                                           // CompactSE IP : 192.168.3.11
         private int _TcpPort = 12000;
 
+        private bool _IsSolderingConnect = false;
         private bool _IsLaserConnect = false;
         private bool _IsFeederConnect = false;
         private bool _IsLaserError = false;
@@ -84,6 +85,7 @@ namespace LaserSoldering
         private LaserModule _LaserSource = LaserModule.CompactMini;
 
         public int[][] DrvMotionMonitor = new int[1][];
+        public bool IsSolderingConnect { get { return _IsSolderingConnect; } set { _IsSolderingConnect = value; } }
         public bool IsLaserConnect { get { return _IsLaserConnect; } set { _IsLaserConnect = value; } }
         public bool IsFeederConnect { get { return _IsFeederConnect; } set { _IsFeederConnect = value; } }
         public bool IsLaserError { get { return _IsLaserError; } set { _IsLaserError = value; } }
@@ -107,8 +109,8 @@ namespace LaserSoldering
         public CompactSECommunication.Communication.Data.UserCompactSEData CompactSEData { get { return _mCompactSEData; } set { _mCompactSEData = value; } }
         public CoherentCompactMini.SerialCommunication.Control.CommunicationManager CompactMiniComm { get { return _mCompactMiniComm; } set { _mCompactMiniComm = value; } }
         public CoherentCompactMini.SerialCommunication.Data.CompactMiniData CompactMiniData { get { return _mCompactMiniData; } set { _mCompactMiniData = value; } }
-        public AiCControlLibrary.SerialCommunication.Control.CommunicationManager FeederComm { get { return _mFeederComm; } set { _mFeederComm = value; } }
-        public AiCControlLibrary.SerialCommunication.Data.AiCData FeederData { get { return _mFeederData; } set { _mFeederData = value; } }
+        public FeederControlLibrary.SerialCommunication.Control.CommunicationManager FeederComm { get { return _mFeederComm; } set { _mFeederComm = value; } }
+        public FeederControlLibrary.SerialCommunication.Data.FeedData FeederData { get { return _mFeederData; } set { _mFeederData = value; } }
         public FeederParameter FeederParam { get { return _FeederParam; } set { _FeederParam = value; } }
         public LaserSolderParameter LaserSolderParam { get { return _LaserSolderParam; } set { _LaserSolderParam = value; } }
 
@@ -119,17 +121,19 @@ namespace LaserSoldering
         public int mCurrentReadyTime = 0;
         public int mCurrentPreHeatTime = 0;
         public int mCurrentHeatTime = 0;
+        public event Action<FeedData> ReceiveDataFeederUpdateEvent;
+        public event Action<CompactMiniData> ReceiveDataLaserUpdateEvent;
         public LaserSoderingProcess()
         {
             _FeederParam = new FeederParameter();
             _LaserSolderParam = new LaserSolderParameter();
-            _mCompactSEComm = new CompactSECommunication.Communication.Control.CommunicationManager();
-            _mCompactMiniComm = new CoherentCompactMini.SerialCommunication.Control.CommunicationManager();
-            _mFeederComm = new AiCControlLibrary.SerialCommunication.Control.CommunicationManager();
+            //_mCompactSEComm = new CompactSECommunication.Communication.Control.CommunicationManager();
+            //_mCompactMiniComm = new CoherentCompactMini.SerialCommunication.Control.CommunicationManager();
+            //_mFeederComm = new FeederControlLibrary.SerialCommunication.Control.CommunicationManager();
             _mCompactSEData = new UserCompactSEData();
             _mCompactMiniData = new CompactMiniData();
-            _mFeederData = new AiCData();
-            DrvMotionMonitor[0] = new int[Enum.GetValues(typeof(AiCData.MONITOR_DATA_MAP)).Length];
+            _mFeederData = new FeedData();
+            DrvMotionMonitor[0] = new int[Enum.GetValues(typeof(FeedData.MONITOR_DATA_MAP)).Length];
             //_FeederParam.InitialParameter();
             mSolderingEngineStep = LaserSolderStepType.Stop;
             ProcessEngine = new Thread(SolderingRun);
@@ -182,7 +186,7 @@ namespace LaserSoldering
                 ;
             }
         }
-        public void InitialCommunication(CompactSECommunication.Communication.Control.CommunicationManager laser, AiCControlLibrary.SerialCommunication.Control.CommunicationManager feeder)
+        public void InitialCommunication(ref CompactSECommunication.Communication.Control.CommunicationManager laser, ref FeederControlLibrary.SerialCommunication.Control.CommunicationManager feeder)
         {
             try
             {
@@ -190,14 +194,14 @@ namespace LaserSoldering
                 _mCompactSEData = _mCompactSEComm.mLaserSourceData;
                 _LaserSource = LaserModule.CompactSE;
                 _mFeederComm = feeder;
-                _mFeederData = _mFeederComm.mDrvCtrl;
+                _mFeederData = _mFeederComm.mFeedCtrl;
             }
             catch (Exception ex)
             {
                 ;
             }
         }
-        public void InitialCommunication(CoherentCompactMini.SerialCommunication.Control.CommunicationManager laser, AiCControlLibrary.SerialCommunication.Control.CommunicationManager feeder)
+        public void InitialCommunication(ref CoherentCompactMini.SerialCommunication.Control.CommunicationManager laser, ref FeederControlLibrary.SerialCommunication.Control.CommunicationManager feeder)
         {
             try
             {
@@ -205,7 +209,7 @@ namespace LaserSoldering
                 _mCompactMiniData = _mCompactMiniComm.mLaserSourceCtrl;
                 _LaserSource = LaserModule.CompactMini;
                 _mFeederComm = feeder;
-                _mFeederData = _mFeederComm.mDrvCtrl;
+                _mFeederData = _mFeederComm.mFeedCtrl;
             }
             catch(Exception ex)
             {
@@ -219,13 +223,13 @@ namespace LaserSoldering
             else
                 _LaserSource = LaserModule.CompactSE;
         }
-        public void SetCommunicationParam(CoherentCompactMini.SerialCommunication.Control.SerialPortSetData laser, AiCControlLibrary.SerialCommunication.Control.SerialPortSetData feeder, byte id)
+        public void SetCommunicationParam(CoherentCompactMini.SerialCommunication.Control.SerialPortSetData laser, FeederControlLibrary.SerialCommunication.Control.SerialPortSetData feeder, byte id)
         {
             try
             {
                 if ((laser != null) && (feeder != null))
                 {
-                    _mCompactMiniComm.SetSerialData(laser);
+                    _mCompactMiniComm.SetSerialData(laser);                    
                     _mFeederComm.SetSerialData(feeder);
                     _mFeederComm.InitialPeriodData(id);
                 }
@@ -236,7 +240,7 @@ namespace LaserSoldering
             }
 
         }
-        public void SetCommunicationParam(CompactSECommunication.Communication.Control.TcpIpSetData laser, AiCControlLibrary.SerialCommunication.Control.SerialPortSetData feeder, byte id)
+        public void SetCommunicationParam(CompactSECommunication.Communication.Control.TcpIpSetData laser, FeederControlLibrary.SerialCommunication.Control.SerialPortSetData feeder, byte id)
         {
             try
             {
@@ -342,9 +346,12 @@ namespace LaserSoldering
                 }
                 if (_IsLaserConnect && _IsFeederConnect)
                 {
+                    IsSolderingConnect = true;
                     InitSolderingSequence = new Thread(InitialSolderProcess);
                     InitSolderingSequence.Start();
                 }
+                else
+                    IsSolderingConnect = false;
             }
             catch (Exception ex)
             {
@@ -388,7 +395,10 @@ namespace LaserSoldering
                     _IsInitialSoldering = false;
                     _IsAutoSolderEnd = true;
                     _IsAutoSoldering = false;
+                    IsSolderingConnect = false;
                 }
+                else
+                    IsSolderingConnect = true;
             }
             catch (Exception ex)
             {
@@ -407,13 +417,15 @@ namespace LaserSoldering
             if (_LaserSource == LaserModule.CompactMini)
             {
                 _mCompactMiniData = update;
+                ReceiveDataLaserUpdateEvent.Invoke(_mCompactMiniData);
             }
         }
-        public void ReceiveUpdateFeederData(AiCData update)
+        public void ReceiveUpdateFeederData(FeedData update)
         {
             if (_mFeederData != null)
             {
                 _mFeederData = update;
+                ReceiveDataFeederUpdateEvent.Invoke(_mFeederData);
             }
         }
         public void UpdateCommuncationDatas()
@@ -695,7 +707,7 @@ namespace LaserSoldering
                     if (_IsFeederConnect)
                     {
                         data = new byte[100];
-                        data = _mFeederData.DriveInitialSetting(_mFeederComm.mDrvCtrl.DrvID[0], 100, (int)Math.Round(50D * _FeederParam._dFeedermmToPulseRatio), 50, 50);
+                        data = _mFeederData.DriveInitialSetting(_mFeederComm.mFeedCtrl.DrvID[0], 100, (int)Math.Round(50D * _FeederParam._dFeedermmToPulseRatio), 50, 50);
                         _mFeederComm.SendData(data);
                     }
 

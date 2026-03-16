@@ -123,7 +123,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
                 if (CheckSum == iCRC16)
                 {
                     reCommMassege = m_AiCDataCtrl.GetRequestedCommand();
-                    if (reCommMassege == AiCData.CommandMassege.MSG_MONITOR_DATA) 
+                    //if (reCommMassege == AiCData.CommandMassege.MSG_MONITOR_DATA) 
                     {                        
                         if (data[1] == (byte)DataProcessor.ModbusRTU.ReadFunctionCodes.ReadInputRegisters)
                         {
@@ -246,7 +246,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
                 for (i = 0; i < recvData.Length; i++)
                 {
                     ReData = recvData[i];
-                    if ( (IsReceiveStart == false) && (ReData == 0x01) )
+                    if ( (IsReceiveStart == false) && (ReData == 0x01) || (ReData == 0x02) || (ReData == 0x03))
                     {
                         IsReceiveStart = true;
                         uiReceiveCount = 0;
@@ -381,7 +381,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
                                 if (!IsReceiveStart)
                                 {
                                     data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
-                                    m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);
+                                    //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);
                                     if (mContinuousCheckIndex >= mContinuousCheckList.Count)
                                         mContinuousCheckIndex = 0;
                                 }

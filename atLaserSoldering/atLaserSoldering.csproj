@@ -228,6 +228,10 @@
       <Project>{03a92e9e-5da1-483a-b438-286286a0b909}</Project>
       <Name>CompactSECommunication</Name>
     </ProjectReference>
+    <ProjectReference Include="Library\FeederControlLibrary\FeederControlLibrary\FeederControlLibrary.csproj">
+      <Project>{4ec01901-0391-4970-a0cc-975d79da1039}</Project>
+      <Name>FeederControlLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="Library\IOLibrary\RecipeManager.csproj">
       <Project>{03022a76-0fb0-41e4-bed3-ed108203bb96}</Project>
       <Name>RecipeManager</Name>

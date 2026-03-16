@@ -75,11 +75,11 @@ namespace CustomPages
                 labelControlDIn9.Text = "9";
                 labelControlDIn8.Text = "8";
                 labelControlDIn7.Text = "7";
-                labelControlDIn6.Text = "6";
-                labelControlDIn5.Text = "5";
-                labelControlDIn4.Text = "Jig";
-                labelControlDIn3.Text = "Reset";
-                labelControlDIn2.Text = "Start";
+                labelControlDIn6.Text = "Start";
+                labelControlDIn5.Text = "Homing";
+                labelControlDIn4.Text = "Feed-";
+                labelControlDIn3.Text = "Feed+";
+                labelControlDIn2.Text = "TipClean";
                 labelControlDIn1.Text = "EMG";
 
                 groupControl5.Text = "Digital Output";
@@ -114,7 +114,7 @@ namespace CustomPages
                 labelControlDOut4.Text = "4";
                 labelControlDOut3.Text = "3";
                 labelControlDOut2.Text = "2";
-                labelControlDOut1.Text = "S PWR";
+                labelControlDOut1.Text = "1";
             }
             else
             {                
@@ -146,11 +146,11 @@ namespace CustomPages
                 labelControlDIn9.Text = "9";
                 labelControlDIn8.Text = "8";
                 labelControlDIn7.Text = "7";
-                labelControlDIn6.Text = "6";
-                labelControlDIn5.Text = "5";
-                labelControlDIn4.Text = "Jig";
-                labelControlDIn3.Text = "Reset";
-                labelControlDIn2.Text = "Start";
+                labelControlDIn6.Text = "Start";
+                labelControlDIn5.Text = "Homing";
+                labelControlDIn4.Text = "Feed-";
+                labelControlDIn3.Text = "Feed+";
+                labelControlDIn2.Text = "TipClean";
                 labelControlDIn1.Text = "EMG";
 
                 groupControl5.Text = "Digital Output";
@@ -185,7 +185,7 @@ namespace CustomPages
                 labelControlDOut4.Text = "4";
                 labelControlDOut3.Text = "3";
                 labelControlDOut2.Text = "2";
-                labelControlDOut1.Text = "S PWR";
+                labelControlDOut1.Text = "1";
 
             }
         }
@@ -231,7 +231,7 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 8));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력1 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
                                 _mArioCommunicationManager.SendData(data);                                
                                 break;
                             case "labelControlDOut2":
@@ -247,14 +247,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 9));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력2 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut3":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 2)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 2)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xfb00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력3 Off."));
@@ -264,14 +264,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 10));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력3 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut4":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 3)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 3)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xf700);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력4 Off."));
@@ -281,14 +281,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 11));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력4 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut5":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 4)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 4)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xef00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력5 Off."));
@@ -298,14 +298,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 12));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력5 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut6":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 5)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 5)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xdf00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력6 Off."));
@@ -315,14 +315,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 13));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력6 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut7":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 6)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 6)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xbf00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력7 Off."));
@@ -332,14 +332,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 14));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력7 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut8":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 7)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 7)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0x7f00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력8 Off."));
@@ -349,14 +349,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 15));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력8 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output0, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut9":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 0)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 0)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xfe00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력9 Off."));
@@ -366,14 +366,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 8));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력9 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut10":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 1)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 1)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xfd00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력10 Off."));
@@ -383,14 +383,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 9));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력10 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut11":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 2)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 2)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xfb00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력11 Off."));
@@ -400,14 +400,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 10));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력11 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut12":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 3)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 3)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xf700);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력12 Off."));
@@ -417,14 +417,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 11));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력12 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut13":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 4)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 4)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xef00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력13 Off."));
@@ -434,14 +434,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 12));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력13 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut14":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 5)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 5)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xdf00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력14 Off."));
@@ -451,14 +451,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 13));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력14 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut15":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 6)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 6)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0xbf00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력15 Off."));
@@ -468,14 +468,14 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 14));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력15 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             case "labelControlDOut16":
 
                                 outputstatus = _mArioData._mRemoteIODatas._CurrentOutputs[0];
 
-                                if (Convert.ToBoolean(OutputData & (1 << 7)))
+                                if (Convert.ToBoolean(outputstatus & (1 << 7)))
                                 {
                                     OutputData = (ushort)((outputstatus << 8) & 0x7f00);
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력16 Off."));
@@ -485,7 +485,7 @@ namespace CustomPages
                                     OutputData = (ushort)((outputstatus << 8) | (1 << 15));
                                     LogWriteEvent?.Invoke(string.Format("원격IO 출력16 On."));
                                 }
-                                data = _mArioData.Output1byteCommand(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
+                                data = _mArioData.SetSettingOutput(_mArioCommunicationManager.mRemoteIOCtrl.DrvID[0], ArioMRData.OUTPUT_CONTROL_MAP.Output1, OutputData);
                                 _mArioCommunicationManager.SendData(data);
                                 break;
                             default:
@@ -530,13 +530,13 @@ namespace CustomPages
         {
             _mArioData = update;
 
-            SetIOStatus(_mArioData);
+            //SetIOStatus(_mArioData);
         }
         private void UpdateRemoteIOData(object sender, ElapsedEventArgs e)
         {
             if (_mArioCommunicationManager.IsOpen())
             {
-                //SetIOStatus( _mArioData._mRemoteIODatas);     
+                SetIOStatus(_mArioData);     
                 RobotInfomationUpdatedEvent?.Invoke(_mRobotInfomation);
             }
         }

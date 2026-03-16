@@ -88,15 +88,11 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLib
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\obj\Debug\LaserSoldering.csprojResolveAssemblyReference.cache
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\obj\Debug\LaserSoldering.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\obj\Debug\LaserSoldering.pdb
-D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.config
-D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.xsd
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LaserSoldering.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LaserSoldering.pdb
-D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\AiCControlLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\CoherentCompactMini.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\CompactSECommunication.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\SuperSimpleTcp.dll
-D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\AiCControlLibrary.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\CoherentCompactMini.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\CompactSECommunication.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\SuperSimpleTcp.xml
@@ -105,3 +101,5 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\obj\Debug\LaserSoldering.csproj.CopyComplete
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\obj\Debug\LaserSoldering.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\obj\Debug\LaserSoldering.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\FeederControlLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\FeederControlLibrary.pdb

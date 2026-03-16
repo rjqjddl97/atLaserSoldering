@@ -148,7 +148,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                     byte[] tempbuff = new byte[Length];
                     Buffer.BlockCopy(readBuffer, 0, tempbuff, 0, Length);
                     _ReceiveDataQueue.Enqueue(tempbuff);
-                    ReceivePacketRawDataEvent.BeginInvoke(tempbuff, null, null);
+                    //ReceivePacketRawDataEvent.BeginInvoke(tempbuff, null, null);
                 }
                 else
                 {

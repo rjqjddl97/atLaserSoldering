@@ -60,7 +60,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
             //mSerialHandler.ParsedDataReceivedEvent += mSerialEngine.ParsingData;
             CommandSendRequestEvent += SendCommandToEngine;
             DataSendRequestEvent += SendDataToEngine;
-            mSerialHandler.ReceivePacketRawDataEvent += ReceiveRawData;
+            //mSerialHandler.ReceivePacketRawDataEvent += ReceiveRawData;
 
             //DataReceivePasorEvent += mSerialEngine.ParsedDataReceivedEvent;
             // mSerialHandler.SendDataEvent += SerialCommunicateSendedDataReceiver;      // Send Data Log 기록 이벤트                  
@@ -71,7 +71,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
             mSerialEngine.ReceiveARioData -= ReceiveUpdateData;            
             CommandSendRequestEvent -= SendCommandToEngine;
             DataSendRequestEvent -= SendDataToEngine;
-            mSerialHandler.ReceivePacketRawDataEvent -= ReceiveRawData;
+            //mSerialHandler.ReceivePacketRawDataEvent -= ReceiveRawData;
         }
 
         public void SetSerialData(SerialPortSetData data)

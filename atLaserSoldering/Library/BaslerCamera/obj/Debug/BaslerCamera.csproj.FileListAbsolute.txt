@@ -602,7 +602,6 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\LogLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\NLog.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\LogLibrary.pdb
-D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\Basler.Pylon.xml
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\obj\Debug\BaslerCamera.csprojAssemblyReference.cache
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\obj\Debug\BaslerCamera.csproj.CoreCompileInputs.cache
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\obj\Debug\BaslerCamera.csproj.CopyComplete

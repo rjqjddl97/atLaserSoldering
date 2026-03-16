@@ -732,6 +732,8 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSolderin
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.exe.licenses
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.exe
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\CustomPages.SolderingControl.resources
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\CustomPages.SolderingControl.resources
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\NLog.config
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\NLog.xsd
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DLL\FirmwareUpdate_MD_VC141_v3_1_Basler_pylon_v5_1.dll
@@ -841,7 +843,6 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.XtraLayou
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.XtraPrinting.v18.2.xml
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.XtraTreeList.v18.2.xml
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.XtraVerticalGrid.v18.2.xml
-D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Basler.Pylon.xml
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\SuperSimpleTcp.xml
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro3D.Display.Controls.xml
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro3D.Graphic.xml
@@ -917,6 +918,7 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\ja\DevExpress.Office
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\ru\DevExpress.Office.v18.2.Core.resources.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csprojAssemblyReference.cache
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.atLaserSoldering.resources
+D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\CustomPages.SolderingControl.resources
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\CustomPages.MotionControl.resources
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\CustomPages.RemoteIOControl.resources
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\CustomPages.VisionControl.resources
@@ -931,5 +933,5 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csp
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csproj.CopyComplete
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.exe
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.pdb
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\obj\Debug\CustomPages.SolderingControl.resources
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\CustomPages.SolderingControl.resources
+D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\FeederControlLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\FeederControlLibrary.pdb

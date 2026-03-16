@@ -1531,6 +1531,7 @@
             this.labelControlDOut16.StyleController = this.layoutControl16;
             this.labelControlDOut16.TabIndex = 23;
             this.labelControlDOut16.Text = "16";
+            this.labelControlDOut16.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut15
             // 
@@ -1543,6 +1544,7 @@
             this.labelControlDOut15.StyleController = this.layoutControl16;
             this.labelControlDOut15.TabIndex = 22;
             this.labelControlDOut15.Text = "15";
+            this.labelControlDOut15.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut14
             // 
@@ -1555,6 +1557,7 @@
             this.labelControlDOut14.StyleController = this.layoutControl16;
             this.labelControlDOut14.TabIndex = 21;
             this.labelControlDOut14.Text = "14";
+            this.labelControlDOut14.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut12
             // 
@@ -1567,6 +1570,7 @@
             this.labelControlDOut12.StyleController = this.layoutControl16;
             this.labelControlDOut12.TabIndex = 20;
             this.labelControlDOut12.Text = "12";
+            this.labelControlDOut12.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut11
             // 
@@ -1579,6 +1583,7 @@
             this.labelControlDOut11.StyleController = this.layoutControl16;
             this.labelControlDOut11.TabIndex = 19;
             this.labelControlDOut11.Text = "11";
+            this.labelControlDOut11.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut10
             // 
@@ -1591,6 +1596,7 @@
             this.labelControlDOut10.StyleController = this.layoutControl16;
             this.labelControlDOut10.TabIndex = 18;
             this.labelControlDOut10.Text = "10";
+            this.labelControlDOut10.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut8
             // 
@@ -1603,6 +1609,7 @@
             this.labelControlDOut8.StyleController = this.layoutControl16;
             this.labelControlDOut8.TabIndex = 17;
             this.labelControlDOut8.Text = "8";
+            this.labelControlDOut8.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut7
             // 
@@ -1615,6 +1622,7 @@
             this.labelControlDOut7.StyleController = this.layoutControl16;
             this.labelControlDOut7.TabIndex = 16;
             this.labelControlDOut7.Text = "7";
+            this.labelControlDOut7.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut6
             // 
@@ -1627,6 +1635,7 @@
             this.labelControlDOut6.StyleController = this.layoutControl16;
             this.labelControlDOut6.TabIndex = 15;
             this.labelControlDOut6.Text = "6";
+            this.labelControlDOut6.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut13
             // 
@@ -1639,6 +1648,7 @@
             this.labelControlDOut13.StyleController = this.layoutControl16;
             this.labelControlDOut13.TabIndex = 10;
             this.labelControlDOut13.Text = "13";
+            this.labelControlDOut13.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut9
             // 
@@ -1651,6 +1661,7 @@
             this.labelControlDOut9.StyleController = this.layoutControl16;
             this.labelControlDOut9.TabIndex = 9;
             this.labelControlDOut9.Text = "9";
+            this.labelControlDOut9.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut5
             // 
@@ -1663,6 +1674,7 @@
             this.labelControlDOut5.StyleController = this.layoutControl16;
             this.labelControlDOut5.TabIndex = 8;
             this.labelControlDOut5.Text = "5";
+            this.labelControlDOut5.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut4
             // 
@@ -1675,6 +1687,7 @@
             this.labelControlDOut4.StyleController = this.layoutControl16;
             this.labelControlDOut4.TabIndex = 7;
             this.labelControlDOut4.Text = "4";
+            this.labelControlDOut4.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut3
             // 
@@ -1687,6 +1700,7 @@
             this.labelControlDOut3.StyleController = this.layoutControl16;
             this.labelControlDOut3.TabIndex = 6;
             this.labelControlDOut3.Text = "3";
+            this.labelControlDOut3.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut2
             // 
@@ -1699,6 +1713,7 @@
             this.labelControlDOut2.StyleController = this.layoutControl16;
             this.labelControlDOut2.TabIndex = 5;
             this.labelControlDOut2.Text = "2";
+            this.labelControlDOut2.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut1
             // 
@@ -1711,6 +1726,7 @@
             this.labelControlDOut1.StyleController = this.layoutControl16;
             this.labelControlDOut1.TabIndex = 4;
             this.labelControlDOut1.Text = "1";
+            this.labelControlDOut1.Click += new System.EventHandler(this.OutputControl_Click);
             // 
             // labelControlDOut25
             // 
