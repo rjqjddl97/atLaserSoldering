@@ -635,10 +635,10 @@ namespace LaserSoldering
                     int datasize = 0;
                     byte[] data = null;
                     if (_LaserSource == LaserModule.CompactMini)
-                    {                       
-                        //datasize = _mCompactMiniData.GetSetErrorResetPacketSize();
-                        //data = _mCompactMiniData.GetSetErrorReset();
-                        //_mCompactMiniComm.SendData(data);
+                    {
+                        datasize = _mCompactMiniData.GetSetErrorResetPacketSize();
+                        data = _mCompactMiniData.GetSetErrorReset();
+                        _mCompactMiniComm.SendData(data);
                         //data = null;
                     }
                     else if (_LaserSource == LaserModule.CompactSE)
@@ -685,42 +685,38 @@ namespace LaserSoldering
                         if (_LaserSource == LaserModule.CompactMini)
                         {
                             /* 1. VT100 Mode disable */
-                            //datasize = _mCompactMiniData.GetSetVT100ModePacketSize(0);
-                            //data = _mCompactMiniData.GetSetVT100Mode(0);
-                            //_mCompactMiniComm.SendData(data);
-                            Thread.Sleep(100);
-                            /* 2. Internal control Enable */
-                            //datasize = _mCompactMiniData.GetSetLaserControlPacketSize();
-                            //data = _mCompactMiniData.GetSetLaserControl(false);
-                            //_mCompactMiniComm.SendData(data);
-                            Thread.Sleep(100);
-                            /* 3. Write Current presentting Internal Enable */
-                            //datasize = _mCompactMiniData.GetLaserCurrentSetPacketSize();
-                            //data = _mCompactMiniData.GetLaserCurrentSet(false);
-                            //_mCompactMiniComm.SendData(data);
-                            Thread.Sleep(100);
-                            /* 4. Write Operating Mode CW Enable */
-                            //datasize = _mCompactMiniData.GetSetLaserOperationModePacketSize();
-                            //data = _mCompactMiniData.GetSetLaserOperationMode(false);
-                            //_mCompactMiniComm.SendData(data);
+                            datasize = _mCompactMiniData.GetSetVT100ModePacketSize(0);
+                            data = _mCompactMiniData.GetSetVT100Mode(0);
+                            _mCompactMiniComm.SendData(data);
                             Thread.Sleep(100);
                             data = null;
-                        }
-                        else if (_LaserSource == LaserModule.CompactSE)
-                        {
-                            //datasize = _mCompactSEData.GetLaserCurrentSetPacketSize();                                
-                            //data = _mCompactSEData.GetLaserCurrentSet(false);
-                            //_mCompactSEComm.SendData(data);
-                            //data = null;
+                            /* 2. Internal control Enable */
+                            datasize = _mCompactMiniData.GetSetLaserControlPacketSize();
+                            data = _mCompactMiniData.GetSetLaserControl(false);
+                            _mCompactMiniComm.SendData(data);
+                            Thread.Sleep(100);
+                            data = null;
+                            /* 3. Write Current presentting Internal Enable */
+                            datasize = _mCompactMiniData.GetLaserCurrentSetPacketSize();
+                            data = _mCompactMiniData.GetLaserCurrentSet(false);
+                            _mCompactMiniComm.SendData(data);
+                            Thread.Sleep(100);
+                            data = null;
+                            /* 4. Write Operating Mode CW Enable */
+                            datasize = _mCompactMiniData.GetSetLaserOperationModePacketSize();
+                            data = _mCompactMiniData.GetSetLaserOperationMode(false);
+                            _mCompactMiniComm.SendData(data);
+                            Thread.Sleep(100);
+                            data = null;
                         }
                     }
                     if (_IsFeederConnect)
                     {
                         data = new byte[100];
-                        data = _mFeederData.DriveInitialSetting(_mFeederComm.mFeedCtrl.DrvID[0], 100, (int)Math.Round(50D * _FeederParam._dFeedermmToPulseRatio), 50, 50);
+                        data = _mFeederData.DriveInitialSetting(_mFeederComm.mFeedCtrl.DrvID[0], 100, (int)Math.Round(30D * _FeederParam._dFeedermmToPulseRatio), 50, 50);
                         _mFeederComm.SendData(data);
                     }
-
+                    _mCompactMiniComm.InitialPeriodReqStatus();
                     _IsInitialSoldering = true;
                     StartEngine();
                 }

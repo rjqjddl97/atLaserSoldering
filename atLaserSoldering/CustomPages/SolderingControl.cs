@@ -134,6 +134,7 @@ namespace CustomPages
             IsOpenStatus = _mLaserSoldering.IsSolderingConnect;
             _mLaserSoldering.ReceiveDataLaserUpdateEvent += UpdateReceiveLaserData;
             _mLaserSoldering.ReceiveDataFeederUpdateEvent += UpdateReceiveFeederData;
+            timerUpdateTime.Start();
             LogWriteEvent?.Invoke(string.Format("Feeder 제어 통신({0})과 레이저 제어 통신({1})이 연결 되었습니다", setPortFeed.PortName, setPortLaser.PortName));
         }
         public void ConnectionOpen(CoherentCompactMini.SerialCommunication.Control.SerialPortSetData setPortLaser, FeederControlLibrary.SerialCommunication.Control.SerialPortSetData setPortFeed)
@@ -162,6 +163,7 @@ namespace CustomPages
             _mLaserSoldering.ReceiveDataLaserUpdateEvent -= UpdateReceiveLaserData;
             _mLaserSoldering.ReceiveDataFeederUpdateEvent -= UpdateReceiveFeederData;
             IsOpenStatus = _mLaserSoldering.IsSolderingConnect;
+            timerUpdateTime.Stop();
             LogWriteEvent?.Invoke(string.Format("Feeder 및 레이저 제어 통신이 연결해제 되었습니다"));
             //if (_mFeederCommunicationManager.IsOpen() && _mLaserCommunicationManager.IsOpen())
             //{
@@ -197,7 +199,7 @@ namespace CustomPages
                     int datasize = 0;
                     datasize = _mLaserData.GetSetLaserOnPacketSize();
                     byte[] data = new byte[datasize];
-                    if (_mLaserCommunicationManager.IsReceiveAck())
+                    //if (_mLaserCommunicationManager.IsReceiveAck())
                     {
                         if (_mLaserSoldering.IsLaserOn)
                         {
@@ -211,6 +213,7 @@ namespace CustomPages
                         }
                         _mLaserCommunicationManager.SendData(data);
                     }
+
                 }
             }
             catch (Exception ex)
@@ -228,9 +231,9 @@ namespace CustomPages
                     int datasize = 0;
                     datasize = _mLaserData.GetSetPowerOnPacketSize();
                     byte[] data = new byte[datasize];
-                    if (_mLaserCommunicationManager.IsReceiveAck())
+                    //if (_mLaserCommunicationManager.IsReceiveAck())
                     {
-                        if (_mLaserData.Status.B0)
+                        if (_mLaserSoldering.IsLaserPowerOn)
                         {
                             data = _mLaserData.GetSetPowerOn(false);
                             //simpleButtonLaserOn.Text = "Power On";
@@ -259,9 +262,9 @@ namespace CustomPages
                     int datasize = 0;
                     datasize = _mLaserData.GetSetPositionLaserOnPacketSize();
                     byte[] data = new byte[datasize];
-                    if (_mLaserCommunicationManager.IsReceiveAck())
+                    //if (_mLaserCommunicationManager.IsReceiveAck())
                     {
-                        if (_mLaserData.Status.B0)
+                        if (_mLaserSoldering.IsLaserPilotOn)
                         {
                             data = _mLaserData.GetSetPositioningLaserOn(false);
                             //simpleButtonPilotOn.Text = "Piolt On";
@@ -290,9 +293,9 @@ namespace CustomPages
                     int datasize = 0;
                     datasize = _mLaserData.GetSetErrorResetPacketSize();
                     byte[] data = new byte[datasize];
-                    if (_mLaserCommunicationManager.IsReceiveAck())
+                    //if (_mLaserCommunicationManager.IsReceiveAck())
                     {
-                        if (_mLaserData.Status.B0)
+                        if (_mLaserSoldering.IsLaserError)
                         {
                             data = _mLaserData.GetSetErrorReset();
                             //simpleButtonLaserOn.Text = "Reset On";
@@ -356,6 +359,7 @@ namespace CustomPages
         }
         private void timerUpdateTime_Tick(object sender, EventArgs e)
         {
+            _mLaserSoldering.UpdateCommuncationDatas();
             if (_mLaserData.Status.B0)
             {
                 if (labelControlPowerStatus.InvokeRequired)
@@ -479,6 +483,24 @@ namespace CustomPages
                 }
                 else
                     labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
+            }
+            if (_mLaserSoldering.IsFeederError)
+            {
+                if (labelControlFeederStatus.InvokeRequired)
+                {
+                    labelControlFeederStatus.Invoke(new MethodInvoker(delegate { labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                }
+                else
+                    labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;
+            }
+            else
+            {
+                if (labelControlFeederStatus.InvokeRequired)
+                {
+                    labelControlFeederStatus.Invoke(new MethodInvoker(delegate { labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                }
+                else
+                    labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
             }
         }
     }

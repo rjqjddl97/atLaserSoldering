@@ -937,3 +937,4 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\FeederControlLibrary
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\FeederControlLibrary.pdb
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\FeederControlLibrary.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\FeederControlLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Basler.Pylon.xml

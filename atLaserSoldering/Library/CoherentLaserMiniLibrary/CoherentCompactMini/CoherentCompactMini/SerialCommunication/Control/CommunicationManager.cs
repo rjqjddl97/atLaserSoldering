@@ -88,7 +88,13 @@ namespace CoherentCompactMini.SerialCommunication.Control
         {
             mSerialEngine.SendData(data);
         }
-        #endregion        
+        #endregion
+        public void InitialPeriodReqStatus()
+        {
+            List<byte[]> reqData = new List<byte[]>();
+            reqData.Add(mLaserSourceCtrl.GetLaserStatus());
+            mSerialEngine._ContinuousDataList = reqData;
+        }
         public void CommandByButton(string name)
         {
             if ((name.Contains("button_Connect")) && !mSerialHandler.IsOpen && CheckDataSetted())

@@ -310,7 +310,13 @@ namespace CoherentCompactMini.SerialCommunication.Data
         public void ReceiveSetErrorStatus(string data)
         {
             if (data != "")
+            {
+                if (data.EndsWith("h", StringComparison.OrdinalIgnoreCase) || data.EndsWith("H", StringComparison.OrdinalIgnoreCase))
+                {
+                    data = data.Substring(0, data.Length - 1);
+                }
                 ErrorStatus.Bit16 = (ushort)int.Parse(data, System.Globalization.NumberStyles.HexNumber); //Convert.ToUInt16(data);
+            }
             else
                 ErrorStatus.Bit16 = 0;
         }
@@ -387,7 +393,13 @@ namespace CoherentCompactMini.SerialCommunication.Data
         public void ReceiveSetOperationMode(string data)
         {
             if (data != "")
+            {
+                if (data.EndsWith("h", StringComparison.OrdinalIgnoreCase) || data.EndsWith("H", StringComparison.OrdinalIgnoreCase))
+                {
+                    data = data.Substring(0, data.Length - 1);
+                }
                 LaserOpMode.Bit8 = (byte)int.Parse(data, System.Globalization.NumberStyles.HexNumber);
+            }
             else
                 LaserOpMode.Bit8 = 0;
         }
@@ -576,7 +588,13 @@ namespace CoherentCompactMini.SerialCommunication.Data
         public void ReceiveSetStatus(string data)
         {
             if (data != "")
+            {
+                if (data.EndsWith("h", StringComparison.OrdinalIgnoreCase) || data.EndsWith("H", StringComparison.OrdinalIgnoreCase))
+                {
+                    data = data.Substring(0, data.Length - 1);
+                }
                 Status.Bit8 = (byte)int.Parse(data, System.Globalization.NumberStyles.HexNumber);
+            }
             else
                 Status.Bit8 = 0;
         }
@@ -731,9 +749,13 @@ namespace CoherentCompactMini.SerialCommunication.Data
         {
             if (data != "")
             {
-                string subdata = string.Empty;
-                subdata = data.Substring(0, data.Length - 1);
-                LaserOnTime = (int)(int.Parse(subdata, System.Globalization.NumberStyles.HexNumber) * MULTIPLY_TIME_VALUE);                
+                //string subdata = string.Empty;
+                //subdata = data.Substring(0, data.Length - 1);
+                if (data.EndsWith("h", StringComparison.OrdinalIgnoreCase) || data.EndsWith("H", StringComparison.OrdinalIgnoreCase))
+                {
+                    data = data.Substring(0, data.Length - 1);
+                }
+                LaserOnTime = (int)(int.Parse(data, System.Globalization.NumberStyles.HexNumber) * MULTIPLY_TIME_VALUE);                
             }                
             else
                 LaserOnTime = 0;

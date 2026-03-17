@@ -54,6 +54,11 @@ namespace CoherentCompactMini.SerialCommunication.Control
         public bool IsReceiveAck { get; set; } = true;
         public bool IsConnected { get; set; }
         public UInt32 uiReceiveCount { get; set; } = 0;
+        public List<byte[]> _ContinuousDataList
+        {
+            get { return mContinuousCheckList; }
+            set { mContinuousCheckList = value; }
+        }
         public SerialProcessEngine()
         {
             IsConnected = false;
@@ -61,7 +66,7 @@ namespace CoherentCompactMini.SerialCommunication.Control
             m_CompactMiniDataCtrl = new CompactMiniData();
             mSerialEngineStep = SerialEngineStep.Idle;
             mReceiveStep = SerialReceiveStep.Idle;            
-            InitCheckDatas();
+            //InitCheckDatas();
             Array.Clear(ReceivePacketBuff, 0x00, ReceiveBuffSize);            
             engine = new Thread(Run);
             engine.Start();
@@ -94,6 +99,10 @@ namespace CoherentCompactMini.SerialCommunication.Control
 
             //Laser Status. 주기적 요청.
             mContinuousCheckList.Add(m_CompactMiniDataCtrl.GetLaserStatus());
+        }
+        public void InitialPeriodStatusRequest()
+        {           
+            _ContinuousDataList.Add(m_CompactMiniDataCtrl.GetLaserStatus());
         }
         public void ParsingData(byte[] data)
         {
@@ -314,7 +323,7 @@ namespace CoherentCompactMini.SerialCommunication.Control
                             break;
 
                         case SerialEngineStep.RequestPeriodData:
-                            if (IsReceiveAck)
+                            //if (IsReceiveAck)
                             {
                                 if ((mDataTransferList.Count != 0) && !IsEnqueueData)
                                 {
