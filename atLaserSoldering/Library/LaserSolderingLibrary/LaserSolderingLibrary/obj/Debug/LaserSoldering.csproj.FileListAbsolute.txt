@@ -103,3 +103,9 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\FeederControlLibrary.pdb
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\FeederControlLibrary.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\FeederControlLibrary.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\RecipeManager.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\INIFileParser.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LogLibrary.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\RecipeManager.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LogLibrary.pdb

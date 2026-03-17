@@ -643,13 +643,12 @@ namespace atLaserSoldering
         {
             try
             {
+                laserSolderingControl.SetCommunicateManager(_mLaserSoldering,ref _mFeederCommManager,ref _mLaserCommManager);
                 if (_systemParams != null)
                 {
                     laserSolderingControl.ChangeSystemLanguage(_systemParams._SystemLanguageKoreaUse);
                     laserSolderingControl.SetFeederParam(_systemParams._FeederParams);
                 }
-                laserSolderingControl.SetCommunicateManager(_mLaserSoldering,ref _mFeederCommManager,ref _mLaserCommManager);
-                
                 LaserSolderingModuleConnect();// connect command
                 return true;
             }

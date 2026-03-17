@@ -8,12 +8,16 @@ namespace RecipeManager
 {
     public class FeederParams
     {
-        
-        int _iIDNumber = 1;
-        double _FeederGearRatio = 0.416667;
-        double _FeederDiameter = 22;
-        double _FeederResolution = 1000;
-        double _FeederMoveVelocity = 20;
+
+        private int _iIDNumber = 1;
+        private double _FeederGearRatio = 0.416667;
+        private double _FeederDiameter = 22;
+        private double _FeederBallLead = 2 * Math.PI * (22 / 2D);     // _dFeederDiameter
+        private double _FeederResolution = 1000;
+        private double _FeederMoveVelocity = 20;
+        private double _FeederPulseTommRatio = 1;
+        private UInt32 _FeedermmToPulseRatio = 1;
+
         SerialParams _SerialParam = new SerialParams();
         public SerialParams SerialParameters
         {
@@ -30,6 +34,11 @@ namespace RecipeManager
             get { return _FeederDiameter; }
             set { _FeederDiameter = value; }
         }
+        public double FeederBallLead
+        {
+            get { return _FeederBallLead; }
+            set { _FeederBallLead = value; }
+        }
         public double FeederResolution
         {
             get { return _FeederResolution; }
@@ -40,6 +49,16 @@ namespace RecipeManager
             get { return _FeederMoveVelocity; }
             set { _FeederMoveVelocity = value; }
         }
+        public double FeederPulseTommRatio
+        {
+            get { return _FeederPulseTommRatio; }
+            set { _FeederPulseTommRatio = value; }
+        }
+        public UInt32 FeedermmToPulseRatio
+        {
+            get { return _FeedermmToPulseRatio; }
+            set { _FeedermmToPulseRatio = value; }
+        }
         public int FeederCommunicationID
         {
             get { return _iIDNumber; }
@@ -47,7 +66,19 @@ namespace RecipeManager
         }
         public FeederParams()
         {
+            ;
+        }
+        public void InitialParameter()
+        {
 
+            if (_FeederDiameter != 0)
+                _FeederBallLead = 2 * Math.PI * (_FeederDiameter / 2D);
+
+            if (_FeederResolution == 0)
+                _FeederResolution = 1;
+
+            _FeederPulseTommRatio = (double)((_FeederBallLead * _FeederGearRatio) / _FeederResolution);
+            _FeedermmToPulseRatio = (UInt32)Math.Round(1D / _FeederPulseTommRatio);
         }
     }
 }

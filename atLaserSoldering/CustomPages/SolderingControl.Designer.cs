@@ -184,6 +184,7 @@
             this.simpleButtonFeedPositive.StyleController = this.layoutControl3;
             this.simpleButtonFeedPositive.TabIndex = 9;
             this.simpleButtonFeedPositive.Text = "Feed +";
+            this.simpleButtonFeedPositive.Click += new System.EventHandler(this.simpleButtonFeedPositive_Click);
             // 
             // simpleButtonFeedStop
             // 
@@ -193,6 +194,7 @@
             this.simpleButtonFeedStop.StyleController = this.layoutControl3;
             this.simpleButtonFeedStop.TabIndex = 8;
             this.simpleButtonFeedStop.Text = "Stop";
+            this.simpleButtonFeedStop.Click += new System.EventHandler(this.simpleButtonFeedStop_Click);
             // 
             // simpleButtonFeedNegative
             // 
@@ -202,6 +204,7 @@
             this.simpleButtonFeedNegative.StyleController = this.layoutControl3;
             this.simpleButtonFeedNegative.TabIndex = 7;
             this.simpleButtonFeedNegative.Text = "Feed -";
+            this.simpleButtonFeedNegative.Click += new System.EventHandler(this.simpleButtonFeedNegative_Click);
             // 
             // simpleButtonFeedCommand
             // 
@@ -211,6 +214,7 @@
             this.simpleButtonFeedCommand.StyleController = this.layoutControl3;
             this.simpleButtonFeedCommand.TabIndex = 6;
             this.simpleButtonFeedCommand.Text = "Feed Command";
+            this.simpleButtonFeedCommand.Click += new System.EventHandler(this.simpleButtonFeedCommand_Click);
             // 
             // textEditMenualFeedLength
             // 
