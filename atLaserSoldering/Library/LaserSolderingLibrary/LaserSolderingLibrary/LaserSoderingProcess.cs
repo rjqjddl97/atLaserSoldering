@@ -688,18 +688,28 @@ namespace LaserSoldering
                             //datasize = _mCompactMiniData.GetSetVT100ModePacketSize(0);
                             //data = _mCompactMiniData.GetSetVT100Mode(0);
                             //_mCompactMiniComm.SendData(data);
-                            Thread.Sleep(50);
+                            Thread.Sleep(100);
                             /* 2. Internal control Enable */
                             //datasize = _mCompactMiniData.GetSetLaserControlPacketSize();
                             //data = _mCompactMiniData.GetSetLaserControl(false);
                             //_mCompactMiniComm.SendData(data);
-                            Thread.Sleep(50);
+                            Thread.Sleep(100);
+                            /* 3. Write Current presentting Internal Enable */
+                            //datasize = _mCompactMiniData.GetLaserCurrentSetPacketSize();
+                            //data = _mCompactMiniData.GetLaserCurrentSet(false);
+                            //_mCompactMiniComm.SendData(data);
+                            Thread.Sleep(100);
+                            /* 4. Write Operating Mode CW Enable */
+                            //datasize = _mCompactMiniData.GetSetLaserOperationModePacketSize();
+                            //data = _mCompactMiniData.GetSetLaserOperationMode(false);
+                            //_mCompactMiniComm.SendData(data);
+                            Thread.Sleep(100);
                             data = null;
                         }
                         else if (_LaserSource == LaserModule.CompactSE)
                         {
-                            //datasize = _mCompactSEData.GetSetPowerPacketSize(JobSolder.PreheatPowerRatio);                                
-                            //data = _mCompactSEData.GetSetPower(JobSolder.PreheatPowerRatio);
+                            //datasize = _mCompactSEData.GetLaserCurrentSetPacketSize();                                
+                            //data = _mCompactSEData.GetLaserCurrentSet(false);
                             //_mCompactSEComm.SendData(data);
                             //data = null;
                         }

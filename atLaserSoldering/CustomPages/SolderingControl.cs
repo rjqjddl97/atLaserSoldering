@@ -43,7 +43,21 @@ namespace CustomPages
 
         public SolderingControl()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            InitialSystem();
+        }
+        public void InitialSystem()
+        {
+            textEditReadyTime.EditValue = 200;
+            textEditPreHeatTime.EditValue = 1000;
+            textEditPreHeatPowerRatio.EditValue = 10.0D;
+            textEditHeatTime.EditValue = 1000;
+            textEditHeatPowerRatio.EditValue = 15.0D;
+            textEditForwardFeedLength.EditValue = 5.0D;
+            textEditForwardFeedVelocity.EditValue = 10D;
+            textEditReverseFeedLength.EditValue = 3.0D;
+            textEditReverseFeedVelocity.EditValue = 10D;
+            textEditMenualFeedLength.EditValue = 5.0D;
         }
         public void ChangeSystemLanguage(bool _bsystemlanguage)
         {
