@@ -370,22 +370,30 @@ namespace CustomPages
             {
                 if (_mLaserCommunicationManager.IsOpen())
                 {
-                    int datasize = 0;
-                    datasize = _mLaserData.GetSetErrorResetPacketSize();
-                    byte[] data = new byte[datasize];
-                    //if (_mLaserCommunicationManager.IsReceiveAck())
+                    //int datasize = 0;
+                    //datasize = _mLaserData.GetSetErrorResetPacketSize();
+                    //byte[] data = new byte[datasize];
+                    ////if (_mLaserCommunicationManager.IsReceiveAck())
+                    //{
+                    //    if (_mLaserSoldering.IsLaserError)
+                    //    {
+                    //        data = _mLaserData.GetSetErrorReset();
+                    //        //simpleButtonLaserOn.Text = "Reset On";
+                    //    }
+                    //    else
+                    //    {
+                    //        data = _mLaserData.GetSetErrorReset();
+                    //        //simpleButtonLaserOn.Text = "Reset Off";
+                    //    }
+                    //    _mLaserCommunicationManager.SendData(data);
+                    //}
+                    if (_mLaserSoldering.IsLaserError)
                     {
-                        if (_mLaserSoldering.IsLaserError)
-                        {
-                            data = _mLaserData.GetSetErrorReset();
-                            //simpleButtonLaserOn.Text = "Reset On";
-                        }
-                        else
-                        {
-                            data = _mLaserData.GetSetErrorReset();
-                            //simpleButtonLaserOn.Text = "Reset Off";
-                        }
-                        _mLaserCommunicationManager.SendData(data);
+                        _mLaserSoldering.LaserReset();
+                    }
+                    if (_mLaserSoldering.IsFeederError)
+                    {
+                        _mLaserSoldering.FeederReset();
                     }
                 }
             }
@@ -401,19 +409,29 @@ namespace CustomPages
             {
                 if (_mLaserSoldering.IsSolderingConnect)
                 {
-                    _mMenualSolderingJob.ReadyTime = Convert.ToInt32(textEditReadyTime.EditValue);
-                    _mMenualSolderingJob.PreHeatTime = Convert.ToInt32(textEditPreHeatTime.EditValue);
-                    _mMenualSolderingJob.PreheatPowerRatio = Convert.ToInt32(textEditPreHeatPowerRatio.EditValue);
-                    _mMenualSolderingJob.HeatTime = Convert.ToInt32(textEditHeatTime.EditValue);
-                    _mMenualSolderingJob.HeatPowerRatio = Convert.ToInt32(textEditHeatPowerRatio.EditValue);
-                    _mMenualSolderingJob.ForwordingWireLength = Convert.ToDouble(textEditForwardFeedLength.EditValue);
-                    _mMenualSolderingJob.ForwordingVelocity = Convert.ToDouble(textEditForwardFeedVelocity.EditValue);
-                    _mMenualSolderingJob.ForwordingAcceleration = 100D;
-                    _mMenualSolderingJob.ReverseWireLength = Convert.ToDouble(textEditReverseFeedLength.EditValue);
-                    _mMenualSolderingJob.ReverseVelocity = Convert.ToDouble(textEditReverseFeedVelocity.EditValue);
-                    _mMenualSolderingJob.ReverseAcceleration = 100D;
+                    if ((_mLaserSoldering.IsAutoSolderEnd) && (!_mLaserSoldering.IsAutoSoldering))
+                    {
+                        _mMenualSolderingJob.ReadyTime = Convert.ToInt32(textEditReadyTime.EditValue);
+                        _mMenualSolderingJob.PreHeatTime = Convert.ToInt32(textEditPreHeatTime.EditValue);
+                        _mMenualSolderingJob.PreheatPowerRatio = Convert.ToInt32(textEditPreHeatPowerRatio.EditValue);
+                        _mMenualSolderingJob.HeatTime = Convert.ToInt32(textEditHeatTime.EditValue);
+                        _mMenualSolderingJob.HeatPowerRatio = Convert.ToInt32(textEditHeatPowerRatio.EditValue);
+                        _mMenualSolderingJob.ForwordingWireLength = Convert.ToDouble(textEditForwardFeedLength.EditValue);
+                        _mMenualSolderingJob.ForwordingVelocity = Convert.ToDouble(textEditForwardFeedVelocity.EditValue);
+                        _mMenualSolderingJob.ForwordingAcceleration = 100D;
+                        _mMenualSolderingJob.ReverseWireLength = Convert.ToDouble(textEditReverseFeedLength.EditValue);
+                        _mMenualSolderingJob.ReverseVelocity = Convert.ToDouble(textEditReverseFeedVelocity.EditValue);
+                        _mMenualSolderingJob.ReverseAcceleration = 100D;
 
-                    _mLaserSoldering.LaserSolderParam = _mMenualSolderingJob;
+                        _mLaserSoldering.LaserSolderParam = _mMenualSolderingJob;
+                        _mLaserSoldering.LaserSolderingStart();
+                        simpleButtonSolderingStart.Text = "Soldering Stop";
+                    }
+                    else if (_mLaserSoldering.IsAutoSoldering)
+                    {
+                        _mLaserSoldering.LaserSolderingStop();
+                        simpleButtonSolderingStart.Text = "Soldering Start";
+                    }
 
                 }
             }

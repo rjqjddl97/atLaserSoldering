@@ -664,8 +664,8 @@ namespace LaserSoldering
                 byte[] data = null;
                 if (_IsFeederConnect)
                 {
-                    //data = _mFeederData.AlarmResetCommand(_mFeederComm.mDrvCtrl.DrvID[0]);
-                    //_mFeederComm.SendData(data);
+                    data = _mFeederData.AlarmResetCommand(_mFeederComm.mFeedCtrl.DrvID[0]);
+                    _mFeederComm.SendData(data);
                 }
             }
             catch (Exception ex)
