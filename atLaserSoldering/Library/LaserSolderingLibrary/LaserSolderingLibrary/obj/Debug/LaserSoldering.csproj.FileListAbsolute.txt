@@ -109,3 +109,9 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolder
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\RecipeManager.pdb
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LogLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\RecipeManager.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\INIFileParser.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LogLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\RecipeManager.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LogLibrary.pdb

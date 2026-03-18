@@ -413,9 +413,9 @@ namespace CustomPages
                     {
                         _mMenualSolderingJob.ReadyTime = Convert.ToInt32(textEditReadyTime.EditValue);
                         _mMenualSolderingJob.PreHeatTime = Convert.ToInt32(textEditPreHeatTime.EditValue);
-                        _mMenualSolderingJob.PreheatPowerRatio = Convert.ToInt32(textEditPreHeatPowerRatio.EditValue);
+                        _mMenualSolderingJob.PreheatPowerRatio = Convert.ToInt32(textEditPreHeatPowerRatio.EditValue)*10;
                         _mMenualSolderingJob.HeatTime = Convert.ToInt32(textEditHeatTime.EditValue);
-                        _mMenualSolderingJob.HeatPowerRatio = Convert.ToInt32(textEditHeatPowerRatio.EditValue);
+                        _mMenualSolderingJob.HeatPowerRatio = Convert.ToInt32(textEditHeatPowerRatio.EditValue)*10;
                         _mMenualSolderingJob.ForwordingWireLength = Convert.ToDouble(textEditForwardFeedLength.EditValue);
                         _mMenualSolderingJob.ForwordingVelocity = Convert.ToDouble(textEditForwardFeedVelocity.EditValue);
                         _mMenualSolderingJob.ForwordingAcceleration = 100D;
@@ -483,6 +483,24 @@ namespace CustomPages
             try
             {
                 _mLaserSoldering.UpdateCommuncationDatas();
+                if (_mLaserSoldering.IsAutoSoldering)
+                {
+                    if (simpleButtonSolderingStart.InvokeRequired)
+                    {
+                        simpleButtonSolderingStart.Invoke(new MethodInvoker(delegate { simpleButtonSolderingStart.Text = "Soldering Stop"; }));
+                    }
+                    else
+                        simpleButtonSolderingStart.Text = "Soldering Stop";
+                }
+                else
+                {
+                    if (simpleButtonSolderingStart.InvokeRequired)
+                    {
+                        simpleButtonSolderingStart.Invoke(new MethodInvoker(delegate { simpleButtonSolderingStart.Text = "Soldering Start"; }));
+                    }
+                    else
+                        simpleButtonSolderingStart.Text = "Soldering Start";
+                }
                 if (_mLaserData.Status.B0)
                 {
                     if (labelControlPowerStatus.InvokeRequired)
@@ -640,6 +658,8 @@ namespace CustomPages
                 {
                     byte[] data = new byte[20];
                     data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(Convert.ToDouble(textEditMenualFeedLength.EditValue) * _mLaserSoldering._FeederParam.FeedermmToPulseRatio));
+                    _mFeederCommunicationManager.SendData(data);
+                    data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
                     _mFeederCommunicationManager.SendData(data);
                 }
             }
