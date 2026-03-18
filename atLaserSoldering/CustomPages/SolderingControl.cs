@@ -61,6 +61,7 @@ namespace CustomPages
                 textEditReverseFeedLength.EditValue = 3.0D;
                 textEditReverseFeedVelocity.EditValue = 10D;
                 textEditMenualFeedLength.EditValue = 5.0D;
+                textEditMenualPowerRatio.EditValue = 15;
             }
             catch (Exception ex)
             {
@@ -106,6 +107,7 @@ namespace CustomPages
                 simpleButtonLaserPowerOn.Text = "Power On";
                 simpleButtonPilotOn.Text = "Pilot On";
                 simpleButtonLaserReset.Text = "Reset";
+                layoutControlItemMenualPowerRatio.Text = "Power Ratio[%]";
             }
             catch (Exception ex)
             {
@@ -717,6 +719,29 @@ namespace CustomPages
             catch (Exception ex)
             {
 
+            }
+        }
+
+        private void textEditMenualPowerRatio_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_mLaserSoldering.IsSolderingConnect)
+                {
+                    int datasize = 0;
+                    int setdata = (int)(Convert.ToDouble(textEditMenualPowerRatio.Text) * 10);
+                    if ((setdata >= 100) && (setdata <= 1000))
+                    {
+                        datasize = _mLaserData.GetSetLaserPowerPacketSize(setdata);
+                        byte[] data = new byte[datasize];
+                        data = _mLaserData.GetSetLaserPower(setdata);
+                        _mLaserCommunicationManager.SendData(data);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ;
             }
         }
     }
