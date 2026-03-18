@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Basler.Pylon;
-//using LogLibrary;
+using LogLibrary;
 
 namespace Basler
 {
@@ -36,7 +36,7 @@ namespace Basler
         public delegate void EventCameraImageGrabEnd(object sender, EventArgs e);
         public event EventCameraImageGrab OnCameraImageGrabEnd;
 
-        //public Log _log = new Log();
+        public Log _log = new Log();
 
         List<ICameraInfo> _listCameraInfo = new List<ICameraInfo>();
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using Basler;
 using CustomPages;
 using LogLibrary;
 using AiCControlLibrary;
@@ -33,6 +35,7 @@ namespace atLaserSoldering
 
         WorkParams _workParams = new WorkParams();
         SystemParams _systemParams = new SystemParams();
+        BaslerCamera _Camera = new BaslerCamera();
 
         public AiCControlLibrary.SerialCommunication.Control.CommunicationManager _mMotionControlCommManager = null;
         public ArioModbusLibrary.SerialCommunication.Control.CommunicationManager _mRemoteIOCommManager = null;
@@ -53,12 +56,19 @@ namespace atLaserSoldering
         public RobotInformation mRobotInformation = new RobotInformation();        
 
         string _strTitle = "레이저 자동 솔더링 시스템";
+        string Cameraname = "";
+
+        int _frameCount;
+        int _ImageVResolution;
+        int _ImageHResolution;
+        System.Drawing.Image _sourceImage = null;
+
         bool _InspectionWorking = false;
         bool _HommingProcess = false;
         public event Action<Image> ImageGrabbed;
         bool _isContinuousShot = false;
         bool _isCameraOpen = false;
-
+        bool _isCameraInitialized = false;
         bool _isOpticalMeasurement = false;
 
         bool _isCropMove = false;
@@ -275,14 +285,14 @@ namespace atLaserSoldering
                 */
 
                 // Camera 연결
-                //if (InitializeCamera())
-                //{
-                //    _systemParams.InspectionOpticalSpotCenterX = _systemParams._cameraParams.HResolution / 2;
-                //    _systemParams.InspectionOpticalSpotCenterY = _systemParams._cameraParams.VResolution / 2;
-                //    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 초기화 완료"));
-                //}
-                //else
-                //    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("카메라 초기화 실패"));
+                if (InitializeCamera())
+                {
+                    _systemParams.InspectionOpticalSpotCenterX = _systemParams._cameraParams.HResolution / 2;
+                    _systemParams.InspectionOpticalSpotCenterY = _systemParams._cameraParams.VResolution / 2;
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 초기화 완료"));
+                }
+                else
+                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("카메라 초기화 실패"));
 
                 InitailProgramFormLanguage();
                 // Motion Control Initial - Communication,
@@ -775,6 +785,213 @@ namespace atLaserSoldering
                 mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "레시피 설정 초기화를 하지 못햇습니다.");
             }
         }
+        private bool InitializeCamera()
+        {
+            bool IsInitialized = false;
+            _isCameraInitialized = IsInitialized;
+
+            _Camera.OnCameraConnectionLost += new BaslerCamera.EventCameraConnectionLost(OnCameraConnectionLost);
+            _Camera.OnCameraConnectionOpen += new BaslerCamera.EventCameraConnectionOpen(OnCameraConnectionOpen);
+            _Camera.OnCameraImageGrab += new BaslerCamera.EventCameraImageGrab(OnCameraImageGrab);
+            _Camera.OnCameraClose += new BaslerCamera.EventCameraClose(OnCameraClose);
+            _Camera.OnCameraImageGrabStart += new BaslerCamera.EventCameraImageGrab(OnCameraImageGrabStart);
+            _Camera.OnCameraImageGrabEnd += new BaslerCamera.EventCameraImageGrab(OnCameraImageGrabEnd);
+
+            // 카메라 라이브러리 로그 연결
+            _Camera._log.WriteLogViewer += new Log.EventWriteLogViewer(LogUpdated);
+
+            List<string> liststrFriendlyNames = _Camera.FindCameras();
+
+            //// System 파일에 카메라가 등록되지 않은 경우
+            if (_systemParams._cameraParams.FriendlyName == "None" || string.IsNullOrEmpty(_systemParams._cameraParams.FriendlyName))
+            {
+                for (int i = 0; i < liststrFriendlyNames.Count; ++i)
+                {
+                    comboBoxEditCameraName.Properties.Items.Add(liststrFriendlyNames[i]);
+                }
+
+                // 카메라가 있는 경우
+                try
+                {
+                    if (liststrFriendlyNames.Count > 0)
+                    {
+                        //rowCameraFriendlyName.Properties.Value = liststrFriendlyNames[0];
+
+                        Cameraname = liststrFriendlyNames[0];
+                        if (_Camera.Open(liststrFriendlyNames[0]))
+                        {
+                            CameraParameters cameraParam = new CameraParameters();
+
+                            
+
+                            // 노출 시간
+                            cameraParam = _Camera.ExposureTime;
+                            textEditExposureTime.Text = cameraParam.Value.ToString();
+                            //Cameraexposuretime = (int)cameraParam.Value;
+                            //_systemParams.CameraParameters.ExposureTime = (int)cameraParam.Value;
+
+                            // 게인
+                            cameraParam = _Camera.Gain;
+                            textEditGain.Text = cameraParam.Value.ToString();
+                            //_systemParams.CameraParameters.Gain = (int)cameraParam.Value;                        
+
+                            // Frame Rate
+                            cameraParam = _Camera.FrameRate;
+                            textEditFrameRatio.Text = cameraParam.Value.ToString();
+                            //_systemParams.CameraParameters.FrameRate = (int)cameraParam.Value;                        
+
+                            cameraParam = _Camera.Width;
+                            _ImageHResolution = (int)cameraParam.Value;
+                            //_systemParams.CameraParameters.HResolution = (int)cameraParam.Value;                        
+
+                            cameraParam = _Camera.Height;
+                            _ImageVResolution = (int)cameraParam.Value;
+                            //_systemParams.CameraParameters.VResolution = (int)cameraParam.Value;                        
+
+
+                            _isCameraInitialized = true;
+                            _isCameraOpen = true;
+                            // System 파라미터를 Update한다.
+                            //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
+
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 연결 성공:{0}", liststrFriendlyNames[0]));
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(),
+                                string.Format("노출 시간:{0}, 게인:{1}, 프레임비:{2}", textEditExposureTime.Text, textEditGain.Text, textEditFrameRatio.Text));
+
+                        }
+                        else
+                        {
+                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("카메라 연결 실패:{0}", liststrFriendlyNames[0]));
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _Camera.Close();
+                    _isCameraOpen = false;
+                    mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), string.Format("카메라 연결 실패:{0}", liststrFriendlyNames[0]));
+                    mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), string.Format("{0}\r\n{1}", ex.Message, ex.StackTrace));
+                }
+            }
+            else
+            {
+                comboBoxEditCameraName.Properties.Items.Add(_systemParams._cameraParams.FriendlyName);
+                //rowCameraName.Properties.Value = repositoryItemComboBoxCameraName.Items[repositoryItemComboBoxCameraName.Items.IndexOf(_systemParams._cameraParams.FriendlyName)].ToString();
+                textEditExposureTime.Text = _systemParams._cameraParams.ExposureTime.ToString();
+                textEditGain.Text = _systemParams._cameraParams.Gain.ToString();
+                textEditFrameRatio.Text = _systemParams._cameraParams.FrameRate.ToString();
+                if (_Camera.Open(_systemParams._cameraParams.FriendlyName))
+                {
+                    IsInitialized = true;
+                    _isCameraOpen = true;
+                    // System 파라미터를 Update한다.
+                    //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
+                }
+            }
+            return IsInitialized;
+        }
+        private void OnCameraImageGrabStart(object sender, EventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new EventHandler<EventArgs>(OnCameraImageGrabStart), sender, e);
+                return;
+            }
+
+            if (_isContinuousShot)
+                _frameCount = 0;
+        }
+
+        private void OnCameraImageGrabEnd(object sender, EventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new EventHandler<EventArgs>(OnCameraImageGrabEnd), sender, e);
+                return;
+            }
+        }
+        private void OnCameraClose(object sender, EventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new EventHandler<EventArgs>(OnCameraClose), sender, e);
+                return;
+            }
+        }
+        private void OnCameraConnectionLost(object sender, EventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new EventHandler<EventArgs>(OnCameraConnectionLost), sender, e);
+                return;
+            }
+        }
+
+        private void OnCameraConnectionOpen(object sender, EventArgs e)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new EventHandler<EventArgs>(OnCameraConnectionOpen), sender, e);
+                return;
+            }
+        }
+
+        private void OnCameraImageGrab(object sender, EventArgs e)
+        {
+            try
+            {
+                if (InvokeRequired)
+                {
+                    BeginInvoke(new EventHandler<EventArgs>(OnCameraImageGrab), sender, e);
+                    return;
+                }
+
+                GrabEndParam grabEnd = (GrabEndParam)sender as GrabEndParam;
+                System.Drawing.Image sourceImage = _sourceImage;
+
+                if (grabEnd != null)
+                {
+                    if (_isContinuousShot)
+                    {
+                        pictureEditSystemImage.Image = grabEnd.Image;
+                        _sourceImage = grabEnd.Image;
+                    }
+                    else
+                    {
+                        pictureEditSystemImage.Image = grabEnd.Image;
+                        
+                    }
+                    ImageGrabbed?.Invoke(_sourceImage);
+                    if (grabEnd.WaitHandle != null)
+                        grabEnd.WaitHandle.Set();
+                    _patternMatching = false;
+                    _isOpticalMeasurement = false;
+
+                }
+
+                _isGrabbed = true;
+
+
+                if (sourceImage != null)
+                {
+                    sourceImage.Dispose();
+                    sourceImage = null;
+                }
+
+                if (_isContinuousShot)
+                {
+                    _frameCount++;
+                    Application.DoEvents();
+                }
+            }
+            catch (Exception ex)
+            {
+                mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), ex.Message);
+                mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), ex.StackTrace.ToString());
+            }
+        }
+
+
         public void UpdateRobotInfomation(RobotInformation update)
         {
             try
@@ -928,6 +1145,170 @@ namespace atLaserSoldering
             catch (Exception)
             {
                 mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "프로그램 자동 모드의 버튼들을 해제하지 못햇습니다.");
+            }
+        }
+
+        private void barButtonItemCameraListRefresh_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            bool Initialized = false;
+            _isCameraInitialized = Initialized;
+            List<string> liststrFriendlyNames = _Camera.FindCameras();
+            try
+            {
+                //rowCameraFriendlyName.Properties.Value = liststrFriendlyNames[0];
+
+                Cameraname = liststrFriendlyNames[0];
+                if (_Camera.Open(liststrFriendlyNames[0]))
+                {
+                    CameraParameters cameraParam = new CameraParameters();
+
+
+
+                    // 노출 시간
+                    cameraParam = _Camera.ExposureTime;
+                    textEditExposureTime.Text = cameraParam.Value.ToString();
+                    //Cameraexposuretime = (int)cameraParam.Value;
+                    //_systemParams.CameraParameters.ExposureTime = (int)cameraParam.Value;
+
+                    // 게인
+                    cameraParam = _Camera.Gain;
+                    textEditGain.Text = cameraParam.Value.ToString();
+                    //_systemParams.CameraParameters.Gain = (int)cameraParam.Value;                        
+
+                    // Frame Rate
+                    cameraParam = _Camera.FrameRate;
+                    textEditFrameRatio.Text = cameraParam.Value.ToString();
+                    //_systemParams.CameraParameters.FrameRate = (int)cameraParam.Value;                        
+
+                    cameraParam = _Camera.Width;
+                    _ImageHResolution = (int)cameraParam.Value;
+                    //_systemParams.CameraParameters.HResolution = (int)cameraParam.Value;                        
+
+                    cameraParam = _Camera.Height;
+                    _ImageVResolution = (int)cameraParam.Value;
+                    //_systemParams.CameraParameters.VResolution = (int)cameraParam.Value;                        
+
+
+                    _isCameraInitialized = true;
+                    _isCameraOpen = true;
+                    // System 파라미터를 Update한다.
+                    //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
+
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 연결 성공:{0}", liststrFriendlyNames[0]));
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(),
+                        string.Format("노출 시간:{0}, 게인:{1}, 프레임비:{2}", textEditExposureTime.Text, textEditGain.Text, textEditFrameRatio.Text));
+
+                }
+                else
+                {
+                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("카메라 연결 실패:{0}", liststrFriendlyNames[0]));
+                }
+            } 
+            catch (Exception ex)
+            {
+                _Camera.Close();
+                _isCameraOpen = false;
+                mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), string.Format("카메라 연결 실패:{0}", liststrFriendlyNames[0]));
+                mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), string.Format("{0}\r\n{1}", ex.Message, ex.StackTrace));
+            }
+        }
+
+        private void barButtonItemSingleShot_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (_Camera.IsAllocated)
+            {
+                try
+                {
+                    _Camera.OneShot(_waitHandle);
+                    
+                    pictureEditSystemImage.Refresh();
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "싱글 샷");
+                    ImageFitSize();
+                }
+                catch (Exception)
+                {
+                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("싱글 샷 명령이 실행되지 않았습니다."));
+                }
+            }
+        }
+
+        private void barButtonItemContinueousShot_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (_Camera.IsAllocated)
+                {
+                    try
+                    {
+                        _Camera.ContinuousShot(_systemParams._cameraParams.FrameRate);
+                        _isContinuousShot = true;
+                        _frameCount = 0;
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "연속 샷 시작");
+                    }
+                    catch (Exception)
+                    {
+                        mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("연속 샷 명령이 실행되지 않았습니다."));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
+
+        private void barButtonItemCameraStop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (_Camera.IsAllocated)
+                {
+                    try
+                    {
+                        _Camera.Stop();
+                        _isContinuousShot = false;
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "연속 샷 정지");
+                    }
+                    catch (Exception)
+                    {
+                        mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("연속 샷 정지 명령이 실행되지 않았습니다."));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
+        public void ImageFitSize()
+        {
+            try
+            {
+                if (_sourceImage != null)
+                {
+                    try
+                    {
+                        float width = pictureEditSystemImage.ClientSize.Width * 100.0f / _sourceImage.Width;
+                        float height = (pictureEditSystemImage.ClientSize.Height - pictureEditSystemImage.ClientSize.Height * 0.01f) * 100.0f / _sourceImage.Height;
+
+                        float i = Math.Min(100.0f, Math.Min(width, height));
+
+                        pictureEditSystemImage.Properties.ZoomPercent = i;
+                        pictureEditSystemImage.HScrollBar.Value = 0;
+                        pictureEditSystemImage.VScrollBar.Value = 0;
+
+                        _isImageFitSize = true;
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("원본 화면 맞춤: {0:0.0}%", pictureEditSystemImage.Properties.ZoomPercent));
+                    }
+                    catch (Exception)
+                    {
+                        mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("이미지 화면 맞춤 명령이 실행되지 않았습니다."));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }
