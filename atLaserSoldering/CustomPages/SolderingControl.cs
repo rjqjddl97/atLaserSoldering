@@ -103,10 +103,11 @@ namespace CustomPages
                 labelControlErrorStatus.Text = "Error";
                 labelControlFatalErrorStatus.Text = "Fatal Error";
                 labelControlEmissionStatus.Text = "Emission";
+                labelControlFeederStatus.Text = "Feeder Error";
                 simpleButtonLaserOn.Text = "Laser On";
                 simpleButtonLaserPowerOn.Text = "Power On";
                 simpleButtonPilotOn.Text = "Pilot On";
-                simpleButtonLaserReset.Text = "Reset";
+                simpleButtonLaserReset.Text = "Reset";                
                 layoutControlItemMenualPowerRatio.Text = "Power Ratio[%]";
             }
             catch (Exception ex)

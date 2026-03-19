@@ -195,9 +195,9 @@
             // 
             // simpleButtonFeedPositive
             // 
-            this.simpleButtonFeedPositive.Location = new System.Drawing.Point(473, 54);
+            this.simpleButtonFeedPositive.Location = new System.Drawing.Point(471, 54);
             this.simpleButtonFeedPositive.Name = "simpleButtonFeedPositive";
-            this.simpleButtonFeedPositive.Size = new System.Drawing.Size(54, 22);
+            this.simpleButtonFeedPositive.Size = new System.Drawing.Size(56, 22);
             this.simpleButtonFeedPositive.StyleController = this.layoutControl3;
             this.simpleButtonFeedPositive.TabIndex = 9;
             this.simpleButtonFeedPositive.Text = "Feed +";
@@ -205,9 +205,9 @@
             // 
             // simpleButtonFeedStop
             // 
-            this.simpleButtonFeedStop.Location = new System.Drawing.Point(407, 54);
+            this.simpleButtonFeedStop.Location = new System.Drawing.Point(417, 54);
             this.simpleButtonFeedStop.Name = "simpleButtonFeedStop";
-            this.simpleButtonFeedStop.Size = new System.Drawing.Size(62, 22);
+            this.simpleButtonFeedStop.Size = new System.Drawing.Size(50, 22);
             this.simpleButtonFeedStop.StyleController = this.layoutControl3;
             this.simpleButtonFeedStop.TabIndex = 8;
             this.simpleButtonFeedStop.Text = "Stop";
@@ -217,7 +217,7 @@
             // 
             this.simpleButtonFeedNegative.Location = new System.Drawing.Point(349, 54);
             this.simpleButtonFeedNegative.Name = "simpleButtonFeedNegative";
-            this.simpleButtonFeedNegative.Size = new System.Drawing.Size(54, 22);
+            this.simpleButtonFeedNegative.Size = new System.Drawing.Size(64, 22);
             this.simpleButtonFeedNegative.StyleController = this.layoutControl3;
             this.simpleButtonFeedNegative.TabIndex = 7;
             this.simpleButtonFeedNegative.Text = "Feed -";
@@ -516,25 +516,25 @@
             this.layoutControlItem17.Control = this.simpleButtonFeedNegative;
             this.layoutControlItem17.Location = new System.Drawing.Point(345, 50);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(58, 27);
+            this.layoutControlItem17.Size = new System.Drawing.Size(68, 27);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
             // 
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.simpleButtonFeedStop;
-            this.layoutControlItem18.Location = new System.Drawing.Point(403, 50);
+            this.layoutControlItem18.Location = new System.Drawing.Point(413, 50);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(66, 27);
+            this.layoutControlItem18.Size = new System.Drawing.Size(54, 27);
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
             // 
             // layoutControlItem19
             // 
             this.layoutControlItem19.Control = this.simpleButtonFeedPositive;
-            this.layoutControlItem19.Location = new System.Drawing.Point(469, 50);
+            this.layoutControlItem19.Location = new System.Drawing.Point(467, 50);
             this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(58, 27);
+            this.layoutControlItem19.Size = new System.Drawing.Size(60, 27);
             this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem19.TextVisible = false;
             // 
