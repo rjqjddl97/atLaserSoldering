@@ -47,6 +47,7 @@ namespace atLaserSoldering
         public ADMSEquipmentInfo _admsEquipment = new ADMSEquipmentInfo();
         public ADMSProductInfo _admsProduct = new ADMSProductInfo();
         ManualResetEvent _waitHandle = new ManualResetEvent(false);
+        public event Action<System.Drawing.Image> UpdateImageEvent;
         BackgroundWorker _backgroundWorkerAutoSoldering = new BackgroundWorker();
         BackgroundWorker _bwMotionHome = new BackgroundWorker();
 
@@ -853,7 +854,7 @@ namespace atLaserSoldering
                             _isCameraOpen = true;
                             // System 파라미터를 Update한다.
                             //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
-
+                            UpdateImageEvent += UpdateImageData;
                             mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 연결 성공:{0}", liststrFriendlyNames[0]));
                             mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(),
                                 string.Format("노출 시간:{0}, 게인:{1}, 프레임비:{2}", textEditExposureTime.Text, textEditGain.Text, textEditFrameRatio.Text));
@@ -1310,6 +1311,45 @@ namespace atLaserSoldering
             {
 
             }
+        }
+        public void UpdateImageData(System.Drawing.Image image)
+        {
+            pictureEditSystemImage.Image = image;
+            pictureEditSystemImage.Refresh();
+            //pictureEditSystemImage.Properties.SizeMode = PictureBoxSizeMode.Zoom;
+            //ICogImage img = new CogImage8Grey((Bitmap)image);
+            //cogDisplayImage.Record = null;
+            //grabImage = img;
+            //cogDisplayImage.Image = grabImage;
+            //cogDisplayImage.Fit();
+            GC.Collect();
+        }
+        private void atLaserSoldering_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_systemParams._SystemLanguageKoreaUse)
+            {
+                if (MessageBox.Show(string.Format("레이저 자동납땜 시스템을 종료하시겠습니까?"), "시스템 종료", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+            }
+            else
+            {
+                if (MessageBox.Show(string.Format("Are you closing laser autosoldering Program?"), "System Closed", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+            }
+            if (_isContinuousShot)
+                _Camera.Stop();            
+
+            if (_Camera.IsAllocated)
+                _Camera.Close();
+            
+            timerCurrentTime.Stop();
+            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "프로그램 종료.");
         }
     }
 }

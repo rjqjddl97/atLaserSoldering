@@ -92,7 +92,11 @@
             this.xtraTabControlMainCtrl = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageMain = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.pictureEditSystemImage = new DevExpress.XtraEditors.PictureEdit();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabPageImageProcess = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl6 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -159,10 +163,6 @@
             this.openFileDialogRecipeOpen = new System.Windows.Forms.OpenFileDialog();
             this.timerCurrentTime = new System.Windows.Forms.Timer(this.components);
             this.xtraFolderBrowserDialogRecipeOpen = new DevExpress.XtraEditors.XtraFolderBrowserDialog(this.components);
-            this.pictureEditSystemImage = new DevExpress.XtraEditors.PictureEdit();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -185,7 +185,14 @@
             this.xtraTabPageMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditSystemImage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.xtraTabPageImageProcess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).BeginInit();
             this.layoutControl6.SuspendLayout();
@@ -233,13 +240,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEditSystemImage.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -866,6 +866,36 @@
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
+            // chartControl1
+            // 
+            swiftPlotDiagram1.AxisX.GridLines.Visible = true;
+            swiftPlotDiagram1.AxisX.Label.Visible = false;
+            swiftPlotDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl1.Diagram = swiftPlotDiagram1;
+            this.chartControl1.Legend.Name = "Default Legend";
+            this.chartControl1.Legend.TextVisible = false;
+            this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            this.chartControl1.Location = new System.Drawing.Point(585, 12);
+            this.chartControl1.Name = "chartControl1";
+            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series1.Name = "Temperature";
+            series1.View = swiftPlotSeriesView1;
+            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1};
+            this.chartControl1.Size = new System.Drawing.Size(353, 390);
+            this.chartControl1.TabIndex = 5;
+            // 
+            // pictureEditSystemImage
+            // 
+            this.pictureEditSystemImage.Location = new System.Drawing.Point(12, 12);
+            this.pictureEditSystemImage.MenuManager = this.ribbonControl;
+            this.pictureEditSystemImage.Name = "pictureEditSystemImage";
+            this.pictureEditSystemImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEditSystemImage.Size = new System.Drawing.Size(569, 390);
+            this.pictureEditSystemImage.StyleController = this.layoutControl3;
+            this.pictureEditSystemImage.TabIndex = 4;
+            // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -876,6 +906,24 @@
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(950, 414);
             this.layoutControlGroup2.TextVisible = false;
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.pictureEditSystemImage;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(573, 394);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.chartControl1;
+            this.layoutControlItem10.Location = new System.Drawing.Point(573, 0);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(357, 394);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
             // 
             // xtraTabPageImageProcess
             // 
@@ -1524,54 +1572,6 @@
             // 
             this.xtraFolderBrowserDialogRecipeOpen.SelectedPath = "xtraFolderBrowserDialog1";
             // 
-            // pictureEditSystemImage
-            // 
-            this.pictureEditSystemImage.Location = new System.Drawing.Point(12, 12);
-            this.pictureEditSystemImage.MenuManager = this.ribbonControl;
-            this.pictureEditSystemImage.Name = "pictureEditSystemImage";
-            this.pictureEditSystemImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEditSystemImage.Size = new System.Drawing.Size(569, 390);
-            this.pictureEditSystemImage.StyleController = this.layoutControl3;
-            this.pictureEditSystemImage.TabIndex = 4;
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.pictureEditSystemImage;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(573, 394);
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextVisible = false;
-            // 
-            // chartControl1
-            // 
-            swiftPlotDiagram1.AxisX.GridLines.Visible = true;
-            swiftPlotDiagram1.AxisX.Label.Visible = false;
-            swiftPlotDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl1.Diagram = swiftPlotDiagram1;
-            this.chartControl1.Legend.Name = "Default Legend";
-            this.chartControl1.Legend.TextVisible = false;
-            this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl1.Location = new System.Drawing.Point(585, 12);
-            this.chartControl1.Name = "chartControl1";
-            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series1.Name = "Temperature";
-            series1.View = swiftPlotSeriesView1;
-            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
-            this.chartControl1.Size = new System.Drawing.Size(353, 390);
-            this.chartControl1.TabIndex = 5;
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.chartControl1;
-            this.layoutControlItem10.Location = new System.Drawing.Point(573, 0);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(357, 394);
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem10.TextVisible = false;
-            // 
             // atLaserSoldering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1586,6 +1586,7 @@
             this.Ribbon = this.ribbonControl;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "atLaserSoldering";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.atLaserSoldering_FormClosing);
             this.Load += new System.EventHandler(this.atLaserSoldering_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).EndInit();
@@ -1609,7 +1610,14 @@
             this.xtraTabPageMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditSystemImage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.xtraTabPageImageProcess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).EndInit();
             this.layoutControl6.ResumeLayout(false);
@@ -1660,13 +1668,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEditSystemImage.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

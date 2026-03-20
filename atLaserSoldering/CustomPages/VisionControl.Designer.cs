@@ -70,6 +70,8 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.labelControlVisionReceipeEdit = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButtonVisionReceipeEdit = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
@@ -253,6 +255,8 @@
             // 
             // groupControlProcessing
             // 
+            this.groupControlProcessing.Controls.Add(this.simpleButtonVisionReceipeEdit);
+            this.groupControlProcessing.Controls.Add(this.labelControlVisionReceipeEdit);
             this.groupControlProcessing.Controls.Add(this.simpleButtonImageProcessing);
             this.groupControlProcessing.Controls.Add(this.simpleButtonVisionReceipeOpen);
             this.groupControlProcessing.Controls.Add(this.labelControlVisionProcessing);
@@ -267,27 +271,27 @@
             // 
             // simpleButtonImageProcessing
             // 
-            this.simpleButtonImageProcessing.Location = new System.Drawing.Point(311, 328);
+            this.simpleButtonImageProcessing.Location = new System.Drawing.Point(345, 328);
             this.simpleButtonImageProcessing.Name = "simpleButtonImageProcessing";
-            this.simpleButtonImageProcessing.Size = new System.Drawing.Size(111, 23);
+            this.simpleButtonImageProcessing.Size = new System.Drawing.Size(77, 23);
             this.simpleButtonImageProcessing.TabIndex = 1;
             this.simpleButtonImageProcessing.Text = "실행 하기";
             // 
             // simpleButtonVisionReceipeOpen
             // 
-            this.simpleButtonVisionReceipeOpen.Location = new System.Drawing.Point(83, 328);
+            this.simpleButtonVisionReceipeOpen.Location = new System.Drawing.Point(73, 328);
             this.simpleButtonVisionReceipeOpen.Name = "simpleButtonVisionReceipeOpen";
-            this.simpleButtonVisionReceipeOpen.Size = new System.Drawing.Size(111, 23);
+            this.simpleButtonVisionReceipeOpen.Size = new System.Drawing.Size(70, 23);
             this.simpleButtonVisionReceipeOpen.TabIndex = 1;
             this.simpleButtonVisionReceipeOpen.Text = "불러 오기";
             // 
             // labelControlVisionProcessing
             // 
-            this.labelControlVisionProcessing.Location = new System.Drawing.Point(218, 332);
+            this.labelControlVisionProcessing.Location = new System.Drawing.Point(287, 332);
             this.labelControlVisionProcessing.Name = "labelControlVisionProcessing";
-            this.labelControlVisionProcessing.Size = new System.Drawing.Size(78, 14);
+            this.labelControlVisionProcessing.Size = new System.Drawing.Size(54, 14);
             this.labelControlVisionProcessing.TabIndex = 0;
-            this.labelControlVisionProcessing.Text = "비젼 레시피 실행";
+            this.labelControlVisionProcessing.Text = "레시피 실행";
             // 
             // cogRecordDisplayProcessing
             // 
@@ -502,6 +506,22 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // labelControlVisionReceipeEdit
+            // 
+            this.labelControlVisionReceipeEdit.Location = new System.Drawing.Point(147, 334);
+            this.labelControlVisionReceipeEdit.Name = "labelControlVisionReceipeEdit";
+            this.labelControlVisionReceipeEdit.Size = new System.Drawing.Size(54, 14);
+            this.labelControlVisionReceipeEdit.TabIndex = 2;
+            this.labelControlVisionReceipeEdit.Text = "레시피 편집";
+            // 
+            // simpleButtonVisionReceipeEdit
+            // 
+            this.simpleButtonVisionReceipeEdit.Location = new System.Drawing.Point(206, 328);
+            this.simpleButtonVisionReceipeEdit.Name = "simpleButtonVisionReceipeEdit";
+            this.simpleButtonVisionReceipeEdit.Size = new System.Drawing.Size(75, 23);
+            this.simpleButtonVisionReceipeEdit.TabIndex = 3;
+            this.simpleButtonVisionReceipeEdit.Text = "편집 하기";
+            // 
             // VisionControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -589,5 +609,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonSingleGrab;
         private DevExpress.XtraEditors.LabelControl labelControlImageLoad;
         private DevExpress.XtraEditors.LabelControl labelControlSingleShot;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonVisionReceipeEdit;
+        private DevExpress.XtraEditors.LabelControl labelControlVisionReceipeEdit;
     }
 }
