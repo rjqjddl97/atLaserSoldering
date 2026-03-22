@@ -117,10 +117,12 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                     if (data[1] == (byte)DataProcessor.ModbusRTU.ReadFunctionCodes.ReadInputRegisters)
                     {
                         m_ARioDataCtrl.ReceiveSetInput(data);
+                        ReceiveARioData.Invoke(m_ARioDataCtrl);
                     }
                     else if(data[1] == (byte)DataProcessor.ModbusRTU.ReadFunctionCodes.ReadHoldingRegisters)
                     {
                         m_ARioDataCtrl.ReceiveSetOutput(data);
+                        ReceiveARioData.Invoke(m_ARioDataCtrl);
                     }                    
                     //reCommMassege = m_ARMDataCtrl.GetRequestedCommand();
                     //if (reCommMassege == ARMData.CommandMassege.MSG_INPUT)
@@ -208,8 +210,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                                 Buffer.BlockCopy(ReceivePacketBuff, 0, MainData, 0, (int)uiReceiveCount);
                                 if (uiReceiveCount == ReceivePacketBuff[2] + 5)
                                 {
-                                    ParsingData(MainData);
-                                    ReceiveARioData.Invoke(m_ARioDataCtrl);
+                                    ParsingData(MainData);                                    
                                 }
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
@@ -315,7 +316,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                 {
                     //Log.LogManager.AddSystemLog(Log.Log.LogType.Error, "CommunicateEngine::Run -> Fail to working.");
                 }
-                Thread.Sleep(EngineSleepTime);
+                Task.Delay(EngineSleepTime);
             }
         }
     }

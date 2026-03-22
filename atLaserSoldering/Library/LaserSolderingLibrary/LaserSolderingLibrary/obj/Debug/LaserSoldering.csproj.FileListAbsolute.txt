@@ -92,8 +92,6 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolder
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\RecipeManager.pdb
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LogLibrary.pdb
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.config
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.xsd
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\FeederControlLibrary.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\RecipeManager.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\INIFileParser.dll

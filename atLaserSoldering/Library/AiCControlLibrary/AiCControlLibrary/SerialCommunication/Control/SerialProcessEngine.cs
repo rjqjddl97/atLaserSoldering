@@ -130,12 +130,11 @@ namespace AiCControlLibrary.SerialCommunication.Control
                             if (data[2] == 32)
                             {
                                 m_AiCDataCtrl.ReceiveSetMotionData(data);
-                                
+                                ReceiveAiCData.Invoke(m_AiCDataCtrl);
                             }
                         }
-
                     }
-                    ReceiveAiCData.Invoke(m_AiCDataCtrl);
+                    
                     /*
                     reCommMassege = m_AiCDataCtrl.GetRequestedCommand();
                     if (reCommMassege == AiCData.CommandMassege.MSG_MONITOR_DATA)
@@ -403,7 +402,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
                 {
                     //Log.LogManager.AddSystemLog(Log.Log.LogType.Error, "CommunicateEngine::Run -> Fail to working.");
                 }
-                Thread.Sleep(EngineSleepTime);
+                Task.Delay(EngineSleepTime);
             }
         }
     }
