@@ -152,6 +152,7 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.openFileDialogTemplateImage = new System.Windows.Forms.OpenFileDialog();
+            this.rowLaserSolderingOutputWaitTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductSeries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductType)).BeginInit();
@@ -587,7 +588,7 @@
             // 
             // vGridControlInspectionParam
             // 
-            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Default;
+            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Hand;
             this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
             this.vGridControlInspectionParam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -613,7 +614,9 @@
             this.categoryLaserSolderingInformation.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
             this.rowLaserSolderingEnable,
             this.rowLaserSolderingLaserEnable,
-            this.rowLaserSolderingFeedEnable});
+            this.rowLaserSolderingFeedEnable,
+            this.rowLaserSolderingOutputWaitTime});
+            this.categoryLaserSolderingInformation.Height = 19;
             this.categoryLaserSolderingInformation.Name = "categoryLaserSolderingInformation";
             this.categoryLaserSolderingInformation.Properties.Caption = "레이저 납땜 정보";
             // 
@@ -831,7 +834,7 @@
             // 
             // textEditHeatPowerRatio
             // 
-            this.textEditHeatPowerRatio.Location = new System.Drawing.Point(157, 195);
+            this.textEditHeatPowerRatio.Location = new System.Drawing.Point(157, 171);
             this.textEditHeatPowerRatio.MenuManager = this.ribbonControl1;
             this.textEditHeatPowerRatio.Name = "textEditHeatPowerRatio";
             this.textEditHeatPowerRatio.Size = new System.Drawing.Size(50, 20);
@@ -840,7 +843,7 @@
             // 
             // textEditPreHeatPowerRatio
             // 
-            this.textEditPreHeatPowerRatio.Location = new System.Drawing.Point(157, 147);
+            this.textEditPreHeatPowerRatio.Location = new System.Drawing.Point(157, 123);
             this.textEditPreHeatPowerRatio.MenuManager = this.ribbonControl1;
             this.textEditPreHeatPowerRatio.Name = "textEditPreHeatPowerRatio";
             this.textEditPreHeatPowerRatio.Size = new System.Drawing.Size(50, 20);
@@ -849,7 +852,7 @@
             // 
             // textEditHeatTime
             // 
-            this.textEditHeatTime.Location = new System.Drawing.Point(157, 171);
+            this.textEditHeatTime.Location = new System.Drawing.Point(157, 195);
             this.textEditHeatTime.MenuManager = this.ribbonControl1;
             this.textEditHeatTime.Name = "textEditHeatTime";
             this.textEditHeatTime.Size = new System.Drawing.Size(50, 20);
@@ -858,7 +861,7 @@
             // 
             // textEditPreHeatTime
             // 
-            this.textEditPreHeatTime.Location = new System.Drawing.Point(157, 123);
+            this.textEditPreHeatTime.Location = new System.Drawing.Point(157, 147);
             this.textEditPreHeatTime.MenuManager = this.ribbonControl1;
             this.textEditPreHeatTime.Name = "textEditPreHeatTime";
             this.textEditPreHeatTime.Size = new System.Drawing.Size(50, 20);
@@ -895,8 +898,6 @@
             this.layoutControlItem19,
             this.layoutControlItem20,
             this.layoutControlItem21,
-            this.layoutControlItem22,
-            this.layoutControlItem23,
             this.layoutControlItem24,
             this.layoutControlItem25,
             this.layoutControlItem26,
@@ -904,7 +905,9 @@
             this.layoutControlItem29,
             this.layoutControlItem30,
             this.layoutControlItem31,
-            this.layoutControlItem15});
+            this.layoutControlItem15,
+            this.layoutControlItem22,
+            this.layoutControlItem23});
             this.layoutControlGroup7.Name = "layoutControlGroup7";
             this.layoutControlGroup7.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutControlGroup7.Size = new System.Drawing.Size(489, 318);
@@ -931,37 +934,37 @@
             // layoutControlItem20
             // 
             this.layoutControlItem20.Control = this.textEditPreHeatTime;
-            this.layoutControlItem20.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem20.Location = new System.Drawing.Point(0, 144);
             this.layoutControlItem20.Name = "layoutControlItem20";
             this.layoutControlItem20.Size = new System.Drawing.Size(208, 24);
-            this.layoutControlItem20.Text = "6. PreHeat Time[ms]";
+            this.layoutControlItem20.Text = "7. PreHeat Time[ms]";
             this.layoutControlItem20.TextSize = new System.Drawing.Size(151, 14);
             // 
             // layoutControlItem21
             // 
             this.layoutControlItem21.Control = this.textEditHeatTime;
-            this.layoutControlItem21.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem21.Location = new System.Drawing.Point(0, 192);
             this.layoutControlItem21.Name = "layoutControlItem21";
             this.layoutControlItem21.Size = new System.Drawing.Size(208, 24);
-            this.layoutControlItem21.Text = "8. Heat Time[ms]";
+            this.layoutControlItem21.Text = "9. Heat Time[ms]";
             this.layoutControlItem21.TextSize = new System.Drawing.Size(151, 14);
             // 
             // layoutControlItem22
             // 
             this.layoutControlItem22.Control = this.textEditPreHeatPowerRatio;
-            this.layoutControlItem22.Location = new System.Drawing.Point(0, 144);
+            this.layoutControlItem22.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem22.Name = "layoutControlItem22";
             this.layoutControlItem22.Size = new System.Drawing.Size(208, 24);
-            this.layoutControlItem22.Text = "7. PreHeat P. Ratio[%]";
+            this.layoutControlItem22.Text = "6. PreHeat P. Ratio[%]";
             this.layoutControlItem22.TextSize = new System.Drawing.Size(151, 14);
             // 
             // layoutControlItem23
             // 
             this.layoutControlItem23.Control = this.textEditHeatPowerRatio;
-            this.layoutControlItem23.Location = new System.Drawing.Point(0, 192);
+            this.layoutControlItem23.Location = new System.Drawing.Point(0, 168);
             this.layoutControlItem23.Name = "layoutControlItem23";
             this.layoutControlItem23.Size = new System.Drawing.Size(208, 24);
-            this.layoutControlItem23.Text = "9. Heat P. Ratio[%]";
+            this.layoutControlItem23.Text = "8. Heat P. Ratio[%]";
             this.layoutControlItem23.TextSize = new System.Drawing.Size(151, 14);
             // 
             // layoutControlItem24
@@ -1499,6 +1502,15 @@
             this.openFileDialogTemplateImage.FileName = "Template Image";
             this.openFileDialogTemplateImage.Filter = "Bitmap Files (*.bmp)|*.bmp";
             // 
+            // rowLaserSolderingOutputWaitTime
+            // 
+            this.rowLaserSolderingOutputWaitTime.Appearance.Options.UseTextOptions = true;
+            this.rowLaserSolderingOutputWaitTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowLaserSolderingOutputWaitTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowLaserSolderingOutputWaitTime.Name = "rowLaserSolderingOutputWaitTime";
+            this.rowLaserSolderingOutputWaitTime.Properties.Caption = "레이저 출력 지연시간[ms]";
+            this.rowLaserSolderingOutputWaitTime.Properties.Value = 200;
+            // 
             // RecipeEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1724,5 +1736,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnReverseFeedLength;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnReverseFeedVelocity;
         private System.Windows.Forms.OpenFileDialog openFileDialogTemplateImage;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLaserSolderingOutputWaitTime;
     }
 }

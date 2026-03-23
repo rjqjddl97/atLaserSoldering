@@ -73,10 +73,10 @@ namespace atLaserSoldering
                 layoutControlItem30.Text = "3. Position Y";
                 layoutControlItem31.Text = "4. Position Z";
                 layoutControlItem19.Text = "5. Ready Time[ms]";
-                layoutControlItem20.Text = "6. PreHeat Time[ms]";
-                layoutControlItem22.Text = "7. PreHeat P. Ratio[%]";
-                layoutControlItem21.Text = "8. Heat Time[ms]";
-                layoutControlItem23.Text = "9. Heat P. Ratio[%]";
+                layoutControlItem20.Text = "7. PreHeat Time[ms]";
+                layoutControlItem22.Text = "6. PreHeat P. Ratio[%]";
+                layoutControlItem21.Text = "9. Heat Time[ms]";
+                layoutControlItem23.Text = "8. Heat P. Ratio[%]";
                 layoutControlItem24.Text = "10. F. Feed Length[mm]";
                 layoutControlItem25.Text = "11. F. Feed Velocity[mm/s]";
                 layoutControlItem26.Text = "12. R. Feed Length[mm]";
@@ -122,10 +122,10 @@ namespace atLaserSoldering
                 layoutControlItem30.Text = "3. Position Y";
                 layoutControlItem31.Text = "4. Position Z";
                 layoutControlItem19.Text = "5. Ready Time[ms]";
-                layoutControlItem20.Text = "6. PreHeat Time[ms]";
-                layoutControlItem22.Text = "7. PreHeat P. Ratio[%]";
-                layoutControlItem21.Text = "8. Heat Time[ms]";
-                layoutControlItem23.Text = "9. Heat P. Ratio[%]";
+                layoutControlItem20.Text = "7. PreHeat Time[ms]";
+                layoutControlItem22.Text = "6. PreHeat P. Ratio[%]";
+                layoutControlItem21.Text = "9. Heat Time[ms]";
+                layoutControlItem23.Text = "8. Heat P. Ratio[%]";
                 layoutControlItem24.Text = "10. F. Feed Length[mm]";
                 layoutControlItem25.Text = "11. F. Feed Velocity[mm/s]";
                 layoutControlItem26.Text = "12. R. Feed Length[mm]";
@@ -166,9 +166,9 @@ namespace atLaserSoldering
             _workParam.RecipeCreateTime = Convert.ToDateTime(rowRecipeCreateTime.Properties.Value);
 
             // Recipe의 Product Infomation 초기화
-            _workParam._ProductSeries = Convert.ToInt32(repositoryItemComboBoxProductSeries.Items.Contains(rowPCBModelName.Properties.Value)) - 1;
-            _workParam._ProductModelName = Convert.ToString(rowPCBHorizontalSize.Properties.Value);
-            _workParam._ProductType = Convert.ToInt32(repositoryItemComboBoxProductType.Items.Contains(rowPCBVerticalSize.Properties.Value)) - 1;
+            _workParam._PCBModelName = Convert.ToString(rowPCBModelName.Properties.Value);
+            _workParam._PCB_HorizontalSize = Convert.ToDouble(rowPCBHorizontalSize.Properties.Value);
+            _workParam._PCB_VerticalSize = Convert.ToDouble(rowPCBVerticalSize.Properties.Value);
 
             // Recipe의 Soldering 검사 Infomation 초기화
 
@@ -197,27 +197,24 @@ namespace atLaserSoldering
             rowRecipeCreateTime.Properties.Value = _workParam.RecipeCreateTime;
             rowRecipeCreatorName.Properties.Value = _workParam.RecipeCreatorName;
 
-            rowPCBModelName.Properties.Value = _workParam._ProductSeries;
-            rowPCBHorizontalSize.Properties.Value = _workParam._ProductModelName;
-            rowPCBVerticalSize.Properties.Value = _workParam._ProductType;
+            rowPCBModelName.Properties.Value = _workParam._PCBModelName;
+            rowPCBHorizontalSize.Properties.Value = _workParam._PCB_HorizontalSize;
+            rowPCBVerticalSize.Properties.Value = _workParam._PCB_VerticalSize;
 
-            //rowLEDInspectionUseEnable.Properties.Value = _workParam._LEDInspectionUseEnable;
-            //rowLEDInspectionShortDistance.Properties.Value = _workParam._LEDInspectionShortDistance;
-            //rowLEDInspectionExposureTime.Properties.Value = _workParam._LEDInspectionExposureTime;
-            //rowLEDInspectionAcquisitionDelayTime.Properties.Value = _workParam._LEDInspectionAcquisitionDelaytime;
-            //rowLEDInspectionReferenceThresholdH.Properties.Value = _workParam._LEDInspectionReferenceThresholdH;
-            //rowLEDInspectionReferenceThresholdV.Properties.Value = _workParam._LEDInspectionReferenceThresholdV;
-            //rowLEDInspectionAlignmentDistance.Properties.Value = _workParam._LEDInspectionAlignmentDistance;
-            //rowLEDInspectionDivergenceHMinAngle.Properties.Value = _workParam._LEDInspectionDivergenceHMinAngle;
-            //rowLEDInspectionDivergenceHMaxAngle.Properties.Value = _workParam._LEDInspectionDivergenceHMaxAngle;
-            //rowLEDInspectionDivergenceVMinAngle.Properties.Value = _workParam._LEDInspectionDivergenceVMinAngle;
-            //rowLEDInspectionDivergenceVMaxAngle.Properties.Value = _workParam._LEDInspectionDivergenceVMaxAngle;
-            //rowLEDInspectionSpotMinSize.Properties.Value = _workParam._LEDInspectionSpotMinSize;
-            //rowLEDInspectionSpotMaxSize.Properties.Value = _workParam._LEDInspectionSpotMaxSize;
-            //rowLEDInspectionWorkAreaLeft.Properties.Value = _workParam._LEDInspectionWorkAreaLeft;
-            //rowLEDInspectionWorkAreaTop.Properties.Value = _workParam._LEDInspectionWorkAreaTop;
-            //rowLEDInspectionWorkAreaWidth.Properties.Value = _workParam._LedInspectionWorkAreaWidth;
-            //rowLEDInspectionWorkAreaHeight.Properties.Value = _workParam._LedInspectionWorkAreaHeight;
+            rowReferenceInspectionEnable.Properties.Value = _workParam._PCBAlignVisionEnable;
+            rowReferenceInspectionExposureTime.Properties.Value = _workParam._AlignInspectionExposureTime;
+            rowReferenceInspectionLightBright.Properties.Value = _workParam._InspectionLightBright;
+            rowReferenceInspectionVisionRecipeFilePath.Properties.Value = _workParam._InspectAlignVisionPath;
+            rowSoderingInspectionEnale.Properties.Value = _workParam._SolderingInspectVisionEnable;
+            rowSolderingInspectionExposureTime.Properties.Value = _workParam._SolderInspectionExposureTime;
+            rowSolderingInspectionLightBright.Properties.Value = _workParam._SolderingInspectionLightBright;
+            rowSolderingInspectionVisionRecipeFilePath.Properties.Value = _workParam._InspectSolderingVisionPath;
+            rowInspectionAcquisitionDelayTime.Properties.Value = _workParam._ImageAcquisitionDelaytime;
+
+            rowLaserSolderingEnable.Properties.Value = _workParam._SolderingProcessEnable;
+            rowLaserSolderingLaserEnable.Properties.Value = _workParam._UseLaserEnable;
+            rowLaserSolderingFeedEnable.Properties.Value = _workParam._UseFeederEnable;
+            rowLaserSolderingOutputWaitTime.Properties.Value = _workParam._LaserOffWaitTime;
                        
             pictureEditInspectImage.Image = null;
 
@@ -269,7 +266,7 @@ namespace atLaserSoldering
                     // 초기 Save 버튼은 Disable 상태, 편집 후, Enable 상태로 변경
                     barButtonItemRecipeSave.Enabled = false;
 
-                    this.Text = string.Format("{0} - {1}.rcp", _strOldTitle, _workParam._ProductModelName);
+                    this.Text = string.Format("{0} - {1}.rcp", _strOldTitle, _workParam.RecipeName);
 
                     _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레시피 파일 읽기:{0}", strRecipeFilePath));
                 }
@@ -295,7 +292,7 @@ namespace atLaserSoldering
 
                     vGridControlInspectionParam.Refresh();
 
-                    this.Text = string.Format("{0} - {1}.rcp", _strOldTitle, _workParam._ProductModelName);
+                    this.Text = string.Format("{0} - {1}.rcp", _strOldTitle, _workParam.RecipeName);
 
                     _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레시피 파일을 저장합니다.{0}", strRecipeSaveFileName));
                 }
@@ -828,7 +825,7 @@ namespace atLaserSoldering
                 _workParam._PCBModelName = strTemp;
 
                 barButtonItemRecipeSave.Enabled = true;
-                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format(" 제품 시리즈 이름이 {0}로 변경되었습니다.", _workParam._ProductSeries));
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format(" 제품 시리즈 이름이 {0}로 변경되었습니다.", _workParam._PCBModelName));
             }
             else if (e.Row == rowPCBHorizontalSize)
             {
@@ -1069,6 +1066,23 @@ namespace atLaserSoldering
                 }
                 barButtonItemRecipeSave.Enabled = true;
                 _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("실납 공급기 유무가 {0}로 변경되었습니다.", _workParam._UseFeederEnable.ToString()));
+            }
+            else if (e.Row == rowLaserSolderingOutputWaitTime)
+            {
+                value = Convert.ToInt32(rowLaserSolderingOutputWaitTime.Properties.Value);
+
+                if (value <= 0 || value > 10000)
+                {
+                    MessageBox.Show(string.Format("Laser Off 대기 시간을 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowLaserSolderingOutputWaitTime.Properties.Value = _workParam._LaserOffWaitTime;
+                    vGridControlInspectionParam.Refresh();
+                    return;
+                }
+
+                _workParam._ImageAcquisitionDelaytime = value;
+
+                barButtonItemRecipeSave.Enabled = true;
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("Laser Off 대기 시간이 {0}로 변경되었습니다.", _workParam._LaserOffWaitTime));
             }
         }
         private void UpdateRecipeControls()
@@ -1350,6 +1364,19 @@ namespace atLaserSoldering
                 barButtonItemRecipeSave.Enabled = true;
             }
             _workParam._UseFeederEnable = _isvalue;
+
+            value = Convert.ToInt32(rowLaserSolderingOutputWaitTime.Properties.Value);
+            
+            if (value <= 0 || value > 1000)
+            {
+                MessageBox.Show(string.Format("Laser Off 대기 시간을 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                rowLaserSolderingOutputWaitTime.Properties.Value = _workParam._LaserOffWaitTime;
+                vGridControlInspectionParam.Refresh();
+                return;
+            }
+            _workParam._LaserOffWaitTime = value;
+
+             
         }
         private void simpleButtonInspectionPositionRegister_Click(object sender, EventArgs e)
         {

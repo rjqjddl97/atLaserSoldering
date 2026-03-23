@@ -49,27 +49,24 @@ namespace RecipeManager
             workParam.RecipeCreateTime = Convert.ToDateTime(recipeData[WorkParamSections[0]]["RecipeCreateTime"]);
             workParam.RecipeCreatorName = Convert.ToString(recipeData[WorkParamSections[0]]["RecipeCreatorName"]);
                         
-            workParam._ProductSeries = Convert.ToInt32(recipeData[WorkParamSections[1]]["ProductSeries"]);
-            workParam._ProductModelName = Convert.ToString(recipeData[WorkParamSections[1]]["ProductModelName"]);
-            workParam._ProductType = Convert.ToInt32(recipeData[WorkParamSections[1]]["ProductType"]);            
-            workParam._ProductDistance = Convert.ToSingle(recipeData[WorkParamSections[1]]["ProductDistance"]);
-            workParam._ProductOperatingMdoe = Convert.ToInt32(recipeData[WorkParamSections[1]]["ProductOperatingMode"]);
-            workParam._ProductOutputType = Convert.ToInt32(recipeData[WorkParamSections[1]]["ProductOutputType"]);            
-            workParam._ProductDetectMerterial = Convert.ToInt32(recipeData[WorkParamSections[1]]["ProductDetecMerterial"]);
-            workParam._ProductDistanceMargin = Convert.ToSingle(recipeData[WorkParamSections[1]]["ProductDistaneMargin"]);
+            workParam._PCBModelName = Convert.ToString(recipeData[WorkParamSections[1]]["PCBModelName"]);
+            workParam._PCB_HorizontalSize = Convert.ToInt32(recipeData[WorkParamSections[1]]["PCBHorisontalSize"]);
+            workParam._PCB_VerticalSize = Convert.ToInt32(recipeData[WorkParamSections[1]]["PCBVirticalSize"]);            
 
-            workParam._InspectionShortDistanceEnable = Convert.ToBoolean(recipeData[WorkParamSections[2]]["InspectionShortDistanceEnable"]);
-            workParam._InspectionPerformanceEnable = Convert.ToBoolean(recipeData[WorkParamSections[2]]["InspectionPerformanceEnable"]);
-            workParam._InspectionShortDistance= Convert.ToDouble(recipeData[WorkParamSections[2]]["InspectionShortDistance"]);
-            workParam._InspectionSignalDelaytime = Convert.ToInt32(recipeData[WorkParamSections[2]]["InspectionSignalWaitTime"]);
-            workParam._InspectionDistance = Convert.ToDouble(recipeData[WorkParamSections[2]]["InspectionDistance"]);
-            workParam._InspectionAngle = Convert.ToDouble(recipeData[WorkParamSections[2]]["InspectionAngle"]);
-            workParam._InspectionAngleIncrement = Convert.ToDouble(recipeData[WorkParamSections[2]]["InspectionAngleIncrement"]);
-            workParam._InspectionHeightPosition = Convert.ToDouble(recipeData[WorkParamSections[2]]["InspectionHeight"]);
-            workParam._InspectionHeightIncrement = Convert.ToDouble(recipeData[WorkParamSections[2]]["InspectionHeightIncrement"]);
-            workParam._InspectionMaxDistanceUseEnable = Convert.ToBoolean(recipeData[WorkParamSections[2]]["InspectionMaxDistanceEnable"]);
+            workParam._PCBAlignVisionEnable = Convert.ToBoolean(recipeData[WorkParamSections[2]]["PCBAlineVisionEnable"]);
+            workParam._InspectionLightBright = Convert.ToInt32(recipeData[WorkParamSections[2]]["InspectionLightBright"]);
+            workParam._AlignInspectionExposureTime = Convert.ToInt32(recipeData[WorkParamSections[2]]["AlignInspectionExposureTime"]);
+            workParam._InspectAlignVisionPath = Convert.ToString(recipeData[WorkParamSections[2]]["InspectAlignVisionPath"]);
+            workParam._SolderingInspectVisionEnable = Convert.ToBoolean(recipeData[WorkParamSections[2]]["SolderingInspectVisionEnable"]);
+            workParam._SolderingInspectionLightBright = Convert.ToInt32(recipeData[WorkParamSections[2]]["SolderingInspectionLightBright"]);
+            workParam._SolderInspectionExposureTime = Convert.ToInt32(recipeData[WorkParamSections[2]]["SolderInspectionExposureTime"]);
+            workParam._InspectSolderingVisionPath = Convert.ToString(recipeData[WorkParamSections[2]]["InspectSolderingVisionPath"]);
+            workParam._ImageAcquisitionDelaytime = Convert.ToInt32(recipeData[WorkParamSections[2]]["ImageAcquisitionDelaytime"]);
 
-            workParam._WorkPositionsCount = Convert.ToInt32(recipeData[WorkParamSections[3]]["InspectionPositionCount"]);
+            workParam._SolderingProcessEnable = Convert.ToBoolean(recipeData[WorkParamSections[3]]["SolderingProcessEnable"]);
+            workParam._UseLaserEnable = Convert.ToBoolean(recipeData[WorkParamSections[3]]["UseLaserEnable"]);
+            workParam._UseFeederEnable = Convert.ToBoolean(recipeData[WorkParamSections[3]]["UseFeederEnable"]);
+            workParam._LaserOffWaitTime = Convert.ToInt32(recipeData[WorkParamSections[3]]["LaserOffWaitTime"]);
 
             workParam.SolderPositionParams.Clear();
 
@@ -102,29 +99,26 @@ namespace RecipeManager
             recipeData[WorkParamSections[0]].AddKey("RecipeCreatorName", workParam.RecipeCreatorName);
 
             recipeData.Sections.AddSection(WorkParamSections[1]);
-            recipeData[WorkParamSections[1]].AddKey("ProductSeries", workParam._ProductSeries.ToString());
-            recipeData[WorkParamSections[1]].AddKey("ProductModelName", workParam._ProductModelName);
-            recipeData[WorkParamSections[1]].AddKey("ProductType", workParam._ProductType.ToString());
-            recipeData[WorkParamSections[1]].AddKey("ProductDistance", workParam._ProductDistance.ToString());
-            recipeData[WorkParamSections[1]].AddKey("ProductOperatingMode", workParam._ProductOperatingMdoe.ToString());
-            recipeData[WorkParamSections[1]].AddKey("ProductOutputType", workParam._ProductOutputType.ToString());
-            recipeData[WorkParamSections[1]].AddKey("ProductDetecMerterial", workParam._ProductDetectMerterial.ToString());
-            recipeData[WorkParamSections[1]].AddKey("ProductDistaneMargin", workParam._ProductDistanceMargin.ToString());
+            recipeData[WorkParamSections[1]].AddKey("PCBModelName", workParam._PCBModelName);
+            recipeData[WorkParamSections[1]].AddKey("PCBHorisontalSize", workParam._PCB_HorizontalSize.ToString());
+            recipeData[WorkParamSections[1]].AddKey("PCBVirticalSize", workParam._PCB_VerticalSize.ToString());
 
             recipeData.Sections.AddSection(WorkParamSections[2]);
-            recipeData[WorkParamSections[2]].AddKey("InspectionShortDistanceEnable", workParam._InspectionShortDistanceEnable.ToString());
-            recipeData[WorkParamSections[2]].AddKey("InspectionPerformanceEnable", workParam._InspectionPerformanceEnable.ToString());            
-            recipeData[WorkParamSections[2]].AddKey("InspectionShortDistance", workParam._InspectionShortDistance.ToString());
-            recipeData[WorkParamSections[2]].AddKey("InspectionSignalWaitTime", workParam._InspectionSignalDelaytime.ToString());            
-            recipeData[WorkParamSections[2]].AddKey("InspectionDistance", workParam._InspectionDistance.ToString());
-            recipeData[WorkParamSections[2]].AddKey("InspectionAngle", workParam._InspectionAngle.ToString());
-            recipeData[WorkParamSections[2]].AddKey("InspectionAngleIncrement", workParam._InspectionAngleIncrement.ToString());
-            recipeData[WorkParamSections[2]].AddKey("InspectionHeight", workParam._InspectionHeightPosition.ToString());
-            recipeData[WorkParamSections[2]].AddKey("InspectionHeightIncrement", workParam._InspectionHeightIncrement.ToString());
-            recipeData[WorkParamSections[2]].AddKey("InspectionMaxDistanceEnable", workParam._InspectionMaxDistanceUseEnable.ToString());
+            recipeData[WorkParamSections[2]].AddKey("PCBAlineVisionEnable", workParam._PCBAlignVisionEnable.ToString());
+            recipeData[WorkParamSections[2]].AddKey("InspectionLightBright", workParam._InspectionLightBright.ToString());            
+            recipeData[WorkParamSections[2]].AddKey("AlignInspectionExposureTime", workParam._AlignInspectionExposureTime.ToString());
+            recipeData[WorkParamSections[2]].AddKey("InspectAlignVisionPath", workParam._InspectAlignVisionPath);            
+            recipeData[WorkParamSections[2]].AddKey("SolderingInspectVisionEnable", workParam._SolderingInspectVisionEnable.ToString());
+            recipeData[WorkParamSections[2]].AddKey("SolderingInspectionLightBright", workParam._SolderingInspectionLightBright.ToString());
+            recipeData[WorkParamSections[2]].AddKey("SolderInspectionExposureTime", workParam._SolderInspectionExposureTime.ToString());
+            recipeData[WorkParamSections[2]].AddKey("InspectSolderingVisionPath", workParam._InspectSolderingVisionPath);
+            recipeData[WorkParamSections[2]].AddKey("ImageAcquisitionDelaytime", workParam._ImageAcquisitionDelaytime.ToString());
 
             recipeData.Sections.AddSection(WorkParamSections[3]);
-            recipeData[WorkParamSections[3]].AddKey("InspectionPositionCount", workParam.SolderPositionParams.Count.ToString());
+            recipeData[WorkParamSections[3]].AddKey("SolderingProcessEnable", workParam._SolderingProcessEnable.ToString());
+            recipeData[WorkParamSections[3]].AddKey("UseLaserEnable", workParam._UseLaserEnable.ToString());
+            recipeData[WorkParamSections[3]].AddKey("UseFeederEnable", workParam._UseFeederEnable.ToString());
+            recipeData[WorkParamSections[3]].AddKey("LaserOffWaitTime", workParam._LaserOffWaitTime.ToString());
 
             for (int i = 0; i < workParam.SolderPositionParams.Count; ++i)
             {
