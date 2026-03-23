@@ -75,6 +75,7 @@ namespace LaserSoldering
         private bool _IsFeederInPosition = false;
         private bool _IsAutoSolderEnd = true;
         private bool _IsInitialSoldering = false;
+        private bool _IsCommandFlag = false;
         private double _LaserPresentCurrent = 0;
         private double _LaserPresentPower = 0;
         private double _FeederUsedLength = 0;
@@ -102,6 +103,7 @@ namespace LaserSoldering
         public bool IsFeederError { get { return _IsFeederError; } set { _IsFeederError = value; } }
         public bool IsFeederInPosition { get { return _IsFeederInPosition; } set { _IsFeederInPosition = value; } }
         public bool IsInitialSoldering { get { return _IsInitialSoldering; } set { _IsInitialSoldering = value; } }
+        public bool IsCommandFlag { get { return _IsCommandFlag; } set { _IsCommandFlag = value; } }
         public string LaserIpAddress { get { return _TcpIpAddress; } set { _TcpIpAddress = value; } }
         public int LaserPort { get { return _TcpPort; } set { _TcpPort = value; } }        
         public byte LaserCookie { get { return _LaserCookie; } set { _LaserCookie = value; } }
@@ -767,7 +769,7 @@ namespace LaserSoldering
                                 if (_IsAutoSoldering)
                                 {
                                     JobSolder = _LaserSolderParam;
-                                    
+
                                     if (_LaserSource == LaserModule.CompactMini)
                                     {
                                         datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
@@ -785,7 +787,8 @@ namespace LaserSoldering
                                     _mFeederComm.SendData(data);
                                     data = _mFeederData.SetMoveTargetAccel(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingAcceleration * FeederParam.FeedermmToPulseRatio));
                                     _mFeederComm.SendData(data);
-                                    data = null; 
+                                    data = null;
+                                    _IsCommandFlag = false;
                                     FeederUsedLength += JobSolder.ForwordingWireLength;
                                     mCurrentHeatTime = 0;
                                     mCurrentPreHeatTime = 0;
@@ -828,16 +831,16 @@ namespace LaserSoldering
                                         _mCompactMiniComm.SendData(laserdata);
                                     }
                                     mSolderingEngineStep = LaserSolderStepType.Heat;
-                                }                                
+                                }
                                 break;
                             case LaserSolderStepType.Heat:
                                 data = new byte[20];
                                 data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
                                 _mFeederComm.SendData(data);
                                 data = null;
-                                CheckTackTime.Start();                                    
+                                CheckTackTime.Start();
                                 mSolderingEngineStep = LaserSolderStepType.HeatWireSupport;
-                                
+
                                 break;
                             case LaserSolderStepType.HeatWireSupport:
                                 //data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
@@ -848,7 +851,38 @@ namespace LaserSoldering
                                 if (((int)ts.TotalMilliseconds) > JobSolder.HeatTime)
                                 {
                                     mCurrentHeatTime = (int)ts.TotalMilliseconds;
-                                    CheckTackTime.Reset();  
+                                    CheckTackTime.Reset();
+                                    data = new byte[20];
+                                    data = _mFeederData.SetMoveTargetVelocity(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ReverseVelocity * FeederParam.FeedermmToPulseRatio));
+                                    _mFeederComm.SendData(data);
+                                    data = _mFeederData.SetMoveTargetAccel(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ReverseAcceleration * FeederParam.FeedermmToPulseRatio));
+                                    _mFeederComm.SendData(data);
+                                    //data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(-JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio));
+                                    //_mFeederComm.SendData(data);
+                                    //data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                    //_mFeederComm.SendData(data);
+                                    data = null;
+                                    FeederUsedLength += (-JobSolder.ReverseWireLength);
+                                    CheckTackTime.Start();
+                                    _IsCommandFlag = false;
+                                    mSolderingEngineStep = LaserSolderStepType.ReverseWire;
+                                }
+                                if (_IsFeederInPosition)
+                                {
+                                    if (_IsCommandFlag == false)
+                                    {
+                                        data = new byte[20];
+                                        data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(-JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio));
+                                        _mFeederComm.SendData(data);
+                                        data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                        _mFeederComm.SendData(data);
+                                        _IsCommandFlag = true;
+                                    }
+                                }
+                                break;
+                            case LaserSolderStepType.ReverseWire:
+                                if (_IsCommandFlag == false)
+                                {
                                     if (_LaserSource == LaserModule.CompactMini)
                                     {
                                         datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
@@ -857,44 +891,23 @@ namespace LaserSoldering
                                         datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
                                         data = _mCompactMiniData.GetSetPowerOn(false);
                                         _mCompactMiniComm.SendData(data);
-                                        //data = null;
-                                    }                                                 
-                                    data = new byte[20];
-                                    data = _mFeederData.SetMoveTargetVelocity(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ReverseVelocity * FeederParam.FeedermmToPulseRatio));
-                                    _mFeederComm.SendData(data);
-                                    data = _mFeederData.SetMoveTargetAccel(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ReverseAcceleration * FeederParam.FeedermmToPulseRatio));
-                                    _mFeederComm.SendData(data);
-                                    data = null;
-                                    FeederUsedLength += (-JobSolder.ReverseWireLength);
-                                    mSolderingEngineStep = LaserSolderStepType.ReverseWire;
+                                        _IsCommandFlag = true;
+                                    }
                                 }
-                                break;
-                            case LaserSolderStepType.ReverseWire:
                                 if (_IsFeederInPosition)
                                 {
-                                    data = new byte[20];
-                                    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(-JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio));
-                                    _mFeederComm.SendData(data);
-                                    data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
-                                    _mFeederComm.SendData(data);
-                                    data = null;
+
+                                    _IsAutoSoldering = false;
+                                    _IsAutoSolderEnd = true;
                                     CheckTackTime.Reset();
-                                    CheckTackTime.Start();
                                     mSolderingEngineStep = LaserSolderStepType.Finish;
                                 }
                                 break;
                             case LaserSolderStepType.Finish:
                                 // Insert Laser Gate Off I/O Command !!
-                                if (((int)ts.TotalMilliseconds) > 500)
-                                {
-                                    if (_IsFeederInPosition)
-                                    {
-                                        _IsAutoSoldering = false;
-                                        _IsAutoSolderEnd = true;
-                                        CheckTackTime.Reset();
-                                        mSolderingEngineStep = LaserSolderStepType.Idle;
-                                    }
-                                }
+                                //if (((int)ts.TotalMilliseconds) > 500)
+                                _IsCommandFlag = false;
+                                mSolderingEngineStep = LaserSolderStepType.Idle;
                                 break;
                             case LaserSolderStepType.Error:
                                 break;
