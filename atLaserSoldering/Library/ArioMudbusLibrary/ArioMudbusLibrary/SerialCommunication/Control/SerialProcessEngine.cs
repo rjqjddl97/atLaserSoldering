@@ -26,8 +26,8 @@ namespace ArioModbusLibrary.SerialCommunication.Control
         };
         private Thread engine;
 
-        private const int EngineSleepTime = 47;
-        private const int ReceiveBuffSize = 4096;
+        private const int EngineSleepTime = 97;
+        private const int ReceiveBuffSize = 1024;
         private SerialEngineStep mSerialEngineStep;
         private List<byte[]> mContinuousCheckList = new List<byte[]>();
         private Queue<byte[]> mCommandList = new Queue<byte[]>();
@@ -231,7 +231,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                 }
             }
         }
-        private void Run()
+        private async void Run()
         {
             byte[] data = null;
             int mContinuousCheckIndex = 0;
@@ -316,7 +316,8 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                 {
                     //Log.LogManager.AddSystemLog(Log.Log.LogType.Error, "CommunicateEngine::Run -> Fail to working.");
                 }
-                Task.Delay(EngineSleepTime);
+                //Thread.Sleep(EngineSleepTime);
+                await Task.Delay(EngineSleepTime);
             }
         }
     }

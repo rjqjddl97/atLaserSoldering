@@ -26,7 +26,7 @@ namespace CoherentCompactMini.SerialCommunication.Control
         };
         private Thread engine;
 
-        private const int EngineSleepTime = 200;
+        private const int EngineSleepTime = 53;
         private const int ReceiveBuffSize = 4096;
         private SerialEngineStep mSerialEngineStep;
         private List<byte[]> mContinuousCheckList = new List<byte[]>();
@@ -278,7 +278,7 @@ namespace CoherentCompactMini.SerialCommunication.Control
                 }                
             }
         }
-        private void Run()
+        private async void Run()
         {
             byte[] data = null;
             int mContinuousCheckIndex = 0;
@@ -363,7 +363,7 @@ namespace CoherentCompactMini.SerialCommunication.Control
                 {
                     //Log.LogManager.AddSystemLog(Log.Log.LogType.Error, "CommunicateEngine::Run -> Fail to working.");
                 }
-                Thread.Sleep(EngineSleepTime);
+                await Task.Delay(EngineSleepTime);
             }
         }
     }

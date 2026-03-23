@@ -398,7 +398,7 @@ namespace CustomPages
             textEditUserDefineValue.Enabled = false;
             JogControlPannelEnable();
             CoordinateControlPanelDisable();
-            UpdateTimer.Interval = 100;
+            UpdateTimer.Interval = 200;
             UpdateTimer.Elapsed += new ElapsedEventHandler(UpdateMotionData);
         }
         public void SetCommunicateManager(ref CommunicationManager manager)

@@ -26,8 +26,8 @@ namespace AiCControlLibrary.SerialCommunication.Control
         };
         private Thread engine;
 
-        private const int EngineSleepTime = 47;
-        private const int ReceiveBuffSize = 4096;
+        private const int EngineSleepTime = 53;
+        private const int ReceiveBuffSize = 1024;
         private SerialEngineStep mSerialEngineStep;
         private List<byte[]> mContinuousCheckList = new List<byte[]>();
         private Queue<byte[]> mCommandList = new Queue<byte[]>();
@@ -261,16 +261,11 @@ namespace AiCControlLibrary.SerialCommunication.Control
                     {
                         if (ReceivePacketBuff[1] > (byte)ModbusRTU.FunctionCodes.Exception)
                         {
-                            if (uiReceiveCount == 5)
+                            if (uiReceiveCount >= 5)
                             {                                
                                 //for (int j = 0; j < uiReceiveCount; j++) ReceivePacketBuff[j] = 0;
                                 uiReceiveCount = 0;
-                                IsReceiveStart = false;
-                            }
-                            else if (uiReceiveCount > 5)
-                            {
-                                //for (int j = 0; j < uiReceiveCount; j++) ReceivePacketBuff[j] = 0;
-                                uiReceiveCount = 0;
+                                IsReceiveAck = true;
                                 IsReceiveStart = false;
                             }
                         }
@@ -295,15 +290,9 @@ namespace AiCControlLibrary.SerialCommunication.Control
                         }
                         else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
                         {
-                            if (uiReceiveCount == 8)
+                            if (uiReceiveCount >= 8)
                             {
                                 //ParsingData(MainData);
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;                                
-                            }
-                            else if (uiReceiveCount > 8)
-                            {
-                                //for (int j = 0; j < ReCounter; j++) ReceivePacketBuff[j] = 0;
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
                                 IsReceiveAck = true;
@@ -313,7 +302,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
                 }                
             }
         }
-        private void Run()
+        private async void Run()
         {
             byte[] data = null;
             int mContinuousCheckIndex = 0;
@@ -358,14 +347,14 @@ namespace AiCControlLibrary.SerialCommunication.Control
                                 IsDequeueData = true;
                                 data = mDataTransferList.Dequeue();
 
-                                if (data != null)
-                                {
-                                    CurrentcountForDataTransfer++;
-                                    if (CurrentcountForDataTransfer >= MaximumCountForDataTransfer)
-                                    {
-                                        CurrentcountForDataTransfer = MaximumCountForDataTransfer = 0;
-                                    }
-                                }
+                                //if (data != null)
+                                //{
+                                //    CurrentcountForDataTransfer++;
+                                //    if (CurrentcountForDataTransfer >= MaximumCountForDataTransfer)
+                                //    {
+                                //        CurrentcountForDataTransfer = MaximumCountForDataTransfer = 0;
+                                //    }
+                                //}
                                 if (mDataTransferList.Count == 0)
                                 {
                                     IsDequeueData = false;                                    
@@ -402,7 +391,8 @@ namespace AiCControlLibrary.SerialCommunication.Control
                 {
                     //Log.LogManager.AddSystemLog(Log.Log.LogType.Error, "CommunicateEngine::Run -> Fail to working.");
                 }
-                Task.Delay(EngineSleepTime);
+                //Thread.Sleep(EngineSleepTime);
+                await Task.Delay(EngineSleepTime);
             }
         }
     }

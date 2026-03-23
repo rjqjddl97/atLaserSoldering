@@ -312,7 +312,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
                 }                
             }
         }
-        private void Run()
+        private async void Run()
         {
             byte[] data = null;
             int mContinuousCheckIndex = 0;
@@ -357,14 +357,14 @@ namespace FeederControlLibrary.SerialCommunication.Control
                                 IsDequeueData = true;
                                 data = mDataTransferList.Dequeue();
 
-                                if (data != null)
-                                {
-                                    CurrentcountForDataTransfer++;
-                                    if (CurrentcountForDataTransfer >= MaximumCountForDataTransfer)
-                                    {
-                                        CurrentcountForDataTransfer = MaximumCountForDataTransfer = 0;
-                                    }
-                                }
+                                //if (data != null)
+                                //{
+                                //    CurrentcountForDataTransfer++;
+                                //    if (CurrentcountForDataTransfer >= MaximumCountForDataTransfer)
+                                //    {
+                                //        CurrentcountForDataTransfer = MaximumCountForDataTransfer = 0;
+                                //    }
+                                //}
                                 if (mDataTransferList.Count == 0)
                                 {
                                     IsDequeueData = false;                                    
@@ -376,7 +376,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
                             }
                             else if (mContinuousCheckList.Count != 0)
                             {
-                                if (!IsReceiveStart)
+                                //if (!IsReceiveStart)
                                 {
                                     data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
                                     //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);
@@ -401,7 +401,8 @@ namespace FeederControlLibrary.SerialCommunication.Control
                 {
                     //Log.LogManager.AddSystemLog(Log.Log.LogType.Error, "CommunicateEngine::Run -> Fail to working.");
                 }
-                Thread.Sleep(EngineSleepTime);
+                await Task.Delay(EngineSleepTime);
+                //Thread.Sleep(EngineSleepTime);
             }
         }
     }

@@ -599,13 +599,13 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\DLL\XmlParser_MD_VC141_v3_1_Basler_pylon_v5_1.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\BaslerCamera.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\BaslerCamera.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\Basler.Pylon.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\LogLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\NLog.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\LogLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\Basler.Pylon.xml
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\obj\Debug\BaslerCamera.csprojAssemblyReference.cache
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\obj\Debug\BaslerCamera.csproj.CoreCompileInputs.cache
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\obj\Debug\BaslerCamera.csproj.CopyComplete
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\obj\Debug\BaslerCamera.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\obj\Debug\BaslerCamera.pdb
-D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\Basler.Pylon.dll
-D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\BaslerCamera\bin\Debug\Basler.Pylon.xml
