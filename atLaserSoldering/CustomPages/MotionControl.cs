@@ -48,7 +48,18 @@ namespace CustomPages
         public double[] _fdefineVelValue = new double[3];
         public double _fMenualMoveVelocity = 0;
 
-        public double[] _fPresentPosition = new double[6];
+        public double[] _fPresentPosition = new double[3];
+        public double[] _fTargetPosition = new double[3];
+        public double[] _fTargetVelocity = new double[3];
+        public double[] _fPresentVelocity = new double[3];
+        public int[] _iMotorRPM = new int[3];
+        public int[] _iOpmode = new int[3];
+        public int[] _iProgStep = new int[3];
+        public int[] _iDrvStatus1 = new int[3];
+        public int[] _iDrvStatus2 = new int[3];
+        public int[] _iDrvError1 = new int[3];
+        public int[] _iDrvError2 = new int[3];
+        public int[] _iDrvOutput = new int[3];
 
         public double _fAcceleration = 1000F;
         public bool _OperatingMode = false;
@@ -398,7 +409,7 @@ namespace CustomPages
             textEditUserDefineValue.Enabled = false;
             JogControlPannelEnable();
             CoordinateControlPanelDisable();
-            UpdateTimer.Interval = 200;
+            UpdateTimer.Interval = 100;
             UpdateTimer.Elapsed += new ElapsedEventHandler(UpdateMotionData);
         }
         public void SetCommunicateManager(ref CommunicationManager manager)
@@ -467,7 +478,203 @@ namespace CustomPages
                 }
             }
             SetMotionStatus(_mAiCData._mAiCMotionDatas);
-            RobotInfomationUpdatedEvent?.Invoke(_mRobotInfomation); 
+            RobotInfomationUpdatedEvent?.Invoke(_mRobotInfomation);
+
+            textEditOpMode1.BeginInvoke(new MethodInvoker(delegate { textEditOpMode1.EditValue = _iOpmode[0]; }));
+            textEditTargetPos1.BeginInvoke(new MethodInvoker(delegate { textEditTargetPos1.EditValue = _fTargetPosition[0]; }));
+            textEditPresentPosX.BeginInvoke(new MethodInvoker(delegate { textEditPresentPosX.EditValue = _fPresentPosition[0]; }));
+            textEditPresentPos1.BeginInvoke(new MethodInvoker(delegate { textEditPresentPos1.EditValue = _fPresentPosition[0]; }));
+            textEditTargetVel1.BeginInvoke(new MethodInvoker(delegate { textEditTargetVel1.EditValue = _fTargetVelocity[0]; }));
+            textEditPresentVel1.BeginInvoke(new MethodInvoker(delegate { textEditPresentVel1.EditValue = _fPresentVelocity[0]; }));
+            textEditMotorRPM1.BeginInvoke(new MethodInvoker(delegate { textEditMotorRPM1.EditValue = _iMotorRPM[0]; }));
+            textEditProgramStep1.BeginInvoke(new MethodInvoker(delegate { textEditProgramStep1.EditValue = _iProgStep[0]; }));
+
+            textEditOpMode2.BeginInvoke(new MethodInvoker(delegate { textEditOpMode2.EditValue = _iOpmode[1]; }));
+            textEditTargetPos2.BeginInvoke(new MethodInvoker(delegate { textEditTargetPos2.EditValue = _fTargetPosition[1]; }));
+            textEditPresentPosY.BeginInvoke(new MethodInvoker(delegate { textEditPresentPosY.EditValue = _fPresentPosition[1]; }));
+            textEditPresentPos2.BeginInvoke(new MethodInvoker(delegate { textEditPresentPos2.EditValue = _fPresentPosition[1]; }));
+            textEditTargetVel2.BeginInvoke(new MethodInvoker(delegate { textEditTargetVel2.EditValue = _fTargetVelocity[1]; }));
+            textEditPresentVel2.BeginInvoke(new MethodInvoker(delegate { textEditPresentVel2.EditValue = _fPresentVelocity[1]; }));
+            textEditMotorRPM2.BeginInvoke(new MethodInvoker(delegate { textEditMotorRPM2.EditValue = _iMotorRPM[1]; }));
+            textEditProgramStep2.BeginInvoke(new MethodInvoker(delegate { textEditProgramStep2.EditValue = _iProgStep[1]; }));
+
+            textEditOpMode3.BeginInvoke(new MethodInvoker(delegate { textEditOpMode3.EditValue = _iOpmode[2]; }));
+            textEditTargetPos3.BeginInvoke(new MethodInvoker(delegate { textEditTargetPos3.EditValue = _fTargetPosition[2]; }));
+            textEditPresentPosZ.BeginInvoke(new MethodInvoker(delegate { textEditPresentPosZ.EditValue = _fPresentPosition[2]; }));
+            textEditPresentPos3.BeginInvoke(new MethodInvoker(delegate { textEditPresentPos3.EditValue = _fPresentPosition[2]; }));
+            textEditTargetVel3.BeginInvoke(new MethodInvoker(delegate { textEditTargetVel3.EditValue = _fTargetVelocity[2]; }));
+            textEditPresentVel3.BeginInvoke(new MethodInvoker(delegate { textEditPresentVel3.EditValue = _fPresentVelocity[2]; }));
+            textEditMotorRPM3.BeginInvoke(new MethodInvoker(delegate { textEditMotorRPM3.EditValue = _iMotorRPM[2]; }));
+            textEditProgramStep3.BeginInvoke(new MethodInvoker(delegate { textEditProgramStep3.EditValue = _iProgStep[2]; }));
+            /*
+            if (textEditOpMode1.InvokeRequired)
+            {
+                textEditOpMode1.Invoke(new MethodInvoker(delegate { textEditOpMode1.EditValue = _iOpmode[0]; }));
+            }
+            else
+                textEditOpMode1.EditValue = _iOpmode[0];
+
+            if (textEditTargetPos1.InvokeRequired)
+            {
+                textEditTargetPos1.Invoke(new MethodInvoker(delegate { textEditTargetPos1.EditValue = _fTargetPosition[0]; }));
+            }
+            else
+                textEditTargetPos1.EditValue = _fTargetPosition[0];
+
+            if (textEditPresentPosX.InvokeRequired)
+            {
+                textEditPresentPosX.Invoke(new MethodInvoker(delegate { textEditPresentPosX.EditValue = _fPresentPosition[0]; }));
+            }
+            else
+                textEditPresentPosX.EditValue = _fPresentPosition[0];
+
+            if (textEditPresentPos1.InvokeRequired)
+            {
+                textEditPresentPos1.Invoke(new MethodInvoker(delegate { textEditPresentPos1.EditValue = _fPresentPosition[0]; }));
+            }
+            else
+                textEditPresentPos1.EditValue = _fPresentPosition[0];
+
+            if (textEditTargetVel1.InvokeRequired)
+            {
+                textEditTargetVel1.Invoke(new MethodInvoker(delegate { textEditTargetVel1.EditValue = _fTargetVelocity[0]; }));
+            }
+            else
+                textEditTargetVel1.EditValue = _fTargetVelocity[0];
+
+            if (textEditPresentVel1.InvokeRequired)
+            {
+                textEditPresentVel1.Invoke(new MethodInvoker(delegate { textEditPresentVel1.EditValue = _fPresentVelocity[0]; }));
+            }
+            else
+                textEditPresentVel1.EditValue = _fPresentVelocity[0];
+
+            if (textEditMotorRPM1.InvokeRequired)
+            {
+                textEditMotorRPM1.Invoke(new MethodInvoker(delegate { textEditMotorRPM1.EditValue = _iMotorRPM[0]; }));
+            }
+            else
+                textEditMotorRPM1.EditValue = _iMotorRPM[0];
+
+            if (textEditProgramStep1.InvokeRequired)
+            {
+                textEditProgramStep1.Invoke(new MethodInvoker(delegate { textEditProgramStep1.EditValue = _iProgStep[0]; }));
+            }
+            else
+                textEditProgramStep1.EditValue = _iProgStep[0];
+
+            if (textEditOpMode2.InvokeRequired)
+            {
+                textEditOpMode2.Invoke(new MethodInvoker(delegate { textEditOpMode2.EditValue = _iOpmode[1]; }));
+            }
+            else
+                textEditOpMode2.EditValue = _iOpmode[1];
+
+            if (textEditTargetPos2.InvokeRequired)
+            {
+                textEditTargetPos2.Invoke(new MethodInvoker(delegate { textEditTargetPos2.EditValue = _fTargetPosition[1]; }));
+            }
+            else
+                textEditTargetPos2.EditValue = _fTargetPosition[1];
+
+            if (textEditPresentPosY.InvokeRequired)
+            {
+                textEditPresentPosY.Invoke(new MethodInvoker(delegate { textEditPresentPosY.EditValue = _fPresentPosition[1]; }));
+            }
+            else
+                textEditPresentPosY.EditValue = _fPresentPosition[1];
+
+            if (textEditPresentPos2.InvokeRequired)
+            {
+                textEditPresentPos2.Invoke(new MethodInvoker(delegate { textEditPresentPos2.EditValue = _fPresentPosition[1]; }));
+            }
+            else
+                textEditPresentPos2.EditValue = _fPresentPosition[1];
+
+            if (textEditTargetVel2.InvokeRequired)
+            {
+                textEditTargetVel2.Invoke(new MethodInvoker(delegate { textEditTargetVel2.EditValue = _fTargetVelocity[1]; }));
+            }
+            else
+                textEditTargetVel2.EditValue = _fTargetVelocity[1];
+
+            if (textEditPresentVel2.InvokeRequired)
+            {
+                textEditPresentVel2.Invoke(new MethodInvoker(delegate { textEditPresentVel2.EditValue = _fPresentVelocity[1]; }));
+            }
+            else
+                textEditPresentVel2.EditValue = _fPresentVelocity[1];
+
+            if (textEditMotorRPM2.InvokeRequired)
+            {
+                textEditMotorRPM2.Invoke(new MethodInvoker(delegate { textEditMotorRPM2.EditValue = _iMotorRPM[1]; }));
+            }
+            else
+                textEditMotorRPM2.EditValue = _iMotorRPM[1];
+
+            if (textEditProgramStep2.InvokeRequired)
+            {
+                textEditProgramStep2.Invoke(new MethodInvoker(delegate { textEditProgramStep2.EditValue = _iProgStep[1]; }));
+            }
+            else
+                textEditProgramStep2.EditValue = _iProgStep[1];
+
+            if (textEditOpMode3.InvokeRequired)
+            {
+                textEditOpMode3.Invoke(new MethodInvoker(delegate { textEditOpMode3.EditValue = _iOpmode[2]; }));
+            }
+            else
+                textEditOpMode2.EditValue = _iOpmode[1];
+
+            if (textEditTargetPos3.InvokeRequired)
+            {
+                textEditTargetPos3.Invoke(new MethodInvoker(delegate { textEditTargetPos3.EditValue = _fTargetPosition[2]; }));
+            }
+            else
+                textEditTargetPos3.EditValue = _fTargetPosition[2];
+
+            if (textEditPresentPosZ.InvokeRequired)
+            {
+                textEditPresentPosZ.Invoke(new MethodInvoker(delegate { textEditPresentPosZ.EditValue = _fPresentPosition[2]; }));
+            }
+            else
+                textEditPresentPosZ.EditValue = _fPresentPosition[2];
+
+            if (textEditPresentPos3.InvokeRequired)
+            {
+                textEditPresentPos3.Invoke(new MethodInvoker(delegate { textEditPresentPos3.EditValue = _fPresentPosition[2]; }));
+            }
+            else
+                textEditPresentPos3.EditValue = _fPresentPosition[2];
+
+            if (textEditTargetVel3.InvokeRequired)
+            {
+                textEditTargetVel3.Invoke(new MethodInvoker(delegate { textEditTargetVel3.EditValue = _fTargetVelocity[2]; }));
+            }
+            else
+                textEditTargetVel3.EditValue = _fTargetVelocity[2];
+
+            if (textEditPresentVel3.InvokeRequired)
+            {
+                textEditPresentVel3.Invoke(new MethodInvoker(delegate { textEditPresentVel3.EditValue = _fPresentVelocity[2]; }));
+            }
+            else
+                textEditPresentVel3.EditValue = _fPresentVelocity[2];
+
+            if (textEditMotorRPM3.InvokeRequired)
+            {
+                textEditMotorRPM3.Invoke(new MethodInvoker(delegate { textEditMotorRPM3.EditValue = _iMotorRPM[2]; }));
+            }
+            else
+                textEditMotorRPM3.EditValue = _iMotorRPM[2];
+
+            if (textEditProgramStep3.InvokeRequired)
+            {
+                textEditProgramStep3.Invoke(new MethodInvoker(delegate { textEditProgramStep3.EditValue = _iProgStep[2]; }));
+            }
+            else
+                textEditProgramStep3.EditValue = _iProgStep[2];
+            */
         }
         public void ShowStatus(DevExpress.XtraEditors.LabelControl label, bool status)
         {
@@ -520,86 +727,96 @@ namespace CustomPages
                         {
                             Array.Copy(info._CurrentDatas, 0, itempval, 0, 1);
 
-                            if (textEditOpMode1.InvokeRequired)
-                            {
-                                textEditOpMode1.Invoke(new MethodInvoker(delegate { textEditOpMode1.EditValue = Convert.ToInt32(itempval[0]); }));
-                            }
-                            else
-                                textEditOpMode1.EditValue = Convert.ToInt32(itempval[0]);
+                            _iOpmode[0] = Convert.ToInt32(itempval[0]);
+                            //if (textEditOpMode1.InvokeRequired)
+                            //{
+                            //    textEditOpMode1.Invoke(new MethodInvoker(delegate { textEditOpMode1.EditValue = Convert.ToInt32(itempval[0]); }));
+                            //}
+                            //else
+                            //    textEditOpMode1.EditValue = Convert.ToInt32(itempval[0]);
 
                             Array.Copy(info._CurrentDatas, 1, itempval, 0, 2);
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
 
-                            if (textEditTargetPos1.InvokeRequired)
-                            {
-                                textEditTargetPos1.Invoke(new MethodInvoker(delegate { textEditTargetPos1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
-                            }
-                            else
-                                textEditTargetPos1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
+                            _fTargetPosition[0] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
+
+                            //if (textEditTargetPos1.InvokeRequired)
+                            //{
+                            //    textEditTargetPos1.Invoke(new MethodInvoker(delegate { textEditTargetPos1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
+                            //}
+                            //else
+                            //    textEditTargetPos1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
 
                             Array.Copy(info._CurrentDatas, 3, itempval, 0, 2);
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
 
-                            if (textEditPresentPosX.InvokeRequired)
-                            {
-                                textEditPresentPosX.Invoke(new MethodInvoker(delegate { textEditPresentPosX.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
-                            }
-                            else
-                                textEditPresentPosX.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
+                            _fPresentPosition[0] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
 
-                            if (textEditPresentPos1.InvokeRequired)
-                            {
-                                textEditPresentPos1.Invoke(new MethodInvoker(delegate { textEditPresentPos1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
-                            }
-                            else
-                                textEditPresentPos1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
+                            //if (textEditPresentPosX.InvokeRequired)
+                            //{
+                            //    textEditPresentPosX.Invoke(new MethodInvoker(delegate { textEditPresentPosX.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
+                            //}
+                            //else
+                            //    textEditPresentPosX.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
+
+                            //if (textEditPresentPos1.InvokeRequired)
+                            //{
+                            //    textEditPresentPos1.Invoke(new MethodInvoker(delegate { textEditPresentPos1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
+                            //}
+                            //else
+                            //    textEditPresentPos1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
 
                             Array.Copy(info._CurrentDatas, 5, itempval, 0, 2);
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
 
-                            if (textEditTargetVel1.InvokeRequired)
-                            {
-                                textEditTargetVel1.Invoke(new MethodInvoker(delegate { textEditTargetVel1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
-                            }
-                            else
-                                textEditTargetVel1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
+                            _fTargetVelocity[0] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
+
+                            //if (textEditTargetVel1.InvokeRequired)
+                            //{
+                            //    textEditTargetVel1.Invoke(new MethodInvoker(delegate { textEditTargetVel1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
+                            //}
+                            //else
+                            //    textEditTargetVel1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
 
                             Array.Copy(info._CurrentDatas, 7, itempval, 0, 2);
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
 
-                            if (textEditPresentVel1.InvokeRequired)
-                            {
-                                textEditPresentVel1.Invoke(new MethodInvoker(delegate { textEditPresentVel1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
-                            }
-                            else
-                                textEditPresentVel1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
+                            _fPresentVelocity[0] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
+                            //if (textEditPresentVel1.InvokeRequired)
+                            //{
+                            //    textEditPresentVel1.Invoke(new MethodInvoker(delegate { textEditPresentVel1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
+                            //}
+                            //else
+                            //    textEditPresentVel1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX);
 
                             Array.Copy(info._CurrentDatas, 9, itempval, 0, 1);
 
-                            if (textEditMotorRPM1.InvokeRequired)
-                            {
-                                textEditMotorRPM1.Invoke(new MethodInvoker(delegate { textEditMotorRPM1.EditValue = Convert.ToInt32(itempval[0]); }));
-                            }
-                            else
-                                textEditMotorRPM1.EditValue = Convert.ToInt32(itempval[0]);
+                            _iMotorRPM[0] = Convert.ToInt32(itempval[0]);
+                            //if (textEditMotorRPM1.InvokeRequired)
+                            //{
+                            //    textEditMotorRPM1.Invoke(new MethodInvoker(delegate { textEditMotorRPM1.EditValue = Convert.ToInt32(itempval[0]); }));
+                            //}
+                            //else
+                            //    textEditMotorRPM1.EditValue = Convert.ToInt32(itempval[0]);
 
                             Array.Copy(info._CurrentDatas, 10, itempval, 0, 1);
 
-                            if (textEditProgramStep1.InvokeRequired)
-                            {
-                                textEditProgramStep1.Invoke(new MethodInvoker(delegate { textEditProgramStep1.EditValue = Convert.ToInt32(itempval[0]); }));
-                            }
-                            else
-                                textEditProgramStep1.EditValue = Convert.ToInt32(itempval[0]);
+                            _iProgStep[0] = Convert.ToInt32(itempval[0]);
+                            //if (textEditProgramStep1.InvokeRequired)
+                            //{
+                            //    textEditProgramStep1.Invoke(new MethodInvoker(delegate { textEditProgramStep1.EditValue = Convert.ToInt32(itempval[0]); }));
+                            //}
+                            //else
+                            //    textEditProgramStep1.EditValue = Convert.ToInt32(itempval[0]);
 
-                            Array.Copy(info._CurrentDatas, 11, itempval, 0, 1);
+                            Array.Copy(info._CurrentDatas, 11, itempval, 0, 1);                            
                             _mAiCCommunicationManager.mDrvCtrl.AlarmError1[0].SetData(Convert.ToUInt16(itempval[0]));
 
-                            Array.Copy(info._CurrentDatas, 12, itempval, 0, 1);
+                            Array.Copy(info._CurrentDatas, 12, itempval, 0, 1);                            
                             _mAiCCommunicationManager.mDrvCtrl.AlarmError2[0].SetData(Convert.ToUInt16(itempval[0]));
 
                             Array.Copy(info._CurrentDatas, 13, itempval, 0, 1);
@@ -614,85 +831,86 @@ namespace CustomPages
                         else if (info._Id == 2)
                         {
                             Array.Copy(info._CurrentDatas, 0, itempval, 0, 1);
-
-                            if (textEditOpMode2.InvokeRequired)
-                            {
-                                textEditOpMode2.Invoke(new MethodInvoker(delegate { textEditOpMode2.EditValue = Convert.ToInt32(itempval[1]); }));
-                            }
-                            else
-                                textEditOpMode2.EditValue = Convert.ToInt32(itempval[1]);
+                            _iOpmode[1] = Convert.ToInt32(itempval[0]);
+                            //if (textEditOpMode2.InvokeRequired)
+                            //{
+                            //    textEditOpMode2.Invoke(new MethodInvoker(delegate { textEditOpMode2.EditValue = Convert.ToInt32(itempval[1]); }));
+                            //}
+                            //else
+                            //    textEditOpMode2.EditValue = Convert.ToInt32(itempval[1]);
 
                             Array.Copy(info._CurrentDatas, 1, itempval, 0, 2);
 
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
 
-                            if (textEditTargetPos2.InvokeRequired)
-                            {
-                                textEditTargetPos2.Invoke(new MethodInvoker(delegate { textEditTargetPos2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY); }));
-                            }
-                            else
-                                textEditTargetPos2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
+                            _fTargetPosition[1] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
+                            //if (textEditTargetPos2.InvokeRequired)
+                            //{
+                            //    textEditTargetPos2.Invoke(new MethodInvoker(delegate { textEditTargetPos2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY); }));
+                            //}
+                            //else
+                            //    textEditTargetPos2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
 
                             Array.Copy(info._CurrentDatas, 3, itempval, 0, 2);
 
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
+                            _fPresentPosition[1] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
+                            //if (textEditPresentPosY.InvokeRequired)
+                            //{
+                            //    textEditPresentPosY.Invoke(new MethodInvoker(delegate { textEditPresentPosY.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY); }));
+                            //}
+                            //else
+                            //    textEditPresentPosY.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
 
-                            if (textEditPresentPosY.InvokeRequired)
-                            {
-                                textEditPresentPosY.Invoke(new MethodInvoker(delegate { textEditPresentPosY.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY); }));
-                            }
-                            else
-                                textEditPresentPosY.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
-
-                            if (textEditPresentPos2.InvokeRequired)
-                            {
-                                textEditPresentPos2.Invoke(new MethodInvoker(delegate { textEditPresentPos2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY); }));
-                            }
-                            else
-                                textEditPresentPos2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
+                            //if (textEditPresentPos2.InvokeRequired)
+                            //{
+                            //    textEditPresentPos2.Invoke(new MethodInvoker(delegate { textEditPresentPos2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY); }));
+                            //}
+                            //else
+                            //    textEditPresentPos2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
 
 
                             Array.Copy(info._CurrentDatas, 5, itempval, 0, 2);
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
-
-                            if (textEditTargetVel2.InvokeRequired)
-                            {
-                                textEditTargetVel2.Invoke(new MethodInvoker(delegate { textEditTargetVel2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY); }));
-                            }
-                            else
-                                textEditTargetVel2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
+                            _fTargetVelocity[1] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
+                            //if (textEditTargetVel2.InvokeRequired)
+                            //{
+                            //    textEditTargetVel2.Invoke(new MethodInvoker(delegate { textEditTargetVel2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY); }));
+                            //}
+                            //else
+                            //    textEditTargetVel2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
 
                             Array.Copy(info._CurrentDatas, 7, itempval, 0, 2);
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
-
-                            if (textEditPresentVel2.InvokeRequired)
-                            {
-                                textEditPresentVel2.Invoke(new MethodInvoker(delegate { textEditPresentVel2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY); }));
-                            }
-                            else
-                                textEditPresentVel2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
+                            _fPresentVelocity[1] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
+                            //if (textEditPresentVel2.InvokeRequired)
+                            //{
+                            //    textEditPresentVel2.Invoke(new MethodInvoker(delegate { textEditPresentVel2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY); }));
+                            //}
+                            //else
+                            //    textEditPresentVel2.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioY);
 
                             Array.Copy(info._CurrentDatas, 9, itempval, 0, 1);
-
-                            if (textEditMotorRPM2.InvokeRequired)
-                            {
-                                textEditMotorRPM2.Invoke(new MethodInvoker(delegate { textEditMotorRPM2.EditValue = Convert.ToInt32(itempval[0]); }));
-                            }
-                            else
-                                textEditMotorRPM2.EditValue = Convert.ToInt32(itempval[0]);
+                            _iMotorRPM[1] = Convert.ToInt32(itempval[0]);
+                            //if (textEditMotorRPM2.InvokeRequired)
+                            //{
+                            //    textEditMotorRPM2.Invoke(new MethodInvoker(delegate { textEditMotorRPM2.EditValue = Convert.ToInt32(itempval[0]); }));
+                            //}
+                            //else
+                            //    textEditMotorRPM2.EditValue = Convert.ToInt32(itempval[0]);
 
                             Array.Copy(info._CurrentDatas, 10, itempval, 0, 1);
-
-                            if (textEditProgramStep2.InvokeRequired)
-                            {
-                                textEditProgramStep2.Invoke(new MethodInvoker(delegate { textEditProgramStep2.EditValue = Convert.ToInt32(itempval[0]); }));
-                            }
-                            else
-                                textEditProgramStep2.EditValue = Convert.ToInt32(itempval[0]);
+                            _iProgStep[1] = Convert.ToInt32(itempval[0]);
+                            //if (textEditProgramStep2.InvokeRequired)
+                            //{
+                            //    textEditProgramStep2.Invoke(new MethodInvoker(delegate { textEditProgramStep2.EditValue = Convert.ToInt32(itempval[0]); }));
+                            //}
+                            //else
+                            //    textEditProgramStep2.EditValue = Convert.ToInt32(itempval[0]);
 
                             Array.Copy(info._CurrentDatas, 11, itempval, 0, 1);
                             _mAiCCommunicationManager.mDrvCtrl.AlarmError1[1].SetData(Convert.ToUInt16(itempval[0]));
@@ -712,82 +930,84 @@ namespace CustomPages
                         else if (info._Id == 3)
                         {
                             Array.Copy(info._CurrentDatas, 0, itempval, 0, 1);
-
-                            if (textEditOpMode3.InvokeRequired)
-                            {
-                                textEditOpMode3.Invoke(new MethodInvoker(delegate { textEditOpMode3.EditValue = Convert.ToInt32(itempval[0]); }));
-                            }
-                            else
-                                textEditOpMode3.EditValue = Convert.ToInt32(itempval[0]);
+                            _iOpmode[2] = Convert.ToInt32(itempval[0]);
+                            //if (textEditOpMode3.InvokeRequired)
+                            //{
+                            //    textEditOpMode3.Invoke(new MethodInvoker(delegate { textEditOpMode3.EditValue = Convert.ToInt32(itempval[0]); }));
+                            //}
+                            //else
+                            //    textEditOpMode3.EditValue = Convert.ToInt32(itempval[0]);
 
                             Array.Copy(info._CurrentDatas, 1, itempval, 0, 2);
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
 
-                            if (textEditTargetPos3.InvokeRequired)
-                            {
-                                textEditTargetPos3.Invoke(new MethodInvoker(delegate { textEditTargetPos3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ); }));
-                            }
-                            else
-                                textEditTargetPos3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
+                            _fTargetPosition[2] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
+
+                            //if (textEditTargetPos3.InvokeRequired)
+                            //{
+                            //    textEditTargetPos3.Invoke(new MethodInvoker(delegate { textEditTargetPos3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ); }));
+                            //}
+                            //else
+                            //    textEditTargetPos3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
 
                             Array.Copy(info._CurrentDatas, 3, itempval, 0, 2);
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
+                            _fPresentPosition[2] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
+                            //if (textEditPresentPosZ.InvokeRequired)
+                            //{
+                            //    textEditPresentPosZ.Invoke(new MethodInvoker(delegate { textEditPresentPosZ.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ); }));
+                            //}
+                            //else
+                            //    textEditPresentPosZ.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
 
-                            if (textEditPresentPosZ.InvokeRequired)
-                            {
-                                textEditPresentPosZ.Invoke(new MethodInvoker(delegate { textEditPresentPosZ.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ); }));
-                            }
-                            else
-                                textEditPresentPosZ.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
-
-                            if (textEditPresentPos3.InvokeRequired)
-                            {
-                                textEditPresentPos3.Invoke(new MethodInvoker(delegate { textEditPresentPos3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ); }));
-                            }
-                            else
-                                textEditPresentPos3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
+                            //if (textEditPresentPos3.InvokeRequired)
+                            //{
+                            //    textEditPresentPos3.Invoke(new MethodInvoker(delegate { textEditPresentPos3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ); }));
+                            //}
+                            //else
+                            //    textEditPresentPos3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
 
                             Array.Copy(info._CurrentDatas, 5, itempval, 0, 2);
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
-
-                            if (textEditTargetVel3.InvokeRequired)
-                            {
-                                textEditTargetVel3.Invoke(new MethodInvoker(delegate { textEditTargetVel3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ); }));
-                            }
-                            else
-                                textEditTargetVel3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
+                            _fTargetVelocity[2] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
+                            //if (textEditTargetVel3.InvokeRequired)
+                            //{
+                            //    textEditTargetVel3.Invoke(new MethodInvoker(delegate { textEditTargetVel3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ); }));
+                            //}
+                            //else
+                            //    textEditTargetVel3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
 
                             Array.Copy(info._CurrentDatas, 7, itempval, 0, 2);
                             datasum = itempval[0];
                             datasum = (datasum << 16) | itempval[1];
-
-                            if (textEditPresentVel3.InvokeRequired)
-                            {
-                                textEditPresentVel3.Invoke(new MethodInvoker(delegate { textEditPresentVel3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ); }));
-                            }
-                            else
-                                textEditPresentVel3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
+                            _fPresentVelocity[2] = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
+                            //if (textEditPresentVel3.InvokeRequired)
+                            //{
+                            //    textEditPresentVel3.Invoke(new MethodInvoker(delegate { textEditPresentVel3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ); }));
+                            //}
+                            //else
+                            //    textEditPresentVel3.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioZ);
 
                             Array.Copy(info._CurrentDatas, 9, itempval, 0, 1);
-
-                            if (textEditMotorRPM3.InvokeRequired)
-                            {
-                                textEditMotorRPM3.Invoke(new MethodInvoker(delegate { textEditMotorRPM3.EditValue = Convert.ToInt32(itempval[0]); }));
-                            }
-                            else
-                                textEditMotorRPM3.EditValue = Convert.ToInt32(itempval[0]);
+                            _iMotorRPM[2] = Convert.ToInt32(itempval[0]);
+                            //if (textEditMotorRPM3.InvokeRequired)
+                            //{
+                            //    textEditMotorRPM3.Invoke(new MethodInvoker(delegate { textEditMotorRPM3.EditValue = Convert.ToInt32(itempval[0]); }));
+                            //}
+                            //else
+                            //    textEditMotorRPM3.EditValue = Convert.ToInt32(itempval[0]);
 
                             Array.Copy(info._CurrentDatas, 10, itempval, 0, 1);
-
-                            if (textEditProgramStep3.InvokeRequired)
-                            {
-                                textEditProgramStep3.Invoke(new MethodInvoker(delegate { textEditProgramStep3.EditValue = Convert.ToInt32(itempval[0]); }));
-                            }
-                            else
-                                textEditProgramStep3.EditValue = Convert.ToInt32(itempval[0]);
+                            _iProgStep[2] = Convert.ToInt32(itempval[0]);
+                            //if (textEditProgramStep3.InvokeRequired)
+                            //{
+                            //    textEditProgramStep3.Invoke(new MethodInvoker(delegate { textEditProgramStep3.EditValue = Convert.ToInt32(itempval[0]); }));
+                            //}
+                            //else
+                            //    textEditProgramStep3.EditValue = Convert.ToInt32(itempval[0]);
 
                             Array.Copy(info._CurrentDatas, 11, itempval, 0, 1);
                             _mAiCCommunicationManager.mDrvCtrl.AlarmError1[2].SetData(Convert.ToUInt16(itempval[0]));
@@ -809,9 +1029,12 @@ namespace CustomPages
                         DriveInfoStatus(2);
                         DriveInfoStatus(3);
 
-                        _mRobotInfomation.PositionX = Convert.ToDouble(textEditPresentPosX.Text);
-                        _mRobotInfomation.PositionY = Convert.ToDouble(textEditPresentPosY.Text);
-                        _mRobotInfomation.PositionZ = Convert.ToDouble(textEditPresentPosZ.Text);
+                        _mRobotInfomation.PositionX = _fPresentPosition[0];
+                        _mRobotInfomation.PositionY = _fPresentPosition[1];
+                        _mRobotInfomation.PositionZ = _fPresentPosition[2];
+                        //_mRobotInfomation.PositionX = Convert.ToDouble(textEditPresentPosX.Text);
+                        //_mRobotInfomation.PositionY = Convert.ToDouble(textEditPresentPosY.Text);
+                        //_mRobotInfomation.PositionZ = Convert.ToDouble(textEditPresentPosZ.Text);
 
                         if (Convert.ToBoolean(_mAiCData.OutputStaus[0].B4) && Convert.ToBoolean(_mAiCData.OutputStaus[1].B4) && Convert.ToBoolean(_mAiCData.OutputStaus[2].B4))
                         //if ( Convert.ToBoolean(_mAiCData.OutputStaus[0].B4) )
@@ -824,14 +1047,14 @@ namespace CustomPages
                             _mRobotInfomation.SetStatus(RecipeManager.RobotInformation.RobotStatus.ServoOn, false);
                             _isRobotEnable = false;
                         }
-                        if ( (Convert.ToDouble(textEditTargetVel1.Text) != 0) && (Convert.ToDouble(textEditTargetVel2.Text) != 0) && (Convert.ToDouble(textEditTargetVel3.Text) != 0) )
-                        //if ( (Convert.ToDouble(textEditTargetVel1.Text) != 0) )
+
+                        //if ( (Convert.ToDouble(textEditTargetVel1.Text) != 0) && (Convert.ToDouble(textEditTargetVel2.Text) != 0) && (Convert.ToDouble(textEditTargetVel3.Text) != 0) )                        
+                        if ((_fTargetVelocity[0] != 0) && (_fTargetVelocity[1] != 0) && (_fTargetVelocity[2] != 0))
                             _mRobotInfomation.SetStatus(RecipeManager.RobotInformation.RobotStatus.Moving, true);
                         else
                             _mRobotInfomation.SetStatus(RecipeManager.RobotInformation.RobotStatus.Moving, false);
 
-                        if (Convert.ToBoolean(_mAiCData.OutputStaus[0].B1) && Convert.ToBoolean(_mAiCData.OutputStaus[1].B1) && Convert.ToBoolean(_mAiCData.OutputStaus[2].B1))                        
-                        //if (Convert.ToBoolean(_mAiCData.OutputStaus[0].B1))
+                        if (Convert.ToBoolean(_mAiCData.OutputStaus[0].B1) && Convert.ToBoolean(_mAiCData.OutputStaus[1].B1) && Convert.ToBoolean(_mAiCData.OutputStaus[2].B1))                                                
                             _mRobotInfomation.SetStatus(RecipeManager.RobotInformation.RobotStatus.Inposition, true);                        
                         else
                             _mRobotInfomation.SetStatus(RecipeManager.RobotInformation.RobotStatus.Inposition, false);

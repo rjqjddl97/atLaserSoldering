@@ -339,11 +339,14 @@ namespace CoherentCompactMini.SerialCommunication.Control
                                     data = mCommandList.Dequeue();
                                 }
                                 else if (mContinuousCheckList.Count != 0)
-                                {   
-                                    data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
-                                    m_CompactMiniDataCtrl.SetRequestedCommand(CompactMiniData.CommandMessage.RDX);
-                                    if (mContinuousCheckIndex >= mContinuousCheckList.Count)
-                                        mContinuousCheckIndex = 0;                                    
+                                {
+                                    if (IsReceiveAck)
+                                    {
+                                        data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
+                                        m_CompactMiniDataCtrl.SetRequestedCommand(CompactMiniData.CommandMessage.RDX);
+                                        if (mContinuousCheckIndex >= mContinuousCheckList.Count)
+                                            mContinuousCheckIndex = 0;
+                                    }
                                 }
                             }
                             break;

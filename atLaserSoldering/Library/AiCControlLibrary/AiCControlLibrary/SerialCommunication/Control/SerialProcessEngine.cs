@@ -26,7 +26,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
         };
         private Thread engine;
 
-        private const int EngineSleepTime = 53;
+        private const int EngineSleepTime = 47;         //11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,479
         private const int ReceiveBuffSize = 1024;
         private SerialEngineStep mSerialEngineStep;
         private List<byte[]> mContinuousCheckList = new List<byte[]>();
@@ -271,18 +271,14 @@ namespace AiCControlLibrary.SerialCommunication.Control
                         }
                         else if ((ReceivePacketBuff[1] != (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) && (ReceivePacketBuff[1] != (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister) && (ReceivePacketBuff[1] != (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleCoils) && (ReceivePacketBuff[1] != (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters))
                         {
-                            if (uiReceiveCount == ReceivePacketBuff[2] + 5)
+                            if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
                             {
-                                byte[] MainBuffer = new byte[uiReceiveCount];
-                                Buffer.BlockCopy(ReceivePacketBuff, 0, MainBuffer, 0, (int)uiReceiveCount);
-                                ParsingData(ReceivePacketBuff);
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;
-                                IsReceiveAck = true;
-                            }
-                            else if (uiReceiveCount > ReceivePacketBuff[2] + 5)
-                            {
-                                //for (int j = 0; j < ReCounter; j++) ReceivePacketBuff[j] = 0;
+                                if (uiReceiveCount == ReceivePacketBuff[2] + 5)
+                                {
+                                    byte[] MainBuffer = new byte[uiReceiveCount];
+                                    Buffer.BlockCopy(ReceivePacketBuff, 0, MainBuffer, 0, (int)uiReceiveCount);
+                                    ParsingData(ReceivePacketBuff);
+                                }
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
                                 IsReceiveAck = true;
@@ -366,7 +362,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
                             }
                             else if (mContinuousCheckList.Count != 0)
                             {
-                                if (!IsReceiveStart)
+                                //if (!IsReceiveStart)
                                 {
                                     data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
                                     //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);

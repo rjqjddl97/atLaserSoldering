@@ -719,6 +719,8 @@ namespace LaserSoldering
                         data = new byte[100];
                         data = _mFeederData.DriveInitialSetting(_mFeederComm.mFeedCtrl.DrvID[0], 100, (int)Math.Round(30D * _FeederParam.FeedermmToPulseRatio), 50, 50);
                         _mFeederComm.SendData(data);
+                        data = _mFeederData.SetMoveTargetAccel(_mFeederData.DrvID[0], (int)1000);
+                        _mFeederComm.SendData(data);
                     }
                     _mCompactMiniComm.InitialPeriodReqStatus();
                     _IsInitialSoldering = true;

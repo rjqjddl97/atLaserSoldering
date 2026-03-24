@@ -206,10 +206,10 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                         {
                             if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
                             {
-                                byte[] MainData = new byte[uiReceiveCount];
-                                Buffer.BlockCopy(ReceivePacketBuff, 0, MainData, 0, (int)uiReceiveCount);
                                 if (uiReceiveCount == ReceivePacketBuff[2] + 5)
                                 {
+                                    byte[] MainData = new byte[uiReceiveCount];
+                                    Buffer.BlockCopy(ReceivePacketBuff, 0, MainData, 0, (int)uiReceiveCount);
                                     ParsingData(MainData);                                    
                                 }
                                 uiReceiveCount = 0;

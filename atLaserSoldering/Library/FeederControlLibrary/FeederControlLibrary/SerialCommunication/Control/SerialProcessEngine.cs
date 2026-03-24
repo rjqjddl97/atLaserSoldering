@@ -260,33 +260,24 @@ namespace FeederControlLibrary.SerialCommunication.Control
                     {
                         if (ReceivePacketBuff[1] > (byte)ModbusRTU.FunctionCodes.Exception)
                         {
-                            if (uiReceiveCount == 5)
+                            if (uiReceiveCount >= 5)
                             {                                
                                 //for (int j = 0; j < uiReceiveCount; j++) ReceivePacketBuff[j] = 0;
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
-                            }
-                            else if (uiReceiveCount > 5)
-                            {
-                                //for (int j = 0; j < uiReceiveCount; j++) ReceivePacketBuff[j] = 0;
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;
+                                IsReceiveAck = true;
                             }
                         }
                         else if ((ReceivePacketBuff[1] != (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) && (ReceivePacketBuff[1] != (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister) && (ReceivePacketBuff[1] != (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleCoils) && (ReceivePacketBuff[1] != (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters))
                         {
-                            if (uiReceiveCount == ReceivePacketBuff[2] + 5)
+                            if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
                             {
-                                byte[] MainBuffer = new byte[uiReceiveCount];
-                                Buffer.BlockCopy(ReceivePacketBuff, 0, MainBuffer, 0, (int)uiReceiveCount);
-                                ParsingData(ReceivePacketBuff);
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;
-                                IsReceiveAck = true;
-                            }
-                            else if (uiReceiveCount > ReceivePacketBuff[2] + 5)
-                            {
-                                //for (int j = 0; j < ReCounter; j++) ReceivePacketBuff[j] = 0;
+                                if (uiReceiveCount == ReceivePacketBuff[2] + 5)
+                                {
+                                    byte[] MainBuffer = new byte[uiReceiveCount];
+                                    Buffer.BlockCopy(ReceivePacketBuff, 0, MainBuffer, 0, (int)uiReceiveCount);
+                                    ParsingData(ReceivePacketBuff);
+                                }
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
                                 IsReceiveAck = true;
@@ -294,15 +285,9 @@ namespace FeederControlLibrary.SerialCommunication.Control
                         }
                         else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
                         {
-                            if (uiReceiveCount == 8)
+                            if (uiReceiveCount >= 8)
                             {
                                 //ParsingData(MainData);
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;                                
-                            }
-                            else if (uiReceiveCount > 8)
-                            {
-                                //for (int j = 0; j < ReCounter; j++) ReceivePacketBuff[j] = 0;
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
                                 IsReceiveAck = true;
