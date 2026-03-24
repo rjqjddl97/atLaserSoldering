@@ -189,14 +189,13 @@ namespace CoherentCompactMini.SerialCommunication.Control
                 else if (reCommMessage == CompactMiniData.CommandMessage.RDX)
                 {
                     m_CompactMiniDataCtrl.ReceiveSetStatus(Encoding.Default.GetString(data));
+                    ReceiveCompactMiniData.Invoke(m_CompactMiniDataCtrl);
                 }
                 else if (reCommMessage == CompactMiniData.CommandMessage.TRD)
                 {
                     m_CompactMiniDataCtrl.ReceiveSetLaserOnTime(Encoding.Default.GetString(data));
                 }
-                else
-                    ;
-                ReceiveCompactMiniData.Invoke(m_CompactMiniDataCtrl);                
+                   
             }
             catch (Exception)
             {
@@ -323,32 +322,30 @@ namespace CoherentCompactMini.SerialCommunication.Control
                             break;
 
                         case SerialEngineStep.RequestPeriodData:
-                            //if (IsReceiveAck)
+                            
+                            if ((mDataTransferList.Count != 0) && !IsEnqueueData)
                             {
-                                if ((mDataTransferList.Count != 0) && !IsEnqueueData)
+                                IsDequeueData = true;
+                                data = mDataTransferList.Dequeue();
+                                if (mDataTransferList.Count == 0)
                                 {
-                                    IsDequeueData = true;
-                                    data = mDataTransferList.Dequeue();
-                                    if (mDataTransferList.Count == 0)
-                                    {
-                                        IsDequeueData = false;
-                                    }
-                                }
-                                else if (mCommandList.Count != 0)
-                                {
-                                    data = mCommandList.Dequeue();
-                                }
-                                else if (mContinuousCheckList.Count != 0)
-                                {
-                                    if (IsReceiveAck)
-                                    {
-                                        data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
-                                        m_CompactMiniDataCtrl.SetRequestedCommand(CompactMiniData.CommandMessage.RDX);
-                                        if (mContinuousCheckIndex >= mContinuousCheckList.Count)
-                                            mContinuousCheckIndex = 0;
-                                    }
+                                    IsDequeueData = false;
                                 }
                             }
+                            else if (mCommandList.Count != 0)
+                            {
+                                data = mCommandList.Dequeue();
+                            }
+                            else if (mContinuousCheckList.Count != 0)
+                            {
+                                //if (IsReceiveAck)
+                                {
+                                    data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
+                                    m_CompactMiniDataCtrl.SetRequestedCommand(CompactMiniData.CommandMessage.RDX);
+                                    if (mContinuousCheckIndex >= mContinuousCheckList.Count)
+                                        mContinuousCheckIndex = 0;
+                                }
+                            }                            
                             break;
                         default:
                             //Do some error action.

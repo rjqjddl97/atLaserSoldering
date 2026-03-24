@@ -179,3 +179,4 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csproj.CopyComplete
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csprojAssemblyReference.cache

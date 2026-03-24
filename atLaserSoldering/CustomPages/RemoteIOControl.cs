@@ -191,7 +191,7 @@ namespace CustomPages
         }
         public void initialSystemDefineValue()
         {
-            UpdateTimer.Interval = 100;
+            UpdateTimer.Interval = 50;
             UpdateTimer.Elapsed += new ElapsedEventHandler(UpdateRemoteIOData);
         }
         public void SetCommunicateManager(ref CommunicationManager manager)
@@ -625,27 +625,29 @@ namespace CustomPages
             {
                 if (status)
                 {
-                    if (label.InvokeRequired)
-                    {
-                        label.Invoke(new MethodInvoker(delegate { label.ForeColor = Color.FromArgb(255, 255, 255, 255); label.BackColor = Color.FromArgb(255, 20, 200, 129); }));
-                    }
-                    else
-                    {
-                        label.ForeColor = Color.FromArgb(255, 255, 255, 255);
-                        label.BackColor = Color.FromArgb(255, 20, 200, 129);
-                    }
+                    label.BeginInvoke(new MethodInvoker(delegate { label.ForeColor = Color.FromArgb(255, 255, 255, 255); label.BackColor = Color.FromArgb(255, 20, 200, 129); }));
+                    //if (label.InvokeRequired)
+                    //{
+                    //    label.Invoke(new MethodInvoker(delegate { label.ForeColor = Color.FromArgb(255, 255, 255, 255); label.BackColor = Color.FromArgb(255, 20, 200, 129); }));
+                    //}
+                    //else
+                    //{
+                    //    label.ForeColor = Color.FromArgb(255, 255, 255, 255);
+                    //    label.BackColor = Color.FromArgb(255, 20, 200, 129);
+                    //}
                 }
                 else
                 {
-                    if (label.InvokeRequired)
-                    {
-                        label.Invoke(new MethodInvoker(delegate { label.ForeColor = Color.FromArgb(255, 37, 37, 37); label.BackColor = Color.FromArgb(255, 224, 224, 224); }));
-                    }
-                    else
-                    {
-                        label.ForeColor = Color.FromArgb(255, 37, 37, 37);
-                        label.BackColor = Color.FromArgb(255, 224, 224, 224);
-                    }
+                    label.BeginInvoke(new MethodInvoker(delegate { label.ForeColor = Color.FromArgb(255, 37, 37, 37); label.BackColor = Color.FromArgb(255, 224, 224, 224); }));
+                    //if (label.InvokeRequired)
+                    //{
+                    //    label.Invoke(new MethodInvoker(delegate { label.ForeColor = Color.FromArgb(255, 37, 37, 37); label.BackColor = Color.FromArgb(255, 224, 224, 224); }));
+                    //}
+                    //else
+                    //{
+                    //    label.ForeColor = Color.FromArgb(255, 37, 37, 37);
+                    //    label.BackColor = Color.FromArgb(255, 224, 224, 224);
+                    //}
                 }
             }
             catch (Exception ex)

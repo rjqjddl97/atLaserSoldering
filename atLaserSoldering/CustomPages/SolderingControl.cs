@@ -488,163 +488,181 @@ namespace CustomPages
                 _mLaserSoldering.UpdateCommuncationDatas();
                 if (_mLaserSoldering.IsAutoSoldering)
                 {
-                    if (simpleButtonSolderingStart.InvokeRequired)
-                    {
-                        simpleButtonSolderingStart.Invoke(new MethodInvoker(delegate { simpleButtonSolderingStart.Text = "Soldering Stop"; }));
-                    }
-                    else
-                        simpleButtonSolderingStart.Text = "Soldering Stop";
+                    simpleButtonSolderingStart.BeginInvoke(new MethodInvoker(delegate { simpleButtonSolderingStart.Text = "Soldering Stop"; }));
+                    //if (simpleButtonSolderingStart.InvokeRequired)
+                    //{
+                    //    simpleButtonSolderingStart.Invoke(new MethodInvoker(delegate { simpleButtonSolderingStart.Text = "Soldering Stop"; }));
+                    //}
+                    //else
+                    //    simpleButtonSolderingStart.Text = "Soldering Stop";
                 }
                 else
                 {
-                    if (simpleButtonSolderingStart.InvokeRequired)
-                    {
-                        simpleButtonSolderingStart.Invoke(new MethodInvoker(delegate { simpleButtonSolderingStart.Text = "Soldering Start"; }));
-                    }
-                    else
-                        simpleButtonSolderingStart.Text = "Soldering Start";
+                    simpleButtonSolderingStart.BeginInvoke(new MethodInvoker(delegate { simpleButtonSolderingStart.Text = "Soldering Start"; }));
+                    //if (simpleButtonSolderingStart.InvokeRequired)
+                    //{
+                    //    simpleButtonSolderingStart.Invoke(new MethodInvoker(delegate { simpleButtonSolderingStart.Text = "Soldering Start"; }));
+                    //}
+                    //else
+                    //    simpleButtonSolderingStart.Text = "Soldering Start";
                 }
                 if (_mLaserData.Status.B0)
                 {
-                    if (labelControlPowerStatus.InvokeRequired)
-                    {
-                        labelControlPowerStatus.Invoke(new MethodInvoker(delegate { labelControlPowerStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
-                    }
-                    else
-                        labelControlPowerStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;            //IconSetSigns3_16x16(on), iconsetredtoblack4_16x16(off)
+                    labelControlPowerStatus.BeginInvoke(new MethodInvoker(delegate { labelControlPowerStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //if (labelControlPowerStatus.InvokeRequired)
+                    //{
+                    //    labelControlPowerStatus.Invoke(new MethodInvoker(delegate { labelControlPowerStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //}
+                    //else
+                    //    labelControlPowerStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;            //IconSetSigns3_16x16(on), iconsetredtoblack4_16x16(off)
 
-                    if (simpleButtonLaserPowerOn.InvokeRequired)
-                    {
-                        simpleButtonLaserPowerOn.Invoke(new MethodInvoker(delegate { simpleButtonLaserPowerOn.Text = "Power Off"; }));
-                    }
-                    else
-                        simpleButtonLaserPowerOn.Text = "Power Off";
+                    simpleButtonLaserPowerOn.BeginInvoke(new MethodInvoker(delegate { simpleButtonLaserPowerOn.Text = "Power Off"; }));
+                    //if (simpleButtonLaserPowerOn.InvokeRequired)
+                    //{
+                    //    simpleButtonLaserPowerOn.Invoke(new MethodInvoker(delegate { simpleButtonLaserPowerOn.Text = "Power Off"; }));
+                    //}
+                    //else
+                    //    simpleButtonLaserPowerOn.Text = "Power Off";
                 }
                 else
                 {
-                    if (labelControlPowerStatus.InvokeRequired)
-                    {
-                        labelControlPowerStatus.Invoke(new MethodInvoker(delegate { labelControlPowerStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
-                    }
-                    else
-                        labelControlPowerStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
+                    labelControlPowerStatus.BeginInvoke(new MethodInvoker(delegate { labelControlPowerStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //if (labelControlPowerStatus.InvokeRequired)
+                    //{
+                    //    labelControlPowerStatus.Invoke(new MethodInvoker(delegate { labelControlPowerStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //}
+                    //else
+                    //    labelControlPowerStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
 
-                    if (simpleButtonLaserPowerOn.InvokeRequired)
-                    {
-                        simpleButtonLaserPowerOn.Invoke(new MethodInvoker(delegate { simpleButtonLaserPowerOn.Text = "Power On"; }));
-                    }
-                    else
-                        simpleButtonLaserPowerOn.Text = "Power On";
+                    simpleButtonLaserPowerOn.BeginInvoke(new MethodInvoker(delegate { simpleButtonLaserPowerOn.Text = "Power On"; }));
+                    //if (simpleButtonLaserPowerOn.InvokeRequired)
+                    //{
+                    //    simpleButtonLaserPowerOn.Invoke(new MethodInvoker(delegate { simpleButtonLaserPowerOn.Text = "Power On"; }));
+                    //}
+                    //else
+                    //    simpleButtonLaserPowerOn.Text = "Power On";
 
                 }
 
                 if (_mLaserData.Status.B1)
                 {
-                    if (labelControlLaserStatus.InvokeRequired)
-                    {
-                        labelControlLaserStatus.Invoke(new MethodInvoker(delegate { labelControlLaserStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
-                    }
-                    else
-                        labelControlLaserStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;
+                    labelControlLaserStatus.BeginInvoke(new MethodInvoker(delegate { labelControlLaserStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //if (labelControlLaserStatus.InvokeRequired)
+                    //{
+                    //    labelControlLaserStatus.Invoke(new MethodInvoker(delegate { labelControlLaserStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //}
+                    //else
+                    //    labelControlLaserStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;
 
-                    if (simpleButtonLaserOn.InvokeRequired)
-                    {
-                        simpleButtonLaserOn.Invoke(new MethodInvoker(delegate { simpleButtonLaserOn.Text = "Laser Off"; }));
-                    }
-                    else
-                        simpleButtonLaserOn.Text = "Laser Off";
+                    simpleButtonLaserOn.BeginInvoke(new MethodInvoker(delegate { simpleButtonLaserOn.Text = "Laser Off"; }));
+                    //if (simpleButtonLaserOn.InvokeRequired)
+                    //{
+                    //    simpleButtonLaserOn.Invoke(new MethodInvoker(delegate { simpleButtonLaserOn.Text = "Laser Off"; }));
+                    //}
+                    //else
+                    //    simpleButtonLaserOn.Text = "Laser Off";
 
                 }
                 else
                 {
-                    if (labelControlLaserStatus.InvokeRequired)
-                    {
-                        labelControlLaserStatus.Invoke(new MethodInvoker(delegate { labelControlLaserStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
-                    }
-                    else
-                        labelControlLaserStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
+                    labelControlLaserStatus.BeginInvoke(new MethodInvoker(delegate { labelControlLaserStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //if (labelControlLaserStatus.InvokeRequired)
+                    //{
+                    //    labelControlLaserStatus.Invoke(new MethodInvoker(delegate { labelControlLaserStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //}
+                    //else
+                    //    labelControlLaserStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
 
-                    if (simpleButtonLaserOn.InvokeRequired)
-                    {
-                        simpleButtonLaserOn.Invoke(new MethodInvoker(delegate { simpleButtonLaserOn.Text = "Laser On"; }));
-                    }
-                    else
-                        simpleButtonLaserOn.Text = "Laser On";
+                    simpleButtonLaserOn.BeginInvoke(new MethodInvoker(delegate { simpleButtonLaserOn.Text = "Laser On"; }));
+                    //if (simpleButtonLaserOn.InvokeRequired)
+                    //{
+                    //    simpleButtonLaserOn.Invoke(new MethodInvoker(delegate { simpleButtonLaserOn.Text = "Laser On"; }));
+                    //}
+                    //else
+                    //    simpleButtonLaserOn.Text = "Laser On";
                 }
 
                 if (_mLaserData.Status.B2)
                 {
-                    if (labelControlErrorStatus.InvokeRequired)
-                    {
-                        labelControlErrorStatus.Invoke(new MethodInvoker(delegate { labelControlErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
-                    }
-                    else
-                        labelControlErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;
+                    labelControlErrorStatus.BeginInvoke(new MethodInvoker(delegate { labelControlErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //if (labelControlErrorStatus.InvokeRequired)
+                    //{
+                    //    labelControlErrorStatus.Invoke(new MethodInvoker(delegate { labelControlErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //}
+                    //else
+                    //    labelControlErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;
                 }
                 else
                 {
-                    if (labelControlErrorStatus.InvokeRequired)
-                    {
-                        labelControlErrorStatus.Invoke(new MethodInvoker(delegate { labelControlErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
-                    }
-                    else
-                        labelControlErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
+                    labelControlErrorStatus.BeginInvoke(new MethodInvoker(delegate { labelControlErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //if (labelControlErrorStatus.InvokeRequired)
+                    //{
+                    //    labelControlErrorStatus.Invoke(new MethodInvoker(delegate { labelControlErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //}
+                    //else
+                    //    labelControlErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
                 }
 
                 if (_mLaserData.Status.B3)
                 {
-                    if (labelControlFatalErrorStatus.InvokeRequired)
-                    {
-                        labelControlFatalErrorStatus.Invoke(new MethodInvoker(delegate { labelControlFatalErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
-                    }
-                    else
-                        labelControlFatalErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;
+                    labelControlFatalErrorStatus.BeginInvoke(new MethodInvoker(delegate { labelControlFatalErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //if (labelControlFatalErrorStatus.InvokeRequired)
+                    //{
+                    //    labelControlFatalErrorStatus.Invoke(new MethodInvoker(delegate { labelControlFatalErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //}
+                    //else
+                    //    labelControlFatalErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;
                 }
                 else
                 {
-                    if (labelControlFatalErrorStatus.InvokeRequired)
-                    {
-                        labelControlFatalErrorStatus.Invoke(new MethodInvoker(delegate { labelControlFatalErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
-                    }
-                    else
-                        labelControlFatalErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
+                    labelControlFatalErrorStatus.BeginInvoke(new MethodInvoker(delegate { labelControlFatalErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //if (labelControlFatalErrorStatus.InvokeRequired)
+                    //{
+                    //    labelControlFatalErrorStatus.Invoke(new MethodInvoker(delegate { labelControlFatalErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //}
+                    //else
+                    //    labelControlFatalErrorStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
                 }
 
                 if (_mLaserData.Status.B4)
                 {
-                    if (labelControlEmissionStatus.InvokeRequired)
-                    {
-                        labelControlEmissionStatus.Invoke(new MethodInvoker(delegate { labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
-                    }
-                    else
-                        labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;
+                    labelControlEmissionStatus.BeginInvoke(new MethodInvoker(delegate { labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //if (labelControlEmissionStatus.InvokeRequired)
+                    //{
+                    //    labelControlEmissionStatus.Invoke(new MethodInvoker(delegate { labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //}
+                    //else
+                    //    labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;
                 }
                 else
                 {
-                    if (labelControlEmissionStatus.InvokeRequired)
-                    {
-                        labelControlEmissionStatus.Invoke(new MethodInvoker(delegate { labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
-                    }
-                    else
-                        labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
+                    labelControlEmissionStatus.BeginInvoke(new MethodInvoker(delegate { labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //if (labelControlEmissionStatus.InvokeRequired)
+                    //{
+                    //    labelControlEmissionStatus.Invoke(new MethodInvoker(delegate { labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //}
+                    //else
+                    //    labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
                 }
                 if (_mLaserSoldering.IsFeederError)
                 {
-                    if (labelControlFeederStatus.InvokeRequired)
-                    {
-                        labelControlFeederStatus.Invoke(new MethodInvoker(delegate { labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
-                    }
-                    else
-                        labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;
+                    labelControlFeederStatus.BeginInvoke(new MethodInvoker(delegate { labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //if (labelControlFeederStatus.InvokeRequired)
+                    //{
+                    //    labelControlFeederStatus.Invoke(new MethodInvoker(delegate { labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16; }));
+                    //}
+                    //else
+                    //    labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.IconSetSigns3_16x16;
                 }
                 else
                 {
-                    if (labelControlFeederStatus.InvokeRequired)
-                    {
-                        labelControlFeederStatus.Invoke(new MethodInvoker(delegate { labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
-                    }
-                    else
-                        labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
+                    labelControlFeederStatus.BeginInvoke(new MethodInvoker(delegate { labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //if (labelControlFeederStatus.InvokeRequired)
+                    //{
+                    //    labelControlFeederStatus.Invoke(new MethodInvoker(delegate { labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16; }));
+                    //}
+                    //else
+                    //    labelControlFeederStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
                 }
             }
             catch (Exception ex)
