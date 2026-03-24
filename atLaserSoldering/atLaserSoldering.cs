@@ -286,14 +286,14 @@ namespace atLaserSoldering
                 */
 
                 // Camera 연결
-                //if (InitializeCamera())
-                //{
-                //    _systemParams.InspectionOpticalSpotCenterX = _systemParams._cameraParams.HResolution / 2;
-                //    _systemParams.InspectionOpticalSpotCenterY = _systemParams._cameraParams.VResolution / 2;
-                //    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 초기화 완료"));
-                //}
-                //else
-                //    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("카메라 초기화 실패"));
+                if (InitializeCamera())
+                {
+                    _systemParams.InspectionOpticalSpotCenterX = _systemParams._cameraParams.HResolution / 2;
+                    _systemParams.InspectionOpticalSpotCenterY = _systemParams._cameraParams.VResolution / 2;
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 초기화 완료"));
+                }
+                else
+                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("카메라 초기화 실패"));
 
                 InitailProgramFormLanguage();
                 // Motion Control Initial - Communication,
@@ -952,17 +952,19 @@ namespace atLaserSoldering
 
                 if (grabEnd != null)
                 {
-                    if (_isContinuousShot)
-                    {
-                        pictureEditSystemImage.Image = grabEnd.Image;
-                        _sourceImage = grabEnd.Image;
-                    }
-                    else
-                    {
-                        pictureEditSystemImage.Image = grabEnd.Image;
+                    //if (_isContinuousShot)
+                    //{
+                    //    pictureEditSystemImage.Image = grabEnd.Image;
+                    //    _sourceImage = grabEnd.Image;
+                    //}
+                    //else
+                    //{
+                    //    pictureEditSystemImage.Image = grabEnd.Image;
                         
-                    }
-                    ImageGrabbed?.Invoke(_sourceImage);
+                    //}
+                    _sourceImage = grabEnd.Image;
+                    //ImageGrabbed?.Invoke(_sourceImage);
+                    UpdateImageEvent.Invoke(grabEnd.Image);
                     if (grabEnd.WaitHandle != null)
                         grabEnd.WaitHandle.Set();
                     _patternMatching = false;
@@ -1316,6 +1318,7 @@ namespace atLaserSoldering
         {
             pictureEditSystemImage.Image = image;
             pictureEditSystemImage.Refresh();
+            ImageFitSize();
             //pictureEditSystemImage.Properties.SizeMode = PictureBoxSizeMode.Zoom;
             //ICogImage img = new CogImage8Grey((Bitmap)image);
             //cogDisplayImage.Record = null;

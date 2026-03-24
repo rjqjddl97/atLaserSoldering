@@ -25,6 +25,7 @@ namespace LaserSoldering
             Stop = 0,
             Idle,
             Ready,
+            ReadyWireSupport,
             PreHeat,            
             PreHeatWireSupport,
             PreHeatWireSupportWait,
@@ -778,12 +779,12 @@ namespace LaserSoldering
                                     JobSolder = _LaserSolderParam;
 
                                     data = new byte[20];
-                                    datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
-                                    data = _mCompactMiniData.GetSetPowerOn(true);
-                                    _mCompactMiniComm.SendData(data);
-                                    datasize = _mCompactMiniData.GetSetLaserPowerPacketSize(JobSolder.PreheatPowerRatio);                                        
-                                    data = _mCompactMiniData.GetSetLaserPower(JobSolder.PreheatPowerRatio);
-                                    _mCompactMiniComm.SendData(data);                                    
+                                    //datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
+                                    //data = _mCompactMiniData.GetSetPowerOn(true);
+                                    //_mCompactMiniComm.SendData(data);
+                                    //datasize = _mCompactMiniData.GetSetLaserPowerPacketSize(JobSolder.PreheatPowerRatio);                                        
+                                    //data = _mCompactMiniData.GetSetLaserPower(JobSolder.PreheatPowerRatio);
+                                    //_mCompactMiniComm.SendData(data);                                    
                                     
                                     data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio));
                                     _mFeederComm.SendData(data);
@@ -797,11 +798,23 @@ namespace LaserSoldering
                                     mCurrentHeatTime = 0;
                                     mCurrentPreHeatTime = 0;
                                     mCurrentReadyTime = 0;
-                                    mSolderingEngineStep = LaserSolderStepType.Ready;
+                                    mSolderingEngineStep = LaserSolderStepType.ReadyWireSupport;
                                 }
                                 break;
+                            case LaserSolderStepType.ReadyWireSupport:
+                                data = new byte[20];
+                                data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                _mFeederComm.SendData(data);
+                                mSolderingEngineStep = LaserSolderStepType.Ready;
+                                break;
                             case LaserSolderStepType.Ready:
-
+                                data = new byte[20];
+                                datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
+                                data = _mCompactMiniData.GetSetPowerOn(true);
+                                _mCompactMiniComm.SendData(data);
+                                datasize = _mCompactMiniData.GetSetLaserPowerPacketSize(JobSolder.PreheatPowerRatio);
+                                data = _mCompactMiniData.GetSetLaserPower(JobSolder.PreheatPowerRatio);
+                                _mCompactMiniComm.SendData(data);
                                 CheckTackTime.Reset();
                                 // Insert Laser Gate On I/O Command !!
                                 CheckTackTime.Start();
@@ -813,13 +826,14 @@ namespace LaserSoldering
                                     mCurrentReadyTime = (int)ts.TotalMilliseconds;                                    
 
                                     data = new byte[20];
-                                    data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
-                                    _mFeederComm.SendData(data);
+                                    //data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                    //_mFeederComm.SendData(data);
                                     datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
                                     data = _mCompactMiniData.GetSetLaserOn(true);
                                     _mCompactMiniComm.SendData(data);
-                                    data = null;
-                                    
+                                    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingWireLength * FeederParam.FeedermmToPulseRatio));
+                                    _mFeederComm.SendData(data);
+                                    data = null;                                    
                                     CheckTackTime.Reset();
                                     CheckTackTime.Start();
                                     mSolderingEngineStep = LaserSolderStepType.PreHeatWireSupport;
@@ -830,8 +844,8 @@ namespace LaserSoldering
                                 {
                                     mCurrentPreHeatTime = (int)ts.TotalMilliseconds;                                                 
                                     data = new byte[20];
-                                    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingWireLength * FeederParam.FeedermmToPulseRatio));
-                                    _mFeederComm.SendData(data);
+                                    //data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingWireLength * FeederParam.FeedermmToPulseRatio));
+                                    //_mFeederComm.SendData(data);
                                     data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
                                     _mFeederComm.SendData(data);
                                     data = null;
