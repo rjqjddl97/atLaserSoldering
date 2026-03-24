@@ -62,6 +62,15 @@ namespace atLaserSoldering
         int _frameCount;
         int _ImageVResolution;
         int _ImageHResolution;
+
+        PointF _fptCropStart = new PointF();
+        PointF _fptCropEnd = new PointF();
+        PointF _fptMoveStart = new PointF();
+        RectangleF _frtCrop = new RectangleF();
+        PointF _fptAreaStart = new PointF();
+        PointF _fptAreaEnd = new PointF();
+        RectangleF _frtArearect = new RectangleF();
+
         System.Drawing.Image _sourceImage = null;
 
         bool _InspectionWorking = false;
@@ -72,7 +81,7 @@ namespace atLaserSoldering
         bool _isCameraInitialized = false;
         bool _isOpticalMeasurement = false;
 
-        bool _isCropMove = false;
+        bool _isShowCenterMark = false;
         bool _isGrabbed = false;
         bool _isImageFitSize = false;
         bool _patternMatching = false;
@@ -854,7 +863,8 @@ namespace atLaserSoldering
                             _isCameraOpen = true;
                             // System 파라미터를 Update한다.
                             //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
-                            UpdateImageEvent += UpdateImageData;
+                            //UpdateImageEvent += UpdateImageData;
+                            timerImageUpdate.Start();
                             mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 연결 성공:{0}", liststrFriendlyNames[0]));
                             mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(),
                                 string.Format("노출 시간:{0}, 게인:{1}, 프레임비:{2}", textEditExposureTime.Text, textEditGain.Text, textEditFrameRatio.Text));
@@ -948,7 +958,7 @@ namespace atLaserSoldering
                 }
 
                 GrabEndParam grabEnd = (GrabEndParam)sender as GrabEndParam;
-                System.Drawing.Image sourceImage = _sourceImage;
+                //System.Drawing.Image sourceImage = _sourceImage;
 
                 if (grabEnd != null)
                 {
@@ -964,7 +974,7 @@ namespace atLaserSoldering
                     //}
                     _sourceImage = grabEnd.Image;
                     //ImageGrabbed?.Invoke(_sourceImage);
-                    UpdateImageEvent.Invoke(_sourceImage);
+                    //UpdateImageEvent.Invoke(grabEnd.Image);
                     if (grabEnd.WaitHandle != null)
                         grabEnd.WaitHandle.Set();
                     _patternMatching = false;
@@ -975,11 +985,11 @@ namespace atLaserSoldering
                 _isGrabbed = true;
 
 
-                if (sourceImage != null)
-                {
-                    sourceImage.Dispose();
-                    sourceImage = null;
-                }
+                //if (sourceImage != null)
+                //{
+                //    sourceImage.Dispose();
+                //    sourceImage = null;
+                //}
 
                 if (_isContinuousShot)
                 {
@@ -1206,7 +1216,8 @@ namespace atLaserSoldering
                     _isCameraInitialized = true;
                     _isCameraOpen = true;
                     // System 파라미터를 Update한다.
-                    UpdateImageEvent += UpdateImageData;
+                    //UpdateImageEvent += UpdateImageData;
+                    timerImageUpdate.Start();
                     //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
 
                     mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 연결 성공:{0}", liststrFriendlyNames[0]));
@@ -1330,7 +1341,7 @@ namespace atLaserSoldering
         {
             pictureEditSystemImage.Image = image;
             pictureEditSystemImage.Refresh();
-            ImageFitSize();
+            //ImageFitSize();
             //pictureEditSystemImage.Properties.SizeMode = PictureBoxSizeMode.Zoom;
             //ICogImage img = new CogImage8Grey((Bitmap)image);
             //cogDisplayImage.Record = null;
@@ -1364,7 +1375,217 @@ namespace atLaserSoldering
                 _Camera.Close();
             
             timerCurrentTime.Stop();
+            timerImageUpdate.Stop();
             mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "프로그램 종료.");
+        }
+
+        private void pictureEditSystemImage_Paint(object sender, PaintEventArgs e)
+        {
+            try
+            {
+                if (pictureEditSystemImage.Image == null)
+                    return;
+
+                Graphics gp = e.Graphics;
+
+                int InspectionOpticalSpotCenterX = _systemParams._cameraParams.HResolution / 2;
+                int InspectionOpticalSpotCenterY = _systemParams._cameraParams.VResolution / 2;
+                float fScale = (float)(pictureEditSystemImage.Properties.ZoomPercent / 100.0f);
+                float fHScroll = pictureEditSystemImage.HScrollBar.Value;
+                float fVScroll = pictureEditSystemImage.VScrollBar.Value;
+                float fCharacter = (fScale > 1f) ? 1f : fScale;
+
+                float fImageWidth = pictureEditSystemImage.Image.Width;
+                float fImageHeight = pictureEditSystemImage.Image.Height;
+                float fCenterx = InspectionOpticalSpotCenterX;
+                float fCentery = InspectionOpticalSpotCenterY;
+
+                Matrix matrix = new Matrix();
+                matrix.Scale(fScale, fScale);
+                matrix.Translate(-fHScroll / fScale, -fVScroll / fScale);
+
+                gp.Transform = matrix;
+                
+                // 중심선 그리기
+                if (_isShowCenterMark)
+                {
+                    if (fScale <= 1.0f)
+                    {
+                        float imageWidth = pictureEditSystemImage.Image.Width * fScale;
+                        float imageHeight = pictureEditSystemImage.Image.Height * fScale;
+
+                        //PointF fptHLineStart = new PointF(0, imageHeight / 2f);
+                        //PointF fptHLineEnd = new PointF(imageWidth, imageHeight / 2f);
+                        //PointF fptVLineStart = new PointF(imageWidth / 2f, 0);
+                        //PointF fptVLineEnd = new PointF(imageWidth / 2f, imageHeight);
+                        PointF fptHLineStart = new PointF(0, InspectionOpticalSpotCenterY);
+                        PointF fptHLineEnd = new PointF(InspectionOpticalSpotCenterX * 2, InspectionOpticalSpotCenterY);
+                        PointF fptVLineStart = new PointF(InspectionOpticalSpotCenterX, 0);
+                        PointF fptVLineEnd = new PointF(InspectionOpticalSpotCenterX, InspectionOpticalSpotCenterY * 2);
+
+                        gp.DrawLine(Pens.Red, fptHLineStart, fptHLineEnd);
+                        gp.DrawLine(Pens.Red, fptVLineStart, fptVLineEnd);
+                    }
+                    else
+                    {
+                        float imageWidth = pictureEditSystemImage.Image.Width * fScale;
+                        float imageHeight = pictureEditSystemImage.Image.Height * fScale;
+
+                        PointF fptHLineStart = new PointF(0, (imageHeight / 2f) / fScale);
+                        PointF fptHLineEnd = new PointF(imageWidth, (imageHeight / 2f) / fScale);
+                        PointF fptVLineStart = new PointF((imageWidth / 2f) / fScale, 0);
+                        PointF fptVLineEnd = new PointF((imageWidth / 2f) / fScale, imageHeight);
+                        //PointF fptHLineStart = new PointF(0, imageHeight / 2f - fVScroll);                // 사이즈가 유동적일 때 스크롤 위치에 따른 중심점 보정
+                        //PointF fptHLineEnd = new PointF(imageWidth, imageHeight / 2f - fVScroll);
+                        //PointF fptVLineStart = new PointF(imageWidth / 2f - fHScroll, 0);
+                        //PointF fptVLineEnd = new PointF(imageWidth / 2f - fHScroll, imageHeight);
+
+
+                        gp.DrawLine(Pens.Red, fptHLineStart, fptHLineEnd);
+                        gp.DrawLine(Pens.Red, fptVLineStart, fptVLineEnd);
+                    }
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
+
+        private void contextMenuStripImageViewControl_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            switch (e.ClickedItem.Text)
+            {
+                case "View Center Mark":
+                    if (_isShowCenterMark == false)
+                    {
+                        _isShowCenterMark = true;
+                        //e.ClickedItem.Image = global::atOpticalDecenter.Properties.Resources.Apply_16x16;
+                    }
+                    else
+                    {
+                        _isShowCenterMark = false;
+                        //e.ClickedItem.Image = global::atOpticalDecenter.Properties.Resources.Cancel_16x16;
+                        pictureEditSystemImage.Refresh();
+                    }
+                    break;
+                case "Set Work ROI":
+                    if (_isSetROICheck == false)
+                    {
+                        _isSetROICheck = true;
+                        //e.ClickedItem.Image = global::atOpticalDecenter.Properties.Resources.Apply_16x16;
+                    }
+                    else
+                    {
+                        _isSetROICheck = false;
+                        pictureEditSystemImage.Refresh();
+                    }
+                    break;
+                case "Clear Work ROI":
+                    _fptAreaStart = new PointF();
+                    _fptAreaEnd = new PointF();
+                    _frtArearect = new RectangleF();
+                    pictureEditSystemImage.Refresh();
+                    break;
+                case "Fit Size Image":
+                    ImageFitSize();
+                    break;
+
+            }
+        }
+
+        private void pictureEditSystemImage_MouseDown(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                if (pictureEditSystemImage.Image == null)//|| barCheckItemInspectionStart.Checked)
+                    return;
+
+                GraphicsPath path = new GraphicsPath();
+
+                float fScale = (float)(pictureEditSystemImage.Properties.ZoomPercent / 100f);
+                float fHScroll = pictureEditSystemImage.HScrollBar.Value;
+                float fVScroll = pictureEditSystemImage.VScrollBar.Value;
+
+                path.AddRectangle(_frtCrop);
+                path.AddRectangle(_frtArearect);
+
+                if (e.Button == MouseButtons.Right)
+                {
+                    contextMenuStripImageViewControl.Show(e.Location);
+                }
+                //PointF fptTemp = Utils.PointDrawToReal(e.Location, fScale, fHScroll, fVScroll);
+
+                //if (barCheckItemImageCrop.Checked)
+                //{
+                //    if (e.Button == MouseButtons.Left)
+                //    {
+                //        if (!path.IsVisible(fptTemp))
+                //        {
+                //            _fptCropStart = fptTemp;
+                //            _fptCropEnd = fptTemp;
+
+                //            pictureEditSystemImage.Cursor = Cursors.Cross;
+                //        }
+                //        else
+                //        {
+                //            _fptMoveStart = fptTemp;
+                //            pictureEditSystemImage.Cursor = Cursors.SizeAll;
+
+                //            _isCropMove = true;
+                //        }
+                //    }
+                //    else if (e.Button == MouseButtons.Right)
+                //    {
+                //        Point ptPos = new Point(e.X, pictureEditSystemImage.Size.Height + e.Y);
+
+                //        if (path.IsVisible(fptTemp))
+                //        {
+                //            popupMenuTemplateCrop.ShowPopup(ptPos);
+                //        }
+                //    }
+                //}
+                //else
+                //{
+                //    if (e.Button == MouseButtons.Right)
+                //    {
+                //        contextMenuStripImageViewControl.Show(e.Location);
+                //    }
+                //}
+                //if (_isSetROICheck)
+                //{
+                //    if (e.Button == MouseButtons.Left)
+                //    {
+                //        if (!path.IsVisible(fptTemp))
+                //        {
+                //            _fptAreaStart = fptTemp;
+                //            _fptAreaEnd = fptTemp;
+
+                //            pictureEditSystemImage.Cursor = Cursors.Cross;
+                //        }
+                //        else
+                //        {
+                //            _fptMoveStart = fptTemp;
+                //            pictureEditSystemImage.Cursor = Cursors.SizeAll;
+                //            _isAreaMove = true;
+                //        }
+                //    }
+                //}
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
+
+        private void timerImageUpdate_Tick(object sender, EventArgs e)
+        {
+            pictureEditSystemImage.Image = _sourceImage;
+            pictureEditSystemImage.Refresh();
+            GC.Collect();
         }
     }
 }

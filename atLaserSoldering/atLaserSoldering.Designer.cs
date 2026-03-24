@@ -163,6 +163,12 @@
             this.openFileDialogRecipeOpen = new System.Windows.Forms.OpenFileDialog();
             this.timerCurrentTime = new System.Windows.Forms.Timer(this.components);
             this.xtraFolderBrowserDialogRecipeOpen = new DevExpress.XtraEditors.XtraFolderBrowserDialog(this.components);
+            this.contextMenuStripImageViewControl = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemViewCenterMark = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemSetFitSizeImage = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemSetROI = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemClearWorkROI = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerImageUpdate = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -239,6 +245,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            this.contextMenuStripImageViewControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -899,7 +906,7 @@
             this.xtraTabPageImageProcess.Controls.Add(this.layoutControl6);
             this.xtraTabPageImageProcess.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.xtraTabPageImageProcess.Name = "xtraTabPageImageProcess";
-            this.xtraTabPageImageProcess.Size = new System.Drawing.Size(597, 414);
+            this.xtraTabPageImageProcess.Size = new System.Drawing.Size(519, 414);
             this.xtraTabPageImageProcess.Text = "이미지 처리";
             // 
             // layoutControl6
@@ -910,7 +917,7 @@
             this.layoutControl6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.layoutControl6.Name = "layoutControl6";
             this.layoutControl6.Root = this.layoutControlGroup5;
-            this.layoutControl6.Size = new System.Drawing.Size(597, 414);
+            this.layoutControl6.Size = new System.Drawing.Size(519, 414);
             this.layoutControl6.TabIndex = 0;
             // 
             // panelControl1
@@ -921,7 +928,7 @@
             this.panelControl1.Location = new System.Drawing.Point(12, 12);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(573, 390);
+            this.panelControl1.Size = new System.Drawing.Size(495, 390);
             this.panelControl1.TabIndex = 4;
             // 
             // groupControlLight
@@ -1312,7 +1319,7 @@
             this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem6});
             this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(597, 414);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(519, 414);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // layoutControlItem6
@@ -1320,7 +1327,7 @@
             this.layoutControlItem6.Control = this.panelControl1;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(577, 394);
+            this.layoutControlItem6.Size = new System.Drawing.Size(499, 394);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -1426,7 +1433,7 @@
             this.xtraTabPageLaserSolder.Controls.Add(this.layoutControl8);
             this.xtraTabPageLaserSolder.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.xtraTabPageLaserSolder.Name = "xtraTabPageLaserSolder";
-            this.xtraTabPageLaserSolder.Size = new System.Drawing.Size(597, 414);
+            this.xtraTabPageLaserSolder.Size = new System.Drawing.Size(519, 414);
             this.xtraTabPageLaserSolder.Text = "레이저 납땜";
             // 
             // layoutControl8
@@ -1436,7 +1443,7 @@
             this.layoutControl8.Location = new System.Drawing.Point(0, 0);
             this.layoutControl8.Name = "layoutControl8";
             this.layoutControl8.Root = this.layoutControlGroup7;
-            this.layoutControl8.Size = new System.Drawing.Size(597, 414);
+            this.layoutControl8.Size = new System.Drawing.Size(519, 414);
             this.layoutControl8.TabIndex = 0;
             this.layoutControl8.Text = "layoutControl8";
             // 
@@ -1444,7 +1451,7 @@
             // 
             this.laserSolderingControl.Location = new System.Drawing.Point(12, 12);
             this.laserSolderingControl.Name = "laserSolderingControl";
-            this.laserSolderingControl.Size = new System.Drawing.Size(573, 390);
+            this.laserSolderingControl.Size = new System.Drawing.Size(534, 390);
             this.laserSolderingControl.TabIndex = 4;
             // 
             // layoutControlGroup7
@@ -1454,7 +1461,7 @@
             this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem8});
             this.layoutControlGroup7.Name = "layoutControlGroup7";
-            this.layoutControlGroup7.Size = new System.Drawing.Size(597, 414);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(558, 414);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // layoutControlItem8
@@ -1462,7 +1469,7 @@
             this.layoutControlItem8.Control = this.laserSolderingControl;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(577, 394);
+            this.layoutControlItem8.Size = new System.Drawing.Size(538, 394);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -1470,7 +1477,7 @@
             // 
             this.xtraTabPageStatics.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.xtraTabPageStatics.Name = "xtraTabPageStatics";
-            this.xtraTabPageStatics.Size = new System.Drawing.Size(597, 414);
+            this.xtraTabPageStatics.Size = new System.Drawing.Size(519, 414);
             this.xtraTabPageStatics.Text = "통계";
             // 
             // pictureEditSystemImage
@@ -1482,6 +1489,8 @@
             this.pictureEditSystemImage.Size = new System.Drawing.Size(427, 244);
             this.pictureEditSystemImage.StyleController = this.layoutControl2;
             this.pictureEditSystemImage.TabIndex = 4;
+            this.pictureEditSystemImage.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureEditSystemImage_Paint);
+            this.pictureEditSystemImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureEditSystemImage_MouseDown);
             // 
             // layoutControlGroup1
             // 
@@ -1569,6 +1578,45 @@
             // xtraFolderBrowserDialogRecipeOpen
             // 
             this.xtraFolderBrowserDialogRecipeOpen.SelectedPath = "xtraFolderBrowserDialog1";
+            // 
+            // contextMenuStripImageViewControl
+            // 
+            this.contextMenuStripImageViewControl.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemViewCenterMark,
+            this.toolStripMenuItemSetFitSizeImage,
+            this.toolStripMenuItemSetROI,
+            this.toolStripMenuItemClearWorkROI});
+            this.contextMenuStripImageViewControl.Name = "contextMenuStripImageViewControl";
+            this.contextMenuStripImageViewControl.Size = new System.Drawing.Size(171, 92);
+            this.contextMenuStripImageViewControl.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStripImageViewControl_ItemClicked);
+            // 
+            // toolStripMenuItemViewCenterMark
+            // 
+            this.toolStripMenuItemViewCenterMark.Name = "toolStripMenuItemViewCenterMark";
+            this.toolStripMenuItemViewCenterMark.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemViewCenterMark.Text = "View Center Mark";
+            // 
+            // toolStripMenuItemSetFitSizeImage
+            // 
+            this.toolStripMenuItemSetFitSizeImage.Name = "toolStripMenuItemSetFitSizeImage";
+            this.toolStripMenuItemSetFitSizeImage.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemSetFitSizeImage.Text = "Fit Size Image";
+            // 
+            // toolStripMenuItemSetROI
+            // 
+            this.toolStripMenuItemSetROI.Name = "toolStripMenuItemSetROI";
+            this.toolStripMenuItemSetROI.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemSetROI.Text = "Set Work ROI";
+            // 
+            // toolStripMenuItemClearWorkROI
+            // 
+            this.toolStripMenuItemClearWorkROI.Name = "toolStripMenuItemClearWorkROI";
+            this.toolStripMenuItemClearWorkROI.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemClearWorkROI.Text = "Clear Work ROI";
+            // 
+            // timerImageUpdate
+            // 
+            this.timerImageUpdate.Tick += new System.EventHandler(this.timerImageUpdate_Tick);
             // 
             // atLaserSoldering
             // 
@@ -1665,6 +1713,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            this.contextMenuStripImageViewControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1803,5 +1852,11 @@
         private DevExpress.XtraEditors.PictureEdit pictureEditSystemImage;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripImageViewControl;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemViewCenterMark;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetFitSizeImage;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetROI;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemClearWorkROI;
+        private System.Windows.Forms.Timer timerImageUpdate;
     }
 }
