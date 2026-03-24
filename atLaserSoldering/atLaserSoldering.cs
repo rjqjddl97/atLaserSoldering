@@ -964,7 +964,7 @@ namespace atLaserSoldering
                     //}
                     _sourceImage = grabEnd.Image;
                     //ImageGrabbed?.Invoke(_sourceImage);
-                    UpdateImageEvent.Invoke(grabEnd.Image);
+                    UpdateImageEvent.Invoke(_sourceImage);
                     if (grabEnd.WaitHandle != null)
                         grabEnd.WaitHandle.Set();
                     _patternMatching = false;
@@ -1153,8 +1153,19 @@ namespace atLaserSoldering
 
         private void barButtonItemCameraListRefresh_ItemClick(object sender, ItemClickEventArgs e)
         {
-            bool Initialized = false;
-            _isCameraInitialized = Initialized;
+            bool IsInitialized = false;
+            _isCameraInitialized = IsInitialized;
+            
+            _Camera.OnCameraConnectionLost += new BaslerCamera.EventCameraConnectionLost(OnCameraConnectionLost);            
+            _Camera.OnCameraConnectionOpen += new BaslerCamera.EventCameraConnectionOpen(OnCameraConnectionOpen);            
+            _Camera.OnCameraImageGrab += new BaslerCamera.EventCameraImageGrab(OnCameraImageGrab);            
+            _Camera.OnCameraClose += new BaslerCamera.EventCameraClose(OnCameraClose);            
+            _Camera.OnCameraImageGrabStart += new BaslerCamera.EventCameraImageGrab(OnCameraImageGrabStart);            
+            _Camera.OnCameraImageGrabEnd += new BaslerCamera.EventCameraImageGrab(OnCameraImageGrabEnd);
+
+            // 카메라 라이브러리 로그 연결
+            _Camera._log.WriteLogViewer += new Log.EventWriteLogViewer(LogUpdated);
+
             List<string> liststrFriendlyNames = _Camera.FindCameras();
             try
             {
@@ -1195,6 +1206,7 @@ namespace atLaserSoldering
                     _isCameraInitialized = true;
                     _isCameraOpen = true;
                     // System 파라미터를 Update한다.
+                    UpdateImageEvent += UpdateImageData;
                     //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
 
                     mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 연결 성공:{0}", liststrFriendlyNames[0]));
@@ -1301,7 +1313,7 @@ namespace atLaserSoldering
                         pictureEditSystemImage.VScrollBar.Value = 0;
 
                         _isImageFitSize = true;
-                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("원본 화면 맞춤: {0:0.0}%", pictureEditSystemImage.Properties.ZoomPercent));
+                        //mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("원본 화면 맞춤: {0:0.0}%", pictureEditSystemImage.Properties.ZoomPercent));
                     }
                     catch (Exception)
                     {

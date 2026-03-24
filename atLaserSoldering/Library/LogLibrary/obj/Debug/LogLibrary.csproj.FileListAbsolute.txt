@@ -180,4 +180,3 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\L
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csproj.CopyComplete
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.pdb
-D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csprojAssemblyReference.cache
