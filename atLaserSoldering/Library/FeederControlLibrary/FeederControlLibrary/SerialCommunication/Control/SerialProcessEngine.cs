@@ -276,7 +276,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
                                 {
                                     byte[] MainBuffer = new byte[uiReceiveCount];
                                     Buffer.BlockCopy(ReceivePacketBuff, 0, MainBuffer, 0, (int)uiReceiveCount);
-                                    ParsingData(ReceivePacketBuff);
+                                    ParsingData(MainBuffer);
                                 }
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
@@ -361,7 +361,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
                             }
                             else if (mContinuousCheckList.Count != 0)
                             {
-                                //if (!IsReceiveStart)
+                                if (!IsReceiveStart)
                                 {
                                     data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
                                     //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);

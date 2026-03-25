@@ -53,7 +53,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
         
         public event RequestData RequestDataEventHandler;
         public bool IsResponseReceiveError { get; set; } = false;
-        public bool IsReceiveStart { get; set; }
+        public bool IsReceiveStart { get; set; } = false;
         public bool IsReceiveAck { get; set; } = true;
         public bool IsConnected { get; set; }
         public UInt32 uiReceiveCount { get; set; } = 0;
@@ -245,7 +245,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
                 for (i = 0; i < recvData.Length; i++)
                 {
                     ReData = recvData[i];
-                    if ( (IsReceiveStart == false) && (ReData == 0x01) || (ReData == 0x02) || (ReData == 0x03))
+                    if ( (IsReceiveStart == false) && ((ReData == 0x01) || (ReData == 0x02) || (ReData == 0x03)))
                     {
                         IsReceiveStart = true;
                         uiReceiveCount = 0;
@@ -277,7 +277,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
                                 {
                                     byte[] MainBuffer = new byte[uiReceiveCount];
                                     Buffer.BlockCopy(ReceivePacketBuff, 0, MainBuffer, 0, (int)uiReceiveCount);
-                                    ParsingData(ReceivePacketBuff);
+                                    ParsingData(MainBuffer);
                                 }
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
@@ -316,72 +316,74 @@ namespace AiCControlLibrary.SerialCommunication.Control
                         Thread.Sleep(EngineSleepTime);
                         continue;
                     }
-
-                    if (IsEnqueueData && IsDequeueData)
+                    //else
                     {
-                        mDataTransferList.Clear();
-                        IsEnqueueData = IsDequeueData = false;
-                        
-                    }
-                    // receive Data Packet Parsor 구문 추가 필요.
-                    if (m_SerialHandler._ReceiveDataQueue.Count > 0)
-                    {
-                        ReceivePacket();
-                    }
-                    /////////////////////////////////////////////
-                    switch (mSerialEngineStep)
-                    {
-                        case SerialEngineStep.Idle:
-                            //Do nothing
-                            mCommandList.Clear();
+                        if (IsEnqueueData && IsDequeueData)
+                        {
                             mDataTransferList.Clear();
-                            break;
+                            IsEnqueueData = IsDequeueData = false;
 
-                        case SerialEngineStep.RequestPeriodData:
-                            if ((mDataTransferList.Count != 0) && !IsEnqueueData)
-                            {
-                                IsDequeueData = true;
-                                data = mDataTransferList.Dequeue();
+                        }
+                        // receive Data Packet Parsor 구문 추가 필요.
+                        if (m_SerialHandler._ReceiveDataQueue.Count > 0)
+                        {
+                            ReceivePacket();
+                        }
+                        /////////////////////////////////////////////
+                        switch (mSerialEngineStep)
+                        {
+                            case SerialEngineStep.Idle:
+                                //Do nothing
+                                mCommandList.Clear();
+                                mDataTransferList.Clear();
+                                break;
 
-                                //if (data != null)
-                                //{
-                                //    CurrentcountForDataTransfer++;
-                                //    if (CurrentcountForDataTransfer >= MaximumCountForDataTransfer)
-                                //    {
-                                //        CurrentcountForDataTransfer = MaximumCountForDataTransfer = 0;
-                                //    }
-                                //}
-                                if (mDataTransferList.Count == 0)
+                            case SerialEngineStep.RequestPeriodData:
+                                if ((mDataTransferList.Count != 0) && !IsEnqueueData)
                                 {
-                                    IsDequeueData = false;                                    
+                                    IsDequeueData = true;
+                                    data = mDataTransferList.Dequeue();
+
+                                    //if (data != null)
+                                    //{
+                                    //    CurrentcountForDataTransfer++;
+                                    //    if (CurrentcountForDataTransfer >= MaximumCountForDataTransfer)
+                                    //    {
+                                    //        CurrentcountForDataTransfer = MaximumCountForDataTransfer = 0;
+                                    //    }
+                                    //}
+                                    if (mDataTransferList.Count == 0)
+                                    {
+                                        IsDequeueData = false;
+                                    }
                                 }
-                            }
-                            else if (mCommandList.Count != 0)
-                            {
-                                data = mCommandList.Dequeue();                                
-                            }
-                            else if (mContinuousCheckList.Count != 0)
-                            {
-                                //if (!IsReceiveStart)
+                                else if (mCommandList.Count != 0)
                                 {
-                                    data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
-                                    //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);
-                                    if (mContinuousCheckIndex >= mContinuousCheckList.Count)
-                                        mContinuousCheckIndex = 0;
+                                    data = mCommandList.Dequeue();
                                 }
-                            }
+                                else if (mContinuousCheckList.Count != 0)
+                                {
+                                    if (!IsReceiveStart)
+                                    {
+                                        data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
+                                        //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);
+                                        if (mContinuousCheckIndex >= mContinuousCheckList.Count)
+                                            mContinuousCheckIndex = 0;
+                                    }
+                                }
 
-                            break;
-                        default:
-                            //Do some error action.
-                            break;
-                    }
+                                break;
+                            default:
+                                //Do some error action.
+                                break;
+                        }
 
-                    if ((data != null) && (mSerialEngineStep != SerialEngineStep.Idle))
-                    {
-                        RequestDataEventHandler?.Invoke(data, 0, data.Length);
-                        data = null;
-                    }
+                        if ((data != null) && (mSerialEngineStep != SerialEngineStep.Idle))
+                        {
+                            RequestDataEventHandler?.Invoke(data, 0, data.Length);
+                            data = null;
+                        }
+                    } 
                 }
                 catch (Exception)
                 {

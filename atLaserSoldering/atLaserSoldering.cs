@@ -550,7 +550,7 @@ namespace atLaserSoldering
             }
             catch (Exception)
             {
-                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "ARM 모듈 초기화를 하지 못햇습니다.");
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Ario 모듈 초기화를 하지 못햇습니다.");
                 return false;
             }
         }
@@ -625,21 +625,21 @@ namespace atLaserSoldering
                     if (_mRemoteIOCommManager.IsOpen())
                     {
                         remoteIOControl.RobotInfomationUpdatedEvent += UpdateRobotIOInfomation;
-                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("ARM 통신 연결 성공."));
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Ario 통신 연결 성공."));
                     }
                     else
-                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("ARM 통신 연결 실패."));
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Ario 통신 연결 실패."));
                 }
                 else
                 {
                     remoteIOControl.ConnectionClosed();
-                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("ARM 통신 연결 해제 성공."));
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Ario 통신 연결 해제 성공."));
                 }
                 return _mRemoteIOCommManager.IsOpen();
             }
             catch (Exception)
             {
-                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "ARM 통신 연결을 하지 못햇습니다.");
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Ario 통신 연결을 하지 못햇습니다.");
                 return false;
             }
         }
@@ -655,7 +655,7 @@ namespace atLaserSoldering
             }
             catch (Exception)
             {
-                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "ARM 통신 해제를 하지 못햇습니다.");
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Ario 통신 해제를 하지 못햇습니다.");
                 return false;
             }
         }

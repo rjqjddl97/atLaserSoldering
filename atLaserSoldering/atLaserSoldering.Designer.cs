@@ -1485,7 +1485,11 @@
             this.pictureEditSystemImage.Location = new System.Drawing.Point(12, 12);
             this.pictureEditSystemImage.MenuManager = this.ribbonControl;
             this.pictureEditSystemImage.Name = "pictureEditSystemImage";
+            this.pictureEditSystemImage.Properties.PictureAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.pictureEditSystemImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEditSystemImage.Properties.ShowMenu = false;
+            this.pictureEditSystemImage.Properties.ShowScrollBars = true;
+            this.pictureEditSystemImage.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.False;
             this.pictureEditSystemImage.Size = new System.Drawing.Size(427, 244);
             this.pictureEditSystemImage.StyleController = this.layoutControl2;
             this.pictureEditSystemImage.TabIndex = 4;
