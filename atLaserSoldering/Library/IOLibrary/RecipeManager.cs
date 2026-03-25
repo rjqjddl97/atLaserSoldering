@@ -77,9 +77,19 @@ namespace RecipeManager
                 pos.Index = i + 1;
                 pos.ePositionType = (INSPECTION_POSITION_MODE)Convert.ToInt32(recipeData[WorkParamSections[3]][string.Format("PositionType{0}", i)]);                
                 pos.PositionX = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("X{0}", i)]);
-                pos.PositionZ = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("Z{0}", i)]);                
-                pos.PositionRz = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("R{0}", i)]);
-                
+                pos.PositionY = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("Y{0}", i)]);                
+                pos.PositionZ = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("Z{0}", i)]);
+                pos.ReadyTime = Convert.ToInt32(recipeData[WorkParamSections[3]]["ReadyTime"]);
+                pos.PreHeatPowerRatio = Convert.ToDouble(recipeData[WorkParamSections[3]]["PreHeatPowerRatio"]);
+                pos.PreHeatTime = Convert.ToInt32(recipeData[WorkParamSections[3]]["PreHeatTime"]);
+                pos.HeatPowerRatio = Convert.ToDouble(recipeData[WorkParamSections[3]]["HeatPowerRatio"]);
+                pos.HeatTime = Convert.ToInt32(recipeData[WorkParamSections[3]]["HeatTime"]);
+                pos.ForwardFeedLength = Convert.ToDouble(recipeData[WorkParamSections[3]]["ForwardFeedLength"]);
+                pos.ForwardFeedVelocity = Convert.ToDouble(recipeData[WorkParamSections[3]]["ForwardVelocity"]);
+                pos.ForwordingAcceleration = 0.1D;
+                pos.ReverseFeedLength = Convert.ToDouble(recipeData[WorkParamSections[3]]["ReverseFeedLength"]);
+                pos.ReverseFeedVelocity = Convert.ToDouble(recipeData[WorkParamSections[3]]["ReverseVelocity"]);
+                pos.ReverseAcceleration = 0.1D;
                 workParam.SolderPositionParams.Add(pos);
             }
 
@@ -126,9 +136,17 @@ namespace RecipeManager
 
                 recipeData[WorkParamSections[3]].AddKey(string.Format("PositionType{0}", i), inspectionMode.ToString());
                 recipeData[WorkParamSections[3]].AddKey(string.Format("X{0}", i), workParam.SolderPositionParams[i].PositionX.ToString());
-                recipeData[WorkParamSections[3]].AddKey(string.Format("Y{0}", i), workParam.SolderPositionParams[i].PositionZ.ToString());
-                recipeData[WorkParamSections[3]].AddKey(string.Format("Z{0}", i), workParam.SolderPositionParams[i].PositionRz.ToString());
-                
+                recipeData[WorkParamSections[3]].AddKey(string.Format("Y{0}", i), workParam.SolderPositionParams[i].PositionY.ToString());
+                recipeData[WorkParamSections[3]].AddKey(string.Format("Z{0}", i), workParam.SolderPositionParams[i].PositionZ.ToString());
+                recipeData[WorkParamSections[3]].AddKey("ReadyTime", workParam.SolderPositionParams[i].ReadyTime.ToString());
+                recipeData[WorkParamSections[3]].AddKey("PreHeatPowerRatio", workParam.SolderPositionParams[i].PreHeatPowerRatio.ToString());
+                recipeData[WorkParamSections[3]].AddKey("PreHeatTime", workParam.SolderPositionParams[i].PreHeatTime.ToString());
+                recipeData[WorkParamSections[3]].AddKey("HeatPowerRatio", workParam.SolderPositionParams[i].HeatPowerRatio.ToString());
+                recipeData[WorkParamSections[3]].AddKey("HeatTime", workParam.SolderPositionParams[i].HeatTime.ToString());
+                recipeData[WorkParamSections[3]].AddKey("ForwardFeedLength", workParam.SolderPositionParams[i].ForwardFeedLength.ToString());
+                recipeData[WorkParamSections[3]].AddKey("ForwardVelocity", workParam.SolderPositionParams[i].ForwardFeedVelocity.ToString());
+                recipeData[WorkParamSections[3]].AddKey("ReverseFeedLength", workParam.SolderPositionParams[i].ReverseFeedLength.ToString());
+                recipeData[WorkParamSections[3]].AddKey("ReverseVelocity", workParam.SolderPositionParams[i].ReverseFeedVelocity.ToString());
             }
 
             parser.WriteFile(strFilePath, recipeData);

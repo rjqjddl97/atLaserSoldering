@@ -1607,7 +1607,7 @@ namespace atLaserSoldering
 
                     _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
                         string.Format("Type:{0}, X:{1}, Y:{2}, Z:{3}, ReadyTime:{4}, PreHeatTime:{5}, PreHeatPower:{6}" +
-                                    "HeatTime:{7}, HeatPower:{8}, F FeedLength:{9}, F FeedVelocity:{10}, R FeedLength:{11}, R FeedVelocity:{12}를 수정",
+                                    "HeatTime:{7}, HeatPower:{8}, F FeedLength:{9}, F FeedVelocity:{10}, R FeedLength:{11}, R FeedVelocity:{12}를 등록",
                                     inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ,
                                     inspectionPos.ReadyTime, inspectionPos.PreHeatTime, inspectionPos.PreHeatPowerRatio, inspectionPos.HeatTime, inspectionPos.HeatPowerRatio,
                                     inspectionPos.ForwardFeedLength, inspectionPos.ForwardFeedVelocity, inspectionPos.ReverseFeedLength, inspectionPos.ReverseFeedVelocity));
@@ -1882,7 +1882,7 @@ namespace atLaserSoldering
                             }
 
                             string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4}, ReadyTime:{5}, PreHeatTime:{6}, PreHeatPower:{7}" +
-                            "HeatTime:{8}, HeatPower:{9}, F FeedLength:{10}, F FeedVelocity:{11}, R FeedLength:{12}, R FeedVelocity:{13} 값을 등록하시겠습니까?",
+                            "HeatTime:{8}, HeatPower:{9}, F FeedLength:{10}, F FeedVelocity:{11}, R FeedLength:{12}, R FeedVelocity:{13} 값을 수정하시겠습니까?",
                                 inspectionPos.Index,
                                 inspectionPos.ePositionType,
                                 inspectionPos.PositionX,

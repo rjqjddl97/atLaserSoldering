@@ -847,14 +847,14 @@
             this.chartControl1.Legend.Name = "Default Legend";
             this.chartControl1.Legend.TextVisible = false;
             this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl1.Location = new System.Drawing.Point(12, 260);
+            this.chartControl1.Location = new System.Drawing.Point(12, 295);
             this.chartControl1.Name = "chartControl1";
             series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series1.Name = "Temperature";
             series1.View = swiftPlotSeriesView1;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chartControl1.Size = new System.Drawing.Size(427, 172);
+            this.chartControl1.Size = new System.Drawing.Size(427, 137);
             this.chartControl1.TabIndex = 5;
             // 
             // xtraTabControlMainCtrl
@@ -1490,7 +1490,7 @@
             this.pictureEditSystemImage.Properties.ShowMenu = false;
             this.pictureEditSystemImage.Properties.ShowScrollBars = true;
             this.pictureEditSystemImage.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.False;
-            this.pictureEditSystemImage.Size = new System.Drawing.Size(427, 244);
+            this.pictureEditSystemImage.Size = new System.Drawing.Size(427, 279);
             this.pictureEditSystemImage.StyleController = this.layoutControl2;
             this.pictureEditSystemImage.TabIndex = 4;
             this.pictureEditSystemImage.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureEditSystemImage_Paint);
@@ -1522,16 +1522,16 @@
             this.layoutControlItem9.Control = this.pictureEditSystemImage;
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(431, 248);
+            this.layoutControlItem9.Size = new System.Drawing.Size(431, 283);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.chartControl1;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 248);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 283);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(431, 176);
+            this.layoutControlItem10.Size = new System.Drawing.Size(431, 141);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 

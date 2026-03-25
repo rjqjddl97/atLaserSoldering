@@ -77,6 +77,7 @@
             this.rowLaserSolderingEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLaserSolderingLaserEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLaserSolderingFeedEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowLaserSolderingOutputWaitTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -105,8 +106,6 @@
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -115,6 +114,8 @@
             this.layoutControlItem30 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem31 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
             this.simpleButtonReplaceUp = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonReplaceDown = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonInspectionPositionEdit = new DevExpress.XtraEditors.SimpleButton();
@@ -128,10 +129,10 @@
             this.gridColumnPositionY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPositionZ = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnReadyTime = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnPreHeatTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPreHeatPowerRatio = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnHeatTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPreHeatTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnHeatPowerRatio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnHeatTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnForwardFeedLength = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnForwardFeedVelocity = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnReverseFeedLength = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -152,7 +153,6 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.openFileDialogTemplateImage = new System.Windows.Forms.OpenFileDialog();
-            this.rowLaserSolderingOutputWaitTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductSeries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductType)).BeginInit();
@@ -203,8 +203,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
@@ -213,6 +211,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectionPosition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectionPositions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEditInspectImage.Properties)).BeginInit();
@@ -588,7 +588,7 @@
             // 
             // vGridControlInspectionParam
             // 
-            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Default;
             this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
             this.vGridControlInspectionParam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -637,6 +637,15 @@
             this.rowLaserSolderingFeedEnable.Name = "rowLaserSolderingFeedEnable";
             this.rowLaserSolderingFeedEnable.Properties.Caption = "납 공급기 사용 유무";
             this.rowLaserSolderingFeedEnable.Properties.Value = true;
+            // 
+            // rowLaserSolderingOutputWaitTime
+            // 
+            this.rowLaserSolderingOutputWaitTime.Appearance.Options.UseTextOptions = true;
+            this.rowLaserSolderingOutputWaitTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowLaserSolderingOutputWaitTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowLaserSolderingOutputWaitTime.Name = "rowLaserSolderingOutputWaitTime";
+            this.rowLaserSolderingOutputWaitTime.Properties.Caption = "레이저 출력 지연시간[ms]";
+            this.rowLaserSolderingOutputWaitTime.Properties.Value = 200;
             // 
             // layoutControlItem1
             // 
@@ -949,24 +958,6 @@
             this.layoutControlItem21.Text = "9. Heat Time[ms]";
             this.layoutControlItem21.TextSize = new System.Drawing.Size(151, 14);
             // 
-            // layoutControlItem22
-            // 
-            this.layoutControlItem22.Control = this.textEditPreHeatPowerRatio;
-            this.layoutControlItem22.Location = new System.Drawing.Point(0, 120);
-            this.layoutControlItem22.Name = "layoutControlItem22";
-            this.layoutControlItem22.Size = new System.Drawing.Size(208, 24);
-            this.layoutControlItem22.Text = "6. PreHeat P. Ratio[%]";
-            this.layoutControlItem22.TextSize = new System.Drawing.Size(151, 14);
-            // 
-            // layoutControlItem23
-            // 
-            this.layoutControlItem23.Control = this.textEditHeatPowerRatio;
-            this.layoutControlItem23.Location = new System.Drawing.Point(0, 168);
-            this.layoutControlItem23.Name = "layoutControlItem23";
-            this.layoutControlItem23.Size = new System.Drawing.Size(208, 24);
-            this.layoutControlItem23.Text = "8. Heat P. Ratio[%]";
-            this.layoutControlItem23.TextSize = new System.Drawing.Size(151, 14);
-            // 
             // layoutControlItem24
             // 
             this.layoutControlItem24.Control = this.textEditForwardFeedLength;
@@ -1038,6 +1029,24 @@
             this.layoutControlItem15.Size = new System.Drawing.Size(208, 24);
             this.layoutControlItem15.Text = "1. Inspection Mode";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(151, 14);
+            // 
+            // layoutControlItem22
+            // 
+            this.layoutControlItem22.Control = this.textEditPreHeatPowerRatio;
+            this.layoutControlItem22.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem22.Name = "layoutControlItem22";
+            this.layoutControlItem22.Size = new System.Drawing.Size(208, 24);
+            this.layoutControlItem22.Text = "6. PreHeat P. Ratio[%]";
+            this.layoutControlItem22.TextSize = new System.Drawing.Size(151, 14);
+            // 
+            // layoutControlItem23
+            // 
+            this.layoutControlItem23.Control = this.textEditHeatPowerRatio;
+            this.layoutControlItem23.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem23.Name = "layoutControlItem23";
+            this.layoutControlItem23.Size = new System.Drawing.Size(208, 24);
+            this.layoutControlItem23.Text = "8. Heat P. Ratio[%]";
+            this.layoutControlItem23.TextSize = new System.Drawing.Size(151, 14);
             // 
             // simpleButtonReplaceUp
             // 
@@ -1124,10 +1133,10 @@
             this.gridColumnPositionY,
             this.gridColumnPositionZ,
             this.gridColumnReadyTime,
-            this.gridColumnPreHeatTime,
             this.gridColumnPreHeatPowerRatio,
-            this.gridColumnHeatTime,
+            this.gridColumnPreHeatTime,
             this.gridColumnHeatPowerRatio,
+            this.gridColumnHeatTime,
             this.gridColumnForwardFeedLength,
             this.gridColumnForwardFeedVelocity,
             this.gridColumnReverseFeedLength,
@@ -1229,6 +1238,9 @@
             // 
             // gridColumnReadyTime
             // 
+            this.gridColumnReadyTime.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnReadyTime.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnReadyTime.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnReadyTime.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnReadyTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnReadyTime.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -1240,60 +1252,75 @@
             this.gridColumnReadyTime.VisibleIndex = 5;
             this.gridColumnReadyTime.Width = 50;
             // 
-            // gridColumnPreHeatTime
-            // 
-            this.gridColumnPreHeatTime.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumnPreHeatTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnPreHeatTime.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumnPreHeatTime.Caption = "6";
-            this.gridColumnPreHeatTime.FieldName = "PreHeatTime";
-            this.gridColumnPreHeatTime.MaxWidth = 50;
-            this.gridColumnPreHeatTime.Name = "gridColumnPreHeatTime";
-            this.gridColumnPreHeatTime.Visible = true;
-            this.gridColumnPreHeatTime.VisibleIndex = 6;
-            this.gridColumnPreHeatTime.Width = 50;
-            // 
             // gridColumnPreHeatPowerRatio
             // 
+            this.gridColumnPreHeatPowerRatio.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPreHeatPowerRatio.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPreHeatPowerRatio.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnPreHeatPowerRatio.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnPreHeatPowerRatio.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnPreHeatPowerRatio.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumnPreHeatPowerRatio.Caption = "7";
+            this.gridColumnPreHeatPowerRatio.Caption = "6";
             this.gridColumnPreHeatPowerRatio.FieldName = "PreHeatPowerRatio";
             this.gridColumnPreHeatPowerRatio.MaxWidth = 50;
             this.gridColumnPreHeatPowerRatio.Name = "gridColumnPreHeatPowerRatio";
             this.gridColumnPreHeatPowerRatio.Visible = true;
-            this.gridColumnPreHeatPowerRatio.VisibleIndex = 7;
+            this.gridColumnPreHeatPowerRatio.VisibleIndex = 6;
             this.gridColumnPreHeatPowerRatio.Width = 50;
             // 
-            // gridColumnHeatTime
+            // gridColumnPreHeatTime
             // 
-            this.gridColumnHeatTime.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumnHeatTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnHeatTime.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumnHeatTime.Caption = "8";
-            this.gridColumnHeatTime.FieldName = "HeatTime";
-            this.gridColumnHeatTime.MaxWidth = 50;
-            this.gridColumnHeatTime.Name = "gridColumnHeatTime";
-            this.gridColumnHeatTime.Visible = true;
-            this.gridColumnHeatTime.VisibleIndex = 8;
-            this.gridColumnHeatTime.Width = 50;
+            this.gridColumnPreHeatTime.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPreHeatTime.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPreHeatTime.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumnPreHeatTime.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPreHeatTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPreHeatTime.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumnPreHeatTime.Caption = "7";
+            this.gridColumnPreHeatTime.FieldName = "PreHeatTime";
+            this.gridColumnPreHeatTime.MaxWidth = 50;
+            this.gridColumnPreHeatTime.Name = "gridColumnPreHeatTime";
+            this.gridColumnPreHeatTime.Visible = true;
+            this.gridColumnPreHeatTime.VisibleIndex = 7;
+            this.gridColumnPreHeatTime.Width = 50;
             // 
             // gridColumnHeatPowerRatio
             // 
+            this.gridColumnHeatPowerRatio.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnHeatPowerRatio.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnHeatPowerRatio.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnHeatPowerRatio.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnHeatPowerRatio.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnHeatPowerRatio.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumnHeatPowerRatio.Caption = "9";
+            this.gridColumnHeatPowerRatio.Caption = "8";
             this.gridColumnHeatPowerRatio.FieldName = "HeatPowerRatio";
             this.gridColumnHeatPowerRatio.MaxWidth = 50;
             this.gridColumnHeatPowerRatio.Name = "gridColumnHeatPowerRatio";
             this.gridColumnHeatPowerRatio.Visible = true;
-            this.gridColumnHeatPowerRatio.VisibleIndex = 9;
+            this.gridColumnHeatPowerRatio.VisibleIndex = 8;
             this.gridColumnHeatPowerRatio.Width = 50;
+            // 
+            // gridColumnHeatTime
+            // 
+            this.gridColumnHeatTime.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnHeatTime.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnHeatTime.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumnHeatTime.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnHeatTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnHeatTime.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumnHeatTime.Caption = "9";
+            this.gridColumnHeatTime.FieldName = "HeatTime";
+            this.gridColumnHeatTime.MaxWidth = 50;
+            this.gridColumnHeatTime.Name = "gridColumnHeatTime";
+            this.gridColumnHeatTime.Visible = true;
+            this.gridColumnHeatTime.VisibleIndex = 9;
+            this.gridColumnHeatTime.Width = 50;
             // 
             // gridColumnForwardFeedLength
             // 
+            this.gridColumnForwardFeedLength.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnForwardFeedLength.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnForwardFeedLength.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnForwardFeedLength.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnForwardFeedLength.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnForwardFeedLength.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -1307,6 +1334,9 @@
             // 
             // gridColumnForwardFeedVelocity
             // 
+            this.gridColumnForwardFeedVelocity.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnForwardFeedVelocity.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnForwardFeedVelocity.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnForwardFeedVelocity.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnForwardFeedVelocity.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnForwardFeedVelocity.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -1320,6 +1350,9 @@
             // 
             // gridColumnReverseFeedLength
             // 
+            this.gridColumnReverseFeedLength.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnReverseFeedLength.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnReverseFeedLength.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnReverseFeedLength.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnReverseFeedLength.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnReverseFeedLength.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -1333,6 +1366,9 @@
             // 
             // gridColumnReverseFeedVelocity
             // 
+            this.gridColumnReverseFeedVelocity.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnReverseFeedVelocity.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnReverseFeedVelocity.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumnReverseFeedVelocity.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnReverseFeedVelocity.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnReverseFeedVelocity.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -1502,15 +1538,6 @@
             this.openFileDialogTemplateImage.FileName = "Template Image";
             this.openFileDialogTemplateImage.Filter = "Bitmap Files (*.bmp)|*.bmp";
             // 
-            // rowLaserSolderingOutputWaitTime
-            // 
-            this.rowLaserSolderingOutputWaitTime.Appearance.Options.UseTextOptions = true;
-            this.rowLaserSolderingOutputWaitTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.rowLaserSolderingOutputWaitTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.rowLaserSolderingOutputWaitTime.Name = "rowLaserSolderingOutputWaitTime";
-            this.rowLaserSolderingOutputWaitTime.Properties.Caption = "레이저 출력 지연시간[ms]";
-            this.rowLaserSolderingOutputWaitTime.Properties.Value = 200;
-            // 
             // RecipeEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1578,8 +1605,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
@@ -1588,6 +1613,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem31)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectionPosition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectionPositions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEditInspectImage.Properties)).EndInit();
@@ -1727,10 +1754,10 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem31;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnReadyTime;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPreHeatTime;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnPreHeatPowerRatio;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnHeatTime;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPreHeatTime;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnHeatPowerRatio;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnHeatTime;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnForwardFeedLength;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnForwardFeedVelocity;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnReverseFeedLength;
