@@ -465,6 +465,7 @@ namespace LaserSoldering
                             _IsLaserPilotOn = true;
                         else
                             _IsLaserPilotOn = false;
+
                         _LaserPresentPower = (double)_mCompactMiniData.LaserPowerRatio;
                     }
                     else if (_LaserSource == LaserModule.CompactSE)

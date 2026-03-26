@@ -895,6 +895,7 @@ namespace atLaserSoldering
                 {
                     IsInitialized = true;
                     _isCameraOpen = true;
+                    timerImageUpdate.Start();
                     // System 파라미터를 Update한다.
                     //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
                 }
