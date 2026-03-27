@@ -169,6 +169,7 @@
             this.toolStripMenuItemSetROI = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemClearWorkROI = new System.Windows.Forms.ToolStripMenuItem();
             this.timerImageUpdate = new System.Windows.Forms.Timer(this.components);
+            this.openFileDialogImageFileOpen = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -397,6 +398,7 @@
             this.barButtonItemConnectAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemConnectAll.ImageOptions.Image")));
             this.barButtonItemConnectAll.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemConnectAll.ImageOptions.LargeImage")));
             this.barButtonItemConnectAll.Name = "barButtonItemConnectAll";
+            this.barButtonItemConnectAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemConnectAll_ItemClick);
             // 
             // barButtonItemConnectionAiC
             // 
@@ -1181,6 +1183,7 @@
             this.simpleButtonImageLoad.Size = new System.Drawing.Size(176, 23);
             this.simpleButtonImageLoad.TabIndex = 5;
             this.simpleButtonImageLoad.Text = "이미지 불러오기";
+            this.simpleButtonImageLoad.Click += new System.EventHandler(this.simpleButtonImageLoad_Click);
             // 
             // simpleButtonSingleGrab
             // 
@@ -1190,6 +1193,7 @@
             this.simpleButtonSingleGrab.Size = new System.Drawing.Size(176, 23);
             this.simpleButtonSingleGrab.TabIndex = 5;
             this.simpleButtonSingleGrab.Text = "이미지 획득하기";
+            this.simpleButtonSingleGrab.Click += new System.EventHandler(this.simpleButtonSingleGrab_Click);
             // 
             // textEditGain
             // 
@@ -1198,6 +1202,8 @@
             this.textEditGain.Name = "textEditGain";
             this.textEditGain.Size = new System.Drawing.Size(72, 20);
             this.textEditGain.TabIndex = 4;
+            this.textEditGain.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditGain_KeyDown);
+            this.textEditGain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.textEditGain_MouseUp);
             // 
             // textEditFrameRatio
             // 
@@ -1206,6 +1212,8 @@
             this.textEditFrameRatio.Name = "textEditFrameRatio";
             this.textEditFrameRatio.Size = new System.Drawing.Size(72, 20);
             this.textEditFrameRatio.TabIndex = 4;
+            this.textEditFrameRatio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditFrameRatio_KeyDown);
+            this.textEditFrameRatio.MouseUp += new System.Windows.Forms.MouseEventHandler(this.textEditFrameRatio_MouseUp);
             // 
             // textEditExposureTime
             // 
@@ -1214,6 +1222,7 @@
             this.textEditExposureTime.Name = "textEditExposureTime";
             this.textEditExposureTime.Size = new System.Drawing.Size(72, 20);
             this.textEditExposureTime.TabIndex = 4;
+            this.textEditExposureTime.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditExposureTime_KeyDown);
             // 
             // trackBarControlGain
             // 
@@ -1223,6 +1232,7 @@
             this.trackBarControlGain.Name = "trackBarControlGain";
             this.trackBarControlGain.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.trackBarControlGain.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.trackBarControlGain.Properties.Maximum = 1000;
             this.trackBarControlGain.Size = new System.Drawing.Size(99, 45);
             this.trackBarControlGain.TabIndex = 3;
             // 
@@ -1234,6 +1244,7 @@
             this.trackBarControlFrameRatio.Name = "trackBarControlFrameRatio";
             this.trackBarControlFrameRatio.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.trackBarControlFrameRatio.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.trackBarControlFrameRatio.Properties.Maximum = 100;
             this.trackBarControlFrameRatio.Size = new System.Drawing.Size(99, 45);
             this.trackBarControlFrameRatio.TabIndex = 3;
             // 
@@ -1245,8 +1256,10 @@
             this.trackBarControlExposureTime.Name = "trackBarControlExposureTime";
             this.trackBarControlExposureTime.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.trackBarControlExposureTime.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.trackBarControlExposureTime.Properties.Maximum = 100000;
             this.trackBarControlExposureTime.Size = new System.Drawing.Size(99, 45);
             this.trackBarControlExposureTime.TabIndex = 3;
+            this.trackBarControlExposureTime.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarControlExposureTime_MouseUp);
             // 
             // comboBoxEditCameraName
             // 
@@ -1451,7 +1464,7 @@
             // 
             this.laserSolderingControl.Location = new System.Drawing.Point(12, 12);
             this.laserSolderingControl.Name = "laserSolderingControl";
-            this.laserSolderingControl.Size = new System.Drawing.Size(534, 390);
+            this.laserSolderingControl.Size = new System.Drawing.Size(534, 373);
             this.laserSolderingControl.TabIndex = 4;
             // 
             // layoutControlGroup7
@@ -1461,7 +1474,7 @@
             this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem8});
             this.layoutControlGroup7.Name = "layoutControlGroup7";
-            this.layoutControlGroup7.Size = new System.Drawing.Size(558, 414);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(558, 397);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // layoutControlItem8
@@ -1469,7 +1482,7 @@
             this.layoutControlItem8.Control = this.laserSolderingControl;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(538, 394);
+            this.layoutControlItem8.Size = new System.Drawing.Size(538, 377);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -1621,6 +1634,13 @@
             // timerImageUpdate
             // 
             this.timerImageUpdate.Tick += new System.EventHandler(this.timerImageUpdate_Tick);
+            // 
+            // openFileDialogImageFileOpen
+            // 
+            this.openFileDialogImageFileOpen.FileName = "*.bmp";
+            this.openFileDialogImageFileOpen.Filter = "Bitmap Files (*.bmp)|*.bmp|Graphics Interange Format (*.gif)|*.gif|JPEG File Inte" +
+    "rchange Format (*.jpg;*.jpeg)|*.jpg;*.jpeg|Icon Files (*.ico)|*.ico|Portable Net" +
+    "work Graphics Format (*.png)|*.png";
             // 
             // atLaserSoldering
             // 
@@ -1862,5 +1882,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSetROI;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemClearWorkROI;
         private System.Windows.Forms.Timer timerImageUpdate;
+        private System.Windows.Forms.OpenFileDialog openFileDialogImageFileOpen;
     }
 }

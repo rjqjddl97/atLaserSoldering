@@ -754,6 +754,26 @@ namespace atLaserSoldering
                 else
                     barButtonItemConnectionRemeteIO.ImageOptions.Image = Properties.Resources.connect_16x16;
 
+                if (!_isCameraOpen)
+                    barButtonItemConnectionCamera.ImageOptions.Image = Properties.Resources.disconnect_16x16;
+                else
+                    barButtonItemConnectionCamera.ImageOptions.Image = Properties.Resources.connect_16x16;
+
+                if (!_mLaserSoldering.IsLaserConnect)
+                    barButtonItemConnectionLaser.ImageOptions.Image = Properties.Resources.disconnect_16x16;
+                else
+                    barButtonItemConnectionLaser.ImageOptions.Image = Properties.Resources.connect_16x16;
+
+                if (!_mLaserSoldering.IsFeederConnect)
+                    barButtonItemConnectionFeeder.ImageOptions.Image = Properties.Resources.disconnect_16x16;
+                else
+                    barButtonItemConnectionFeeder.ImageOptions.Image = Properties.Resources.connect_16x16;
+
+                //if (!_mLaserSoldering.IsFeederConnect)
+                //    barButtonItemConnectionCamera.ImageOptions.Image = Properties.Resources.disconnect_16x16;
+                //else
+                //    barButtonItemConnectionCamera.ImageOptions.Image = Properties.Resources.connect_16x16;
+
                 if ((_mMotionControlCommManager.IsOpen()) && (_mRemoteIOCommManager.IsOpen()) && (_isCameraOpen))
                     barButtonItemConnectAll.ImageOptions.LargeImage = Properties.Resources.connectedall_32x32;
 
@@ -828,6 +848,7 @@ namespace atLaserSoldering
                         //rowCameraFriendlyName.Properties.Value = liststrFriendlyNames[0];
 
                         Cameraname = liststrFriendlyNames[0];
+                        comboBoxEditCameraName.Properties.Items.Add(Cameraname);
                         if (_Camera.Open(liststrFriendlyNames[0]))
                         {
                             CameraParameters cameraParam = new CameraParameters();
@@ -861,6 +882,7 @@ namespace atLaserSoldering
 
                             _isCameraInitialized = true;
                             _isCameraOpen = true;
+                            comboBoxEditCameraName.SelectedIndex = 0;
                             // System 파라미터를 Update한다.
                             //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
                             //UpdateImageEvent += UpdateImageData;
@@ -895,6 +917,7 @@ namespace atLaserSoldering
                 {
                     IsInitialized = true;
                     _isCameraOpen = true;
+                    comboBoxEditCameraName.SelectedIndex = 0;
                     // System 파라미터를 Update한다.
                     //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
                 }
@@ -1182,11 +1205,10 @@ namespace atLaserSoldering
                 //rowCameraFriendlyName.Properties.Value = liststrFriendlyNames[0];
 
                 Cameraname = liststrFriendlyNames[0];
+                comboBoxEditCameraName.Properties.Items.Add(Cameraname);
                 if (_Camera.Open(liststrFriendlyNames[0]))
                 {
                     CameraParameters cameraParam = new CameraParameters();
-
-
 
                     // 노출 시간
                     cameraParam = _Camera.ExposureTime;
@@ -1215,6 +1237,7 @@ namespace atLaserSoldering
 
                     _isCameraInitialized = true;
                     _isCameraOpen = true;
+                    comboBoxEditCameraName.SelectedIndex = 0;
                     // System 파라미터를 Update한다.
                     //UpdateImageEvent += UpdateImageData;
                     timerImageUpdate.Start();
@@ -1586,6 +1609,342 @@ namespace atLaserSoldering
             pictureEditSystemImage.Image = _sourceImage;
             pictureEditSystemImage.Refresh();
             GC.Collect();
+        }
+        private void SetCameraExposureTime(CameraParameters cameraParam)
+        {
+            double oldValue = _Camera.ExposureTime.Value;
+
+            if (cameraParam.Value >= trackBarControlExposureTime.Properties.Minimum && cameraParam.Value <= trackBarControlExposureTime.Properties.Maximum)
+            {
+
+                //trackBarControlExposureTime.PropertiesCollection[1].Value = cameraParam.Value;
+                //trackBarControlExposureTime.PropertiesCollection[0].Value = cameraParam.Value;
+
+                _Camera.ExposureTime = cameraParam;
+
+                mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 노출 시간 변경(변경 전:{0}, 변경 후:{1})", (int)oldValue, (int)cameraParam.Value));
+            }
+        }
+        private void SetCameraFrameRate(CameraParameters cameraParam)
+        {
+            double oldValue = _Camera.FrameRate.Value;
+
+            if (cameraParam.Value >= trackBarControlFrameRatio.Properties.Minimum && cameraParam.Value <= trackBarControlFrameRatio.Properties.Maximum)
+            {
+
+                //rowCameraFrameRate.PropertiesCollection[1].Value = cameraParam.Value;
+                //rowCameraFrameRate.PropertiesCollection[0].Value = cameraParam.Value;
+
+                _Camera.FrameRate = cameraParam;
+
+                mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 프레임 비(fps) 변경(변경 전:{0}, 변경 후:{1})", (int)oldValue, (int)cameraParam.Value));
+            }
+        }
+
+        private void SetCameraGain(CameraParameters cameraParam)
+        {
+            double oldValue = _Camera.Gain.Value;
+
+            if (cameraParam.Value >= trackBarControlGain.Properties.Minimum && cameraParam.Value <= trackBarControlGain.Properties.Maximum)
+            {
+                //rowCameraGain.PropertiesCollection[1].Value = cameraParam.Value;
+                //rowCameraGain.PropertiesCollection[0].Value = cameraParam.Value;
+
+                _Camera.Gain = cameraParam;
+
+                mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 게인 변경(변경 전:{0}, 변경 후:{1})", (int)oldValue, (int)cameraParam.Value));
+            }
+        }
+        private void textEditExposureTime_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CameraParameters cameraParam = new CameraParameters();
+                cameraParam.Value = Convert.ToDouble((sender as TextEdit).Text);
+                trackBarControlExposureTime.EditValue = Convert.ToDouble((sender as TextEdit).Text);
+                SetCameraExposureTime(cameraParam);
+            }
+        }
+
+        private void trackBarControlExposureTime_MouseUp(object sender, MouseEventArgs e)
+        {
+            DevExpress.XtraEditors.TrackBarControl trackBar = sender as DevExpress.XtraEditors.TrackBarControl;
+            if (trackBar != null)
+            {
+                // 드래그가 끝난 최종 시점의 값을 가져옵니다.
+                
+                CameraParameters cameraParam = new CameraParameters();
+                cameraParam.Value = trackBar.Value;
+                SetCameraExposureTime(cameraParam);
+                textEditExposureTime.Text = trackBar.Value.ToString();
+            }
+        }
+
+        private void textEditFrameRatio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CameraParameters cameraParam = new CameraParameters();
+                cameraParam.Value = Convert.ToDouble((sender as TextEdit).Text);
+                trackBarControlFrameRatio.EditValue = Convert.ToDouble((sender as TextEdit).Text);
+                SetCameraFrameRate(cameraParam);
+            }
+        }
+
+        private void textEditGain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CameraParameters cameraParam = new CameraParameters();
+                cameraParam.Value = Convert.ToDouble((sender as TextEdit).Text);
+                trackBarControlGain.EditValue = Convert.ToDouble((sender as TextEdit).Text);
+                SetCameraGain(cameraParam);
+            }
+        }
+
+        private void textEditGain_MouseUp(object sender, MouseEventArgs e)
+        {
+            DevExpress.XtraEditors.TrackBarControl trackBar = sender as DevExpress.XtraEditors.TrackBarControl;
+            if (trackBar != null)
+            {
+                // 드래그가 끝난 최종 시점의 값을 가져옵니다.
+
+                CameraParameters cameraParam = new CameraParameters();
+                cameraParam.Value = trackBar.Value;
+                SetCameraGain(cameraParam);
+                textEditGain.Text = trackBar.Value.ToString();
+            }
+        }
+
+        private void textEditFrameRatio_MouseUp(object sender, MouseEventArgs e)
+        {
+            DevExpress.XtraEditors.TrackBarControl trackBar = sender as DevExpress.XtraEditors.TrackBarControl;
+            if (trackBar != null)
+            {
+                // 드래그가 끝난 최종 시점의 값을 가져옵니다.
+
+                CameraParameters cameraParam = new CameraParameters();
+                cameraParam.Value = trackBar.Value;
+                SetCameraFrameRate(cameraParam);
+                textEditFrameRatio.Text = trackBar.Value.ToString();
+            }
+        }
+
+        private void barButtonItemConnectAll_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (e.Item.Name == "barButtonItemConnectAll")
+                {
+                    if (!_mMotionControlCommManager.IsOpen())
+                    {
+                        AiCControlLibrary.SerialCommunication.Control.SerialPortSetData setPort = new AiCControlLibrary.SerialCommunication.Control.SerialPortSetData();
+                        setPort.PortName = _systemParams._AiCParams.SerialParameters.PortName;
+                        setPort.BaudRate = (int)_systemParams._AiCParams.SerialParameters.BaudRates;
+                        setPort.DataBits = (int)_systemParams._AiCParams.SerialParameters.DataBits;
+                        setPort.StopBits = System.IO.Ports.StopBits.One; //(StopBits)_systemParams._AiCParams.SerialParameters.StopBits;
+                        setPort.Parity = System.IO.Ports.Parity.None;
+
+                        motionControl.ConnectionOpen(setPort);
+
+                        if (_mMotionControlCommManager.IsOpen())
+                        {
+                            motionControl.RobotInfomationUpdatedEvent += UpdateRobotInfomation;
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("AiC 통신 연결 성공."));
+                        }
+                        else
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("AiC 통신 연결 실패."));
+                    }
+
+                    if (!_mRemoteIOCommManager.IsOpen())
+                    {
+                        ArioModbusLibrary.SerialCommunication.Control.SerialPortSetData setPort = new ArioModbusLibrary.SerialCommunication.Control.SerialPortSetData();
+                        setPort.PortName = _systemParams._remoteIOParams.SerialParameters.PortName;
+                        setPort.BaudRate = (int)_systemParams._remoteIOParams.SerialParameters.BaudRates;
+                        setPort.DataBits = (int)_systemParams._remoteIOParams.SerialParameters.DataBits;
+                        setPort.StopBits = System.IO.Ports.StopBits.One;
+                        setPort.Parity = System.IO.Ports.Parity.None;
+
+                        remoteIOControl.ConnectionOpen(setPort);
+
+                        if (_mRemoteIOCommManager.IsOpen())
+                        {
+                            remoteIOControl.RobotInfomationUpdatedEvent += UpdateRobotIOInfomation;
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("ARIO 통신 연결 성공."));
+                        }
+                        else
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("ARIO 통신 연결 실패."));
+                    }
+
+                    if (!_Camera.IsOpen)
+                    {
+                        if (_Camera.Open(Cameraname))
+                        {
+                            _isCameraOpen = true;
+                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("카메라 연결 성공:{0}", Cameraname));
+                        }
+                        else
+                        {
+                            _isCameraOpen = false;
+                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("카메라 연결 실패:{0}", Cameraname));
+                        }
+                    }
+                }
+                else if (e.Item.Name == "barButtonItemConnectionAiC")
+                {
+                    if (!_mMotionControlCommManager.IsOpen())
+                    {
+                        AiCControlLibrary.SerialCommunication.Control.SerialPortSetData setPort = new AiCControlLibrary.SerialCommunication.Control.SerialPortSetData();
+                        setPort.PortName = _systemParams._AiCParams.SerialParameters.PortName;
+                        setPort.BaudRate = (int)_systemParams._AiCParams.SerialParameters.BaudRates;
+                        setPort.DataBits = (int)_systemParams._AiCParams.SerialParameters.DataBits;
+                        setPort.StopBits = System.IO.Ports.StopBits.One; //(StopBits)_systemParams._AiCParams.SerialParameters.StopBits;
+                        setPort.Parity = System.IO.Ports.Parity.None;
+
+                        motionControl.ConnectionOpen(setPort);
+
+                        if (_mMotionControlCommManager.IsOpen())
+                        {
+                            motionControl.RobotInfomationUpdatedEvent += UpdateRobotInfomation;
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("AiC 통신 연결 성공."));
+                        }
+                        else
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("AiC 통신 연결 실패."));
+                    }
+                    else
+                    {
+                        //_mMotionControlCommManager.Disconnect();
+                        motionControl.ConnectionClosed();
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("AiC 통신 연결 해제 성공."));
+                    }
+                }
+                else if (e.Item.Name == "barButtonItemConnectionRemeteIO")
+                {
+                    if (!_mRemoteIOCommManager.IsOpen())
+                    {
+                        ArioModbusLibrary.SerialCommunication.Control.SerialPortSetData setPort = new ArioModbusLibrary.SerialCommunication.Control.SerialPortSetData();
+                        setPort.PortName = _systemParams._remoteIOParams.SerialParameters.PortName;
+                        setPort.BaudRate = (int)_systemParams._remoteIOParams.SerialParameters.BaudRates;
+                        setPort.DataBits = (int)_systemParams._remoteIOParams.SerialParameters.DataBits;
+                        setPort.StopBits = System.IO.Ports.StopBits.One;
+                        setPort.Parity = System.IO.Ports.Parity.None;
+
+                        remoteIOControl.ConnectionOpen(setPort);
+
+                        if (_mRemoteIOCommManager.IsOpen())
+                        {
+                            remoteIOControl.RobotInfomationUpdatedEvent += UpdateRobotIOInfomation;
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("ARM 통신 연결 성공."));
+                        }
+                        else
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("ARM 통신 연결 실패."));
+                    }
+                    else
+                    {
+                        //_mMotionControlCommManager.Disconnect();
+                        remoteIOControl.ConnectionClosed();
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("ARM 통신 연결 해제 성공."));
+                    }
+                }
+                else if (e.Item.Name == "barButtonItemConnectionCamera")
+                {
+                    if (_isContinuousShot)
+                        _Camera.Stop();
+
+                    if (!_Camera.IsAllocated)
+                    {
+                        if (!string.IsNullOrEmpty(Cameraname))
+                        {
+                            if (_Camera.Open(Cameraname))
+                            {
+                                _isCameraOpen = true;
+                                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("카메라 연결 성공:{0}", Cameraname));
+                            }
+                            else
+                            {
+                                _isCameraOpen = false;
+                                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("카메라 연결 실패:{0}", Cameraname));
+                            }
+                        }
+                        else
+                        {
+                            _isCameraOpen = false;
+                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("카메라 이름이 없습니다:{0}", Cameraname));
+                        }
+                    }
+                    else
+                    {
+                        _Camera.Close();
+                        _isCameraOpen = false;
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("카메라 연결이 끊겼습니다."));
+                    }
+
+                }
+                else if ((e.Item.Name == "barButtonItemConnectionLaser") || (e.Item.Name == "barButtonItemConnectionFeeder"))
+                {
+                    if (!_mLaserSoldering.IsSolderingConnect)
+                    {
+                        LaserSolderingModuleConnect();
+                    }
+                    else
+                    {
+                        LaserSolderingModuleDisConnect();
+                    }
+                }
+                else if (e.Item.Name == "barButtonItemConnectionLight")
+                {
+
+                }
+                else
+                {
+                    ;
+                }
+                UpdateConnectStatusForAll();
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
+
+        private void simpleButtonSingleGrab_Click(object sender, EventArgs e)
+        {
+            if (_Camera.IsAllocated)
+            {
+                try
+                {
+                    _Camera.OneShot(_waitHandle);
+
+                    pictureEditSystemImage.Refresh();
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "이미지를 획득하였습니다.");
+                    ImageFitSize();
+                }
+                catch (Exception)
+                {
+                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("이미지 획득 명령이 실행되지 않았습니다."));
+                }
+            }
+        }
+
+        private void simpleButtonImageLoad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (openFileDialogImageFileOpen.ShowDialog() == DialogResult.OK)
+                {
+                    _sourceImage = System.Drawing.Image.FromFile(openFileDialogImageFileOpen.FileName);
+                    pictureEditSystemImage.Image = _sourceImage;
+                    //_patternMatching = false;
+                    //_isOpticalMeasurement = false;
+                    pictureEditSystemImage.Refresh();
+                    ImageFitSize();
+                }
+                mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("{0}파일 이미지 불러오기", openFileDialogImageFileOpen.FileName));
+            }
+            catch (Exception ex)
+            {
+                mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("{0}\r\n{1}", ex.Message, ex.StackTrace));
+            }
         }
     }
 }
