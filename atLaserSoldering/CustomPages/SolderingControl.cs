@@ -40,6 +40,7 @@ namespace CustomPages
         public event Action<string> LogWriteEvent;
 
         public bool IsOpenStatus = false;
+        public bool _IsPilotSpot = false;
         public System.Timers.Timer UpdateTimer = new System.Timers.Timer();
 
         public SolderingControl()
@@ -347,15 +348,18 @@ namespace CustomPages
                     byte[] data = new byte[datasize];
                     //if (_mLaserCommunicationManager.IsReceiveAck())
                     {
-                        if (_mLaserSoldering.IsLaserPilotOn)
+                        //if (_mLaserSoldering.IsLaserPilotOn)
+                        if (_IsPilotSpot)
                         {
                             data = _mLaserData.GetSetPositioningLaserOn(false);
-                            //simpleButtonPilotOn.Text = "Piolt On";
+                            simpleButtonPilotOn.Text = "Piolt On";
+                            _IsPilotSpot = false;
                         }
                         else
                         {
                             data = _mLaserData.GetSetPositioningLaserOn(true);
-                            //simpleButtonPilotOn.Text = "Piolt Off";
+                            _IsPilotSpot = true;
+                            simpleButtonPilotOn.Text = "Piolt Off";
                         }
                         _mLaserCommunicationManager.SendData(data);
                     }
