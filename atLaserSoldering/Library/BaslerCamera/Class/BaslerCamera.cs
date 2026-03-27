@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Basler.Pylon;
 using LogLibrary;
+//using OpenCvSharp;
 
 namespace Basler
 {

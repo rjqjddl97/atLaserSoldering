@@ -1508,6 +1508,7 @@
             this.pictureEditSystemImage.TabIndex = 4;
             this.pictureEditSystemImage.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureEditSystemImage_Paint);
             this.pictureEditSystemImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureEditSystemImage_MouseDown);
+            this.pictureEditSystemImage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureEditSystemImage_MouseUp);
             // 
             // layoutControlGroup1
             // 

@@ -1860,6 +1860,66 @@ namespace CustomPages
             CheckButtonYStopControlCommand.Checked = false;            
             CheckButtonZStopControlCommand.Checked = false;
         }
+        public void SendCmdPosition(double[] pos, double vel, double acc)
+        {
+            try
+            {
+                if (_mAiCCommunicationManager != null && pos != null)
+                {
+                    //if ((_mAiCCommunicationManager.IsOpen()) && (_isRobotEnable))
+                    if ((_mAiCCommunicationManager.IsOpen()))
+                    {
+                        byte[] data = new byte[100];
+                        data = _mAiCCommunicationManager.mDrvCtrl.MoveTargetPositionSendData((byte)_mAiCCommunicationManager.mDrvCtrl.DrvID[0], Convert.ToInt32(pos[0] * _MotionParam.MM2PulseRatioX));
+                        _mAiCCommunicationManager.SendData(data);
+                        data = _mAiCCommunicationManager.mDrvCtrl.MoveTargetPositionSendData((byte)_mAiCCommunicationManager.mDrvCtrl.DrvID[1], Convert.ToInt32(pos[1] * _MotionParam.MM2PulseRatioY));
+                        _mAiCCommunicationManager.SendData(data);
+                        data = _mAiCCommunicationManager.mDrvCtrl.MoveTargetPositionSendData((byte)_mAiCCommunicationManager.mDrvCtrl.DrvID[2], Convert.ToInt32(pos[2] * _MotionParam.MM2PulseRatioZ));
+                        _mAiCCommunicationManager.SendData(data);
+                        //Thread.Sleep(1000);
+                        Task.Delay(500);
+                        data = _mAiCData.MoveAbsoluteCommand(129);
+
+                        _mAiCCommunicationManager.SendData(data);                        
+                        LogWriteEvent?.Invoke(string.Format("위치 이동 명령을 전송했습니다"));                  
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
+        public void SendCmdPosition(double[] pos)
+        {
+            try
+            {
+                if (_mAiCCommunicationManager != null && pos != null)
+                {
+                    //if ((_mAiCCommunicationManager.IsOpen()) && (_isRobotEnable))
+                    if ((_mAiCCommunicationManager.IsOpen()))
+                    {
+                        byte[] data = new byte[100];
+                        data = _mAiCCommunicationManager.mDrvCtrl.MoveTargetPositionSendData((byte)_mAiCCommunicationManager.mDrvCtrl.DrvID[0], Convert.ToInt32(pos[0] * _MotionParam.MM2PulseRatioX));
+                        _mAiCCommunicationManager.SendData(data);
+                        data = _mAiCCommunicationManager.mDrvCtrl.MoveTargetPositionSendData((byte)_mAiCCommunicationManager.mDrvCtrl.DrvID[1], Convert.ToInt32(pos[1] * _MotionParam.MM2PulseRatioY));
+                        _mAiCCommunicationManager.SendData(data);
+                        data = _mAiCCommunicationManager.mDrvCtrl.MoveTargetPositionSendData((byte)_mAiCCommunicationManager.mDrvCtrl.DrvID[2], Convert.ToInt32(pos[2] * _MotionParam.MM2PulseRatioZ));
+                        _mAiCCommunicationManager.SendData(data);
+                        //Thread.Sleep(1000);
+                        Task.Delay(500);
+                        data = _mAiCData.MoveAbsoluteCommand(129);
+
+                        _mAiCCommunicationManager.SendData(data);
+                        LogWriteEvent?.Invoke(string.Format("위치 이동 명령을 전송했습니다"));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
         private void SendCmdPositionButton_Click(object sender, EventArgs e)
         {
             try

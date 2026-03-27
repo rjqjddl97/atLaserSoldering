@@ -79,7 +79,7 @@ namespace atLaserSoldering
         bool _isContinuousShot = false;
         bool _isCameraOpen = false;
         bool _isCameraInitialized = false;
-        bool _isOpticalMeasurement = false;
+        bool _isOpticalMeasurement = false;        
 
         bool _isShowCenterMark = false;
         bool _isGrabbed = false;
@@ -92,6 +92,8 @@ namespace atLaserSoldering
         bool _IsHommingFinished = false;
         bool _IsDrvErr = false;
         bool _IsHommingCancle = false;
+        bool _IsAutoSolderingRunning = false;
+        bool _IsMovementVision = false;
         public atLaserSoldering()
         {
             InitializeComponent();
@@ -1530,7 +1532,7 @@ namespace atLaserSoldering
         {
             try
             {
-                if (pictureEditSystemImage.Image == null)//|| barCheckItemInspectionStart.Checked)
+                if (pictureEditSystemImage.Image == null || _IsAutoSolderingRunning)
                     return;
 
                 GraphicsPath path = new GraphicsPath();
@@ -1542,11 +1544,27 @@ namespace atLaserSoldering
                 path.AddRectangle(_frtCrop);
                 path.AddRectangle(_frtArearect);
 
-                if (e.Button == MouseButtons.Right)
+                PointF fptTemp = Utils.PointDrawToReal(e.Location, fScale, fHScroll, fVScroll);
+
+                if (_IsMovementVision && e.Button == MouseButtons.Left)
                 {
-                    contextMenuStripImageViewControl.Show(e.Location);
+                    float fMoveX = (_systemParams._cameraParams.HResolution / 2f - fptTemp.X) * _systemParams._cameraParams.OnePixelResolution;// * 0.001f;
+                    float fMoveY = (fptTemp.Y - _systemParams._cameraParams.VResolution / 2f) * _systemParams._cameraParams.OnePixelResolution;// * 0.001f;
+
+                    // Robot Move Command
+                    double[] pos = new double[3];
+                    pos[0] = mRobotInformation.PositionX + (fMoveX * _systemParams._calibrationParams._imagetoSystemXcoordi); 
+                    pos[1] = mRobotInformation.PositionY + (fMoveY * _systemParams._calibrationParams._imagetoSystemYcoordi);
+                    pos[2] = mRobotInformation.PositionZ;
+                    motionControl.SendCmdPosition(pos);
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("X:{0}mm, Y:{1}mm, Z:{2}mm 이동", pos[0],pos[1],pos[2] ));
                 }
-                //PointF fptTemp = Utils.PointDrawToReal(e.Location, fScale, fHScroll, fVScroll);
+                else if (e.Button == MouseButtons.Right)
+                {
+                    Point ptPos = new Point((int)fptTemp.X, (int)fptTemp.Y);
+                    contextMenuStripImageViewControl.Show(pictureEditSystemImage,e.Location);
+                }
+
 
                 //if (barCheckItemImageCrop.Checked)
                 //{
@@ -1563,17 +1581,6 @@ namespace atLaserSoldering
                 //        {
                 //            _fptMoveStart = fptTemp;
                 //            pictureEditSystemImage.Cursor = Cursors.SizeAll;
-
-                //            _isCropMove = true;
-                //        }
-                //    }
-                //    else if (e.Button == MouseButtons.Right)
-                //    {
-                //        Point ptPos = new Point(e.X, pictureEditSystemImage.Size.Height + e.Y);
-
-                //        if (path.IsVisible(fptTemp))
-                //        {
-                //            popupMenuTemplateCrop.ShowPopup(ptPos);
                 //        }
                 //    }
                 //}
@@ -1947,6 +1954,11 @@ namespace atLaserSoldering
             {
                 mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("{0}\r\n{1}", ex.Message, ex.StackTrace));
             }
+        }
+
+        private void pictureEditSystemImage_MouseUp(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

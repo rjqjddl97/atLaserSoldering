@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\BaslerCamera.cs" />
+    <Compile Include="Class\Utils.cs" />
     <Compile Include="Params\CameraParamters.cs" />
     <Compile Include="Params\GrabEndArg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
