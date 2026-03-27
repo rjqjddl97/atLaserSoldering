@@ -858,17 +858,20 @@ namespace atLaserSoldering
                             // 노출 시간
                             cameraParam = _Camera.ExposureTime;
                             textEditExposureTime.Text = cameraParam.Value.ToString();
+                            trackBarControlExposureTime.EditValue = Convert.ToInt32(textEditExposureTime.Text);
                             //Cameraexposuretime = (int)cameraParam.Value;
                             //_systemParams.CameraParameters.ExposureTime = (int)cameraParam.Value;
 
                             // 게인
                             cameraParam = _Camera.Gain;
                             textEditGain.Text = cameraParam.Value.ToString();
+                            trackBarControlGain.EditValue = Convert.ToInt32(textEditGain.Text);
                             //_systemParams.CameraParameters.Gain = (int)cameraParam.Value;                        
 
                             // Frame Rate
                             cameraParam = _Camera.FrameRate;
                             textEditFrameRatio.Text = cameraParam.Value.ToString();
+                            trackBarControlFrameRatio.EditValue = Convert.ToInt32(textEditFrameRatio.Text);
                             //_systemParams.CameraParameters.FrameRate = (int)cameraParam.Value;                        
 
                             cameraParam = _Camera.Width;
@@ -917,11 +920,10 @@ namespace atLaserSoldering
                 {
                     IsInitialized = true;
                     _isCameraOpen = true;
-<<<<<<< HEAD
                     comboBoxEditCameraName.SelectedIndex = 0;
-=======
+
                     timerImageUpdate.Start();
->>>>>>> 6426ad25d1c6b2b28848fcc96eb5c78ee401ec27
+                    
                     // System 파라미터를 Update한다.
                     //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
                 }
@@ -1689,38 +1691,12 @@ namespace atLaserSoldering
             if (e.KeyCode == Keys.Enter)
             {
                 CameraParameters cameraParam = new CameraParameters();
-                cameraParam.Value = Convert.ToDouble((sender as TextEdit).Text);
+                cameraParam.Value = Convert.ToDouble((sender as TextEdit).Text);                
                 trackBarControlFrameRatio.EditValue = Convert.ToDouble((sender as TextEdit).Text);
                 SetCameraFrameRate(cameraParam);
             }
         }
-
-        private void textEditGain_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                CameraParameters cameraParam = new CameraParameters();
-                cameraParam.Value = Convert.ToDouble((sender as TextEdit).Text);
-                trackBarControlGain.EditValue = Convert.ToDouble((sender as TextEdit).Text);
-                SetCameraGain(cameraParam);
-            }
-        }
-
-        private void textEditGain_MouseUp(object sender, MouseEventArgs e)
-        {
-            DevExpress.XtraEditors.TrackBarControl trackBar = sender as DevExpress.XtraEditors.TrackBarControl;
-            if (trackBar != null)
-            {
-                // 드래그가 끝난 최종 시점의 값을 가져옵니다.
-
-                CameraParameters cameraParam = new CameraParameters();
-                cameraParam.Value = trackBar.Value;
-                SetCameraGain(cameraParam);
-                textEditGain.Text = trackBar.Value.ToString();
-            }
-        }
-
-        private void textEditFrameRatio_MouseUp(object sender, MouseEventArgs e)
+        private void trackBarControlFrameRatio_MouseUp(object sender, MouseEventArgs e)
         {
             DevExpress.XtraEditors.TrackBarControl trackBar = sender as DevExpress.XtraEditors.TrackBarControl;
             if (trackBar != null)
@@ -1731,6 +1707,28 @@ namespace atLaserSoldering
                 cameraParam.Value = trackBar.Value;
                 SetCameraFrameRate(cameraParam);
                 textEditFrameRatio.Text = trackBar.Value.ToString();
+            }
+        }
+        private void textEditGain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CameraParameters cameraParam = new CameraParameters();
+                cameraParam.Value = Convert.ToDouble((sender as TextEdit).Text);
+                SetCameraGain(cameraParam);
+                trackBarControlGain.EditValue = Convert.ToDouble((sender as TextEdit).Text);                
+            }
+        }
+        private void trackBarControlGain_MouseUp(object sender, MouseEventArgs e)
+        {
+            DevExpress.XtraEditors.TrackBarControl trackBar = sender as DevExpress.XtraEditors.TrackBarControl;
+            if (trackBar != null)
+            {
+                // 드래그가 끝난 최종 시점의 값을 가져옵니다.
+                CameraParameters cameraParam = new CameraParameters();
+                cameraParam.Value = trackBar.Value;
+                textEditGain.Text = trackBar.Value.ToString();
+                SetCameraGain(cameraParam);
             }
         }
 

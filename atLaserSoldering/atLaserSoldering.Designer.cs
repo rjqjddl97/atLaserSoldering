@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(atLaserSoldering));
-            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram1 = new DevExpress.XtraCharts.SwiftPlotDiagram();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView1 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
+            DevExpress.XtraCharts.SwiftPlotDiagram swiftPlotDiagram2 = new DevExpress.XtraCharts.SwiftPlotDiagram();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SwiftPlotSeriesView swiftPlotSeriesView2 = new DevExpress.XtraCharts.SwiftPlotSeriesView();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItemSystemFolderPathSetting = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemSystemEditor = new DevExpress.XtraBars.BarButtonItem();
@@ -188,9 +188,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMainCtrl)).BeginInit();
             this.xtraTabControlMainCtrl.SuspendLayout();
             this.xtraTabPageMain.SuspendLayout();
@@ -841,21 +841,21 @@
             // 
             // chartControl1
             // 
-            swiftPlotDiagram1.AxisX.GridLines.Visible = true;
-            swiftPlotDiagram1.AxisX.Label.Visible = false;
-            swiftPlotDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            swiftPlotDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl1.Diagram = swiftPlotDiagram1;
+            swiftPlotDiagram2.AxisX.GridLines.Visible = true;
+            swiftPlotDiagram2.AxisX.Label.Visible = false;
+            swiftPlotDiagram2.AxisX.VisibleInPanesSerializable = "-1";
+            swiftPlotDiagram2.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl1.Diagram = swiftPlotDiagram2;
             this.chartControl1.Legend.Name = "Default Legend";
             this.chartControl1.Legend.TextVisible = false;
             this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControl1.Location = new System.Drawing.Point(12, 295);
             this.chartControl1.Name = "chartControl1";
-            series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series1.Name = "Temperature";
-            series1.View = swiftPlotSeriesView1;
+            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series2.Name = "Temperature";
+            series2.View = swiftPlotSeriesView2;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
+        series2};
             this.chartControl1.Size = new System.Drawing.Size(427, 137);
             this.chartControl1.TabIndex = 5;
             // 
@@ -1203,7 +1203,6 @@
             this.textEditGain.Size = new System.Drawing.Size(72, 20);
             this.textEditGain.TabIndex = 4;
             this.textEditGain.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditGain_KeyDown);
-            this.textEditGain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.textEditGain_MouseUp);
             // 
             // textEditFrameRatio
             // 
@@ -1213,7 +1212,6 @@
             this.textEditFrameRatio.Size = new System.Drawing.Size(72, 20);
             this.textEditFrameRatio.TabIndex = 4;
             this.textEditFrameRatio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditFrameRatio_KeyDown);
-            this.textEditFrameRatio.MouseUp += new System.Windows.Forms.MouseEventHandler(this.textEditFrameRatio_MouseUp);
             // 
             // textEditExposureTime
             // 
@@ -1235,6 +1233,7 @@
             this.trackBarControlGain.Properties.Maximum = 1000;
             this.trackBarControlGain.Size = new System.Drawing.Size(99, 45);
             this.trackBarControlGain.TabIndex = 3;
+            this.trackBarControlGain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarControlGain_MouseUp);
             // 
             // trackBarControlFrameRatio
             // 
@@ -1247,6 +1246,7 @@
             this.trackBarControlFrameRatio.Properties.Maximum = 100;
             this.trackBarControlFrameRatio.Size = new System.Drawing.Size(99, 45);
             this.trackBarControlFrameRatio.TabIndex = 3;
+            this.trackBarControlFrameRatio.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarControlFrameRatio_MouseUp);
             // 
             // trackBarControlExposureTime
             // 
@@ -1464,7 +1464,7 @@
             // 
             this.laserSolderingControl.Location = new System.Drawing.Point(12, 12);
             this.laserSolderingControl.Name = "laserSolderingControl";
-            this.laserSolderingControl.Size = new System.Drawing.Size(534, 373);
+            this.laserSolderingControl.Size = new System.Drawing.Size(534, 390);
             this.laserSolderingControl.TabIndex = 4;
             // 
             // layoutControlGroup7
@@ -1474,7 +1474,7 @@
             this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem8});
             this.layoutControlGroup7.Name = "layoutControlGroup7";
-            this.layoutControlGroup7.Size = new System.Drawing.Size(558, 397);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(558, 414);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // layoutControlItem8
@@ -1482,7 +1482,7 @@
             this.layoutControlItem8.Control = this.laserSolderingControl;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(538, 377);
+            this.layoutControlItem8.Size = new System.Drawing.Size(538, 394);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -1675,9 +1675,9 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMainCtrl)).EndInit();
             this.xtraTabControlMainCtrl.ResumeLayout(false);
