@@ -917,7 +917,11 @@ namespace atLaserSoldering
                 {
                     IsInitialized = true;
                     _isCameraOpen = true;
+<<<<<<< HEAD
                     comboBoxEditCameraName.SelectedIndex = 0;
+=======
+                    timerImageUpdate.Start();
+>>>>>>> 6426ad25d1c6b2b28848fcc96eb5c78ee401ec27
                     // System 파라미터를 Update한다.
                     //RecipeFileIO.WriteSystemFile(_systemParams, string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName));
                 }
