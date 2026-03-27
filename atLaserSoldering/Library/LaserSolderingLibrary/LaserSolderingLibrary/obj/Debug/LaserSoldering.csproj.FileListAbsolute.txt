@@ -104,6 +104,8 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolder
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\obj\Debug\LaserSoldering.pdb
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.config
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.xsd
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.config
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\NLog.xsd
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LaserSoldering.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\LaserSoldering.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LaserSolderingLibrary\LaserSolderingLibrary\bin\Debug\CoherentCompactMini.dll
