@@ -1524,6 +1524,16 @@ namespace atLaserSoldering
                 case "Fit Size Image":
                     ImageFitSize();
                     break;
+                case "Set Vision Move":
+                    if (_IsMovementVision == false)
+                    {
+                        _IsMovementVision = true;
+                    }
+                    else
+                    {
+                        _IsMovementVision = false;
+                    }
+                    break;
 
             }
         }
@@ -1548,16 +1558,19 @@ namespace atLaserSoldering
 
                 if (_IsMovementVision && e.Button == MouseButtons.Left)
                 {
-                    float fMoveX = (_systemParams._cameraParams.HResolution / 2f - fptTemp.X) * _systemParams._cameraParams.OnePixelResolution;// * 0.001f;
-                    float fMoveY = (fptTemp.Y - _systemParams._cameraParams.VResolution / 2f) * _systemParams._cameraParams.OnePixelResolution;// * 0.001f;
+                    if (_IsMovementVision)
+                    {
+                        float fMoveX = (float)Math.Round((_systemParams._cameraParams.HResolution / 2f - fptTemp.X) * _systemParams._cameraParams.OnePixelResolution,3);// * 0.001f;
+                        float fMoveY = (float)Math.Round((fptTemp.Y - _systemParams._cameraParams.VResolution / 2f) * _systemParams._cameraParams.OnePixelResolution,3);// * 0.001f;
 
-                    // Robot Move Command
-                    double[] pos = new double[3];
-                    pos[0] = mRobotInformation.PositionX + (fMoveX * _systemParams._calibrationParams._imagetoSystemXcoordi); 
-                    pos[1] = mRobotInformation.PositionY + (fMoveY * _systemParams._calibrationParams._imagetoSystemYcoordi);
-                    pos[2] = mRobotInformation.PositionZ;
-                    motionControl.SendCmdPosition(pos);
-                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("X:{0}mm, Y:{1}mm, Z:{2}mm 이동", pos[0],pos[1],pos[2] ));
+                        // Robot Move Command
+                        double[] pos = new double[3];
+                        pos[0] = mRobotInformation.PositionX + (fMoveX * _systemParams._calibrationParams._imagetoSystemXcoordi);
+                        pos[1] = mRobotInformation.PositionY + (fMoveY * _systemParams._calibrationParams._imagetoSystemYcoordi);
+                        pos[2] = mRobotInformation.PositionZ;
+                        motionControl.SendCmdPosition(pos);
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("X:{0}mm, Y:{1}mm, Z:{2}mm 이동", pos[0], pos[1], pos[2]));
+                    }
                 }
                 else if (e.Button == MouseButtons.Right)
                 {

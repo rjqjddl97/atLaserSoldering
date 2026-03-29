@@ -109,6 +109,7 @@
             this.labelControlLedBright = new DevExpress.XtraEditors.LabelControl();
             this.labelControlLightChannel = new DevExpress.XtraEditors.LabelControl();
             this.groupControlProcessing = new DevExpress.XtraEditors.GroupControl();
+            this.cogRecordDisplayVisionResult = new Cognex.VisionPro.CogRecordDisplay();
             this.simpleButtonVisionEdit = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonImageProcessing = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonVisionReceipeOpen = new DevExpress.XtraEditors.SimpleButton();
@@ -169,7 +170,7 @@
             this.toolStripMenuItemClearWorkROI = new System.Windows.Forms.ToolStripMenuItem();
             this.timerImageUpdate = new System.Windows.Forms.Timer(this.components);
             this.openFileDialogImageFileOpen = new System.Windows.Forms.OpenFileDialog();
-            this.cogRecordDisplayVisionResult = new Cognex.VisionPro.CogRecordDisplay();
+            this.toolStripMenuItemVisionMove = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -209,6 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditLightChannel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlProcessing)).BeginInit();
             this.groupControlProcessing.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cogRecordDisplayVisionResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupControlCamera)).BeginInit();
             this.GroupControlCamera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditGain.Properties)).BeginInit();
@@ -246,7 +248,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.contextMenuStripImageViewControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cogRecordDisplayVisionResult)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -880,7 +881,7 @@
             this.xtraTabPageMain.Controls.Add(this.layoutControl3);
             this.xtraTabPageMain.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.xtraTabPageMain.Name = "xtraTabPageMain";
-            this.xtraTabPageMain.Size = new System.Drawing.Size(530, 414);
+            this.xtraTabPageMain.Size = new System.Drawing.Size(504, 414);
             this.xtraTabPageMain.Text = "Main";
             // 
             // layoutControl3
@@ -890,7 +891,7 @@
             this.layoutControl3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup2;
-            this.layoutControl3.Size = new System.Drawing.Size(530, 414);
+            this.layoutControl3.Size = new System.Drawing.Size(504, 414);
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -899,7 +900,7 @@
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup2.GroupBordersVisible = false;
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(530, 414);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(504, 414);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // xtraTabPageImageProcess
@@ -1079,6 +1080,23 @@
             this.groupControlProcessing.Size = new System.Drawing.Size(220, 381);
             this.groupControlProcessing.TabIndex = 4;
             this.groupControlProcessing.Text = "Image Process";
+            // 
+            // cogRecordDisplayVisionResult
+            // 
+            this.cogRecordDisplayVisionResult.ColorMapLowerClipColor = System.Drawing.Color.Black;
+            this.cogRecordDisplayVisionResult.ColorMapLowerRoiLimit = 0D;
+            this.cogRecordDisplayVisionResult.ColorMapPredefined = Cognex.VisionPro.Display.CogDisplayColorMapPredefinedConstants.None;
+            this.cogRecordDisplayVisionResult.ColorMapUpperClipColor = System.Drawing.Color.Black;
+            this.cogRecordDisplayVisionResult.ColorMapUpperRoiLimit = 1D;
+            this.cogRecordDisplayVisionResult.DoubleTapZoomCycleLength = 2;
+            this.cogRecordDisplayVisionResult.DoubleTapZoomSensitivity = 2.5D;
+            this.cogRecordDisplayVisionResult.Location = new System.Drawing.Point(8, 124);
+            this.cogRecordDisplayVisionResult.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
+            this.cogRecordDisplayVisionResult.MouseWheelSensitivity = 1D;
+            this.cogRecordDisplayVisionResult.Name = "cogRecordDisplayVisionResult";
+            this.cogRecordDisplayVisionResult.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplayVisionResult.OcxState")));
+            this.cogRecordDisplayVisionResult.Size = new System.Drawing.Size(203, 242);
+            this.cogRecordDisplayVisionResult.TabIndex = 2;
             // 
             // simpleButtonVisionEdit
             // 
@@ -1333,7 +1351,7 @@
             this.xtraTabPageMotion.Controls.Add(this.layoutControl4);
             this.xtraTabPageMotion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.xtraTabPageMotion.Name = "xtraTabPageMotion";
-            this.xtraTabPageMotion.Size = new System.Drawing.Size(530, 414);
+            this.xtraTabPageMotion.Size = new System.Drawing.Size(504, 414);
             this.xtraTabPageMotion.Text = "모션 제어";
             // 
             // layoutControl4
@@ -1345,18 +1363,18 @@
             this.layoutControl4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.layoutControl4.Name = "layoutControl4";
             this.layoutControl4.Root = this.layoutControlGroup3;
-            this.layoutControl4.Size = new System.Drawing.Size(530, 414);
+            this.layoutControl4.Size = new System.Drawing.Size(504, 414);
             this.layoutControl4.TabIndex = 0;
             this.layoutControl4.Text = "layoutControl4";
             // 
             // layoutControl5
             // 
             this.layoutControl5.Controls.Add(this.remoteIOControl);
-            this.layoutControl5.Location = new System.Drawing.Point(247, 12);
+            this.layoutControl5.Location = new System.Drawing.Point(235, 12);
             this.layoutControl5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.layoutControl5.Name = "layoutControl5";
             this.layoutControl5.Root = this.layoutControlGroup4;
-            this.layoutControl5.Size = new System.Drawing.Size(271, 390);
+            this.layoutControl5.Size = new System.Drawing.Size(257, 390);
             this.layoutControl5.TabIndex = 5;
             this.layoutControl5.Text = "layoutControl5";
             // 
@@ -1365,7 +1383,7 @@
             this.remoteIOControl.Location = new System.Drawing.Point(4, 4);
             this.remoteIOControl.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.remoteIOControl.Name = "remoteIOControl";
-            this.remoteIOControl.Size = new System.Drawing.Size(263, 382);
+            this.remoteIOControl.Size = new System.Drawing.Size(249, 382);
             this.remoteIOControl.TabIndex = 4;
             // 
             // layoutControlGroup4
@@ -1376,7 +1394,7 @@
             this.layoutControlItem5});
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup4.Size = new System.Drawing.Size(271, 390);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(257, 390);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlItem5
@@ -1384,7 +1402,7 @@
             this.layoutControlItem5.Control = this.remoteIOControl;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(267, 386);
+            this.layoutControlItem5.Size = new System.Drawing.Size(253, 386);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -1393,7 +1411,7 @@
             this.motionControl.Location = new System.Drawing.Point(12, 12);
             this.motionControl.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.motionControl.Name = "motionControl";
-            this.motionControl.Size = new System.Drawing.Size(231, 390);
+            this.motionControl.Size = new System.Drawing.Size(219, 390);
             this.motionControl.TabIndex = 4;
             // 
             // layoutControlGroup3
@@ -1404,7 +1422,7 @@
             this.layoutControlItem3,
             this.layoutControlItem4});
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(530, 414);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(504, 414);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem3
@@ -1412,16 +1430,16 @@
             this.layoutControlItem3.Control = this.motionControl;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(235, 394);
+            this.layoutControlItem3.Size = new System.Drawing.Size(223, 394);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.layoutControl5;
-            this.layoutControlItem4.Location = new System.Drawing.Point(235, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(223, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(275, 394);
+            this.layoutControlItem4.Size = new System.Drawing.Size(261, 394);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -1430,7 +1448,7 @@
             this.xtraTabPageLaserSolder.Controls.Add(this.layoutControl8);
             this.xtraTabPageLaserSolder.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.xtraTabPageLaserSolder.Name = "xtraTabPageLaserSolder";
-            this.xtraTabPageLaserSolder.Size = new System.Drawing.Size(378, 414);
+            this.xtraTabPageLaserSolder.Size = new System.Drawing.Size(504, 414);
             this.xtraTabPageLaserSolder.Text = "레이저 납땜";
             // 
             // layoutControl8
@@ -1440,13 +1458,13 @@
             this.layoutControl8.Location = new System.Drawing.Point(0, 0);
             this.layoutControl8.Name = "layoutControl8";
             this.layoutControl8.Root = this.layoutControlGroup7;
-            this.layoutControl8.Size = new System.Drawing.Size(378, 414);
+            this.layoutControl8.Size = new System.Drawing.Size(504, 414);
             this.layoutControl8.TabIndex = 0;
             this.layoutControl8.Text = "layoutControl8";
             // 
             // laserSolderingControl
             // 
-            this.laserSolderingControl.Location = new System.Drawing.Point(-158, 12);
+            this.laserSolderingControl.Location = new System.Drawing.Point(12, 12);
             this.laserSolderingControl.Name = "laserSolderingControl";
             this.laserSolderingControl.Size = new System.Drawing.Size(534, 373);
             this.laserSolderingControl.TabIndex = 4;
@@ -1474,7 +1492,7 @@
             // 
             this.xtraTabPageStatics.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.xtraTabPageStatics.Name = "xtraTabPageStatics";
-            this.xtraTabPageStatics.Size = new System.Drawing.Size(522, 414);
+            this.xtraTabPageStatics.Size = new System.Drawing.Size(504, 414);
             this.xtraTabPageStatics.Text = "통계";
             // 
             // pictureEditSystemImage
@@ -1587,33 +1605,34 @@
             this.toolStripMenuItemViewCenterMark,
             this.toolStripMenuItemSetFitSizeImage,
             this.toolStripMenuItemSetROI,
-            this.toolStripMenuItemClearWorkROI});
+            this.toolStripMenuItemClearWorkROI,
+            this.toolStripMenuItemVisionMove});
             this.contextMenuStripImageViewControl.Name = "contextMenuStripImageViewControl";
-            this.contextMenuStripImageViewControl.Size = new System.Drawing.Size(171, 92);
+            this.contextMenuStripImageViewControl.Size = new System.Drawing.Size(181, 136);
             this.contextMenuStripImageViewControl.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStripImageViewControl_ItemClicked);
             // 
             // toolStripMenuItemViewCenterMark
             // 
             this.toolStripMenuItemViewCenterMark.Name = "toolStripMenuItemViewCenterMark";
-            this.toolStripMenuItemViewCenterMark.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemViewCenterMark.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemViewCenterMark.Text = "View Center Mark";
             // 
             // toolStripMenuItemSetFitSizeImage
             // 
             this.toolStripMenuItemSetFitSizeImage.Name = "toolStripMenuItemSetFitSizeImage";
-            this.toolStripMenuItemSetFitSizeImage.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemSetFitSizeImage.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemSetFitSizeImage.Text = "Fit Size Image";
             // 
             // toolStripMenuItemSetROI
             // 
             this.toolStripMenuItemSetROI.Name = "toolStripMenuItemSetROI";
-            this.toolStripMenuItemSetROI.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemSetROI.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemSetROI.Text = "Set Work ROI";
             // 
             // toolStripMenuItemClearWorkROI
             // 
             this.toolStripMenuItemClearWorkROI.Name = "toolStripMenuItemClearWorkROI";
-            this.toolStripMenuItemClearWorkROI.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemClearWorkROI.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemClearWorkROI.Text = "Clear Work ROI";
             // 
             // timerImageUpdate
@@ -1627,22 +1646,11 @@
     "rchange Format (*.jpg;*.jpeg)|*.jpg;*.jpeg|Icon Files (*.ico)|*.ico|Portable Net" +
     "work Graphics Format (*.png)|*.png";
             // 
-            // cogRecordDisplayVisionResult
+            // toolStripMenuItemVisionMove
             // 
-            this.cogRecordDisplayVisionResult.ColorMapLowerClipColor = System.Drawing.Color.Black;
-            this.cogRecordDisplayVisionResult.ColorMapLowerRoiLimit = 0D;
-            this.cogRecordDisplayVisionResult.ColorMapPredefined = Cognex.VisionPro.Display.CogDisplayColorMapPredefinedConstants.None;
-            this.cogRecordDisplayVisionResult.ColorMapUpperClipColor = System.Drawing.Color.Black;
-            this.cogRecordDisplayVisionResult.ColorMapUpperRoiLimit = 1D;
-            this.cogRecordDisplayVisionResult.DoubleTapZoomCycleLength = 2;
-            this.cogRecordDisplayVisionResult.DoubleTapZoomSensitivity = 2.5D;
-            this.cogRecordDisplayVisionResult.Location = new System.Drawing.Point(8, 124);
-            this.cogRecordDisplayVisionResult.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
-            this.cogRecordDisplayVisionResult.MouseWheelSensitivity = 1D;
-            this.cogRecordDisplayVisionResult.Name = "cogRecordDisplayVisionResult";
-            this.cogRecordDisplayVisionResult.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("cogRecordDisplayVisionResult.OcxState")));
-            this.cogRecordDisplayVisionResult.Size = new System.Drawing.Size(203, 242);
-            this.cogRecordDisplayVisionResult.TabIndex = 2;
+            this.toolStripMenuItemVisionMove.Name = "toolStripMenuItemVisionMove";
+            this.toolStripMenuItemVisionMove.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemVisionMove.Text = "Set Vision Move";
             // 
             // atLaserSoldering
             // 
@@ -1701,6 +1709,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControlProcessing)).EndInit();
             this.groupControlProcessing.ResumeLayout(false);
             this.groupControlProcessing.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cogRecordDisplayVisionResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupControlCamera)).EndInit();
             this.GroupControlCamera.ResumeLayout(false);
             this.GroupControlCamera.PerformLayout();
@@ -1739,7 +1748,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.contextMenuStripImageViewControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cogRecordDisplayVisionResult)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1885,5 +1893,6 @@
         private System.Windows.Forms.Timer timerImageUpdate;
         private System.Windows.Forms.OpenFileDialog openFileDialogImageFileOpen;
         private Cognex.VisionPro.CogRecordDisplay cogRecordDisplayVisionResult;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVisionMove;
     }
 }
