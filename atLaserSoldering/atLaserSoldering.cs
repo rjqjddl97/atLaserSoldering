@@ -1960,5 +1960,29 @@ namespace atLaserSoldering
         {
 
         }
+
+        private void trackBarControlLedBright_MouseUp(object sender, MouseEventArgs e)
+        {
+            DevExpress.XtraEditors.TrackBarControl trackBar = sender as DevExpress.XtraEditors.TrackBarControl;
+            if (trackBar != null)
+            {
+                // 드래그가 끝난 최종 시점의 값을 가져옵니다.
+                int bright = 0;
+                bright = trackBar.Value;
+                textEditLightBright.Text = trackBar.Value.ToString();
+                
+            }
+        }
+
+        private void textEditLightBright_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int bright = 0;
+                bright = Convert.ToInt32((sender as TextEdit).Text);
+                
+                trackBarControlLedBright.EditValue = Convert.ToInt32((sender as TextEdit).Text);
+            }
+        }
     }
 }
