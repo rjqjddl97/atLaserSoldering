@@ -1560,8 +1560,8 @@ namespace atLaserSoldering
                 {
                     if (_IsMovementVision)
                     {
-                        float fMoveX = (float)Math.Round((_systemParams._cameraParams.HResolution / 2f - fptTemp.X) * _systemParams._cameraParams.OnePixelResolution,3);// * 0.001f;
-                        float fMoveY = (float)Math.Round((fptTemp.Y - _systemParams._cameraParams.VResolution / 2f) * _systemParams._cameraParams.OnePixelResolution,3);// * 0.001f;
+                        float fMoveX = (float)Math.Round((fptTemp.X - (_systemParams._cameraParams.HResolution / 2f)) * _systemParams._cameraParams.OnePixelResolution,3);// * 0.001f;
+                        float fMoveY = (float)Math.Round((fptTemp.Y - (_systemParams._cameraParams.VResolution / 2f)) * _systemParams._cameraParams.OnePixelResolution,3);// * 0.001f;
 
                         // Robot Move Command
                         double[] pos = new double[3];

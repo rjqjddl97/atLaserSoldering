@@ -196,7 +196,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                         if (ReceivePacketBuff[1] > (byte)ModbusRTU.FunctionCodes.Exception)
                         {
                             if (uiReceiveCount >= 5)
-                            {                                
+                            {
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
                                 IsReceiveAck = true;
@@ -210,7 +210,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                                 {
                                     byte[] MainData = new byte[uiReceiveCount];
                                     Buffer.BlockCopy(ReceivePacketBuff, 0, MainData, 0, (int)uiReceiveCount);
-                                    ParsingData(MainData);                                    
+                                    ParsingData(MainData);
                                 }
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
@@ -220,6 +220,16 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                         else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
                         {
                             if (uiReceiveCount >= 8)
+                            {
+                                //ParsingData(MainData);
+                                uiReceiveCount = 0;
+                                IsReceiveStart = false;
+                                IsReceiveAck = true;
+                            }
+                        }
+                        else
+                        {
+                            if (uiReceiveCount == ReceivePacketBuff[2] + 5)
                             {
                                 //ParsingData(MainData);
                                 uiReceiveCount = 0;
@@ -294,7 +304,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                                 }
                                 else if (mContinuousCheckList.Count != 0)
                                 {
-                                    if (!IsReceiveStart)
+                                    //if (!IsReceiveStart)
                                     {
                                         data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
                                         if (mContinuousCheckIndex >= mContinuousCheckList.Count)

@@ -262,7 +262,7 @@ namespace AiCControlLibrary.SerialCommunication.Control
                         if (ReceivePacketBuff[1] > (byte)ModbusRTU.FunctionCodes.Exception)
                         {
                             if (uiReceiveCount >= 5)
-                            {                                
+                            {
                                 //for (int j = 0; j < uiReceiveCount; j++) ReceivePacketBuff[j] = 0;
                                 uiReceiveCount = 0;
                                 IsReceiveAck = true;
@@ -287,6 +287,16 @@ namespace AiCControlLibrary.SerialCommunication.Control
                         else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
                         {
                             if (uiReceiveCount >= 8)
+                            {
+                                //ParsingData(MainData);
+                                uiReceiveCount = 0;
+                                IsReceiveStart = false;
+                                IsReceiveAck = true;
+                            }
+                        }
+                        else
+                        {
+                            if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
                             {
                                 //ParsingData(MainData);
                                 uiReceiveCount = 0;
