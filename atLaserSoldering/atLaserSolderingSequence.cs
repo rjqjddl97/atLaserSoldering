@@ -282,42 +282,52 @@ namespace atLaserSoldering
                                 {
                                     case 0:
                                         // Z축 -Limit 방향으로 이동.
-                                        if ((mRobotInformation.DrvStatus & 0x00000080) == 0x00000080)
+                                        if ((mRobotInformation.DrvStatus & 0x00000040) == 0x00000040)
                                         {
                                             _homestep = 1;
+                                            _motionflag = false;
                                         }
                                         else
                                         {
-
+                                            if (!_motionflag)
+                                            {
+                                                SeData = _mMotionControlCommManager.mDrvCtrl.CCWJogCommand((byte)3);             // Z Axis -Limit Direction Command
+                                                _mMotionControlCommManager.SendData(SeData);
+                                                _motionflag = true;
+                                            }
                                         }
                                         break;
                                     case 1:
-                                        break;
-                                    case 2:
-                                        break;
-                                    case 3:
-                                        if (mRobotInformation.mInputData.B14)
+                                        if ((mRobotInformation.DrvStatus & 0x00000080) == 0x00000080)
                                         {
-                                            for (int i = 0; i < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; i++)
-                                            {
-                                                SeData = _mMotionControlCommManager.mDrvCtrl.HomeStartCommand((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[i]);
-                                                _mMotionControlCommManager.SendData(SeData);
-                                            }
-                                            _homestep = 4;
-                                            //mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "실린더4 센서 점검완료 및 모션 원점 복귀 시작");
-                                        }
-                                        break;
-                                    case 4:
-                                        if (!_motionflag)
-                                        {
-                                            _motionflag = true;
+                                            _homestep = 2;
+                                            _motionflag = false;
                                         }
                                         else
                                         {
-                                            _homestep = 5;
+                                            if (!_motionflag)
+                                            {
+                                                SeData = _mMotionControlCommManager.mDrvCtrl.HomeStartCommand((byte)3);             // Z Axis Homing Command
+                                                _mMotionControlCommManager.SendData(SeData);
+                                                _motionflag = true;
+                                            }
                                         }
                                         break;
-                                    case 5:
+                                    case 2:
+                                        if ((mRobotInformation.mStatus & 0x00000052) == 0x00000052)
+                                        {
+                                            for (int i = 0; i < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; i++)
+                                            {
+                                                if (i != 2)
+                                                {
+                                                    SeData = _mMotionControlCommManager.mDrvCtrl.HomeStartCommand((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[i]);      // X,Y Axis Homing Command
+                                                    _mMotionControlCommManager.SendData(SeData);
+                                                }
+                                            }
+                                            _homestep = 3;
+                                        }
+                                        break;
+                                    case 3:
                                         if ((mRobotInformation.mStatus & 0x00000052) == 0x00000052)
                                         {
                                             _HommingProcess = false;

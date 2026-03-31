@@ -94,6 +94,7 @@ namespace atLaserSoldering
         bool _IsHommingCancle = false;
         bool _IsAutoSolderingRunning = false;
         bool _IsMovementVision = false;
+        int _CalibratoinMode = 0;
         public atLaserSoldering()
         {
             InitializeComponent();
@@ -104,6 +105,7 @@ namespace atLaserSoldering
             _mLaserCommManager = new CoherentCompactMini.SerialCommunication.Control.CommunicationManager();
             _mLaserSoldering = new LaserSoldering.LaserSoderingProcess();
             //_mLaserSoldering.InitialCommunication(_mLaserCommManager, _mFeederCommManager);
+            radioGroupCalibrationMode.SelectedIndex = 0;
         }
 
         private void barButtonItemSystemEditor_ItemClick(object sender, ItemClickEventArgs e)
@@ -2030,6 +2032,35 @@ namespace atLaserSoldering
             {
                 ;
             }
+        }
+
+        private void radioGroupCalibrationMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _CalibratoinMode = radioGroupCalibrationMode.SelectedIndex;
+            _systemParams._calibrationParams.CalibrationMode = _CalibratoinMode;
+            if (_CalibratoinMode == 2)
+            {
+                textEditCalcPositoin1_X.Enabled = true;
+                textEditCalcPositoin1_Y.Enabled = true;
+                textEditDeltaX1.Enabled = true;
+                textEditDeltaY1.Enabled = true;
+                textEditCalcPositoin2_X.Enabled = true;
+                textEditCalcPositoin2_Y.Enabled = true;
+                textEditDeltaX2.Enabled = true;
+                textEditDeltaY2.Enabled = true;
+            }
+            else
+            {
+                textEditCalcPositoin1_X.Enabled = false;
+                textEditCalcPositoin1_Y.Enabled = false;
+                textEditDeltaX1.Enabled = false;
+                textEditDeltaY1.Enabled = false;
+                textEditCalcPositoin2_X.Enabled = false;
+                textEditCalcPositoin2_Y.Enabled = false;
+                textEditDeltaX2.Enabled = false;
+                textEditDeltaY2.Enabled = false;
+            }
+
         }
     }
 }

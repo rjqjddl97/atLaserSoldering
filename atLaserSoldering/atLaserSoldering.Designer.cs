@@ -150,6 +150,39 @@
             this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabPageStatics = new DevExpress.XtraTab.XtraTabPage();
+            this.xtraTabPageCalibration = new DevExpress.XtraTab.XtraTabPage();
+            this.layoutControl9 = new DevExpress.XtraLayout.LayoutControl();
+            this.groupControlCalibration = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButtonCalibration = new DevExpress.XtraEditors.SimpleButton();
+            this.radioGroupCalibrationMode = new DevExpress.XtraEditors.RadioGroup();
+            this.textEditOffsetZ = new DevExpress.XtraEditors.TextEdit();
+            this.labelControlOffsetZ = new DevExpress.XtraEditors.LabelControl();
+            this.textEditCalcTargetPosY = new DevExpress.XtraEditors.TextEdit();
+            this.labelControlCalcTargetPosY = new DevExpress.XtraEditors.LabelControl();
+            this.textEditDeltaY2 = new DevExpress.XtraEditors.TextEdit();
+            this.textEditDeltaY1 = new DevExpress.XtraEditors.TextEdit();
+            this.textEditCalcTargetPosX = new DevExpress.XtraEditors.TextEdit();
+            this.textEditCalcOffsetY = new DevExpress.XtraEditors.TextEdit();
+            this.textEditCalcPositoin2_Y = new DevExpress.XtraEditors.TextEdit();
+            this.textEditCalcPositoin2_X = new DevExpress.XtraEditors.TextEdit();
+            this.textEditDeltaX2 = new DevExpress.XtraEditors.TextEdit();
+            this.textEditCalcPositoin1_Y = new DevExpress.XtraEditors.TextEdit();
+            this.textEditCalcPositoin1_X = new DevExpress.XtraEditors.TextEdit();
+            this.textEditOffsetY = new DevExpress.XtraEditors.TextEdit();
+            this.textEditDeltaX1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControlCalcTargetPosX = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlCalcPosition2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlDeltaX2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlOffsetY = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlCalcPosition1 = new DevExpress.XtraEditors.LabelControl();
+            this.textEditCalcOffsetX = new DevExpress.XtraEditors.TextEdit();
+            this.labelControlDeltaX1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlCalcOffsetX = new DevExpress.XtraEditors.LabelControl();
+            this.textEditOffsetX = new DevExpress.XtraEditors.TextEdit();
+            this.labelControlOffsetX = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.pictureEditSystemImage = new DevExpress.XtraEditors.PictureEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -171,39 +204,6 @@
             this.toolStripMenuItemVisionMove = new System.Windows.Forms.ToolStripMenuItem();
             this.timerImageUpdate = new System.Windows.Forms.Timer(this.components);
             this.openFileDialogImageFileOpen = new System.Windows.Forms.OpenFileDialog();
-            this.xtraTabPageCalibration = new DevExpress.XtraTab.XtraTabPage();
-            this.layoutControl9 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.groupControlCalibration = new DevExpress.XtraEditors.GroupControl();
-            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelControlOffsetX = new DevExpress.XtraEditors.LabelControl();
-            this.textEditOffsetX = new DevExpress.XtraEditors.TextEdit();
-            this.labelControlOffsetY = new DevExpress.XtraEditors.LabelControl();
-            this.textEditOffsetY = new DevExpress.XtraEditors.TextEdit();
-            this.labelControlOffsetZ = new DevExpress.XtraEditors.LabelControl();
-            this.textEditOffsetZ = new DevExpress.XtraEditors.TextEdit();
-            this.radioGroupCalibrationMode = new DevExpress.XtraEditors.RadioGroup();
-            this.labelControlDeltaX1 = new DevExpress.XtraEditors.LabelControl();
-            this.textEditDeltaX1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEditDeltaY1 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControlDeltaX2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEditDeltaX2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEditDeltaY2 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControlCalcOffsetX = new DevExpress.XtraEditors.LabelControl();
-            this.textEditCalcOffsetX = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.textEditCalcOffsetY = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButtonCalibration = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControlCalcTargetPosX = new DevExpress.XtraEditors.LabelControl();
-            this.textEditCalcTargetPosX = new DevExpress.XtraEditors.TextEdit();
-            this.labelControlCalcTargetPosY = new DevExpress.XtraEditors.LabelControl();
-            this.textEditCalcTargetPosY = new DevExpress.XtraEditors.TextEdit();
-            this.labelControlCalcPosition1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControlCalcPosition2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEditCalcPositoin1_X = new DevExpress.XtraEditors.TextEdit();
-            this.textEditCalcPositoin2_X = new DevExpress.XtraEditors.TextEdit();
-            this.textEditCalcPositoin1_Y = new DevExpress.XtraEditors.TextEdit();
-            this.textEditCalcPositoin2_Y = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -273,6 +273,29 @@
             this.layoutControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            this.xtraTabPageCalibration.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl9)).BeginInit();
+            this.layoutControl9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlCalibration)).BeginInit();
+            this.groupControlCalibration.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroupCalibrationMode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetZ.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcTargetPosY.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaY2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaY1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcTargetPosX.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcOffsetY.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin2_Y.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin2_X.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaX2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin1_Y.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin1_X.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetY.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaX1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcOffsetX.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetX.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEditSystemImage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -281,29 +304,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.contextMenuStripImageViewControl.SuspendLayout();
-            this.xtraTabPageCalibration.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl9)).BeginInit();
-            this.layoutControl9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlCalibration)).BeginInit();
-            this.groupControlCalibration.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetX.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetY.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetZ.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroupCalibrationMode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaX1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaY1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaX2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaY2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcOffsetX.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcOffsetY.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcTargetPosX.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcTargetPosY.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin1_X.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin2_X.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin1_Y.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin2_Y.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -1552,6 +1552,299 @@
             this.xtraTabPageStatics.Size = new System.Drawing.Size(504, 414);
             this.xtraTabPageStatics.Text = "통계";
             // 
+            // xtraTabPageCalibration
+            // 
+            this.xtraTabPageCalibration.Controls.Add(this.layoutControl9);
+            this.xtraTabPageCalibration.Name = "xtraTabPageCalibration";
+            this.xtraTabPageCalibration.Size = new System.Drawing.Size(504, 414);
+            this.xtraTabPageCalibration.Text = "위치 보정 테스트";
+            // 
+            // layoutControl9
+            // 
+            this.layoutControl9.Controls.Add(this.groupControlCalibration);
+            this.layoutControl9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl9.Name = "layoutControl9";
+            this.layoutControl9.Root = this.layoutControlGroup8;
+            this.layoutControl9.Size = new System.Drawing.Size(504, 414);
+            this.layoutControl9.TabIndex = 0;
+            this.layoutControl9.Text = "layoutControl9";
+            // 
+            // groupControlCalibration
+            // 
+            this.groupControlCalibration.Controls.Add(this.simpleButtonCalibration);
+            this.groupControlCalibration.Controls.Add(this.radioGroupCalibrationMode);
+            this.groupControlCalibration.Controls.Add(this.textEditOffsetZ);
+            this.groupControlCalibration.Controls.Add(this.labelControlOffsetZ);
+            this.groupControlCalibration.Controls.Add(this.textEditCalcTargetPosY);
+            this.groupControlCalibration.Controls.Add(this.labelControlCalcTargetPosY);
+            this.groupControlCalibration.Controls.Add(this.textEditDeltaY2);
+            this.groupControlCalibration.Controls.Add(this.textEditDeltaY1);
+            this.groupControlCalibration.Controls.Add(this.textEditCalcTargetPosX);
+            this.groupControlCalibration.Controls.Add(this.textEditCalcOffsetY);
+            this.groupControlCalibration.Controls.Add(this.textEditCalcPositoin2_Y);
+            this.groupControlCalibration.Controls.Add(this.textEditCalcPositoin2_X);
+            this.groupControlCalibration.Controls.Add(this.textEditDeltaX2);
+            this.groupControlCalibration.Controls.Add(this.textEditCalcPositoin1_Y);
+            this.groupControlCalibration.Controls.Add(this.textEditCalcPositoin1_X);
+            this.groupControlCalibration.Controls.Add(this.textEditOffsetY);
+            this.groupControlCalibration.Controls.Add(this.textEditDeltaX1);
+            this.groupControlCalibration.Controls.Add(this.labelControlCalcTargetPosX);
+            this.groupControlCalibration.Controls.Add(this.labelControlCalcPosition2);
+            this.groupControlCalibration.Controls.Add(this.labelControl6);
+            this.groupControlCalibration.Controls.Add(this.labelControlDeltaX2);
+            this.groupControlCalibration.Controls.Add(this.labelControlOffsetY);
+            this.groupControlCalibration.Controls.Add(this.labelControlCalcPosition1);
+            this.groupControlCalibration.Controls.Add(this.textEditCalcOffsetX);
+            this.groupControlCalibration.Controls.Add(this.labelControlDeltaX1);
+            this.groupControlCalibration.Controls.Add(this.labelControlCalcOffsetX);
+            this.groupControlCalibration.Controls.Add(this.textEditOffsetX);
+            this.groupControlCalibration.Controls.Add(this.labelControlOffsetX);
+            this.groupControlCalibration.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.groupControlCalibration.Location = new System.Drawing.Point(12, 12);
+            this.groupControlCalibration.Name = "groupControlCalibration";
+            this.groupControlCalibration.Size = new System.Drawing.Size(480, 390);
+            this.groupControlCalibration.TabIndex = 4;
+            this.groupControlCalibration.Text = "Calibration";
+            // 
+            // simpleButtonCalibration
+            // 
+            this.simpleButtonCalibration.Location = new System.Drawing.Point(387, 99);
+            this.simpleButtonCalibration.Name = "simpleButtonCalibration";
+            this.simpleButtonCalibration.Size = new System.Drawing.Size(81, 46);
+            this.simpleButtonCalibration.TabIndex = 3;
+            this.simpleButtonCalibration.Text = "Calibration";
+            this.simpleButtonCalibration.Click += new System.EventHandler(this.simpleButtonCalibration_Click);
+            // 
+            // radioGroupCalibrationMode
+            // 
+            this.radioGroupCalibrationMode.Location = new System.Drawing.Point(11, 59);
+            this.radioGroupCalibrationMode.MenuManager = this.ribbonControl;
+            this.radioGroupCalibrationMode.Name = "radioGroupCalibrationMode";
+            this.radioGroupCalibrationMode.Properties.Columns = 3;
+            this.radioGroupCalibrationMode.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "None"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "All Point"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Two Point")});
+            this.radioGroupCalibrationMode.Size = new System.Drawing.Size(457, 26);
+            this.radioGroupCalibrationMode.TabIndex = 2;
+            this.radioGroupCalibrationMode.SelectedIndexChanged += new System.EventHandler(this.radioGroupCalibrationMode_SelectedIndexChanged);
+            // 
+            // textEditOffsetZ
+            // 
+            this.textEditOffsetZ.Location = new System.Drawing.Point(387, 21);
+            this.textEditOffsetZ.Name = "textEditOffsetZ";
+            this.textEditOffsetZ.Size = new System.Drawing.Size(81, 20);
+            this.textEditOffsetZ.TabIndex = 1;
+            // 
+            // labelControlOffsetZ
+            // 
+            this.labelControlOffsetZ.Location = new System.Drawing.Point(326, 24);
+            this.labelControlOffsetZ.Name = "labelControlOffsetZ";
+            this.labelControlOffsetZ.Size = new System.Drawing.Size(45, 14);
+            this.labelControlOffsetZ.TabIndex = 0;
+            this.labelControlOffsetZ.Text = "Offset Z";
+            // 
+            // textEditCalcTargetPosY
+            // 
+            this.textEditCalcTargetPosY.Location = new System.Drawing.Point(297, 152);
+            this.textEditCalcTargetPosY.Name = "textEditCalcTargetPosY";
+            this.textEditCalcTargetPosY.Size = new System.Drawing.Size(81, 20);
+            this.textEditCalcTargetPosY.TabIndex = 1;
+            // 
+            // labelControlCalcTargetPosY
+            // 
+            this.labelControlCalcTargetPosY.Location = new System.Drawing.Point(212, 155);
+            this.labelControlCalcTargetPosY.Name = "labelControlCalcTargetPosY";
+            this.labelControlCalcTargetPosY.Size = new System.Drawing.Size(54, 14);
+            this.labelControlCalcTargetPosY.TabIndex = 0;
+            this.labelControlCalcTargetPosY.Text = "Position Y";
+            // 
+            // textEditDeltaY2
+            // 
+            this.textEditDeltaY2.Location = new System.Drawing.Point(324, 125);
+            this.textEditDeltaY2.Name = "textEditDeltaY2";
+            this.textEditDeltaY2.Size = new System.Drawing.Size(54, 20);
+            this.textEditDeltaY2.TabIndex = 1;
+            // 
+            // textEditDeltaY1
+            // 
+            this.textEditDeltaY1.Location = new System.Drawing.Point(324, 99);
+            this.textEditDeltaY1.Name = "textEditDeltaY1";
+            this.textEditDeltaY1.Size = new System.Drawing.Size(54, 20);
+            this.textEditDeltaY1.TabIndex = 1;
+            // 
+            // textEditCalcTargetPosX
+            // 
+            this.textEditCalcTargetPosX.Location = new System.Drawing.Point(99, 152);
+            this.textEditCalcTargetPosX.Name = "textEditCalcTargetPosX";
+            this.textEditCalcTargetPosX.Size = new System.Drawing.Size(81, 20);
+            this.textEditCalcTargetPosX.TabIndex = 1;
+            // 
+            // textEditCalcOffsetY
+            // 
+            this.textEditCalcOffsetY.Location = new System.Drawing.Point(297, 178);
+            this.textEditCalcOffsetY.Name = "textEditCalcOffsetY";
+            this.textEditCalcOffsetY.Properties.ReadOnly = true;
+            this.textEditCalcOffsetY.Size = new System.Drawing.Size(81, 20);
+            this.textEditCalcOffsetY.TabIndex = 1;
+            // 
+            // textEditCalcPositoin2_Y
+            // 
+            this.textEditCalcPositoin2_Y.Location = new System.Drawing.Point(126, 125);
+            this.textEditCalcPositoin2_Y.Name = "textEditCalcPositoin2_Y";
+            this.textEditCalcPositoin2_Y.Size = new System.Drawing.Size(54, 20);
+            this.textEditCalcPositoin2_Y.TabIndex = 1;
+            // 
+            // textEditCalcPositoin2_X
+            // 
+            this.textEditCalcPositoin2_X.Location = new System.Drawing.Point(65, 125);
+            this.textEditCalcPositoin2_X.Name = "textEditCalcPositoin2_X";
+            this.textEditCalcPositoin2_X.Size = new System.Drawing.Size(54, 20);
+            this.textEditCalcPositoin2_X.TabIndex = 1;
+            // 
+            // textEditDeltaX2
+            // 
+            this.textEditDeltaX2.Location = new System.Drawing.Point(263, 125);
+            this.textEditDeltaX2.Name = "textEditDeltaX2";
+            this.textEditDeltaX2.Size = new System.Drawing.Size(54, 20);
+            this.textEditDeltaX2.TabIndex = 1;
+            // 
+            // textEditCalcPositoin1_Y
+            // 
+            this.textEditCalcPositoin1_Y.Location = new System.Drawing.Point(126, 99);
+            this.textEditCalcPositoin1_Y.Name = "textEditCalcPositoin1_Y";
+            this.textEditCalcPositoin1_Y.Size = new System.Drawing.Size(54, 20);
+            this.textEditCalcPositoin1_Y.TabIndex = 1;
+            // 
+            // textEditCalcPositoin1_X
+            // 
+            this.textEditCalcPositoin1_X.Location = new System.Drawing.Point(65, 99);
+            this.textEditCalcPositoin1_X.Name = "textEditCalcPositoin1_X";
+            this.textEditCalcPositoin1_X.Size = new System.Drawing.Size(54, 20);
+            this.textEditCalcPositoin1_X.TabIndex = 1;
+            // 
+            // textEditOffsetY
+            // 
+            this.textEditOffsetY.Location = new System.Drawing.Point(229, 21);
+            this.textEditOffsetY.Name = "textEditOffsetY";
+            this.textEditOffsetY.Size = new System.Drawing.Size(81, 20);
+            this.textEditOffsetY.TabIndex = 1;
+            // 
+            // textEditDeltaX1
+            // 
+            this.textEditDeltaX1.Location = new System.Drawing.Point(263, 99);
+            this.textEditDeltaX1.Name = "textEditDeltaX1";
+            this.textEditDeltaX1.Size = new System.Drawing.Size(54, 20);
+            this.textEditDeltaX1.TabIndex = 1;
+            // 
+            // labelControlCalcTargetPosX
+            // 
+            this.labelControlCalcTargetPosX.Location = new System.Drawing.Point(11, 155);
+            this.labelControlCalcTargetPosX.Name = "labelControlCalcTargetPosX";
+            this.labelControlCalcTargetPosX.Size = new System.Drawing.Size(53, 14);
+            this.labelControlCalcTargetPosX.TabIndex = 0;
+            this.labelControlCalcTargetPosX.Text = "Position X";
+            // 
+            // labelControlCalcPosition2
+            // 
+            this.labelControlCalcPosition2.Location = new System.Drawing.Point(11, 128);
+            this.labelControlCalcPosition2.Name = "labelControlCalcPosition2";
+            this.labelControlCalcPosition2.Size = new System.Drawing.Size(43, 14);
+            this.labelControlCalcPosition2.TabIndex = 0;
+            this.labelControlCalcPosition2.Text = "P2(X,Y)";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(212, 181);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(75, 14);
+            this.labelControl6.TabIndex = 0;
+            this.labelControl6.Text = "Calc. Offset Y";
+            // 
+            // labelControlDeltaX2
+            // 
+            this.labelControlDeltaX2.Location = new System.Drawing.Point(183, 128);
+            this.labelControlDeltaX2.Name = "labelControlDeltaX2";
+            this.labelControlDeltaX2.Size = new System.Drawing.Size(75, 14);
+            this.labelControlDeltaX2.TabIndex = 0;
+            this.labelControlDeltaX2.Text = "Delta P2(X,Y)";
+            // 
+            // labelControlOffsetY
+            // 
+            this.labelControlOffsetY.Location = new System.Drawing.Point(168, 24);
+            this.labelControlOffsetY.Name = "labelControlOffsetY";
+            this.labelControlOffsetY.Size = new System.Drawing.Size(46, 14);
+            this.labelControlOffsetY.TabIndex = 0;
+            this.labelControlOffsetY.Text = "Offset Y";
+            // 
+            // labelControlCalcPosition1
+            // 
+            this.labelControlCalcPosition1.Location = new System.Drawing.Point(11, 102);
+            this.labelControlCalcPosition1.Name = "labelControlCalcPosition1";
+            this.labelControlCalcPosition1.Size = new System.Drawing.Size(43, 14);
+            this.labelControlCalcPosition1.TabIndex = 0;
+            this.labelControlCalcPosition1.Text = "P1(X,Y)";
+            // 
+            // textEditCalcOffsetX
+            // 
+            this.textEditCalcOffsetX.Location = new System.Drawing.Point(99, 178);
+            this.textEditCalcOffsetX.Name = "textEditCalcOffsetX";
+            this.textEditCalcOffsetX.Properties.ReadOnly = true;
+            this.textEditCalcOffsetX.Size = new System.Drawing.Size(81, 20);
+            this.textEditCalcOffsetX.TabIndex = 1;
+            // 
+            // labelControlDeltaX1
+            // 
+            this.labelControlDeltaX1.Location = new System.Drawing.Point(183, 102);
+            this.labelControlDeltaX1.Name = "labelControlDeltaX1";
+            this.labelControlDeltaX1.Size = new System.Drawing.Size(75, 14);
+            this.labelControlDeltaX1.TabIndex = 0;
+            this.labelControlDeltaX1.Text = "Delta P1(X,Y)";
+            // 
+            // labelControlCalcOffsetX
+            // 
+            this.labelControlCalcOffsetX.Location = new System.Drawing.Point(11, 181);
+            this.labelControlCalcOffsetX.Name = "labelControlCalcOffsetX";
+            this.labelControlCalcOffsetX.Size = new System.Drawing.Size(74, 14);
+            this.labelControlCalcOffsetX.TabIndex = 0;
+            this.labelControlCalcOffsetX.Text = "Calc. Offset X";
+            // 
+            // textEditOffsetX
+            // 
+            this.textEditOffsetX.Location = new System.Drawing.Point(72, 21);
+            this.textEditOffsetX.MenuManager = this.ribbonControl;
+            this.textEditOffsetX.Name = "textEditOffsetX";
+            this.textEditOffsetX.Size = new System.Drawing.Size(81, 20);
+            this.textEditOffsetX.TabIndex = 1;
+            // 
+            // labelControlOffsetX
+            // 
+            this.labelControlOffsetX.Location = new System.Drawing.Point(11, 24);
+            this.labelControlOffsetX.Name = "labelControlOffsetX";
+            this.labelControlOffsetX.Size = new System.Drawing.Size(45, 14);
+            this.labelControlOffsetX.TabIndex = 0;
+            this.labelControlOffsetX.Text = "Offset X";
+            // 
+            // layoutControlGroup8
+            // 
+            this.layoutControlGroup8.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup8.GroupBordersVisible = false;
+            this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem11});
+            this.layoutControlGroup8.Name = "layoutControlGroup8";
+            this.layoutControlGroup8.Size = new System.Drawing.Size(504, 414);
+            this.layoutControlGroup8.TextVisible = false;
+            // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.groupControlCalibration;
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(484, 394);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem11.TextVisible = false;
+            // 
             // pictureEditSystemImage
             // 
             this.pictureEditSystemImage.Location = new System.Drawing.Point(12, 12);
@@ -1709,298 +2002,6 @@
     "rchange Format (*.jpg;*.jpeg)|*.jpg;*.jpeg|Icon Files (*.ico)|*.ico|Portable Net" +
     "work Graphics Format (*.png)|*.png";
             // 
-            // xtraTabPageCalibration
-            // 
-            this.xtraTabPageCalibration.Controls.Add(this.layoutControl9);
-            this.xtraTabPageCalibration.Name = "xtraTabPageCalibration";
-            this.xtraTabPageCalibration.Size = new System.Drawing.Size(504, 414);
-            this.xtraTabPageCalibration.Text = "위치 보정 테스트";
-            // 
-            // layoutControl9
-            // 
-            this.layoutControl9.Controls.Add(this.groupControlCalibration);
-            this.layoutControl9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl9.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl9.Name = "layoutControl9";
-            this.layoutControl9.Root = this.layoutControlGroup8;
-            this.layoutControl9.Size = new System.Drawing.Size(504, 414);
-            this.layoutControl9.TabIndex = 0;
-            this.layoutControl9.Text = "layoutControl9";
-            // 
-            // layoutControlGroup8
-            // 
-            this.layoutControlGroup8.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup8.GroupBordersVisible = false;
-            this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem11});
-            this.layoutControlGroup8.Name = "layoutControlGroup8";
-            this.layoutControlGroup8.Size = new System.Drawing.Size(504, 414);
-            this.layoutControlGroup8.TextVisible = false;
-            // 
-            // groupControlCalibration
-            // 
-            this.groupControlCalibration.Controls.Add(this.simpleButtonCalibration);
-            this.groupControlCalibration.Controls.Add(this.radioGroupCalibrationMode);
-            this.groupControlCalibration.Controls.Add(this.textEditOffsetZ);
-            this.groupControlCalibration.Controls.Add(this.labelControlOffsetZ);
-            this.groupControlCalibration.Controls.Add(this.textEditCalcTargetPosY);
-            this.groupControlCalibration.Controls.Add(this.labelControlCalcTargetPosY);
-            this.groupControlCalibration.Controls.Add(this.textEditDeltaY2);
-            this.groupControlCalibration.Controls.Add(this.textEditDeltaY1);
-            this.groupControlCalibration.Controls.Add(this.textEditCalcTargetPosX);
-            this.groupControlCalibration.Controls.Add(this.textEditCalcOffsetY);
-            this.groupControlCalibration.Controls.Add(this.textEditCalcPositoin2_Y);
-            this.groupControlCalibration.Controls.Add(this.textEditCalcPositoin2_X);
-            this.groupControlCalibration.Controls.Add(this.textEditDeltaX2);
-            this.groupControlCalibration.Controls.Add(this.textEditCalcPositoin1_Y);
-            this.groupControlCalibration.Controls.Add(this.textEditCalcPositoin1_X);
-            this.groupControlCalibration.Controls.Add(this.textEditOffsetY);
-            this.groupControlCalibration.Controls.Add(this.textEditDeltaX1);
-            this.groupControlCalibration.Controls.Add(this.labelControlCalcTargetPosX);
-            this.groupControlCalibration.Controls.Add(this.labelControlCalcPosition2);
-            this.groupControlCalibration.Controls.Add(this.labelControl6);
-            this.groupControlCalibration.Controls.Add(this.labelControlDeltaX2);
-            this.groupControlCalibration.Controls.Add(this.labelControlOffsetY);
-            this.groupControlCalibration.Controls.Add(this.labelControlCalcPosition1);
-            this.groupControlCalibration.Controls.Add(this.textEditCalcOffsetX);
-            this.groupControlCalibration.Controls.Add(this.labelControlDeltaX1);
-            this.groupControlCalibration.Controls.Add(this.labelControlCalcOffsetX);
-            this.groupControlCalibration.Controls.Add(this.textEditOffsetX);
-            this.groupControlCalibration.Controls.Add(this.labelControlOffsetX);
-            this.groupControlCalibration.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControlCalibration.Location = new System.Drawing.Point(12, 12);
-            this.groupControlCalibration.Name = "groupControlCalibration";
-            this.groupControlCalibration.Size = new System.Drawing.Size(480, 390);
-            this.groupControlCalibration.TabIndex = 4;
-            this.groupControlCalibration.Text = "Calibration";
-            // 
-            // layoutControlItem11
-            // 
-            this.layoutControlItem11.Control = this.groupControlCalibration;
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(484, 394);
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem11.TextVisible = false;
-            // 
-            // labelControlOffsetX
-            // 
-            this.labelControlOffsetX.Location = new System.Drawing.Point(11, 24);
-            this.labelControlOffsetX.Name = "labelControlOffsetX";
-            this.labelControlOffsetX.Size = new System.Drawing.Size(45, 14);
-            this.labelControlOffsetX.TabIndex = 0;
-            this.labelControlOffsetX.Text = "Offset X";
-            // 
-            // textEditOffsetX
-            // 
-            this.textEditOffsetX.Location = new System.Drawing.Point(72, 21);
-            this.textEditOffsetX.MenuManager = this.ribbonControl;
-            this.textEditOffsetX.Name = "textEditOffsetX";
-            this.textEditOffsetX.Size = new System.Drawing.Size(81, 20);
-            this.textEditOffsetX.TabIndex = 1;
-            // 
-            // labelControlOffsetY
-            // 
-            this.labelControlOffsetY.Location = new System.Drawing.Point(168, 24);
-            this.labelControlOffsetY.Name = "labelControlOffsetY";
-            this.labelControlOffsetY.Size = new System.Drawing.Size(46, 14);
-            this.labelControlOffsetY.TabIndex = 0;
-            this.labelControlOffsetY.Text = "Offset Y";
-            // 
-            // textEditOffsetY
-            // 
-            this.textEditOffsetY.Location = new System.Drawing.Point(229, 21);
-            this.textEditOffsetY.Name = "textEditOffsetY";
-            this.textEditOffsetY.Size = new System.Drawing.Size(81, 20);
-            this.textEditOffsetY.TabIndex = 1;
-            // 
-            // labelControlOffsetZ
-            // 
-            this.labelControlOffsetZ.Location = new System.Drawing.Point(326, 24);
-            this.labelControlOffsetZ.Name = "labelControlOffsetZ";
-            this.labelControlOffsetZ.Size = new System.Drawing.Size(45, 14);
-            this.labelControlOffsetZ.TabIndex = 0;
-            this.labelControlOffsetZ.Text = "Offset Z";
-            // 
-            // textEditOffsetZ
-            // 
-            this.textEditOffsetZ.Location = new System.Drawing.Point(387, 21);
-            this.textEditOffsetZ.Name = "textEditOffsetZ";
-            this.textEditOffsetZ.Size = new System.Drawing.Size(81, 20);
-            this.textEditOffsetZ.TabIndex = 1;
-            // 
-            // radioGroupCalibrationMode
-            // 
-            this.radioGroupCalibrationMode.Location = new System.Drawing.Point(11, 59);
-            this.radioGroupCalibrationMode.MenuManager = this.ribbonControl;
-            this.radioGroupCalibrationMode.Name = "radioGroupCalibrationMode";
-            this.radioGroupCalibrationMode.Properties.Columns = 3;
-            this.radioGroupCalibrationMode.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "None"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "All Point"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Two Point")});
-            this.radioGroupCalibrationMode.Size = new System.Drawing.Size(457, 26);
-            this.radioGroupCalibrationMode.TabIndex = 2;
-            // 
-            // labelControlDeltaX1
-            // 
-            this.labelControlDeltaX1.Location = new System.Drawing.Point(183, 102);
-            this.labelControlDeltaX1.Name = "labelControlDeltaX1";
-            this.labelControlDeltaX1.Size = new System.Drawing.Size(75, 14);
-            this.labelControlDeltaX1.TabIndex = 0;
-            this.labelControlDeltaX1.Text = "Delta P1(X,Y)";
-            // 
-            // textEditDeltaX1
-            // 
-            this.textEditDeltaX1.Location = new System.Drawing.Point(263, 99);
-            this.textEditDeltaX1.Name = "textEditDeltaX1";
-            this.textEditDeltaX1.Size = new System.Drawing.Size(54, 20);
-            this.textEditDeltaX1.TabIndex = 1;
-            // 
-            // textEditDeltaY1
-            // 
-            this.textEditDeltaY1.Location = new System.Drawing.Point(324, 99);
-            this.textEditDeltaY1.Name = "textEditDeltaY1";
-            this.textEditDeltaY1.Size = new System.Drawing.Size(54, 20);
-            this.textEditDeltaY1.TabIndex = 1;
-            // 
-            // labelControlDeltaX2
-            // 
-            this.labelControlDeltaX2.Location = new System.Drawing.Point(183, 128);
-            this.labelControlDeltaX2.Name = "labelControlDeltaX2";
-            this.labelControlDeltaX2.Size = new System.Drawing.Size(75, 14);
-            this.labelControlDeltaX2.TabIndex = 0;
-            this.labelControlDeltaX2.Text = "Delta P2(X,Y)";
-            // 
-            // textEditDeltaX2
-            // 
-            this.textEditDeltaX2.Location = new System.Drawing.Point(263, 125);
-            this.textEditDeltaX2.Name = "textEditDeltaX2";
-            this.textEditDeltaX2.Size = new System.Drawing.Size(54, 20);
-            this.textEditDeltaX2.TabIndex = 1;
-            // 
-            // textEditDeltaY2
-            // 
-            this.textEditDeltaY2.Location = new System.Drawing.Point(324, 125);
-            this.textEditDeltaY2.Name = "textEditDeltaY2";
-            this.textEditDeltaY2.Size = new System.Drawing.Size(54, 20);
-            this.textEditDeltaY2.TabIndex = 1;
-            // 
-            // labelControlCalcOffsetX
-            // 
-            this.labelControlCalcOffsetX.Location = new System.Drawing.Point(11, 181);
-            this.labelControlCalcOffsetX.Name = "labelControlCalcOffsetX";
-            this.labelControlCalcOffsetX.Size = new System.Drawing.Size(74, 14);
-            this.labelControlCalcOffsetX.TabIndex = 0;
-            this.labelControlCalcOffsetX.Text = "Calc. Offset X";
-            // 
-            // textEditCalcOffsetX
-            // 
-            this.textEditCalcOffsetX.Location = new System.Drawing.Point(99, 178);
-            this.textEditCalcOffsetX.Name = "textEditCalcOffsetX";
-            this.textEditCalcOffsetX.Properties.ReadOnly = true;
-            this.textEditCalcOffsetX.Size = new System.Drawing.Size(81, 20);
-            this.textEditCalcOffsetX.TabIndex = 1;
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(212, 181);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(75, 14);
-            this.labelControl6.TabIndex = 0;
-            this.labelControl6.Text = "Calc. Offset Y";
-            // 
-            // textEditCalcOffsetY
-            // 
-            this.textEditCalcOffsetY.Location = new System.Drawing.Point(297, 178);
-            this.textEditCalcOffsetY.Name = "textEditCalcOffsetY";
-            this.textEditCalcOffsetY.Properties.ReadOnly = true;
-            this.textEditCalcOffsetY.Size = new System.Drawing.Size(81, 20);
-            this.textEditCalcOffsetY.TabIndex = 1;
-            // 
-            // simpleButtonCalibration
-            // 
-            this.simpleButtonCalibration.Location = new System.Drawing.Point(387, 99);
-            this.simpleButtonCalibration.Name = "simpleButtonCalibration";
-            this.simpleButtonCalibration.Size = new System.Drawing.Size(81, 46);
-            this.simpleButtonCalibration.TabIndex = 3;
-            this.simpleButtonCalibration.Text = "Calibration";
-            this.simpleButtonCalibration.Click += new System.EventHandler(this.simpleButtonCalibration_Click);
-            // 
-            // labelControlCalcTargetPosX
-            // 
-            this.labelControlCalcTargetPosX.Location = new System.Drawing.Point(11, 155);
-            this.labelControlCalcTargetPosX.Name = "labelControlCalcTargetPosX";
-            this.labelControlCalcTargetPosX.Size = new System.Drawing.Size(53, 14);
-            this.labelControlCalcTargetPosX.TabIndex = 0;
-            this.labelControlCalcTargetPosX.Text = "Position X";
-            // 
-            // textEditCalcTargetPosX
-            // 
-            this.textEditCalcTargetPosX.Location = new System.Drawing.Point(99, 152);
-            this.textEditCalcTargetPosX.Name = "textEditCalcTargetPosX";
-            this.textEditCalcTargetPosX.Size = new System.Drawing.Size(81, 20);
-            this.textEditCalcTargetPosX.TabIndex = 1;
-            // 
-            // labelControlCalcTargetPosY
-            // 
-            this.labelControlCalcTargetPosY.Location = new System.Drawing.Point(212, 155);
-            this.labelControlCalcTargetPosY.Name = "labelControlCalcTargetPosY";
-            this.labelControlCalcTargetPosY.Size = new System.Drawing.Size(54, 14);
-            this.labelControlCalcTargetPosY.TabIndex = 0;
-            this.labelControlCalcTargetPosY.Text = "Position Y";
-            // 
-            // textEditCalcTargetPosY
-            // 
-            this.textEditCalcTargetPosY.Location = new System.Drawing.Point(297, 152);
-            this.textEditCalcTargetPosY.Name = "textEditCalcTargetPosY";
-            this.textEditCalcTargetPosY.Size = new System.Drawing.Size(81, 20);
-            this.textEditCalcTargetPosY.TabIndex = 1;
-            // 
-            // labelControlCalcPosition1
-            // 
-            this.labelControlCalcPosition1.Location = new System.Drawing.Point(11, 102);
-            this.labelControlCalcPosition1.Name = "labelControlCalcPosition1";
-            this.labelControlCalcPosition1.Size = new System.Drawing.Size(43, 14);
-            this.labelControlCalcPosition1.TabIndex = 0;
-            this.labelControlCalcPosition1.Text = "P1(X,Y)";
-            // 
-            // labelControlCalcPosition2
-            // 
-            this.labelControlCalcPosition2.Location = new System.Drawing.Point(11, 128);
-            this.labelControlCalcPosition2.Name = "labelControlCalcPosition2";
-            this.labelControlCalcPosition2.Size = new System.Drawing.Size(43, 14);
-            this.labelControlCalcPosition2.TabIndex = 0;
-            this.labelControlCalcPosition2.Text = "P2(X,Y)";
-            // 
-            // textEditCalcPositoin1_X
-            // 
-            this.textEditCalcPositoin1_X.Location = new System.Drawing.Point(65, 99);
-            this.textEditCalcPositoin1_X.Name = "textEditCalcPositoin1_X";
-            this.textEditCalcPositoin1_X.Size = new System.Drawing.Size(54, 20);
-            this.textEditCalcPositoin1_X.TabIndex = 1;
-            // 
-            // textEditCalcPositoin2_X
-            // 
-            this.textEditCalcPositoin2_X.Location = new System.Drawing.Point(65, 125);
-            this.textEditCalcPositoin2_X.Name = "textEditCalcPositoin2_X";
-            this.textEditCalcPositoin2_X.Size = new System.Drawing.Size(54, 20);
-            this.textEditCalcPositoin2_X.TabIndex = 1;
-            // 
-            // textEditCalcPositoin1_Y
-            // 
-            this.textEditCalcPositoin1_Y.Location = new System.Drawing.Point(126, 99);
-            this.textEditCalcPositoin1_Y.Name = "textEditCalcPositoin1_Y";
-            this.textEditCalcPositoin1_Y.Size = new System.Drawing.Size(54, 20);
-            this.textEditCalcPositoin1_Y.TabIndex = 1;
-            // 
-            // textEditCalcPositoin2_Y
-            // 
-            this.textEditCalcPositoin2_Y.Location = new System.Drawing.Point(126, 125);
-            this.textEditCalcPositoin2_Y.Name = "textEditCalcPositoin2_Y";
-            this.textEditCalcPositoin2_Y.Size = new System.Drawing.Size(54, 20);
-            this.textEditCalcPositoin2_Y.TabIndex = 1;
-            // 
             // atLaserSoldering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2089,6 +2090,30 @@
             this.layoutControl8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            this.xtraTabPageCalibration.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl9)).EndInit();
+            this.layoutControl9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControlCalibration)).EndInit();
+            this.groupControlCalibration.ResumeLayout(false);
+            this.groupControlCalibration.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroupCalibrationMode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetZ.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcTargetPosY.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaY2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaY1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcTargetPosX.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcOffsetY.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin2_Y.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin2_X.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaX2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin1_Y.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin1_X.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetY.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaX1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcOffsetX.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetX.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEditSystemImage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -2097,30 +2122,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.contextMenuStripImageViewControl.ResumeLayout(false);
-            this.xtraTabPageCalibration.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl9)).EndInit();
-            this.layoutControl9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControlCalibration)).EndInit();
-            this.groupControlCalibration.ResumeLayout(false);
-            this.groupControlCalibration.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetX.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetY.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditOffsetZ.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroupCalibrationMode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaX1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaY1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaX2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditDeltaY2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcOffsetX.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcOffsetY.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcTargetPosX.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcTargetPosY.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin1_X.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin2_X.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin1_Y.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditCalcPositoin2_Y.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
