@@ -1997,5 +1997,39 @@ namespace atLaserSoldering
                 trackBarControlLedBright.EditValue = Convert.ToInt32((sender as TextEdit).Text);
             }
         }
+
+        private void simpleButtonCalibration_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_systemParams._calibrationParams.CalibrationMode == 2)
+                {
+                    CalibrationParams.Calibration_Position p1 = new CalibrationParams.Calibration_Position();
+                    CalibrationParams.Calibration_Position p2 = new CalibrationParams.Calibration_Position();
+
+                    p1.X = Convert.ToDouble(textEditCalcPositoin1_X.Text);
+                    p1.Y = Convert.ToDouble(textEditCalcPositoin1_Y.Text);
+                    p1.Delta_X = Convert.ToDouble(textEditDeltaX1.Text);
+                    p1.Delta_Y = Convert.ToDouble(textEditDeltaY1.Text);
+
+                    p2.X = Convert.ToDouble(textEditCalcPositoin2_X.Text);
+                    p2.Y = Convert.ToDouble(textEditCalcPositoin2_Y.Text);
+                    p2.Delta_X = Convert.ToDouble(textEditDeltaX2.Text);
+                    p2.Delta_Y = Convert.ToDouble(textEditDeltaY2.Text);
+
+                    _systemParams._calibrationParams.Calibration_TwoPoint(p1, p2);
+
+                    p1.X = Convert.ToDouble(textEditCalcTargetPosX.Text);
+                    p1.Y = Convert.ToDouble(textEditCalcTargetPosY.Text);
+                    _systemParams._calibrationParams.CalibrationOffset_TwoPoint(p1);
+                    textEditOffsetX.Text = _systemParams._calibrationParams.OffsetX.ToString();
+                    textEditOffsetY.Text = _systemParams._calibrationParams.OffsetY.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
     }
 }

@@ -331,9 +331,9 @@ namespace atLaserSoldering
             _systemParameters._calibrationParams._imagetoSystemXcoordi = Convert.ToSingle(rowImageToSystemX.Properties.Value);
             _systemParameters._calibrationParams._imagetoSystemYcoordi = Convert.ToSingle(rowImageToSystemY.Properties.Value);
             _systemParameters._calibrationParams._CoordinateCalibrationActive = Convert.ToBoolean(rowCoordinateCalibrationActive.Properties.Value);
-            _systemParameters._calibrationParams._X_reference_Distance = Convert.ToSingle(rowReference_X.Properties.Value);            
-            _systemParameters._calibrationParams._Y_reference_Distance = Convert.ToSingle(rowReference_Y.Properties.Value);
-            _systemParameters._calibrationParams._Z_reference_Distance = Convert.ToSingle(rowReference_Z.Properties.Value);            
+            _systemParameters._calibrationParams.X_reference_Distance = Convert.ToSingle(rowReference_X.Properties.Value);            
+            _systemParameters._calibrationParams.Y_reference_Distance = Convert.ToSingle(rowReference_Y.Properties.Value);
+            _systemParameters._calibrationParams.Z_reference_Distance = Convert.ToSingle(rowReference_Z.Properties.Value);            
             // System Parameter의 Motion 파라미터 초기화
             _systemParameters._motionParams.MenualMoveVelocity = Convert.ToSingle(rowMotionMenaulVelocity.Properties.Value);
             _systemParameters._motionParams.MoveVelocity = Convert.ToSingle(rowMotionMoveVelocity.Properties.Value);
@@ -487,9 +487,9 @@ namespace atLaserSoldering
             rowImageToSystemX.Properties.Value = _systemParameters._calibrationParams._imagetoSystemXcoordi;
             rowImageToSystemY.Properties.Value = _systemParameters._calibrationParams._imagetoSystemYcoordi;
             rowCoordinateCalibrationActive.Properties.Value = _systemParameters._calibrationParams._CoordinateCalibrationActive;
-            rowReference_X.Properties.Value = _systemParameters._calibrationParams._X_reference_Distance;
-            rowReference_Y.Properties.Value = _systemParameters._calibrationParams._Y_reference_Distance;
-            rowReference_Z.Properties.Value = _systemParameters._calibrationParams._Z_reference_Distance;
+            rowReference_X.Properties.Value = _systemParameters._calibrationParams.X_reference_Distance;
+            rowReference_Y.Properties.Value = _systemParameters._calibrationParams.Y_reference_Distance;
+            rowReference_Z.Properties.Value = _systemParameters._calibrationParams.Z_reference_Distance;
 
             // Motion Parameters
             rowMotionMenaulVelocity.Properties.Value = _systemParameters._motionParams.MenualMoveVelocity;
@@ -724,13 +724,13 @@ namespace atLaserSoldering
                 if (fValue <= 0)
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\nX축 이동 기준값은 0보다 큰 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowReference_X.Properties.Value = _systemParameters._calibrationParams._X_reference_Distance;
+                    rowReference_X.Properties.Value = _systemParameters._calibrationParams.X_reference_Distance;
                     vGridControlSystemParameters.Refresh();
                     return;
                 }
                 simpleButtonSystemFileSave.Enabled = true;
-                _systemParameters._calibrationParams._X_reference_Distance = fValue;
-                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("X축 이동 기준값이 {0}로 변경되었습니다.", _systemParameters._calibrationParams._X_reference_Distance.ToString()));
+                _systemParameters._calibrationParams.X_reference_Distance = fValue;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("X축 이동 기준값이 {0}로 변경되었습니다.", _systemParameters._calibrationParams.X_reference_Distance.ToString()));
             }
             else if (currentRow == rowReference_Y)
             {
@@ -738,13 +738,13 @@ namespace atLaserSoldering
                 if (fValue <= 0)
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\nY축 이동 기준값은 0보다 큰 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowReference_Y.Properties.Value = _systemParameters._calibrationParams._Y_reference_Distance;
+                    rowReference_Y.Properties.Value = _systemParameters._calibrationParams.Y_reference_Distance;
                     vGridControlSystemParameters.Refresh();
                     return;
                 }
                 simpleButtonSystemFileSave.Enabled = true;
-                _systemParameters._calibrationParams._Y_reference_Distance = fValue;
-                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Y축 이동 기본 값이 {0}로 변경되었습니다.", _systemParameters._calibrationParams._Y_reference_Distance.ToString()));
+                _systemParameters._calibrationParams.Y_reference_Distance = fValue;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Y축 이동 기본 값이 {0}로 변경되었습니다.", _systemParameters._calibrationParams.Y_reference_Distance.ToString()));
             }
             else if (currentRow == rowReference_Z)
             {
@@ -752,13 +752,13 @@ namespace atLaserSoldering
                 if (fValue <= 0)
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\nZ축 이동 기준값은 0보다 큰 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowReference_Z.Properties.Value = _systemParameters._calibrationParams._Z_reference_Distance;
+                    rowReference_Z.Properties.Value = _systemParameters._calibrationParams.Z_reference_Distance;
                     vGridControlSystemParameters.Refresh();
                     return;
                 }
                 simpleButtonSystemFileSave.Enabled = true;
-                _systemParameters._calibrationParams._Z_reference_Distance = fValue;
-                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Z축 이동 기준 값이 {0}로 변경되었습니다.", _systemParameters._calibrationParams._Z_reference_Distance.ToString()));
+                _systemParameters._calibrationParams.Z_reference_Distance = fValue;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Z축 이동 기준 값이 {0}로 변경되었습니다.", _systemParameters._calibrationParams.Z_reference_Distance.ToString()));
             }
             else if (currentRow == rowMotionMoveVelocity)
             {

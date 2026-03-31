@@ -179,9 +179,9 @@ namespace RecipeManager
             systemParam._calibrationParams._imagetoSystemXcoordi = Convert.ToSingle(systemData[SystemParamSections[1]]["ImageToSystemCoordinateX"]);
             systemParam._calibrationParams._imagetoSystemYcoordi = Convert.ToSingle(systemData[SystemParamSections[1]]["ImageToSystemCoordinateY"]);
             systemParam._calibrationParams._CoordinateCalibrationActive = Convert.ToBoolean(systemData[SystemParamSections[1]]["CoordinateCalibrationActive"]);
-            systemParam._calibrationParams._X_reference_Distance = Convert.ToSingle(systemData[SystemParamSections[1]]["ReferenceXdistance"]);
-            systemParam._calibrationParams._Y_reference_Distance = Convert.ToSingle(systemData[SystemParamSections[1]]["ReferenceYdistance"]);
-            systemParam._calibrationParams._Z_reference_Distance = Convert.ToSingle(systemData[SystemParamSections[1]]["ReferenceZdistance"]);
+            systemParam._calibrationParams.X_reference_Distance = Convert.ToDouble(systemData[SystemParamSections[1]]["ReferenceXdistance"]);
+            systemParam._calibrationParams.Y_reference_Distance = Convert.ToDouble(systemData[SystemParamSections[1]]["ReferenceYdistance"]);
+            systemParam._calibrationParams.Z_reference_Distance = Convert.ToDouble(systemData[SystemParamSections[1]]["ReferenceZdistance"]);
 
             // Motion Parameters
             systemParam._motionParams.MenualMoveVelocity = Convert.ToSingle(systemData[SystemParamSections[2]]["MenualMoveVelocity"]);
@@ -362,9 +362,9 @@ namespace RecipeManager
             systemData[SystemParamSections[1]].AddKey("ImageToSystemCoordinateX", systemParam._calibrationParams._imagetoSystemXcoordi.ToString());
             systemData[SystemParamSections[1]].AddKey("ImageToSystemCoordinateY", systemParam._calibrationParams._imagetoSystemYcoordi.ToString());
             systemData[SystemParamSections[1]].AddKey("CoordinateCalibrationActive", systemParam._calibrationParams._CoordinateCalibrationActive.ToString());
-            systemData[SystemParamSections[1]].AddKey("ReferenceXdistance", systemParam._calibrationParams._X_reference_Distance.ToString());
-            systemData[SystemParamSections[1]].AddKey("ReferenceYdistance", systemParam._calibrationParams._Y_reference_Distance.ToString());
-            systemData[SystemParamSections[1]].AddKey("ReferenceZdistance", systemParam._calibrationParams._Z_reference_Distance.ToString());            
+            systemData[SystemParamSections[1]].AddKey("ReferenceXdistance", systemParam._calibrationParams.X_reference_Distance.ToString());
+            systemData[SystemParamSections[1]].AddKey("ReferenceYdistance", systemParam._calibrationParams.Y_reference_Distance.ToString());
+            systemData[SystemParamSections[1]].AddKey("ReferenceZdistance", systemParam._calibrationParams.Z_reference_Distance.ToString());            
 
             // Motion Parameters
             systemData.Sections.AddSection(SystemParamSections[2]);

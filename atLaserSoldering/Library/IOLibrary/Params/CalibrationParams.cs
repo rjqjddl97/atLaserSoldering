@@ -24,33 +24,68 @@ namespace RecipeManager
         public const double YAxis_Y_Delta_Offset_X = 0.81999;
         public const double YAxis_Y_Delta_Offset_Z = 1.1999;
 
-        public bool _CoordinateSwitchEnable { get; set; } = false;
-        public float _imagetoSystemXcoordi { get; set; } = 1;
-        public float _imagetoSystemYcoordi { get; set; } = 1;
-        public bool _CoordinateCalibrationActive { get; set; } = false;
-        public float _X_reference_Distance { get; set; } = 0;
-        public float _X_DeltaX { get; set; } = 0;
-        public float _X_DeltaZ { get; set; } = 0;
-        public float _Z_reference_Distance { get; set; } = 0;
-        public float _Z_DeltaX { get; set; } = 0;
-        public float _Z_DeltaZ { get; set; } = 0;
-        public float _Y_reference_Distance { get; set; } = 0;
-        public float _Y_DeltaX { get; set; } = 0;
-        public float _Y_DeltaZ { get; set; } = 0;
 
-        public float _Y_OffsetX { get; set; } = 0;
-        public float _Y_OffsetY { get; set; } = 0;
-        public float _Y_OffsetZ { get; set; } = 0;
-        public float _X_diff_X { get; set; } = 1;
-        public float _X_diff_Z { get; set; } = 1;
-        public float _Z_diff_X { get; set; } = 1;
-        public float _Z_diff_Z { get; set; } = 1;
-        public float _Y_diff_X { get; set; } = 1;
-        public float _Y_Rotate_X { get; set; } = 1;
-        public float _Y_Rotate_Z { get; set; } = 1;
-        public float _Y_Rotate_ThetaX { get; set; } = 1;
-        public float _Y_Rotate_ThetaZ { get; set; } = 1;
-        public float _Y_diff_Z { get; set; } = 1;
+        private double _X_reference_Distance = 0;
+        private double _X_Delta = 0;
+        private double _X_DeltaX = 0;
+        private double _X_DeltaY = 0;
+        private double _X_DeltaZ = 0;
+        private double _Y_reference_Distance = 0;
+        private double _Y_Delta = 0;
+        private double _Y_DeltaX = 0;
+        private double _Y_DeltaY = 0;
+        private double _Y_DeltaZ = 0;
+        private double _Z_reference_Distance = 0;
+        private double _Z_Delta = 0;
+        private double _Z_DeltaX = 0;
+        private double _Z_DeltaY = 0;
+        private double _Z_DeltaZ = 0;
+        private double _OffsetX = 0;
+        private double _OffsetY = 0;
+        private double _OffsetZ = 0;
+        private double _diff_X = 0;
+        private double _diff_Y = 0;
+        private double _diff_Z = 0;
+        private double _intercept_X = 0;
+        private double _intercept_Y = 0;
+        private double _intercept_Z = 0;
+        private double _Rotate_Theta = 0;
+        private int _CalibrationMode = 0;    // 0: None, 1: All, 2: Two Point
+
+
+        public bool _CoordinateSwitchEnable { get; set; } = false;
+        public double _imagetoSystemXcoordi { get; set; } = 1;
+        public double _imagetoSystemYcoordi { get; set; } = 1;
+        public bool _CoordinateCalibrationActive { get; set; } = false;
+        public double X_reference_Distance { get { return _X_reference_Distance; } set { _X_reference_Distance = value; } }
+        public double X_Delta { get { return _X_Delta; } set { _X_Delta = value; } }
+        public double X_DeltaX { get { return _X_DeltaX; } set { _X_DeltaX = value; } }
+        public double X_DeltaY { get { return _X_DeltaY; } set { _X_DeltaY = value; } }
+        public double X_DeltaZ { get { return _X_DeltaZ; } set { _X_DeltaZ = value; } }
+        public double Y_reference_Distance { get { return _Y_reference_Distance; } set { _Y_reference_Distance = value; } }
+        public double Y_Delta { get { return _Y_Delta; } set { _Y_Delta = value; } }
+        public double Y_DeltaX { get { return _Y_DeltaX; } set { _Y_DeltaX = value; } }
+        public double Y_DeltaY { get { return _Y_DeltaY; } set { _Y_DeltaY = value; } }
+        public double Y_DeltaZ { get { return _Y_DeltaZ; } set { _Y_DeltaZ = value; } }
+        public double Z_reference_Distance { get { return _Z_reference_Distance; } set { _Z_reference_Distance = value; } }
+        public double Z_Delta { get { return _Z_Delta; } set { _Z_Delta = value; } }
+
+        public double OffsetX { get { return _OffsetX; } set { _OffsetX = value; } }
+        public double OffsetY { get { return _OffsetY; } set { _OffsetY = value; } }
+        public double OffsetZ { get { return _OffsetZ; } set { _OffsetZ = value; } }
+
+        public double Diff_X { get { return _diff_X; } set { _diff_X = value; } }
+        public double Diff_Y { get { return _diff_Y; } set { _diff_Y = value; } }
+        public double Diff_Z { get { return _diff_Z; } set { _diff_Z = value; } }
+
+        public double intercept_X { get { return _intercept_X; } set { _intercept_X = value; } }
+        public double intercept_Y { get { return _intercept_Y; } set { _intercept_Y = value; } }
+        public double intercept_Z { get { return _intercept_Z; } set { _intercept_Z = value; } }
+
+        public double Rotate_Theta { get { return _Rotate_Theta; } set { _Rotate_Theta = value; } }
+        public int CalibrationMode { get { return _CalibrationMode; } set { _CalibrationMode = value; } }
+        
+
         public class Position
         {
             public double X { get; set; } = 0;
@@ -58,75 +93,41 @@ namespace RecipeManager
             public double Z { get; set; } = 0;
             public double R { get; set; } = 0;
         }
-        public Position EmiterCalibratinoDeltaPosition(Position PresentPos)
+        public class Calibration_Position
         {
-            Position DeltaPosition = new Position();            
-
-            if (_CoordinateCalibrationActive)
-            {
-                double x_dx = 0, x_dz = 0, z_dx = 0, z_dz = 0, y_dx = 0, y_dz = 0;
-                x_dx = (YAxis_Z_Delta_D_X * PresentPos.Z) + YAxis_Z_OFFSET_X + YAxis_X_Delta_D_X * (PresentPos.X - YAxis_X_Referense_Pos);
-                x_dz = (YAxis_X_Delta_D_Z * PresentPos.X) + YAxis_X_OFFSET_Z + YAxis_Z_Delta_D_Z * (PresentPos.Z - YAxis_Z_Referense_Pos);
-                y_dx = YAxis_Y_Delta_D_X * (PresentPos.Y - YAxis_Y_Referense_Pos) + YAxis_Y_Delta_Offset_X;
-                y_dz = YAxis_Y_Delta_D_Z * (PresentPos.Y - YAxis_Y_Referense_Pos) + YAxis_Y_Delta_Offset_Z;
-
-                //DeltaPosition.X = x_dx + y_dx;
-                DeltaPosition.X = x_dx;
-                DeltaPosition.Y = 0;
-                //DeltaPosition.Z = x_dz + y_dz;
-                DeltaPosition.Z = x_dz;
-                DeltaPosition.R = 0;;
-
-                _Y_OffsetX = (float)DeltaPosition.X;
-                _Y_OffsetY = (float)DeltaPosition.Y;
-                _Y_OffsetZ = (float)DeltaPosition.Z;
-                
-            }
-            else
-            {
-                DeltaPosition.X = 0;
-                DeltaPosition.Y = 0;
-                DeltaPosition.Z = 0;                
-
-                _Y_OffsetX = (float)DeltaPosition.X;
-                _Y_OffsetY = (float)DeltaPosition.Y;
-                _Y_OffsetZ = (float)DeltaPosition.Z;
-            }
-
-            return DeltaPosition;
+            public double X { get; set; } = 0;
+            public double Y { get; set; } = 0;
+            public double Delta_X { get; set; } = 0;
+            public double Delta_Y { get; set; } = 0;
         }
-        public Position InspectCalibratinoDeltaPosition(Position PresentPos)
+        public void Calibration_TwoPoint(Calibration_Position p1, Calibration_Position p2)
         {
-            Position DeltaPosition = new Position();
-            if (_CoordinateCalibrationActive)
+            if (Math.Abs((p2.X + p2.Delta_X) - (p1.X + p1.Delta_X)) > double.Epsilon)
             {
-                double x_dx = 0, x_dz = 0, z_dx = 0, z_dz = 0, y_dx = 0, y_dz = 0;
-                //x_dx = (Y2Axis_Z_Delta_D_X * PresentPos.Z) + Y2Axis_Z_OFFSET_X + Y2Axis_X_Delta_D_X * (PresentPos.X - Y2Axis_X_Referense_Pos);
-                //x_dz = (Y2Axis_X_Delta_D_Z * PresentPos.X) + Y2Axis_X_OFFSET_Z + Y2Axis_Z_Delta_D_Z * (PresentPos.Z - Y2Axis_Z_Referense_Pos);
-                //y_dx = Y2Axis_Y_Delta_D_X * (PresentPos.Y2 - Y2Axis_Y_Referense_Pos) + Y2Axis_Y_Delta_Offset_X;
-                //y_dz = Y2Axis_Y_Delta_D_Z * (PresentPos.Y2 - Y2Axis_Y_Referense_Pos) + Y2Axis_Y_Delta_Offset_Z;
+                _diff_X = (p2.X - p1.X) / ((p2.X + p2.Delta_X) - (p1.X + p1.Delta_X));
+                _intercept_X = p1.X - (_diff_X * (p1.X + p1.Delta_X));
+            }
+            else
+                _OffsetX = 0;
 
-                ////DeltaPosition.X = x_dx + y_dx;
-                //DeltaPosition.X = x_dx;
-                //DeltaPosition.Y2 = 0;
-                ////DeltaPosition.Z = x_dz + y_dz;
-                //DeltaPosition.Z = x_dz;
-                //DeltaPosition.Y2 = 0;
-                //DeltaPosition.FZ = 0;
-                //DeltaPosition.FR = 0;
-
-                //_Y2_OffsetX = (float)DeltaPosition.X;
-                //_Y2_OffsetY = (float)DeltaPosition.Y1;
-                //_Y2_OffsetZ = (float)DeltaPosition.Z;
+            if (Math.Abs((p2.Y + p2.Delta_Y) - (p1.Y + p1.Delta_Y)) > double.Epsilon)
+            {
+                _diff_Y = (p2.Y - p1.Y) / ((p2.Y + p2.Delta_Y) - (p1.Y + p1.Delta_Y));
+                _intercept_Y = p1.Y - (_diff_Y * (p1.Y + p1.Delta_Y));
             }
             else
             {
-                DeltaPosition.X = 0;
-                DeltaPosition.Y = 0;
-                DeltaPosition.Z = 0;
-                DeltaPosition.R = 0;
+                _OffsetX = 0;
+                _OffsetY = 0;
             }
-            return DeltaPosition;
+        }
+        public void CalibrationOffset_TwoPoint(Calibration_Position p)
+        {
+            if (_CalibrationMode == 2)
+            {
+                _OffsetX = (_diff_X * p.X) + _intercept_X;
+                _OffsetY = (_diff_Y * p.Y) + _intercept_Y;
+            }            
         }
     }
 }
