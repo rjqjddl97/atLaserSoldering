@@ -128,55 +128,10 @@ namespace FeederControlLibrary.SerialCommunication.Control
                             if (data[2] == 32)
                             {
                                 m_FeedDataCtrl.ReceiveSetMotionData(data);
-                                
+                                ReceiveFeedData.Invoke(m_FeedDataCtrl);
                             }
                         }
-
-                    }
-                    ReceiveFeedData.Invoke(m_FeedDataCtrl);
-                    /*
-                    reCommMassege = m_AiCDataCtrl.GetRequestedCommand();
-                    if (reCommMassege == AiCData.CommandMassege.MSG_MONITOR_DATA)
-                    {                        
-                        m_AiCDataCtrl.ReceiveSetMotionData(data);
-                    }
-                    else if (reCommMassege == AiCData.CommandMassege.MSG_HOME_OPERATION)
-                    {
-                        m_AiCDataCtrl.ReceiveSetHomeParameter(data);
-                    }
-                    else if (reCommMassege == AiCData.CommandMassege.MSG_OPERATI0N_CMD)
-                    {
-                        m_AiCDataCtrl.ReceiveSetOperationCommand(data);
-                    }
-                    else if (reCommMassege == AiCData.CommandMassege.MSG_EXTERNAL_INPUT)
-                    {
-                        m_AiCDataCtrl.ReceiveSetExternalIO(data);
-                    }
-                    else if (reCommMassege == AiCData.CommandMassege.MSG_COMM_PARAM)
-                    {
-                        m_AiCDataCtrl.ReceiveSetCommunicationData(data);
-                    }
-                    else if (reCommMassege == AiCData.CommandMassege.MSG_OPERATION_PARAM)
-                    {
-                        m_AiCDataCtrl.ReceiveSetOperationParam(data);
-                    }
-                    else if (reCommMassege == AiCData.CommandMassege.MSG_OPERATION_SET)
-                    {
-                        m_AiCDataCtrl.ReceiveSetOperationSignal(data);
-                    }
-                    else if (reCommMassege == AiCData.CommandMassege.MSG_OPERATION_SETUP1)
-                    {
-                        m_AiCDataCtrl.ReceiveSetOperationData(data);
-                    }
-                    else if (reCommMassege == AiCData.CommandMassege.MSG_PRODUCT_INFO)
-                    {
-                        m_AiCDataCtrl.ReceiveSetProductInfo(data);
-                    }
-                    else if (reCommMassege == AiCData.CommandMassege.MSG_OUTPUT)
-                    {
-                        m_AiCDataCtrl.ReceiveSetOutput(data);
-                    }
-                    */    
+                    }                    
                 }
                 else
                 {
@@ -261,7 +216,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
                         if (ReceivePacketBuff[1] > (byte)ModbusRTU.FunctionCodes.Exception)
                         {
                             if (uiReceiveCount >= 5)
-                            {                                
+                            {
                                 //for (int j = 0; j < uiReceiveCount; j++) ReceivePacketBuff[j] = 0;
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
@@ -286,8 +241,16 @@ namespace FeederControlLibrary.SerialCommunication.Control
                         else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
                         {
                             if (uiReceiveCount >= 8)
-                            {
-                                //ParsingData(MainData);
+                            {                                
+                                uiReceiveCount = 0;
+                                IsReceiveStart = false;
+                                IsReceiveAck = true;
+                            }
+                        }
+                        else
+                        {
+                            if (uiReceiveCount >= 5)
+                            {                                
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
                                 IsReceiveAck = true;
@@ -361,7 +324,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
                             }
                             else if (mContinuousCheckList.Count != 0)
                             {
-                                if (!IsReceiveStart)
+                                //if (!IsReceiveStart)
                                 {
                                     data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
                                     //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);

@@ -116,6 +116,7 @@ namespace CustomPages
                 ;
             }
         }        
+
         public void SetCommunicateManager(LaserSoderingProcess solder,ref FeederControlLibrary.SerialCommunication.Control.CommunicationManager feedmanager, ref CoherentCompactMini.SerialCommunication.Control.CommunicationManager lasermanager)
         {
             try
@@ -124,6 +125,7 @@ namespace CustomPages
                 _mLaserCommunicationManager = lasermanager;
                 _mLaserSoldering = solder;
                 _mLaserSoldering.InitialCommunication(ref lasermanager, ref feedmanager);
+                _mLaserSoldering.LogWriteEvent += UpdateLog;
                 //_mFeederCommunicationManager = _mLaserSoldering.FeederComm;
                 //_mLaserCommunicationManager = _mLaserSoldering.CompactMiniComm;
             }
@@ -140,6 +142,7 @@ namespace CustomPages
                 _mLaserCommunicationManager = lasermanager;
                 _mLaserSoldering = solder;
                 _mLaserSoldering.InitialCommunication(ref lasermanager, ref feedmanager);
+                _mLaserSoldering.LogWriteEvent += UpdateLog;
             }
             catch (Exception ex)
             {
@@ -233,6 +236,17 @@ namespace CustomPages
 
                 //    LogWriteEvent?.Invoke(string.Format("Feeder 및 레이저 제어 통신이 연결해제 되었습니다"));
                 //}                
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
+        public void UpdateLog(string update)
+        {
+            try
+            {
+                LogWriteEvent?.Invoke(update);
             }
             catch (Exception ex)
             {
@@ -437,6 +451,7 @@ namespace CustomPages
                     else if (_mLaserSoldering.IsAutoSoldering)
                     {
                         _mLaserSoldering.LaserSolderingStop();
+
                         simpleButtonSolderingStart.Text = "Soldering Start";
                     }
 

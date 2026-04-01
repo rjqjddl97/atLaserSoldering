@@ -837,7 +837,7 @@
             // 
             // timerUpdateTime
             // 
-            this.timerUpdateTime.Interval = 250;
+            this.timerUpdateTime.Interval = 100;
             this.timerUpdateTime.Tick += new System.EventHandler(this.timerUpdateTime_Tick);
             // 
             // SolderingControl

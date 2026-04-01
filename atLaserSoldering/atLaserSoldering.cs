@@ -263,6 +263,7 @@ namespace atLaserSoldering
                 mLog.WriteLogViewer += LogUpdated;
                 motionControl.LogWriteEvent += Motion_StringToLogWriteEvent;
                 remoteIOControl.LogWriteEvent += RemoteIO_StringToLogWriteEvent;
+                laserSolderingControl.LogWriteEvent += Soldering_StringToLogWriteEvent;
                 gridControlLog.DataSource = mLogList;
                 InitializeFileSystem();
                 string strTemp = string.Format(@"{0}\{1}", SystemDirectoryParams.SystemFolderPath, SystemDirectoryParams.SystemFileName);
@@ -361,6 +362,17 @@ namespace atLaserSoldering
             catch (Exception)
             {
                 mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "RemoteIO 로그 이벤트에 오류가 있습니다.");
+            }
+        }
+        private void Soldering_StringToLogWriteEvent(string strLog)
+        {
+            try
+            {
+                mLog.WriteLog(LogLevel.Info, LogClass.LaserSoldering.ToString(), strLog);
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Laser Soldering 로그 이벤트에 오류가 있습니다.");
             }
         }
 
@@ -1410,6 +1422,7 @@ namespace atLaserSoldering
 
             motionControl.UpdateTimer.Stop();
             remoteIOControl.UpdateTimer.Stop();
+            laserSolderingControl.UpdateTimer.Stop();
             timerCurrentTime.Stop();
             timerImageUpdate.Stop();
             mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "프로그램 종료.");

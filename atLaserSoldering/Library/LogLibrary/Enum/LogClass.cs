@@ -12,7 +12,7 @@ namespace LogLibrary
         Log,
         Image,
         NetWork,
-        PhotoSensor,
+        LaserSoldering,
         MotionControl,
         RemoteIO,
         RecipeEditor,

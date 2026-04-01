@@ -64,6 +64,10 @@
       <Project>{03022a76-0fb0-41e4-bed3-ed108203bb96}</Project>
       <Name>RecipeManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\LogLibrary\LogLibrary.csproj">
+      <Project>{d3f9449d-4dbe-4bc9-b24c-fac0934e862f}</Project>
+      <Name>LogLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

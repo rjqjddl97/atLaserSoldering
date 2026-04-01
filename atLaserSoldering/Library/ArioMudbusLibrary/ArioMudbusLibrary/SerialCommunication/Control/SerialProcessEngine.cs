@@ -229,7 +229,7 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                         }
                         else
                         {
-                            if (uiReceiveCount == ReceivePacketBuff[2] + 5)
+                            if (uiReceiveCount >= 5)
                             {
                                 //ParsingData(MainData);
                                 uiReceiveCount = 0;
