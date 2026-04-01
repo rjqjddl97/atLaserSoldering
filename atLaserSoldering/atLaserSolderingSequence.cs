@@ -314,7 +314,7 @@ namespace atLaserSoldering
                                         }
                                         break;
                                     case 2:
-                                        if ((mRobotInformation.mStatus & 0x00000052) == 0x00000052)
+                                        //if ((mRobotInformation.mStatus & 0x00000052) == 0x00000052)
                                         {
                                             for (int i = 0; i < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; i++)
                                             {
@@ -333,6 +333,8 @@ namespace atLaserSoldering
                                             _HommingProcess = false;
                                             _IsHommingFinished = true;
                                             mRobotInformation.SetStatus(RobotInformation.RobotStatus.OperationReady, _IsHommingFinished);
+                                            _homestep = 0;
+                                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "로봇 원점 복귀 진행을 끝났습니다.");
                                         }
                                         break;
                                     default:

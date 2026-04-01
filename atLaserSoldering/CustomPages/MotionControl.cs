@@ -478,36 +478,36 @@ namespace CustomPages
                 }
                 //SetMotionStatus(_mAiCData._mAiCMotionDatas);
                 //RobotInfomationUpdatedEvent?.Invoke(_mRobotInfomation);
-
-                //textEditOpMode1.BeginInvoke(new MethodInvoker(delegate { textEditOpMode1.EditValue = _iOpmode[0]; }));
-                //textEditTargetPos1.BeginInvoke(new MethodInvoker(delegate { textEditTargetPos1.EditValue = _fTargetPosition[0]; }));
-                //textEditPresentPosX.BeginInvoke(new MethodInvoker(delegate { textEditPresentPosX.EditValue = _fPresentPosition[0]; }));
-                //textEditPresentPos1.BeginInvoke(new MethodInvoker(delegate { textEditPresentPos1.EditValue = _fPresentPosition[0]; }));
-                //textEditTargetVel1.BeginInvoke(new MethodInvoker(delegate { textEditTargetVel1.EditValue = _fTargetVelocity[0]; }));
-                //textEditPresentVel1.BeginInvoke(new MethodInvoker(delegate { textEditPresentVel1.EditValue = _fPresentVelocity[0]; }));
-                //textEditMotorRPM1.BeginInvoke(new MethodInvoker(delegate { textEditMotorRPM1.EditValue = _iMotorRPM[0]; }));
-                //textEditProgramStep1.BeginInvoke(new MethodInvoker(delegate { textEditProgramStep1.EditValue = _iProgStep[0]; }));
-
-                //textEditOpMode2.BeginInvoke(new MethodInvoker(delegate { textEditOpMode2.EditValue = _iOpmode[1]; }));
-                //textEditTargetPos2.BeginInvoke(new MethodInvoker(delegate { textEditTargetPos2.EditValue = _fTargetPosition[1]; }));
-                //textEditPresentPosY.BeginInvoke(new MethodInvoker(delegate { textEditPresentPosY.EditValue = _fPresentPosition[1]; }));
-                //textEditPresentPos2.BeginInvoke(new MethodInvoker(delegate { textEditPresentPos2.EditValue = _fPresentPosition[1]; }));
-                //textEditTargetVel2.BeginInvoke(new MethodInvoker(delegate { textEditTargetVel2.EditValue = _fTargetVelocity[1]; }));
-                //textEditPresentVel2.BeginInvoke(new MethodInvoker(delegate { textEditPresentVel2.EditValue = _fPresentVelocity[1]; }));
-                //textEditMotorRPM2.BeginInvoke(new MethodInvoker(delegate { textEditMotorRPM2.EditValue = _iMotorRPM[1]; }));
-                //textEditProgramStep2.BeginInvoke(new MethodInvoker(delegate { textEditProgramStep2.EditValue = _iProgStep[1]; }));
-
-                //textEditOpMode3.BeginInvoke(new MethodInvoker(delegate { textEditOpMode3.EditValue = _iOpmode[2]; }));
-                //textEditTargetPos3.BeginInvoke(new MethodInvoker(delegate { textEditTargetPos3.EditValue = _fTargetPosition[2]; }));
-                //textEditPresentPosZ.BeginInvoke(new MethodInvoker(delegate { textEditPresentPosZ.EditValue = _fPresentPosition[2]; }));
-                //textEditPresentPos3.BeginInvoke(new MethodInvoker(delegate { textEditPresentPos3.EditValue = _fPresentPosition[2]; }));
-                //textEditTargetVel3.BeginInvoke(new MethodInvoker(delegate { textEditTargetVel3.EditValue = _fTargetVelocity[2]; }));
-                //textEditPresentVel3.BeginInvoke(new MethodInvoker(delegate { textEditPresentVel3.EditValue = _fPresentVelocity[2]; }));
-                //textEditMotorRPM3.BeginInvoke(new MethodInvoker(delegate { textEditMotorRPM3.EditValue = _iMotorRPM[2]; }));
-                //textEditProgramStep3.BeginInvoke(new MethodInvoker(delegate { textEditProgramStep3.EditValue = _iProgStep[2]; }));
-            }
-
             ///*
+                textEditOpMode1.BeginInvoke(new MethodInvoker(delegate { textEditOpMode1.EditValue = _iOpmode[0]; }));
+                textEditTargetPos1.BeginInvoke(new MethodInvoker(delegate { textEditTargetPos1.EditValue = _fTargetPosition[0]; }));
+                textEditPresentPosX.BeginInvoke(new MethodInvoker(delegate { textEditPresentPosX.EditValue = _fPresentPosition[0]; }));
+                textEditPresentPos1.BeginInvoke(new MethodInvoker(delegate { textEditPresentPos1.EditValue = _fPresentPosition[0]; }));
+                textEditTargetVel1.BeginInvoke(new MethodInvoker(delegate { textEditTargetVel1.EditValue = _fTargetVelocity[0]; }));
+                textEditPresentVel1.BeginInvoke(new MethodInvoker(delegate { textEditPresentVel1.EditValue = _fPresentVelocity[0]; }));
+                textEditMotorRPM1.BeginInvoke(new MethodInvoker(delegate { textEditMotorRPM1.EditValue = _iMotorRPM[0]; }));
+                textEditProgramStep1.BeginInvoke(new MethodInvoker(delegate { textEditProgramStep1.EditValue = _iProgStep[0]; }));
+
+                textEditOpMode2.BeginInvoke(new MethodInvoker(delegate { textEditOpMode2.EditValue = _iOpmode[1]; }));
+                textEditTargetPos2.BeginInvoke(new MethodInvoker(delegate { textEditTargetPos2.EditValue = _fTargetPosition[1]; }));
+                textEditPresentPosY.BeginInvoke(new MethodInvoker(delegate { textEditPresentPosY.EditValue = _fPresentPosition[1]; }));
+                textEditPresentPos2.BeginInvoke(new MethodInvoker(delegate { textEditPresentPos2.EditValue = _fPresentPosition[1]; }));
+                textEditTargetVel2.BeginInvoke(new MethodInvoker(delegate { textEditTargetVel2.EditValue = _fTargetVelocity[1]; }));
+                textEditPresentVel2.BeginInvoke(new MethodInvoker(delegate { textEditPresentVel2.EditValue = _fPresentVelocity[1]; }));
+                textEditMotorRPM2.BeginInvoke(new MethodInvoker(delegate { textEditMotorRPM2.EditValue = _iMotorRPM[1]; }));
+                textEditProgramStep2.BeginInvoke(new MethodInvoker(delegate { textEditProgramStep2.EditValue = _iProgStep[1]; }));
+
+                textEditOpMode3.BeginInvoke(new MethodInvoker(delegate { textEditOpMode3.EditValue = _iOpmode[2]; }));
+                textEditTargetPos3.BeginInvoke(new MethodInvoker(delegate { textEditTargetPos3.EditValue = _fTargetPosition[2]; }));
+                textEditPresentPosZ.BeginInvoke(new MethodInvoker(delegate { textEditPresentPosZ.EditValue = _fPresentPosition[2]; }));
+                textEditPresentPos3.BeginInvoke(new MethodInvoker(delegate { textEditPresentPos3.EditValue = _fPresentPosition[2]; }));
+                textEditTargetVel3.BeginInvoke(new MethodInvoker(delegate { textEditTargetVel3.EditValue = _fTargetVelocity[2]; }));
+                textEditPresentVel3.BeginInvoke(new MethodInvoker(delegate { textEditPresentVel3.EditValue = _fPresentVelocity[2]; }));
+                textEditMotorRPM3.BeginInvoke(new MethodInvoker(delegate { textEditMotorRPM3.EditValue = _iMotorRPM[2]; }));
+                textEditProgramStep3.BeginInvoke(new MethodInvoker(delegate { textEditProgramStep3.EditValue = _iProgStep[2]; }));
+            }
+            //*/
+            /*
             try
             {
                 if (textEditOpMode1.InvokeRequired)
@@ -695,7 +695,7 @@ namespace CustomPages
             {
                 ;
             }
-            //*/
+            */
         }
         public void ShowStatus(DevExpress.XtraEditors.LabelControl label, bool status)
         {
@@ -848,6 +848,25 @@ namespace CustomPages
 
                             Array.Copy(info._CurrentDatas, 15, itempval, 0, 1);
                             _mAiCCommunicationManager.mDrvCtrl.OutputStaus[0].SetData((UInt16)itempval[0]);
+
+                            ushort temp = _mAiCCommunicationManager.mDrvCtrl.InfoStatus2[0].Bit16;
+
+                            if ((temp & 0x0200) == 0x0002)
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.X_Limit_N, true);
+                            else
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.X_Limit_N, false);
+
+                            if ((temp & 0x0100) == 0x0001)
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.X_Limit_P, true);
+                            else
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.X_Limit_P, false);
+
+                            temp = _mAiCCommunicationManager.mDrvCtrl.InfoStatus1[0].Bit16;
+
+                            if ((temp & 0x8000) == 0x8000)
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.X_Home, true);
+                            else
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.X_Home, false);
                         }
                         else if (info._Id == 2)
                         {
@@ -947,6 +966,25 @@ namespace CustomPages
 
                             Array.Copy(info._CurrentDatas, 15, itempval, 0, 1);
                             _mAiCCommunicationManager.mDrvCtrl.OutputStaus[1].SetData((UInt16)itempval[0]);
+
+                            ushort temp = _mAiCCommunicationManager.mDrvCtrl.InfoStatus2[1].Bit16;
+
+                            if ((temp & 0x0200) == 0x0002)
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Y_Limit_N, true);
+                            else
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Y_Limit_N, false);
+
+                            if ((temp & 0x0100) == 0x0001)
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Y_Limit_P, true);
+                            else
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Y_Limit_P, false);
+
+                            temp = _mAiCCommunicationManager.mDrvCtrl.InfoStatus1[1].Bit16;
+
+                            if ((temp & 0x8000) == 0x8000)
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Y_Home, true);
+                            else
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Y_Home, false);
                         }
                         else if (info._Id == 3)
                         {
@@ -1044,6 +1082,25 @@ namespace CustomPages
 
                             Array.Copy(info._CurrentDatas, 15, itempval, 0, 1);
                             _mAiCCommunicationManager.mDrvCtrl.OutputStaus[2].SetData((UInt16)itempval[0]);
+
+                            ushort temp = _mAiCCommunicationManager.mDrvCtrl.InfoStatus2[2].Bit16;
+
+                            if ((temp & 0x0002) == 0x0002)
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Z_Limit_N, true);
+                            else
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Z_Limit_N, false);
+
+                            if ((temp & 0x0001) == 0x0001)
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Z_Limit_P, true);
+                            else
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Z_Limit_P, false);
+
+                            temp = _mAiCCommunicationManager.mDrvCtrl.InfoStatus1[2].Bit16;
+
+                            if ((temp & 0x8000) == 0x8000)
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Z_Home, true);
+                            else
+                                _mRobotInfomation.SetDrvStatus(RobotInformation.DriveStatus.Z_Home, false);
                         }
                         _mAiCData = _mAiCCommunicationManager.mDrvCtrl;
                         DriveInfoStatus(1);
@@ -1070,10 +1127,16 @@ namespace CustomPages
                         }
 
                         //if ( (Convert.ToDouble(textEditTargetVel1.Text) != 0) && (Convert.ToDouble(textEditTargetVel2.Text) != 0) && (Convert.ToDouble(textEditTargetVel3.Text) != 0) )                        
-                        if ((_fTargetVelocity[0] != 0) && (_fTargetVelocity[1] != 0) && (_fTargetVelocity[2] != 0))
+                        if ((_fPresentVelocity[0] != 0) && (_fPresentVelocity[1] != 0) && (_fPresentVelocity[2] != 0))
+                        {
                             _mRobotInfomation.SetStatus(RecipeManager.RobotInformation.RobotStatus.Moving, true);
+                            _mRobotInfomation.SetStatus(RecipeManager.RobotInformation.RobotStatus.MoveStop, false);
+                        }
                         else
+                        {
                             _mRobotInfomation.SetStatus(RecipeManager.RobotInformation.RobotStatus.Moving, false);
+                            _mRobotInfomation.SetStatus(RecipeManager.RobotInformation.RobotStatus.MoveStop, true);
+                        }
 
                         if (Convert.ToBoolean(_mAiCData.OutputStaus[0].B1) && Convert.ToBoolean(_mAiCData.OutputStaus[1].B1) && Convert.ToBoolean(_mAiCData.OutputStaus[2].B1))                                                
                             _mRobotInfomation.SetStatus(RecipeManager.RobotInformation.RobotStatus.Inposition, true);                        

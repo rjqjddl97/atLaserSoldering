@@ -1048,6 +1048,7 @@ namespace atLaserSoldering
                 
                 mRobotInformation.mStatus = update.mStatus;
                 mRobotInformation.mError = update.mError;
+                mRobotInformation.DrvStatus = update.DrvStatus;
 
                 if (_IsHommingFinished)
                     mRobotInformation.SetStatus(RobotInformation.RobotStatus.OperationReady, _IsHommingFinished);
@@ -1406,7 +1407,9 @@ namespace atLaserSoldering
 
             if (_Camera.IsAllocated)
                 _Camera.Close();
-            
+
+            motionControl.UpdateTimer.Stop();
+            remoteIOControl.UpdateTimer.Stop();
             timerCurrentTime.Stop();
             timerImageUpdate.Stop();
             mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "프로그램 종료.");
