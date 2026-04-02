@@ -2078,5 +2078,318 @@ namespace atLaserSoldering
             }
 
         }
+
+        private void barButtonItemImageSave_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (pictureEditSystemImage.Image != null)
+            {
+                //if (barCheckItemImageCrop.Checked)
+                //{
+                //    string strBackupFilter = saveFileDialogImage.Filter;
+
+                //    try
+                //    {
+                //        saveFileDialogImage.Filter = "Bitmap Files(*.bmp) | *.bmp";
+
+                //        if (saveFileDialogImage.ShowDialog() == DialogResult.OK)
+                //        {
+                //            Bitmap templete = new Bitmap(_sourceImage.Width, _sourceImage.Height, System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
+                //            templete = ConverterColorToGray((Bitmap)pictureEditSystemImage.Image);
+                //            if (_frtCrop.Width > 0 && _frtCrop.Height > 0)
+                //                Utils.SaveImage((Bitmap)templete, _frtCrop, saveFileDialogImage.FileName);
+                //            else
+                //                mLog.WriteLog(LogLevel.Fatal, LogClass.atPhoto.ToString(), string.Format("이미지 저장 실패(너비:{0}, 높이:{1})", (int)_frtCrop.Width, (int)_frtCrop.Height));
+                //        }
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        mLog.WriteLog(LogLevel.Fatal, LogClass.atPhoto.ToString(), ex.StackTrace.ToString());
+                //    }
+                //    finally
+                //    {
+                //        saveFileDialogImage.Filter = strBackupFilter;
+                //    }
+
+                //}
+                //else
+                {
+                    try
+                    {
+                        if (saveFileDialogImage.ShowDialog() == DialogResult.OK)
+                        {
+                            Bitmap templete = new Bitmap(pictureEditSystemImage.Image.Width, pictureEditSystemImage.Image.Height, System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
+                            templete = ConverterColorToGray((Bitmap)pictureEditSystemImage.Image);
+                            pictureEditSystemImage.Image = templete;
+                            
+                            ///*
+                            if (saveFileDialogImage.FilterIndex == 1)
+                                pictureEditSystemImage.Image.Save(saveFileDialogImage.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                            else if (saveFileDialogImage.FilterIndex == 2)
+                                pictureEditSystemImage.Image.Save(saveFileDialogImage.FileName, System.Drawing.Imaging.ImageFormat.Gif);
+                            else if (saveFileDialogImage.FilterIndex == 3)
+                                pictureEditSystemImage.Image.Save(saveFileDialogImage.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            else if (saveFileDialogImage.FilterIndex == 4)
+                                pictureEditSystemImage.Image.Save(saveFileDialogImage.FileName, System.Drawing.Imaging.ImageFormat.Icon);
+                            else if (saveFileDialogImage.FilterIndex == 5)
+                                pictureEditSystemImage.Image.Save(saveFileDialogImage.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                            //*/
+
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("이미지 저장: {0}", saveFileDialogImage.FileName));
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), ex.StackTrace.ToString());
+                    }
+                }
+            }
+        }
+        public Bitmap ConverterColorToGray(Bitmap colorBitmap)
+        {
+            int w = colorBitmap.Width,
+                h = colorBitmap.Height,
+                r, ic, oc, bmpStride, outputStride, bytesPerPixel;
+            PixelFormat pfIn = colorBitmap.PixelFormat;
+            BitmapData bmpData, outputData;
+
+            Bitmap outImage = colorBitmap;
+            //Create the new bitmap
+            outImage = new Bitmap(w, h, System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
+
+            //Build a grayscale color Palette
+            System.Drawing.Imaging.ColorPalette cvtpalette = outImage.Palette;
+            for (int i = 0; i < 256; i++)
+            {
+                Color tmp = Color.FromArgb(255, i, i, i);
+                cvtpalette.Entries[i] = Color.FromArgb(255, i, i, i);
+            }
+            outImage.Palette = cvtpalette;
+
+            //Get the number of bytes per pixel
+            switch (pfIn)
+            {
+                case System.Drawing.Imaging.PixelFormat.Format24bppRgb: bytesPerPixel = 3; break;
+                case System.Drawing.Imaging.PixelFormat.Format32bppArgb: bytesPerPixel = 4; break;
+                case System.Drawing.Imaging.PixelFormat.Format32bppRgb: bytesPerPixel = 4; break;
+                case System.Drawing.Imaging.PixelFormat.Format8bppIndexed: outImage = colorBitmap; return outImage; break;
+                default: throw new InvalidOperationException("Image format not supported");
+            }
+
+            //Lock the images
+            bmpData = colorBitmap.LockBits(new Rectangle(0, 0, w, h), System.Drawing.Imaging.ImageLockMode.ReadOnly,
+                                    pfIn);
+            outputData = outImage.LockBits(new Rectangle(0, 0, w, h), System.Drawing.Imaging.ImageLockMode.WriteOnly,
+                                            System.Drawing.Imaging.PixelFormat.Format8bppIndexed);
+            bmpStride = bmpData.Stride;
+            outputStride = outputData.Stride;
+
+            //Traverse each pixel of the image
+            unsafe
+            {
+                byte* bmpPtr = (byte*)bmpData.Scan0.ToPointer(),
+                outputPtr = (byte*)outputData.Scan0.ToPointer();
+
+                if (bytesPerPixel == 3)
+                {
+                    //Convert the pixel to it's luminance using the formula:
+                    // L = .299*R + .587*G + .114*B
+                    //Note that ic is the input column and oc is the output column
+                    for (r = 0; r < h; r++)
+                        for (ic = oc = 0; oc < w; ic += 3, ++oc)
+                            outputPtr[r * outputStride + oc] = (byte)(int)
+                                (0.299f * bmpPtr[r * bmpStride + ic] +
+                                    0.587f * bmpPtr[r * bmpStride + ic + 1] +
+                                    0.114f * bmpPtr[r * bmpStride + ic + 2]);
+                }
+                else //bytesPerPixel == 4
+                {
+                    //Convert the pixel to it's luminance using the formula:
+                    // L = alpha * (.299*R + .587*G + .114*B)
+                    // L = (.299*R + .587*G + .114*B) * alpha
+                    //Note that ic is the input column and oc is the output column
+                    for (r = 0; r < h; r++)
+                        for (ic = oc = 0; oc < w; ic += 4, ++oc)
+                            outputPtr[r * outputStride + oc] = (byte)(int)
+                                ((bmpPtr[r * bmpStride + ic + 3] / 255.0f) *
+                                (0.299f * bmpPtr[r * bmpStride + ic] +
+                                    0.587f * bmpPtr[r * bmpStride + ic + 1] +
+                                    0.114f * bmpPtr[r * bmpStride + ic + 2]));
+                }
+            }
+
+            //Unlock the images
+            colorBitmap.UnlockBits(bmpData);
+            outImage.UnlockBits(outputData);
+            return outImage;
+        }
+
+        private void barButtonItemImageOpen_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (openFileDialogImageFileOpen.ShowDialog() == DialogResult.OK)
+                {
+                    _sourceImage = System.Drawing.Image.FromFile(openFileDialogImageFileOpen.FileName);
+                    pictureEditSystemImage.Image = _sourceImage;
+                    _patternMatching = false;
+                    _isOpticalMeasurement = false;
+                    pictureEditSystemImage.Refresh();
+                    ImageFitSize();
+                }
+                mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("{0}파일 이미지 불러오기", openFileDialogImageFileOpen.FileName));
+            }
+            catch (Exception ex)
+            {
+                mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("{0}\r\n{1}", ex.Message, ex.StackTrace));
+            }
+        }
+
+        private void barButtonItemHomming_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!_bwMotionHome.IsBusy)
+                {
+                    _IsHommingFinished = false;
+                    mRobotInformation.SetStatus(RobotInformation.RobotStatus.OperationReady, _IsHommingFinished);
+                    _bwMotionHome.RunWorkerAsync(mRobotInformation);
+                    AutoStartButtonLock();
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "모션 원점 복귀 명령을 실행 하였습니다.");
+                }
+                else
+                {
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "모션 원점 복귀중으로 명령을 생략합니다.");
+                }
+            }
+            catch (Exception ex)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("모션 원점 복귀 명령을 실행 하지 못하였습니다."));
+            }
+        }
+
+        private void barButtonItemReset_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (_mMotionControlCommManager.IsOpen())
+                {
+                    if (_systemParams._SystemLanguageKoreaUse)
+                    {
+                        if (MessageBox.Show("알람 리셋을 진행을 합니다.", "알람 리셋", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            byte[] SeData = new byte[8];
+                            for (int i = 0; i < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; i++)
+                            {
+                                SeData = _mMotionControlCommManager.mDrvCtrl.AlarmResetCommand((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[i]);
+                                _mMotionControlCommManager.SendData(SeData);
+                            }
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "알람 리셋");
+                        }
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Start Alarm Reset.", "Alarm Reset", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            byte[] SeData = new byte[8];
+                            for (int i = 0; i < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; i++)
+                            {
+                                SeData = _mMotionControlCommManager.mDrvCtrl.AlarmResetCommand((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[i]);
+                                _mMotionControlCommManager.SendData(SeData);
+                            }
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "알람 리셋");
+                        }
+                    }
+
+
+                }
+            }
+            catch
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), string.Format("드라이버 알람 리셋 버튼 싫생 오류"));
+            }
+        }
+
+        private void barButtonItemMoveStop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (_bwMotionHome.IsBusy)
+                {
+                    _IsHommingFinished = false;
+                    _HommingProcess = false;
+                    _IsHommingCancle = true;
+                    _bwMotionHome.CancelAsync();
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "모션 원점복귀 명령을 취소하였습니다.");
+                }
+
+                AutoStartButtonRelease();
+
+                if (_mMotionControlCommManager.IsOpen())
+                {
+                    if (MessageBox.Show("Stop the Motion Move.", "Stop Motion", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        byte[] SeData = new byte[8];
+                        for (int i = 0; i < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; i++)
+                        {
+                            SeData = _mMotionControlCommManager.mDrvCtrl.MoveStopCommand((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[i]);
+                            _mMotionControlCommManager.SendData(SeData);
+                        }
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "모션 정지 명령을 실행하였습니다.");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "모션 정지 명령을 하지 못햇습니다.");
+            }
+        }
+
+        private void barCheckItemLaserSolderingStart_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (_mMotionControlCommManager.IsOpen() & _mRemoteIOCommManager.IsOpen() & _mLaserSoldering.IsSolderingConnect & _Camera.IsAllocated)
+                {
+                    switch (_workParams.SolderPositionParams.Count)
+                    {
+                        case 0:
+                            MessageBox.Show("등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.");
+                            break;
+                        default :
+                            int alignmentconut = 0;
+                            if (_workParams._AlignInspectionMode == 1)
+                            {
+                                for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
+                                {
+                                    if (_workParams.SolderPositionParams[i].ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
+                                    {
+                                        alignmentconut++;
+                                    }
+                                }
+                                if (alignmentconut != 2)
+                                {
+                                    MessageBox.Show("Alignemnt가 등록되지 않았습니다.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Alignemnt가 등록되지 않았습니다.");
+                                    return;
+                                }
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("카메라, 로봇, 레이저 모듈의 연결을 확인하십시오.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "카메라, 로봇, 레이저 모듈의 연결을 확인하십시오.");
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행에 오류가 있습니다.");
+            }
+        }
     }
 }

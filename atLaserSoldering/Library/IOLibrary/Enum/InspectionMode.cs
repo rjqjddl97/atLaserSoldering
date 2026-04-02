@@ -9,7 +9,7 @@ namespace RecipeManager
     public enum INSPECTION_POSITION_MODE
     {
         POSITION_NOMAL_MODE,
-        POSITION_INSPECTION_ALIGN_MODE,
+        POSITION_INSPECTION_ALIGN_MODE,        
         POSITION_INSPECTION_MODE,
         POSITION_SOLDERING_MODE        
     }

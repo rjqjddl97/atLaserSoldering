@@ -28,7 +28,7 @@ namespace RecipeManager
 
         static string[] SystemParamSections = new string[] { "Camera Parameters","Calibration Parameters", "Motion Parameters", "AiC Parameters", "RemoteIO Parameters", "AMDS Parameters","Save Results","Language", "Light Parameters", "Feeder Parameters", "Laser Parameters" };
         static string[] WorkParamSections = new string[] { "Recipe Information", "Product Infomation", "Distance Inspection", "Inspection Positions" };
-
+        static public string[] AlineInspectionMode = new string[] { "None", "2Point", "All"};
         //static public string[] ProductSeries = new string[] {"BTS", "BTF", "BJ", "BJP", "BEN", "BPS" };        
         //static public string[] ProductType = new string[] { "MirrorReflective", "FixedDistanceReflective", "DiffuseReflective", "BGSReflective", "LimitedReflective", "TransmitLight", "ReceiveLight" };
         //static public string[] ProductOperationMode = new string[] { "LightON", "DarkON" };
@@ -54,6 +54,7 @@ namespace RecipeManager
             workParam._PCB_VerticalSize = Convert.ToInt32(recipeData[WorkParamSections[1]]["PCBVirticalSize"]);            
 
             workParam._PCBAlignVisionEnable = Convert.ToBoolean(recipeData[WorkParamSections[2]]["PCBAlineVisionEnable"]);
+            workParam._AlignInspectionMode = Convert.ToInt32(recipeData[WorkParamSections[2]]["PCBAlineInspectionMode"]);
             workParam._InspectionLightBright = Convert.ToInt32(recipeData[WorkParamSections[2]]["InspectionLightBright"]);
             workParam._AlignInspectionExposureTime = Convert.ToInt32(recipeData[WorkParamSections[2]]["AlignInspectionExposureTime"]);
             workParam._InspectAlignVisionPath = Convert.ToString(recipeData[WorkParamSections[2]]["InspectAlignVisionPath"]);
@@ -115,6 +116,7 @@ namespace RecipeManager
 
             recipeData.Sections.AddSection(WorkParamSections[2]);
             recipeData[WorkParamSections[2]].AddKey("PCBAlineVisionEnable", workParam._PCBAlignVisionEnable.ToString());
+            recipeData[WorkParamSections[2]].AddKey("PCBAlineInspectionMode", workParam._AlignInspectionMode.ToString());
             recipeData[WorkParamSections[2]].AddKey("InspectionLightBright", workParam._InspectionLightBright.ToString());            
             recipeData[WorkParamSections[2]].AddKey("AlignInspectionExposureTime", workParam._AlignInspectionExposureTime.ToString());
             recipeData[WorkParamSections[2]].AddKey("InspectAlignVisionPath", workParam._InspectAlignVisionPath);            

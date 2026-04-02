@@ -59,6 +59,7 @@
             this.repositoryItemButtonEditPCBLayoutFilePath = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.categoryInspectionInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
             this.rowReferenceInspectionEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowReferenceInspectionMode = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowReferenceInspectionLightBright = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowReferenceInspectionExposureTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowReferenceInspectionVisionRecipeFilePath = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
@@ -73,6 +74,7 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.vGridControlInspectionParam = new DevExpress.XtraVerticalGrid.VGridControl();
+            this.repositoryItemComboBoxAlignInspectionMode = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.categoryLaserSolderingInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
             this.rowLaserSolderingEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLaserSolderingLaserEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
@@ -170,6 +172,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vGridControlInspectionParam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxAlignInspectionMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -467,6 +470,7 @@
             // 
             this.categoryInspectionInformation.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
             this.rowReferenceInspectionEnable,
+            this.rowReferenceInspectionMode,
             this.rowReferenceInspectionLightBright,
             this.rowReferenceInspectionExposureTime,
             this.rowReferenceInspectionVisionRecipeFilePath,
@@ -484,6 +488,16 @@
             this.rowReferenceInspectionEnable.Name = "rowReferenceInspectionEnable";
             this.rowReferenceInspectionEnable.Properties.Caption = "PCB 위치 보정 사용 유무";
             this.rowReferenceInspectionEnable.Properties.Value = true;
+            // 
+            // rowReferenceInspectionMode
+            // 
+            this.rowReferenceInspectionMode.Appearance.Options.UseTextOptions = true;
+            this.rowReferenceInspectionMode.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowReferenceInspectionMode.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowReferenceInspectionMode.Name = "rowReferenceInspectionMode";
+            this.rowReferenceInspectionMode.Properties.Caption = "PCB 위치 보정 방법";
+            this.rowReferenceInspectionMode.Properties.RowEdit = this.repositoryItemComboBoxAlignInspectionMode;
+            this.rowReferenceInspectionMode.Properties.Value = "None";
             // 
             // rowReferenceInspectionLightBright
             // 
@@ -588,7 +602,7 @@
             // 
             // vGridControlInspectionParam
             // 
-            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Default;
+            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Hand;
             this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
             this.vGridControlInspectionParam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -597,7 +611,8 @@
             this.vGridControlInspectionParam.RecordWidth = 79;
             this.vGridControlInspectionParam.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemDateEditRecipeCreateTime,
-            this.repositoryItemButtonEditPCBLayoutFilePath});
+            this.repositoryItemButtonEditPCBLayoutFilePath,
+            this.repositoryItemComboBoxAlignInspectionMode});
             this.vGridControlInspectionParam.RowHeaderWidth = 121;
             this.vGridControlInspectionParam.Rows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
             this.categoryRecipeInformation,
@@ -608,6 +623,13 @@
             this.vGridControlInspectionParam.TabIndex = 0;
             this.vGridControlInspectionParam.CellValueChanged += new DevExpress.XtraVerticalGrid.Events.CellValueChangedEventHandler(this.vGridControlInspectionParam_CellValueChanged);
             this.vGridControlInspectionParam.Leave += new System.EventHandler(this.vGridControlInspectionParam_Leave);
+            // 
+            // repositoryItemComboBoxAlignInspectionMode
+            // 
+            this.repositoryItemComboBoxAlignInspectionMode.AutoHeight = false;
+            this.repositoryItemComboBoxAlignInspectionMode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBoxAlignInspectionMode.Name = "repositoryItemComboBoxAlignInspectionMode";
             // 
             // categoryLaserSolderingInformation
             // 
@@ -1572,6 +1594,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vGridControlInspectionParam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxAlignInspectionMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
@@ -1764,5 +1787,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnReverseFeedVelocity;
         private System.Windows.Forms.OpenFileDialog openFileDialogTemplateImage;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLaserSolderingOutputWaitTime;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowReferenceInspectionMode;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxAlignInspectionMode;
     }
 }

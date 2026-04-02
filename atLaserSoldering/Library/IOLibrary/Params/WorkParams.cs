@@ -20,6 +20,7 @@ namespace RecipeManager
 
         // 투광 편심 검사 파라미터
         public bool _PCBAlignVisionEnable { get; set; } = false;
+        public int _AlignInspectionMode { get; set; } = 0;
         public int _AlignInspectionExposureTime { get; set; } = 7000;
         public int _SolderInspectionExposureTime { get; set; } = 7000;
         public int _ImageAcquisitionDelaytime { get; set;} = 1000;

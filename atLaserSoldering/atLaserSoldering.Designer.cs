@@ -439,6 +439,7 @@
             this.barButtonItemImageOpen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemImageOpen.ImageOptions.Image")));
             this.barButtonItemImageOpen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemImageOpen.ImageOptions.LargeImage")));
             this.barButtonItemImageOpen.Name = "barButtonItemImageOpen";
+            this.barButtonItemImageOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemImageOpen_ItemClick);
             // 
             // barButtonItemImageSave
             // 
@@ -447,6 +448,7 @@
             this.barButtonItemImageSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemImageSave.ImageOptions.Image")));
             this.barButtonItemImageSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemImageSave.ImageOptions.LargeImage")));
             this.barButtonItemImageSave.Name = "barButtonItemImageSave";
+            this.barButtonItemImageSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemImageSave_ItemClick);
             // 
             // barButtonItemConnectAll
             // 
@@ -506,6 +508,7 @@
             this.barButtonItemHomming.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemHomming.ImageOptions.Image")));
             this.barButtonItemHomming.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemHomming.ImageOptions.LargeImage")));
             this.barButtonItemHomming.Name = "barButtonItemHomming";
+            this.barButtonItemHomming.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemHomming_ItemClick);
             // 
             // barButtonItemReset
             // 
@@ -514,6 +517,7 @@
             this.barButtonItemReset.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemReset.ImageOptions.Image")));
             this.barButtonItemReset.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemReset.ImageOptions.LargeImage")));
             this.barButtonItemReset.Name = "barButtonItemReset";
+            this.barButtonItemReset.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemReset_ItemClick);
             // 
             // barButtonItemMoveStop
             // 
@@ -522,6 +526,7 @@
             this.barButtonItemMoveStop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemMoveStop.ImageOptions.Image")));
             this.barButtonItemMoveStop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemMoveStop.ImageOptions.LargeImage")));
             this.barButtonItemMoveStop.Name = "barButtonItemMoveStop";
+            this.barButtonItemMoveStop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemMoveStop_ItemClick);
             // 
             // barCheckItemLaserSolderingStart
             // 
@@ -530,6 +535,7 @@
             this.barCheckItemLaserSolderingStart.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barCheckItemLaserSolderingStart.ImageOptions.Image")));
             this.barCheckItemLaserSolderingStart.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barCheckItemLaserSolderingStart.ImageOptions.LargeImage")));
             this.barCheckItemLaserSolderingStart.Name = "barCheckItemLaserSolderingStart";
+            this.barCheckItemLaserSolderingStart.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheckItemLaserSolderingStart_ItemClick);
             // 
             // barEditItemAutoSolderingProgress
             // 

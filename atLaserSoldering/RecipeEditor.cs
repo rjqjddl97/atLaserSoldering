@@ -159,7 +159,13 @@ namespace atLaserSoldering
             {
                 comboBoxEditInspectionModeType.Properties.Items.Add(RecipeFileIO.PositionType[i]);
             }
+            for (int i = 0; i < RecipeFileIO.AlineInspectionMode.Length; ++i)
+            {
+                repositoryItemComboBoxAlignInspectionMode.Items.Add(RecipeFileIO.AlineInspectionMode[i]);
+            }
             comboBoxEditInspectionModeType.SelectedIndex = 0;
+            comboBoxEditInspectionModeType.SelectedIndex = 0;
+            rowReferenceInspectionMode.Properties.Value = repositoryItemComboBoxAlignInspectionMode.Items[0].ToString();
             // Recipe의 Recipe Infomation 초기화
             _workParam.RecipeName = Convert.ToString(rowRecipeName.Properties.Value);
             _workParam.RecipeCreatorName = Convert.ToString(rowRecipeCreatorName.Properties.Value);
@@ -171,8 +177,15 @@ namespace atLaserSoldering
             _workParam._PCB_VerticalSize = Convert.ToDouble(rowPCBVerticalSize.Properties.Value);
 
             // Recipe의 Soldering 검사 Infomation 초기화
-
-            comboBoxEditInspectionModeType.SelectedIndex = 0;
+            _workParam._PCBAlignVisionEnable = Convert.ToBoolean(rowReferenceInspectionEnable.Properties.Value);
+            _workParam._AlignInspectionMode = Convert.ToInt32(repositoryItemComboBoxAlignInspectionMode.Items.Contains(rowReferenceInspectionMode.Properties.Value)) - 1;
+            _workParam._InspectionLightBright = Convert.ToInt32(rowReferenceInspectionLightBright.Properties.Value);
+            _workParam._AlignInspectionExposureTime = Convert.ToInt32(rowReferenceInspectionExposureTime.Properties.Value);
+            _workParam._InspectAlignVisionPath = Convert.ToString(rowReferenceInspectionVisionRecipeFilePath.Properties.Value);
+            _workParam._SolderingInspectionLightBright = Convert.ToInt32(rowSolderingInspectionLightBright.Properties.Value);
+            _workParam._SolderInspectionExposureTime = Convert.ToInt32(rowSolderingInspectionExposureTime.Properties.Value);
+            _workParam._InspectSolderingVisionPath = Convert.ToString(rowSolderingInspectionVisionRecipeFilePath.Properties.Value);
+            _workParam._ImageAcquisitionDelaytime = Convert.ToInt32(rowInspectionAcquisitionDelayTime.Properties.Value);
             //textEditPositionX.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionX.ToString();
             //textEditPositionY.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionY.ToString();
             //textEditPositionZ.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionZ.ToString();
