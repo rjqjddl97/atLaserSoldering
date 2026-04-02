@@ -93,8 +93,10 @@ namespace atLaserSoldering
         bool _IsDrvErr = false;
         bool _IsHommingCancle = false;
         bool _IsAutoSolderingRunning = false;
+        bool _IsAutoSolderingEnd = false;        
         bool _IsMovementVision = false;
         int _CalibratoinMode = 0;
+        double _dTotalElapsedTime = 0.0f;
         public atLaserSoldering()
         {
             InitializeComponent();
@@ -2384,7 +2386,31 @@ namespace atLaserSoldering
                     mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "카메라, 로봇, 레이저 모듈의 연결을 확인하십시오.");
                     return;
                 }
+                if (!_IsAutoSolderingRunning)
+                {
+                    if (_isContinuousShot)
+                    {
+                        _Camera.Stop();
+                        _isContinuousShot = false;
+                    }
 
+                    barEditItemAutoSolderingProgress.EditValue = 0;
+                    repositoryItemAutoSolderingProgress.Maximum = 100;
+                    barStaticItemAutoSolderingStatus.Caption = "진행: 검사 준비";
+                    barStaticAutoSolderingTime.Caption = "검사 시간: 000.000 sec";
+                    _dTotalElapsedTime = 0.0f;
+
+                    _IsAutoSolderingRunning = true;
+                    _IsAutoSolderingEnd = true;
+                    // 검사 쓰레드 시작
+                    _backgroundWorkerAutoSoldering.RunWorkerAsync();
+                }
+                else
+                {
+                    _backgroundWorkerAutoSoldering.CancelAsync();
+                    barCheckItemLaserSolderingStart.Enabled = false;
+                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행을 중지 했습니다.");
+                }
             }
             catch (Exception ex)
             {
