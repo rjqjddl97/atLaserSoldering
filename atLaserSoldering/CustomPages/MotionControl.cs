@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Text;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
@@ -89,6 +90,7 @@ namespace CustomPages
 
         public int[][] DrvMotionMonitor = new int[4][];
 
+        public ManualResetEvent _waitHandle = new ManualResetEvent(false);
         public MotionControl()
         {
             InitializeComponent();
@@ -414,7 +416,7 @@ namespace CustomPages
         }
         public void SetCommunicateManager(ref CommunicationManager manager)
         {
-            _mAiCCommunicationManager = manager;
+            _mAiCCommunicationManager = manager;            
         }
         public void SetCommunicationData(int idnum, byte[] idarry)
         {
@@ -478,7 +480,7 @@ namespace CustomPages
                 }
                 //SetMotionStatus(_mAiCData._mAiCMotionDatas);
                 //RobotInfomationUpdatedEvent?.Invoke(_mRobotInfomation);
-            ///*
+                ///*                
                 textEditOpMode1.BeginInvoke(new MethodInvoker(delegate { textEditOpMode1.EditValue = _iOpmode[0]; }));
                 textEditTargetPos1.BeginInvoke(new MethodInvoker(delegate { textEditTargetPos1.EditValue = _fTargetPosition[0]; }));
                 textEditPresentPosX.BeginInvoke(new MethodInvoker(delegate { textEditPresentPosX.EditValue = _fPresentPosition[0]; }));

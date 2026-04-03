@@ -117,7 +117,7 @@ namespace CustomPages
             }
         }        
 
-        public void SetCommunicateManager(LaserSoderingProcess solder,ref FeederControlLibrary.SerialCommunication.Control.CommunicationManager feedmanager, ref CoherentCompactMini.SerialCommunication.Control.CommunicationManager lasermanager)
+        public void SetCommunicateManager(LaserSoderingProcess solder,ref FeederControlLibrary.SerialCommunication.Control.CommunicationManager feedmanager, ref CoherentCompactMini.SerialCommunication.Control.CommunicationManager lasermanager, ManualResetEvent eventHandle)
         {
             try
             {
@@ -126,6 +126,7 @@ namespace CustomPages
                 _mLaserSoldering = solder;
                 _mLaserSoldering.InitialCommunication(ref lasermanager, ref feedmanager);
                 _mLaserSoldering.LogWriteEvent += UpdateLog;
+                _mLaserSoldering._waitHandle = eventHandle;
                 //_mFeederCommunicationManager = _mLaserSoldering.FeederComm;
                 //_mLaserCommunicationManager = _mLaserSoldering.CompactMiniComm;
             }
@@ -134,7 +135,7 @@ namespace CustomPages
                 ;
             }
         }
-        public void SetCommunicateManager(LaserSoderingProcess solder, FeederControlLibrary.SerialCommunication.Control.CommunicationManager feedmanager, CoherentCompactMini.SerialCommunication.Control.CommunicationManager lasermanager)
+        public void SetCommunicateManager(LaserSoderingProcess solder, FeederControlLibrary.SerialCommunication.Control.CommunicationManager feedmanager, CoherentCompactMini.SerialCommunication.Control.CommunicationManager lasermanager, ManualResetEvent eventHandle)
         {
             try
             {

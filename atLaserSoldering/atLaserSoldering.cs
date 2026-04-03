@@ -681,7 +681,7 @@ namespace atLaserSoldering
         {
             try
             {
-                laserSolderingControl.SetCommunicateManager(_mLaserSoldering,ref _mFeederCommManager,ref _mLaserCommManager);
+                laserSolderingControl.SetCommunicateManager(_mLaserSoldering,ref _mFeederCommManager,ref _mLaserCommManager, _waitHandle);
                 if (_systemParams != null)
                 {
                     laserSolderingControl.ChangeSystemLanguage(_systemParams._SystemLanguageKoreaUse);
@@ -2400,8 +2400,8 @@ namespace atLaserSoldering
                     barStaticAutoSolderingTime.Caption = "검사 시간: 000.000 sec";
                     _dTotalElapsedTime = 0.0f;
 
-                    _IsAutoSolderingRunning = true;
-                    _IsAutoSolderingEnd = true;
+                    //_IsAutoSolderingRunning = true;
+                    //_IsAutoSolderingEnd = false;
                     // 검사 쓰레드 시작
                     _backgroundWorkerAutoSoldering.RunWorkerAsync();
                 }

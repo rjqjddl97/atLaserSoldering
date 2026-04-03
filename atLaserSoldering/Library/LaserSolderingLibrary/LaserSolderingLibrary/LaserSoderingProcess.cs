@@ -122,6 +122,7 @@ namespace LaserSoldering
         public double LaserPresentCurrent { get { return _LaserPresentCurrent; } set { _LaserPresentCurrent = value; }}
         public double LaserPresentPower { get { return _LaserPresentPower; } set { _LaserPresentPower = value; } }
         public double FeederUsedLength { get { return _FeederUsedLength; } set { _FeederUsedLength = value; } }
+
         public Stopwatch CheckTackTime = new Stopwatch();
         public int mCurrentReadyTime = 0;
         public int mCurrentPreHeatTime = 0;
@@ -129,6 +130,7 @@ namespace LaserSoldering
         public event Action<FeedData> ReceiveDataFeederUpdateEvent;
         public event Action<CompactMiniData> ReceiveDataLaserUpdateEvent;
         public event Action<string> LogWriteEvent;
+        public ManualResetEvent _waitHandle = new ManualResetEvent(false);
         public LaserSoderingProcess()
         {
             _FeederParam = new RecipeManager.FeederParams();
@@ -843,7 +845,7 @@ namespace LaserSoldering
                                     
                                     CheckTackTime.Start();
                                     mSolderingEngineStep = LaserSolderStepType.PreHeatWireSupport;
-                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 준비시간 {0}.", JobSolder.ReadyTime));
+                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 준비시간 설정{0}, 실행{1}.",JobSolder.ReadyTime, mCurrentReadyTime));
                                 }
                                 break;
                             case LaserSolderStepType.PreHeatWireSupport:
@@ -858,7 +860,7 @@ namespace LaserSoldering
                                     data = null;
                                     CheckTackTime.Reset();
                                     mSolderingEngineStep = LaserSolderStepType.Heat;
-                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 예열시간 {0}.", JobSolder.PreHeatTime));
+                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 예열시간 설정{0}, 실행{1}.", JobSolder.PreHeatTime, mCurrentPreHeatTime));
                                 }
                                 break;
                             case LaserSolderStepType.Heat:
@@ -900,7 +902,7 @@ namespace LaserSoldering
                                     CheckTackTime.Start();
                                     _IsCommandFlag = false;
                                     mSolderingEngineStep = LaserSolderStepType.ReverseWire;
-                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 납땜 시간 {0}.", JobSolder.HeatTime));
+                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 납땜 시간 설정{0}, 실행{1}.", JobSolder.HeatTime, mCurrentHeatTime));
                                 }
 
                                 if (_IsCommandFlag == false)
@@ -962,6 +964,7 @@ namespace LaserSoldering
                                     data = null;
                                     mSolderingEngineStep = LaserSolderStepType.Idle;
                                     LogWriteEvent?.Invoke(string.Format("레이저 솔더링 종료."));
+                                    _waitHandle.Set();
                                 }
                                 //_IsCommandFlag = false;
                                 //mSolderingEngineStep = LaserSolderStepType.Idle;

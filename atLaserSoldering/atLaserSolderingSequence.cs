@@ -28,169 +28,166 @@ namespace atLaserSoldering
 {
     public partial class atLaserSoldering
     {
-        private void backgroundWorkerAutoSoldering_DoWork(object sender, DoWorkEventArgs e)
+        private void OnLaserSolderingRecieveEnd(object sender, EventArgs e)
         {
             try
             {
-                //if (sender is BackgroundWorker worker)
-                //{
-                //    Functions.Time.TimeChecker mTimeChecker = new Functions.Time.TimeChecker();
-                //    int RunningIndex = 0;
-                //    bool AlarmTriggedToPLC = false;
-                //    Functions.StepHandler.Base.StepHandlerBase.RetType mWorkingStatus;
-                //    while (_InspectionWorking)
-                //    {
-                //        TimeSpan ts = CheckTackTime.Elapsed;
-                //        barStaticItemInspectionTime.Caption = string.Format("검사 시간: 00:{0:00}:{1:00}.{2}", ts.Minutes, ts.Seconds, ts.Milliseconds);
-                //        if (RunningIndex < mPhotoInspectionList.Count)
-                //            barStaticItemInspectionStatus.Caption = string.Format("진행: ") + ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation;
+                if (sender != null)
+                {
 
-                //        barEditItemInspectionResult.EditValue = "Running";
-                //        repositoryItemTextEditInspectionResult.Appearance.ForeColor = System.Drawing.Color.Black;
+                }
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
+        private void backgroundWorkerAutoSoldering_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {                
+                if (sender is BackgroundWorker worker)
+                {
+                    LaserSolderParameter _mSolderingJob = new LaserSolderParameter();
 
-                //        if (_bRadarChartUpdateEnable)
-                //        {
-                //            //if ((mRobotInformation.mStatus & 0x00000052) == 0x00000052)
-                //            {
-                //                if (_workParams._ProductType == (int)PhotoProduct.Enums.ProductType.Transmitter)
-                //                {
-                //                    if (_workParams._ProductSeries == (int)PhotoProduct.Enums.ProductSeries.BPS)
-                //                    {
-                //                        UpdateRadarChartInspectResult((float)mRobotInformation.PositionR, mRobotInformation.mInputData.B6 ? 0F : 1F);
-                //                    }
-                //                    else
-                //                    {
-                //                        UpdateRadarChartInspectResult((float)mRobotInformation.PositionR, mRobotInformation.mInputData.B6 ? 1F : 0F);
-                //                    }
-                //                }
-                //                else
-                //                {
-                //                    if (_workParams._ProductOperatingMdoe == (int)PhotoProduct.Enums.OperatingMode.LightOn)
-                //                        UpdateRadarChartInspectResult((float)mRobotInformation.PositionR, mRobotInformation.mInputData.B2 ? 1F : 0F);
-                //                    else
-                //                        UpdateRadarChartInspectResult((float)mRobotInformation.PositionR, mRobotInformation.mInputData.B2 ? 0F : 1F);
-                //                }
-                //                _bRadarChartUpdateEnable = false;
-                //            }
-                //        }
+                    if (_workParams._PCBAlignVisionEnable)
+                    {
+                        if (_workParams._AlignInspectionMode == 1)      // 0: None, 1: 2Point, 2: All
+                        {
 
-                //        switch (mInspectStep)
-                //        {
-                //            case InspectionStepType.Idle:
-                //                AlarmTriggedToPLC = false;
-                //                break;
-                //            case InspectionStepType.CheckWaitRobotReady:
-                //                // Robot 체크후 준비 상태면 실행 상태로 변환 아니면 대기!! 
-                //                RunningIndex = 0;
-                //                mInspectStep = InspectionStepType.ExcuteInspection;
+                        }
+                        else if (_workParams._AlignInspectionMode == 2)
+                        {
 
-                //                break;
-                //            case InspectionStepType.ExcuteInspection:
-                //                if (RunningIndex < mPhotoInspectionList.Count)
-                //                {
-                //                    if (RunningIndex == 0)
-                //                    {
-                //                    }
-                //                    if (mPhotoInspectionList[RunningIndex].Execute() != Functions.StepHandler.Base.StepHandlerBase.RetType.Error)
-                //                    {
-                //                        mInspectStep = InspectionStepType.CheckInspection;
-                //                        //mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "Excute:"+((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation);
-                //                    }
-                //                    else
-                //                    {
-                //                        mInspectStep = InspectionStepType.ErrorOccurred;
-                //                    }
-                //                }
-                //                else
-                //                {
-                //                    mInspectStep = InspectionStepType.FinishedInspection;
-                //                    //mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "Excute:"+((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation);
-                //                }
-                //                break;
-                //            case InspectionStepType.CheckInspection:
-                //                mWorkingStatus = mPhotoInspectionList[RunningIndex].GetStatus();
-                //                if (mWorkingStatus == Functions.StepHandler.Base.StepHandlerBase.RetType.Busy)
-                //                {
-                //                    ;
-                //                }
-                //                else if (mWorkingStatus == Functions.StepHandler.Base.StepHandlerBase.RetType.Ready)
-                //                {
-                //                    RunningIndex++;
-                //                    mInspectStep = InspectionStepType.ExcuteInspection;
-                //                }
-                //                else
-                //                {
-                //                    mInspectStep = InspectionStepType.ErrorOccurred;
-                //                }
-                //                break;
-                //            case InspectionStepType.FinishedInspection:
-                //                mInspectStep = InspectionStepType.Idle;
-                //                mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "Finish:" + ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex - 1]).StepInformation);
-                //                _InspectionWorking = false;
-                //                break;
-                //            case InspectionStepType.ErrorOccurred:
-                //                _InspectionWorking = false;
-                //                _isInspectError = true;
-                //                barEditItemInspectionResult.EditValue = "Error" + ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation;
-                //                repositoryItemTextEditInspectionResult.Appearance.ForeColor = System.Drawing.Color.Red;
-                //                break;
-                //            default: break;
-                //        }
+                        }
+                        else
+                        {
+                            MotionParams _motParams = new MotionParams();
+                            AiCControlLibrary.SerialCommunication.Data.AiCData _mDrvData = new AiCControlLibrary.SerialCommunication.Data.AiCData();
+                            _mDrvData = _mMotionControlCommManager.mDrvCtrl;
+                            _motParams = _systemParams._motionParams;
+                            for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
+                            {  
+                                if (mRobotInformation.mError != 0)
+                                {
+                                    e.Cancel = true;
+                                    mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
+                                }
+                                if (!e.Cancel)
+                                {
+                                    byte[] data = new byte[100];
+                                    while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                    for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                    {
+                                        if (i == 0)
+                                        {
+                                            data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                            _mMotionControlCommManager.SendData(data);
+                                        }
+                                        else if (i == 1)
+                                        {
+                                            data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                            _mMotionControlCommManager.SendData(data);
+                                        }
+                                        else if (i == 2)
+                                        {
+                                            data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                            _mMotionControlCommManager.SendData(data);
+                                        }
+                                        Thread.Sleep(50);
+                                    }
+                                    data = _mDrvData.MoveAbsoluteCommand(129);
+                                    _mMotionControlCommManager.SendData(data);
+                                    Thread.Sleep(100);
+                                    ///*
+                                    // Insert Laser soldering Sequence Start                                    
+                                    if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
+                                    {
+                                        _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
+                                        _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
+                                        _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
+                                        _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
+                                        _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
+                                        _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
+                                        _mSolderingJob.ForwordingVelocity = _workParams.SolderPositionParams[i].ForwardFeedVelocity;
+                                        _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
+                                        _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
+                                        _mLaserSoldering.LaserSolderParam = _mSolderingJob;
+                                        //_mLaserSoldering.LaserSolderingStart();
+                                        _waitHandle.Reset();
+                                        _waitHandle.WaitOne();
+                                    }
 
-                //        if (mInspectStep == InspectionStepType.Idle)
-                //        {
-                //            _backgroundWorkerOpticalDecenterInspection.ReportProgress(RunningIndex, new WorkingStateInfo()
-                //            {
-                //                WorkingStatus = WorkingStateInfo.WorkingType.Checking
-                //            });
-                //        }
-                //        else if (mInspectStep == InspectionStepType.ExcuteInspection)
-                //        {
-                //            if (RunningIndex < mPhotoInspectionList.Count)
-                //            {
-                //                _backgroundWorkerOpticalDecenterInspection.ReportProgress(RunningIndex, new WorkingStateInfo()
-                //                {
-                //                    WorkingStatus = WorkingStateInfo.WorkingType.CorrectionAndInspection,
-                //                    CurrentStep = RunningIndex,
-                //                    CurrentStepName = ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation,
-                //                    LastStep = mPhotoInspectionList.Count,
-                //                    ElapsedTime = mStepBase.GetOptionInspectionElapseTime
-                //                });
+                                    //*/
+                                }
 
-                //            }
-                //        }
-                //        else if (mInspectStep == InspectionStepType.FinishedInspection)
-                //        {
-                //            _backgroundWorkerOpticalDecenterInspection.ReportProgress(RunningIndex, new WorkingStateInfo()
-                //            {
-                //                WorkingStatus = WorkingStateInfo.WorkingType.CorrectionAndInspection,
-                //                CurrentStep = mPhotoInspectionList.Count,
-                //                CurrentStepName = ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[mPhotoInspectionList.Count - 1]).StepInformation,
-                //                LastStep = mPhotoInspectionList.Count,
-                //                ElapsedTime = mStepBase.GetOptionInspectionElapseTime
-                //            });
-                //            mResultData = mStepBase.UpdateInspectdData();
-                //        }
-                //        else if (mInspectStep == InspectionStepType.ErrorOccurred)
-                //        {
-                //            _backgroundWorkerOpticalDecenterInspection.ReportProgress(RunningIndex, new WorkingStateInfo()
-                //            {
-                //                WorkingStatus = WorkingStateInfo.WorkingType.Error,
-                //                CurrentStep = RunningIndex,
-                //            });
-                //            _isInspectError = true;
-                //            string strerr = string.Empty;
-                //            strerr = "Error : " + ((Functions.StepHandler.Base.StepHandlerBase)mPhotoInspectionList[RunningIndex]).StepInformation;
-                //            mLog.WriteLog(LogLevel.Error, LogClass.atPhoto.ToString(), strerr);
-                //            barEditItemInspectionResult.EditValue = "Error";
-                //            MessageBox.Show(strerr, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
-                //            break;
-                //        }
-                //        System.Threading.Thread.Sleep(197);
-                //        //11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
-                //        //101, 103, 107, 109, 113, 127, 131, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,479
-                //    }
-                //}
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MotionParams _motParams = new MotionParams();
+                        AiCControlLibrary.SerialCommunication.Data.AiCData _mDrvData = new AiCControlLibrary.SerialCommunication.Data.AiCData();
+                        _mDrvData = _mMotionControlCommManager.mDrvCtrl;
+                        _motParams = _systemParams._motionParams;
+                        for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
+                        {
+                            if (mRobotInformation.mError != 0)
+                            {
+                                e.Cancel = true;
+                                mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
+                            }
+                            if (!e.Cancel)
+                            {
+                                byte[] data = new byte[100];
+                                while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                {
+                                    if (i == 0)
+                                    {
+                                        data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                        _mMotionControlCommManager.SendData(data);
+                                    }
+                                    else if (i == 1)
+                                    {
+                                        data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                        _mMotionControlCommManager.SendData(data);
+                                    }
+                                    else if (i == 2)
+                                    {
+                                        data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                        _mMotionControlCommManager.SendData(data);
+                                    }
+                                    Thread.Sleep(50);
+                                }
+                                data = _mDrvData.MoveAbsoluteCommand(129);
+                                _mMotionControlCommManager.SendData(data);
+                                Thread.Sleep(100);
+                                ///*
+                                // Insert Laser soldering Sequence Start                                    
+                                if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
+                                {
+                                    _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
+                                    _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
+                                    _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
+                                    _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
+                                    _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
+                                    _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
+                                    _mSolderingJob.ForwordingVelocity = _workParams.SolderPositionParams[i].ForwardFeedVelocity;
+                                    _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
+                                    _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
+                                    _mLaserSoldering.LaserSolderParam = _mSolderingJob;
+                                    //_mLaserSoldering.LaserSolderingStart();
+                                    _waitHandle.Reset();
+                                    _waitHandle.WaitOne();
+                                }
+                                //*/
+                            }
+
+                        }
+                    }
+
+                }
             }
             catch (Exception ex)
             {
