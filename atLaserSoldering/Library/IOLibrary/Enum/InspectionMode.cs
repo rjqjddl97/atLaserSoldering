@@ -19,4 +19,10 @@ namespace RecipeManager
         INSPECTION_MODE_ALINE,
         INSPECTION_SOLDERING        
     }
+    public enum ALIGNINSPECTMODE
+    {
+        None,
+        TwoPoint,
+        All
+    }
 }

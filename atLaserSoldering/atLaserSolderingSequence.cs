@@ -181,9 +181,9 @@ namespace atLaserSoldering
                                     _waitHandle.Reset();
                                     _waitHandle.WaitOne();
                                 }
+
                                 //*/
                             }
-
                         }
                     }
 

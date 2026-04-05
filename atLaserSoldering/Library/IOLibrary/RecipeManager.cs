@@ -28,7 +28,7 @@ namespace RecipeManager
 
         static string[] SystemParamSections = new string[] { "Camera Parameters","Calibration Parameters", "Motion Parameters", "AiC Parameters", "RemoteIO Parameters", "AMDS Parameters","Save Results","Language", "Light Parameters", "Feeder Parameters", "Laser Parameters" };
         static string[] WorkParamSections = new string[] { "Recipe Information", "Product Infomation", "Distance Inspection", "Inspection Positions" };
-        static public string[] AlineInspectionMode = new string[] { "None", "2Point", "All"};
+        static public string[] AlignInspectionMode = new string[] { "None", "TwoPoint", "All"};
         //static public string[] ProductSeries = new string[] {"BTS", "BTF", "BJ", "BJP", "BEN", "BPS" };        
         //static public string[] ProductType = new string[] { "MirrorReflective", "FixedDistanceReflective", "DiffuseReflective", "BGSReflective", "LimitedReflective", "TransmitLight", "ReceiveLight" };
         //static public string[] ProductOperationMode = new string[] { "LightON", "DarkON" };

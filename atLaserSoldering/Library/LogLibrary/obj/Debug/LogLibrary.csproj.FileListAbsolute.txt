@@ -156,13 +156,6 @@ D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Libr
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csprojResolveAssemblyReference.cache
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.dll
 D:\Work\C_Sharp\2026\TestatLaserSoldering\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.pdb
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\NLog.config
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\NLog.xsd
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\LogLibrary.dll
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\LogLibrary.pdb
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.dll
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.pdb
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csprojResolveAssemblyReference.cache
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\NLog.config
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\NLog.xsd
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\LogLibrary.dll
@@ -181,3 +174,10 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\L
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csproj.CopyComplete
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\NLog.config
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\NLog.xsd
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\LogLibrary.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\LogLibrary.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csprojResolveAssemblyReference.cache

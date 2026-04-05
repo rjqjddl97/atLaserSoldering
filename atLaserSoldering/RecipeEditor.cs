@@ -25,6 +25,7 @@ namespace atLaserSoldering
 
         string _strOldTitle = string.Empty;
         string _strNewTitle = string.Empty;
+
         public RecipeEditor()
         {
             InitializeComponent();            
@@ -159,9 +160,9 @@ namespace atLaserSoldering
             {
                 comboBoxEditInspectionModeType.Properties.Items.Add(RecipeFileIO.PositionType[i]);
             }
-            for (int i = 0; i < RecipeFileIO.AlineInspectionMode.Length; ++i)
+            for (int i = 0; i < RecipeFileIO.AlignInspectionMode.Length; ++i)
             {
-                repositoryItemComboBoxAlignInspectionMode.Items.Add(RecipeFileIO.AlineInspectionMode[i]);
+                repositoryItemComboBoxAlignInspectionMode.Items.Add(RecipeFileIO.AlignInspectionMode[i]);
             }
             comboBoxEditInspectionModeType.SelectedIndex = 0;
             comboBoxEditInspectionModeType.SelectedIndex = 0;
@@ -900,6 +901,35 @@ namespace atLaserSoldering
                 }
                 barButtonItemRecipeSave.Enabled = true;
                 _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("PCB Align 검사 유무가 {0}로 변경되었습니다.", _workParam._PCBAlignVisionEnable.ToString()));
+            }
+            else if (e.Row == rowReferenceInspectionMode)
+            {
+                strTemp = Convert.ToString(rowReferenceInspectionMode.Properties.Value);
+
+                bool IsValidate = false;
+
+                for (int i = 0; i < repositoryItemComboBoxAlignInspectionMode.Items.Count; ++i)
+                {
+                    if (strTemp == Convert.ToString(repositoryItemComboBoxAlignInspectionMode.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show(string.Format("Align 검사 모드가 잘못 입력되었습니다.{0}", strTemp), "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowReferenceInspectionMode.Properties.Value = Enum.GetName(typeof(ALIGNINSPECTMODE), (int)_workParam._AlignInspectionMode);
+                    vGridControlInspectionParam.Refresh();
+                    return;
+                }
+
+                if (!repositoryItemComboBoxAlignInspectionMode.Items[_workParam._AlignInspectionMode].Equals(strTemp))
+                {
+                    barButtonItemRecipeSave.Enabled = true;
+                }
+                _workParam._AlignInspectionMode = (int)Enum.Parse(typeof(ALIGNINSPECTMODE), strTemp);
             }
             else if (e.Row == rowReferenceInspectionLightBright)
             {
