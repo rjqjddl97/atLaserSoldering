@@ -26,6 +26,12 @@ using FeederControlLibrary;
 using ArioModbusLibrary;
 using LaserSoldering;
 using atLaserSoldering;
+using Cognex.VisionPro;
+using Cognex.VisionPro.Implementation;
+using Cognex.VisionPro.Display;
+using Cognex.VisionPro.QuickBuild;
+using Cognex.VisionPro.ToolGroup;
+using Cognex.VisionPro.ToolBlock;
 
 namespace atLaserSoldering
 {
@@ -72,6 +78,8 @@ namespace atLaserSoldering
         RectangleF _frtArearect = new RectangleF();
 
         System.Drawing.Image _sourceImage = null;
+        CogToolBlock _AlignToolBlock = null;
+        CogToolBlock _InspectToolBlock = null;
 
         bool _InspectionWorking = false;
         bool _HommingProcess = false;
@@ -2400,6 +2408,35 @@ namespace atLaserSoldering
                     barStaticAutoSolderingTime.Caption = "검사 시간: 000.000 sec";
                     _dTotalElapsedTime = 0.0f;
 
+                    if (_workParams._PCBAlignVisionEnable)
+                    {
+                        if (_workParams._InspectAlignVisionPath != string.Empty)
+                        {
+                            _AlignToolBlock = (CogToolBlock)CogSerializer.LoadObjectFromFile(_workParams._InspectAlignVisionPath);
+                        }
+                        else
+                        {
+                            _backgroundWorkerAutoSoldering.CancelAsync();
+                            barCheckItemLaserSolderingStart.Enabled = false;
+                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "PCB Align Vision 레시피 경로가 없습니다. 자동 납땜을 실행을 중지 했습니다.");
+                        }
+                        
+                    }
+
+                    if (_workParams._SolderingInspectVisionEnable)
+                    {
+                        if (_workParams._InspectSolderingVisionPath != string.Empty)
+                        {
+                            _InspectToolBlock = (CogToolBlock)CogSerializer.LoadObjectFromFile(_workParams._InspectAlignVisionPath);
+                        }
+                        else
+                        {
+                            _backgroundWorkerAutoSoldering.CancelAsync();
+                            barCheckItemLaserSolderingStart.Enabled = false;
+                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "납땜 검사 Vision 레시피 경로가 없습니다. 자동 납땜을 실행을 중지 했습니다.");
+                        }
+                    }                    
+                    
                     //_IsAutoSolderingRunning = true;
                     //_IsAutoSolderingEnd = false;
                     // 검사 쓰레드 시작

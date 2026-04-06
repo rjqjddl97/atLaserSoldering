@@ -54,11 +54,349 @@ namespace atLaserSoldering
                     {
                         if (_workParams._AlignInspectionMode == 1)      // 0: None, 1: 2Point, 2: All
                         {
+                            MotionParams _motParams = new MotionParams();
+                            AiCControlLibrary.SerialCommunication.Data.AiCData _mDrvData = new AiCControlLibrary.SerialCommunication.Data.AiCData();
+                            _mDrvData = _mMotionControlCommManager.mDrvCtrl;
+                            _motParams = _systemParams._motionParams;
+                            for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
+                            {
+                                if (mRobotInformation.mError != 0)
+                                {
+                                    e.Cancel = true;
+                                    mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
+                                }
+                                if (!e.Cancel)
+                                {
+                                    if (i == 0 && (_workParams.SolderPositionParams[i].ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE))
+                                    {
+                                        byte[] data = new byte[100];
+                                        while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                        for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                        {
+                                            if (j == 0)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            else if (j == 1)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            else if (j == 2)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            Thread.Sleep(50);
+                                        }
+                                        data = _mDrvData.MoveAbsoluteCommand(129);
+                                        _mMotionControlCommManager.SendData(data);
+                                        Thread.Sleep(100);
+                                        while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                        Thread.Sleep(_workParams._ImageAcquisitionDelaytime);
+                                        _Camera.OneShot(_waitHandle);
+                                        _waitHandle.Reset();
+                                        _waitHandle.WaitOne(_workParams._ImageAcquisitionDelaytime);
 
+                                        if (_AlignToolBlock != null)
+                                        {
+                                            // "InputImage"는 Job의 입력 터미널 이름입니다.
+                                            _AlignToolBlock.Inputs["InputImage"].Value = _sourceImage;
+                                         
+                                        }
+                                        _AlignToolBlock.Run();
+
+                                        //if (_AlignToolBlock.RunStatus.Result == Cognex.VisionPro.CogToolResultConstants.Accept)
+                                        //{
+                                        //    textBoxResult.Text = "Pass";
+                                        //}
+                                        //else
+                                        //{
+                                        //    textBoxResult.Text = "Fail";
+                                        //}
+
+                                        /*      // Insert PCB Align Vision Inspect Result Point1 Offset X,Y
+                                         
+                                         */
+
+                                        GC.Collect();
+                                    }
+                                    else if (i == 1 && (_workParams.SolderPositionParams[i].ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE))
+                                    {
+                                        byte[] data = new byte[100];
+                                        while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                        for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                        {
+                                            if (j == 0)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            else if (j == 1)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            else if (j == 2)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            Thread.Sleep(50);
+                                        }
+                                        data = _mDrvData.MoveAbsoluteCommand(129);
+                                        _mMotionControlCommManager.SendData(data);
+                                        Thread.Sleep(100);
+                                        while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                        Thread.Sleep(_workParams._ImageAcquisitionDelaytime);
+                                        _Camera.OneShot(_waitHandle);
+                                        _waitHandle.Reset();
+                                        _waitHandle.WaitOne(_workParams._ImageAcquisitionDelaytime);
+
+                                        if (_AlignToolBlock != null)
+                                        {
+                                            // "InputImage"는 Job의 입력 터미널 이름입니다.
+                                            _AlignToolBlock.Inputs["InputImage"].Value = _sourceImage;
+
+                                        }
+                                        _AlignToolBlock.Run();
+
+                                        //if (_AlignToolBlock.RunStatus.Result == Cognex.VisionPro.CogToolResultConstants.Accept)
+                                        //{
+                                        //    textBoxResult.Text = "Pass";
+                                        //}
+                                        //else
+                                        //{
+                                        //    textBoxResult.Text = "Fail";
+                                        //}
+
+                                        /*      // Insert PCB Align Vision Inspect Result Point2 Offset X,Y
+                                         
+                                         */
+
+                                        GC.Collect();
+                                    }
+                                    else
+                                    {
+                                        byte[] data = new byte[100];
+                                        while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                        for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                        {
+                                            if (j == 0)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            else if (j == 1)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            else if (j == 2)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            Thread.Sleep(50);
+                                        }
+                                        data = _mDrvData.MoveAbsoluteCommand(129);
+                                        _mMotionControlCommManager.SendData(data);
+                                        Thread.Sleep(100);
+                                        ///*
+                                        // Insert Laser soldering Sequence Start                                    
+                                        if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
+                                        {
+                                            _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
+                                            _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
+                                            _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
+                                            _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
+                                            _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
+                                            _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
+                                            _mSolderingJob.ForwordingVelocity = _workParams.SolderPositionParams[i].ForwardFeedVelocity;
+                                            _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
+                                            _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
+                                            _mLaserSoldering.LaserSolderParam = _mSolderingJob;
+                                            //_mLaserSoldering.LaserSolderingStart();
+                                            _waitHandle.Reset();
+                                            _waitHandle.WaitOne();
+                                        }
+
+                                        //*/
+                                    }
+                                }
+
+                            }
+                            for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
+                            {
+                                if (mRobotInformation.mError != 0)
+                                {
+                                    e.Cancel = true;
+                                    mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
+                                }
+                                if (!e.Cancel)
+                                {
+                                    if (_workParams._SolderingInspectVisionEnable)
+                                    {
+                                        if (_workParams.SolderPositionParams[i].ePositionType == INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE)
+                                        {
+                                            byte[] data = new byte[100];
+                                            while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                            for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                            {
+                                                if (j == 0)
+                                                {
+                                                    data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                                    _mMotionControlCommManager.SendData(data);
+                                                }
+                                                else if (j == 1)
+                                                {
+                                                    data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                                    _mMotionControlCommManager.SendData(data);
+                                                }
+                                                else if (j == 2)
+                                                {
+                                                    data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                                    _mMotionControlCommManager.SendData(data);
+                                                }
+                                                Thread.Sleep(50);
+                                            }
+                                            data = _mDrvData.MoveAbsoluteCommand(129);
+                                            _mMotionControlCommManager.SendData(data);
+                                            Thread.Sleep(100);
+                                            while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                            Thread.Sleep(_workParams._ImageAcquisitionDelaytime);
+                                            _Camera.OneShot(_waitHandle);
+                                            _waitHandle.Reset();
+                                            _waitHandle.WaitOne(_workParams._ImageAcquisitionDelaytime);
+
+                                            if (_InspectToolBlock != null)
+                                            {
+                                                // "InputImage"는 Job의 입력 터미널 이름입니다.
+                                                _InspectToolBlock.Inputs["InputImage"].Value = _sourceImage;
+
+                                            }
+                                            _InspectToolBlock.Run();
+
+                                            //if (_InspectToolBlock.RunStatus.Result == Cognex.VisionPro.CogToolResultConstants.Accept)
+                                            //{
+                                            //    textBoxResult.Text = "Pass";
+                                            //}
+                                            //else
+                                            //{
+                                            //    textBoxResult.Text = "Fail";
+                                            //}
+
+                                            /*      // Insert Soldering Vision Inspect Result
+
+                                             */
+                                            GC.Collect();
+                                            for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                            {
+                                                if (j == 0)
+                                                {
+                                                    data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                                    _mMotionControlCommManager.SendData(data);
+                                                }
+                                                else if (j == 1)
+                                                {
+                                                    data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                                    _mMotionControlCommManager.SendData(data);
+                                                }
+                                                else if (j == 2)
+                                                {
+                                                    data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                                    _mMotionControlCommManager.SendData(data);
+                                                }
+                                                Thread.Sleep(50);
+                                            }
+                                            data = _mDrvData.MoveAbsoluteCommand(129);
+                                            _mMotionControlCommManager.SendData(data);
+                                            Thread.Sleep(100);
+                                            while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                            ///*
+                                            // Insert Laser soldering Sequence Start                                    
+                                            if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
+                                            {
+                                                _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
+                                                _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
+                                                _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
+                                                _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
+                                                _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
+                                                _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
+                                                _mSolderingJob.ForwordingVelocity = _workParams.SolderPositionParams[i].ForwardFeedVelocity;
+                                                _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
+                                                _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
+                                                _mLaserSoldering.LaserSolderParam = _mSolderingJob;
+                                                //_mLaserSoldering.LaserSolderingStart();
+                                                _waitHandle.Reset();
+                                                _waitHandle.WaitOne();
+                                            }
+
+                                            //*/
+
+                                        }
+                                    }
+                                }
+                            }
                         }
                         else if (_workParams._AlignInspectionMode == 2)
                         {
+                            if (mRobotInformation.mError != 0)
+                            {
+                                e.Cancel = true;
+                                mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
+                            }
+                            if (!e.Cancel)
+                            {
+                                MotionParams _motParams = new MotionParams();
+                                AiCControlLibrary.SerialCommunication.Data.AiCData _mDrvData = new AiCControlLibrary.SerialCommunication.Data.AiCData();
+                                _mDrvData = _mMotionControlCommManager.mDrvCtrl;
+                                _motParams = _systemParams._motionParams;
+                                for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
+                                {
+                                    if (_workParams.SolderPositionParams[i].ePositionType == INSPECTION_POSITION_MODE.POSITION_SOLDERING_MODE)
+                                    {
+                                        byte[] data = new byte[100];
+                                        while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                        for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                        {
+                                            if (j == 0)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            else if (j == 1)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            else if (j == 2)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                                _mMotionControlCommManager.SendData(data);
+                                            }
+                                            Thread.Sleep(50);
+                                        }
+                                        data = _mDrvData.MoveAbsoluteCommand(129);
+                                        _mMotionControlCommManager.SendData(data);
+                                        Thread.Sleep(100);
+                                        while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                        Thread.Sleep(_workParams._ImageAcquisitionDelaytime);
+                                        _Camera.OneShot(_waitHandle);
+                                        _waitHandle.Reset();
+                                        _waitHandle.WaitOne(_workParams._ImageAcquisitionDelaytime);
 
+                                        if (_AlignToolBlock != null)
+                                        {
+                                            // "InputImage"는 Job의 입력 터미널 이름입니다.
+                                            _AlignToolBlock.Inputs["InputImage"].Value = _sourceImage;
+
+                                        }
+                                        _AlignToolBlock.Run();
+                                    }
+                                }
+                            }
                         }
                         else
                         {
@@ -79,17 +417,17 @@ namespace atLaserSoldering
                                     while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                     for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
                                     {
-                                        if (i == 0)
+                                        if (j == 0)
                                         {
                                             data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
                                             _mMotionControlCommManager.SendData(data);
                                         }
-                                        else if (i == 1)
+                                        else if (j == 1)
                                         {
                                             data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
                                             _mMotionControlCommManager.SendData(data);
                                         }
-                                        else if (i == 2)
+                                        else if (j == 2)
                                         {
                                             data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
                                             _mMotionControlCommManager.SendData(data);
@@ -99,6 +437,7 @@ namespace atLaserSoldering
                                     data = _mDrvData.MoveAbsoluteCommand(129);
                                     _mMotionControlCommManager.SendData(data);
                                     Thread.Sleep(100);
+                                    while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                     ///*
                                     // Insert Laser soldering Sequence Start                                    
                                     if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
@@ -143,17 +482,17 @@ namespace atLaserSoldering
                                 while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                 for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
                                 {
-                                    if (i == 0)
+                                    if (j == 0)
                                     {
                                         data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
                                         _mMotionControlCommManager.SendData(data);
                                     }
-                                    else if (i == 1)
+                                    else if (j == 1)
                                     {
                                         data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
                                         _mMotionControlCommManager.SendData(data);
                                     }
-                                    else if (i == 2)
+                                    else if (j == 2)
                                     {
                                         data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
                                         _mMotionControlCommManager.SendData(data);
@@ -163,6 +502,7 @@ namespace atLaserSoldering
                                 data = _mDrvData.MoveAbsoluteCommand(129);
                                 _mMotionControlCommManager.SendData(data);
                                 Thread.Sleep(100);
+                                while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                 ///*
                                 // Insert Laser soldering Sequence Start                                    
                                 if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)

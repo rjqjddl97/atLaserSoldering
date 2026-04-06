@@ -895,7 +895,6 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPr
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro3D.Core.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.FGGigE.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro3D.dll
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.Interop.Core.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\stdole.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.Pdf.v18.2.Core.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.Utils.v18.2.UI.dll
@@ -1039,3 +1038,7 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\ja\DevExpress.O
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\ru\DevExpress.Office.v18.2.Core.resources.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.exe
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.Core.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.Core.xml
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.xml
