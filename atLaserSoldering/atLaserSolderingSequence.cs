@@ -96,7 +96,10 @@ namespace atLaserSoldering
                                         }
                                         data = _mDrvData.MoveAbsoluteCommand(129);
                                         _mMotionControlCommManager.SendData(data);
-                                        Thread.Sleep(100);
+
+                                        _waitHandle.Reset();
+                                        _waitHandle.WaitOne();
+
                                         while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                         Thread.Sleep(_workParams._ImageAcquisitionDelaytime);
                                         _Camera.OneShot(_waitHandle);
@@ -111,14 +114,15 @@ namespace atLaserSoldering
                                         }
                                         _AlignToolBlock.Run();
 
-                                        //if (_AlignToolBlock.RunStatus.Result == Cognex.VisionPro.CogToolResultConstants.Accept)
-                                        //{
-                                        //    textBoxResult.Text = "Pass";
-                                        //}
-                                        //else
-                                        //{
-                                        //    textBoxResult.Text = "Fail";
-                                        //}
+                                        if (_AlignToolBlock.RunStatus.Result == Cognex.VisionPro.CogToolResultConstants.Accept)
+                                        {
+                                            //textBoxResult.Text = "Pass";
+                                             
+                                        }
+                                        else
+                                        {
+                                            //textBoxResult.Text = "Fail";
+                                        }
 
                                         /*      // Insert PCB Align Vision Inspect Result Point1 Offset X,Y
                                          
@@ -154,7 +158,9 @@ namespace atLaserSoldering
                                         }
                                         data = _mDrvData.MoveAbsoluteCommand(129);
                                         _mMotionControlCommManager.SendData(data);
-                                        Thread.Sleep(100);
+
+                                        _waitHandle.Reset();
+                                        _waitHandle.WaitOne();
                                         while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                         Thread.Sleep(_workParams._ImageAcquisitionDelaytime);
                                         _Camera.OneShot(_waitHandle);
@@ -188,6 +194,7 @@ namespace atLaserSoldering
                                     {
                                         byte[] data = new byte[100];
                                         while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                        // Insert Align Offset Position !!
                                         for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
                                         {
                                             if (j == 0)
@@ -212,7 +219,9 @@ namespace atLaserSoldering
                                         }
                                         data = _mDrvData.MoveAbsoluteCommand(129);
                                         _mMotionControlCommManager.SendData(data);
-                                        Thread.Sleep(100);
+
+                                        _waitHandle.Reset();
+                                        _waitHandle.WaitOne();
                                         ///*
                                         // Insert Laser soldering Sequence Start                                    
                                         if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
@@ -252,6 +261,7 @@ namespace atLaserSoldering
                                         {
                                             byte[] data = new byte[100];
                                             while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                            // Insert Align Offset Position !!
                                             for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
                                             {
                                                 if (j == 0)
@@ -276,7 +286,9 @@ namespace atLaserSoldering
                                             }
                                             data = _mDrvData.MoveAbsoluteCommand(129);
                                             _mMotionControlCommManager.SendData(data);
-                                            Thread.Sleep(100);
+
+                                            _waitHandle.Reset();
+                                            _waitHandle.WaitOne();
                                             while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                             Thread.Sleep(_workParams._ImageAcquisitionDelaytime);
                                             _Camera.OneShot(_waitHandle);
@@ -303,53 +315,7 @@ namespace atLaserSoldering
                                             /*      // Insert Soldering Vision Inspect Result
 
                                              */
-                                            GC.Collect();
-                                            for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
-                                            {
-                                                if (j == 0)
-                                                {
-                                                    data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
-                                                    _mMotionControlCommManager.SendData(data);
-                                                    _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
-                                                }
-                                                else if (j == 1)
-                                                {
-                                                    data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
-                                                    _mMotionControlCommManager.SendData(data);
-                                                    _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
-                                                }
-                                                else if (j == 2)
-                                                {
-                                                    data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
-                                                    _mMotionControlCommManager.SendData(data);
-                                                    _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
-                                                }
-                                                Thread.Sleep(50);
-                                            }
-                                            data = _mDrvData.MoveAbsoluteCommand(129);
-                                            _mMotionControlCommManager.SendData(data);
-                                            Thread.Sleep(100);
-                                            while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
-                                            ///*
-                                            // Insert Laser soldering Sequence Start                                    
-                                            if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
-                                            {
-                                                _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
-                                                _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
-                                                _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
-                                                _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
-                                                _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
-                                                _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
-                                                _mSolderingJob.ForwordingVelocity = _workParams.SolderPositionParams[i].ForwardFeedVelocity;
-                                                _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
-                                                _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
-                                                _mLaserSoldering.LaserSolderParam = _mSolderingJob;
-                                                //_mLaserSoldering.LaserSolderingStart();
-                                                _waitHandle.Reset();
-                                                _waitHandle.WaitOne();
-                                            }
-
-                                            //*/
+                                            GC.Collect(); 
 
                                         }
                                     }
@@ -399,7 +365,9 @@ namespace atLaserSoldering
                                         }
                                         data = _mDrvData.MoveAbsoluteCommand(129);
                                         _mMotionControlCommManager.SendData(data);
-                                        Thread.Sleep(100);
+
+                                        _waitHandle.Reset();
+                                        _waitHandle.WaitOne();
                                         while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                         Thread.Sleep(_workParams._ImageAcquisitionDelaytime);
                                         _Camera.OneShot(_waitHandle);
@@ -413,6 +381,57 @@ namespace atLaserSoldering
 
                                         }
                                         _AlignToolBlock.Run();
+
+                                        // Insert Align Offset Position !!
+                                        for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                        {
+                                            if (j == 0)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                                _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
+                                            }
+                                            else if (j == 1)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                                _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
+                                            }
+                                            else if (j == 2)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                                _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
+                                            }
+                                            Thread.Sleep(50);
+                                        }
+                                        data = _mDrvData.MoveAbsoluteCommand(129);
+                                        _mMotionControlCommManager.SendData(data);
+
+                                        _waitHandle.Reset();
+                                        _waitHandle.WaitOne();
+
+                                        ///*
+                                        // Insert Laser soldering Sequence Start                                    
+                                        if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
+                                        {
+                                            while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                            _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
+                                            _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
+                                            _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
+                                            _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
+                                            _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
+                                            _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
+                                            _mSolderingJob.ForwordingVelocity = _workParams.SolderPositionParams[i].ForwardFeedVelocity;
+                                            _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
+                                            _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
+                                            _mLaserSoldering.LaserSolderParam = _mSolderingJob;
+                                            //_mLaserSoldering.LaserSolderingStart();
+                                            _waitHandle.Reset();
+                                            _waitHandle.WaitOne();
+                                        }
+
+                                        //*/
                                     }
                                 }
                             }
@@ -458,8 +477,9 @@ namespace atLaserSoldering
                                     }
                                     data = _mDrvData.MoveAbsoluteCommand(129);
                                     _mMotionControlCommManager.SendData(data);
-                                    Thread.Sleep(100);
-                                    
+                                    //Thread.Sleep(100);
+                                    _waitHandle.Reset();
+                                    _waitHandle.WaitOne();
                                     ///*
                                     // Insert Laser soldering Sequence Start                                    
                                     if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
@@ -527,7 +547,7 @@ namespace atLaserSoldering
                                 }
                                 data = _mDrvData.MoveAbsoluteCommand(129);
                                 _mMotionControlCommManager.SendData(data);
-                                //Thread.Sleep(100);                                
+                                                  
                                 _waitHandle.Reset();
                                 _waitHandle.WaitOne();
                                 ///*
