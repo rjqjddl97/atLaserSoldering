@@ -18,6 +18,11 @@ namespace RecipeManager
         public double PositionZ { get; set; }
         public double PositionR { get; set; }
 
+        public double TargetPositionX { get; set; }
+        public double TargetPositionY { get; set; }
+        public double TargetPositionZ { get; set; }
+        public double TargetPositionR { get; set; }
+
         public DigitalOutputControl mInputData = new DigitalOutputControl();
         public DigitalOutputControl mOutputData = new DigitalOutputControl();
         public ulong mStatus;

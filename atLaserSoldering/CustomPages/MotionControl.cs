@@ -1112,6 +1112,10 @@ namespace CustomPages
                         _mRobotInfomation.PositionX = _fPresentPosition[0];
                         _mRobotInfomation.PositionY = _fPresentPosition[1];
                         _mRobotInfomation.PositionZ = _fPresentPosition[2];
+                        _mRobotInfomation.TargetPositionX = _fTargetPosition[0];
+                        _mRobotInfomation.TargetPositionY = _fTargetPosition[1];
+                        _mRobotInfomation.TargetPositionZ = _fTargetPosition[2];
+
                         //_mRobotInfomation.PositionX = Convert.ToDouble(textEditPresentPosX.Text);
                         //_mRobotInfomation.PositionY = Convert.ToDouble(textEditPresentPosY.Text);
                         //_mRobotInfomation.PositionZ = Convert.ToDouble(textEditPresentPosZ.Text);

@@ -1064,13 +1064,15 @@ namespace atLaserSoldering
         {
             try
             {
-                mRobotInformation.PositionX = update.PositionX;
-                mRobotInformation.PositionY = update.PositionY;
-                mRobotInformation.PositionZ = update.PositionZ;
-                
-                mRobotInformation.mStatus = update.mStatus;
-                mRobotInformation.mError = update.mError;
-                mRobotInformation.DrvStatus = update.DrvStatus;
+                //mRobotInformation.PositionX = update.PositionX;
+                //mRobotInformation.PositionY = update.PositionY;
+                //mRobotInformation.PositionZ = update.PositionZ;
+
+                //mRobotInformation.mStatus = update.mStatus;
+                //mRobotInformation.mError = update.mError;
+                //mRobotInformation.DrvStatus = update.DrvStatus;
+
+                mRobotInformation = update;
 
                 if (_IsHommingFinished)
                     mRobotInformation.SetStatus(RobotInformation.RobotStatus.OperationReady, _IsHommingFinished);
@@ -1085,6 +1087,18 @@ namespace atLaserSoldering
                 }
                 else
                     _IsDrvErr = false;
+
+                if ((mRobotInformation.TargetPositionX == _RobotTargetPosition[0]) &&
+                    (mRobotInformation.TargetPositionY == _RobotTargetPosition[1]) &&
+                    (mRobotInformation.TargetPositionZ == _RobotTargetPosition[2])
+                    )
+                {
+                    if (Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01))
+                    {
+                        if(_IsAutoSolderingRunning)
+                            _waitHandle.Set();
+                    }
+                }
                 
             }
             catch (Exception)
@@ -2360,32 +2374,39 @@ namespace atLaserSoldering
             {
                 if (_mMotionControlCommManager.IsOpen() & _mRemoteIOCommManager.IsOpen() & _mLaserSoldering.IsSolderingConnect & _Camera.IsAllocated)
                 {
-                    switch (_workParams.SolderPositionParams.Count)
+
+                    if (_workParams._AlignInspectionMode == 1)      // 0: None, 1: 2Point, 2: All
                     {
-                        case 0:
-                            MessageBox.Show("등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.");
-                            break;
-                        default :
-                            int alignmentconut = 0;
-                            if (_workParams._AlignInspectionMode == 1)
+                        if (_workParams._PCBAlignVisionEnable)
+                        {
+                            switch (_workParams.SolderPositionParams.Count)
                             {
-                                for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
-                                {
-                                    if (_workParams.SolderPositionParams[i].ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
+                                case 0:
+                                    MessageBox.Show("등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.");
+                                    break;
+                                default:
+                                    int alignmentconut = 0;
+                                    if (_workParams._AlignInspectionMode == 1)
                                     {
-                                        alignmentconut++;
+                                        for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
+                                        {
+                                            if (_workParams.SolderPositionParams[i].ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
+                                            {
+                                                alignmentconut++;
+                                            }
+                                        }
+                                        if (alignmentconut != 2)
+                                        {
+                                            MessageBox.Show("Alignemnt가 등록되지 않았습니다.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Alignemnt가 등록되지 않았습니다.");
+                                            return;
+                                        }
                                     }
-                                }
-                                if (alignmentconut != 2)
-                                {
-                                    MessageBox.Show("Alignemnt가 등록되지 않았습니다.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Alignemnt가 등록되지 않았습니다.");
-                                    return;
-                                }
+                                    break;
                             }
-                            break;
-                    }
+                        }
+                    }                    
                 }
                 else
                 {

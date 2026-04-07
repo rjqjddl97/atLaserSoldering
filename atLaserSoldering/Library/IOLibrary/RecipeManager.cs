@@ -27,7 +27,7 @@ namespace RecipeManager
         //static public string[] SerialEncoding = new string[] { "ASCII", "Unicode", "UTF8", "UTF32" };
 
         static string[] SystemParamSections = new string[] { "Camera Parameters","Calibration Parameters", "Motion Parameters", "AiC Parameters", "RemoteIO Parameters", "AMDS Parameters","Save Results","Language", "Light Parameters", "Feeder Parameters", "Laser Parameters" };
-        static string[] WorkParamSections = new string[] { "Recipe Information", "Product Infomation", "Distance Inspection", "Inspection Positions" };
+        static string[] WorkParamSections = new string[] { "Recipe Information", "Product Infomation", "Vision Information", "Soldering Information ", "Soldering Parameters" };
         static public string[] AlignInspectionMode = new string[] { "None", "TwoPoint", "All"};
         //static public string[] ProductSeries = new string[] {"BTS", "BTF", "BJ", "BJP", "BEN", "BPS" };        
         //static public string[] ProductType = new string[] { "MirrorReflective", "FixedDistanceReflective", "DiffuseReflective", "BGSReflective", "LimitedReflective", "TransmitLight", "ReceiveLight" };
@@ -69,6 +69,7 @@ namespace RecipeManager
             workParam._UseFeederEnable = Convert.ToBoolean(recipeData[WorkParamSections[3]]["UseFeederEnable"]);
             workParam._LaserOffWaitTime = Convert.ToInt32(recipeData[WorkParamSections[3]]["LaserOffWaitTime"]);
 
+            workParam._WorkPositionsCount = Convert.ToInt32(recipeData[WorkParamSections[4]]["SolderingParamsCount"]);
             workParam.SolderPositionParams.Clear();
 
             for (int i = 0; i < workParam._WorkPositionsCount; ++i)
@@ -76,20 +77,20 @@ namespace RecipeManager
                 SolderingPosition pos = new SolderingPosition();
 
                 pos.Index = i + 1;
-                pos.ePositionType = (INSPECTION_POSITION_MODE)Convert.ToInt32(recipeData[WorkParamSections[3]][string.Format("PositionType{0}", i)]);                
-                pos.PositionX = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("X{0}", i)]);
-                pos.PositionY = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("Y{0}", i)]);                
-                pos.PositionZ = Convert.ToSingle(recipeData[WorkParamSections[3]][string.Format("Z{0}", i)]);
-                pos.ReadyTime = Convert.ToInt32(recipeData[WorkParamSections[3]]["ReadyTime"]);
-                pos.PreHeatPowerRatio = Convert.ToDouble(recipeData[WorkParamSections[3]]["PreHeatPowerRatio"]);
-                pos.PreHeatTime = Convert.ToInt32(recipeData[WorkParamSections[3]]["PreHeatTime"]);
-                pos.HeatPowerRatio = Convert.ToDouble(recipeData[WorkParamSections[3]]["HeatPowerRatio"]);
-                pos.HeatTime = Convert.ToInt32(recipeData[WorkParamSections[3]]["HeatTime"]);
-                pos.ForwardFeedLength = Convert.ToDouble(recipeData[WorkParamSections[3]]["ForwardFeedLength"]);
-                pos.ForwardFeedVelocity = Convert.ToDouble(recipeData[WorkParamSections[3]]["ForwardVelocity"]);
+                pos.ePositionType = (INSPECTION_POSITION_MODE)Convert.ToInt32(recipeData[WorkParamSections[4]][string.Format("PositionType{0}", i)]);                
+                pos.PositionX = Convert.ToSingle(recipeData[WorkParamSections[4]][string.Format("X{0}", i)]);
+                pos.PositionY = Convert.ToSingle(recipeData[WorkParamSections[4]][string.Format("Y{0}", i)]);                
+                pos.PositionZ = Convert.ToSingle(recipeData[WorkParamSections[4]][string.Format("Z{0}", i)]);
+                pos.ReadyTime = Convert.ToInt32(recipeData[WorkParamSections[4]][string.Format("ReadyTime", i)]);
+                pos.PreHeatPowerRatio = Convert.ToDouble(recipeData[WorkParamSections[4]][string.Format("PreHeatPowerRatio", i)]);
+                pos.PreHeatTime = Convert.ToInt32(recipeData[WorkParamSections[4]][string.Format("PreHeatTime", i)]);
+                pos.HeatPowerRatio = Convert.ToDouble(recipeData[WorkParamSections[4]][string.Format("HeatPowerRatio", i)]);
+                pos.HeatTime = Convert.ToInt32(recipeData[WorkParamSections[4]][string.Format("HeatTime", i)]);
+                pos.ForwardFeedLength = Convert.ToDouble(recipeData[WorkParamSections[4]][string.Format("ForwardFeedLength", i)]);
+                pos.ForwardFeedVelocity = Convert.ToDouble(recipeData[WorkParamSections[4]][string.Format("ForwardVelocity", i)]);
                 pos.ForwordingAcceleration = 0.1D;
-                pos.ReverseFeedLength = Convert.ToDouble(recipeData[WorkParamSections[3]]["ReverseFeedLength"]);
-                pos.ReverseFeedVelocity = Convert.ToDouble(recipeData[WorkParamSections[3]]["ReverseVelocity"]);
+                pos.ReverseFeedLength = Convert.ToDouble(recipeData[WorkParamSections[4]][string.Format("ReverseFeedLength", i)]);
+                pos.ReverseFeedVelocity = Convert.ToDouble(recipeData[WorkParamSections[4]][string.Format("ReverseVelocity", i)]);
                 pos.ReverseAcceleration = 0.1D;
                 workParam.SolderPositionParams.Add(pos);
             }
@@ -132,23 +133,25 @@ namespace RecipeManager
             recipeData[WorkParamSections[3]].AddKey("UseFeederEnable", workParam._UseFeederEnable.ToString());
             recipeData[WorkParamSections[3]].AddKey("LaserOffWaitTime", workParam._LaserOffWaitTime.ToString());
 
+            recipeData.Sections.AddSection(WorkParamSections[4]);
+            recipeData[WorkParamSections[4]].AddKey("SolderingParamsCount", workParam.SolderPositionParams.Count.ToString());
             for (int i = 0; i < workParam.SolderPositionParams.Count; ++i)
             {
                 int inspectionMode = (int)workParam.SolderPositionParams[i].ePositionType;
 
-                recipeData[WorkParamSections[3]].AddKey(string.Format("PositionType{0}", i), inspectionMode.ToString());
-                recipeData[WorkParamSections[3]].AddKey(string.Format("X{0}", i), workParam.SolderPositionParams[i].PositionX.ToString());
-                recipeData[WorkParamSections[3]].AddKey(string.Format("Y{0}", i), workParam.SolderPositionParams[i].PositionY.ToString());
-                recipeData[WorkParamSections[3]].AddKey(string.Format("Z{0}", i), workParam.SolderPositionParams[i].PositionZ.ToString());
-                recipeData[WorkParamSections[3]].AddKey("ReadyTime", workParam.SolderPositionParams[i].ReadyTime.ToString());
-                recipeData[WorkParamSections[3]].AddKey("PreHeatPowerRatio", workParam.SolderPositionParams[i].PreHeatPowerRatio.ToString());
-                recipeData[WorkParamSections[3]].AddKey("PreHeatTime", workParam.SolderPositionParams[i].PreHeatTime.ToString());
-                recipeData[WorkParamSections[3]].AddKey("HeatPowerRatio", workParam.SolderPositionParams[i].HeatPowerRatio.ToString());
-                recipeData[WorkParamSections[3]].AddKey("HeatTime", workParam.SolderPositionParams[i].HeatTime.ToString());
-                recipeData[WorkParamSections[3]].AddKey("ForwardFeedLength", workParam.SolderPositionParams[i].ForwardFeedLength.ToString());
-                recipeData[WorkParamSections[3]].AddKey("ForwardVelocity", workParam.SolderPositionParams[i].ForwardFeedVelocity.ToString());
-                recipeData[WorkParamSections[3]].AddKey("ReverseFeedLength", workParam.SolderPositionParams[i].ReverseFeedLength.ToString());
-                recipeData[WorkParamSections[3]].AddKey("ReverseVelocity", workParam.SolderPositionParams[i].ReverseFeedVelocity.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("PositionType{0}", i), inspectionMode.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("X{0}", i), workParam.SolderPositionParams[i].PositionX.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("Y{0}", i), workParam.SolderPositionParams[i].PositionY.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("Z{0}", i), workParam.SolderPositionParams[i].PositionZ.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("ReadyTime{0}",i), workParam.SolderPositionParams[i].ReadyTime.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("PreHeatPowerRatio{0}", i), workParam.SolderPositionParams[i].PreHeatPowerRatio.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("PreHeatTime{0}", i), workParam.SolderPositionParams[i].PreHeatTime.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("HeatPowerRatio{0}", i), workParam.SolderPositionParams[i].HeatPowerRatio.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("HeatTime{0}", i), workParam.SolderPositionParams[i].HeatTime.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("ForwardFeedLength{0}", i), workParam.SolderPositionParams[i].ForwardFeedLength.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("ForwardVelocity{0}", i), workParam.SolderPositionParams[i].ForwardFeedVelocity.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("ReverseFeedLength{0}", i), workParam.SolderPositionParams[i].ReverseFeedLength.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("ReverseVelocity{0}", i), workParam.SolderPositionParams[i].ReverseFeedVelocity.ToString());
             }
 
             parser.WriteFile(strFilePath, recipeData);

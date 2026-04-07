@@ -28,6 +28,7 @@ namespace atLaserSoldering
 {
     public partial class atLaserSoldering
     {
+        double[] _RobotTargetPosition = new double[3];
         private void OnLaserSolderingRecieveEnd(object sender, EventArgs e)
         {
             try
@@ -77,16 +78,19 @@ namespace atLaserSoldering
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
                                             }
                                             else if (j == 1)
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
                                             }
                                             else if (j == 2)
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
                                             }
                                             Thread.Sleep(50);
                                         }
@@ -132,16 +136,19 @@ namespace atLaserSoldering
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
                                             }
                                             else if (j == 1)
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
                                             }
                                             else if (j == 2)
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
                                             }
                                             Thread.Sleep(50);
                                         }
@@ -187,16 +194,19 @@ namespace atLaserSoldering
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
                                             }
                                             else if (j == 1)
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
                                             }
                                             else if (j == 2)
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
                                             }
                                             Thread.Sleep(50);
                                         }
@@ -248,16 +258,19 @@ namespace atLaserSoldering
                                                 {
                                                     data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
                                                     _mMotionControlCommManager.SendData(data);
+                                                    _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
                                                 }
                                                 else if (j == 1)
                                                 {
                                                     data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
                                                     _mMotionControlCommManager.SendData(data);
+                                                    _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
                                                 }
                                                 else if (j == 2)
                                                 {
                                                     data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
                                                     _mMotionControlCommManager.SendData(data);
+                                                    _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
                                                 }
                                                 Thread.Sleep(50);
                                             }
@@ -297,16 +310,19 @@ namespace atLaserSoldering
                                                 {
                                                     data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
                                                     _mMotionControlCommManager.SendData(data);
+                                                    _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
                                                 }
                                                 else if (j == 1)
                                                 {
                                                     data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
                                                     _mMotionControlCommManager.SendData(data);
+                                                    _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
                                                 }
                                                 else if (j == 2)
                                                 {
                                                     data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
                                                     _mMotionControlCommManager.SendData(data);
+                                                    _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
                                                 }
                                                 Thread.Sleep(50);
                                             }
@@ -365,16 +381,19 @@ namespace atLaserSoldering
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
                                             }
                                             else if (j == 1)
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
                                             }
                                             else if (j == 2)
                                             {
                                                 data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
                                                 _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
                                             }
                                             Thread.Sleep(50);
                                         }
@@ -421,27 +440,31 @@ namespace atLaserSoldering
                                         {
                                             data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
                                             _mMotionControlCommManager.SendData(data);
+                                            _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
                                         }
                                         else if (j == 1)
                                         {
                                             data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
                                             _mMotionControlCommManager.SendData(data);
+                                            _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
                                         }
                                         else if (j == 2)
                                         {
                                             data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
                                             _mMotionControlCommManager.SendData(data);
+                                            _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
                                         }
                                         Thread.Sleep(50);
                                     }
                                     data = _mDrvData.MoveAbsoluteCommand(129);
                                     _mMotionControlCommManager.SendData(data);
                                     Thread.Sleep(100);
-                                    while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                    
                                     ///*
                                     // Insert Laser soldering Sequence Start                                    
                                     if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
                                     {
+                                        while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                         _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
                                         _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
                                         _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
@@ -486,27 +509,32 @@ namespace atLaserSoldering
                                     {
                                         data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
                                         _mMotionControlCommManager.SendData(data);
+                                        _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
                                     }
                                     else if (j == 1)
                                     {
                                         data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
                                         _mMotionControlCommManager.SendData(data);
+                                        _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
                                     }
                                     else if (j == 2)
                                     {
                                         data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
                                         _mMotionControlCommManager.SendData(data);
+                                        _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
                                     }
                                     Thread.Sleep(50);
                                 }
                                 data = _mDrvData.MoveAbsoluteCommand(129);
                                 _mMotionControlCommManager.SendData(data);
-                                Thread.Sleep(100);
-                                while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                //Thread.Sleep(100);                                
+                                _waitHandle.Reset();
+                                _waitHandle.WaitOne();
                                 ///*
                                 // Insert Laser soldering Sequence Start                                    
                                 if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
                                 {
+                                    while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                     _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
                                     _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
                                     _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
@@ -824,6 +852,6 @@ namespace atLaserSoldering
             {
                 mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "원점 복귀 시퀀스를 완료하지 못햇습니다.");
             }
-        }
+        }        
     }
 }
