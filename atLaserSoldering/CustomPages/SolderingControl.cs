@@ -700,6 +700,7 @@ namespace CustomPages
                     byte[] data = new byte[20];
                     data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(Convert.ToDouble(textEditMenualFeedLength.EditValue) * _mLaserSoldering._FeederParam.FeedermmToPulseRatio));
                     _mFeederCommunicationManager.SendData(data);
+                    Thread.Sleep(10);
                     data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
                     _mFeederCommunicationManager.SendData(data);
                 }

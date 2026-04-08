@@ -790,8 +790,8 @@ namespace LaserSoldering
                                     //data = _mCompactMiniData.GetSetLaserPower(JobSolder.PreheatPowerRatio);
                                     //_mCompactMiniComm.SendData(data);                                    
                                     
-                                    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio));
-                                    _mFeederComm.SendData(data);
+                                    //data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio));
+                                    //_mFeederComm.SendData(data);
                                     data = _mFeederData.SetMoveTargetVelocity(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingVelocity * FeederParam.FeedermmToPulseRatio));
                                     _mFeederComm.SendData(data);
                                     //data = _mFeederData.SetMoveTargetAccel(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingAcceleration * FeederParam.FeedermmToPulseRatio));
@@ -866,8 +866,7 @@ namespace LaserSoldering
                                 data = new byte[20];
                                 datasize = _mCompactMiniData.GetSetLaserPowerPacketSize(JobSolder.HeatPowerRatio);                                
                                 data = _mCompactMiniData.GetSetLaserPower(JobSolder.HeatPowerRatio);
-                                _mCompactMiniComm.SendData(data);
-                                data = null;                                                       
+                                _mCompactMiniComm.SendData(data);                                                                     
                                 CheckTackTime.Start();
                                 mSolderingEngineStep = LaserSolderStepType.HeatWireSupport;
                                 LogWriteEvent?.Invoke(string.Format("레이저 솔더링 납땜 파워량 {0}.", JobSolder.HeatPowerRatio));
