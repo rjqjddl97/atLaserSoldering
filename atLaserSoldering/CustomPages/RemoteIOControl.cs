@@ -536,7 +536,9 @@ namespace CustomPages
         {
             if (_mArioCommunicationManager.IsOpen())
             {
-                SetIOStatus(_mArioData);     
+                SetIOStatus(_mArioData);
+                _mRobotInfomation.mInputData.Bit64 = (ulong)_mArioData._mRemoteIODatas._CurrentInputs[0];
+                _mRobotInfomation.mOutputData.Bit64 = (ulong)_mArioData._mRemoteIODatas._CurrentOutputs[0];
                 RobotInfomationUpdatedEvent?.Invoke(_mRobotInfomation);
             }
         }
