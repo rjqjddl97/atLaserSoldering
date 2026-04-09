@@ -26,7 +26,7 @@ namespace CoherentCompactMini.SerialCommunication.Control
         };
         private Thread engine;
 
-        private const int EngineSleepTime = 53;
+        private const int EngineSleepTime = 37;
         private const int ReceiveBuffSize = 4096;
         private SerialEngineStep mSerialEngineStep;
         private List<byte[]> mContinuousCheckList = new List<byte[]>();
@@ -54,6 +54,7 @@ namespace CoherentCompactMini.SerialCommunication.Control
         public bool IsReceiveAck { get; set; } = true;
         public bool IsConnected { get; set; }
         public UInt32 uiReceiveCount { get; set; } = 0;
+        public bool IsContiousReqEnable { get; set; } = false;
         public List<byte[]> _ContinuousDataList
         {
             get { return mContinuousCheckList; }

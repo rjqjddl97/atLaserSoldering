@@ -26,7 +26,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
         };
         private Thread engine;
 
-        private const int EngineSleepTime = 47;
+        private const int EngineSleepTime = 37;
         private const int ReceiveBuffSize = 4096;
         private SerialEngineStep mSerialEngineStep;
         private List<byte[]> mContinuousCheckList = new List<byte[]>();
@@ -249,7 +249,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
                         }
                         else
                         {
-                            if (uiReceiveCount >= 5)
+                            if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
                             {                                
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
@@ -324,7 +324,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
                             }
                             else if (mContinuousCheckList.Count != 0)
                             {
-                                //if (!IsReceiveStart)
+                                if (!IsReceiveStart)
                                 {
                                     data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
                                     //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);
