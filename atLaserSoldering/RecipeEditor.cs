@@ -1582,7 +1582,7 @@ namespace atLaserSoldering
                     }
                     if (double.TryParse(textEditForwardFeedVelocity.Text, out dResult))
                     {
-                        if (dResult >= 0 && dResult <= 50)
+                        if (dResult >= 0 && dResult <= 100)
                         {
                             inspectionPos.ForwardFeedVelocity = dResult;
                         }
@@ -1606,7 +1606,7 @@ namespace atLaserSoldering
                     }
                     if (double.TryParse(textEditReverseFeedVelocity.Text, out dResult))
                     {
-                        if (dResult >= 0 && dResult <= 50)
+                        if (dResult >= 0 && dResult <= 100)
                         {
                             inspectionPos.ReverseFeedVelocity = dResult;
                         }
@@ -1889,7 +1889,7 @@ namespace atLaserSoldering
                             }
                             if (double.TryParse(textEditForwardFeedVelocity.Text, out dResult))
                             {
-                                if (dResult >= 0 && dResult <= 50)
+                                if (dResult >= 0 && dResult <= 100)
                                 {
                                     inspectionPos.ForwardFeedVelocity = dResult;
                                 }
@@ -1913,7 +1913,7 @@ namespace atLaserSoldering
                             }
                             if (double.TryParse(textEditReverseFeedVelocity.Text, out dResult))
                             {
-                                if (dResult >= 0 && dResult <= 50)
+                                if (dResult >= 0 && dResult <= 100)
                                 {
                                     inspectionPos.ReverseFeedVelocity = dResult;
                                 }

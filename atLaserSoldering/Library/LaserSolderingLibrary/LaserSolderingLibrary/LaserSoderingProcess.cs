@@ -29,7 +29,7 @@ namespace LaserSoldering
             ReadyWireSupport,
             PreHeat,            
             PreHeatWireSupport,
-            PreHeatWireSupportWait,
+            PreHeatWireSupportWait,            
             Heat,
             HeatWireSupport,
             LaserOff,            
@@ -45,7 +45,7 @@ namespace LaserSoldering
             CompactSE
         }
 
-        private const int EngineSleepTime = 47;                //11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,479
+        private const int EngineSleepTime = 41;                //11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,479
         public RecipeManager.FeederParams _FeederParam;
         private LaserSolderStepType mSolderingEngineStep;
         public LaserSolderParameter _LaserSolderParam;
@@ -76,6 +76,7 @@ namespace LaserSoldering
         private bool _IsLaserOn = false;
         private bool _IsAutoSoldering = false;
         private bool _IsFeederError = false;
+        private bool _IsFeederMoving = false;
         private bool _IsFeederInPosition = false;
         private bool _IsAutoSolderEnd = true;
         private bool _IsInitialSoldering = false;
@@ -84,6 +85,8 @@ namespace LaserSoldering
         private double _LaserPresentCurrent = 0;
         private double _LaserPresentPower = 0;
         private double _FeederUsedLength = 0;
+        private double _FeederTargetVelocity = 0D;
+        private double _FeederPresentVelocity = 0D;
         private byte _LaserCookie = 0;
 
         private Thread ProcessEngine;
@@ -107,6 +110,7 @@ namespace LaserSoldering
         public bool IsAutoSoldering { get { return _IsAutoSoldering; } set { _IsAutoSoldering = value; } }
         public bool IsAutoSolderEnd { get { return _IsAutoSolderEnd; } set { _IsAutoSolderEnd = value; } }
         public bool IsFeederError { get { return _IsFeederError; } set { _IsFeederError = value; } }
+        public bool IsFeederMoving { get { return _IsFeederMoving; } set { _IsFeederMoving = value; } }
         public bool IsFeederSeqReady { get { return _IsFeederSeqReady; } set { _IsFeederSeqReady = value; } }
         public bool IsFeederInPosition { get { return _IsFeederInPosition; } set { _IsFeederInPosition = value; } }
         public bool IsInitialSoldering { get { return _IsInitialSoldering; } set { _IsInitialSoldering = value; } }
@@ -127,6 +131,8 @@ namespace LaserSoldering
         public double LaserPresentCurrent { get { return _LaserPresentCurrent; } set { _LaserPresentCurrent = value; }}
         public double LaserPresentPower { get { return _LaserPresentPower; } set { _LaserPresentPower = value; } }
         public double FeederUsedLength { get { return _FeederUsedLength; } set { _FeederUsedLength = value; } }
+        public double FeederTargetVelocity { get { return _FeederTargetVelocity; } set { _FeederTargetVelocity = value; } }
+        public double FeederPresentVelocity { get { return _FeederPresentVelocity; } set { _FeederPresentVelocity = value; } }
 
         public Stopwatch CheckTackTime = new Stopwatch();
         public int mCurrentReadyTime = 0;
@@ -152,8 +158,8 @@ namespace LaserSoldering
             mSolderingEngineStep = LaserSolderStepType.Stop;
             ProcessEngine = new Thread(SolderingRun);
             ProcessEngine.Start();
-            FeederProcess = new Thread(FeederSequenceRun);
-            FeederProcess.Start();
+            //FeederProcess = new Thread(FeederSequenceRun);
+            //FeederProcess.Start();
         }
         ~LaserSoderingProcess()
         {
@@ -166,7 +172,7 @@ namespace LaserSoldering
             _mFeederComm = null;
             _mFeederData = null;
             ProcessEngine.Abort();
-            FeederProcess.Abort();
+            //FeederProcess.Abort();
         }
         public void PauseEngine()
         {
@@ -281,6 +287,7 @@ namespace LaserSoldering
                 {
                     _IsAutoSoldering = true;
                     _IsAutoSolderEnd = false;
+                    _IsCommandFlag = false;
                 }
             }
         }
@@ -570,11 +577,10 @@ namespace LaserSoldering
                     Array.Copy(_mFeederData._mAiCMotionDatas._CurrentDatas, 0, itempval, 0, 1);      // Op Mode;
                     Array.Copy(_mFeederData._mAiCMotionDatas._CurrentDatas, 1, itempval, 0, 2);      // Target Position
                     datasum = itempval[0];
-                    datasum = (datasum << 16) | itempval[1];
+                    datasum = (datasum << 16) | itempval[1];                    
                     Array.Copy(_mFeederData._mAiCMotionDatas._CurrentDatas, 3, itempval, 0, 2);      // Present Position
                     datasum = itempval[0];
-                    datasum = (datasum << 16) | itempval[1];
-
+                    datasum = (datasum << 16) | itempval[1];                    
                     //if (textBoxPresentPosition.InvokeRequired)
                     //{
                     //    textBoxPresentPosition.Invoke(new MethodInvoker(delegate { textBoxPresentPosition.Text = Convert.ToString(datasum * _dFeederPulseTommRatio); }));
@@ -585,7 +591,7 @@ namespace LaserSoldering
                     Array.Copy(_mFeederData._mAiCMotionDatas._CurrentDatas, 5, itempval, 0, 2);      // Target Velocity
                     datasum = itempval[0];
                     datasum = (datasum << 16) | itempval[1];
-
+                    FeederTargetVelocity = datasum;
                     //if (textEditTargetVel1.InvokeRequired)
                     //{
                     //    textEditTargetVel1.Invoke(new MethodInvoker(delegate { textEditTargetVel1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
@@ -596,7 +602,7 @@ namespace LaserSoldering
                     Array.Copy(_mFeederData._mAiCMotionDatas._CurrentDatas, 7, itempval, 0, 2);      // Present Velocity
                     datasum = itempval[0];
                     datasum = (datasum << 16) | itempval[1];
-
+                    FeederPresentVelocity = datasum;
                     //if (textEditPresentVel1.InvokeRequired)
                     //{
                     //    textEditPresentVel1.Invoke(new MethodInvoker(delegate { textEditPresentVel1.EditValue = Convert.ToDouble(datasum * _MotionParam.Pulse2MMRatioX); }));
@@ -636,6 +642,11 @@ namespace LaserSoldering
 
                     Array.Copy(_mFeederData._mAiCMotionDatas._CurrentDatas, 15, itempval, 0, 1);     // Drive Output Status
                     _mFeederData.OutputStaus[0].SetData((UInt16)itempval[0]);
+
+                    if ((_FeederPresentVelocity == 0) && (_FeederTargetVelocity == 0))
+                        _IsFeederMoving = false;
+                    else
+                        _IsFeederMoving = true;
 
                     if (Convert.ToBoolean(_mFeederData.OutputStaus[0].B1))
                         _IsFeederInPosition = true;
@@ -778,71 +789,71 @@ namespace LaserSoldering
             {
                 while (true)
                 {
-                    if (_IsAutoSoldering)
-                    {
-                        int datasize = 0;
-                        byte[] data = null;
-                        LaserSolderParameter JobSolder = new LaserSolderParameter();
-                        JobSolder = _LaserSolderParam;
-                        LogWriteEvent?.Invoke(string.Format("실납 공급 시퀀스 시작."));
-                        data = _mFeederData.SetMoveTargetVelocity(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingVelocity * FeederParam.FeedermmToPulseRatio, 1));
-                        _mFeederComm.SendData(data);
-                        Thread.Sleep(50);
-                        data = null;
-                        data = _mFeederData.SetMoveTargetAccel(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingAcceleration * FeederParam.FeedermmToPulseRatio, 1));
-                        _mFeederComm.SendData(data);
-                        Thread.Sleep(50);
-                        _IsFeederSeqReady = true;
-                        _waitHandelFeeder.Reset();
-                        _waitHandelFeeder.WaitOne();
-                        data = null;
-                        data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(JobSolder.ForwordingWireLength * FeederParam.FeedermmToPulseRatio));
-                        _mFeederComm.SendData(data);
-                        Thread.Sleep(100);
-                        _waitHandelFeeder.Reset();                        
-                        _waitHandelFeeder.WaitOne(JobSolder.ReadyTime + 5000);
-                        LogWriteEvent?.Invoke(string.Format("실납 공급 속도,길이,가속도 설정 완료."));
-                        Thread.Sleep(100);
-                        _waitHandelFeeder.Reset();
-                        _waitHandelFeeder.WaitOne(JobSolder.PreHeatTime + 5000);
-                        //_waitHandelFeeder.WaitOne();
-                        data = null;
-                        data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
-                        _mFeederComm.SendData(data);
-                        LogWriteEvent?.Invoke(string.Format("실납 공급 시작."));
-                        Thread.Sleep(500);
-                        while (!_IsFeederInPosition) ;
-                        //_waitHandelFeeder.Reset();
-                        //_waitHandelFeeder.WaitOne(JobSolder.HeatTime / 2);
-                        data = null;
-                        data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(-JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio));
-                        _mFeederComm.SendData(data);
-                        //Thread.Sleep(100);
-                        //Thread.Sleep(50);
-                        //data = _mFeederData.SetMoveTargetVelocity(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ReverseVelocity * FeederParam.FeedermmToPulseRatio,1));
-                        //_mFeederComm.SendData(data);
-                        LogWriteEvent?.Invoke(string.Format("실납 회수 속도,길이 설정 완료."));
-                        _waitHandelFeeder.Reset();
-                        _waitHandelFeeder.WaitOne(JobSolder.HeatTime + 5000);
-                        //_waitHandelFeeder.WaitOne();
-                        data = null;
-                        data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
-                        _mFeederComm.SendData(data);
-                        LogWriteEvent?.Invoke(string.Format("실납 회수 시작."));
-                        Thread.Sleep(200);
-                        _waitHandelFeeder.Reset();
-                        _waitHandelFeeder.WaitOne(5000);
-                        LogWriteEvent?.Invoke(string.Format("실납 공급 시퀀스 종료."));
-                        _IsFeederSeqReady = false;
-                        data = null;
-                        data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(JobSolder.ForwordingWireLength * FeederParam.FeedermmToPulseRatio));
-                        _mFeederComm.SendData(data);
-                        Thread.Sleep(100);
-                    }
-                    else
-                    {
-                        _IsFeederSeqReady = false;
-                    }
+                    //if (_IsAutoSoldering)
+                    //{
+                    //    int datasize = 0;
+                    //    byte[] data = null;
+                    //    LaserSolderParameter JobSolder = new LaserSolderParameter();
+                    //    JobSolder = _LaserSolderParam;
+                    //    LogWriteEvent?.Invoke(string.Format("실납 공급 시퀀스 시작."));
+                    //    data = _mFeederData.SetMoveTargetVelocity(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingVelocity * FeederParam.FeedermmToPulseRatio, 1));
+                    //    _mFeederComm.SendData(data);
+                    //    Thread.Sleep(50);
+                    //    data = null;
+                    //    data = _mFeederData.SetMoveTargetAccel(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingAcceleration * FeederParam.FeedermmToPulseRatio, 1));
+                    //    _mFeederComm.SendData(data);
+                    //    Thread.Sleep(50);
+                    //    _IsFeederSeqReady = true;
+                    //    _waitHandelFeeder.Reset();
+                    //    _waitHandelFeeder.WaitOne();
+                    //    data = null;
+                    //    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(JobSolder.ForwordingWireLength * FeederParam.FeedermmToPulseRatio));
+                    //    _mFeederComm.SendData(data);
+                    //    Thread.Sleep(100);
+                    //    _waitHandelFeeder.Reset();                        
+                    //    _waitHandelFeeder.WaitOne(JobSolder.ReadyTime + 5000);
+                    //    LogWriteEvent?.Invoke(string.Format("실납 공급 속도,길이,가속도 설정 완료."));
+                    //    Thread.Sleep(100);
+                    //    _waitHandelFeeder.Reset();
+                    //    _waitHandelFeeder.WaitOne(JobSolder.PreHeatTime + 5000);
+                    //    //_waitHandelFeeder.WaitOne();
+                    //    data = null;
+                    //    data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                    //    _mFeederComm.SendData(data);
+                    //    LogWriteEvent?.Invoke(string.Format("실납 공급 시작."));
+                    //    Thread.Sleep(JobSolder.HeatTime / 2);
+                    //    while (!_IsFeederMoving) ;
+                    //    //_waitHandelFeeder.Reset();
+                    //    //_waitHandelFeeder.WaitOne(JobSolder.HeatTime / 2);
+                    //    data = null;
+                    //    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(-JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio));
+                    //    _mFeederComm.SendData(data);
+                    //    //Thread.Sleep(100);
+                    //    //Thread.Sleep(50);
+                    //    //data = _mFeederData.SetMoveTargetVelocity(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ReverseVelocity * FeederParam.FeedermmToPulseRatio,1));
+                    //    //_mFeederComm.SendData(data);
+                    //    LogWriteEvent?.Invoke(string.Format("실납 회수 속도,길이 설정 완료."));
+                    //    _waitHandelFeeder.Reset();
+                    //    _waitHandelFeeder.WaitOne(JobSolder.HeatTime + 5000);
+                    //    //_waitHandelFeeder.WaitOne();
+                    //    data = null;
+                    //    data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                    //    _mFeederComm.SendData(data);
+                    //    LogWriteEvent?.Invoke(string.Format("실납 회수 시작."));
+                    //    Thread.Sleep(200);
+                    //    _waitHandelFeeder.Reset();
+                    //    _waitHandelFeeder.WaitOne(5000);
+                    //    LogWriteEvent?.Invoke(string.Format("실납 공급 시퀀스 종료."));
+                    //    _IsFeederSeqReady = false;
+                    //    data = null;
+                    //    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(1.0 * FeederParam.FeedermmToPulseRatio));
+                    //    _mFeederComm.SendData(data);
+                    //    Thread.Sleep(100);
+                    //}
+                    //else
+                    //{
+                    //    _IsFeederSeqReady = false;
+                    //}
                     Thread.Sleep(100);
                 }                
             }
@@ -900,23 +911,18 @@ namespace LaserSoldering
                                 {
                                     JobSolder = _LaserSolderParam;
 
-                                    data = new byte[20];
+                                    //data = new byte[20];
                                     //datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
                                     //data = _mCompactMiniData.GetSetPowerOn(true);
                                     //_mCompactMiniComm.SendData(data);
                                     //datasize = _mCompactMiniData.GetSetLaserPowerPacketSize(JobSolder.PreheatPowerRatio);                                        
                                     //data = _mCompactMiniData.GetSetLaserPower(JobSolder.PreheatPowerRatio);
-                                    //_mCompactMiniComm.SendData(data);                                    
-                                    
-                                    //data = _mFeederData.SetMoveTargetVelocity(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingVelocity * FeederParam.FeedermmToPulseRatio));
-                                    //_mFeederComm.SendData(data);
-                                    //data = _mFeederData.SetMoveTargetAccel(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingAcceleration * FeederParam.FeedermmToPulseRatio));
-                                    //_mFeederComm.SendData(data);
-                                    _IsCommandFlag = false;
+                                    //_mCompactMiniComm.SendData(data);                                   
                                     FeederUsedLength += JobSolder.ForwordingWireLength;
                                     mCurrentHeatTime = 0;
                                     mCurrentPreHeatTime = 0;
                                     mCurrentReadyTime = 0;
+                                    _IsCommandFlag = false;
                                     mSolderingEngineStep = LaserSolderStepType.Ready;
                                     LogWriteEvent?.Invoke(string.Format("레이저 솔더링 시작."));
                                 }
@@ -929,21 +935,36 @@ namespace LaserSoldering
                             //    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 시작."));
                             //    break;
                             case LaserSolderStepType.Ready:
-                                if (_IsFeederSeqReady)
+                                //if (_IsFeederSeqReady)
                                 {
                                     CheckTackTime.Reset();
-                                    _waitHandelFeeder.Set();
+                                    //_waitHandelFeeder.Set();
                                     data = new byte[20];
-                                    datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
-                                    data = _mCompactMiniData.GetSetPowerOn(true);
-                                    _mCompactMiniComm.SendData(data);
-                                    datasize = _mCompactMiniData.GetSetLaserPowerPacketSize(JobSolder.PreheatPowerRatio);
-                                    data = _mCompactMiniData.GetSetLaserPower(JobSolder.PreheatPowerRatio);
-                                    _mCompactMiniComm.SendData(data);                                    
-                                    // Insert Laser Gate On I/O Command !!
-                                    CheckTackTime.Start();
-                                    mSolderingEngineStep = LaserSolderStepType.PreHeat;
-                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 예열 파워량 {0}.",JobSolder.PreheatPowerRatio));
+
+                                    if (!_IsCommandFlag)
+                                    {
+                                        datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
+                                        data = _mCompactMiniData.GetSetPowerOn(true);
+                                        _mCompactMiniComm.SendData(data);
+                                        data = null;
+                                        data = _mFeederData.SetMoveTargetVelocity(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingVelocity * FeederParam.FeedermmToPulseRatio));
+                                        _mFeederComm.SendData(data);
+                                        _IsCommandFlag = true;
+                                    }
+                                    else
+                                    {
+                                        datasize = _mCompactMiniData.GetSetLaserPowerPacketSize(JobSolder.PreheatPowerRatio);
+                                        data = _mCompactMiniData.GetSetLaserPower(JobSolder.PreheatPowerRatio);
+                                        _mCompactMiniComm.SendData(data);
+                                        data = null;
+                                        data = _mFeederData.SetMoveTargetAccel(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingAcceleration * FeederParam.FeedermmToPulseRatio));
+                                        _mFeederComm.SendData(data);
+                                        _IsCommandFlag = false;
+                                        // Insert Laser Gate On I/O Command !!
+                                        CheckTackTime.Start();
+                                        mSolderingEngineStep = LaserSolderStepType.PreHeat;
+                                        LogWriteEvent?.Invoke(string.Format("레이저 솔더링 예열 파워량 {0}.", JobSolder.PreheatPowerRatio));
+                                    }
                                 }
                                 break;
                             case LaserSolderStepType.PreHeat:
@@ -951,49 +972,86 @@ namespace LaserSoldering
                                 {
                                     mCurrentReadyTime = (int)ts.TotalMilliseconds;
                                     CheckTackTime.Reset();
-                                    _waitHandelFeeder.Set();
+                                    //_waitHandelFeeder.Set();
                                     data = new byte[20];
                                     //data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
                                     //_mFeederComm.SendData(data);
                                     datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
                                     data = _mCompactMiniData.GetSetLaserOn(true);
                                     _mCompactMiniComm.SendData(data);
-                                    //data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ForwordingWireLength * FeederParam.FeedermmToPulseRatio));
-                                    //_mFeederComm.SendData(data);
-                                    
+                                    data = null;
+                                    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(JobSolder.ForwordingWireLength * FeederParam.FeedermmToPulseRatio));
+                                    _mFeederComm.SendData(data);
+
                                     CheckTackTime.Start();
                                     mSolderingEngineStep = LaserSolderStepType.PreHeatWireSupport;
                                     LogWriteEvent?.Invoke(string.Format("레이저 솔더링 준비시간 설정{0}, 실행{1}.",JobSolder.ReadyTime, mCurrentReadyTime));
                                 }
                                 break;
                             case LaserSolderStepType.PreHeatWireSupport:
-                                if (((int)ts.TotalMilliseconds) > JobSolder.PreHeatTime)
+                                if (((int)ts.TotalMilliseconds) >= JobSolder.PreHeatTime)
                                 {
-                                    mCurrentPreHeatTime = (int)ts.TotalMilliseconds;                                                 
-                                    //data = new byte[20];                                    
-                                    //data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
-                                    //_mFeederComm.SendData(data);          
-                                    _waitHandelFeeder.Set();
+                                    mCurrentPreHeatTime = (int)ts.TotalMilliseconds;        
+                                    //_waitHandelFeeder.Set();
                                     CheckTackTime.Reset();
-                                    mSolderingEngineStep = LaserSolderStepType.Heat;
+                                    mSolderingEngineStep = LaserSolderStepType.HeatWireSupport;
+                                    _IsCommandFlag = false;
+                                    CheckTackTime.Start();
                                     LogWriteEvent?.Invoke(string.Format("레이저 솔더링 예열시간 설정{0}, 실행{1}.", JobSolder.PreHeatTime, mCurrentPreHeatTime));
                                 }
-                                break;
-                            case LaserSolderStepType.Heat:
-                                data = new byte[20];
-                                datasize = _mCompactMiniData.GetSetLaserPowerPacketSize(JobSolder.HeatPowerRatio);                                
-                                data = _mCompactMiniData.GetSetLaserPower(JobSolder.HeatPowerRatio);
-                                _mCompactMiniComm.SendData(data);                                                                     
-                                CheckTackTime.Start();
-                                mSolderingEngineStep = LaserSolderStepType.HeatWireSupport;
-                                LogWriteEvent?.Invoke(string.Format("레이저 솔더링 납땜 파워량 {0}.", JobSolder.HeatPowerRatio));
+                                else if (((int)ts.TotalMilliseconds) > (JobSolder.PreHeatTime/2))
+                                {
+                                    if (!_IsCommandFlag)
+                                    {
+                                        data = new byte[20];
+                                        data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                        _mFeederComm.SendData(data);
+                                        LogWriteEvent?.Invoke(string.Format("실납 공급 시작."));
+                                        _IsCommandFlag = true;
+                                    }
+                                    
+                                }
                                 break;
                             case LaserSolderStepType.HeatWireSupport:
                                 //data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
                                 //_mFeederComm.SendData(data);
-                                mSolderingEngineStep = LaserSolderStepType.LaserOff;
+                                if (((int)ts.TotalMilliseconds) >= 200)
+                                {
+                                    if (!_IsFeederMoving)
+                                    {
+                                        CheckTackTime.Reset();
+                                        mSolderingEngineStep = LaserSolderStepType.Heat;
+                                        LogWriteEvent?.Invoke(string.Format("실납 공급 완료."));
+                                    }
+                                }
                                 break;
+                            case LaserSolderStepType.Heat:
+                                
+                                data = new byte[20];
+                                if (!_IsCommandFlag)
+                                {                                    
+                                    _IsCommandFlag = true;
+                                    CheckTackTime.Reset();
+                                    data = null;
+                                    datasize = _mCompactMiniData.GetSetLaserPowerPacketSize(JobSolder.HeatPowerRatio);
+                                    data = _mCompactMiniData.GetSetLaserPower(JobSolder.HeatPowerRatio);
+                                    _mCompactMiniComm.SendData(data);
+                                    CheckTackTime.Start();
+                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 납땜 파워량 {0}.", JobSolder.HeatPowerRatio));
+                                }
+                                else
+                                {
+                                    _IsCommandFlag = false;
+                                    data = null;
+                                    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio)));
+                                    _mFeederComm.SendData(data);
+                                    LogWriteEvent?.Invoke(string.Format("실납 회수 설정 {0}.", (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio))));
+                                    mSolderingEngineStep = LaserSolderStepType.LaserOff;                                    
+                                }
+                                break;
+
                             case LaserSolderStepType.LaserOff:
+                                data = new byte[20];
                                 if (((int)ts.TotalMilliseconds) > JobSolder.HeatTime)
                                 {
                                     mCurrentHeatTime = (int)ts.TotalMilliseconds;
@@ -1007,16 +1065,21 @@ namespace LaserSoldering
                                     //_mCompactMiniComm.SendData(data);                                    
                                     //data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(-JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio));
                                     //_mFeederComm.SendData(data);
-                                    //data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
-                                    //_mFeederComm.SendData(data);                                    
                                     CheckTackTime.Start();
                                     _IsCommandFlag = false;
                                     mSolderingEngineStep = LaserSolderStepType.ReverseWire;
                                     LogWriteEvent?.Invoke(string.Format("레이저 솔더링 납땜 시간 설정{0}, 실행{1}.", JobSolder.HeatTime, mCurrentHeatTime));
                                 }
-                                else if (((int)ts.TotalMilliseconds) > (JobSolder.HeatTime - 200))
+                                else if (((int)ts.TotalMilliseconds) > (JobSolder.HeatTime/2))
                                 {
-                                    _waitHandelFeeder.Set();
+                                    if (!_IsCommandFlag)
+                                    {
+                                        _IsCommandFlag = true;
+                                        data = null;
+                                        data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                        _mFeederComm.SendData(data);
+                                        LogWriteEvent?.Invoke(string.Format("실납 회수 시작."));
+                                    }
                                 }
                                     //else if (_IsCommandFlag == false)
                                     //{
@@ -1028,17 +1091,20 @@ namespace LaserSoldering
 
                                     break;
                             case LaserSolderStepType.ReverseWire:
-                                if (((int)ts.TotalMilliseconds) >= 300)
+                                if (((int)ts.TotalMilliseconds) >= 200)
                                 {
-                                    data = new byte[20];
-                                    datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
-                                    data = _mCompactMiniData.GetSetPowerOn(false);
-                                    //datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
-                                    //data = _mCompactMiniData.GetSetLaserOn(false);
-                                    _mCompactMiniComm.SendData(data);
-                                    CheckTackTime.Reset();                                    
-                                    mSolderingEngineStep = LaserSolderStepType.PowerOff;
-                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 레이저 Off 지연 시간{0}.", (int)ts.TotalMilliseconds));
+                                    if (!_IsFeederMoving)
+                                    {
+                                        data = new byte[20];
+                                        datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
+                                        data = _mCompactMiniData.GetSetPowerOn(false);
+                                        //datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
+                                        //data = _mCompactMiniData.GetSetLaserOn(false);
+                                        _mCompactMiniComm.SendData(data);
+                                        CheckTackTime.Reset();
+                                        mSolderingEngineStep = LaserSolderStepType.PowerOff;
+                                        LogWriteEvent?.Invoke(string.Format("레이저 솔더링 레이저 Off 지연 시간{0}, 실납 회수 완료.", (int)ts.TotalMilliseconds));
+                                    }
                                 }
                                 //else if (_IsCommandFlag == false)
                                 //{
@@ -1084,6 +1150,9 @@ namespace LaserSoldering
                                     data = _mCompactMiniData.GetSetLaserPower(200);
                                     _mCompactMiniComm.SendData(data);                                    
                                     mSolderingEngineStep = LaserSolderStepType.Idle;
+                                    //data = null;
+                                    //data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(1.0 * FeederParam.FeedermmToPulseRatio));
+                                    //_mFeederComm.SendData(data);
                                     LogWriteEvent?.Invoke(string.Format("레이저 솔더링 종료."));
                                     _waitHandle.Set();
                                     

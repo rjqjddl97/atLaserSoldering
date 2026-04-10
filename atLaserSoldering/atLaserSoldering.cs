@@ -2417,11 +2417,11 @@ namespace atLaserSoldering
                 }
                 if (!_IsAutoSolderingRunning)
                 {
-                    if (_isContinuousShot)
-                    {
-                        _Camera.Stop();
-                        _isContinuousShot = false;
-                    }
+                    //if (_isContinuousShot)
+                    //{
+                    //    _Camera.Stop();
+                    //    _isContinuousShot = false;
+                    //}
 
                     barEditItemAutoSolderingProgress.EditValue = 0;
                     repositoryItemAutoSolderingProgress.Maximum = 100;

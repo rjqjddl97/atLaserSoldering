@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO.Ports;
 using FeederControlLibrary.SerialCommunication.DataProcessor;
+using System.Diagnostics;
 
 namespace FeederControlLibrary.SerialCommunication.Control
 {
@@ -34,6 +35,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
         //public event ReceiveQueueData ReceivedQueueDataEventHandler;
         public event Action<byte[]> ReceivePacketRawDataEvent;
         public Queue<byte[]> _ReceiveDataQueue = new Queue<byte[]>();
+        public Stopwatch CheckTackTime = new Stopwatch();
         public SerialHandler()
         {
             mSerialPort = new SerialPort();
@@ -134,6 +136,8 @@ namespace FeederControlLibrary.SerialCommunication.Control
                     // 데이터 인코딩 및 패킷 생서 후 시리얼 데이터 전송 구문
                     mSerialPort.Write(buffer, offset, buffer.Length);
                     //ReceivedQueueDataEventHandler?.BeginInvoke(buffer, buffer.Length, null, null);
+                    //DateTime timestamp = new DateTime();
+                    //Console.WriteLine("Feed Handle Send Data Events Time{0}", timestamp.GetDateTimeFormats());
                 }
             }
             catch (Exception)

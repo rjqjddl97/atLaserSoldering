@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelControlFeedInpositoin = new DevExpress.XtraEditors.LabelControl();
             this.textEditMenualPowerRatio = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonFeedPositive = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonFeedStop = new DevExpress.XtraEditors.SimpleButton();
@@ -64,6 +64,7 @@
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemMenualPowerRatio = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButtonSolderingStart = new DevExpress.XtraEditors.SimpleButton();
             this.textEditReverseFeedVelocity = new DevExpress.XtraEditors.TextEdit();
@@ -91,7 +92,6 @@
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.timerUpdateTime = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
@@ -115,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemMenualPowerRatio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedVelocity.Properties)).BeginInit();
@@ -158,6 +159,7 @@
             // 
             // layoutControl3
             // 
+            this.layoutControl3.Controls.Add(this.labelControlFeedInpositoin);
             this.layoutControl3.Controls.Add(this.textEditMenualPowerRatio);
             this.layoutControl3.Controls.Add(this.simpleButtonFeedPositive);
             this.layoutControl3.Controls.Add(this.simpleButtonFeedStop);
@@ -181,23 +183,37 @@
             this.layoutControl3.TabIndex = 6;
             this.layoutControl3.Text = "layoutControl3";
             // 
+            // labelControlFeedInpositoin
+            // 
+            this.labelControlFeedInpositoin.Appearance.Options.UseTextOptions = true;
+            this.labelControlFeedInpositoin.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControlFeedInpositoin.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.labelControlFeedInpositoin.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+            this.labelControlFeedInpositoin.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
+            this.labelControlFeedInpositoin.Location = new System.Drawing.Point(451, 4);
+            this.labelControlFeedInpositoin.Name = "labelControlFeedInpositoin";
+            this.labelControlFeedInpositoin.Size = new System.Drawing.Size(76, 14);
+            this.labelControlFeedInpositoin.StyleController = this.layoutControl3;
+            this.labelControlFeedInpositoin.TabIndex = 11;
+            this.labelControlFeedInpositoin.Text = "Feed Inp.";
+            // 
             // textEditMenualPowerRatio
             // 
-            this.textEditMenualPowerRatio.Location = new System.Drawing.Point(455, 28);
+            this.textEditMenualPowerRatio.Location = new System.Drawing.Point(467, 28);
             this.textEditMenualPowerRatio.Name = "textEditMenualPowerRatio";
             this.textEditMenualPowerRatio.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditMenualPowerRatio.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditMenualPowerRatio.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.textEditMenualPowerRatio.Size = new System.Drawing.Size(72, 20);
+            this.textEditMenualPowerRatio.Size = new System.Drawing.Size(60, 20);
             this.textEditMenualPowerRatio.StyleController = this.layoutControl3;
             this.textEditMenualPowerRatio.TabIndex = 10;
             this.textEditMenualPowerRatio.EditValueChanged += new System.EventHandler(this.textEditMenualPowerRatio_EditValueChanged);
             // 
             // simpleButtonFeedPositive
             // 
-            this.simpleButtonFeedPositive.Location = new System.Drawing.Point(471, 54);
+            this.simpleButtonFeedPositive.Location = new System.Drawing.Point(473, 54);
             this.simpleButtonFeedPositive.Name = "simpleButtonFeedPositive";
-            this.simpleButtonFeedPositive.Size = new System.Drawing.Size(56, 22);
+            this.simpleButtonFeedPositive.Size = new System.Drawing.Size(54, 22);
             this.simpleButtonFeedPositive.StyleController = this.layoutControl3;
             this.simpleButtonFeedPositive.TabIndex = 9;
             this.simpleButtonFeedPositive.Text = "Feed +";
@@ -205,9 +221,9 @@
             // 
             // simpleButtonFeedStop
             // 
-            this.simpleButtonFeedStop.Location = new System.Drawing.Point(410, 54);
+            this.simpleButtonFeedStop.Location = new System.Drawing.Point(416, 54);
             this.simpleButtonFeedStop.Name = "simpleButtonFeedStop";
-            this.simpleButtonFeedStop.Size = new System.Drawing.Size(57, 22);
+            this.simpleButtonFeedStop.Size = new System.Drawing.Size(53, 22);
             this.simpleButtonFeedStop.StyleController = this.layoutControl3;
             this.simpleButtonFeedStop.TabIndex = 8;
             this.simpleButtonFeedStop.Text = "Stop";
@@ -215,9 +231,9 @@
             // 
             // simpleButtonFeedNegative
             // 
-            this.simpleButtonFeedNegative.Location = new System.Drawing.Point(349, 54);
+            this.simpleButtonFeedNegative.Location = new System.Drawing.Point(359, 54);
             this.simpleButtonFeedNegative.Name = "simpleButtonFeedNegative";
-            this.simpleButtonFeedNegative.Size = new System.Drawing.Size(57, 22);
+            this.simpleButtonFeedNegative.Size = new System.Drawing.Size(53, 22);
             this.simpleButtonFeedNegative.StyleController = this.layoutControl3;
             this.simpleButtonFeedNegative.TabIndex = 7;
             this.simpleButtonFeedNegative.Text = "Feed -";
@@ -225,9 +241,9 @@
             // 
             // simpleButtonFeedCommand
             // 
-            this.simpleButtonFeedCommand.Location = new System.Drawing.Point(251, 54);
+            this.simpleButtonFeedCommand.Location = new System.Drawing.Point(257, 54);
             this.simpleButtonFeedCommand.Name = "simpleButtonFeedCommand";
-            this.simpleButtonFeedCommand.Size = new System.Drawing.Size(94, 22);
+            this.simpleButtonFeedCommand.Size = new System.Drawing.Size(98, 22);
             this.simpleButtonFeedCommand.StyleController = this.layoutControl3;
             this.simpleButtonFeedCommand.TabIndex = 6;
             this.simpleButtonFeedCommand.Text = "Feed Command";
@@ -240,7 +256,7 @@
             this.textEditMenualFeedLength.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditMenualFeedLength.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditMenualFeedLength.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.textEditMenualFeedLength.Size = new System.Drawing.Size(50, 20);
+            this.textEditMenualFeedLength.Size = new System.Drawing.Size(56, 20);
             this.textEditMenualFeedLength.StyleController = this.layoutControl3;
             this.textEditMenualFeedLength.TabIndex = 5;
             // 
@@ -257,9 +273,9 @@
             // 
             // simpleButtonLaserReset
             // 
-            this.simpleButtonLaserReset.Location = new System.Drawing.Point(274, 28);
+            this.simpleButtonLaserReset.Location = new System.Drawing.Point(283, 28);
             this.simpleButtonLaserReset.Name = "simpleButtonLaserReset";
-            this.simpleButtonLaserReset.Size = new System.Drawing.Size(86, 22);
+            this.simpleButtonLaserReset.Size = new System.Drawing.Size(89, 22);
             this.simpleButtonLaserReset.StyleController = this.layoutControl3;
             this.simpleButtonLaserReset.TabIndex = 0;
             this.simpleButtonLaserReset.Text = "Reset";
@@ -271,16 +287,16 @@
             this.labelControlEmissionStatus.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
             this.labelControlEmissionStatus.Location = new System.Drawing.Point(365, 4);
             this.labelControlEmissionStatus.Name = "labelControlEmissionStatus";
-            this.labelControlEmissionStatus.Size = new System.Drawing.Size(162, 20);
+            this.labelControlEmissionStatus.Size = new System.Drawing.Size(82, 20);
             this.labelControlEmissionStatus.StyleController = this.layoutControl3;
             this.labelControlEmissionStatus.TabIndex = 0;
             this.labelControlEmissionStatus.Text = "Emission";
             // 
             // simpleButtonPilotOn
             // 
-            this.simpleButtonPilotOn.Location = new System.Drawing.Point(184, 28);
+            this.simpleButtonPilotOn.Location = new System.Drawing.Point(190, 28);
             this.simpleButtonPilotOn.Name = "simpleButtonPilotOn";
-            this.simpleButtonPilotOn.Size = new System.Drawing.Size(86, 22);
+            this.simpleButtonPilotOn.Size = new System.Drawing.Size(89, 22);
             this.simpleButtonPilotOn.StyleController = this.layoutControl3;
             this.simpleButtonPilotOn.TabIndex = 0;
             this.simpleButtonPilotOn.Text = "Pilot On";
@@ -288,9 +304,9 @@
             // 
             // simpleButtonLaserPowerOn
             // 
-            this.simpleButtonLaserPowerOn.Location = new System.Drawing.Point(94, 28);
+            this.simpleButtonLaserPowerOn.Location = new System.Drawing.Point(97, 28);
             this.simpleButtonLaserPowerOn.Name = "simpleButtonLaserPowerOn";
-            this.simpleButtonLaserPowerOn.Size = new System.Drawing.Size(86, 22);
+            this.simpleButtonLaserPowerOn.Size = new System.Drawing.Size(89, 22);
             this.simpleButtonLaserPowerOn.StyleController = this.layoutControl3;
             this.simpleButtonLaserPowerOn.TabIndex = 0;
             this.simpleButtonLaserPowerOn.Text = "Power On";
@@ -311,7 +327,7 @@
             // 
             this.simpleButtonLaserOn.Location = new System.Drawing.Point(4, 28);
             this.simpleButtonLaserOn.Name = "simpleButtonLaserOn";
-            this.simpleButtonLaserOn.Size = new System.Drawing.Size(86, 22);
+            this.simpleButtonLaserOn.Size = new System.Drawing.Size(89, 22);
             this.simpleButtonLaserOn.StyleController = this.layoutControl3;
             this.simpleButtonLaserOn.TabIndex = 0;
             this.simpleButtonLaserOn.Text = "Laser On";
@@ -370,7 +386,8 @@
             this.layoutControlItem17,
             this.layoutControlItem18,
             this.layoutControlItem19,
-            this.layoutControlItemMenualPowerRatio});
+            this.layoutControlItemMenualPowerRatio,
+            this.layoutControlItem20});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlGroup2.Size = new System.Drawing.Size(531, 81);
@@ -431,7 +448,7 @@
             this.layoutControlItem11.MaxSize = new System.Drawing.Size(500, 24);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(70, 24);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(166, 24);
+            this.layoutControlItem11.Size = new System.Drawing.Size(86, 24);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
@@ -443,7 +460,7 @@
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(500, 26);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(90, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(90, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -451,11 +468,11 @@
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.simpleButtonLaserPowerOn;
-            this.layoutControlItem12.Location = new System.Drawing.Point(90, 24);
+            this.layoutControlItem12.Location = new System.Drawing.Point(93, 24);
             this.layoutControlItem12.MaxSize = new System.Drawing.Size(500, 26);
             this.layoutControlItem12.MinSize = new System.Drawing.Size(90, 26);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(90, 26);
+            this.layoutControlItem12.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
@@ -463,11 +480,11 @@
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.simpleButtonPilotOn;
-            this.layoutControlItem13.Location = new System.Drawing.Point(180, 24);
+            this.layoutControlItem13.Location = new System.Drawing.Point(186, 24);
             this.layoutControlItem13.MaxSize = new System.Drawing.Size(500, 26);
             this.layoutControlItem13.MinSize = new System.Drawing.Size(90, 26);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(90, 26);
+            this.layoutControlItem13.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
@@ -475,11 +492,11 @@
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.simpleButtonLaserReset;
-            this.layoutControlItem14.Location = new System.Drawing.Point(270, 24);
+            this.layoutControlItem14.Location = new System.Drawing.Point(279, 24);
             this.layoutControlItem14.MaxSize = new System.Drawing.Size(500, 26);
             this.layoutControlItem14.MinSize = new System.Drawing.Size(90, 26);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(90, 26);
+            this.layoutControlItem14.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
@@ -498,54 +515,66 @@
             this.layoutControlItem15.Control = this.textEditMenualFeedLength;
             this.layoutControlItem15.Location = new System.Drawing.Point(102, 50);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(145, 27);
+            this.layoutControlItem15.Size = new System.Drawing.Size(151, 27);
             this.layoutControlItem15.Text = "Feed Length";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(88, 14);
             // 
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.simpleButtonFeedCommand;
-            this.layoutControlItem16.Location = new System.Drawing.Point(247, 50);
+            this.layoutControlItem16.Location = new System.Drawing.Point(253, 50);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(98, 27);
+            this.layoutControlItem16.Size = new System.Drawing.Size(102, 27);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.simpleButtonFeedNegative;
-            this.layoutControlItem17.Location = new System.Drawing.Point(345, 50);
+            this.layoutControlItem17.Location = new System.Drawing.Point(355, 50);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(61, 27);
+            this.layoutControlItem17.Size = new System.Drawing.Size(57, 27);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
             // 
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.simpleButtonFeedStop;
-            this.layoutControlItem18.Location = new System.Drawing.Point(406, 50);
+            this.layoutControlItem18.Location = new System.Drawing.Point(412, 50);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(61, 27);
+            this.layoutControlItem18.Size = new System.Drawing.Size(57, 27);
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
             // 
             // layoutControlItem19
             // 
             this.layoutControlItem19.Control = this.simpleButtonFeedPositive;
-            this.layoutControlItem19.Location = new System.Drawing.Point(467, 50);
+            this.layoutControlItem19.Location = new System.Drawing.Point(469, 50);
             this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(60, 27);
+            this.layoutControlItem19.Size = new System.Drawing.Size(58, 27);
             this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem19.TextVisible = false;
             // 
             // layoutControlItemMenualPowerRatio
             // 
             this.layoutControlItemMenualPowerRatio.Control = this.textEditMenualPowerRatio;
-            this.layoutControlItemMenualPowerRatio.Location = new System.Drawing.Point(360, 24);
+            this.layoutControlItemMenualPowerRatio.Location = new System.Drawing.Point(372, 24);
             this.layoutControlItemMenualPowerRatio.Name = "layoutControlItemMenualPowerRatio";
-            this.layoutControlItemMenualPowerRatio.Size = new System.Drawing.Size(167, 26);
+            this.layoutControlItemMenualPowerRatio.Size = new System.Drawing.Size(155, 26);
             this.layoutControlItemMenualPowerRatio.Text = "Power Ratio[%]";
             this.layoutControlItemMenualPowerRatio.TextSize = new System.Drawing.Size(88, 14);
+            // 
+            // layoutControlItem20
+            // 
+            this.layoutControlItem20.Control = this.labelControlFeedInpositoin;
+            this.layoutControlItem20.Location = new System.Drawing.Point(447, 0);
+            this.layoutControlItem20.MaxSize = new System.Drawing.Size(80, 18);
+            this.layoutControlItem20.MinSize = new System.Drawing.Size(80, 18);
+            this.layoutControlItem20.Name = "layoutControlItem20";
+            this.layoutControlItem20.Size = new System.Drawing.Size(80, 24);
+            this.layoutControlItem20.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem20.TextVisible = false;
             // 
             // layoutControl2
             // 
@@ -835,11 +864,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // timerUpdateTime
-            // 
-            this.timerUpdateTime.Interval = 100;
-            this.timerUpdateTime.Tick += new System.EventHandler(this.timerUpdateTime_Tick);
-            // 
             // SolderingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -870,6 +894,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemMenualPowerRatio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedVelocity.Properties)).EndInit();
@@ -942,7 +967,6 @@
         private DevExpress.XtraEditors.LabelControl labelControlErrorStatus;
         private DevExpress.XtraEditors.LabelControl labelControlLaserStatus;
         private DevExpress.XtraEditors.LabelControl labelControlPowerStatus;
-        private System.Windows.Forms.Timer timerUpdateTime;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
@@ -966,5 +990,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
         private DevExpress.XtraEditors.TextEdit textEditMenualPowerRatio;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItemMenualPowerRatio;
+        private DevExpress.XtraEditors.LabelControl labelControlFeedInpositoin;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
     }
 }

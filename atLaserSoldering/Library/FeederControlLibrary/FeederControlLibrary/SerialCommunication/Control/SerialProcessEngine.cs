@@ -324,12 +324,12 @@ namespace FeederControlLibrary.SerialCommunication.Control
                             }
                             else if (mContinuousCheckList.Count != 0)
                             {
-                                if (!IsReceiveStart)
+                                //if (!IsReceiveStart)
                                 {
-                                    data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
-                                    //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);
                                     if (mContinuousCheckIndex >= mContinuousCheckList.Count)
                                         mContinuousCheckIndex = 0;
+                                    data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
+                                    //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);
                                 }
                             }
 

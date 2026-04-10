@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FeederControlLibrary.SerialCommunication.Data;
 using FeederControlLibrary.SerialCommunication.DataProcessor;
 using FeederControlLibrary.SerialCommunication.Control;
+using System.Diagnostics;
 
 namespace FeederControlLibrary.SerialCommunication.Control
 {
@@ -32,6 +33,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
         public static bool IsConnected { get; private set; } = false;
         private int mPortOpenedButNoDataReceived = 0;
         public double PresentVoltage = 0;
+        public Stopwatch CheckTackTime = new Stopwatch();
         public CommunicationManager()
         {
             mSerialEngine = new SerialProcessEngine();
@@ -117,6 +119,8 @@ namespace FeederControlLibrary.SerialCommunication.Control
         public void SendData(byte[] data)
         {
             DataSendRequestEvent?.Invoke(data);
+            //DateTime timestamp = DateTime.Now;
+            //Console.WriteLine("Feed Manager Send Data Events Time{0}:{1}:{2}:{3}", timestamp.Hour,timestamp.Minute,timestamp.Second,timestamp.Millisecond);
         }
         public void SendDataWithmessage(FeedData.CommandMassege msg,byte[] data)
         {

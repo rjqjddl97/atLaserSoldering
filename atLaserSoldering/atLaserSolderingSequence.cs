@@ -220,8 +220,8 @@ namespace atLaserSoldering
                                         data = _mDrvData.MoveAbsoluteCommand(129);
                                         _mMotionControlCommManager.SendData(data);
 
-                                        _waitHandle.Reset();
-                                        _waitHandle.WaitOne();
+                                        //_waitHandle.Reset();
+                                        //_waitHandle.WaitOne();
                                         ///*
                                         // Insert Laser soldering Sequence Start                                    
                                         if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
@@ -236,7 +236,7 @@ namespace atLaserSoldering
                                             _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
                                             _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
                                             _mLaserSoldering.LaserSolderParam = _mSolderingJob;
-                                            //_mLaserSoldering.LaserSolderingStart();
+                                            _mLaserSoldering.LaserSolderingStart();
                                             _waitHandle.Reset();
                                             _waitHandle.WaitOne();
                                         }
@@ -408,8 +408,8 @@ namespace atLaserSoldering
                                         data = _mDrvData.MoveAbsoluteCommand(129);
                                         _mMotionControlCommManager.SendData(data);
 
-                                        _waitHandle.Reset();
-                                        _waitHandle.WaitOne();
+                                        //_waitHandle.Reset();
+                                        //_waitHandle.WaitOne();
 
                                         ///*
                                         // Insert Laser soldering Sequence Start                                    
@@ -426,7 +426,7 @@ namespace atLaserSoldering
                                             _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
                                             _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
                                             _mLaserSoldering.LaserSolderParam = _mSolderingJob;
-                                            //_mLaserSoldering.LaserSolderingStart();
+                                            _mLaserSoldering.LaserSolderingStart();
                                             _waitHandle.Reset();
                                             _waitHandle.WaitOne();
                                         }
@@ -477,9 +477,9 @@ namespace atLaserSoldering
                                     }
                                     data = _mDrvData.MoveAbsoluteCommand(129);
                                     _mMotionControlCommManager.SendData(data);
-                                    //Thread.Sleep(100);
-                                    _waitHandle.Reset();
-                                    _waitHandle.WaitOne();
+                                    
+                                    //_waitHandle.Reset();
+                                    //_waitHandle.WaitOne();
                                     ///*
                                     // Insert Laser soldering Sequence Start                                    
                                     if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
@@ -495,7 +495,7 @@ namespace atLaserSoldering
                                         _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
                                         _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
                                         _mLaserSoldering.LaserSolderParam = _mSolderingJob;
-                                        //_mLaserSoldering.LaserSolderingStart();
+                                        _mLaserSoldering.LaserSolderingStart();
                                         _waitHandle.Reset();
                                         _waitHandle.WaitOne();
                                     }
@@ -548,8 +548,8 @@ namespace atLaserSoldering
                                 data = _mDrvData.MoveAbsoluteCommand(129);
                                 _mMotionControlCommManager.SendData(data);
                                                   
-                                _waitHandle.Reset();
-                                _waitHandle.WaitOne();
+                                //_waitHandle.Reset();
+                                //_waitHandle.WaitOne();
                                 ///*
                                 // Insert Laser soldering Sequence Start                                    
                                 if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
@@ -565,7 +565,7 @@ namespace atLaserSoldering
                                     _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
                                     _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
                                     _mLaserSoldering.LaserSolderParam = _mSolderingJob;
-                                    //_mLaserSoldering.LaserSolderingStart();
+                                    _mLaserSoldering.LaserSolderingStart();
                                     _waitHandle.Reset();
                                     _waitHandle.WaitOne();
                                 }
