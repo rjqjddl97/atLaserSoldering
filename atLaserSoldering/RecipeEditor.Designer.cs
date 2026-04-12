@@ -60,6 +60,7 @@
             this.categoryInspectionInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
             this.rowReferenceInspectionEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowReferenceInspectionMode = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.repositoryItemComboBoxAlignInspectionMode = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.rowReferenceInspectionLightBright = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowReferenceInspectionExposureTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowReferenceInspectionVisionRecipeFilePath = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
@@ -74,7 +75,6 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.vGridControlInspectionParam = new DevExpress.XtraVerticalGrid.VGridControl();
-            this.repositoryItemComboBoxAlignInspectionMode = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.categoryLaserSolderingInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
             this.rowLaserSolderingEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLaserSolderingLaserEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
@@ -166,13 +166,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditPCBLayoutFilePath)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxAlignInspectionMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vGridControlInspectionParam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxAlignInspectionMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
@@ -499,6 +499,13 @@
             this.rowReferenceInspectionMode.Properties.RowEdit = this.repositoryItemComboBoxAlignInspectionMode;
             this.rowReferenceInspectionMode.Properties.Value = "None";
             // 
+            // repositoryItemComboBoxAlignInspectionMode
+            // 
+            this.repositoryItemComboBoxAlignInspectionMode.AutoHeight = false;
+            this.repositoryItemComboBoxAlignInspectionMode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBoxAlignInspectionMode.Name = "repositoryItemComboBoxAlignInspectionMode";
+            // 
             // rowReferenceInspectionLightBright
             // 
             this.rowReferenceInspectionLightBright.Appearance.Options.UseTextOptions = true;
@@ -602,7 +609,7 @@
             // 
             // vGridControlInspectionParam
             // 
-            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Default;
             this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
             this.vGridControlInspectionParam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -623,13 +630,6 @@
             this.vGridControlInspectionParam.TabIndex = 0;
             this.vGridControlInspectionParam.CellValueChanged += new DevExpress.XtraVerticalGrid.Events.CellValueChangedEventHandler(this.vGridControlInspectionParam_CellValueChanged);
             this.vGridControlInspectionParam.Leave += new System.EventHandler(this.vGridControlInspectionParam_Leave);
-            // 
-            // repositoryItemComboBoxAlignInspectionMode
-            // 
-            this.repositoryItemComboBoxAlignInspectionMode.AutoHeight = false;
-            this.repositoryItemComboBoxAlignInspectionMode.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBoxAlignInspectionMode.Name = "repositoryItemComboBoxAlignInspectionMode";
             // 
             // categoryLaserSolderingInformation
             // 
@@ -1588,13 +1588,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEditRecipeCreateTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditPCBLayoutFilePath)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxAlignInspectionMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vGridControlInspectionParam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxAlignInspectionMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);

@@ -249,6 +249,10 @@
       <Project>{2e6c4b83-6839-4235-8200-1bb000491521}</Project>
       <Name>LaserSoldering</Name>
     </ProjectReference>
+    <ProjectReference Include="Library\LFineLightLibrary\LFineLightLibrary\LFineLightLibrary.csproj">
+      <Project>{b886473c-5cda-4aea-96e6-d788ba7c692a}</Project>
+      <Name>LFineLightLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="Library\LogLibrary\LogLibrary.csproj">
       <Project>{d3f9449d-4dbe-4bc9-b24c-fac0934e862f}</Project>
       <Name>LogLibrary</Name>

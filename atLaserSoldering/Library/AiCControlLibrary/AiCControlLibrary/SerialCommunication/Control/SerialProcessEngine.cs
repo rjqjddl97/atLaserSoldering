@@ -375,10 +375,10 @@ namespace AiCControlLibrary.SerialCommunication.Control
                                 {
                                     if (!IsReceiveStart)
                                     {
-                                        data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
-                                        //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);
                                         if (mContinuousCheckIndex >= mContinuousCheckList.Count)
                                             mContinuousCheckIndex = 0;
+                                        data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
+                                        //m_AiCDataCtrl.SetRequestedCommand(AiCData.CommandMassege.MSG_MONITOR_DATA);
                                     }
                                 }
 

@@ -306,9 +306,9 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                                 {
                                     //if (!IsReceiveStart)
                                     {
-                                        data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
                                         if (mContinuousCheckIndex >= mContinuousCheckList.Count)
                                             mContinuousCheckIndex = 0;
+                                        data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
                                     }
                                 }
                             }

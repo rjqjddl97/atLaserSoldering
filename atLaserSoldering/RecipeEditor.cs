@@ -1534,7 +1534,7 @@ namespace atLaserSoldering
                     {
                         if (iResult >= 0)
                         {
-                            inspectionPos.PreHeatPowerRatio = iResult;
+                            inspectionPos.PreHeatPowerRatio = iResult * 10;
                         }
                         else
                         {
@@ -1560,7 +1560,7 @@ namespace atLaserSoldering
                     {
                         if (iResult >= 0)
                         {
-                            inspectionPos.HeatPowerRatio = iResult;
+                            inspectionPos.HeatPowerRatio = iResult * 10;
                         }
                         else
                         {
@@ -1841,7 +1841,7 @@ namespace atLaserSoldering
                             {
                                 if (iResult >= 0)
                                 {
-                                    inspectionPos.PreHeatPowerRatio = iResult;
+                                    inspectionPos.PreHeatPowerRatio = iResult * 10;
                                 }
                                 else
                                 {
@@ -1867,7 +1867,7 @@ namespace atLaserSoldering
                             {
                                 if (iResult >= 0)
                                 {
-                                    inspectionPos.HeatPowerRatio = iResult;
+                                    inspectionPos.HeatPowerRatio = iResult * 10;
                                 }
                                 else
                                 {
@@ -2040,9 +2040,9 @@ namespace atLaserSoldering
             textEditPositionZ.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionZ.ToString();
             textEditReadyWaitTime.Text = _workParam.SolderPositionParams[_gridRowIndex].ReadyTime.ToString();
             textEditPreHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].PreHeatTime.ToString();
-            textEditPreHeatPowerRatio.Text = _workParam.SolderPositionParams[_gridRowIndex].PreHeatPowerRatio.ToString();
+            textEditPreHeatPowerRatio.Text = string.Format("{0}", (_workParam.SolderPositionParams[_gridRowIndex].PreHeatPowerRatio / 10));
             textEditHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatTime.ToString();
-            textEditHeatPowerRatio.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatPowerRatio.ToString();
+            textEditHeatPowerRatio.Text = string.Format("{0}", (_workParam.SolderPositionParams[_gridRowIndex].HeatPowerRatio / 10)); 
             textEditForwardFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwardFeedLength.ToString();
             textEditForwardFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwardFeedVelocity.ToString();
             textEditReverseFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseFeedLength.ToString();

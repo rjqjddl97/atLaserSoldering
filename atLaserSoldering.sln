@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.34729.27
+VisualStudioVersion = 15.0.26228.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "atLaserSoldering", "atLaserSoldering\atLaserSoldering.csproj", "{40E714F7-22C7-45F5-BF8F-7BE18C1A71EC}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogLibrary", "atLaserSoldering\Library\LogLibrary\LogLibrary.csproj", "{D3F9449D-4DBE-4BC9-B24C-FAC0934E862F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeederControlLibrary", "atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\FeederControlLibrary.csproj", "{4EC01901-0391-4970-A0CC-975D79DA1039}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFineLightLibrary", "atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\LFineLightLibrary.csproj", "{B886473C-5CDA-4AEA-96E6-D788BA7C692A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,18 @@ Global
 		{4EC01901-0391-4970-A0CC-975D79DA1039}.Release|x64.Build.0 = Release|Any CPU
 		{4EC01901-0391-4970-A0CC-975D79DA1039}.Release|x86.ActiveCfg = Release|Any CPU
 		{4EC01901-0391-4970-A0CC-975D79DA1039}.Release|x86.Build.0 = Release|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Debug|x64.Build.0 = Debug|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Debug|x86.Build.0 = Debug|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Release|x64.ActiveCfg = Release|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Release|x64.Build.0 = Release|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Release|x86.ActiveCfg = Release|Any CPU
+		{B886473C-5CDA-4AEA-96E6-D788BA7C692A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
