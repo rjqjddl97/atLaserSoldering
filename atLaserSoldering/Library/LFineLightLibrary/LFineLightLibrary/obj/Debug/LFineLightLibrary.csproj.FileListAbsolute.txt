@@ -4,3 +4,9 @@ D:\Work\Visual_C++\2026\TestLight\Library\LFineLightLibrary\LFineLightLibrary\bi
 D:\Work\Visual_C++\2026\TestLight\Library\LFineLightLibrary\LFineLightLibrary\bin\Debug\LFineLightLibrary.pdb
 D:\Work\Visual_C++\2026\TestLight\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.dll
 D:\Work\Visual_C++\2026\TestLight\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\bin\Debug\LFineLightLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\bin\Debug\LFineLightLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.csprojAssemblyReference.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.pdb

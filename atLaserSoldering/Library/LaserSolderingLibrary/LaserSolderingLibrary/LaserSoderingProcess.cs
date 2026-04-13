@@ -79,6 +79,7 @@ namespace LaserSoldering
         private bool _IsFeederMoving = false;
         private bool _IsFeederInPosition = false;
         private bool _IsAutoSolderEnd = true;
+        private bool _IsAutoSolderError = false;
         private bool _IsInitialSoldering = false;
         private bool _IsCommandFlag = false;
         private bool _IsFeederSeqReady = false;
@@ -109,6 +110,7 @@ namespace LaserSoldering
         public bool IsLaserOn { get { return _IsLaserOn; } set { _IsLaserOn = value; } }
         public bool IsAutoSoldering { get { return _IsAutoSoldering; } set { _IsAutoSoldering = value; } }
         public bool IsAutoSolderEnd { get { return _IsAutoSolderEnd; } set { _IsAutoSolderEnd = value; } }
+        public bool IsAutoSolderError { get { return _IsAutoSolderError; } set { _IsAutoSolderError = value; } }
         public bool IsFeederError { get { return _IsFeederError; } set { _IsFeederError = value; } }
         public bool IsFeederMoving { get { return _IsFeederMoving; } set { _IsFeederMoving = value; } }
         public bool IsFeederSeqReady { get { return _IsFeederSeqReady; } set { _IsFeederSeqReady = value; } }
@@ -893,10 +895,17 @@ namespace LaserSoldering
                             mSolderingEngineStep = LaserSolderStepType.Idle;
                             _IsAutoSoldering = false;
                             _IsAutoSolderEnd = false;
-                            _waitHandelFeeder.Set();
+                            _IsAutoSolderError = true;
+                            _waitHandle.Set();
+
+                            if(_IsLaserError)
+                                LogWriteEvent?.Invoke(string.Format("레이저 상태 에러."));
+                            if (_IsFeederError)
+                                LogWriteEvent?.Invoke(string.Format("Feeder 상태 에러."));
                         }
                         else
                         {
+                            _IsAutoSolderError = false;
                             if (!_IsAutoSoldering)
                             {
                                 _IsAutoSolderEnd = true;

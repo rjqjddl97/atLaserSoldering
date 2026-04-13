@@ -16,13 +16,13 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusL
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioModbusLibrary.csproj.CoreCompileInputs.cache
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioModbusLibrary.csprojAssemblyReference.cache
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioModbusLibrary.csproj.CoreCompileInputs.cache
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.pdb
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.dll
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\bin\Debug\ArioMudbusLibrary.pdb
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.dll
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.pdb

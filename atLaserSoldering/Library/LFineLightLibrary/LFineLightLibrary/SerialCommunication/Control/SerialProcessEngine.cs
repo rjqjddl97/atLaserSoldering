@@ -227,9 +227,10 @@ namespace LFineLightLibrary.SerialCommunication.Control
                             }
                             else if (mContinuousCheckList.Count != 0)
                             {
-                                data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
                                 if (mContinuousCheckIndex >= mContinuousCheckList.Count)
                                     mContinuousCheckIndex = 0;
+                                data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
+
                             }
 
                             break;

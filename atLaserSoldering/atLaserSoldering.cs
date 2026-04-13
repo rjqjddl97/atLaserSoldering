@@ -1030,8 +1030,9 @@ namespace atLaserSoldering
                     _sourceImage = grabEnd.Image;
                     //ImageGrabbed?.Invoke(_sourceImage);
                     //UpdateImageEvent.Invoke(grabEnd.Image);
-                    if (grabEnd.WaitHandle != null)
+                    if ((grabEnd.WaitHandle != null) && (!_isContinuousShot)) 
                         grabEnd.WaitHandle.Set();
+
                     _patternMatching = false;
                     _isOpticalMeasurement = false;
 
@@ -1088,15 +1089,19 @@ namespace atLaserSoldering
                 else
                     _IsDrvErr = false;
 
-                if ((mRobotInformation.TargetPositionX == _RobotTargetPosition[0]) &&
-                    (mRobotInformation.TargetPositionY == _RobotTargetPosition[1]) &&
-                    (mRobotInformation.TargetPositionZ == _RobotTargetPosition[2])
+                if ((Math.Round(mRobotInformation.PositionX, 3) == Math.Round(_RobotTargetPosition[0], 3)) &&
+                    (Math.Round(mRobotInformation.PositionY, 3) == Math.Round(_RobotTargetPosition[1], 3)) &&
+                    (Math.Round(mRobotInformation.PositionZ, 3) == Math.Round(_RobotTargetPosition[2], 3))
                     )
                 {
-                    if (Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01))
+                    if ((mRobotInformation.mStatus & 0x00000052) == 0x00000052)
                     {
-                        if(_IsAutoSolderingRunning)
+                        if (_IsAutoSolderingRunning && _IsRequestAutomovingCommand)
+                        {
                             _waitHandle.Set();
+                            _IsRequestAutomovingCommand = false;
+                            
+                        }
                     }
                 }
                 
@@ -2438,7 +2443,7 @@ namespace atLaserSoldering
                         else
                         {
                             _backgroundWorkerAutoSoldering.CancelAsync();
-                            barCheckItemLaserSolderingStart.Enabled = false;
+                            barCheckItemLaserSolderingStart.Enabled = true;
                             mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "PCB Align Vision 레시피 경로가 없습니다. 자동 납땜을 실행을 중지 했습니다.");
                         }
                         
@@ -2453,20 +2458,24 @@ namespace atLaserSoldering
                         else
                         {
                             _backgroundWorkerAutoSoldering.CancelAsync();
-                            barCheckItemLaserSolderingStart.Enabled = false;
+                            barCheckItemLaserSolderingStart.Enabled = true;
                             mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "납땜 검사 Vision 레시피 경로가 없습니다. 자동 납땜을 실행을 중지 했습니다.");
                         }
-                    }                    
-                    
-                    //_IsAutoSolderingRunning = true;
-                    //_IsAutoSolderingEnd = false;
+                    }
+
+                    _IsAutoSolderingRunning = true;
+                    _IsAutoSolderingEnd = false;
+                    barCheckItemLaserSolderingStart.Caption = "작업 중지";
                     // 검사 쓰레드 시작
                     _backgroundWorkerAutoSoldering.RunWorkerAsync();
                 }
                 else
                 {
                     _backgroundWorkerAutoSoldering.CancelAsync();
-                    barCheckItemLaserSolderingStart.Enabled = false;
+                    barCheckItemLaserSolderingStart.Enabled = true;
+                    _IsAutoSolderingRunning = false;
+                    _IsAutoSolderingEnd = false;
+                    barCheckItemLaserSolderingStart.Caption = "작업 시작";
                     mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행을 중지 했습니다.");
                 }
             }
