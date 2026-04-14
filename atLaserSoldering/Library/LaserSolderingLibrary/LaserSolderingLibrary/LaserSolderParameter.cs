@@ -21,6 +21,8 @@ namespace LaserSoldering
         private double _ReverseVelocity = 0;
         private double _ReverseAcceleration = 0;
         private int _LaserOnTime = 0;
+        private bool _LaserEnable = 0;
+        private bool _FeederEnable = 0;
 
         public int PreheatPowerRatio { get { return _PreheatPowerRatio; } set { _PreheatPowerRatio = value; } }
         public int HeatPowerRatio { get { return _HeatPowerRatio; } set { _HeatPowerRatio = value; } }
@@ -35,5 +37,7 @@ namespace LaserSoldering
         public double ReverseVelocity { get { return _ReverseVelocity; } set { _ReverseVelocity = value; } }
         public double ReverseAcceleration { get { return _ReverseAcceleration; } set { _ReverseAcceleration = value; } }
         public int LaserOnTime { get { return _LaserOnTime; } set { _LaserOnTime = value; } }
+        public bool LaserEnable { get { return _LaserEnable; } set { _LaserEnable = value; } }
+        public bool FeederEnable { get { return _FeederEnable; } set { _FeederEnable = value; } }
     }
 }

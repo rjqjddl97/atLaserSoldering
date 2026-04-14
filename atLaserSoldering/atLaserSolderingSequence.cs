@@ -618,6 +618,8 @@ namespace atLaserSoldering
                                         _mSolderingJob.ForwordingVelocity = _workParams.SolderPositionParams[i].ForwardFeedVelocity;
                                         _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
                                         _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
+                                        _mSolderingJob.FeederEnable = _workParams._UseFeederEnable;
+                                        _mSolderingJob.LaserEnable = _workParams._UseLaserEnable;
                                         _mLaserSoldering.LaserSolderParam = _mSolderingJob;
                                         _mLaserSoldering.LaserSolderingStart();
                                         _waitHandle.Reset();

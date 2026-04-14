@@ -655,7 +655,8 @@ namespace CustomPages
                         _mMenualSolderingJob.ReverseWireLength = Convert.ToDouble(textEditReverseFeedLength.EditValue);
                         _mMenualSolderingJob.ReverseVelocity = Convert.ToDouble(textEditReverseFeedVelocity.EditValue);
                         _mMenualSolderingJob.ReverseAcceleration = 100D;
-
+                        _mMenualSolderingJob.LaserEnable = Convert.ToBoolean(checkEditLaserEnable.Checked);
+                        _mMenualSolderingJob.FeederEnable = Convert.ToBoolean(checkEditFeederEnable.Checked);
                         _mLaserSoldering.LaserSolderParam = _mMenualSolderingJob;
                         _mLaserSoldering.LaserSolderingStart();
                         simpleButtonSolderingStart.Text = "Soldering Stop";
