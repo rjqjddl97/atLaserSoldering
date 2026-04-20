@@ -10,3 +10,8 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFin
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.csproj.CoreCompileInputs.cache
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\bin\Debug\LFineLightLibrary.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\bin\Debug\LFineLightLibrary.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.csprojResolveAssemblyReference.cache
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Debug\LFineLightLibrary.pdb

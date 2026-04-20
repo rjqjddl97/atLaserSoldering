@@ -672,7 +672,7 @@ namespace atLaserSoldering
                 //}
                 //_isInspectCancel = false;
                 //barEditItemInspectionProgress.EditValue = 100;
-                //AutoStartButtonRelease();
+                AutoStartButtonRelease();
                 //barCheckItemInspectionStart.Checked = false;
             }
             catch (Exception)
@@ -786,7 +786,7 @@ namespace atLaserSoldering
                                         {
                                             _HommingProcess = false;
                                             _IsHommingFinished = true;
-                                            mRobotInformation.SetStatus(RobotInformation.RobotStatus.OperationReady, _IsHommingFinished);
+                                            mRobotInformation.SetStatus(RobotInformation.RobotStatus.OperationReady, _IsHommingFinished);                                            
                                             _homestep = 0;
                                             mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "로봇 원점 복귀 진행을 끝났습니다.");
                                         }
@@ -919,23 +919,23 @@ namespace atLaserSoldering
         {
             try
             {
-                //AutoStartButtonRelease();
-                //if (_IsHommingCancle)
-                //{
-                //    if (_mMotionControlCommManager.IsOpen())
-                //    {
-                //        byte[] SeData = new byte[8];
-                //        for (int i = 0; i < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; i++)
-                //        {
-                //            SeData = _mMotionControlCommManager.mDrvCtrl.MoveStopCommand((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[i]);
-                //            _mMotionControlCommManager.SendData(SeData);
-                //        }
-                //    }
-                //    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "원점 복귀 진행 취소");
-                //    _IsHommingCancle = false;
-                //}
-                //else
-                //    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "원점 복귀 진행 완료");
+                AutoStartButtonRelease();
+                if (_IsHommingCancle)
+                {
+                    if (_mMotionControlCommManager.IsOpen())
+                    {
+                        byte[] SeData = new byte[8];
+                        for (int i = 0; i < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; i++)
+                        {
+                            SeData = _mMotionControlCommManager.mDrvCtrl.MoveStopCommand((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[i]);
+                            _mMotionControlCommManager.SendData(SeData);
+                        }
+                    }
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "원점 복귀 진행 취소");
+                    _IsHommingCancle = false;
+                }
+                else
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "원점 복귀 진행 완료");
             }
             catch (Exception)
             {

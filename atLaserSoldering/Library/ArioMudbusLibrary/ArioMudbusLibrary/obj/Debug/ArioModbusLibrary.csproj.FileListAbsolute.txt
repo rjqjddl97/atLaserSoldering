@@ -26,3 +26,4 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\Ario
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioModbusLibrary.csproj.CoreCompileInputs.cache
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioMudbusLibrary.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Debug\ArioModbusLibrary.csprojResolveAssemblyReference.cache
