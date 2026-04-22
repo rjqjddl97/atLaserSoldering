@@ -202,7 +202,8 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                                 IsReceiveAck = true;
                             }
                         }
-                        else if ((ReceivePacketBuff[1] != (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) && (ReceivePacketBuff[1] != (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister) && (ReceivePacketBuff[1] != (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleCoils) && (ReceivePacketBuff[1] != (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters))
+                        else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputs) && (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadHoldingRegisters) &&
+                                (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputRegisters))
                         {
                             if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
                             {
@@ -217,7 +218,8 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                                 IsReceiveAck = true;
                             }
                         }
-                        else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
+                        else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) ||
+                                (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
                         {
                             if (uiReceiveCount >= 8)
                             {
@@ -229,9 +231,8 @@ namespace ArioModbusLibrary.SerialCommunication.Control
                         }
                         else
                         {
-                            if (uiReceiveCount >= 5)
-                            {
-                                //ParsingData(MainData);
+                            //if (uiReceiveCount >= 5)
+                            {                                
                                 uiReceiveCount = 0;
                                 IsReceiveStart = false;
                                 IsReceiveAck = true;

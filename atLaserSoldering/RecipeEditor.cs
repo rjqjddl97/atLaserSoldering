@@ -1362,11 +1362,11 @@ namespace atLaserSoldering
                 return;
             }
 
-            if (_workParam._InspectionLightBright != value)
+            if (_workParam._SolderInspectionExposureTime != value)
             {
                 barButtonItemRecipeSave.Enabled = true;
             }
-            _workParam._InspectionLightBright = value;
+            _workParam._SolderInspectionExposureTime = value;
 
             //strTemp = Convert.ToString(rowSolderingInspectionVisionRecipeFilePath.Properties.Value);
 

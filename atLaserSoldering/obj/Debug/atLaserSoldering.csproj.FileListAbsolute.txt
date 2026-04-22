@@ -412,7 +412,6 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.Vi
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro3D.Core.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.FGGigE.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro3D.dll
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.Interop.Core.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\stdole.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.Pdf.v18.2.Core.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DevExpress.Utils.v18.2.UI.dll
@@ -1047,3 +1046,9 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csp
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csproj.CopyComplete
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.exe
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.Core.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.Core.xml
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.xml
