@@ -223,7 +223,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
                                 IsReceiveAck = true;
                             }
                         }
-                        else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputs) && (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadHoldingRegisters) && 
+                        else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputs) || (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadHoldingRegisters) || 
                                 (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputRegisters))
                         {
                             if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
@@ -326,7 +326,7 @@ namespace FeederControlLibrary.SerialCommunication.Control
                             }
                             else if (mContinuousCheckList.Count != 0)
                             {
-                                //if (!IsReceiveStart)
+                                if (!IsReceiveStart)
                                 {
                                     if (mContinuousCheckIndex >= mContinuousCheckList.Count)
                                         mContinuousCheckIndex = 0;
