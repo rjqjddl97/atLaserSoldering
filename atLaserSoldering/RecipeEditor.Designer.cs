@@ -155,6 +155,7 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.openFileDialogTemplateImage = new System.Windows.Forms.OpenFileDialog();
+            this.rowLaserSolderingProfileEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductSeries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductType)).BeginInit();
@@ -609,7 +610,7 @@
             // 
             // vGridControlInspectionParam
             // 
-            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Default;
+            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
             this.vGridControlInspectionParam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -635,6 +636,7 @@
             // 
             this.categoryLaserSolderingInformation.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
             this.rowLaserSolderingEnable,
+            this.rowLaserSolderingProfileEnable,
             this.rowLaserSolderingLaserEnable,
             this.rowLaserSolderingFeedEnable,
             this.rowLaserSolderingOutputWaitTime});
@@ -647,6 +649,12 @@
             this.rowLaserSolderingEnable.Name = "rowLaserSolderingEnable";
             this.rowLaserSolderingEnable.Properties.Caption = "레이저 납땜 작업 유무";
             this.rowLaserSolderingEnable.Properties.Value = true;
+            // 
+            // rowLaserSolderingProfileEnable
+            // 
+            this.rowLaserSolderingProfileEnable.Name = "rowLaserSolderingProfileEnable";
+            this.rowLaserSolderingProfileEnable.Properties.Caption = "프로파일 알고리즘 유무";
+            this.rowLaserSolderingProfileEnable.Properties.Value = false;
             // 
             // rowLaserSolderingLaserEnable
             // 
@@ -1789,5 +1797,6 @@
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLaserSolderingOutputWaitTime;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowReferenceInspectionMode;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxAlignInspectionMode;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLaserSolderingProfileEnable;
     }
 }

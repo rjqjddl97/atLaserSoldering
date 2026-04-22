@@ -911,6 +911,7 @@ namespace LaserSoldering
                                 _IsAutoSolderEnd = true;
                             }
                         }
+
                         switch (mSolderingEngineStep)
                         {
                             case LaserSolderStepType.Stop:
@@ -1088,50 +1089,133 @@ namespace LaserSoldering
 
                             case LaserSolderStepType.LaserOff:
                                 data = new byte[20];
-                                if (((int)ts.TotalMilliseconds) > JobSolder.HeatTime)
+                                if (JobSolder.LaserProfileEnable)
                                 {
-                                    mCurrentHeatTime = (int)ts.TotalMilliseconds;
-                                    CheckTackTime.Reset();
-                                    //data = new byte[20];
-                                    //datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
-                                    //data = _mCompactMiniData.GetSetLaserOn(false);
-                                    //_mCompactMiniComm.SendData(data);
-                                    //datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
-                                    //data = _mCompactMiniData.GetSetPowerOn(false);
-                                    //_mCompactMiniComm.SendData(data);                                    
-                                    //data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(-JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio));
-                                    //_mFeederComm.SendData(data);
-                                    CheckTackTime.Start();
-                                    _IsCommandFlag = false;
-                                    mSolderingEngineStep = LaserSolderStepType.ReverseWire;
-                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 납땜 시간 설정{0}, 실행{1}.", JobSolder.HeatTime, mCurrentHeatTime));
-                                }
-                                else if (((int)ts.TotalMilliseconds) > (JobSolder.HeatTime / 2))
-                                {
-                                    if (!_IsCommandFlag)
+                                    if (((int)ts.TotalMilliseconds) > JobSolder.HeatTime)
                                     {
-                                        _IsCommandFlag = true;
-                                        if (JobSolder.FeederEnable)
+                                        mCurrentHeatTime = (int)ts.TotalMilliseconds;
+                                        CheckTackTime.Reset();
+                                        //data = new byte[20];
+                                        //datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
+                                        //data = _mCompactMiniData.GetSetLaserOn(false);
+                                        //_mCompactMiniComm.SendData(data);
+                                        //datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
+                                        //data = _mCompactMiniData.GetSetPowerOn(false);
+                                        //_mCompactMiniComm.SendData(data);                                    
+                                        //data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(-JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio));
+                                        //_mFeederComm.SendData(data);
+                                        CheckTackTime.Start();
+                                        _IsCommandFlag = false;
+                                        mSolderingEngineStep = LaserSolderStepType.ReverseWire;
+                                        LogWriteEvent?.Invoke(string.Format("레이저 솔더링 납땜 시간 설정{0}, 실행{1}.", JobSolder.HeatTime, mCurrentHeatTime));
+                                    }
+                                    else if (((int)ts.TotalMilliseconds) > (JobSolder.HeatTime / 2))
+                                    {
+                                        if (!_IsCommandFlag)
                                         {
-                                            data = null;
-                                            data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
-                                            _mFeederComm.SendData(data);
+                                            _IsCommandFlag = true;
+                                            if (JobSolder.FeederEnable)
+                                            {
+                                                data = null;
+                                                data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                                _mFeederComm.SendData(data);
+                                            }
+                                            LogWriteEvent?.Invoke(string.Format("실납 회수 시작."));
                                         }
-                                        LogWriteEvent?.Invoke(string.Format("실납 회수 시작."));
                                     }
                                 }
-
+                                else
+                                {
+                                    if (_IsFeederInPosition)
+                                    {
+                                        if (((int)ts.TotalMilliseconds) > JobSolder.HeatTime)
+                                        {
+                                            if (!_IsCommandFlag)
+                                            {
+                                                mCurrentHeatTime = (int)ts.TotalMilliseconds;
+                                                LogWriteEvent?.Invoke(string.Format("레이저 솔더링 납땜 시간 설정{0}, 실행{1}.", JobSolder.HeatTime, mCurrentHeatTime));
+                                                _IsCommandFlag = true;
+                                                if (JobSolder.FeederEnable)
+                                                {
+                                                    data = null;
+                                                    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio)));
+                                                    _mFeederComm.SendData(data);
+                                                }
+                                                LogWriteEvent?.Invoke(string.Format("실납 회수 설정 {0}.", (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio))));
+                                            }
+                                            else
+                                            {
+                                                _IsCommandFlag = false;
+                                                CheckTackTime.Reset();
+                                                if (JobSolder.FeederEnable)
+                                                {
+                                                    data = null;
+                                                    data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                                    _mFeederComm.SendData(data);
+                                                }
+                                                CheckTackTime.Start();
+                                                mSolderingEngineStep = LaserSolderStepType.ReverseWire;
+                                                LogWriteEvent?.Invoke(string.Format("실납 회수 시작."));
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (!_IsCommandFlag)
+                                            {
+                                                _IsCommandFlag = true;
+                                                if (JobSolder.FeederEnable)
+                                                {
+                                                    data = null;
+                                                    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio)));
+                                                    _mFeederComm.SendData(data);
+                                                }
+                                                LogWriteEvent?.Invoke(string.Format("실납 회수 설정 {0}.", (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio))));
+                                            }
+                                            else
+                                            {
+                                                if (JobSolder.FeederEnable)
+                                                {
+                                                    data = null;
+                                                    data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                                    _mFeederComm.SendData(data);
+                                                }
+                                                LogWriteEvent?.Invoke(string.Format("실납 회수 시작."));
+                                            }
+                                        }
+                                        
+                                    }
+                                }
                                 break;
                             case LaserSolderStepType.ReverseWire:
-                                if (((int)ts.TotalMilliseconds) >= 200)
+                                if (JobSolder.LaserProfileEnable)
                                 {
+                                    if (((int)ts.TotalMilliseconds) >= 200)
+                                    {
+                                        if (!_IsFeederMoving)
+                                        {
+                                            data = new byte[20];
+                                            if (JobSolder.LaserEnable)
+                                            {
+                                                //datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
+                                                //data = _mCompactMiniData.GetSetLaserOn(false);
+                                                datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
+                                                data = _mCompactMiniData.GetSetPowerOn(false);
+                                                _mCompactMiniComm.SendData(data);
+                                            }
+                                            CheckTackTime.Reset();
+                                            mSolderingEngineStep = LaserSolderStepType.PowerOff;
+                                            LogWriteEvent?.Invoke(string.Format("레이저 솔더링 레이저 Off 지연 시간{0}, 실납 회수 완료.", (int)ts.TotalMilliseconds));
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    //if (_IsFeederInPosition)
                                     if (!_IsFeederMoving)
                                     {
                                         data = new byte[20];
                                         if (JobSolder.LaserEnable)
                                         {
-                                            //datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
-                                            //data = _mCompactMiniData.GetSetLaserOn(false);
                                             datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
                                             data = _mCompactMiniData.GetSetPowerOn(false);
                                             _mCompactMiniComm.SendData(data);
@@ -1141,26 +1225,6 @@ namespace LaserSoldering
                                         LogWriteEvent?.Invoke(string.Format("레이저 솔더링 레이저 Off 지연 시간{0}, 실납 회수 완료.", (int)ts.TotalMilliseconds));
                                     }
                                 }
-                                //else if (_IsCommandFlag == false)
-                                //{
-                                //    //if (_LaserSource == LaserModule.CompactMini)
-                                //    //{
-                                //    //    datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
-                                //    //    data = _mCompactMiniData.GetSetLaserOn(false);
-                                //    //    _mCompactMiniComm.SendData(data);
-                                //    //    datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
-                                //    //    data = _mCompactMiniData.GetSetPowerOn(false);
-                                //    //    _mCompactMiniComm.SendData(data);
-                                //    //    _IsCommandFlag = true;
-                                //    //}
-
-                                //    //data = new byte[20];
-                                //    //data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
-                                //    //_mFeederComm.SendData(data);
-
-
-                                //    _IsCommandFlag = true;                                                                    
-                                //}
                                 break;
                             case LaserSolderStepType.PowerOff:
                                 data = new byte[20];

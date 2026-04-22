@@ -187,6 +187,12 @@ namespace atLaserSoldering
             _workParam._SolderInspectionExposureTime = Convert.ToInt32(rowSolderingInspectionExposureTime.Properties.Value);
             _workParam._InspectSolderingVisionPath = Convert.ToString(rowSolderingInspectionVisionRecipeFilePath.Properties.Value);
             _workParam._ImageAcquisitionDelaytime = Convert.ToInt32(rowInspectionAcquisitionDelayTime.Properties.Value);
+
+            _workParam._SolderingProcessEnable = Convert.ToBoolean(rowLaserSolderingEnable.Properties.Value);
+            _workParam._SolderingProfileEnable = Convert.ToBoolean(rowLaserSolderingProfileEnable.Properties.Value);
+            _workParam._UseLaserEnable = Convert.ToBoolean(rowLaserSolderingLaserEnable.Properties.Value);
+            _workParam._UseFeederEnable = Convert.ToBoolean(rowLaserSolderingLaserEnable.Properties.Value);
+            _workParam._SolderingOutputWaitTime = Convert.ToInt32(rowLaserSolderingOutputWaitTime.Properties.Value);
             //textEditPositionX.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionX.ToString();
             //textEditPositionY.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionY.ToString();
             //textEditPositionZ.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionZ.ToString();
@@ -1078,6 +1084,22 @@ namespace atLaserSoldering
                 barButtonItemRecipeSave.Enabled = true;
                 _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레이저 납땜 작업 유무가 {0}로 변경되었습니다.", _workParam._SolderingProcessEnable.ToString()));
             }
+            else if (e.Row == rowLaserSolderingProfileEnable)
+            {
+                bool check = Convert.ToBoolean(rowLaserSolderingProfileEnable.Properties.Value); ;
+                _workParam._SolderingProfileEnable = check;
+
+                if (check)
+                {
+                    rowLaserSolderingProfileEnable.Enabled = true;
+                }
+                else
+                {
+                    rowLaserSolderingProfileEnable.Enabled = false;
+                }
+                barButtonItemRecipeSave.Enabled = true;
+                _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(), string.Format("레이저 납땜 작업 유무가 {0}로 변경되었습니다.", _workParam._SolderingProfileEnable.ToString()));
+            }
             else if (e.Row == rowLaserSolderingLaserEnable)
             {
                 bool check = Convert.ToBoolean(rowLaserSolderingLaserEnable.Properties.Value); ;
@@ -1152,6 +1174,7 @@ namespace atLaserSoldering
             rowInspectionAcquisitionDelayTime.Properties.Value = _workParam._ImageAcquisitionDelaytime;
 
             rowLaserSolderingEnable.Properties.Value = _workParam._SolderingProcessEnable;
+            rowLaserSolderingProfileEnable.Properties.Value = _workParam._SolderingProfileEnable;
             rowLaserSolderingLaserEnable.Properties.Value = _workParam._UseLaserEnable;
             rowLaserSolderingFeedEnable.Properties.Value = _workParam._UseFeederEnable;
 
@@ -1391,6 +1414,14 @@ namespace atLaserSoldering
                 barButtonItemRecipeSave.Enabled = true;
             }
             _workParam._SolderingProcessEnable = _isvalue;
+
+            _isvalue = Convert.ToBoolean(rowLaserSolderingProfileEnable.Properties.Value);
+
+            if (_workParam._SolderingProfileEnable != _isvalue)
+            {
+                barButtonItemRecipeSave.Enabled = true;
+            }
+            _workParam._SolderingProfileEnable = _isvalue;
 
             _isvalue = Convert.ToBoolean(rowLaserSolderingLaserEnable.Properties.Value);
 

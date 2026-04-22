@@ -65,6 +65,7 @@ namespace RecipeManager
             workParam._ImageAcquisitionDelaytime = Convert.ToInt32(recipeData[WorkParamSections[2]]["ImageAcquisitionDelaytime"]);
 
             workParam._SolderingProcessEnable = Convert.ToBoolean(recipeData[WorkParamSections[3]]["SolderingProcessEnable"]);
+            workParam._SolderingProfileEnable = Convert.ToBoolean(recipeData[WorkParamSections[3]]["SolderingProfileEnable"]);
             workParam._UseLaserEnable = Convert.ToBoolean(recipeData[WorkParamSections[3]]["UseLaserEnable"]);
             workParam._UseFeederEnable = Convert.ToBoolean(recipeData[WorkParamSections[3]]["UseFeederEnable"]);
             workParam._LaserOffWaitTime = Convert.ToInt32(recipeData[WorkParamSections[3]]["LaserOffWaitTime"]);
@@ -129,6 +130,7 @@ namespace RecipeManager
 
             recipeData.Sections.AddSection(WorkParamSections[3]);
             recipeData[WorkParamSections[3]].AddKey("SolderingProcessEnable", workParam._SolderingProcessEnable.ToString());
+            recipeData[WorkParamSections[3]].AddKey("SolderingProfileEnable", workParam._SolderingProfileEnable.ToString());
             recipeData[WorkParamSections[3]].AddKey("UseLaserEnable", workParam._UseLaserEnable.ToString());
             recipeData[WorkParamSections[3]].AddKey("UseFeederEnable", workParam._UseFeederEnable.ToString());
             recipeData[WorkParamSections[3]].AddKey("LaserOffWaitTime", workParam._LaserOffWaitTime.ToString());

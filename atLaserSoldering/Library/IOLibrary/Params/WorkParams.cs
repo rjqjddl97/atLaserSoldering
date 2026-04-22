@@ -38,6 +38,7 @@ namespace RecipeManager
 
         // 
         public bool _SolderingInspectVisionEnable { get; set; } = false;
+        public bool _SolderingProfileEnable { get; set; } = false;
         public bool _SolderingProcessEnable { get; set; } = false;
         public bool _UseLaserEnable { get; set; } = false;
         public bool _UseFeederEnable { get; set; } = false;
@@ -171,6 +172,7 @@ namespace RecipeManager
             temp._ImageAcquisitionDelaytime = this._ImageAcquisitionDelaytime;            
 
             temp._SolderingInspectVisionEnable = this._SolderingInspectVisionEnable;
+            temp._SolderingProfileEnable = this._SolderingProfileEnable;
             temp._SolderingProcessEnable = this._SolderingProcessEnable;
             temp._UseLaserEnable = this._UseLaserEnable;
             temp._UseFeederEnable = this._UseFeederEnable;

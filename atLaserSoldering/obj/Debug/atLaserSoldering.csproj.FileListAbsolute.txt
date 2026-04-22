@@ -1052,3 +1052,5 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.Vi
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.pdb
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.Core.xml
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.xml
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.pdb
