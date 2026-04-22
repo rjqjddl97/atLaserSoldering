@@ -1044,7 +1044,7 @@ namespace LaserSoldering
                             case LaserSolderStepType.HeatWireSupport:
                                 //data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
                                 //_mFeederComm.SendData(data);
-                                if (((int)ts.TotalMilliseconds) >= 200)
+                                if (((int)ts.TotalMilliseconds) >= 100)
                                 {
                                     if (!_IsFeederMoving)
                                     {
@@ -1069,7 +1069,8 @@ namespace LaserSoldering
                                         _mCompactMiniComm.SendData(data);
                                     }
                                     CheckTackTime.Start();
-                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 납땜 파워량 {0}.", JobSolder.HeatPowerRatio));
+                                    if (JobSolder.LaserProfileEnable)
+                                        LogWriteEvent?.Invoke(string.Format("레이저 솔더링 납땜 파워량 {0}.", JobSolder.HeatPowerRatio));
                                 }
                                 else
                                 {
@@ -1141,7 +1142,7 @@ namespace LaserSoldering
                                                     data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio)));
                                                     _mFeederComm.SendData(data);
                                                 }
-                                                LogWriteEvent?.Invoke(string.Format("실납 회수 설정 {0}.", (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio))));
+                                                LogWriteEvent?.Invoke(string.Format("실납 공급 완료 및 실납 회수 설정 {0}.", (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio))));
                                             }
                                             else
                                             {
@@ -1169,7 +1170,7 @@ namespace LaserSoldering
                                                     data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio)));
                                                     _mFeederComm.SendData(data);
                                                 }
-                                                LogWriteEvent?.Invoke(string.Format("실납 회수 설정 {0}.", (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio))));
+                                                LogWriteEvent?.Invoke(string.Format("실납 공급 완료 및 실납 회수 설정 {0}.", (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio))));
                                             }
                                             else
                                             {

@@ -63,6 +63,9 @@ namespace CustomPages
                 textEditReverseFeedVelocity.EditValue = 10D;
                 textEditMenualFeedLength.EditValue = 5.0D;
                 textEditMenualPowerRatio.EditValue = 15;
+                checkEditPriorityTimeEnable.EditValue = false;
+                checkEditFeederEnable.EditValue = true;
+                checkEditLaserEnable.EditValue = true;
                 UpdateTimer.Interval = 200;
                 UpdateTimer.Elapsed += new ElapsedEventHandler(UpdateSolderingData);
             }
@@ -655,6 +658,7 @@ namespace CustomPages
                         _mMenualSolderingJob.ReverseWireLength = Convert.ToDouble(textEditReverseFeedLength.EditValue);
                         _mMenualSolderingJob.ReverseVelocity = Convert.ToDouble(textEditReverseFeedVelocity.EditValue);
                         _mMenualSolderingJob.ReverseAcceleration = 100D;
+                        _mMenualSolderingJob.LaserProfileEnable = Convert.ToBoolean(checkEditPriorityTimeEnable.Checked);
                         _mMenualSolderingJob.LaserEnable = Convert.ToBoolean(checkEditLaserEnable.Checked);
                         _mMenualSolderingJob.FeederEnable = Convert.ToBoolean(checkEditFeederEnable.Checked);
                         _mLaserSoldering.LaserSolderParam = _mMenualSolderingJob;
