@@ -1016,42 +1016,74 @@ namespace LaserSoldering
                                 }
                                 break;
                             case LaserSolderStepType.PreHeatWireSupport:
-                                if (((int)ts.TotalMilliseconds) >= JobSolder.PreHeatTime)
+                                if (JobSolder.LaserProfileEnable)
                                 {
-                                    mCurrentPreHeatTime = (int)ts.TotalMilliseconds;        
-                                    //_waitHandelFeeder.Set();
-                                    CheckTackTime.Reset();
-                                    mSolderingEngineStep = LaserSolderStepType.HeatWireSupport;
-                                    _IsCommandFlag = false;
-                                    CheckTackTime.Start();
-                                    LogWriteEvent?.Invoke(string.Format("레이저 솔더링 예열시간 설정{0}, 실행{1}.", JobSolder.PreHeatTime, mCurrentPreHeatTime));
-                                }
-                                else if (((int)ts.TotalMilliseconds) > (JobSolder.PreHeatTime/2))
-                                {
-                                    if (!_IsCommandFlag)
+                                    if (((int)ts.TotalMilliseconds) >= JobSolder.PreHeatTime)
                                     {
-                                        if (JobSolder.FeederEnable)
+                                        mCurrentPreHeatTime = (int)ts.TotalMilliseconds;
+                                        //_waitHandelFeeder.Set();
+                                        CheckTackTime.Reset();
+                                        mSolderingEngineStep = LaserSolderStepType.HeatWireSupport;
+                                        _IsCommandFlag = false;
+                                        CheckTackTime.Start();
+                                        LogWriteEvent?.Invoke(string.Format("레이저 솔더링 예열시간 설정{0}, 실행{1}.", JobSolder.PreHeatTime, mCurrentPreHeatTime));
+                                    }
+                                    else if (((int)ts.TotalMilliseconds) > (JobSolder.PreHeatTime / 2))
+                                    {
+                                        if (!_IsCommandFlag)
                                         {
-                                            data = new byte[20];
-                                            data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
-                                            _mFeederComm.SendData(data);
+                                            if (JobSolder.FeederEnable)
+                                            {
+                                                data = new byte[20];
+                                                data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                                _mFeederComm.SendData(data);
+                                            }
+                                            LogWriteEvent?.Invoke(string.Format("실납 공급 시작."));
+                                            _IsCommandFlag = true;
                                         }
-                                        LogWriteEvent?.Invoke(string.Format("실납 공급 시작."));
-                                        _IsCommandFlag = true;
-                                    }                                    
+                                    }
                                 }
+                                else
+                                {
+                                    if (((int)ts.TotalMilliseconds) >= JobSolder.PreHeatTime)
+                                    {
+                                        mCurrentPreHeatTime = (int)ts.TotalMilliseconds;
+                                        //_waitHandelFeeder.Set();
+                                        CheckTackTime.Reset();
+                                        mSolderingEngineStep = LaserSolderStepType.HeatWireSupport;
+                                        _IsCommandFlag = false;
+                                        //CheckTackTime.Start();
+                                        LogWriteEvent?.Invoke(string.Format("레이저 솔더링 예열시간 설정{0}, 실행{1}.", JobSolder.PreHeatTime, mCurrentPreHeatTime));
+                                    }
+                                }
+                                
                                 break;
                             case LaserSolderStepType.HeatWireSupport:
                                 //data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
                                 //_mFeederComm.SendData(data);
-                                if (((int)ts.TotalMilliseconds) >= 100)
+                                if (JobSolder.LaserProfileEnable)
                                 {
-                                    if (!_IsFeederMoving)
+                                    if (((int)ts.TotalMilliseconds) >= 100)
                                     {
-                                        CheckTackTime.Reset();
-                                        mSolderingEngineStep = LaserSolderStepType.Heat;
-                                        LogWriteEvent?.Invoke(string.Format("실납 공급 완료."));
+                                        if (!_IsFeederMoving)
+                                        {
+                                            CheckTackTime.Reset();
+                                            mSolderingEngineStep = LaserSolderStepType.Heat;
+                                            LogWriteEvent?.Invoke(string.Format("실납 공급 완료, 지연 시간{0}.", ts.TotalMilliseconds));
+                                        }
                                     }
+                                }
+                                else
+                                {
+                                    if (JobSolder.FeederEnable)
+                                    {
+                                        data = new byte[20];
+                                        data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                        _mFeederComm.SendData(data);
+                                    }
+                                    _IsCommandFlag = false;
+                                    mSolderingEngineStep = LaserSolderStepType.Heat;
+                                    LogWriteEvent?.Invoke(string.Format("실납 공급 시작."));
                                 }
                                 break;
                             case LaserSolderStepType.Heat:
@@ -1159,31 +1191,30 @@ namespace LaserSoldering
                                                 LogWriteEvent?.Invoke(string.Format("실납 회수 시작."));
                                             }
                                         }
-                                        else
-                                        {
-                                            if (!_IsCommandFlag)
-                                            {
-                                                _IsCommandFlag = true;
-                                                if (JobSolder.FeederEnable)
-                                                {
-                                                    data = null;
-                                                    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio)));
-                                                    _mFeederComm.SendData(data);
-                                                }
-                                                LogWriteEvent?.Invoke(string.Format("실납 공급 완료 및 실납 회수 설정 {0}.", (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio))));
-                                            }
-                                            else
-                                            {
-                                                if (JobSolder.FeederEnable)
-                                                {
-                                                    data = null;
-                                                    data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
-                                                    _mFeederComm.SendData(data);
-                                                }
-                                                LogWriteEvent?.Invoke(string.Format("실납 회수 시작."));
-                                            }
-                                        }
-                                        
+                                        //else
+                                        //{
+                                        //    if (!_IsCommandFlag)
+                                        //    {
+                                        //        _IsCommandFlag = true;
+                                        //        if (JobSolder.FeederEnable)
+                                        //        {
+                                        //            data = null;
+                                        //            data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio)));
+                                        //            _mFeederComm.SendData(data);
+                                        //        }
+                                        //        LogWriteEvent?.Invoke(string.Format("실납 공급 완료 및 실납 회수 설정 {0}.", (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio))));
+                                        //    }
+                                        //    else
+                                        //    {
+                                        //        if (JobSolder.FeederEnable)
+                                        //        {
+                                        //            data = null;
+                                        //            data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
+                                        //            _mFeederComm.SendData(data);
+                                        //        }
+                                        //        LogWriteEvent?.Invoke(string.Format("실납 회수 시작."));
+                                        //    }
+                                        //}                                        
                                     }
                                 }
                                 break;
