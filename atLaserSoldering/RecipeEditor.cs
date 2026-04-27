@@ -1471,7 +1471,7 @@ namespace atLaserSoldering
             {
                 if (dResult >= 0 && dResult <= 400)
                 {
-                    inspectionPos.PositionX = dResult;
+                    inspectionPos.PositionX = Math.Round(dResult,3);
                 }
                 else
                 {
@@ -1483,7 +1483,7 @@ namespace atLaserSoldering
             {
                 if (dResult >= 0 && dResult <= 400)
                 {
-                    inspectionPos.PositionY = dResult;
+                    inspectionPos.PositionY = Math.Round(dResult, 3); ;
                 }
                 else
                 {
@@ -1495,7 +1495,7 @@ namespace atLaserSoldering
             {
                 if (dResult >= 0 && dResult <= 150)
                 {
-                    inspectionPos.PositionZ = dResult;
+                    inspectionPos.PositionZ = Math.Round(dResult, 3); ;
                 }
                 else
                 {
@@ -1747,7 +1747,7 @@ namespace atLaserSoldering
             {
                 if (dResult >= 0 && dResult <= 400)
                 {
-                    inspectionPos.PositionX = dResult;
+                    inspectionPos.PositionX = Math.Round(dResult, 3); ;
                 }
                 else
                 {
@@ -1759,7 +1759,7 @@ namespace atLaserSoldering
             {
                 if (dResult >= 0 && dResult <= 400)
                 {
-                    inspectionPos.PositionY = dResult;
+                    inspectionPos.PositionY = Math.Round(dResult, 3); ;
                 }
                 else
                 {
@@ -1771,7 +1771,7 @@ namespace atLaserSoldering
             {
                 if (dResult >= 0 && dResult <= 150)
                 {
-                    inspectionPos.PositionZ = dResult;
+                    inspectionPos.PositionZ = Math.Round(dResult, 3); ;
                 }
                 else
                 {

@@ -77,6 +77,7 @@
             this.vGridControlInspectionParam = new DevExpress.XtraVerticalGrid.VGridControl();
             this.categoryLaserSolderingInformation = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
             this.rowLaserSolderingEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowLaserSolderingProfileEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLaserSolderingLaserEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLaserSolderingFeedEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             this.rowLaserSolderingOutputWaitTime = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
@@ -155,7 +156,6 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.openFileDialogTemplateImage = new System.Windows.Forms.OpenFileDialog();
-            this.rowLaserSolderingProfileEnable = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductSeries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductType)).BeginInit();
@@ -1217,12 +1217,12 @@
             this.gridColumnInspectionModeType.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnInspectionModeType.Caption = "1";
             this.gridColumnInspectionModeType.FieldName = "ePositionType";
-            this.gridColumnInspectionModeType.MaxWidth = 50;
+            this.gridColumnInspectionModeType.MaxWidth = 70;
             this.gridColumnInspectionModeType.MinWidth = 14;
             this.gridColumnInspectionModeType.Name = "gridColumnInspectionModeType";
             this.gridColumnInspectionModeType.Visible = true;
             this.gridColumnInspectionModeType.VisibleIndex = 1;
-            this.gridColumnInspectionModeType.Width = 50;
+            this.gridColumnInspectionModeType.Width = 56;
             // 
             // gridColumnPositionX
             // 
@@ -1236,7 +1236,7 @@
             this.gridColumnPositionX.Name = "gridColumnPositionX";
             this.gridColumnPositionX.Visible = true;
             this.gridColumnPositionX.VisibleIndex = 2;
-            this.gridColumnPositionX.Width = 50;
+            this.gridColumnPositionX.Width = 49;
             // 
             // gridColumnPositionY
             // 
@@ -1250,7 +1250,7 @@
             this.gridColumnPositionY.Name = "gridColumnPositionY";
             this.gridColumnPositionY.Visible = true;
             this.gridColumnPositionY.VisibleIndex = 3;
-            this.gridColumnPositionY.Width = 50;
+            this.gridColumnPositionY.Width = 49;
             // 
             // gridColumnPositionZ
             // 
@@ -1264,7 +1264,7 @@
             this.gridColumnPositionZ.Name = "gridColumnPositionZ";
             this.gridColumnPositionZ.Visible = true;
             this.gridColumnPositionZ.VisibleIndex = 4;
-            this.gridColumnPositionZ.Width = 50;
+            this.gridColumnPositionZ.Width = 49;
             // 
             // gridColumnReadyTime
             // 
@@ -1280,7 +1280,7 @@
             this.gridColumnReadyTime.Name = "gridColumnReadyTime";
             this.gridColumnReadyTime.Visible = true;
             this.gridColumnReadyTime.VisibleIndex = 5;
-            this.gridColumnReadyTime.Width = 50;
+            this.gridColumnReadyTime.Width = 49;
             // 
             // gridColumnPreHeatPowerRatio
             // 
@@ -1296,7 +1296,7 @@
             this.gridColumnPreHeatPowerRatio.Name = "gridColumnPreHeatPowerRatio";
             this.gridColumnPreHeatPowerRatio.Visible = true;
             this.gridColumnPreHeatPowerRatio.VisibleIndex = 6;
-            this.gridColumnPreHeatPowerRatio.Width = 50;
+            this.gridColumnPreHeatPowerRatio.Width = 49;
             // 
             // gridColumnPreHeatTime
             // 
@@ -1312,7 +1312,7 @@
             this.gridColumnPreHeatTime.Name = "gridColumnPreHeatTime";
             this.gridColumnPreHeatTime.Visible = true;
             this.gridColumnPreHeatTime.VisibleIndex = 7;
-            this.gridColumnPreHeatTime.Width = 50;
+            this.gridColumnPreHeatTime.Width = 49;
             // 
             // gridColumnHeatPowerRatio
             // 

@@ -1173,6 +1173,9 @@ namespace LaserSoldering
                                                     data = null;
                                                     data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio)));
                                                     _mFeederComm.SendData(data);
+                                                    data = null;
+                                                    data = _mFeederData.SetMoveTargetVelocity(_mFeederData.DrvID[0], (int)Math.Round(JobSolder.ReverseVelocity * FeederParam.FeedermmToPulseRatio));
+                                                    _mFeederComm.SendData(data);
                                                 }
                                                 LogWriteEvent?.Invoke(string.Format("실납 공급 완료 및 실납 회수 설정 {0}.", (int)(-(JobSolder.ReverseWireLength * FeederParam.FeedermmToPulseRatio))));
                                             }
