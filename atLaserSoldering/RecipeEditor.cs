@@ -941,7 +941,7 @@ namespace atLaserSoldering
             {
                 value = Convert.ToInt32(rowReferenceInspectionLightBright.Properties.Value);
 
-                if (value <= 0 || value > 1024)
+                if (value < 0 || value > 1024)
                 {
                     MessageBox.Show("조명 밝기 설정이 잘못 입력되었습니다.\r\n조명 밝기의 최대 값은 1024[digit]입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     rowReferenceInspectionLightBright.Properties.Value = _workParam._InspectionLightBright;
@@ -1287,7 +1287,7 @@ namespace atLaserSoldering
 
             value = Convert.ToInt32(rowReferenceInspectionLightBright.Properties.Value);
 
-            if (value <= 0 || value > 1024)
+            if (value < 0 || value > 1024)
             {
                 MessageBox.Show("조명 밝기 설정이 잘못 입력되었습니다.\r\n카메라 밝기의 최대 값은 1024[digit]입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 rowReferenceInspectionLightBright.Properties.Value = _workParam._InspectionLightBright;
@@ -1360,7 +1360,7 @@ namespace atLaserSoldering
 
             value = Convert.ToInt32(rowSolderingInspectionLightBright.Properties.Value);
 
-            if (value <= 0 || value > 1024)
+            if (value < 0 || value > 1024)
             {
                 MessageBox.Show("조명 밝기 설정이 잘못 입력되었습니다.\r\n카메라 밝기의 최대 값은 1024[digit]입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 rowSolderingInspectionLightBright.Properties.Value = _workParam._SolderingInspectionLightBright;

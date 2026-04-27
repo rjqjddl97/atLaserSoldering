@@ -806,6 +806,14 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPr
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.Core.xml
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.xml
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.Core.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.Core.xml
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.xml
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\NLog.config
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\NLog.xsd
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DLL\FirmwareUpdate_MD_VC141_v3_1_Basler_pylon_v5_1.dll
@@ -1046,11 +1054,3 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csp
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csproj.CopyComplete
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.exe
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.pdb
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.Core.dll
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.dll
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.dll
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.pdb
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.Core.xml
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.xml
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.dll
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.pdb
