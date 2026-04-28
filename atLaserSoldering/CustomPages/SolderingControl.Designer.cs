@@ -66,6 +66,7 @@
             this.layoutControlItemMenualPowerRatio = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.checkEditPriorityTimeEnable = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditFeederEnable = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditLaserEnable = new DevExpress.XtraEditors.CheckEdit();
             this.simpleButtonSolderingStart = new DevExpress.XtraEditors.SimpleButton();
@@ -93,11 +94,10 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.checkEditPriorityTimeEnable = new DevExpress.XtraEditors.CheckEdit();
-            this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
@@ -124,6 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditPriorityTimeEnable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditFeederEnable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditLaserEnable.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedVelocity.Properties)).BeginInit();
@@ -150,11 +151,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditPriorityTimeEnable.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -165,7 +165,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(555, 371);
+            this.layoutControl1.Size = new System.Drawing.Size(555, 375);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -188,7 +188,7 @@
             this.layoutControl3.Controls.Add(this.labelControlErrorStatus);
             this.layoutControl3.Controls.Add(this.labelControlLaserStatus);
             this.layoutControl3.Controls.Add(this.labelControlPowerStatus);
-            this.layoutControl3.Location = new System.Drawing.Point(12, 324);
+            this.layoutControl3.Location = new System.Drawing.Point(12, 347);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup2;
             this.layoutControl3.Size = new System.Drawing.Size(514, 80);
@@ -607,33 +607,42 @@
             this.layoutControl2.Location = new System.Drawing.Point(12, 12);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(514, 308);
+            this.layoutControl2.Size = new System.Drawing.Size(514, 331);
             this.layoutControl2.TabIndex = 5;
             this.layoutControl2.Text = "layoutControl2";
             // 
+            // checkEditPriorityTimeEnable
+            // 
+            this.checkEditPriorityTimeEnable.Location = new System.Drawing.Point(318, 228);
+            this.checkEditPriorityTimeEnable.Name = "checkEditPriorityTimeEnable";
+            this.checkEditPriorityTimeEnable.Properties.Caption = "Priority Time";
+            this.checkEditPriorityTimeEnable.Size = new System.Drawing.Size(184, 19);
+            this.checkEditPriorityTimeEnable.StyleController = this.layoutControl2;
+            this.checkEditPriorityTimeEnable.TabIndex = 16;
+            // 
             // checkEditFeederEnable
             // 
-            this.checkEditFeederEnable.Location = new System.Drawing.Point(307, 274);
+            this.checkEditFeederEnable.Location = new System.Drawing.Point(318, 274);
             this.checkEditFeederEnable.Name = "checkEditFeederEnable";
             this.checkEditFeederEnable.Properties.Caption = "FeederEnable";
-            this.checkEditFeederEnable.Size = new System.Drawing.Size(178, 19);
+            this.checkEditFeederEnable.Size = new System.Drawing.Size(184, 19);
             this.checkEditFeederEnable.StyleController = this.layoutControl2;
             this.checkEditFeederEnable.TabIndex = 15;
             // 
             // checkEditLaserEnable
             // 
-            this.checkEditLaserEnable.Location = new System.Drawing.Point(307, 251);
+            this.checkEditLaserEnable.Location = new System.Drawing.Point(318, 251);
             this.checkEditLaserEnable.Name = "checkEditLaserEnable";
             this.checkEditLaserEnable.Properties.Caption = "Laser Enable";
-            this.checkEditLaserEnable.Size = new System.Drawing.Size(178, 19);
+            this.checkEditLaserEnable.Size = new System.Drawing.Size(184, 19);
             this.checkEditLaserEnable.StyleController = this.layoutControl2;
             this.checkEditLaserEnable.TabIndex = 14;
             // 
             // simpleButtonSolderingStart
             // 
-            this.simpleButtonSolderingStart.Location = new System.Drawing.Point(307, 297);
+            this.simpleButtonSolderingStart.Location = new System.Drawing.Point(318, 297);
             this.simpleButtonSolderingStart.Name = "simpleButtonSolderingStart";
-            this.simpleButtonSolderingStart.Size = new System.Drawing.Size(178, 22);
+            this.simpleButtonSolderingStart.Size = new System.Drawing.Size(184, 22);
             this.simpleButtonSolderingStart.StyleController = this.layoutControl2;
             this.simpleButtonSolderingStart.TabIndex = 13;
             this.simpleButtonSolderingStart.Text = "Soldering Start";
@@ -641,45 +650,45 @@
             // 
             // textEditReverseFeedVelocity
             // 
-            this.textEditReverseFeedVelocity.Location = new System.Drawing.Point(435, 204);
+            this.textEditReverseFeedVelocity.Location = new System.Drawing.Point(446, 204);
             this.textEditReverseFeedVelocity.Name = "textEditReverseFeedVelocity";
             this.textEditReverseFeedVelocity.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditReverseFeedVelocity.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditReverseFeedVelocity.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.textEditReverseFeedVelocity.Size = new System.Drawing.Size(50, 20);
+            this.textEditReverseFeedVelocity.Size = new System.Drawing.Size(56, 20);
             this.textEditReverseFeedVelocity.StyleController = this.layoutControl2;
             this.textEditReverseFeedVelocity.TabIndex = 12;
             // 
             // textEditReverseFeedLength
             // 
-            this.textEditReverseFeedLength.Location = new System.Drawing.Point(435, 180);
+            this.textEditReverseFeedLength.Location = new System.Drawing.Point(446, 180);
             this.textEditReverseFeedLength.Name = "textEditReverseFeedLength";
             this.textEditReverseFeedLength.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditReverseFeedLength.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditReverseFeedLength.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.textEditReverseFeedLength.Size = new System.Drawing.Size(50, 20);
+            this.textEditReverseFeedLength.Size = new System.Drawing.Size(56, 20);
             this.textEditReverseFeedLength.StyleController = this.layoutControl2;
             this.textEditReverseFeedLength.TabIndex = 11;
             // 
             // textEditForwardFeedVelocity
             // 
-            this.textEditForwardFeedVelocity.Location = new System.Drawing.Point(435, 156);
+            this.textEditForwardFeedVelocity.Location = new System.Drawing.Point(446, 156);
             this.textEditForwardFeedVelocity.Name = "textEditForwardFeedVelocity";
             this.textEditForwardFeedVelocity.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditForwardFeedVelocity.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditForwardFeedVelocity.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.textEditForwardFeedVelocity.Size = new System.Drawing.Size(50, 20);
+            this.textEditForwardFeedVelocity.Size = new System.Drawing.Size(56, 20);
             this.textEditForwardFeedVelocity.StyleController = this.layoutControl2;
             this.textEditForwardFeedVelocity.TabIndex = 10;
             // 
             // textEditForwardFeedLength
             // 
-            this.textEditForwardFeedLength.Location = new System.Drawing.Point(435, 132);
+            this.textEditForwardFeedLength.Location = new System.Drawing.Point(446, 132);
             this.textEditForwardFeedLength.Name = "textEditForwardFeedLength";
             this.textEditForwardFeedLength.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditForwardFeedLength.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditForwardFeedLength.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.textEditForwardFeedLength.Size = new System.Drawing.Size(50, 20);
+            this.textEditForwardFeedLength.Size = new System.Drawing.Size(56, 20);
             this.textEditForwardFeedLength.StyleController = this.layoutControl2;
             this.textEditForwardFeedLength.TabIndex = 9;
             // 
@@ -690,62 +699,62 @@
             this.pictureEditSoldering.Name = "pictureEditSoldering";
             this.pictureEditSoldering.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEditSoldering.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.pictureEditSoldering.Size = new System.Drawing.Size(291, 307);
+            this.pictureEditSoldering.Size = new System.Drawing.Size(302, 307);
             this.pictureEditSoldering.StyleController = this.layoutControl2;
             this.pictureEditSoldering.TabIndex = 4;
             // 
             // textEditHeatPowerRatio
             // 
-            this.textEditHeatPowerRatio.Location = new System.Drawing.Point(435, 108);
+            this.textEditHeatPowerRatio.Location = new System.Drawing.Point(446, 108);
             this.textEditHeatPowerRatio.Name = "textEditHeatPowerRatio";
             this.textEditHeatPowerRatio.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditHeatPowerRatio.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditHeatPowerRatio.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.textEditHeatPowerRatio.Size = new System.Drawing.Size(50, 20);
+            this.textEditHeatPowerRatio.Size = new System.Drawing.Size(56, 20);
             this.textEditHeatPowerRatio.StyleController = this.layoutControl2;
             this.textEditHeatPowerRatio.TabIndex = 8;
             // 
             // textEditReadyTime
             // 
-            this.textEditReadyTime.Location = new System.Drawing.Point(435, 12);
+            this.textEditReadyTime.Location = new System.Drawing.Point(446, 12);
             this.textEditReadyTime.Name = "textEditReadyTime";
             this.textEditReadyTime.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditReadyTime.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditReadyTime.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.textEditReadyTime.Size = new System.Drawing.Size(50, 20);
+            this.textEditReadyTime.Size = new System.Drawing.Size(56, 20);
             this.textEditReadyTime.StyleController = this.layoutControl2;
             this.textEditReadyTime.TabIndex = 4;
             // 
             // textEditHeatTime
             // 
-            this.textEditHeatTime.Location = new System.Drawing.Point(435, 84);
+            this.textEditHeatTime.Location = new System.Drawing.Point(446, 84);
             this.textEditHeatTime.Name = "textEditHeatTime";
             this.textEditHeatTime.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditHeatTime.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditHeatTime.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.textEditHeatTime.Size = new System.Drawing.Size(50, 20);
+            this.textEditHeatTime.Size = new System.Drawing.Size(56, 20);
             this.textEditHeatTime.StyleController = this.layoutControl2;
             this.textEditHeatTime.TabIndex = 7;
             // 
             // textEditPreHeatTime
             // 
-            this.textEditPreHeatTime.Location = new System.Drawing.Point(435, 36);
+            this.textEditPreHeatTime.Location = new System.Drawing.Point(446, 36);
             this.textEditPreHeatTime.Name = "textEditPreHeatTime";
             this.textEditPreHeatTime.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditPreHeatTime.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditPreHeatTime.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.textEditPreHeatTime.Size = new System.Drawing.Size(50, 20);
+            this.textEditPreHeatTime.Size = new System.Drawing.Size(56, 20);
             this.textEditPreHeatTime.StyleController = this.layoutControl2;
             this.textEditPreHeatTime.TabIndex = 5;
             // 
             // textEditPreHeatPowerRatio
             // 
-            this.textEditPreHeatPowerRatio.Location = new System.Drawing.Point(435, 60);
+            this.textEditPreHeatPowerRatio.Location = new System.Drawing.Point(446, 60);
             this.textEditPreHeatPowerRatio.Name = "textEditPreHeatPowerRatio";
             this.textEditPreHeatPowerRatio.Properties.Appearance.Options.UseTextOptions = true;
             this.textEditPreHeatPowerRatio.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.textEditPreHeatPowerRatio.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.textEditPreHeatPowerRatio.Size = new System.Drawing.Size(50, 20);
+            this.textEditPreHeatPowerRatio.Size = new System.Drawing.Size(56, 20);
             this.textEditPreHeatPowerRatio.StyleController = this.layoutControl2;
             this.textEditPreHeatPowerRatio.TabIndex = 6;
             // 
@@ -769,7 +778,7 @@
             this.layoutControlItem22,
             this.layoutControlItem23});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(497, 331);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(514, 331);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -777,117 +786,126 @@
             this.layoutControlItem1.Control = this.pictureEditSoldering;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(295, 311);
+            this.layoutControlItem1.Size = new System.Drawing.Size(306, 311);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItemReadyTime
             // 
             this.layoutControlItemReadyTime.Control = this.textEditReadyTime;
-            this.layoutControlItemReadyTime.Location = new System.Drawing.Point(295, 0);
+            this.layoutControlItemReadyTime.Location = new System.Drawing.Point(306, 0);
             this.layoutControlItemReadyTime.Name = "layoutControlItemReadyTime";
-            this.layoutControlItemReadyTime.Size = new System.Drawing.Size(182, 24);
+            this.layoutControlItemReadyTime.Size = new System.Drawing.Size(188, 24);
             this.layoutControlItemReadyTime.Text = "Ready Time[ms]";
             this.layoutControlItemReadyTime.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItemPreHeatTime
             // 
             this.layoutControlItemPreHeatTime.Control = this.textEditPreHeatTime;
-            this.layoutControlItemPreHeatTime.Location = new System.Drawing.Point(295, 24);
+            this.layoutControlItemPreHeatTime.Location = new System.Drawing.Point(306, 24);
             this.layoutControlItemPreHeatTime.Name = "layoutControlItemPreHeatTime";
-            this.layoutControlItemPreHeatTime.Size = new System.Drawing.Size(182, 24);
+            this.layoutControlItemPreHeatTime.Size = new System.Drawing.Size(188, 24);
             this.layoutControlItemPreHeatTime.Text = "PreHeat Time[ms]";
             this.layoutControlItemPreHeatTime.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItemPreHeatPower
             // 
             this.layoutControlItemPreHeatPower.Control = this.textEditPreHeatPowerRatio;
-            this.layoutControlItemPreHeatPower.Location = new System.Drawing.Point(295, 48);
+            this.layoutControlItemPreHeatPower.Location = new System.Drawing.Point(306, 48);
             this.layoutControlItemPreHeatPower.Name = "layoutControlItemPreHeatPower";
-            this.layoutControlItemPreHeatPower.Size = new System.Drawing.Size(182, 24);
+            this.layoutControlItemPreHeatPower.Size = new System.Drawing.Size(188, 24);
             this.layoutControlItemPreHeatPower.Text = "PreHeat Power[%]";
             this.layoutControlItemPreHeatPower.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItemHeatTime
             // 
             this.layoutControlItemHeatTime.Control = this.textEditHeatTime;
-            this.layoutControlItemHeatTime.Location = new System.Drawing.Point(295, 72);
+            this.layoutControlItemHeatTime.Location = new System.Drawing.Point(306, 72);
             this.layoutControlItemHeatTime.Name = "layoutControlItemHeatTime";
-            this.layoutControlItemHeatTime.Size = new System.Drawing.Size(182, 24);
+            this.layoutControlItemHeatTime.Size = new System.Drawing.Size(188, 24);
             this.layoutControlItemHeatTime.Text = "Heat Time[ms]";
             this.layoutControlItemHeatTime.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItemHeatPower
             // 
             this.layoutControlItemHeatPower.Control = this.textEditHeatPowerRatio;
-            this.layoutControlItemHeatPower.Location = new System.Drawing.Point(295, 96);
+            this.layoutControlItemHeatPower.Location = new System.Drawing.Point(306, 96);
             this.layoutControlItemHeatPower.Name = "layoutControlItemHeatPower";
-            this.layoutControlItemHeatPower.Size = new System.Drawing.Size(182, 24);
+            this.layoutControlItemHeatPower.Size = new System.Drawing.Size(188, 24);
             this.layoutControlItemHeatPower.Text = "Heat Power[%]";
             this.layoutControlItemHeatPower.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItemForwardFeedLength
             // 
             this.layoutControlItemForwardFeedLength.Control = this.textEditForwardFeedLength;
-            this.layoutControlItemForwardFeedLength.Location = new System.Drawing.Point(295, 120);
+            this.layoutControlItemForwardFeedLength.Location = new System.Drawing.Point(306, 120);
             this.layoutControlItemForwardFeedLength.Name = "layoutControlItemForwardFeedLength";
-            this.layoutControlItemForwardFeedLength.Size = new System.Drawing.Size(182, 24);
+            this.layoutControlItemForwardFeedLength.Size = new System.Drawing.Size(188, 24);
             this.layoutControlItemForwardFeedLength.Text = "F. FeedLength[mm]";
             this.layoutControlItemForwardFeedLength.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItemForwardFeedVelocity
             // 
             this.layoutControlItemForwardFeedVelocity.Control = this.textEditForwardFeedVelocity;
-            this.layoutControlItemForwardFeedVelocity.Location = new System.Drawing.Point(295, 144);
+            this.layoutControlItemForwardFeedVelocity.Location = new System.Drawing.Point(306, 144);
             this.layoutControlItemForwardFeedVelocity.Name = "layoutControlItemForwardFeedVelocity";
-            this.layoutControlItemForwardFeedVelocity.Size = new System.Drawing.Size(182, 24);
+            this.layoutControlItemForwardFeedVelocity.Size = new System.Drawing.Size(188, 24);
             this.layoutControlItemForwardFeedVelocity.Text = "F. FeedVelocity[mm/s]";
             this.layoutControlItemForwardFeedVelocity.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItemReverseFeedLength
             // 
             this.layoutControlItemReverseFeedLength.Control = this.textEditReverseFeedLength;
-            this.layoutControlItemReverseFeedLength.Location = new System.Drawing.Point(295, 168);
+            this.layoutControlItemReverseFeedLength.Location = new System.Drawing.Point(306, 168);
             this.layoutControlItemReverseFeedLength.Name = "layoutControlItemReverseFeedLength";
-            this.layoutControlItemReverseFeedLength.Size = new System.Drawing.Size(182, 24);
+            this.layoutControlItemReverseFeedLength.Size = new System.Drawing.Size(188, 24);
             this.layoutControlItemReverseFeedLength.Text = "r. FeedLength[mm]";
             this.layoutControlItemReverseFeedLength.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItemReverseFeedVelocity
             // 
             this.layoutControlItemReverseFeedVelocity.Control = this.textEditReverseFeedVelocity;
-            this.layoutControlItemReverseFeedVelocity.Location = new System.Drawing.Point(295, 192);
+            this.layoutControlItemReverseFeedVelocity.Location = new System.Drawing.Point(306, 192);
             this.layoutControlItemReverseFeedVelocity.Name = "layoutControlItemReverseFeedVelocity";
-            this.layoutControlItemReverseFeedVelocity.Size = new System.Drawing.Size(182, 24);
+            this.layoutControlItemReverseFeedVelocity.Size = new System.Drawing.Size(188, 24);
             this.layoutControlItemReverseFeedVelocity.Text = "R. FeedVelocity[mm/s]";
             this.layoutControlItemReverseFeedVelocity.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.simpleButtonSolderingStart;
-            this.layoutControlItem4.Location = new System.Drawing.Point(295, 285);
+            this.layoutControlItem4.Location = new System.Drawing.Point(306, 285);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(182, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(188, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem21
             // 
             this.layoutControlItem21.Control = this.checkEditLaserEnable;
-            this.layoutControlItem21.Location = new System.Drawing.Point(295, 239);
+            this.layoutControlItem21.Location = new System.Drawing.Point(306, 239);
             this.layoutControlItem21.Name = "layoutControlItem21";
-            this.layoutControlItem21.Size = new System.Drawing.Size(182, 23);
+            this.layoutControlItem21.Size = new System.Drawing.Size(188, 23);
             this.layoutControlItem21.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem21.TextVisible = false;
             // 
             // layoutControlItem22
             // 
             this.layoutControlItem22.Control = this.checkEditFeederEnable;
-            this.layoutControlItem22.Location = new System.Drawing.Point(295, 262);
+            this.layoutControlItem22.Location = new System.Drawing.Point(306, 262);
             this.layoutControlItem22.Name = "layoutControlItem22";
-            this.layoutControlItem22.Size = new System.Drawing.Size(182, 23);
+            this.layoutControlItem22.Size = new System.Drawing.Size(188, 23);
             this.layoutControlItem22.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem22.TextVisible = false;
+            // 
+            // layoutControlItem23
+            // 
+            this.layoutControlItem23.Control = this.checkEditPriorityTimeEnable;
+            this.layoutControlItem23.Location = new System.Drawing.Point(306, 216);
+            this.layoutControlItem23.Name = "layoutControlItem23";
+            this.layoutControlItem23.Size = new System.Drawing.Size(188, 23);
+            this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem23.TextVisible = false;
             // 
             // Root
             // 
@@ -897,7 +915,7 @@
             this.layoutControlItem2,
             this.layoutControlItem3});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(538, 416);
+            this.Root.Size = new System.Drawing.Size(538, 439);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem2
@@ -905,36 +923,18 @@
             this.layoutControlItem2.Control = this.layoutControl2;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(518, 312);
+            this.layoutControlItem2.Size = new System.Drawing.Size(518, 335);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.layoutControl3;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 312);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 335);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(518, 84);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // checkEditPriorityTimeEnable
-            // 
-            this.checkEditPriorityTimeEnable.Location = new System.Drawing.Point(307, 228);
-            this.checkEditPriorityTimeEnable.Name = "checkEditPriorityTimeEnable";
-            this.checkEditPriorityTimeEnable.Properties.Caption = "Priority Time";
-            this.checkEditPriorityTimeEnable.Size = new System.Drawing.Size(178, 19);
-            this.checkEditPriorityTimeEnable.StyleController = this.layoutControl2;
-            this.checkEditPriorityTimeEnable.TabIndex = 16;
-            // 
-            // layoutControlItem23
-            // 
-            this.layoutControlItem23.Control = this.checkEditPriorityTimeEnable;
-            this.layoutControlItem23.Location = new System.Drawing.Point(295, 216);
-            this.layoutControlItem23.Name = "layoutControlItem23";
-            this.layoutControlItem23.Size = new System.Drawing.Size(182, 23);
-            this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem23.TextVisible = false;
             // 
             // SolderingControl
             // 
@@ -942,7 +942,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Name = "SolderingControl";
-            this.Size = new System.Drawing.Size(555, 371);
+            this.Size = new System.Drawing.Size(555, 375);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
@@ -969,6 +969,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditPriorityTimeEnable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditFeederEnable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditLaserEnable.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedVelocity.Properties)).EndInit();
@@ -995,11 +996,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditPriorityTimeEnable.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
             this.ResumeLayout(false);
 
         }

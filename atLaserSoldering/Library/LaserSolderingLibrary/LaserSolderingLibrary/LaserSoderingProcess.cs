@@ -83,6 +83,7 @@ namespace LaserSoldering
         private bool _IsInitialSoldering = false;
         private bool _IsCommandFlag = false;
         private bool _IsFeederSeqReady = false;
+        private bool _IsReverseFeeding = false;
         private double _LaserPresentCurrent = 0;
         private double _LaserPresentPower = 0;
         private double _FeederUsedLength = 0;
@@ -114,6 +115,7 @@ namespace LaserSoldering
         public bool IsFeederError { get { return _IsFeederError; } set { _IsFeederError = value; } }
         public bool IsFeederMoving { get { return _IsFeederMoving; } set { _IsFeederMoving = value; } }
         public bool IsFeederSeqReady { get { return _IsFeederSeqReady; } set { _IsFeederSeqReady = value; } }
+        public bool IsReverseFeeding { get { return _IsReverseFeeding; } set { _IsReverseFeeding = value; } }
         public bool IsFeederInPosition { get { return _IsFeederInPosition; } set { _IsFeederInPosition = value; } }
         public bool IsInitialSoldering { get { return _IsInitialSoldering; } set { _IsInitialSoldering = value; } }
         public bool IsCommandFlag { get { return _IsCommandFlag; } set { _IsCommandFlag = value; } }
