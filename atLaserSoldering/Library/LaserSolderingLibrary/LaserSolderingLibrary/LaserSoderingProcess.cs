@@ -1158,10 +1158,10 @@ namespace LaserSoldering
                                     }
                                 }
                                 else
-                                {
-                                    if ((!_IsFeederMoving) && _IsFeederInPosition)
+                                {                                    
+                                    if (((int)ts.TotalMilliseconds) > JobSolder.HeatTime)
                                     {
-                                        if (((int)ts.TotalMilliseconds) > JobSolder.HeatTime)
+                                        if ((!_IsFeederMoving) && _IsFeederInPosition)
                                         {
                                             if (!_IsCommandFlag)
                                             {
@@ -1193,8 +1193,8 @@ namespace LaserSoldering
                                                 mSolderingEngineStep = LaserSolderStepType.ReverseWire;
                                                 LogWriteEvent?.Invoke(string.Format("실납 회수 시작."));
                                             }
-                                        }                                
-                                    }
+                                        }
+                                    }         
                                 }
                                 break;
                             case LaserSolderStepType.ReverseWire:
