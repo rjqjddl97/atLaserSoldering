@@ -569,6 +569,12 @@
             this.layoutControlItem316 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup10 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMotion)).BeginInit();
             this.xtraTabControlMotion.SuspendLayout();
             this.xtraTabPageControl.SuspendLayout();
@@ -939,6 +945,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem316)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControlMotion
@@ -1002,6 +1011,9 @@
             // 
             // layoutControl6
             // 
+            this.layoutControl6.Controls.Add(this.simpleButton3);
+            this.layoutControl6.Controls.Add(this.simpleButton2);
+            this.layoutControl6.Controls.Add(this.simpleButton1);
             this.layoutControl6.Controls.Add(this.checkButtonHighValue);
             this.layoutControl6.Controls.Add(this.textEditTargetAcceleration);
             this.layoutControl6.Controls.Add(this.checkButtonMiddleValue);
@@ -1095,7 +1107,6 @@
             this.labelControl1.Size = new System.Drawing.Size(29, 14);
             this.labelControl1.StyleController = this.layoutControl6;
             this.labelControl1.TabIndex = 25;
-            this.labelControl1.Text = "X   축";
             // 
             // checkButtonLowValue
             // 
@@ -1116,10 +1127,9 @@
             this.labelControl2.Location = new System.Drawing.Point(4, 161);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(30, 14);
+            this.labelControl2.Size = new System.Drawing.Size(29, 14);
             this.labelControl2.StyleController = this.layoutControl6;
             this.labelControl2.TabIndex = 26;
-            this.labelControl2.Text = "Y   축";
             // 
             // textEditUserDefineValue
             // 
@@ -1150,70 +1160,70 @@
             // 
             // CheckButtonXPlusControlCommand
             // 
-            this.CheckButtonXPlusControlCommand.Location = new System.Drawing.Point(339, 135);
+            this.CheckButtonXPlusControlCommand.Location = new System.Drawing.Point(259, 161);
             this.CheckButtonXPlusControlCommand.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.CheckButtonXPlusControlCommand.Name = "CheckButtonXPlusControlCommand";
-            this.CheckButtonXPlusControlCommand.Size = new System.Drawing.Size(145, 22);
+            this.CheckButtonXPlusControlCommand.Size = new System.Drawing.Size(109, 22);
             this.CheckButtonXPlusControlCommand.StyleController = this.layoutControl6;
             this.CheckButtonXPlusControlCommand.TabIndex = 24;
-            this.CheckButtonXPlusControlCommand.Text = "》(+)";
+            this.CheckButtonXPlusControlCommand.Text = "▶(X+)";
             this.CheckButtonXPlusControlCommand.CheckedChanged += new System.EventHandler(this.CheckButtonStateControlCommand_CheckedChanged);
             this.CheckButtonXPlusControlCommand.Click += new System.EventHandler(this.checkButtonJogMove_Click);
             // 
             // CheckButtonYPlusControlCommand
             // 
-            this.CheckButtonYPlusControlCommand.Location = new System.Drawing.Point(339, 161);
+            this.CheckButtonYPlusControlCommand.Location = new System.Drawing.Point(148, 135);
             this.CheckButtonYPlusControlCommand.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.CheckButtonYPlusControlCommand.Name = "CheckButtonYPlusControlCommand";
-            this.CheckButtonYPlusControlCommand.Size = new System.Drawing.Size(145, 22);
+            this.CheckButtonYPlusControlCommand.Size = new System.Drawing.Size(107, 22);
             this.CheckButtonYPlusControlCommand.StyleController = this.layoutControl6;
             this.CheckButtonYPlusControlCommand.TabIndex = 29;
-            this.CheckButtonYPlusControlCommand.Text = "》(+)";
+            this.CheckButtonYPlusControlCommand.Text = "▲(Y+)";
             this.CheckButtonYPlusControlCommand.CheckedChanged += new System.EventHandler(this.CheckButtonStateControlCommand_CheckedChanged);
             this.CheckButtonYPlusControlCommand.Click += new System.EventHandler(this.checkButtonJogMove_Click);
             // 
             // CheckButtonXStopControlCommand
             // 
-            this.CheckButtonXStopControlCommand.Location = new System.Drawing.Point(192, 135);
+            this.CheckButtonXStopControlCommand.Location = new System.Drawing.Point(259, 135);
             this.CheckButtonXStopControlCommand.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.CheckButtonXStopControlCommand.Name = "CheckButtonXStopControlCommand";
-            this.CheckButtonXStopControlCommand.Size = new System.Drawing.Size(143, 22);
+            this.CheckButtonXStopControlCommand.Size = new System.Drawing.Size(109, 20);
             this.CheckButtonXStopControlCommand.StyleController = this.layoutControl6;
             this.CheckButtonXStopControlCommand.TabIndex = 23;
-            this.CheckButtonXStopControlCommand.Text = "■(정지)";
+            this.CheckButtonXStopControlCommand.Visible = false;
             this.CheckButtonXStopControlCommand.CheckedChanged += new System.EventHandler(this.ButtonStopControlCommand_CheckedChanged);
             this.CheckButtonXStopControlCommand.Click += new System.EventHandler(this.checkButtonJogMove_Click);
             // 
             // CheckButtonZPlusControlCommand
             // 
-            this.CheckButtonZPlusControlCommand.Location = new System.Drawing.Point(339, 187);
+            this.CheckButtonZPlusControlCommand.Location = new System.Drawing.Point(372, 187);
             this.CheckButtonZPlusControlCommand.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.CheckButtonZPlusControlCommand.Name = "CheckButtonZPlusControlCommand";
-            this.CheckButtonZPlusControlCommand.Size = new System.Drawing.Size(145, 22);
+            this.CheckButtonZPlusControlCommand.Size = new System.Drawing.Size(112, 22);
             this.CheckButtonZPlusControlCommand.StyleController = this.layoutControl6;
             this.CheckButtonZPlusControlCommand.TabIndex = 37;
-            this.CheckButtonZPlusControlCommand.Text = "》(+)";
+            this.CheckButtonZPlusControlCommand.Text = "↓(Z+)";
             this.CheckButtonZPlusControlCommand.CheckedChanged += new System.EventHandler(this.CheckButtonStateControlCommand_CheckedChanged);
             this.CheckButtonZPlusControlCommand.Click += new System.EventHandler(this.checkButtonJogMove_Click);
             // 
             // CheckButtonXMinusControlCommand
             // 
-            this.CheckButtonXMinusControlCommand.Location = new System.Drawing.Point(37, 135);
+            this.CheckButtonXMinusControlCommand.Location = new System.Drawing.Point(37, 161);
             this.CheckButtonXMinusControlCommand.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.CheckButtonXMinusControlCommand.Name = "CheckButtonXMinusControlCommand";
-            this.CheckButtonXMinusControlCommand.Size = new System.Drawing.Size(151, 22);
+            this.CheckButtonXMinusControlCommand.Size = new System.Drawing.Size(107, 22);
             this.CheckButtonXMinusControlCommand.StyleController = this.layoutControl6;
             this.CheckButtonXMinusControlCommand.TabIndex = 22;
-            this.CheckButtonXMinusControlCommand.Text = "(-)《";
+            this.CheckButtonXMinusControlCommand.Text = "◀(X-)";
             this.CheckButtonXMinusControlCommand.CheckedChanged += new System.EventHandler(this.CheckButtonStateControlCommand_CheckedChanged);
             this.CheckButtonXMinusControlCommand.Click += new System.EventHandler(this.checkButtonJogMove_Click);
             // 
             // CheckButtonYStopControlCommand
             // 
-            this.CheckButtonYStopControlCommand.Location = new System.Drawing.Point(192, 161);
+            this.CheckButtonYStopControlCommand.Location = new System.Drawing.Point(148, 161);
             this.CheckButtonYStopControlCommand.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.CheckButtonYStopControlCommand.Name = "CheckButtonYStopControlCommand";
-            this.CheckButtonYStopControlCommand.Size = new System.Drawing.Size(143, 22);
+            this.CheckButtonYStopControlCommand.Size = new System.Drawing.Size(107, 22);
             this.CheckButtonYStopControlCommand.StyleController = this.layoutControl6;
             this.CheckButtonYStopControlCommand.TabIndex = 28;
             this.CheckButtonYStopControlCommand.Text = "■(정지)";
@@ -1241,22 +1251,22 @@
             // 
             // CheckButtonYMinusControlCommand
             // 
-            this.CheckButtonYMinusControlCommand.Location = new System.Drawing.Point(38, 161);
+            this.CheckButtonYMinusControlCommand.Location = new System.Drawing.Point(148, 187);
             this.CheckButtonYMinusControlCommand.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.CheckButtonYMinusControlCommand.Name = "CheckButtonYMinusControlCommand";
-            this.CheckButtonYMinusControlCommand.Size = new System.Drawing.Size(150, 22);
+            this.CheckButtonYMinusControlCommand.Size = new System.Drawing.Size(107, 22);
             this.CheckButtonYMinusControlCommand.StyleController = this.layoutControl6;
             this.CheckButtonYMinusControlCommand.TabIndex = 27;
-            this.CheckButtonYMinusControlCommand.Text = "(-)《";
+            this.CheckButtonYMinusControlCommand.Text = "▼(Y-)";
             this.CheckButtonYMinusControlCommand.CheckedChanged += new System.EventHandler(this.CheckButtonStateControlCommand_CheckedChanged);
             this.CheckButtonYMinusControlCommand.Click += new System.EventHandler(this.checkButtonJogMove_Click);
             // 
             // CheckButtonZStopControlCommand
             // 
-            this.CheckButtonZStopControlCommand.Location = new System.Drawing.Point(192, 187);
+            this.CheckButtonZStopControlCommand.Location = new System.Drawing.Point(372, 161);
             this.CheckButtonZStopControlCommand.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.CheckButtonZStopControlCommand.Name = "CheckButtonZStopControlCommand";
-            this.CheckButtonZStopControlCommand.Size = new System.Drawing.Size(143, 22);
+            this.CheckButtonZStopControlCommand.Size = new System.Drawing.Size(112, 22);
             this.CheckButtonZStopControlCommand.StyleController = this.layoutControl6;
             this.CheckButtonZStopControlCommand.TabIndex = 36;
             this.CheckButtonZStopControlCommand.Text = "■(정지)";
@@ -1289,17 +1299,16 @@
             this.labelControl4.Size = new System.Drawing.Size(29, 14);
             this.labelControl4.StyleController = this.layoutControl6;
             this.labelControl4.TabIndex = 34;
-            this.labelControl4.Text = "Z   축";
             // 
             // CheckButtonZMinusControlCommand
             // 
-            this.CheckButtonZMinusControlCommand.Location = new System.Drawing.Point(37, 187);
+            this.CheckButtonZMinusControlCommand.Location = new System.Drawing.Point(372, 135);
             this.CheckButtonZMinusControlCommand.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.CheckButtonZMinusControlCommand.Name = "CheckButtonZMinusControlCommand";
-            this.CheckButtonZMinusControlCommand.Size = new System.Drawing.Size(151, 22);
+            this.CheckButtonZMinusControlCommand.Size = new System.Drawing.Size(112, 22);
             this.CheckButtonZMinusControlCommand.StyleController = this.layoutControl6;
             this.CheckButtonZMinusControlCommand.TabIndex = 35;
-            this.CheckButtonZMinusControlCommand.Text = "(-)《";
+            this.CheckButtonZMinusControlCommand.Text = "↑(Z-)";
             this.CheckButtonZMinusControlCommand.CheckedChanged += new System.EventHandler(this.CheckButtonStateControlCommand_CheckedChanged);
             this.CheckButtonZMinusControlCommand.Click += new System.EventHandler(this.checkButtonJogMove_Click);
             // 
@@ -1445,7 +1454,6 @@
             this.layoutControlGroup7.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup7.GroupBordersVisible = false;
             this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem27,
             this.layoutControlItem26,
             this.layoutControlItem28,
             this.layoutControlItem61,
@@ -1459,23 +1467,27 @@
             this.layoutControlItem118,
             this.layoutControlItem24,
             this.layoutControlItem34,
-            this.layoutControlItem16,
             this.layoutControlItem21,
-            this.layoutControlItem22,
             this.layoutControlItem36,
-            this.layoutControlItem42,
             this.layoutControlItem43,
-            this.layoutControlItem44,
             this.layoutControlItem41,
-            this.layoutControlItem37,
-            this.layoutControlItem38,
-            this.layoutControlItem39,
             this.layoutControlItem40,
             this.layoutControlItem32,
             this.textBoxUserDefineValue,
             this.layoutControlItem29,
             this.layoutControlItem30,
-            this.layoutControlItem31});
+            this.layoutControlItem31,
+            this.layoutControlItem2,
+            this.layoutControlItem16,
+            this.layoutControlItem42,
+            this.layoutControlItem37,
+            this.layoutControlItem44,
+            this.layoutControlItem39,
+            this.layoutControlItem38,
+            this.layoutControlItem4,
+            this.layoutControlItem22,
+            this.layoutControlItem3,
+            this.layoutControlItem27});
             this.layoutControlGroup7.Name = "layoutControlGroup7";
             this.layoutControlGroup7.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.layoutControlGroup7.Size = new System.Drawing.Size(488, 263);
@@ -1610,9 +1622,9 @@
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.CheckButtonZMinusControlCommand;
-            this.layoutControlItem16.Location = new System.Drawing.Point(33, 183);
+            this.layoutControlItem16.Location = new System.Drawing.Point(368, 131);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(155, 26);
+            this.layoutControlItem16.Size = new System.Drawing.Size(116, 26);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
@@ -1628,45 +1640,45 @@
             // layoutControlItem22
             // 
             this.layoutControlItem22.Control = this.CheckButtonZStopControlCommand;
-            this.layoutControlItem22.Location = new System.Drawing.Point(188, 183);
+            this.layoutControlItem22.Location = new System.Drawing.Point(368, 157);
             this.layoutControlItem22.Name = "layoutControlItem22";
-            this.layoutControlItem22.Size = new System.Drawing.Size(147, 26);
+            this.layoutControlItem22.Size = new System.Drawing.Size(116, 26);
             this.layoutControlItem22.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem22.TextVisible = false;
             // 
             // layoutControlItem36
             // 
             this.layoutControlItem36.Control = this.CheckButtonZPlusControlCommand;
-            this.layoutControlItem36.Location = new System.Drawing.Point(335, 183);
+            this.layoutControlItem36.Location = new System.Drawing.Point(368, 183);
             this.layoutControlItem36.Name = "layoutControlItem36";
-            this.layoutControlItem36.Size = new System.Drawing.Size(149, 26);
+            this.layoutControlItem36.Size = new System.Drawing.Size(116, 26);
             this.layoutControlItem36.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem36.TextVisible = false;
             // 
             // layoutControlItem42
             // 
             this.layoutControlItem42.Control = this.CheckButtonYMinusControlCommand;
-            this.layoutControlItem42.Location = new System.Drawing.Point(34, 157);
+            this.layoutControlItem42.Location = new System.Drawing.Point(144, 183);
             this.layoutControlItem42.Name = "layoutControlItem42";
-            this.layoutControlItem42.Size = new System.Drawing.Size(154, 26);
+            this.layoutControlItem42.Size = new System.Drawing.Size(111, 26);
             this.layoutControlItem42.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem42.TextVisible = false;
             // 
             // layoutControlItem43
             // 
             this.layoutControlItem43.Control = this.CheckButtonYStopControlCommand;
-            this.layoutControlItem43.Location = new System.Drawing.Point(188, 157);
+            this.layoutControlItem43.Location = new System.Drawing.Point(144, 157);
             this.layoutControlItem43.Name = "layoutControlItem43";
-            this.layoutControlItem43.Size = new System.Drawing.Size(147, 26);
+            this.layoutControlItem43.Size = new System.Drawing.Size(111, 26);
             this.layoutControlItem43.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem43.TextVisible = false;
             // 
             // layoutControlItem44
             // 
             this.layoutControlItem44.Control = this.CheckButtonYPlusControlCommand;
-            this.layoutControlItem44.Location = new System.Drawing.Point(335, 157);
+            this.layoutControlItem44.Location = new System.Drawing.Point(144, 131);
             this.layoutControlItem44.Name = "layoutControlItem44";
-            this.layoutControlItem44.Size = new System.Drawing.Size(149, 26);
+            this.layoutControlItem44.Size = new System.Drawing.Size(111, 26);
             this.layoutControlItem44.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem44.TextVisible = false;
             // 
@@ -1675,34 +1687,34 @@
             this.layoutControlItem41.Control = this.labelControl2;
             this.layoutControlItem41.Location = new System.Drawing.Point(0, 157);
             this.layoutControlItem41.Name = "layoutControlItem41";
-            this.layoutControlItem41.Size = new System.Drawing.Size(34, 26);
+            this.layoutControlItem41.Size = new System.Drawing.Size(33, 26);
             this.layoutControlItem41.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem41.TextVisible = false;
             // 
             // layoutControlItem37
             // 
             this.layoutControlItem37.Control = this.CheckButtonXMinusControlCommand;
-            this.layoutControlItem37.Location = new System.Drawing.Point(33, 131);
+            this.layoutControlItem37.Location = new System.Drawing.Point(33, 157);
             this.layoutControlItem37.Name = "layoutControlItem37";
-            this.layoutControlItem37.Size = new System.Drawing.Size(155, 26);
+            this.layoutControlItem37.Size = new System.Drawing.Size(111, 26);
             this.layoutControlItem37.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem37.TextVisible = false;
             // 
             // layoutControlItem38
             // 
             this.layoutControlItem38.Control = this.CheckButtonXStopControlCommand;
-            this.layoutControlItem38.Location = new System.Drawing.Point(188, 131);
+            this.layoutControlItem38.Location = new System.Drawing.Point(255, 131);
             this.layoutControlItem38.Name = "layoutControlItem38";
-            this.layoutControlItem38.Size = new System.Drawing.Size(147, 26);
+            this.layoutControlItem38.Size = new System.Drawing.Size(113, 26);
             this.layoutControlItem38.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem38.TextVisible = false;
             // 
             // layoutControlItem39
             // 
             this.layoutControlItem39.Control = this.CheckButtonXPlusControlCommand;
-            this.layoutControlItem39.Location = new System.Drawing.Point(335, 131);
+            this.layoutControlItem39.Location = new System.Drawing.Point(255, 157);
             this.layoutControlItem39.Name = "layoutControlItem39";
-            this.layoutControlItem39.Size = new System.Drawing.Size(149, 26);
+            this.layoutControlItem39.Size = new System.Drawing.Size(113, 26);
             this.layoutControlItem39.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem39.TextVisible = false;
             // 
@@ -7745,6 +7757,60 @@
             this.layoutControlItem23.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem23.TextVisible = false;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(37, 187);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(107, 20);
+            this.simpleButton1.StyleController = this.layoutControl6;
+            this.simpleButton1.TabIndex = 47;
+            this.simpleButton1.Visible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.simpleButton1;
+            this.layoutControlItem2.Location = new System.Drawing.Point(33, 183);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(111, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(37, 135);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(107, 20);
+            this.simpleButton2.StyleController = this.layoutControl6;
+            this.simpleButton2.TabIndex = 48;
+            this.simpleButton2.Visible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.simpleButton2;
+            this.layoutControlItem3.Location = new System.Drawing.Point(33, 131);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(111, 26);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Location = new System.Drawing.Point(259, 187);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(109, 20);
+            this.simpleButton3.StyleController = this.layoutControl6;
+            this.simpleButton3.TabIndex = 49;
+            this.simpleButton3.Visible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.simpleButton3;
+            this.layoutControlItem4.Location = new System.Drawing.Point(255, 183);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(113, 26);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
             // MotionControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -7764,6 +7830,7 @@
             this.groupControlPCLControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl6)).EndInit();
             this.layoutControl6.ResumeLayout(false);
+            this.layoutControl6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditTargetAcceleration.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditUserDefineValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroupMenualValueMode.Properties)).EndInit();
@@ -8123,6 +8190,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem316)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -8670,5 +8740,11 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl8;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup9;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem35;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

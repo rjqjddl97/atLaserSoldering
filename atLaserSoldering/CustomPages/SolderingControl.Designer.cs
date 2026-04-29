@@ -76,19 +76,15 @@
             this.textEditReverseFeedLength = new DevExpress.XtraEditors.TextEdit();
             this.textEditForwardFeedVelocity = new DevExpress.XtraEditors.TextEdit();
             this.textEditForwardFeedLength = new DevExpress.XtraEditors.TextEdit();
-            this.pictureEditSoldering = new DevExpress.XtraEditors.PictureEdit();
             this.textEditHeatPowerRatio = new DevExpress.XtraEditors.TextEdit();
             this.textEditReadyTime = new DevExpress.XtraEditors.TextEdit();
             this.textEditHeatTime = new DevExpress.XtraEditors.TextEdit();
             this.textEditPreHeatTime = new DevExpress.XtraEditors.TextEdit();
             this.textEditPreHeatPowerRatio = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemReadyTime = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemPreHeatTime = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemPreHeatPower = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemHeatTime = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItemHeatPower = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemForwardFeedLength = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemForwardFeedVelocity = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemReverseFeedLength = new DevExpress.XtraLayout.LayoutControlItem();
@@ -99,9 +95,13 @@
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemMeltingTime = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemMeltingPower = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemHeatTime = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItemHeatPower = new DevExpress.XtraLayout.LayoutControlItem();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.pictureEditSoldering = new DevExpress.XtraEditors.PictureEdit();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
@@ -137,19 +137,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedVelocity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedLength.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEditSoldering.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditHeatPowerRatio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditReadyTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditHeatTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatPowerRatio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemReadyTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemPreHeatTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemPreHeatPower)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeatTime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeatPower)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemForwardFeedLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemForwardFeedVelocity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemReverseFeedLength)).BeginInit();
@@ -160,9 +156,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemMeltingTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemMeltingPower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeatTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeatPower)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditSoldering.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -724,17 +724,6 @@
             this.textEditForwardFeedLength.StyleController = this.layoutControl2;
             this.textEditForwardFeedLength.TabIndex = 9;
             // 
-            // pictureEditSoldering
-            // 
-            this.pictureEditSoldering.EditValue = global::atLaserSoldering.Properties.Resources.Solderingprofile;
-            this.pictureEditSoldering.Location = new System.Drawing.Point(12, 12);
-            this.pictureEditSoldering.Name = "pictureEditSoldering";
-            this.pictureEditSoldering.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEditSoldering.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.pictureEditSoldering.Size = new System.Drawing.Size(302, 355);
-            this.pictureEditSoldering.StyleController = this.layoutControl2;
-            this.pictureEditSoldering.TabIndex = 4;
-            // 
             // textEditHeatPowerRatio
             // 
             this.textEditHeatPowerRatio.Location = new System.Drawing.Point(446, 156);
@@ -815,15 +804,6 @@
             this.layoutControlGroup1.Size = new System.Drawing.Size(514, 379);
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.pictureEditSoldering;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(306, 359);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
             // layoutControlItemReadyTime
             // 
             this.layoutControlItemReadyTime.Control = this.textEditReadyTime;
@@ -850,24 +830,6 @@
             this.layoutControlItemPreHeatPower.Size = new System.Drawing.Size(188, 24);
             this.layoutControlItemPreHeatPower.Text = "PreHeat Power[%]";
             this.layoutControlItemPreHeatPower.TextSize = new System.Drawing.Size(125, 14);
-            // 
-            // layoutControlItemHeatTime
-            // 
-            this.layoutControlItemHeatTime.Control = this.textEditHeatTime;
-            this.layoutControlItemHeatTime.Location = new System.Drawing.Point(306, 120);
-            this.layoutControlItemHeatTime.Name = "layoutControlItemHeatTime";
-            this.layoutControlItemHeatTime.Size = new System.Drawing.Size(188, 24);
-            this.layoutControlItemHeatTime.Text = "Heat Time[ms]";
-            this.layoutControlItemHeatTime.TextSize = new System.Drawing.Size(125, 14);
-            // 
-            // layoutControlItemHeatPower
-            // 
-            this.layoutControlItemHeatPower.Control = this.textEditHeatPowerRatio;
-            this.layoutControlItemHeatPower.Location = new System.Drawing.Point(306, 144);
-            this.layoutControlItemHeatPower.Name = "layoutControlItemHeatPower";
-            this.layoutControlItemHeatPower.Size = new System.Drawing.Size(188, 24);
-            this.layoutControlItemHeatPower.Text = "Heat Power[%]";
-            this.layoutControlItemHeatPower.TextSize = new System.Drawing.Size(125, 14);
             // 
             // layoutControlItemForwardFeedLength
             // 
@@ -959,6 +921,24 @@
             this.layoutControlItemMeltingPower.Text = "MeltingPower[%]";
             this.layoutControlItemMeltingPower.TextSize = new System.Drawing.Size(125, 14);
             // 
+            // layoutControlItemHeatTime
+            // 
+            this.layoutControlItemHeatTime.Control = this.textEditHeatTime;
+            this.layoutControlItemHeatTime.Location = new System.Drawing.Point(306, 120);
+            this.layoutControlItemHeatTime.Name = "layoutControlItemHeatTime";
+            this.layoutControlItemHeatTime.Size = new System.Drawing.Size(188, 24);
+            this.layoutControlItemHeatTime.Text = "Heat Time[ms]";
+            this.layoutControlItemHeatTime.TextSize = new System.Drawing.Size(125, 14);
+            // 
+            // layoutControlItemHeatPower
+            // 
+            this.layoutControlItemHeatPower.Control = this.textEditHeatPowerRatio;
+            this.layoutControlItemHeatPower.Location = new System.Drawing.Point(306, 144);
+            this.layoutControlItemHeatPower.Name = "layoutControlItemHeatPower";
+            this.layoutControlItemHeatPower.Size = new System.Drawing.Size(188, 24);
+            this.layoutControlItemHeatPower.Text = "Heat Power[%]";
+            this.layoutControlItemHeatPower.TextSize = new System.Drawing.Size(125, 14);
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -988,6 +968,26 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
+            // pictureEditSoldering
+            // 
+            this.pictureEditSoldering.EditValue = global::atLaserSoldering.Properties.Resources.Solderingprofile;
+            this.pictureEditSoldering.Location = new System.Drawing.Point(12, 12);
+            this.pictureEditSoldering.Name = "pictureEditSoldering";
+            this.pictureEditSoldering.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEditSoldering.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+            this.pictureEditSoldering.Size = new System.Drawing.Size(302, 355);
+            this.pictureEditSoldering.StyleController = this.layoutControl2;
+            this.pictureEditSoldering.TabIndex = 4;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.pictureEditSoldering;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(306, 359);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // SolderingControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -999,6 +999,7 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
+            this.layoutControl3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEditMenualPowerRatio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditMenualFeedLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
@@ -1030,19 +1031,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditReverseFeedLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedVelocity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditForwardFeedLength.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEditSoldering.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditHeatPowerRatio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditReadyTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditHeatTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditPreHeatPowerRatio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemReadyTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemPreHeatTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemPreHeatPower)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeatTime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeatPower)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemForwardFeedLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemForwardFeedVelocity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemReverseFeedLength)).EndInit();
@@ -1053,9 +1050,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemMeltingTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemMeltingPower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeatTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeatPower)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEditSoldering.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }

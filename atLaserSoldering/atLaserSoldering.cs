@@ -1117,7 +1117,10 @@ namespace atLaserSoldering
             {
                 mRobotInformation.mInputData = update.mInputData;
                 mRobotInformation.mOutputData = update.mOutputData;
-
+                if (mRobotInformation.mInputData.B0)
+                {
+                    ;//
+                }
             }
             catch (Exception)
             {
@@ -2475,6 +2478,7 @@ namespace atLaserSoldering
                     barCheckItemLaserSolderingStart.Enabled = true;
                     _IsAutoSolderingRunning = false;
                     _IsAutoSolderingEnd = false;
+                    _mLaserSoldering.LaserSolderingStop();
                     barCheckItemLaserSolderingStart.Caption = "작업 시작";
                     mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행을 중지 했습니다.");
                 }
