@@ -85,6 +85,8 @@ namespace RecipeManager
                 pos.ReadyTime = Convert.ToInt32(recipeData[WorkParamSections[4]][string.Format("ReadyTime{0}", i)]);
                 pos.PreHeatPowerRatio = Convert.ToDouble(recipeData[WorkParamSections[4]][string.Format("PreHeatPowerRatio{0}", i)]);
                 pos.PreHeatTime = Convert.ToInt32(recipeData[WorkParamSections[4]][string.Format("PreHeatTime{0}", i)]);
+                pos.MeltingPowerRatio = Convert.ToDouble(recipeData[WorkParamSections[4]][string.Format("MeltingPowerRatio{0}", i)]);
+                pos.MeltingTime = Convert.ToInt32(recipeData[WorkParamSections[4]][string.Format("MeltingTime{0}", i)]);
                 pos.HeatPowerRatio = Convert.ToDouble(recipeData[WorkParamSections[4]][string.Format("HeatPowerRatio{0}", i)]);
                 pos.HeatTime = Convert.ToInt32(recipeData[WorkParamSections[4]][string.Format("HeatTime{0}", i)]);
                 pos.ForwardFeedLength = Convert.ToDouble(recipeData[WorkParamSections[4]][string.Format("ForwardFeedLength{0}", i)]);
@@ -148,6 +150,8 @@ namespace RecipeManager
                 recipeData[WorkParamSections[4]].AddKey(string.Format("ReadyTime{0}",i), workParam.SolderPositionParams[i].ReadyTime.ToString());
                 recipeData[WorkParamSections[4]].AddKey(string.Format("PreHeatPowerRatio{0}", i), workParam.SolderPositionParams[i].PreHeatPowerRatio.ToString());
                 recipeData[WorkParamSections[4]].AddKey(string.Format("PreHeatTime{0}", i), workParam.SolderPositionParams[i].PreHeatTime.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("MeltingPowerRatio{0}", i), workParam.SolderPositionParams[i].MeltingPowerRatio.ToString());
+                recipeData[WorkParamSections[4]].AddKey(string.Format("MeltingTime{0}", i), workParam.SolderPositionParams[i].MeltingTime.ToString());
                 recipeData[WorkParamSections[4]].AddKey(string.Format("HeatPowerRatio{0}", i), workParam.SolderPositionParams[i].HeatPowerRatio.ToString());
                 recipeData[WorkParamSections[4]].AddKey(string.Format("HeatTime{0}", i), workParam.SolderPositionParams[i].HeatTime.ToString());
                 recipeData[WorkParamSections[4]].AddKey(string.Format("ForwardFeedLength{0}", i), workParam.SolderPositionParams[i].ForwardFeedLength.ToString());

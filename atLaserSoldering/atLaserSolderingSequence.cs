@@ -236,6 +236,8 @@ namespace atLaserSoldering
                                                 _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
                                                 _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
                                                 _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
+                                                _mSolderingJob.MeltingPowerRatio = (int)_workParams.SolderPositionParams[i].MeltingPowerRatio;
+                                                _mSolderingJob.MeltingTime = _workParams.SolderPositionParams[i].MeltingTime;
                                                 _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
                                                 _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
                                                 _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
@@ -449,6 +451,8 @@ namespace atLaserSoldering
                                                 _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
                                                 _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
                                                 _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
+                                                _mSolderingJob.MeltingPowerRatio = (int)_workParams.SolderPositionParams[i].MeltingPowerRatio;
+                                                _mSolderingJob.MeltingTime = _workParams.SolderPositionParams[i].MeltingTime;
                                                 _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
                                                 _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
                                                 _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
@@ -534,6 +538,8 @@ namespace atLaserSoldering
                                             _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
                                             _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
                                             _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
+                                            _mSolderingJob.MeltingPowerRatio = (int)_workParams.SolderPositionParams[i].MeltingPowerRatio;
+                                            _mSolderingJob.MeltingTime = _workParams.SolderPositionParams[i].MeltingTime;
                                             _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
                                             _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
                                             _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
@@ -621,6 +627,8 @@ namespace atLaserSoldering
                                         _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
                                         _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
                                         _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
+                                        _mSolderingJob.MeltingPowerRatio = (int)_workParams.SolderPositionParams[i].MeltingPowerRatio;
+                                        _mSolderingJob.MeltingTime = _workParams.SolderPositionParams[i].MeltingTime;
                                         _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
                                         _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
                                         _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;

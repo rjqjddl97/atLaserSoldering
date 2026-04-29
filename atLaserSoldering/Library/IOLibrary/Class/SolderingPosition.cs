@@ -18,8 +18,10 @@ namespace RecipeManager
 
         private double _PreheatPowerRatio = 0;
         private double _HeatPowerRatio = 0;
+        private double _MeltingPowerRatio = 0;
         private int _ReadyTime = 0;
         private int _PreHeatTime = 0;
+        private int _MeltingTime = 0;
         private int _HeatTime = 0;
         private double _ForwordingWireLength = 0;
         private double _ForwordingVelocity = 0;
@@ -44,9 +46,11 @@ namespace RecipeManager
         public double PositionRy { get { return _positionRy; } set { _positionRy = value; } }
         public double PositionRz { get { return _positionRz; } set { _positionRz = value; } }
         public double PreHeatPowerRatio { get { return _PreheatPowerRatio; } set { _PreheatPowerRatio = value; } }
+        public double MeltingPowerRatio { get { return _MeltingPowerRatio; } set { _MeltingPowerRatio = value; } }
         public double HeatPowerRatio { get { return _HeatPowerRatio; } set { _HeatPowerRatio = value; } }
         public int ReadyTime { get { return _ReadyTime; } set { _ReadyTime = value; } }
         public int PreHeatTime { get { return _PreHeatTime; } set { _PreHeatTime = value; } }
+        public int MeltingTime { get { return _MeltingTime; } set { _MeltingTime = value; } }        
         public int HeatTime { get { return _HeatTime; } set { _HeatTime = value; } }
         public double ForwardFeedLength { get { return _ForwordingWireLength; } set { _ForwordingWireLength = value; } }
         public double ForwardFeedVelocity { get { return _ForwordingVelocity; } set { _ForwordingVelocity = value; } }

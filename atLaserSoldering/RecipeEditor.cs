@@ -74,14 +74,16 @@ namespace atLaserSoldering
                 layoutControlItem30.Text = "3. Position Y";
                 layoutControlItem31.Text = "4. Position Z";
                 layoutControlItem19.Text = "5. Ready Time[ms]";
-                layoutControlItem20.Text = "7. PreHeat Time[ms]";
                 layoutControlItem22.Text = "6. PreHeat P. Ratio[%]";
-                layoutControlItem21.Text = "9. Heat Time[ms]";
-                layoutControlItem23.Text = "8. Heat P. Ratio[%]";
-                layoutControlItem24.Text = "10. F. Feed Length[mm]";
-                layoutControlItem25.Text = "11. F. Feed Velocity[mm/s]";
-                layoutControlItem26.Text = "12. R. Feed Length[mm]";
-                layoutControlItem27.Text = "13. R. Feed Velocity[mm/s]";
+                layoutControlItem20.Text = "7. PreHeat Time[ms]";
+                layoutControlItem6.Text = "8. Melting P. Ratio[%]";
+                layoutControlItem7.Text = "9. Melting Time[ms]";
+                layoutControlItem23.Text = "10. Heat P. Ratio[%]";
+                layoutControlItem21.Text = "11. Heat Time[ms]";                
+                layoutControlItem24.Text = "12. F. Feed Length[mm]";
+                layoutControlItem25.Text = "13. F. Feed Velocity[mm/s]";
+                layoutControlItem26.Text = "14. R. Feed Length[mm]";
+                layoutControlItem27.Text = "15. R. Feed Velocity[mm/s]";
             }
             else
             {
@@ -123,14 +125,16 @@ namespace atLaserSoldering
                 layoutControlItem30.Text = "3. Position Y";
                 layoutControlItem31.Text = "4. Position Z";
                 layoutControlItem19.Text = "5. Ready Time[ms]";
-                layoutControlItem20.Text = "7. PreHeat Time[ms]";
                 layoutControlItem22.Text = "6. PreHeat P. Ratio[%]";
-                layoutControlItem21.Text = "9. Heat Time[ms]";
-                layoutControlItem23.Text = "8. Heat P. Ratio[%]";
-                layoutControlItem24.Text = "10. F. Feed Length[mm]";
-                layoutControlItem25.Text = "11. F. Feed Velocity[mm/s]";
-                layoutControlItem26.Text = "12. R. Feed Length[mm]";
-                layoutControlItem27.Text = "13. R. Feed Velocity[mm/s]";
+                layoutControlItem20.Text = "7. PreHeat Time[ms]";
+                layoutControlItem6.Text = "8. Melting P. Ratio[%]";
+                layoutControlItem7.Text = "9. Melting Time[ms]";
+                layoutControlItem23.Text = "10. Heat P. Ratio[%]";
+                layoutControlItem21.Text = "11. Heat Time[ms]";
+                layoutControlItem24.Text = "12. F. Feed Length[mm]";
+                layoutControlItem25.Text = "13. F. Feed Velocity[mm/s]";
+                layoutControlItem26.Text = "14. R. Feed Length[mm]";
+                layoutControlItem27.Text = "15. R. Feed Velocity[mm/s]";
             }
         }
         public void SetSystemParam(SystemParams sysParam)
@@ -1574,6 +1578,32 @@ namespace atLaserSoldering
                         }
                     }
 
+                    if (int.TryParse(textEditMeltingTime.Text, out iResult))
+                    {
+                        if (iResult >= 0)
+                        {
+                            inspectionPos.MeltingTime = iResult;
+                        }
+                        else
+                        {
+                            MessageBox.Show("잘못된 Melting Time 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    if (int.TryParse(textEditMeltingPowerRatio.Text, out iResult))
+                    {
+                        if (iResult >= 0)
+                        {
+                            inspectionPos.MeltingPowerRatio = iResult * 10;
+                        }
+                        else
+                        {
+                            MessageBox.Show("잘못된 Melting Power Ratio 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
                     if (int.TryParse(textEditHeatTime.Text, out iResult))
                     {
                         if (iResult >= 0)
@@ -1648,8 +1678,8 @@ namespace atLaserSoldering
                         }
                     }
                     
-                    string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4}, ReadyTime:{5}, PreHeatTime:{6}, PreHeatPower:{7}" +
-                        "HeatTime:{8}, HeatPower:{9}, F FeedLength:{10}, F FeedVelocity:{11}, R FeedLength:{12}, R FeedVelocity:{13} 값을 등록하시겠습니까?",
+                    string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4}, ReadyTime:{5}, PreHeatTime:{6}, PreHeatPower:{7}, MeltingTime:{8}, MeltingPower:{9}," +                        
+                        "HeatTime:{10}, HeatPower:{11}, F FeedLength:{12}, F FeedVelocity:{13}, R FeedLength:{14}, R FeedVelocity:{15} 값을 등록하시겠습니까?",
                         gridViewInspectionPositions.RowCount + 1,
                         inspectionPos.ePositionType,
                         inspectionPos.PositionX,
@@ -1658,6 +1688,8 @@ namespace atLaserSoldering
                         inspectionPos.ReadyTime,
                         inspectionPos.PreHeatTime,
                         inspectionPos.PreHeatPowerRatio,
+                        inspectionPos.MeltingTime,
+                        inspectionPos.MeltingPowerRatio,
                         inspectionPos.HeatTime,
                         inspectionPos.HeatPowerRatio,
                         inspectionPos.ForwardFeedLength,
@@ -1680,11 +1712,11 @@ namespace atLaserSoldering
                     barButtonItemRecipeSave.Enabled = true;
 
                     _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),
-                        string.Format("Type:{0}, X:{1}, Y:{2}, Z:{3}, ReadyTime:{4}, PreHeatTime:{5}, PreHeatPower:{6}" +
-                                    "HeatTime:{7}, HeatPower:{8}, F FeedLength:{9}, F FeedVelocity:{10}, R FeedLength:{11}, R FeedVelocity:{12}를 등록",
+                        string.Format("Type:{0}, X:{1}, Y:{2}, Z:{3}, ReadyTime:{4}, PreHeatTime:{5}, PreHeatPower:{6}, MeltingTime:{7}, MeltingPower:{8}," +
+                                    "HeatTime:{9}, HeatPower:{10}, F FeedLength:{11}, F FeedVelocity:{12}, R FeedLength:{13}, R FeedVelocity:{14}를 등록",
                                     inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ,
-                                    inspectionPos.ReadyTime, inspectionPos.PreHeatTime, inspectionPos.PreHeatPowerRatio, inspectionPos.HeatTime, inspectionPos.HeatPowerRatio,
-                                    inspectionPos.ForwardFeedLength, inspectionPos.ForwardFeedVelocity, inspectionPos.ReverseFeedLength, inspectionPos.ReverseFeedVelocity));
+                                    inspectionPos.ReadyTime, inspectionPos.PreHeatTime, inspectionPos.PreHeatPowerRatio, inspectionPos.MeltingTime,inspectionPos.MeltingPowerRatio,
+                                    inspectionPos.HeatTime, inspectionPos.HeatPowerRatio,inspectionPos.ForwardFeedLength, inspectionPos.ForwardFeedVelocity, inspectionPos.ReverseFeedLength, inspectionPos.ReverseFeedVelocity));
                     
                 }
             }
@@ -1881,6 +1913,32 @@ namespace atLaserSoldering
                                 }
                             }
 
+                            if (int.TryParse(textEditMeltingTime.Text, out iResult))
+                            {
+                                if (iResult >= 0)
+                                {
+                                    inspectionPos.MeltingTime = iResult;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("잘못된 Melting Time 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+
+                            if (int.TryParse(textEditMeltingPowerRatio.Text, out iResult))
+                            {
+                                if (iResult >= 0)
+                                {
+                                    inspectionPos.MeltingPowerRatio = iResult * 10;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("잘못된 Melting Power Ratio 입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+
                             if (int.TryParse(textEditHeatTime.Text, out iResult))
                             {
                                 if (iResult >= 0)
@@ -1955,8 +2013,8 @@ namespace atLaserSoldering
                                 }
                             }
 
-                            string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4}, ReadyTime:{5}, PreHeatTime:{6}, PreHeatPower:{7}" +
-                            "HeatTime:{8}, HeatPower:{9}, F FeedLength:{10}, F FeedVelocity:{11}, R FeedLength:{12}, R FeedVelocity:{13} 값을 수정하시겠습니까?",
+                            string strMessage = string.Format("Index:{0}, Type:{1}, X:{2}, Y:{3}, Z:{4}, ReadyTime:{5}, PreHeatTime:{6}, PreHeatPower:{7}, MeltingTime:{8}, MeltingPower:{9}," +
+                            "HeatTime:{10}, HeatPower:{11}, F FeedLength:{12}, F FeedVelocity:{13}, R FeedLength:{14}, R FeedVelocity:{15} 값을 수정하시겠습니까?",
                                 inspectionPos.Index,
                                 inspectionPos.ePositionType,
                                 inspectionPos.PositionX,
@@ -1965,6 +2023,8 @@ namespace atLaserSoldering
                                 inspectionPos.ReadyTime,
                                 inspectionPos.PreHeatTime,
                                 inspectionPos.PreHeatPowerRatio,
+                                inspectionPos.MeltingTime,
+                                inspectionPos.MeltingPowerRatio,
                                 inspectionPos.HeatTime,
                                 inspectionPos.HeatPowerRatio,
                                 inspectionPos.ForwardFeedLength,
@@ -1983,10 +2043,10 @@ namespace atLaserSoldering
                             
                             barButtonItemRecipeSave.Enabled = true;
 
-                            _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),string.Format("Type:{0}, X:{1}, Y:{2}, Z:{3}, ReadyTime:{4}, PreHeatTime:{5}, PreHeatPower:{6}" +
-                                "HeatTime:{7}, HeatPower:{8}, F FeedLength:{9}, F FeedVelocity:{10}, R FeedLength:{11}, R FeedVelocity:{12}를 수정",
+                            _log.WriteLog(LogLevel.Info, LogClass.RecipeEditor.ToString(),string.Format("Type:{0}, X:{1}, Y:{2}, Z:{3}, ReadyTime:{4}, PreHeatTime:{5}, PreHeatPower:{6}, MeltingTime:{7}, MeltingPower:{8}," +
+                                "HeatTime:{9}, HeatPower:{10}, F FeedLength:{11}, F FeedVelocity:{12}, R FeedLength:{13}, R FeedVelocity:{14}를 수정",
                                 inspectionPos.ePositionType.ToString(), inspectionPos.PositionX, inspectionPos.PositionY, inspectionPos.PositionZ,
-                                inspectionPos.ReadyTime, inspectionPos.PreHeatTime, inspectionPos.PreHeatPowerRatio, inspectionPos.HeatTime, inspectionPos.HeatPowerRatio,
+                                inspectionPos.ReadyTime, inspectionPos.PreHeatTime, inspectionPos.PreHeatPowerRatio,inspectionPos.MeltingTime,inspectionPos.MeltingPowerRatio,inspectionPos.HeatTime, inspectionPos.HeatPowerRatio,
                                 inspectionPos.ForwardFeedLength, inspectionPos.ForwardFeedVelocity, inspectionPos.ReverseFeedLength, inspectionPos.ReverseFeedVelocity));
                         }
                         else
@@ -2072,6 +2132,8 @@ namespace atLaserSoldering
             textEditReadyWaitTime.Text = _workParam.SolderPositionParams[_gridRowIndex].ReadyTime.ToString();
             textEditPreHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].PreHeatTime.ToString();
             textEditPreHeatPowerRatio.Text = string.Format("{0}", (_workParam.SolderPositionParams[_gridRowIndex].PreHeatPowerRatio / 10));
+            textEditMeltingTime.Text = _workParam.SolderPositionParams[_gridRowIndex].MeltingTime.ToString();
+            textEditMeltingPowerRatio.Text = string.Format("{0}", (_workParam.SolderPositionParams[_gridRowIndex].MeltingPowerRatio / 10));
             textEditHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatTime.ToString();
             textEditHeatPowerRatio.Text = string.Format("{0}", (_workParam.SolderPositionParams[_gridRowIndex].HeatPowerRatio / 10)); 
             textEditForwardFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwardFeedLength.ToString();

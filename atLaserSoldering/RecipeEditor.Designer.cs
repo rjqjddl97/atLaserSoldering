@@ -90,6 +90,8 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.buttonEditPCBLayoutFilePath = new DevExpress.XtraEditors.ButtonEdit();
             this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
+            this.textEditMeltingTime = new DevExpress.XtraEditors.TextEdit();
+            this.textEditMeltingPowerRatio = new DevExpress.XtraEditors.TextEdit();
             this.textEditPositionZ = new DevExpress.XtraEditors.TextEdit();
             this.textEditPositionY = new DevExpress.XtraEditors.TextEdit();
             this.textEditPositionX = new DevExpress.XtraEditors.TextEdit();
@@ -119,6 +121,8 @@
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem23 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.simpleButtonReplaceUp = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonReplaceDown = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonInspectionPositionEdit = new DevExpress.XtraEditors.SimpleButton();
@@ -134,6 +138,8 @@
             this.gridColumnReadyTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPreHeatPowerRatio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPreHeatTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnMeltingPowerRatio = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnMeltingTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnHeatPowerRatio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnHeatTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnForwardFeedLength = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -188,6 +194,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEditPCBLayoutFilePath.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
             this.layoutControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditMeltingTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditMeltingPowerRatio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditPositionZ.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditPositionY.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditPositionX.Properties)).BeginInit();
@@ -217,6 +225,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectionPosition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectionPositions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEditInspectImage.Properties)).BeginInit();
@@ -610,24 +620,24 @@
             // 
             // vGridControlInspectionParam
             // 
-            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Default;
             this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
             this.vGridControlInspectionParam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.vGridControlInspectionParam.Name = "vGridControlInspectionParam";
             this.vGridControlInspectionParam.OptionsView.MaxRowAutoHeight = 100;
-            this.vGridControlInspectionParam.RecordWidth = 79;
+            this.vGridControlInspectionParam.RecordWidth = 59;
             this.vGridControlInspectionParam.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemDateEditRecipeCreateTime,
             this.repositoryItemButtonEditPCBLayoutFilePath,
             this.repositoryItemComboBoxAlignInspectionMode});
-            this.vGridControlInspectionParam.RowHeaderWidth = 121;
+            this.vGridControlInspectionParam.RowHeaderWidth = 141;
             this.vGridControlInspectionParam.Rows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
             this.categoryRecipeInformation,
             this.categoryPCBInformation,
             this.categoryInspectionInformation,
             this.categoryLaserSolderingInformation});
-            this.vGridControlInspectionParam.Size = new System.Drawing.Size(310, 552);
+            this.vGridControlInspectionParam.Size = new System.Drawing.Size(276, 552);
             this.vGridControlInspectionParam.TabIndex = 0;
             this.vGridControlInspectionParam.CellValueChanged += new DevExpress.XtraVerticalGrid.Events.CellValueChangedEventHandler(this.vGridControlInspectionParam_CellValueChanged);
             this.vGridControlInspectionParam.Leave += new System.EventHandler(this.vGridControlInspectionParam_Leave);
@@ -692,7 +702,7 @@
             this.groupControl2.Location = new System.Drawing.Point(4, 4);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(320, 581);
+            this.groupControl2.Size = new System.Drawing.Size(286, 581);
             this.groupControl2.TabIndex = 4;
             this.groupControl2.Text = "레이저납땜 레시피 설정";
             // 
@@ -705,7 +715,7 @@
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl2.Root = this.layoutControlGroup4;
-            this.layoutControl2.Size = new System.Drawing.Size(316, 558);
+            this.layoutControl2.Size = new System.Drawing.Size(282, 558);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -717,7 +727,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup4.Size = new System.Drawing.Size(316, 558);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(282, 558);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlItem2
@@ -725,17 +735,17 @@
             this.layoutControlItem2.Control = this.vGridControlInspectionParam;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(314, 556);
+            this.layoutControlItem2.Size = new System.Drawing.Size(280, 556);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.layoutControl1);
-            this.groupControl1.Location = new System.Drawing.Point(328, 4);
+            this.groupControl1.Location = new System.Drawing.Point(294, 4);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(682, 581);
+            this.groupControl1.Size = new System.Drawing.Size(716, 581);
             this.groupControl1.TabIndex = 6;
             this.groupControl1.Text = "납땜 정보";
             // 
@@ -757,7 +767,7 @@
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(481, 178, 650, 400);
             this.layoutControl1.OptionsView.UseDefaultDragAndDropRendering = false;
             this.layoutControl1.Root = this.layoutControlGroup5;
-            this.layoutControl1.Size = new System.Drawing.Size(678, 558);
+            this.layoutControl1.Size = new System.Drawing.Size(712, 558);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -768,13 +778,15 @@
             this.buttonEditPCBLayoutFilePath.Name = "buttonEditPCBLayoutFilePath";
             this.buttonEditPCBLayoutFilePath.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.buttonEditPCBLayoutFilePath.Size = new System.Drawing.Size(118, 20);
+            this.buttonEditPCBLayoutFilePath.Size = new System.Drawing.Size(127, 20);
             this.buttonEditPCBLayoutFilePath.StyleController = this.layoutControl1;
             this.buttonEditPCBLayoutFilePath.TabIndex = 17;
             this.buttonEditPCBLayoutFilePath.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.buttonEditPCBLayoutFilePath_ButtonClick);
             // 
             // layoutControl5
             // 
+            this.layoutControl5.Controls.Add(this.textEditMeltingTime);
+            this.layoutControl5.Controls.Add(this.textEditMeltingPowerRatio);
             this.layoutControl5.Controls.Add(this.textEditPositionZ);
             this.layoutControl5.Controls.Add(this.textEditPositionY);
             this.layoutControl5.Controls.Add(this.textEditPositionX);
@@ -789,19 +801,37 @@
             this.layoutControl5.Controls.Add(this.textEditPreHeatTime);
             this.layoutControl5.Controls.Add(this.textEditReadyWaitTime);
             this.layoutControl5.Controls.Add(this.pictureEditLaserProfile);
-            this.layoutControl5.Location = new System.Drawing.Point(186, 3);
+            this.layoutControl5.Location = new System.Drawing.Point(195, 3);
             this.layoutControl5.Name = "layoutControl5";
             this.layoutControl5.Root = this.layoutControlGroup7;
-            this.layoutControl5.Size = new System.Drawing.Size(489, 318);
+            this.layoutControl5.Size = new System.Drawing.Size(514, 362);
             this.layoutControl5.TabIndex = 16;
             this.layoutControl5.Text = "layoutControl5";
+            // 
+            // textEditMeltingTime
+            // 
+            this.textEditMeltingTime.Location = new System.Drawing.Point(157, 195);
+            this.textEditMeltingTime.MenuManager = this.ribbonControl1;
+            this.textEditMeltingTime.Name = "textEditMeltingTime";
+            this.textEditMeltingTime.Size = new System.Drawing.Size(69, 20);
+            this.textEditMeltingTime.StyleController = this.layoutControl5;
+            this.textEditMeltingTime.TabIndex = 18;
+            // 
+            // textEditMeltingPowerRatio
+            // 
+            this.textEditMeltingPowerRatio.Location = new System.Drawing.Point(157, 171);
+            this.textEditMeltingPowerRatio.MenuManager = this.ribbonControl1;
+            this.textEditMeltingPowerRatio.Name = "textEditMeltingPowerRatio";
+            this.textEditMeltingPowerRatio.Size = new System.Drawing.Size(69, 20);
+            this.textEditMeltingPowerRatio.StyleController = this.layoutControl5;
+            this.textEditMeltingPowerRatio.TabIndex = 17;
             // 
             // textEditPositionZ
             // 
             this.textEditPositionZ.Location = new System.Drawing.Point(157, 75);
             this.textEditPositionZ.MenuManager = this.ribbonControl1;
             this.textEditPositionZ.Name = "textEditPositionZ";
-            this.textEditPositionZ.Size = new System.Drawing.Size(50, 20);
+            this.textEditPositionZ.Size = new System.Drawing.Size(69, 20);
             this.textEditPositionZ.StyleController = this.layoutControl5;
             this.textEditPositionZ.TabIndex = 16;
             // 
@@ -810,7 +840,7 @@
             this.textEditPositionY.Location = new System.Drawing.Point(157, 51);
             this.textEditPositionY.MenuManager = this.ribbonControl1;
             this.textEditPositionY.Name = "textEditPositionY";
-            this.textEditPositionY.Size = new System.Drawing.Size(50, 20);
+            this.textEditPositionY.Size = new System.Drawing.Size(69, 20);
             this.textEditPositionY.StyleController = this.layoutControl5;
             this.textEditPositionY.TabIndex = 15;
             // 
@@ -819,7 +849,7 @@
             this.textEditPositionX.Location = new System.Drawing.Point(157, 27);
             this.textEditPositionX.MenuManager = this.ribbonControl1;
             this.textEditPositionX.Name = "textEditPositionX";
-            this.textEditPositionX.Size = new System.Drawing.Size(50, 20);
+            this.textEditPositionX.Size = new System.Drawing.Size(69, 20);
             this.textEditPositionX.StyleController = this.layoutControl5;
             this.textEditPositionX.TabIndex = 14;
             // 
@@ -831,52 +861,52 @@
             this.comboBoxEditInspectionModeType.Name = "comboBoxEditInspectionModeType";
             this.comboBoxEditInspectionModeType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditInspectionModeType.Size = new System.Drawing.Size(50, 20);
+            this.comboBoxEditInspectionModeType.Size = new System.Drawing.Size(69, 20);
             this.comboBoxEditInspectionModeType.StyleController = this.layoutControl5;
             this.comboBoxEditInspectionModeType.TabIndex = 15;
             // 
             // textEditReverseFeedVelocity
             // 
-            this.textEditReverseFeedVelocity.Location = new System.Drawing.Point(157, 291);
+            this.textEditReverseFeedVelocity.Location = new System.Drawing.Point(157, 339);
             this.textEditReverseFeedVelocity.MenuManager = this.ribbonControl1;
             this.textEditReverseFeedVelocity.Name = "textEditReverseFeedVelocity";
-            this.textEditReverseFeedVelocity.Size = new System.Drawing.Size(50, 20);
+            this.textEditReverseFeedVelocity.Size = new System.Drawing.Size(69, 20);
             this.textEditReverseFeedVelocity.StyleController = this.layoutControl5;
             this.textEditReverseFeedVelocity.TabIndex = 13;
             // 
             // textEditReverseFeedLength
             // 
-            this.textEditReverseFeedLength.Location = new System.Drawing.Point(157, 267);
+            this.textEditReverseFeedLength.Location = new System.Drawing.Point(157, 315);
             this.textEditReverseFeedLength.MenuManager = this.ribbonControl1;
             this.textEditReverseFeedLength.Name = "textEditReverseFeedLength";
-            this.textEditReverseFeedLength.Size = new System.Drawing.Size(50, 20);
+            this.textEditReverseFeedLength.Size = new System.Drawing.Size(69, 20);
             this.textEditReverseFeedLength.StyleController = this.layoutControl5;
             this.textEditReverseFeedLength.TabIndex = 12;
             // 
             // textEditForwardFeedVelocity
             // 
-            this.textEditForwardFeedVelocity.Location = new System.Drawing.Point(157, 243);
+            this.textEditForwardFeedVelocity.Location = new System.Drawing.Point(157, 291);
             this.textEditForwardFeedVelocity.MenuManager = this.ribbonControl1;
             this.textEditForwardFeedVelocity.Name = "textEditForwardFeedVelocity";
-            this.textEditForwardFeedVelocity.Size = new System.Drawing.Size(50, 20);
+            this.textEditForwardFeedVelocity.Size = new System.Drawing.Size(69, 20);
             this.textEditForwardFeedVelocity.StyleController = this.layoutControl5;
             this.textEditForwardFeedVelocity.TabIndex = 11;
             // 
             // textEditForwardFeedLength
             // 
-            this.textEditForwardFeedLength.Location = new System.Drawing.Point(157, 219);
+            this.textEditForwardFeedLength.Location = new System.Drawing.Point(157, 267);
             this.textEditForwardFeedLength.MenuManager = this.ribbonControl1;
             this.textEditForwardFeedLength.Name = "textEditForwardFeedLength";
-            this.textEditForwardFeedLength.Size = new System.Drawing.Size(50, 20);
+            this.textEditForwardFeedLength.Size = new System.Drawing.Size(69, 20);
             this.textEditForwardFeedLength.StyleController = this.layoutControl5;
             this.textEditForwardFeedLength.TabIndex = 10;
             // 
             // textEditHeatPowerRatio
             // 
-            this.textEditHeatPowerRatio.Location = new System.Drawing.Point(157, 171);
+            this.textEditHeatPowerRatio.Location = new System.Drawing.Point(157, 219);
             this.textEditHeatPowerRatio.MenuManager = this.ribbonControl1;
             this.textEditHeatPowerRatio.Name = "textEditHeatPowerRatio";
-            this.textEditHeatPowerRatio.Size = new System.Drawing.Size(50, 20);
+            this.textEditHeatPowerRatio.Size = new System.Drawing.Size(69, 20);
             this.textEditHeatPowerRatio.StyleController = this.layoutControl5;
             this.textEditHeatPowerRatio.TabIndex = 9;
             // 
@@ -885,16 +915,16 @@
             this.textEditPreHeatPowerRatio.Location = new System.Drawing.Point(157, 123);
             this.textEditPreHeatPowerRatio.MenuManager = this.ribbonControl1;
             this.textEditPreHeatPowerRatio.Name = "textEditPreHeatPowerRatio";
-            this.textEditPreHeatPowerRatio.Size = new System.Drawing.Size(50, 20);
+            this.textEditPreHeatPowerRatio.Size = new System.Drawing.Size(69, 20);
             this.textEditPreHeatPowerRatio.StyleController = this.layoutControl5;
             this.textEditPreHeatPowerRatio.TabIndex = 8;
             // 
             // textEditHeatTime
             // 
-            this.textEditHeatTime.Location = new System.Drawing.Point(157, 195);
+            this.textEditHeatTime.Location = new System.Drawing.Point(157, 243);
             this.textEditHeatTime.MenuManager = this.ribbonControl1;
             this.textEditHeatTime.Name = "textEditHeatTime";
-            this.textEditHeatTime.Size = new System.Drawing.Size(50, 20);
+            this.textEditHeatTime.Size = new System.Drawing.Size(69, 20);
             this.textEditHeatTime.StyleController = this.layoutControl5;
             this.textEditHeatTime.TabIndex = 7;
             // 
@@ -903,7 +933,7 @@
             this.textEditPreHeatTime.Location = new System.Drawing.Point(157, 147);
             this.textEditPreHeatTime.MenuManager = this.ribbonControl1;
             this.textEditPreHeatTime.Name = "textEditPreHeatTime";
-            this.textEditPreHeatTime.Size = new System.Drawing.Size(50, 20);
+            this.textEditPreHeatTime.Size = new System.Drawing.Size(69, 20);
             this.textEditPreHeatTime.StyleController = this.layoutControl5;
             this.textEditPreHeatTime.TabIndex = 6;
             // 
@@ -912,19 +942,19 @@
             this.textEditReadyWaitTime.Location = new System.Drawing.Point(157, 99);
             this.textEditReadyWaitTime.MenuManager = this.ribbonControl1;
             this.textEditReadyWaitTime.Name = "textEditReadyWaitTime";
-            this.textEditReadyWaitTime.Size = new System.Drawing.Size(50, 20);
+            this.textEditReadyWaitTime.Size = new System.Drawing.Size(69, 20);
             this.textEditReadyWaitTime.StyleController = this.layoutControl5;
             this.textEditReadyWaitTime.TabIndex = 5;
             // 
             // pictureEditLaserProfile
             // 
             this.pictureEditLaserProfile.EditValue = global::atLaserSoldering.Properties.Resources.Solderingprofile;
-            this.pictureEditLaserProfile.Location = new System.Drawing.Point(211, 3);
+            this.pictureEditLaserProfile.Location = new System.Drawing.Point(230, 3);
             this.pictureEditLaserProfile.MenuManager = this.ribbonControl1;
             this.pictureEditLaserProfile.Name = "pictureEditLaserProfile";
             this.pictureEditLaserProfile.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEditLaserProfile.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
-            this.pictureEditLaserProfile.Size = new System.Drawing.Size(275, 312);
+            this.pictureEditLaserProfile.Size = new System.Drawing.Size(281, 356);
             this.pictureEditLaserProfile.StyleController = this.layoutControl5;
             this.pictureEditLaserProfile.TabIndex = 4;
             // 
@@ -946,18 +976,20 @@
             this.layoutControlItem31,
             this.layoutControlItem15,
             this.layoutControlItem22,
-            this.layoutControlItem23});
+            this.layoutControlItem23,
+            this.layoutControlItem6,
+            this.layoutControlItem7});
             this.layoutControlGroup7.Name = "layoutControlGroup7";
             this.layoutControlGroup7.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup7.Size = new System.Drawing.Size(489, 318);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(514, 362);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.pictureEditLaserProfile;
-            this.layoutControlItem18.Location = new System.Drawing.Point(208, 0);
+            this.layoutControlItem18.Location = new System.Drawing.Point(227, 0);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(279, 316);
+            this.layoutControlItem18.Size = new System.Drawing.Size(285, 360);
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
             // 
@@ -966,7 +998,7 @@
             this.layoutControlItem19.Control = this.textEditReadyWaitTime;
             this.layoutControlItem19.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(208, 24);
+            this.layoutControlItem19.Size = new System.Drawing.Size(227, 24);
             this.layoutControlItem19.Text = "5. Ready Time[ms]";
             this.layoutControlItem19.TextSize = new System.Drawing.Size(151, 14);
             // 
@@ -975,53 +1007,53 @@
             this.layoutControlItem20.Control = this.textEditPreHeatTime;
             this.layoutControlItem20.Location = new System.Drawing.Point(0, 144);
             this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(208, 24);
+            this.layoutControlItem20.Size = new System.Drawing.Size(227, 24);
             this.layoutControlItem20.Text = "7. PreHeat Time[ms]";
             this.layoutControlItem20.TextSize = new System.Drawing.Size(151, 14);
             // 
             // layoutControlItem21
             // 
             this.layoutControlItem21.Control = this.textEditHeatTime;
-            this.layoutControlItem21.Location = new System.Drawing.Point(0, 192);
+            this.layoutControlItem21.Location = new System.Drawing.Point(0, 240);
             this.layoutControlItem21.Name = "layoutControlItem21";
-            this.layoutControlItem21.Size = new System.Drawing.Size(208, 24);
-            this.layoutControlItem21.Text = "9. Heat Time[ms]";
+            this.layoutControlItem21.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem21.Text = "11. Heat Time[ms]";
             this.layoutControlItem21.TextSize = new System.Drawing.Size(151, 14);
             // 
             // layoutControlItem24
             // 
             this.layoutControlItem24.Control = this.textEditForwardFeedLength;
-            this.layoutControlItem24.Location = new System.Drawing.Point(0, 216);
+            this.layoutControlItem24.Location = new System.Drawing.Point(0, 264);
             this.layoutControlItem24.Name = "layoutControlItem24";
-            this.layoutControlItem24.Size = new System.Drawing.Size(208, 24);
-            this.layoutControlItem24.Text = "10. F. Feed Length[mm]";
+            this.layoutControlItem24.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem24.Text = "12. F. Feed Length[mm]";
             this.layoutControlItem24.TextSize = new System.Drawing.Size(151, 14);
             // 
             // layoutControlItem25
             // 
             this.layoutControlItem25.Control = this.textEditForwardFeedVelocity;
-            this.layoutControlItem25.Location = new System.Drawing.Point(0, 240);
+            this.layoutControlItem25.Location = new System.Drawing.Point(0, 288);
             this.layoutControlItem25.Name = "layoutControlItem25";
-            this.layoutControlItem25.Size = new System.Drawing.Size(208, 24);
-            this.layoutControlItem25.Text = "11. F. Feed Velocity[mm/s]";
+            this.layoutControlItem25.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem25.Text = "13. F. Feed Velocity[mm/s]";
             this.layoutControlItem25.TextSize = new System.Drawing.Size(151, 14);
             // 
             // layoutControlItem26
             // 
             this.layoutControlItem26.Control = this.textEditReverseFeedLength;
-            this.layoutControlItem26.Location = new System.Drawing.Point(0, 264);
+            this.layoutControlItem26.Location = new System.Drawing.Point(0, 312);
             this.layoutControlItem26.Name = "layoutControlItem26";
-            this.layoutControlItem26.Size = new System.Drawing.Size(208, 24);
-            this.layoutControlItem26.Text = "12. R. Feed Length[mm]";
+            this.layoutControlItem26.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem26.Text = "14. R. Feed Length[mm]";
             this.layoutControlItem26.TextSize = new System.Drawing.Size(151, 14);
             // 
             // layoutControlItem27
             // 
             this.layoutControlItem27.Control = this.textEditReverseFeedVelocity;
-            this.layoutControlItem27.Location = new System.Drawing.Point(0, 288);
+            this.layoutControlItem27.Location = new System.Drawing.Point(0, 336);
             this.layoutControlItem27.Name = "layoutControlItem27";
-            this.layoutControlItem27.Size = new System.Drawing.Size(208, 28);
-            this.layoutControlItem27.Text = "13. R. Feed Velocity[mm/s]";
+            this.layoutControlItem27.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem27.Text = "15. R. Feed Velocity[mm/s]";
             this.layoutControlItem27.TextSize = new System.Drawing.Size(151, 14);
             // 
             // layoutControlItem29
@@ -1029,7 +1061,7 @@
             this.layoutControlItem29.Control = this.textEditPositionX;
             this.layoutControlItem29.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem29.Name = "layoutControlItem29";
-            this.layoutControlItem29.Size = new System.Drawing.Size(208, 24);
+            this.layoutControlItem29.Size = new System.Drawing.Size(227, 24);
             this.layoutControlItem29.Text = "2. Position X";
             this.layoutControlItem29.TextSize = new System.Drawing.Size(151, 14);
             // 
@@ -1038,7 +1070,7 @@
             this.layoutControlItem30.Control = this.textEditPositionY;
             this.layoutControlItem30.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem30.Name = "layoutControlItem30";
-            this.layoutControlItem30.Size = new System.Drawing.Size(208, 24);
+            this.layoutControlItem30.Size = new System.Drawing.Size(227, 24);
             this.layoutControlItem30.Text = "3. Position Y";
             this.layoutControlItem30.TextSize = new System.Drawing.Size(151, 14);
             // 
@@ -1047,7 +1079,7 @@
             this.layoutControlItem31.Control = this.textEditPositionZ;
             this.layoutControlItem31.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem31.Name = "layoutControlItem31";
-            this.layoutControlItem31.Size = new System.Drawing.Size(208, 24);
+            this.layoutControlItem31.Size = new System.Drawing.Size(227, 24);
             this.layoutControlItem31.Text = "4. Position Z";
             this.layoutControlItem31.TextSize = new System.Drawing.Size(151, 14);
             // 
@@ -1056,7 +1088,7 @@
             this.layoutControlItem15.Control = this.comboBoxEditInspectionModeType;
             this.layoutControlItem15.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(208, 24);
+            this.layoutControlItem15.Size = new System.Drawing.Size(227, 24);
             this.layoutControlItem15.Text = "1. Inspection Mode";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(151, 14);
             // 
@@ -1065,25 +1097,43 @@
             this.layoutControlItem22.Control = this.textEditPreHeatPowerRatio;
             this.layoutControlItem22.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem22.Name = "layoutControlItem22";
-            this.layoutControlItem22.Size = new System.Drawing.Size(208, 24);
+            this.layoutControlItem22.Size = new System.Drawing.Size(227, 24);
             this.layoutControlItem22.Text = "6. PreHeat P. Ratio[%]";
             this.layoutControlItem22.TextSize = new System.Drawing.Size(151, 14);
             // 
             // layoutControlItem23
             // 
             this.layoutControlItem23.Control = this.textEditHeatPowerRatio;
-            this.layoutControlItem23.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem23.Location = new System.Drawing.Point(0, 216);
             this.layoutControlItem23.Name = "layoutControlItem23";
-            this.layoutControlItem23.Size = new System.Drawing.Size(208, 24);
-            this.layoutControlItem23.Text = "8. Heat P. Ratio[%]";
+            this.layoutControlItem23.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem23.Text = "10. Heat P. Ratio[%]";
             this.layoutControlItem23.TextSize = new System.Drawing.Size(151, 14);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.textEditMeltingPowerRatio;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem6.Text = "8. Melting P. Ratio[%]";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(151, 14);
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.textEditMeltingTime;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 192);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(227, 24);
+            this.layoutControlItem7.Text = "9. Melting Time[ms]";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(151, 14);
             // 
             // simpleButtonReplaceUp
             // 
-            this.simpleButtonReplaceUp.Location = new System.Drawing.Point(589, 325);
+            this.simpleButtonReplaceUp.Location = new System.Drawing.Point(618, 369);
             this.simpleButtonReplaceUp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonReplaceUp.Name = "simpleButtonReplaceUp";
-            this.simpleButtonReplaceUp.Size = new System.Drawing.Size(86, 22);
+            this.simpleButtonReplaceUp.Size = new System.Drawing.Size(91, 22);
             this.simpleButtonReplaceUp.StyleController = this.layoutControl1;
             this.simpleButtonReplaceUp.TabIndex = 14;
             this.simpleButtonReplaceUp.Text = "▲";
@@ -1091,10 +1141,10 @@
             // 
             // simpleButtonReplaceDown
             // 
-            this.simpleButtonReplaceDown.Location = new System.Drawing.Point(502, 325);
+            this.simpleButtonReplaceDown.Location = new System.Drawing.Point(527, 369);
             this.simpleButtonReplaceDown.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonReplaceDown.Name = "simpleButtonReplaceDown";
-            this.simpleButtonReplaceDown.Size = new System.Drawing.Size(83, 22);
+            this.simpleButtonReplaceDown.Size = new System.Drawing.Size(87, 22);
             this.simpleButtonReplaceDown.StyleController = this.layoutControl1;
             this.simpleButtonReplaceDown.TabIndex = 13;
             this.simpleButtonReplaceDown.Text = "▼";
@@ -1104,10 +1154,10 @@
             // 
             this.simpleButtonInspectionPositionEdit.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.scripts_16x16;
             this.simpleButtonInspectionPositionEdit.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            this.simpleButtonInspectionPositionEdit.Location = new System.Drawing.Point(335, 325);
+            this.simpleButtonInspectionPositionEdit.Location = new System.Drawing.Point(351, 369);
             this.simpleButtonInspectionPositionEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionEdit.Name = "simpleButtonInspectionPositionEdit";
-            this.simpleButtonInspectionPositionEdit.Size = new System.Drawing.Size(163, 22);
+            this.simpleButtonInspectionPositionEdit.Size = new System.Drawing.Size(172, 22);
             this.simpleButtonInspectionPositionEdit.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionEdit.TabIndex = 12;
             this.simpleButtonInspectionPositionEdit.Text = "수정";
@@ -1117,10 +1167,10 @@
             // 
             this.simpleButtonInspectionPositionDelete.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.clear_16x16;
             this.simpleButtonInspectionPositionDelete.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            this.simpleButtonInspectionPositionDelete.Location = new System.Drawing.Point(169, 325);
+            this.simpleButtonInspectionPositionDelete.Location = new System.Drawing.Point(177, 369);
             this.simpleButtonInspectionPositionDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionDelete.Name = "simpleButtonInspectionPositionDelete";
-            this.simpleButtonInspectionPositionDelete.Size = new System.Drawing.Size(162, 22);
+            this.simpleButtonInspectionPositionDelete.Size = new System.Drawing.Size(170, 22);
             this.simpleButtonInspectionPositionDelete.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionDelete.TabIndex = 11;
             this.simpleButtonInspectionPositionDelete.Text = "삭제";
@@ -1130,10 +1180,10 @@
             // 
             this.simpleButtonInspectionPositionRegister.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.showtestreport_16x16;
             this.simpleButtonInspectionPositionRegister.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            this.simpleButtonInspectionPositionRegister.Location = new System.Drawing.Point(3, 325);
+            this.simpleButtonInspectionPositionRegister.Location = new System.Drawing.Point(3, 369);
             this.simpleButtonInspectionPositionRegister.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionRegister.Name = "simpleButtonInspectionPositionRegister";
-            this.simpleButtonInspectionPositionRegister.Size = new System.Drawing.Size(162, 22);
+            this.simpleButtonInspectionPositionRegister.Size = new System.Drawing.Size(170, 22);
             this.simpleButtonInspectionPositionRegister.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionRegister.TabIndex = 10;
             this.simpleButtonInspectionPositionRegister.Text = "등록";
@@ -1142,11 +1192,11 @@
             // gridControlInspectionPosition
             // 
             this.gridControlInspectionPosition.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.gridControlInspectionPosition.Location = new System.Drawing.Point(3, 351);
+            this.gridControlInspectionPosition.Location = new System.Drawing.Point(3, 395);
             this.gridControlInspectionPosition.MainView = this.gridViewInspectionPositions;
             this.gridControlInspectionPosition.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gridControlInspectionPosition.Name = "gridControlInspectionPosition";
-            this.gridControlInspectionPosition.Size = new System.Drawing.Size(672, 204);
+            this.gridControlInspectionPosition.Size = new System.Drawing.Size(706, 160);
             this.gridControlInspectionPosition.TabIndex = 5;
             this.gridControlInspectionPosition.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewInspectionPositions});
@@ -1165,6 +1215,8 @@
             this.gridColumnReadyTime,
             this.gridColumnPreHeatPowerRatio,
             this.gridColumnPreHeatTime,
+            this.gridColumnMeltingPowerRatio,
+            this.gridColumnMeltingTime,
             this.gridColumnHeatPowerRatio,
             this.gridColumnHeatTime,
             this.gridColumnForwardFeedLength,
@@ -1222,7 +1274,7 @@
             this.gridColumnInspectionModeType.Name = "gridColumnInspectionModeType";
             this.gridColumnInspectionModeType.Visible = true;
             this.gridColumnInspectionModeType.VisibleIndex = 1;
-            this.gridColumnInspectionModeType.Width = 56;
+            this.gridColumnInspectionModeType.Width = 62;
             // 
             // gridColumnPositionX
             // 
@@ -1236,7 +1288,7 @@
             this.gridColumnPositionX.Name = "gridColumnPositionX";
             this.gridColumnPositionX.Visible = true;
             this.gridColumnPositionX.VisibleIndex = 2;
-            this.gridColumnPositionX.Width = 49;
+            this.gridColumnPositionX.Width = 45;
             // 
             // gridColumnPositionY
             // 
@@ -1250,7 +1302,7 @@
             this.gridColumnPositionY.Name = "gridColumnPositionY";
             this.gridColumnPositionY.Visible = true;
             this.gridColumnPositionY.VisibleIndex = 3;
-            this.gridColumnPositionY.Width = 49;
+            this.gridColumnPositionY.Width = 45;
             // 
             // gridColumnPositionZ
             // 
@@ -1264,7 +1316,7 @@
             this.gridColumnPositionZ.Name = "gridColumnPositionZ";
             this.gridColumnPositionZ.Visible = true;
             this.gridColumnPositionZ.VisibleIndex = 4;
-            this.gridColumnPositionZ.Width = 49;
+            this.gridColumnPositionZ.Width = 45;
             // 
             // gridColumnReadyTime
             // 
@@ -1280,7 +1332,7 @@
             this.gridColumnReadyTime.Name = "gridColumnReadyTime";
             this.gridColumnReadyTime.Visible = true;
             this.gridColumnReadyTime.VisibleIndex = 5;
-            this.gridColumnReadyTime.Width = 49;
+            this.gridColumnReadyTime.Width = 45;
             // 
             // gridColumnPreHeatPowerRatio
             // 
@@ -1296,7 +1348,7 @@
             this.gridColumnPreHeatPowerRatio.Name = "gridColumnPreHeatPowerRatio";
             this.gridColumnPreHeatPowerRatio.Visible = true;
             this.gridColumnPreHeatPowerRatio.VisibleIndex = 6;
-            this.gridColumnPreHeatPowerRatio.Width = 49;
+            this.gridColumnPreHeatPowerRatio.Width = 45;
             // 
             // gridColumnPreHeatTime
             // 
@@ -1312,7 +1364,33 @@
             this.gridColumnPreHeatTime.Name = "gridColumnPreHeatTime";
             this.gridColumnPreHeatTime.Visible = true;
             this.gridColumnPreHeatTime.VisibleIndex = 7;
-            this.gridColumnPreHeatTime.Width = 49;
+            this.gridColumnPreHeatTime.Width = 45;
+            // 
+            // gridColumnMeltingPowerRatio
+            // 
+            this.gridColumnMeltingPowerRatio.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnMeltingPowerRatio.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnMeltingPowerRatio.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumnMeltingPowerRatio.Caption = "8";
+            this.gridColumnMeltingPowerRatio.FieldName = "MeltingPowerRatio";
+            this.gridColumnMeltingPowerRatio.MaxWidth = 50;
+            this.gridColumnMeltingPowerRatio.Name = "gridColumnMeltingPowerRatio";
+            this.gridColumnMeltingPowerRatio.Visible = true;
+            this.gridColumnMeltingPowerRatio.VisibleIndex = 8;
+            this.gridColumnMeltingPowerRatio.Width = 45;
+            // 
+            // gridColumnMeltingTime
+            // 
+            this.gridColumnMeltingTime.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnMeltingTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnMeltingTime.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumnMeltingTime.Caption = "9";
+            this.gridColumnMeltingTime.FieldName = "MeltingTime";
+            this.gridColumnMeltingTime.MaxWidth = 50;
+            this.gridColumnMeltingTime.Name = "gridColumnMeltingTime";
+            this.gridColumnMeltingTime.Visible = true;
+            this.gridColumnMeltingTime.VisibleIndex = 9;
+            this.gridColumnMeltingTime.Width = 45;
             // 
             // gridColumnHeatPowerRatio
             // 
@@ -1322,13 +1400,13 @@
             this.gridColumnHeatPowerRatio.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnHeatPowerRatio.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnHeatPowerRatio.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumnHeatPowerRatio.Caption = "8";
+            this.gridColumnHeatPowerRatio.Caption = "10";
             this.gridColumnHeatPowerRatio.FieldName = "HeatPowerRatio";
             this.gridColumnHeatPowerRatio.MaxWidth = 50;
             this.gridColumnHeatPowerRatio.Name = "gridColumnHeatPowerRatio";
             this.gridColumnHeatPowerRatio.Visible = true;
-            this.gridColumnHeatPowerRatio.VisibleIndex = 8;
-            this.gridColumnHeatPowerRatio.Width = 50;
+            this.gridColumnHeatPowerRatio.VisibleIndex = 10;
+            this.gridColumnHeatPowerRatio.Width = 45;
             // 
             // gridColumnHeatTime
             // 
@@ -1338,13 +1416,13 @@
             this.gridColumnHeatTime.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnHeatTime.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnHeatTime.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumnHeatTime.Caption = "9";
+            this.gridColumnHeatTime.Caption = "11";
             this.gridColumnHeatTime.FieldName = "HeatTime";
             this.gridColumnHeatTime.MaxWidth = 50;
             this.gridColumnHeatTime.Name = "gridColumnHeatTime";
             this.gridColumnHeatTime.Visible = true;
-            this.gridColumnHeatTime.VisibleIndex = 9;
-            this.gridColumnHeatTime.Width = 50;
+            this.gridColumnHeatTime.VisibleIndex = 11;
+            this.gridColumnHeatTime.Width = 45;
             // 
             // gridColumnForwardFeedLength
             // 
@@ -1354,13 +1432,13 @@
             this.gridColumnForwardFeedLength.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnForwardFeedLength.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnForwardFeedLength.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumnForwardFeedLength.Caption = "10";
+            this.gridColumnForwardFeedLength.Caption = "12";
             this.gridColumnForwardFeedLength.FieldName = "ForwardFeedLength";
-            this.gridColumnForwardFeedLength.MaxWidth = 46;
+            this.gridColumnForwardFeedLength.MaxWidth = 50;
             this.gridColumnForwardFeedLength.Name = "gridColumnForwardFeedLength";
             this.gridColumnForwardFeedLength.Visible = true;
-            this.gridColumnForwardFeedLength.VisibleIndex = 10;
-            this.gridColumnForwardFeedLength.Width = 46;
+            this.gridColumnForwardFeedLength.VisibleIndex = 12;
+            this.gridColumnForwardFeedLength.Width = 45;
             // 
             // gridColumnForwardFeedVelocity
             // 
@@ -1370,13 +1448,13 @@
             this.gridColumnForwardFeedVelocity.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnForwardFeedVelocity.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnForwardFeedVelocity.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumnForwardFeedVelocity.Caption = "11";
+            this.gridColumnForwardFeedVelocity.Caption = "13";
             this.gridColumnForwardFeedVelocity.FieldName = "ForwardFeedVelocity";
-            this.gridColumnForwardFeedVelocity.MaxWidth = 46;
+            this.gridColumnForwardFeedVelocity.MaxWidth = 50;
             this.gridColumnForwardFeedVelocity.Name = "gridColumnForwardFeedVelocity";
             this.gridColumnForwardFeedVelocity.Visible = true;
-            this.gridColumnForwardFeedVelocity.VisibleIndex = 11;
-            this.gridColumnForwardFeedVelocity.Width = 46;
+            this.gridColumnForwardFeedVelocity.VisibleIndex = 13;
+            this.gridColumnForwardFeedVelocity.Width = 45;
             // 
             // gridColumnReverseFeedLength
             // 
@@ -1386,13 +1464,13 @@
             this.gridColumnReverseFeedLength.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnReverseFeedLength.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnReverseFeedLength.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumnReverseFeedLength.Caption = "12";
+            this.gridColumnReverseFeedLength.Caption = "14";
             this.gridColumnReverseFeedLength.FieldName = "ReverseFeedLength";
-            this.gridColumnReverseFeedLength.MaxWidth = 46;
+            this.gridColumnReverseFeedLength.MaxWidth = 50;
             this.gridColumnReverseFeedLength.Name = "gridColumnReverseFeedLength";
             this.gridColumnReverseFeedLength.Visible = true;
-            this.gridColumnReverseFeedLength.VisibleIndex = 12;
-            this.gridColumnReverseFeedLength.Width = 46;
+            this.gridColumnReverseFeedLength.VisibleIndex = 14;
+            this.gridColumnReverseFeedLength.Width = 45;
             // 
             // gridColumnReverseFeedVelocity
             // 
@@ -1402,13 +1480,13 @@
             this.gridColumnReverseFeedVelocity.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnReverseFeedVelocity.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnReverseFeedVelocity.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumnReverseFeedVelocity.Caption = "13";
+            this.gridColumnReverseFeedVelocity.Caption = "15";
             this.gridColumnReverseFeedVelocity.FieldName = "ReverseFeedVelocity";
-            this.gridColumnReverseFeedVelocity.MaxWidth = 46;
+            this.gridColumnReverseFeedVelocity.MaxWidth = 50;
             this.gridColumnReverseFeedVelocity.Name = "gridColumnReverseFeedVelocity";
             this.gridColumnReverseFeedVelocity.Visible = true;
-            this.gridColumnReverseFeedVelocity.VisibleIndex = 13;
-            this.gridColumnReverseFeedVelocity.Width = 46;
+            this.gridColumnReverseFeedVelocity.VisibleIndex = 15;
+            this.gridColumnReverseFeedVelocity.Width = 45;
             // 
             // pictureEditInspectImage
             // 
@@ -1417,7 +1495,7 @@
             this.pictureEditInspectImage.MenuManager = this.ribbonControl1;
             this.pictureEditInspectImage.Name = "pictureEditInspectImage";
             this.pictureEditInspectImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEditInspectImage.Size = new System.Drawing.Size(179, 294);
+            this.pictureEditInspectImage.Size = new System.Drawing.Size(188, 338);
             this.pictureEditInspectImage.StyleController = this.layoutControl1;
             this.pictureEditInspectImage.TabIndex = 4;
             // 
@@ -1437,7 +1515,7 @@
             this.layoutControlItem14});
             this.layoutControlGroup5.Name = "Root";
             this.layoutControlGroup5.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
-            this.layoutControlGroup5.Size = new System.Drawing.Size(678, 558);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(712, 558);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // layoutControlItem4
@@ -1445,25 +1523,25 @@
             this.layoutControlItem4.Control = this.pictureEditInspectImage;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(183, 298);
+            this.layoutControlItem4.Size = new System.Drawing.Size(192, 342);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.gridControlInspectionPosition;
-            this.layoutControlItem17.Location = new System.Drawing.Point(0, 348);
+            this.layoutControlItem17.Location = new System.Drawing.Point(0, 392);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(676, 208);
+            this.layoutControlItem17.Size = new System.Drawing.Size(710, 164);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
             // 
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.layoutControl5;
-            this.layoutControlItem16.Location = new System.Drawing.Point(183, 0);
+            this.layoutControlItem16.Location = new System.Drawing.Point(192, 0);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(493, 322);
+            this.layoutControlItem16.Size = new System.Drawing.Size(518, 366);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
@@ -1472,52 +1550,52 @@
             this.layoutControlItem28.Control = this.buttonEditPCBLayoutFilePath;
             this.layoutControlItem28.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem28.Name = "layoutControlItem28";
-            this.layoutControlItem28.Size = new System.Drawing.Size(183, 24);
+            this.layoutControlItem28.Size = new System.Drawing.Size(192, 24);
             this.layoutControlItem28.Text = "PCB layout";
             this.layoutControlItem28.TextSize = new System.Drawing.Size(58, 14);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.simpleButtonInspectionPositionRegister;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 322);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 366);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(166, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(174, 26);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.simpleButtonInspectionPositionDelete;
-            this.layoutControlItem11.Location = new System.Drawing.Point(166, 322);
+            this.layoutControlItem11.Location = new System.Drawing.Point(174, 366);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(166, 26);
+            this.layoutControlItem11.Size = new System.Drawing.Size(174, 26);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.simpleButtonInspectionPositionEdit;
-            this.layoutControlItem12.Location = new System.Drawing.Point(332, 322);
+            this.layoutControlItem12.Location = new System.Drawing.Point(348, 366);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(167, 26);
+            this.layoutControlItem12.Size = new System.Drawing.Size(176, 26);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
             // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.simpleButtonReplaceDown;
-            this.layoutControlItem13.Location = new System.Drawing.Point(499, 322);
+            this.layoutControlItem13.Location = new System.Drawing.Point(524, 366);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(87, 26);
+            this.layoutControlItem13.Size = new System.Drawing.Size(91, 26);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.simpleButtonReplaceUp;
-            this.layoutControlItem14.Location = new System.Drawing.Point(586, 322);
+            this.layoutControlItem14.Location = new System.Drawing.Point(615, 366);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(90, 26);
+            this.layoutControlItem14.Size = new System.Drawing.Size(95, 26);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
@@ -1550,16 +1628,16 @@
             this.layoutControlItem5.Control = this.groupControl2;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(324, 585);
+            this.layoutControlItem5.Size = new System.Drawing.Size(290, 585);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.groupControl1;
-            this.layoutControlItem8.Location = new System.Drawing.Point(324, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(290, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(686, 585);
+            this.layoutControlItem8.Size = new System.Drawing.Size(720, 585);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -1617,6 +1695,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEditPCBLayoutFilePath.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
             this.layoutControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEditMeltingTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditMeltingPowerRatio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditPositionZ.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditPositionY.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditPositionX.Properties)).EndInit();
@@ -1646,6 +1726,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlInspectionPosition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewInspectionPositions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEditInspectImage.Properties)).EndInit();
@@ -1798,5 +1880,11 @@
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowReferenceInspectionMode;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxAlignInspectionMode;
         private DevExpress.XtraVerticalGrid.Rows.EditorRow rowLaserSolderingProfileEnable;
+        private DevExpress.XtraEditors.TextEdit textEditMeltingTime;
+        private DevExpress.XtraEditors.TextEdit textEditMeltingPowerRatio;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnMeltingPowerRatio;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnMeltingTime;
     }
 }
