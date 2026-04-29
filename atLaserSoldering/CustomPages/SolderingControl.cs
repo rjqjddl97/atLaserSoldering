@@ -57,6 +57,8 @@ namespace CustomPages
                 textEditPreHeatPowerRatio.EditValue = 10.0D;
                 textEditHeatTime.EditValue = 1000;
                 textEditHeatPowerRatio.EditValue = 15.0D;
+                textEditMeltingTime.EditValue = 100;
+                textEditMeltingPowerRatio.EditValue = 15.0D;
                 textEditForwardFeedLength.EditValue = 5.0D;
                 textEditForwardFeedVelocity.EditValue = 10D;
                 textEditReverseFeedLength.EditValue = 3.0D;
@@ -294,6 +296,8 @@ namespace CustomPages
                     layoutControlItemPreHeatPower.Text = "PreHeat Power[%]";
                     layoutControlItemHeatTime.Text = "Heat Time[ms]";
                     layoutControlItemHeatPower.Text = "Heat Power[%]";
+                    layoutControlItemMeltingTime.Text = "Melting Time[ms]";
+                    layoutControlItemMeltingPower.Text = "Melting Power[%]";
                     layoutControlItemForwardFeedLength.Text = "F. FeedLength[mm]";
                     layoutControlItemForwardFeedVelocity.Text = "F. FeedVelocity[mm/s]";
                     layoutControlItemReverseFeedLength.Text = "R. FeedLength[mm]";
@@ -307,6 +311,8 @@ namespace CustomPages
                     layoutControlItemPreHeatPower.Text = "예열 파워[%]";
                     layoutControlItemHeatTime.Text = "납땜 시간[ms]";
                     layoutControlItemHeatPower.Text = "납땜 파워[%]";
+                    layoutControlItemMeltingTime.Text = "용융 시간[ms]";
+                    layoutControlItemMeltingPower.Text = "용융 파워[%]";
                     layoutControlItemForwardFeedLength.Text = "납 공급길이[mm]";
                     layoutControlItemForwardFeedVelocity.Text = "납 공급속도[mm/s]";
                     layoutControlItemReverseFeedLength.Text = "납 후퇴길이[mm]";
@@ -652,6 +658,8 @@ namespace CustomPages
                         _mMenualSolderingJob.PreheatPowerRatio = Convert.ToInt32(textEditPreHeatPowerRatio.EditValue)*10;
                         _mMenualSolderingJob.HeatTime = Convert.ToInt32(textEditHeatTime.EditValue);
                         _mMenualSolderingJob.HeatPowerRatio = Convert.ToInt32(textEditHeatPowerRatio.EditValue)*10;
+                        _mMenualSolderingJob.MeltingTime = Convert.ToInt32(textEditMeltingTime.EditValue);
+                        _mMenualSolderingJob.MeltingPowerRatio = Convert.ToInt32(textEditMeltingPowerRatio.EditValue) * 10;
                         _mMenualSolderingJob.ForwordingWireLength = Convert.ToDouble(textEditForwardFeedLength.EditValue);
                         _mMenualSolderingJob.ForwordingVelocity = Convert.ToDouble(textEditForwardFeedVelocity.EditValue);
                         _mMenualSolderingJob.ForwordingAcceleration = 100D;
