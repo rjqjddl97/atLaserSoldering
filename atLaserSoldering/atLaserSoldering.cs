@@ -1084,7 +1084,8 @@ namespace atLaserSoldering
                 if (mRobotInformation.GetStatus(RobotInformation.RobotStatus.Error))
                 {
                     _IsDrvErr = true;
-                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "모션 드라이버에 알람 또는 에러가 발생했습니다.");
+                    if(!_bwMotionHome.IsBusy)
+                        mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "모션 드라이버에 알람 또는 에러가 발생했습니다.");
                 }
                 else
                     _IsDrvErr = false;

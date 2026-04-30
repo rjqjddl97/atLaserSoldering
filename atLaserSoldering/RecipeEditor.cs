@@ -2125,17 +2125,17 @@ namespace atLaserSoldering
 
             if (_gridRowIndex < 0 || _gridRowIndex >= _workParam.SolderPositionParams.Count)
                 return;
-
-            textEditPositionX.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionX.ToString();
-            textEditPositionY.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionY.ToString();
-            textEditPositionZ.Text = _workParam.SolderPositionParams[_gridRowIndex].PositionZ.ToString();
+            
+            textEditPositionX.Text = Math.Round(_workParam.SolderPositionParams[_gridRowIndex].PositionX, 3).ToString();
+            textEditPositionY.Text = Math.Round(_workParam.SolderPositionParams[_gridRowIndex].PositionY, 3).ToString();
+            textEditPositionZ.Text = Math.Round(_workParam.SolderPositionParams[_gridRowIndex].PositionZ, 3).ToString();
             textEditReadyWaitTime.Text = _workParam.SolderPositionParams[_gridRowIndex].ReadyTime.ToString();
             textEditPreHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].PreHeatTime.ToString();
-            textEditPreHeatPowerRatio.Text = string.Format("{0}", (_workParam.SolderPositionParams[_gridRowIndex].PreHeatPowerRatio / 10));
+            textEditPreHeatPowerRatio.Text = string.Format("{0}", Math.Round(_workParam.SolderPositionParams[_gridRowIndex].PreHeatPowerRatio / 10,1));
             textEditMeltingTime.Text = _workParam.SolderPositionParams[_gridRowIndex].MeltingTime.ToString();
-            textEditMeltingPowerRatio.Text = string.Format("{0}", (_workParam.SolderPositionParams[_gridRowIndex].MeltingPowerRatio / 10));
+            textEditMeltingPowerRatio.Text = string.Format("{0}", Math.Round(_workParam.SolderPositionParams[_gridRowIndex].MeltingPowerRatio / 10,1));
             textEditHeatTime.Text = _workParam.SolderPositionParams[_gridRowIndex].HeatTime.ToString();
-            textEditHeatPowerRatio.Text = string.Format("{0}", (_workParam.SolderPositionParams[_gridRowIndex].HeatPowerRatio / 10)); 
+            textEditHeatPowerRatio.Text = string.Format("{0}", Math.Round(_workParam.SolderPositionParams[_gridRowIndex].HeatPowerRatio / 10,1)); 
             textEditForwardFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwardFeedLength.ToString();
             textEditForwardFeedVelocity.Text = _workParam.SolderPositionParams[_gridRowIndex].ForwardFeedVelocity.ToString();
             textEditReverseFeedLength.Text = _workParam.SolderPositionParams[_gridRowIndex].ReverseFeedLength.ToString();
