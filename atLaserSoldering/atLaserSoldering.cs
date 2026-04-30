@@ -1544,12 +1544,12 @@ namespace atLaserSoldering
                     if (_isShowCenterMark == false)
                     {
                         _isShowCenterMark = true;
-                        //e.ClickedItem.Image = global::atOpticalDecenter.Properties.Resources.Apply_16x16;
+                        e.ClickedItem.Image = global::atLaserSoldering.Properties.Resources.Apply_16x16;
                     }
                     else
                     {
                         _isShowCenterMark = false;
-                        //e.ClickedItem.Image = global::atOpticalDecenter.Properties.Resources.Cancel_16x16;
+                        e.ClickedItem.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
                         pictureEditSystemImage.Refresh();
                     }
                     break;
@@ -1557,11 +1557,12 @@ namespace atLaserSoldering
                     if (_isSetROICheck == false)
                     {
                         _isSetROICheck = true;
-                        //e.ClickedItem.Image = global::atOpticalDecenter.Properties.Resources.Apply_16x16;
+                        e.ClickedItem.Image = global::atLaserSoldering.Properties.Resources.Apply_16x16;
                     }
                     else
                     {
                         _isSetROICheck = false;
+                        e.ClickedItem.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
                         pictureEditSystemImage.Refresh();
                     }
                     break;
@@ -1573,15 +1574,18 @@ namespace atLaserSoldering
                     break;
                 case "Fit Size Image":
                     ImageFitSize();
+                    pictureEditSystemImage.Refresh();
                     break;
                 case "Set Vision Move":
                     if (_IsMovementVision == false)
                     {
                         _IsMovementVision = true;
+                        e.ClickedItem.Image = global::atLaserSoldering.Properties.Resources.Apply_16x16;
                     }
                     else
                     {
                         _IsMovementVision = false;
+                        e.ClickedItem.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
                     }
                     break;
 

@@ -1529,7 +1529,7 @@
             // 
             this.laserSolderingControl.Location = new System.Drawing.Point(12, 12);
             this.laserSolderingControl.Name = "laserSolderingControl";
-            this.laserSolderingControl.Size = new System.Drawing.Size(534, 390);
+            this.laserSolderingControl.Size = new System.Drawing.Size(534, 487);
             this.laserSolderingControl.TabIndex = 4;
             // 
             // layoutControlGroup7
@@ -1539,7 +1539,7 @@
             this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem8});
             this.layoutControlGroup7.Name = "layoutControlGroup7";
-            this.layoutControlGroup7.Size = new System.Drawing.Size(558, 414);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(558, 511);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // layoutControlItem8
@@ -1547,7 +1547,7 @@
             this.layoutControlItem8.Control = this.laserSolderingControl;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(538, 394);
+            this.layoutControlItem8.Size = new System.Drawing.Size(538, 491);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -1964,37 +1964,40 @@
             this.toolStripMenuItemClearWorkROI,
             this.toolStripMenuItemVisionMove});
             this.contextMenuStripImageViewControl.Name = "contextMenuStripImageViewControl";
-            this.contextMenuStripImageViewControl.Size = new System.Drawing.Size(171, 114);
+            this.contextMenuStripImageViewControl.Size = new System.Drawing.Size(181, 136);
             this.contextMenuStripImageViewControl.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStripImageViewControl_ItemClicked);
             // 
             // toolStripMenuItemViewCenterMark
             // 
+            this.toolStripMenuItemViewCenterMark.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
             this.toolStripMenuItemViewCenterMark.Name = "toolStripMenuItemViewCenterMark";
-            this.toolStripMenuItemViewCenterMark.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemViewCenterMark.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemViewCenterMark.Text = "View Center Mark";
             // 
             // toolStripMenuItemSetFitSizeImage
             // 
             this.toolStripMenuItemSetFitSizeImage.Name = "toolStripMenuItemSetFitSizeImage";
-            this.toolStripMenuItemSetFitSizeImage.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemSetFitSizeImage.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemSetFitSizeImage.Text = "Fit Size Image";
             // 
             // toolStripMenuItemSetROI
             // 
+            this.toolStripMenuItemSetROI.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
             this.toolStripMenuItemSetROI.Name = "toolStripMenuItemSetROI";
-            this.toolStripMenuItemSetROI.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemSetROI.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemSetROI.Text = "Set Work ROI";
             // 
             // toolStripMenuItemClearWorkROI
             // 
             this.toolStripMenuItemClearWorkROI.Name = "toolStripMenuItemClearWorkROI";
-            this.toolStripMenuItemClearWorkROI.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemClearWorkROI.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemClearWorkROI.Text = "Clear Work ROI";
             // 
             // toolStripMenuItemVisionMove
             // 
+            this.toolStripMenuItemVisionMove.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
             this.toolStripMenuItemVisionMove.Name = "toolStripMenuItemVisionMove";
-            this.toolStripMenuItemVisionMove.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemVisionMove.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemVisionMove.Text = "Set Vision Move";
             // 
             // timerImageUpdate
