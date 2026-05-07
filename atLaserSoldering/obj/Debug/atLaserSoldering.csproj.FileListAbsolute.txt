@@ -1056,3 +1056,5 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.exe
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.pdb
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.dll
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.pdb

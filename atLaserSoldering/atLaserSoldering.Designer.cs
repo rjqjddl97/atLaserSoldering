@@ -66,6 +66,7 @@
             this.barEditItemAutoSolderingResult = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEditAutoSolderingResult = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barListItemRecipeOpen = new DevExpress.XtraBars.BarListItem();
+            this.barButtonItemConnectionPyrospot = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageEquipementFunctions = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonSystemPage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupFile = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -204,7 +205,7 @@
             this.toolStripMenuItemVisionMove = new System.Windows.Forms.ToolStripMenuItem();
             this.timerImageUpdate = new System.Windows.Forms.Timer(this.components);
             this.openFileDialogImageFileOpen = new System.Windows.Forms.OpenFileDialog();
-            this.barButtonItemConnectionPyrospot = new DevExpress.XtraBars.BarButtonItem();
+            this.timerChartUpdate = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -613,6 +614,12 @@
             this.barListItemRecipeOpen.Name = "barListItemRecipeOpen";
             this.barListItemRecipeOpen.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.barListItemRecipeOpen_ListItemClick);
             this.barListItemRecipeOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barListItemRecipeOpen_ItemClick);
+            // 
+            // barButtonItemConnectionPyrospot
+            // 
+            this.barButtonItemConnectionPyrospot.Id = 33;
+            this.barButtonItemConnectionPyrospot.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.disconnect_16x16;
+            this.barButtonItemConnectionPyrospot.Name = "barButtonItemConnectionPyrospot";
             // 
             // ribbonPageEquipementFunctions
             // 
@@ -2014,11 +2021,9 @@
     "rchange Format (*.jpg;*.jpeg)|*.jpg;*.jpeg|Icon Files (*.ico)|*.ico|Portable Net" +
     "work Graphics Format (*.png)|*.png";
             // 
-            // barButtonItemConnectionPyrospot
+            // timerChartUpdate
             // 
-            this.barButtonItemConnectionPyrospot.Id = 33;
-            this.barButtonItemConnectionPyrospot.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.disconnect_16x16;
-            this.barButtonItemConnectionPyrospot.Name = "barButtonItemConnectionPyrospot";
+            this.timerChartUpdate.Tick += new System.EventHandler(this.timerChartUpdate_Tick);
             // 
             // atLaserSoldering
             // 
@@ -2320,5 +2325,6 @@
         private DevExpress.XtraEditors.LabelControl labelControlCalcPosition2;
         private DevExpress.XtraEditors.LabelControl labelControlCalcPosition1;
         private DevExpress.XtraBars.BarButtonItem barButtonItemConnectionPyrospot;
+        private System.Windows.Forms.Timer timerChartUpdate;
     }
 }

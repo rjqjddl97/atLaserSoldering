@@ -329,6 +329,7 @@ namespace atLaserSoldering
                 InitializeSolderingModule();
                 InitializePyrospotModule();
 
+                InitializeChart();
                 //InitializeStatistics();
                 //InitializeTackTimes();
                 //InitializeChartPhotoInspect();
@@ -791,6 +792,7 @@ namespace atLaserSoldering
                     {
                         //laserSolderingControl.RobotInfomationUpdatedEvent += UpdateRobotInfomation;
                         _mPyrospotCommManager.ReceiveDataUpdateEvent += UpdatePyrospotData;
+                        timerChartUpdate.Start();
                         mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Pyrospot 통신 연결 성공."));
                     }
                     else
@@ -799,6 +801,7 @@ namespace atLaserSoldering
                 else
                 {
                     _mPyrospotCommManager.Disconnect();
+                    timerChartUpdate.Stop();
                     mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Pyrospot 통신 연결 해제 성공."));
                 }
                 return _mPyrospotCommManager.IsOpen();
@@ -816,6 +819,7 @@ namespace atLaserSoldering
                 if (_mPyrospotCommManager.IsOpen() && (_mPyrospotCommManager != null))
                 {
                     _mPyrospotCommManager.Disconnect();
+                    timerChartUpdate.Stop();
                     mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Pyrospot 통신 연결 해제 성공."));
                 }
                 return laserSolderingControl.IsOpenStatus;
@@ -1513,7 +1517,8 @@ namespace atLaserSoldering
         {
             try
             {
-                _dPresentTemperature = (double)(update / 16) - TEMPERATRE_UNIT_KELVIN;
+                _dPresentTemperature = (double)Math.Round((update / 16) - TEMPERATRE_UNIT_KELVIN,1);
+                //UpdatePyrospotChart(_uiChartIndexCount++, _dPresentTemperature);
 
             }
             catch (Exception)
@@ -1550,6 +1555,7 @@ namespace atLaserSoldering
             laserSolderingControl.UpdateTimer.Stop();
             timerCurrentTime.Stop();
             timerImageUpdate.Stop();
+            timerChartUpdate.Stop();
             mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "프로그램 종료.");
         }
 
@@ -2583,6 +2589,18 @@ namespace atLaserSoldering
             catch (Exception ex)
             {
                 mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행에 오류가 있습니다.");
+            }
+        }
+
+        private void timerChartUpdate_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                UpdatePyrospotChart(_uiChartIndexCount++, _dPresentTemperature);
+            }
+            catch (Exception ex)
+            {
+                ;
             }
         }
     }

@@ -42,6 +42,11 @@ namespace atLaserSoldering
         {
             try
             {
+                if (index >= 100)
+                {
+                    _uiChartIndexCount = 0;
+                    InitializeChart();
+                }
                 if (this.InvokeRequired)
                 {
                     this.Invoke(new MethodInvoker(delegate ()
@@ -63,8 +68,9 @@ namespace atLaserSoldering
         {
             try
             {
-                chartControlPyrospotData.Series[0].Points.Clear();
-
+                _uiChartIndexCount = 0;
+                //chartControlPyrospotData.Series[0].Points.Add(new DevExpress.XtraCharts.SeriesPoint(_uiChartIndexCount, 0));
+                chartControlPyrospotData.Series[0].Points.Clear();                                
             }
             catch (Exception ex)
             {
