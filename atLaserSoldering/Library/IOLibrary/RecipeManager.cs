@@ -350,7 +350,7 @@ namespace RecipeManager
             systemParam._PyrospotParam.SerialParameters.PortName = Convert.ToString(systemData[SystemParamSections[11]]["SerialPortName"]);
             systemParam._PyrospotParam.SerialParameters.BaudRates = Convert.ToInt32(systemData[SystemParamSections[11]]["SerialBaudRates"]);
             systemParam._PyrospotParam.SerialParameters.DataBits = Convert.ToInt32(systemData[SystemParamSections[11]]["SerialDataBits"]);
-            systemParam._PyrospotParam.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(systemData[SystemParamSections[1]]["SerialParity"]));
+            systemParam._PyrospotParam.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(systemData[SystemParamSections[11]]["SerialParity"]));
             systemParam._PyrospotParam.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(systemData[SystemParamSections[11]]["SerialStopBits"]));
             systemParam._PyrospotParam.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(systemData[SystemParamSections[11]]["SerialHandshake"]));
             systemParam._PyrospotParam.CommunicationID = Convert.ToInt32(systemData[SystemParamSections[11]]["ID"]);

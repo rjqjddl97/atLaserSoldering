@@ -42,6 +42,7 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
         private SerialReceiveStep mReceiveStep;
 
         private byte[] ReceivePacketBuff = new byte[ReceiveBuffSize];
+        private byte _byAddres = 6;
         //private int ReceiveCountIndex;
         public SerialHandler m_SerialHandler;
         public PyrospotData m_PyrospotDataCtrl;
@@ -55,6 +56,7 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
         public bool IsReceiveAck { get; set; } = true;
         public bool IsConnected { get; set; }
         public UInt32 uiReceiveCount { get; set; } = 0;
+        public byte byID { get { return _byAddres; } set { _byAddres = value; } }
         public List<byte[]> _ContinuousDataList
         {
             get { return mContinuousCheckList; }
@@ -99,15 +101,21 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
         }
         private void InitCheckDatas()
         {
-            mContinuousCheckList.Add(m_PyrospotDataCtrl.GetSettingMonitor1Data(6,PyrospotData.MONITOR_DATA_MAP1.MeasuremnetTemperature,1));
+            mContinuousCheckList.Add(m_PyrospotDataCtrl.GetSettingMonitor1Data(_byAddres, PyrospotData.MONITOR_DATA_MAP1.MeasuremnetTemperature,1));
             //Get Info. 주기적 요청.
             //mContinuousCheckList.Add(RobotDataHandler.GetCommand(RobotData.ROBOT_MSG.MSG_GET_INFO)[0]);
         }
         private void InitCheckDatas(byte _id)
         {
             //Get Info. 주기적 요청.
+            _byAddres = _id;
             mContinuousCheckList.Add(m_PyrospotDataCtrl.GetSettingMonitor1Datas(_id));            
             //mContinuousCheckList.Add(RobotDataHandler.GetCommand(RobotData.ROBOT_MSG.MSG_GET_INFO)[0]);
+        }
+        public void InitialPeriodRequest(byte _id)
+        {
+            byID = _id;
+            _ContinuousDataList.Add(m_PyrospotDataCtrl.GetSettingMonitor1Data(_byAddres, PyrospotData.MONITOR_DATA_MAP1.MeasuremnetTemperature, 1));
         }
         public void ParsingData(byte[] data)
         {
@@ -180,7 +188,7 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
                 for (i = 0; i < recvData.Length; i++)
                 {
                     ReData = recvData[i];
-                    if ((IsReceiveStart == false) && ((ReData == 0x06) ))
+                    if ((IsReceiveStart == false) && ((ReData == _byAddres) ))
                     {
                         IsReceiveStart = true;
                         uiReceiveCount = 0;

@@ -38,7 +38,7 @@ namespace atLaserSoldering
     public partial class atLaserSoldering : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private const int MAX_LOG_QUEUE_COUNT = 10;
-
+        private const double TEMPERATRE_UNIT_KELVIN = 273.15;
         WorkParams _workParams = new WorkParams();
         SystemParams _systemParams = new SystemParams();
         BaslerCamera _Camera = new BaslerCamera();
@@ -106,6 +106,7 @@ namespace atLaserSoldering
         bool _IsMovementVision = false;
         int _CalibratoinMode = 0;
         double _dTotalElapsedTime = 0.0f;
+        public double _dPresentTemperature = 0;
         public atLaserSoldering()
         {
             InitializeComponent();
@@ -583,25 +584,6 @@ namespace atLaserSoldering
                 return false;
             }
         }
-        public bool InitializePyrospotModule()
-        {
-            try
-            {                
-                //_mPyrospotCommManager
-                byte[] _id = new byte[_systemParams._PyrospotParam.ConnectedNumber];
-
-                for (int i = 0; i < _systemParams._PyrospotParam.ConnectedNumber; i++)
-                {
-                    _id[i] = (byte)_systemParams._PyrospotParam.CommunicationID;
-                }
-                remoteIOControl.SetCommunicationData(_systemParams._remoteIOParams.ConnectedNumber, _id);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
         private bool DriveModuleConnect(string sComport = null)
         {
             try
@@ -787,6 +769,76 @@ namespace atLaserSoldering
                 return false;
             }
         }
+        private bool PyrospotConnect(string sComport = null)
+        {
+            try
+            {
+                if (!_mPyrospotCommManager.IsOpen() && (_mPyrospotCommManager != null))
+                {
+                    PyrospotControlLibrary.SerialCommunication.Control.SerialPortSetData PyrospotsetPort = new PyrospotControlLibrary.SerialCommunication.Control.SerialPortSetData();
+                    PyrospotsetPort.PortName = _systemParams._PyrospotParam.SerialParameters.PortName;
+                    PyrospotsetPort.BaudRate = (int)_systemParams._PyrospotParam.SerialParameters.BaudRates;
+                    PyrospotsetPort.DataBits = (int)_systemParams._PyrospotParam.SerialParameters.DataBits;
+                    PyrospotsetPort.StopBits = System.IO.Ports.StopBits.One;
+                    PyrospotsetPort.Parity = System.IO.Ports.Parity.Even;
+
+                    //laserSolderingControl.SetCommunicationParams(lasersetPort, feedsetPort, (byte)_systemParams._FeederParams.FeederCommunicationID);
+                    _mPyrospotCommManager.SetSerialData(PyrospotsetPort);
+                    
+                    _mPyrospotCommManager.Connect();
+
+                    if (_mPyrospotCommManager.IsOpen())
+                    {
+                        //laserSolderingControl.RobotInfomationUpdatedEvent += UpdateRobotInfomation;
+                        _mPyrospotCommManager.ReceiveDataUpdateEvent += UpdatePyrospotData;
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Pyrospot 통신 연결 성공."));
+                    }
+                    else
+                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Pyrospot 통신 연결 실패."));
+                }
+                else
+                {
+                    _mPyrospotCommManager.Disconnect();
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Pyrospot 통신 연결 해제 성공."));
+                }
+                return _mPyrospotCommManager.IsOpen();
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Pyrospot 통신 연결을 하지 못햇습니다.");
+                return false;
+            }
+        }
+        private bool PyrospotDisConnect()
+        {
+            try
+            {
+                if (_mPyrospotCommManager.IsOpen() && (_mPyrospotCommManager != null))
+                {
+                    _mPyrospotCommManager.Disconnect();
+                    mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Pyrospot 통신 연결 해제 성공."));
+                }
+                return laserSolderingControl.IsOpenStatus;
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Soldering 통신 해제를 하지 못햇습니다.");
+                return false;
+            }
+        }
+        public bool InitializePyrospotModule()
+        {
+            try
+            {                
+                PyrospotConnect();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Pyrospot 통신 연결을 하지 못햇습니다.");
+                return false;
+            }
+        }
         private void UpdateConnectStatusForAll()
         {
             try
@@ -817,12 +869,18 @@ namespace atLaserSoldering
                 else
                     barButtonItemConnectionFeeder.ImageOptions.Image = Properties.Resources.connect_16x16;
 
+                if (!_mPyrospotCommManager.IsOpen())
+                    barButtonItemConnectionPyrospot.ImageOptions.Image = Properties.Resources.disconnect_16x16;
+                else
+                    barButtonItemConnectionPyrospot.ImageOptions.Image = Properties.Resources.connect_16x16;
+
                 //if (!_mLaserSoldering.IsFeederConnect)
                 //    barButtonItemConnectionCamera.ImageOptions.Image = Properties.Resources.disconnect_16x16;
                 //else
                 //    barButtonItemConnectionCamera.ImageOptions.Image = Properties.Resources.connect_16x16;
 
-                if ((_mMotionControlCommManager.IsOpen()) && (_mRemoteIOCommManager.IsOpen()) && (_isCameraOpen))
+                if ((_mMotionControlCommManager.IsOpen()) && (_mRemoteIOCommManager.IsOpen()) && (_isCameraOpen) 
+                    && (_mLaserSoldering.IsFeederConnect) && (_mLaserSoldering.IsLaserConnect) && (_mPyrospotCommManager.IsOpen()))
                     barButtonItemConnectAll.ImageOptions.LargeImage = Properties.Resources.connectedall_32x32;
 
                 else
@@ -1450,6 +1508,18 @@ namespace atLaserSoldering
             //cogDisplayImage.Image = grabImage;
             //cogDisplayImage.Fit();
             GC.Collect();
+        }
+        public void UpdatePyrospotData(int update)
+        {
+            try
+            {
+                _dPresentTemperature = (double)(update / 16) - TEMPERATRE_UNIT_KELVIN;
+
+            }
+            catch (Exception)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "I/O 정보 업데이트를 하지 못햇습니다.");
+            }
         }
         private void atLaserSoldering_FormClosing(object sender, FormClosingEventArgs e)
         {

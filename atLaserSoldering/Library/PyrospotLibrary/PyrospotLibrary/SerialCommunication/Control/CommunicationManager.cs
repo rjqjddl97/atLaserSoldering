@@ -60,7 +60,12 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
             CommandSendRequestEvent -= SendCommandToEngine;
             DataSendRequestEvent -= SendDataToEngine;
         }
-
+        public void InitialPeriodData(byte id)
+        {
+            List<byte[]> reqData = new List<byte[]>();
+            reqData.Add(mPyrospotData.GetSettingMonitor1Data(id,PyrospotData.MONITOR_DATA_MAP1.MeasuremnetTemperature,1));
+            mSerialEngine._ContinuousDataList = reqData;
+        }
         public void SetSerialData(SerialPortSetData data)
         {
             mSerialHandler.SetSettings(data);

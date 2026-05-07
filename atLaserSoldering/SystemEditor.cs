@@ -262,236 +262,243 @@ namespace atLaserSoldering
         }
         private void InitializeSystemParameters()
         {
-            for (int i = 0; i < RecipeFileIO.SerialPortName.Length; ++i)
+            try
             {
-                repositoryItemComboBoxAiCCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
-                repositoryItemComboBoxRemoteIOCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);                
-                repositoryItemComboBoxLaserCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
-                repositoryItemComboBoxFeederCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
-                repositoryItemComboBoxLightCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
-                repositoryItemComboBoxPyrospotCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
-            }
+                for (int i = 0; i < RecipeFileIO.SerialPortName.Length; ++i)
+                {
+                    repositoryItemComboBoxAiCCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
+                    repositoryItemComboBoxRemoteIOCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
+                    repositoryItemComboBoxLaserCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
+                    repositoryItemComboBoxFeederCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
+                    repositoryItemComboBoxLightCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
+                    repositoryItemComboBoxPyrospotCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
+                }
 
-            for (int i = 0; i < RecipeFileIO.SerialBaudRates.Length; ++i)
+                for (int i = 0; i < RecipeFileIO.SerialBaudRates.Length; ++i)
+                {
+                    repositoryItemComboBoxAiCCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
+                    repositoryItemComboBoxRemoteIOCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
+                    repositoryItemComboBoxLaserCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
+                    repositoryItemComboBoxFeederCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
+                    repositoryItemComboBoxLightCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
+                    repositoryItemComboBoxPyrospotCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
+                }
+
+                for (int i = 0; i < RecipeFileIO.SerialDataBits.Length; ++i)
+                {
+                    repositoryItemComboBoxAiCCommunicationDatabit.Items.Add(RecipeFileIO.SerialDataBits[i]);
+                    repositoryItemComboBoxRemoteIOCommunicationDatabit.Items.Add(RecipeFileIO.SerialDataBits[i]);
+                    repositoryItemComboBoxLaserCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
+                    repositoryItemComboBoxFeederCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
+                    repositoryItemComboBoxLightCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
+                    repositoryItemComboBoxPyrospotCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
+                }
+
+                foreach (string strParity in Enum.GetNames(typeof(Parity)))
+                {
+                    repositoryItemComboBoxAiCCommunicationParity.Items.Add(strParity);
+                    repositoryItemComboBoxRemoteIOCommunicationParity.Items.Add(strParity);
+                    repositoryItemComboBoxLaserCommunicationParity.Items.Add(strParity);
+                    repositoryItemComboBoxFeederCommunicationParity.Items.Add(strParity);
+                    repositoryItemComboBoxLightCommunicationParity.Items.Add(strParity);
+                    repositoryItemComboBoxPyrospotCommunicationParity.Items.Add(strParity);
+                }
+
+                foreach (string strStopbits in Enum.GetNames(typeof(StopBits)))
+                {
+                    repositoryItemComboBoxAiCCommunicationStopbit.Items.Add(strStopbits);
+                    repositoryItemComboBoxRemoteIOCommunicationStopbit.Items.Add(strStopbits);
+                    repositoryItemComboBoxLaserCommunicationStopBit.Items.Add(strStopbits);
+                    repositoryItemComboBoxFeederCommunicationStopBit.Items.Add(strStopbits);
+                    repositoryItemComboBoxLightCommunicationStopBit.Items.Add(strStopbits);
+                    repositoryItemComboBoxPyrospotCommunicationStopBit.Items.Add(strStopbits);
+                }
+
+                foreach (string strHandshake in Enum.GetNames(typeof(Handshake)))
+                {
+                    repositoryItemComboBoxAiCCommunicationHandshake.Items.Add(strHandshake);
+                    repositoryItemComboBoxRemoteIOCommunicationHandshake.Items.Add(strHandshake);
+                    repositoryItemComboBoxLaserCommunicationFlowControl.Items.Add(strHandshake);
+                    repositoryItemComboBoxFeederCommunicationFlowControl.Items.Add(strHandshake);
+                    repositoryItemComboBoxLightCommunicationFlowControl.Items.Add(strHandshake);
+                    repositoryItemComboBoxPyrospotCommunicationFlowControl.Items.Add(strHandshake);
+                }
+                for (int i = 0; i < RecipeFileIO.TransitionCoordinate.Length; i++)
+                {
+                    repositoryItemComboBoxCalibrationImageX.Items.Add(RecipeFileIO.TransitionCoordinate[i]);
+                    repositoryItemComboBoxCalibrationImageY.Items.Add(RecipeFileIO.TransitionCoordinate[i]);
+                }
+                // System Parameter의 Light Serial 초기화
+                rowAiCCommunicationPortName.Properties.Value = repositoryItemComboBoxAiCCommunicationPortName.Items[0].ToString();
+                rowAiCCommunicationBaudRate.Properties.Value = repositoryItemComboBoxAiCCommunicationBaudRate.Items[4].ToString();
+                rowAiCCommunicationDatabit.Properties.Value = repositoryItemComboBoxAiCCommunicationDatabit.Items[4].ToString();
+                rowAiCCommunicationParity.Properties.Value = repositoryItemComboBoxAiCCommunicationParity.Items[0].ToString();
+                rowAiCCommunicationStopbit.Properties.Value = repositoryItemComboBoxAiCCommunicationStopbit.Items[0].ToString();
+                rowAiCCommunicationHandshake.Properties.Value = repositoryItemComboBoxAiCCommunicationHandshake.Items[0].ToString();
+
+                rowRemoteIOCommunicationPortName.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationPortName.Items[1].ToString();
+                rowRemoteIOCommunicationBaudRate.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationBaudRate.Items[4].ToString();
+                rowRemoteIOCommunicationDatabit.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationDatabit.Items[4].ToString();
+                rowRemoteIOCommunicationParity.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationParity.Items[0].ToString();
+                rowRemoteIOCommunicationStopbit.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationStopbit.Items[0].ToString();
+                rowRemoteIOCommunicationHandshake.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationHandshake.Items[0].ToString();
+
+                // System Parameter의 Camera 파라미터 초기화
+                _systemParameters._cameraParams.CheckUsingCamera = true;
+                _systemParameters._cameraParams.HResolution = Convert.ToInt32(rowCameraHResolution.Properties.Value);
+                _systemParameters._cameraParams.VResolution = Convert.ToInt32(rowCameraVResolution.Properties.Value);
+                _systemParameters._cameraParams.OnePixelResolution = Convert.ToSingle(rowCameraOnePixelResolution.Properties.Value);
+
+                // Calibration Coordinate 파라미터 초기화
+                _systemParameters._calibrationParams._CoordinateSwitchEnable = Convert.ToBoolean(rowCoordinateSwitch.Properties.Value);
+                rowImageToSystemX.Properties.Value = repositoryItemComboBoxCalibrationImageX.Items[0].ToString();
+                rowImageToSystemY.Properties.Value = repositoryItemComboBoxCalibrationImageY.Items[0].ToString();
+                _systemParameters._calibrationParams._imagetoSystemXcoordi = Convert.ToSingle(rowImageToSystemX.Properties.Value);
+                _systemParameters._calibrationParams._imagetoSystemYcoordi = Convert.ToSingle(rowImageToSystemY.Properties.Value);
+                _systemParameters._calibrationParams._CoordinateCalibrationActive = Convert.ToBoolean(rowCoordinateCalibrationActive.Properties.Value);
+                _systemParameters._calibrationParams.X_reference_Distance = Convert.ToSingle(rowReference_X.Properties.Value);
+                _systemParameters._calibrationParams.Y_reference_Distance = Convert.ToSingle(rowReference_Y.Properties.Value);
+                _systemParameters._calibrationParams.Z_reference_Distance = Convert.ToSingle(rowReference_Z.Properties.Value);
+                // System Parameter의 Motion 파라미터 초기화
+                _systemParameters._motionParams.MenualMoveVelocity = Convert.ToSingle(rowMotionMenaulVelocity.Properties.Value);
+                _systemParameters._motionParams.MoveVelocity = Convert.ToSingle(rowMotionMoveVelocity.Properties.Value);
+                _systemParameters._motionParams.MoveAcceleration = Convert.ToSingle(rowMotionMoveAcceleration.Properties.Value);
+                _systemParameters._motionParams.OneTurnResolutionX = Convert.ToInt32(rowMotionResolutionX.Properties.Value);
+                _systemParameters._motionParams.OneTurnResolutionY = Convert.ToInt32(rowMotionResolutionY.Properties.Value);
+                _systemParameters._motionParams.OneTurnResolutionZ = Convert.ToInt32(rowMotionResolutionZ.Properties.Value);
+                _systemParameters._motionParams.GearRatioX = Convert.ToSingle(rowMotionGearRatioX.Properties.Value);
+                _systemParameters._motionParams.GearRatioY = Convert.ToSingle(rowMotionGearRatioY.Properties.Value);
+                _systemParameters._motionParams.GearRatioZ = Convert.ToSingle(rowMotionGearRatioZ.Properties.Value);
+                _systemParameters._motionParams.BallLeadX = Convert.ToSingle(rowMotionBallLeadX.Properties.Value);
+                _systemParameters._motionParams.BallLeadY = Convert.ToSingle(rowMotionBallLeadY.Properties.Value);
+                _systemParameters._motionParams.BallLeadZ = Convert.ToSingle(rowMotionBallLeadZ.Properties.Value);
+
+
+                // System Parameter의 AiC 파라미터 초기화
+                _systemParameters._AiCParams.ConnectedNumber = Convert.ToInt32(rowAiCCommunicationCounter.Properties.Value);
+                _systemParameters._AiCParams.SerialParameters.PortName = Convert.ToString(rowAiCCommunicationPortName.Properties.Value);
+                _systemParameters._AiCParams.SerialParameters.BaudRates = Convert.ToInt32(rowAiCCommunicationBaudRate.Properties.Value);
+                _systemParameters._AiCParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowAiCCommunicationParity.Properties.Value));
+                _systemParameters._AiCParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowAiCCommunicationStopbit.Properties.Value));
+                _systemParameters._AiCParams.SerialParameters.DataBits = Convert.ToInt32(rowAiCCommunicationDatabit.Properties.Value);
+                _systemParameters._AiCParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowAiCCommunicationHandshake.Properties.Value));
+                _systemParameters._AiCParams.ConnectedNumber = Convert.ToInt32(rowAiCCommunicationCounter.Properties.Value);
+                AiCParams._IDs items = new AiCParams._IDs();
+                items._devicename = Convert.ToString(rowAiC1Properties1.Value);
+                items._idNumber = Convert.ToInt32(rowAiC1Properties2.Value);
+                _systemParameters._AiCParams.IDs.Add(items);
+                items._devicename = Convert.ToString(rowAiC2Properties1.Value);
+                items._idNumber = Convert.ToInt32(rowAiC2Properties2.Value);
+                _systemParameters._AiCParams.IDs.Add(items);
+                items._devicename = Convert.ToString(rowAiC3Properties1.Value);
+                items._idNumber = Convert.ToInt32(rowAiC3Properties2.Value);
+                _systemParameters._AiCParams.IDs.Add(items);
+                items._devicename = Convert.ToString(rowAiC4Properties1.Value);
+                items._idNumber = Convert.ToInt32(rowAiC4Properties2.Value);
+                _systemParameters._AiCParams.IDs.Add(items);
+
+                // System Parameter의 Remote I/O Serial 초기화
+                _systemParameters._remoteIOParams.SerialParameters.PortName = Convert.ToString(rowRemoteIOCommunicationPortName.Properties.Value);
+                _systemParameters._remoteIOParams.SerialParameters.BaudRates = Convert.ToInt32(rowRemoteIOCommunicationBaudRate.Properties.Value);
+                _systemParameters._remoteIOParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowRemoteIOCommunicationParity.Properties.Value));
+                _systemParameters._remoteIOParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowRemoteIOCommunicationStopbit.Properties.Value));
+                _systemParameters._remoteIOParams.SerialParameters.DataBits = Convert.ToInt32(rowRemoteIOCommunicationDatabit.Properties.Value);
+                _systemParameters._remoteIOParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowRemoteIOCommunicationHandshake.Properties.Value));
+                _systemParameters._remoteIOParams.ConnectedNumber = Convert.ToInt32(rowRemoteIOCommunicationCount.Properties.Value);
+                RemoteIOParams._IDs remoteitems = new RemoteIOParams._IDs();
+                remoteitems._devicename = Convert.ToString(rowRemoteIOInputProperties1.Value);
+                remoteitems._idNumber = Convert.ToInt32(rowRemoteIOInputProperties2.Value);
+                _systemParameters._remoteIOParams.IDs.Add(remoteitems);
+                remoteitems._devicename = Convert.ToString(rowRemoteIOOutputProperties1.Value);
+                remoteitems._idNumber = Convert.ToInt32(rowRemoteIOOutputProperties2.Value);
+                _systemParameters._remoteIOParams.IDs.Add(remoteitems);
+                // System Parameter의 ADMS 파라미터 초기화
+                _systemParameters._admsParams._enableCheck = Convert.ToBoolean(rowSystemADMSUse.Properties.Value);
+                _systemParameters._bJobWorkInfomationEnable = Convert.ToBoolean(rowSystemJobWorkUse.Properties.Value);
+                _systemParameters._admsParams._IpAddress = Convert.ToString(rowSystemADMSIPAddress.Properties.Value);
+                _systemParameters._admsParams._port = Convert.ToInt32(rowSystemADMSPort.Properties.Value);
+                _systemParameters._admsParams._userID = Convert.ToString(rowSystemADMSUserID.Properties.Value);
+                _systemParameters._admsParams._password = Convert.ToString(rowSystemADMSPassWD.Properties.Value);
+                _systemParameters._admsParams._equipmentname = Convert.ToString(rowSystemADMSEquipmentDBName.Properties.Value);
+                _systemParameters._admsParams._eqpmentID = Convert.ToInt32(rowSystemADMSEquipmentID.Properties.Value);
+                _systemParameters._admsParams._dbschemaname = Convert.ToString(rowSystemADMSSchemaName.Properties.Value);
+                _systemParameters._admsParams._productname = Convert.ToString(rowSystemADMSProductDBName.Properties.Value);
+
+                // System Parameter의 Light 파라미터 초기화            
+                rowLightCommunicationPortName.Properties.Value = repositoryItemComboBoxLightCommunicationPortName.Items[2].ToString();
+                rowLightCommunicationBaudRate.Properties.Value = repositoryItemComboBoxLightCommunicationBaudRate.Items[0].ToString();
+                rowLightCommunicationDataBit.Properties.Value = repositoryItemComboBoxLightCommunicationDataBit.Items[4].ToString();
+                rowLightCommunicationParity.Properties.Value = repositoryItemComboBoxLightCommunicationParity.Items[0].ToString();
+                rowLightCommunicationStopBit.Properties.Value = repositoryItemComboBoxLightCommunicationStopBit.Items[0].ToString();
+                rowLightCommunicationFlowControl.Properties.Value = repositoryItemComboBoxLightCommunicationFlowControl.Items[0].ToString();
+
+                _systemParameters._LightParams.SerialParameters.PortName = Convert.ToString(rowLightCommunicationPortName.Properties.Value);
+                _systemParameters._LightParams.SerialParameters.BaudRates = Convert.ToInt32(rowLightCommunicationBaudRate.Properties.Value);
+                _systemParameters._LightParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowLightCommunicationParity.Properties.Value));
+                _systemParameters._LightParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowLightCommunicationStopBit.Properties.Value));
+                _systemParameters._LightParams.SerialParameters.DataBits = Convert.ToInt32(rowLightCommunicationDataBit.Properties.Value);
+                _systemParameters._LightParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowLightCommunicationFlowControl.Properties.Value));
+
+                // System Parameter의 Feeder 파라미터 초기화            
+                rowFeederCommunicationPortName.Properties.Value = repositoryItemComboBoxFeederCommunicationPortName.Items[3].ToString();
+                rowFeederCommunicationBaudRate.Properties.Value = repositoryItemComboBoxFeederCommunicationBaudRate.Items[4].ToString();
+                rowFeederCommunicationDataBit.Properties.Value = repositoryItemComboBoxFeederCommunicationDataBit.Items[4].ToString();
+                rowFeederCommunicationParity.Properties.Value = repositoryItemComboBoxFeederCommunicationParity.Items[0].ToString();
+                rowFeederCommunicationStopBit.Properties.Value = repositoryItemComboBoxFeederCommunicationStopBit.Items[0].ToString();
+                rowFeederCommunicationFlowControl.Properties.Value = repositoryItemComboBoxFeederCommunicationFlowControl.Items[0].ToString();
+
+                _systemParameters._FeederParams.SerialParameters.PortName = Convert.ToString(rowFeederCommunicationPortName.Properties.Value);
+                _systemParameters._FeederParams.SerialParameters.BaudRates = Convert.ToInt32(rowFeederCommunicationBaudRate.Properties.Value);
+                _systemParameters._FeederParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowFeederCommunicationParity.Properties.Value));
+                _systemParameters._FeederParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowFeederCommunicationStopBit.Properties.Value));
+                _systemParameters._FeederParams.SerialParameters.DataBits = Convert.ToInt32(rowFeederCommunicationDataBit.Properties.Value);
+                _systemParameters._FeederParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowFeederCommunicationFlowControl.Properties.Value));
+                _systemParameters._FeederParams.FeederCommunicationID = Convert.ToInt32(rowFeederCommunicationIDNumber.Properties.Value);
+                _systemParameters._FeederParams.FeederGearRatio = Convert.ToDouble(rowFeederGearRatio.Properties.Value);
+                _systemParameters._FeederParams.FeederDiameter = Convert.ToDouble(rowFeederDiameter.Properties.Value);
+                _systemParameters._FeederParams.FeederResolution = Convert.ToDouble(rowFeederResolution.Properties.Value);
+                _systemParameters._FeederParams.FeederMoveVelocity = Convert.ToDouble(rowFeederVelocity.Properties.Value);
+
+                // System Parameter의 Laser 파라미터 초기화        
+                rowLaserCommunicationPortName.Properties.Value = repositoryItemComboBoxLaserCommunicationPortName.Items[4].ToString();
+                rowLaserCommunicationBaudRate.Properties.Value = repositoryItemComboBoxLaserCommunicationBaudRate.Items[4].ToString();
+                rowLaserCommunicationDataBit.Properties.Value = repositoryItemComboBoxLaserCommunicationDataBit.Items[4].ToString();
+                rowLaserCommunicationParity.Properties.Value = repositoryItemComboBoxLaserCommunicationParity.Items[0].ToString();
+                rowLaserCommunicationStopBit.Properties.Value = repositoryItemComboBoxLaserCommunicationStopBit.Items[0].ToString();
+                rowLaserCommunicationFlowControl.Properties.Value = repositoryItemComboBoxLaserCommunicationFlowControl.Items[0].ToString();
+
+                _systemParameters._LaserParams.SerialParameters.PortName = Convert.ToString(rowLaserCommunicationPortName.Properties.Value);
+                _systemParameters._LaserParams.SerialParameters.BaudRates = Convert.ToInt32(rowLaserCommunicationBaudRate.Properties.Value);
+                _systemParameters._LaserParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowLaserCommunicationParity.Properties.Value));
+                _systemParameters._LaserParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowLaserCommunicationStopBit.Properties.Value));
+                _systemParameters._LaserParams.SerialParameters.DataBits = Convert.ToInt32(rowLaserCommunicationDataBit.Properties.Value);
+                _systemParameters._LaserParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowLaserCommunicationFlowControl.Properties.Value));
+
+                // System Parameter의 Pyrospot 파라미터 초기화        
+                rowPyrospotCommunicationPortName.Properties.Value = repositoryItemComboBoxPyrospotCommunicationPortName.Items[4].ToString();
+                rowPyrospotCommunicationBaudRate.Properties.Value = repositoryItemComboBoxPyrospotCommunicationBaudRate.Items[4].ToString();
+                rowPyrospotCommunicationDataBit.Properties.Value = repositoryItemComboBoxPyrospotCommunicationDataBit.Items[4].ToString();
+                rowPyrospotCommunicationParity.Properties.Value = repositoryItemComboBoxPyrospotCommunicationParity.Items[2].ToString();
+                rowPyrospotCommunicationStopBit.Properties.Value = repositoryItemComboBoxPyrospotCommunicationStopBit.Items[0].ToString();
+                rowPyrospotCommunicationFlowControl.Properties.Value = repositoryItemComboBoxPyrospotCommunicationFlowControl.Items[0].ToString();
+
+                _systemParameters._PyrospotParam.SerialParameters.PortName = Convert.ToString(rowPyrospotCommunicationPortName.Properties.Value);
+                _systemParameters._PyrospotParam.SerialParameters.BaudRates = Convert.ToInt32(rowPyrospotCommunicationBaudRate.Properties.Value);
+                _systemParameters._PyrospotParam.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowPyrospotCommunicationParity.Properties.Value));
+                _systemParameters._PyrospotParam.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowPyrospotCommunicationStopBit.Properties.Value));
+                _systemParameters._PyrospotParam.SerialParameters.DataBits = Convert.ToInt32(rowPyrospotCommunicationDataBit.Properties.Value);
+                _systemParameters._PyrospotParam.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowPyrospotCommunicationFlowControl.Properties.Value));
+                _systemParameters._PyrospotParam.CommunicationID = Convert.ToInt32(rowPyrospotCommunicationIDNumber.Properties.Value);
+                // Save Result
+                _systemParameters._saveResultVisionProcessImage = Convert.ToBoolean(rowSaveResultImageProcess.Properties.Value);
+                _systemParameters._saveResultStatistics = Convert.ToBoolean(rowSaveResultStatistics.Properties.Value);
+
+                _systemParameters._SystemLanguageKoreaUse = Convert.ToBoolean(rowSystemUseLanguage.Properties.Value);
+            }
+            catch (Exception ex)
             {
-                repositoryItemComboBoxAiCCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
-                repositoryItemComboBoxRemoteIOCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
-                repositoryItemComboBoxLaserCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
-                repositoryItemComboBoxFeederCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
-                repositoryItemComboBoxLightCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
-                repositoryItemComboBoxPyrospotCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
+                ;
             }
-
-            for (int i = 0; i < RecipeFileIO.SerialDataBits.Length; ++i)
-            {
-                repositoryItemComboBoxAiCCommunicationDatabit.Items.Add(RecipeFileIO.SerialDataBits[i]);
-                repositoryItemComboBoxRemoteIOCommunicationDatabit.Items.Add(RecipeFileIO.SerialDataBits[i]);
-                repositoryItemComboBoxLaserCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
-                repositoryItemComboBoxFeederCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
-                repositoryItemComboBoxLightCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
-                repositoryItemComboBoxPyrospotCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
-            }
-
-            foreach (string strParity in Enum.GetNames(typeof(Parity)))
-            {
-                repositoryItemComboBoxAiCCommunicationParity.Items.Add(strParity);
-                repositoryItemComboBoxRemoteIOCommunicationParity.Items.Add(strParity);
-                repositoryItemComboBoxLaserCommunicationParity.Items.Add(strParity);
-                repositoryItemComboBoxFeederCommunicationParity.Items.Add(strParity);
-                repositoryItemComboBoxLightCommunicationParity.Items.Add(strParity);
-                repositoryItemComboBoxPyrospotCommunicationParity.Items.Add(strParity);
-            }
-
-            foreach (string strStopbits in Enum.GetNames(typeof(StopBits)))
-            {
-                repositoryItemComboBoxAiCCommunicationStopbit.Items.Add(strStopbits);
-                repositoryItemComboBoxRemoteIOCommunicationStopbit.Items.Add(strStopbits);
-                repositoryItemComboBoxLaserCommunicationStopBit.Items.Add(strStopbits);
-                repositoryItemComboBoxFeederCommunicationStopBit.Items.Add(strStopbits);
-                repositoryItemComboBoxLightCommunicationStopBit.Items.Add(strStopbits);
-                repositoryItemComboBoxPyrospotCommunicationStopBit.Items.Add(strStopbits);
-            }
-
-            foreach (string strHandshake in Enum.GetNames(typeof(Handshake)))
-            {
-                repositoryItemComboBoxAiCCommunicationHandshake.Items.Add(strHandshake);
-                repositoryItemComboBoxRemoteIOCommunicationHandshake.Items.Add(strHandshake);
-                repositoryItemComboBoxLaserCommunicationFlowControl.Items.Add(strHandshake);
-                repositoryItemComboBoxFeederCommunicationFlowControl.Items.Add(strHandshake);
-                repositoryItemComboBoxLightCommunicationFlowControl.Items.Add(strHandshake);
-                repositoryItemComboBoxPyrospotCommunicationFlowControl.Items.Add(strHandshake);
-            }
-            for (int i = 0; i < RecipeFileIO.TransitionCoordinate.Length; i++)
-            {
-                repositoryItemComboBoxCalibrationImageX.Items.Add(RecipeFileIO.TransitionCoordinate[i]);
-                repositoryItemComboBoxCalibrationImageY.Items.Add(RecipeFileIO.TransitionCoordinate[i]);
-            }
-            // System Parameter의 Light Serial 초기화
-            rowAiCCommunicationPortName.Properties.Value = repositoryItemComboBoxAiCCommunicationPortName.Items[0].ToString();
-            rowAiCCommunicationBaudRate.Properties.Value = repositoryItemComboBoxAiCCommunicationBaudRate.Items[4].ToString();
-            rowAiCCommunicationDatabit.Properties.Value = repositoryItemComboBoxAiCCommunicationDatabit.Items[4].ToString();
-            rowAiCCommunicationParity.Properties.Value = repositoryItemComboBoxAiCCommunicationParity.Items[0].ToString();
-            rowAiCCommunicationStopbit.Properties.Value = repositoryItemComboBoxAiCCommunicationStopbit.Items[0].ToString();
-            rowAiCCommunicationHandshake.Properties.Value = repositoryItemComboBoxAiCCommunicationHandshake.Items[0].ToString();
-
-            rowRemoteIOCommunicationPortName.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationPortName.Items[1].ToString();
-            rowRemoteIOCommunicationBaudRate.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationBaudRate.Items[4].ToString();
-            rowRemoteIOCommunicationDatabit.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationDatabit.Items[4].ToString();
-            rowRemoteIOCommunicationParity.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationParity.Items[0].ToString();
-            rowRemoteIOCommunicationStopbit.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationStopbit.Items[0].ToString();
-            rowRemoteIOCommunicationHandshake.Properties.Value = repositoryItemComboBoxRemoteIOCommunicationHandshake.Items[0].ToString();
-
-            // System Parameter의 Camera 파라미터 초기화
-            _systemParameters._cameraParams.CheckUsingCamera = true;
-            _systemParameters._cameraParams.HResolution = Convert.ToInt32(rowCameraHResolution.Properties.Value);
-            _systemParameters._cameraParams.VResolution = Convert.ToInt32(rowCameraVResolution.Properties.Value);
-            _systemParameters._cameraParams.OnePixelResolution = Convert.ToSingle(rowCameraOnePixelResolution.Properties.Value);                        
-
-            // Calibration Coordinate 파라미터 초기화
-            _systemParameters._calibrationParams._CoordinateSwitchEnable = Convert.ToBoolean(rowCoordinateSwitch.Properties.Value);
-            rowImageToSystemX.Properties.Value = repositoryItemComboBoxCalibrationImageX.Items[0].ToString();
-            rowImageToSystemY.Properties.Value = repositoryItemComboBoxCalibrationImageY.Items[0].ToString();
-            _systemParameters._calibrationParams._imagetoSystemXcoordi = Convert.ToSingle(rowImageToSystemX.Properties.Value);
-            _systemParameters._calibrationParams._imagetoSystemYcoordi = Convert.ToSingle(rowImageToSystemY.Properties.Value);
-            _systemParameters._calibrationParams._CoordinateCalibrationActive = Convert.ToBoolean(rowCoordinateCalibrationActive.Properties.Value);
-            _systemParameters._calibrationParams.X_reference_Distance = Convert.ToSingle(rowReference_X.Properties.Value);            
-            _systemParameters._calibrationParams.Y_reference_Distance = Convert.ToSingle(rowReference_Y.Properties.Value);
-            _systemParameters._calibrationParams.Z_reference_Distance = Convert.ToSingle(rowReference_Z.Properties.Value);            
-            // System Parameter의 Motion 파라미터 초기화
-            _systemParameters._motionParams.MenualMoveVelocity = Convert.ToSingle(rowMotionMenaulVelocity.Properties.Value);
-            _systemParameters._motionParams.MoveVelocity = Convert.ToSingle(rowMotionMoveVelocity.Properties.Value);
-            _systemParameters._motionParams.MoveAcceleration = Convert.ToSingle(rowMotionMoveAcceleration.Properties.Value);
-            _systemParameters._motionParams.OneTurnResolutionX = Convert.ToInt32(rowMotionResolutionX.Properties.Value);
-            _systemParameters._motionParams.OneTurnResolutionY = Convert.ToInt32(rowMotionResolutionY.Properties.Value);
-            _systemParameters._motionParams.OneTurnResolutionZ = Convert.ToInt32(rowMotionResolutionZ.Properties.Value);            
-            _systemParameters._motionParams.GearRatioX = Convert.ToSingle(rowMotionGearRatioX.Properties.Value);
-            _systemParameters._motionParams.GearRatioY = Convert.ToSingle(rowMotionGearRatioY.Properties.Value);
-            _systemParameters._motionParams.GearRatioZ = Convert.ToSingle(rowMotionGearRatioZ.Properties.Value);            
-            _systemParameters._motionParams.BallLeadX = Convert.ToSingle(rowMotionBallLeadX.Properties.Value);
-            _systemParameters._motionParams.BallLeadY = Convert.ToSingle(rowMotionBallLeadY.Properties.Value);
-            _systemParameters._motionParams.BallLeadZ = Convert.ToSingle(rowMotionBallLeadZ.Properties.Value);
-            
-
-            // System Parameter의 AiC 파라미터 초기화
-            _systemParameters._AiCParams.ConnectedNumber = Convert.ToInt32(rowAiCCommunicationCounter.Properties.Value);
-            _systemParameters._AiCParams.SerialParameters.PortName = Convert.ToString(rowAiCCommunicationPortName.Properties.Value);
-            _systemParameters._AiCParams.SerialParameters.BaudRates = Convert.ToInt32(rowAiCCommunicationBaudRate.Properties.Value);
-            _systemParameters._AiCParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowAiCCommunicationParity.Properties.Value));
-            _systemParameters._AiCParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowAiCCommunicationStopbit.Properties.Value));
-            _systemParameters._AiCParams.SerialParameters.DataBits = Convert.ToInt32(rowAiCCommunicationDatabit.Properties.Value);
-            _systemParameters._AiCParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowAiCCommunicationHandshake.Properties.Value));
-            _systemParameters._AiCParams.ConnectedNumber = Convert.ToInt32(rowAiCCommunicationCounter.Properties.Value);
-            AiCParams._IDs items = new AiCParams._IDs();
-            items._devicename = Convert.ToString(rowAiC1Properties1.Value);
-            items._idNumber = Convert.ToInt32(rowAiC1Properties2.Value);
-            _systemParameters._AiCParams.IDs.Add(items);
-            items._devicename = Convert.ToString(rowAiC2Properties1.Value);
-            items._idNumber = Convert.ToInt32(rowAiC2Properties2.Value);
-            _systemParameters._AiCParams.IDs.Add(items);
-            items._devicename = Convert.ToString(rowAiC3Properties1.Value);
-            items._idNumber = Convert.ToInt32(rowAiC3Properties2.Value);
-            _systemParameters._AiCParams.IDs.Add(items);
-            items._devicename = Convert.ToString(rowAiC4Properties1.Value);
-            items._idNumber = Convert.ToInt32(rowAiC4Properties2.Value);
-            _systemParameters._AiCParams.IDs.Add(items);
-
-            // System Parameter의 Remote I/O Serial 초기화
-            _systemParameters._remoteIOParams.SerialParameters.PortName = Convert.ToString(rowRemoteIOCommunicationPortName.Properties.Value);
-            _systemParameters._remoteIOParams.SerialParameters.BaudRates = Convert.ToInt32(rowRemoteIOCommunicationBaudRate.Properties.Value);
-            _systemParameters._remoteIOParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowRemoteIOCommunicationParity.Properties.Value));
-            _systemParameters._remoteIOParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowRemoteIOCommunicationStopbit.Properties.Value));
-            _systemParameters._remoteIOParams.SerialParameters.DataBits = Convert.ToInt32(rowRemoteIOCommunicationDatabit.Properties.Value);
-            _systemParameters._remoteIOParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowRemoteIOCommunicationHandshake.Properties.Value));
-            _systemParameters._remoteIOParams.ConnectedNumber = Convert.ToInt32(rowRemoteIOCommunicationCount.Properties.Value);
-            RemoteIOParams._IDs remoteitems = new RemoteIOParams._IDs();
-            remoteitems._devicename = Convert.ToString(rowRemoteIOInputProperties1.Value);
-            remoteitems._idNumber = Convert.ToInt32(rowRemoteIOInputProperties2.Value);
-            _systemParameters._remoteIOParams.IDs.Add(remoteitems);
-            remoteitems._devicename = Convert.ToString(rowRemoteIOOutputProperties1.Value);
-            remoteitems._idNumber = Convert.ToInt32(rowRemoteIOOutputProperties2.Value);
-            _systemParameters._remoteIOParams.IDs.Add(remoteitems);
-            // System Parameter의 ADMS 파라미터 초기화
-            _systemParameters._admsParams._enableCheck = Convert.ToBoolean(rowSystemADMSUse.Properties.Value);
-            _systemParameters._bJobWorkInfomationEnable = Convert.ToBoolean(rowSystemJobWorkUse.Properties.Value);
-            _systemParameters._admsParams._IpAddress = Convert.ToString(rowSystemADMSIPAddress.Properties.Value);
-            _systemParameters._admsParams._port = Convert.ToInt32(rowSystemADMSPort.Properties.Value);
-            _systemParameters._admsParams._userID = Convert.ToString(rowSystemADMSUserID.Properties.Value);
-            _systemParameters._admsParams._password = Convert.ToString(rowSystemADMSPassWD.Properties.Value);
-            _systemParameters._admsParams._equipmentname = Convert.ToString(rowSystemADMSEquipmentDBName.Properties.Value);
-            _systemParameters._admsParams._eqpmentID = Convert.ToInt32(rowSystemADMSEquipmentID.Properties.Value);
-            _systemParameters._admsParams._dbschemaname = Convert.ToString(rowSystemADMSSchemaName.Properties.Value);
-            _systemParameters._admsParams._productname = Convert.ToString(rowSystemADMSProductDBName.Properties.Value);
-
-            // System Parameter의 Light 파라미터 초기화            
-            rowLightCommunicationPortName.Properties.Value = repositoryItemComboBoxLightCommunicationPortName.Items[2].ToString();
-            rowLightCommunicationBaudRate.Properties.Value = repositoryItemComboBoxLightCommunicationBaudRate.Items[0].ToString();
-            rowLightCommunicationDataBit.Properties.Value = repositoryItemComboBoxLightCommunicationDataBit.Items[4].ToString();
-            rowLightCommunicationParity.Properties.Value = repositoryItemComboBoxLightCommunicationParity.Items[0].ToString();
-            rowLightCommunicationStopBit.Properties.Value = repositoryItemComboBoxLightCommunicationStopBit.Items[0].ToString();
-            rowLightCommunicationFlowControl.Properties.Value = repositoryItemComboBoxLightCommunicationFlowControl.Items[0].ToString();
-
-            _systemParameters._LightParams.SerialParameters.PortName = Convert.ToString(rowLightCommunicationPortName.Properties.Value);
-            _systemParameters._LightParams.SerialParameters.BaudRates = Convert.ToInt32(rowLightCommunicationBaudRate.Properties.Value);
-            _systemParameters._LightParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowLightCommunicationParity.Properties.Value));
-            _systemParameters._LightParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowLightCommunicationStopBit.Properties.Value));
-            _systemParameters._LightParams.SerialParameters.DataBits = Convert.ToInt32(rowLightCommunicationDataBit.Properties.Value);
-            _systemParameters._LightParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowLightCommunicationFlowControl.Properties.Value));
-
-            // System Parameter의 Feeder 파라미터 초기화            
-            rowFeederCommunicationPortName.Properties.Value = repositoryItemComboBoxFeederCommunicationPortName.Items[3].ToString();
-            rowFeederCommunicationBaudRate.Properties.Value = repositoryItemComboBoxFeederCommunicationBaudRate.Items[4].ToString();
-            rowFeederCommunicationDataBit.Properties.Value = repositoryItemComboBoxFeederCommunicationDataBit.Items[4].ToString();
-            rowFeederCommunicationParity.Properties.Value = repositoryItemComboBoxFeederCommunicationParity.Items[0].ToString();
-            rowFeederCommunicationStopBit.Properties.Value = repositoryItemComboBoxFeederCommunicationStopBit.Items[0].ToString();
-            rowFeederCommunicationFlowControl.Properties.Value = repositoryItemComboBoxFeederCommunicationFlowControl.Items[0].ToString();
-
-            _systemParameters._FeederParams.SerialParameters.PortName = Convert.ToString(rowFeederCommunicationPortName.Properties.Value);
-            _systemParameters._FeederParams.SerialParameters.BaudRates = Convert.ToInt32(rowFeederCommunicationBaudRate.Properties.Value);
-            _systemParameters._FeederParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowFeederCommunicationParity.Properties.Value));
-            _systemParameters._FeederParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowFeederCommunicationStopBit.Properties.Value));
-            _systemParameters._FeederParams.SerialParameters.DataBits = Convert.ToInt32(rowFeederCommunicationDataBit.Properties.Value);
-            _systemParameters._FeederParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowFeederCommunicationFlowControl.Properties.Value));
-            _systemParameters._FeederParams.FeederCommunicationID = Convert.ToInt32(rowFeederCommunicationIDNumber.Properties.Value);
-            _systemParameters._FeederParams.FeederGearRatio = Convert.ToDouble(rowFeederGearRatio.Properties.Value);
-            _systemParameters._FeederParams.FeederDiameter = Convert.ToDouble(rowFeederDiameter.Properties.Value);
-            _systemParameters._FeederParams.FeederResolution = Convert.ToDouble(rowFeederResolution.Properties.Value);
-            _systemParameters._FeederParams.FeederMoveVelocity = Convert.ToDouble(rowFeederVelocity.Properties.Value);
-
-            // System Parameter의 Laser 파라미터 초기화        
-            rowLaserCommunicationPortName.Properties.Value = repositoryItemComboBoxLaserCommunicationPortName.Items[4].ToString();
-            rowLaserCommunicationBaudRate.Properties.Value = repositoryItemComboBoxLaserCommunicationBaudRate.Items[4].ToString();
-            rowLaserCommunicationDataBit.Properties.Value = repositoryItemComboBoxLaserCommunicationDataBit.Items[4].ToString();
-            rowLaserCommunicationParity.Properties.Value = repositoryItemComboBoxLaserCommunicationParity.Items[0].ToString();
-            rowLaserCommunicationStopBit.Properties.Value = repositoryItemComboBoxLaserCommunicationStopBit.Items[0].ToString();
-            rowLaserCommunicationFlowControl.Properties.Value = repositoryItemComboBoxLaserCommunicationFlowControl.Items[0].ToString();
-
-            _systemParameters._LaserParams.SerialParameters.PortName = Convert.ToString(rowLaserCommunicationPortName.Properties.Value);
-            _systemParameters._LaserParams.SerialParameters.BaudRates = Convert.ToInt32(rowLaserCommunicationBaudRate.Properties.Value);
-            _systemParameters._LaserParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowLaserCommunicationParity.Properties.Value));
-            _systemParameters._LaserParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowLaserCommunicationStopBit.Properties.Value));
-            _systemParameters._LaserParams.SerialParameters.DataBits = Convert.ToInt32(rowLaserCommunicationDataBit.Properties.Value);
-            _systemParameters._LaserParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowLaserCommunicationFlowControl.Properties.Value));
-
-            // System Parameter의 Pyrospot 파라미터 초기화        
-            rowPyrospotCommunicationPortName.Properties.Value = repositoryItemComboBoxPyrospotCommunicationPortName.Items[4].ToString();
-            rowPyrospotCommunicationBaudRate.Properties.Value = repositoryItemComboBoxPyrospotCommunicationBaudRate.Items[4].ToString();
-            rowPyrospotCommunicationDataBit.Properties.Value = repositoryItemComboBoxPyrospotCommunicationDataBit.Items[4].ToString();
-            rowPyrospotCommunicationParity.Properties.Value = repositoryItemComboBoxPyrospotCommunicationParity.Items[2].ToString();
-            rowPyrospotCommunicationStopBit.Properties.Value = repositoryItemComboBoxPyrospotCommunicationStopBit.Items[0].ToString();
-            rowPyrospotCommunicationFlowControl.Properties.Value = repositoryItemComboBoxPyrospotCommunicationFlowControl.Items[0].ToString();
-
-            _systemParameters._PyrospotParam.SerialParameters.PortName = Convert.ToString(rowPyrospotCommunicationPortName.Properties.Value);
-            _systemParameters._PyrospotParam.SerialParameters.BaudRates = Convert.ToInt32(rowPyrospotCommunicationBaudRate.Properties.Value);
-            _systemParameters._PyrospotParam.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowPyrospotCommunicationParity.Properties.Value));
-            _systemParameters._PyrospotParam.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowPyrospotCommunicationStopBit.Properties.Value));
-            _systemParameters._PyrospotParam.SerialParameters.DataBits = Convert.ToInt32(rowPyrospotCommunicationDataBit.Properties.Value);
-            _systemParameters._PyrospotParam.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowPyrospotCommunicationFlowControl.Properties.Value));
-            _systemParameters._PyrospotParam.CommunicationID = Convert.ToInt32(rowPyrospotCommunicationIDNumber.Properties.Value);
-            // Save Result
-            _systemParameters._saveResultVisionProcessImage = Convert.ToBoolean(rowSaveResultImageProcess.Properties.Value);
-            _systemParameters._saveResultStatistics = Convert.ToBoolean(rowSaveResultStatistics.Properties.Value);
-
-            _systemParameters._SystemLanguageKoreaUse = Convert.ToBoolean(rowSystemUseLanguage.Properties.Value);
         }
         private void LoadSystemParameters()
         {
@@ -631,6 +638,15 @@ namespace atLaserSoldering
             rowLaserCommunicationStopBit.Properties.Value = _systemParameters._LaserParams.SerialParameters.StopBits;
             rowLaserCommunicationParity.Properties.Value = _systemParameters._LaserParams.SerialParameters.Parity;
             rowLaserCommunicationFlowControl.Properties.Value = _systemParameters._LaserParams.SerialParameters.Handshake;
+
+            // System Pyrospot 파라미터 초기화
+            rowPyrospotCommunicationPortName.Properties.Value = _systemParameters._PyrospotParam.SerialParameters.PortName;
+            rowPyrospotCommunicationBaudRate.Properties.Value = _systemParameters._PyrospotParam.SerialParameters.BaudRates;
+            rowPyrospotCommunicationDataBit.Properties.Value = _systemParameters._PyrospotParam.SerialParameters.DataBits;
+            rowPyrospotCommunicationStopBit.Properties.Value = _systemParameters._PyrospotParam.SerialParameters.StopBits;
+            rowPyrospotCommunicationParity.Properties.Value = _systemParameters._PyrospotParam.SerialParameters.Parity;
+            rowPyrospotCommunicationFlowControl.Properties.Value = _systemParameters._PyrospotParam.SerialParameters.Handshake;
+            rowPyrospotCommunicationIDNumber.Properties.Value = _systemParameters._PyrospotParam.CommunicationID;
 
             // Save Result
 
@@ -1825,13 +1841,13 @@ namespace atLaserSoldering
                 if (fValue <= 0)
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\nFeeder 기어비 값은 1보다 큰 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowFeederGearRatio.Properties.Value = _systemParameters._FeederParams.FeederGearRatio;
+                    rowFeederGearRatio.Properties.Value = Math.Round(_systemParameters._FeederParams.FeederGearRatio,3);
                     vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
                 simpleButtonSystemFileSave.Enabled = true;
 
-                _systemParameters._FeederParams.FeederGearRatio = (double)fValue;
+                _systemParameters._FeederParams.FeederGearRatio = (double)Math.Round(fValue,3);
                 _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Feeder 기어비를 {0}로 변경되었습니다.", _systemParameters._FeederParams.FeederGearRatio.ToString()));
             }
             else if (currentRow == rowFeederDiameter)
@@ -1840,13 +1856,13 @@ namespace atLaserSoldering
                 if (fValue <= 0)
                 {
                     MessageBox.Show("잘못된 값을 입력했습니다.\r\nFeeder 풀리지름 값은 1보다 큰 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    rowFeederDiameter.Properties.Value = _systemParameters._FeederParams.FeederDiameter;
+                    rowFeederDiameter.Properties.Value = Math.Round(_systemParameters._FeederParams.FeederDiameter,3);
                     vGridControlSystemParametersSecond.Refresh();
                     return;
                 }
                 simpleButtonSystemFileSave.Enabled = true;
 
-                _systemParameters._FeederParams.FeederDiameter = (double)fValue;
+                _systemParameters._FeederParams.FeederDiameter = (double)Math.Round(fValue,3);
                 _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Feeder 풀리지름이 {0}로 변경되었습니다.", _systemParameters._FeederParams.FeederDiameter.ToString()));
             }
             else if (currentRow == rowFeederResolution)
@@ -2206,12 +2222,182 @@ namespace atLaserSoldering
                     rowLaserCommunicationParity.Properties.Value = Enum.GetName(typeof(Parity), (Parity)_systemParameters._LaserParams.SerialParameters.Parity);
                     vGridControlSystemParametersSecond.Refresh();
                     return;
+                }                
+            }
+            else if (currentRow == rowPyrospotCommunicationPortName)
+            {
+                bool IsValidate = false;
+                strTemp = Convert.ToString(rowPyrospotCommunicationPortName.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxPyrospotCommunicationPortName.Items.Count; ++i)
+                {
+                    if (strTemp == Convert.ToString(repositoryItemComboBoxPyrospotCommunicationPortName.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n통신 포트 값은 COM1~20 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowPyrospotCommunicationPortName.Properties.Value = _systemParameters._PyrospotParam.SerialParameters.PortName;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+                _systemParameters._PyrospotParam.SerialParameters.PortName = strTemp;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Pyrospot 통신 포트를 {0}로 변경되었습니다.", _systemParameters._PyrospotParam.SerialParameters.PortName));
+            }
+            else if (currentRow == rowPyrospotCommunicationBaudRate)
+            {
+                bool IsValidate = false;
+                value = Convert.ToInt32(rowPyrospotCommunicationBaudRate.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxPyrospotCommunicationBaudRate.Items.Count; ++i)
+                {
+                    if (value == Convert.ToInt32(repositoryItemComboBoxPyrospotCommunicationBaudRate.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\nBaudRates 값은 9600, 19200, 38400, 57600, 115200 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowPyrospotCommunicationBaudRate.Properties.Value = _systemParameters._PyrospotParam.SerialParameters.BaudRates;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+                _systemParameters._PyrospotParam.SerialParameters.BaudRates = value;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Pyrospot 통신 속도를 {0}로 변경되었습니다.", _systemParameters._PyrospotParam.SerialParameters.BaudRates.ToString()));
+            }
+            else if (currentRow == rowPyrospotCommunicationStopBit)
+            {
+                bool IsValidate = false;
+                strTemp = Convert.ToString(rowPyrospotCommunicationStopBit.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxPyrospotCommunicationStopBit.Items.Count; ++i)
+                {
+                    if (strTemp == Convert.ToString(repositoryItemComboBoxPyrospotCommunicationStopBit.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n정지 비트 값은 None, One, Two, One5 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowPyrospotCommunicationStopBit.Properties.Value = Enum.GetName(typeof(StopBits), (StopBits)_systemParameters._PyrospotParam.SerialParameters.StopBits);
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+                _systemParameters._PyrospotParam.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), strTemp);
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Pyrospot 통신 정지 비트를 {0}로 변경되었습니다.", _systemParameters._PyrospotParam.SerialParameters.StopBits.ToString()));
+            }
+            else if (currentRow == rowPyrospotCommunicationDataBit)
+            {
+                bool IsValidate = false;
+                value = Convert.ToInt32(rowPyrospotCommunicationDataBit.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxPyrospotCommunicationDataBit.Items.Count; ++i)
+                {
+                    if (value == Convert.ToInt32(repositoryItemComboBoxPyrospotCommunicationDataBit.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\nDataBits 값은 4, 5, 6, 7, 8 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowPyrospotCommunicationDataBit.Properties.Value = _systemParameters._PyrospotParam.SerialParameters.DataBits;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+                _systemParameters._PyrospotParam.SerialParameters.DataBits = value;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Pyrospot 통신 데이터 비트를 {0}로 변경되었습니다.", _systemParameters._PyrospotParam.SerialParameters.DataBits.ToString()));
+            }
+            else if (currentRow == rowPyrospotCommunicationFlowControl)
+            {
+                bool IsValidate = false;
+                strTemp = Convert.ToString(rowPyrospotCommunicationFlowControl.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxPyrospotCommunicationFlowControl.Items.Count; ++i)
+                {
+                    if (strTemp == Convert.ToString(repositoryItemComboBoxPyrospotCommunicationFlowControl.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n흐름 제어 값은 None, XonXoff, RequestToSend, RequestToSendXonXoff 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowLaserCommunicationFlowControl.Properties.Value = Enum.GetName(typeof(Handshake), (Handshake)_systemParameters._PyrospotParam.SerialParameters.Handshake);
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
                 }
 
                 simpleButtonSystemFileSave.Enabled = true;
 
-                _systemParameters._LaserParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), strTemp);
-                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Laser 통신 parity를 {0}로 변경되었습니다.", _systemParameters._LaserParams.SerialParameters.Parity.ToString()));
+                _systemParameters._PyrospotParam.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), strTemp);
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Pyrospot 통신 흐름 제어를 {0}로 변경되었습니다.", _systemParameters._PyrospotParam.SerialParameters.Handshake.ToString()));
+            }
+            else if (currentRow == rowPyrospotCommunicationParity)
+            {
+                bool IsValidate = false;
+                strTemp = Convert.ToString(rowPyrospotCommunicationParity.Properties.Value);
+
+                for (int i = 0; i < repositoryItemComboBoxPyrospotCommunicationParity.Items.Count; ++i)
+                {
+                    if (strTemp == Convert.ToString(repositoryItemComboBoxPyrospotCommunicationParity.Items[i]))
+                    {
+                        IsValidate = true;
+                        break;
+                    }
+                }
+
+                if (!IsValidate)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n패리티 값은 None, Odd, Even, Mark, Space 중 하나입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //rowPanelMeterCommunicationParity.Properties.Value = _systemParameters._panelmeterParams.SerialParameters.Parity;
+                    rowPyrospotCommunicationParity.Properties.Value = Enum.GetName(typeof(Parity), (Parity)_systemParameters._PyrospotParam.SerialParameters.Parity);
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+
+                _systemParameters._PyrospotParam.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), strTemp);
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Pyrospot 통신 parity를 {0}로 변경되었습니다.", _systemParameters._PyrospotParam.SerialParameters.Parity.ToString()));
+            }
+            else if (currentRow == rowPyrospotCommunicationIDNumber)
+            {
+                value = Convert.ToInt32(rowPyrospotCommunicationIDNumber.Properties.Value);
+
+                if (value <= 0)
+                {
+                    MessageBox.Show("잘못된 값을 입력했습니다.\r\n국번ID 값은 1보다 큰 값입니다.", "에러", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rowPyrospotCommunicationIDNumber.Properties.Value = _systemParameters._PyrospotParam.CommunicationID;
+                    vGridControlSystemParametersSecond.Refresh();
+                    return;
+                }
+
+                simpleButtonSystemFileSave.Enabled = true;
+                _systemParameters._PyrospotParam.CommunicationID = value;
+                _log.WriteLog(LogLevel.Info, LogClass.SystemEditor.ToString(), string.Format("Pyrospot 통신 ID를 {0}로 변경되었습니다.", _systemParameters._PyrospotParam.CommunicationID.ToString()));
             }
         }
 

@@ -89,7 +89,7 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.chartControlPyrospotData = new DevExpress.XtraCharts.ChartControl();
             this.xtraTabControlMainCtrl = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageMain = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
@@ -204,6 +204,7 @@
             this.toolStripMenuItemVisionMove = new System.Windows.Forms.ToolStripMenuItem();
             this.timerImageUpdate = new System.Windows.Forms.Timer(this.components);
             this.openFileDialogImageFileOpen = new System.Windows.Forms.OpenFileDialog();
+            this.barButtonItemConnectionPyrospot = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -221,7 +222,7 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControlPyrospotData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).BeginInit();
@@ -339,10 +340,11 @@
             this.barEditItem1,
             this.barStaticItem1,
             this.barEditItemAutoSolderingResult,
-            this.barListItemRecipeOpen});
+            this.barListItemRecipeOpen,
+            this.barButtonItemConnectionPyrospot});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.ribbonControl.MaxItemId = 33;
+            this.ribbonControl.MaxItemId = 34;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageEquipementFunctions});
@@ -669,6 +671,7 @@
             this.ribbonPageGroupConnection.ItemLinks.Add(this.barButtonItemConnectionLaser);
             this.ribbonPageGroupConnection.ItemLinks.Add(this.barButtonItemConnectionFeeder);
             this.ribbonPageGroupConnection.ItemLinks.Add(this.barButtonItemConnectionLight);
+            this.ribbonPageGroupConnection.ItemLinks.Add(this.barButtonItemConnectionPyrospot);
             this.ribbonPageGroupConnection.Name = "ribbonPageGroupConnection";
             this.ribbonPageGroupConnection.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.ribbonPageGroupConnection.Text = "통신 연결";
@@ -891,7 +894,7 @@
             // 
             // layoutControl2
             // 
-            this.layoutControl2.Controls.Add(this.chartControl1);
+            this.layoutControl2.Controls.Add(this.chartControlPyrospotData);
             this.layoutControl2.Controls.Add(this.xtraTabControlMainCtrl);
             this.layoutControl2.Controls.Add(this.pictureEditSystemImage);
             this.layoutControl2.Location = new System.Drawing.Point(5, 6);
@@ -902,25 +905,25 @@
             this.layoutControl2.TabIndex = 4;
             this.layoutControl2.Text = "layoutControl2";
             // 
-            // chartControl1
+            // chartControlPyrospotData
             // 
             swiftPlotDiagram1.AxisX.GridLines.Visible = true;
             swiftPlotDiagram1.AxisX.Label.Visible = false;
             swiftPlotDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             swiftPlotDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl1.Diagram = swiftPlotDiagram1;
-            this.chartControl1.Legend.Name = "Default Legend";
-            this.chartControl1.Legend.TextVisible = false;
-            this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl1.Location = new System.Drawing.Point(12, 295);
-            this.chartControl1.Name = "chartControl1";
+            this.chartControlPyrospotData.Diagram = swiftPlotDiagram1;
+            this.chartControlPyrospotData.Legend.Name = "Default Legend";
+            this.chartControlPyrospotData.Legend.TextVisible = false;
+            this.chartControlPyrospotData.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            this.chartControlPyrospotData.Location = new System.Drawing.Point(12, 295);
+            this.chartControlPyrospotData.Name = "chartControlPyrospotData";
             series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series1.Name = "Temperature";
             series1.View = swiftPlotSeriesView1;
-            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+            this.chartControlPyrospotData.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chartControl1.Size = new System.Drawing.Size(442, 137);
-            this.chartControl1.TabIndex = 5;
+            this.chartControlPyrospotData.Size = new System.Drawing.Size(442, 137);
+            this.chartControlPyrospotData.TabIndex = 5;
             // 
             // xtraTabControlMainCtrl
             // 
@@ -1900,7 +1903,7 @@
             // 
             // layoutControlItem10
             // 
-            this.layoutControlItem10.Control = this.chartControl1;
+            this.layoutControlItem10.Control = this.chartControlPyrospotData;
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 283);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(446, 141);
@@ -1964,40 +1967,40 @@
             this.toolStripMenuItemClearWorkROI,
             this.toolStripMenuItemVisionMove});
             this.contextMenuStripImageViewControl.Name = "contextMenuStripImageViewControl";
-            this.contextMenuStripImageViewControl.Size = new System.Drawing.Size(181, 136);
+            this.contextMenuStripImageViewControl.Size = new System.Drawing.Size(171, 114);
             this.contextMenuStripImageViewControl.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStripImageViewControl_ItemClicked);
             // 
             // toolStripMenuItemViewCenterMark
             // 
             this.toolStripMenuItemViewCenterMark.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
             this.toolStripMenuItemViewCenterMark.Name = "toolStripMenuItemViewCenterMark";
-            this.toolStripMenuItemViewCenterMark.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemViewCenterMark.Size = new System.Drawing.Size(170, 22);
             this.toolStripMenuItemViewCenterMark.Text = "View Center Mark";
             // 
             // toolStripMenuItemSetFitSizeImage
             // 
             this.toolStripMenuItemSetFitSizeImage.Name = "toolStripMenuItemSetFitSizeImage";
-            this.toolStripMenuItemSetFitSizeImage.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemSetFitSizeImage.Size = new System.Drawing.Size(170, 22);
             this.toolStripMenuItemSetFitSizeImage.Text = "Fit Size Image";
             // 
             // toolStripMenuItemSetROI
             // 
             this.toolStripMenuItemSetROI.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
             this.toolStripMenuItemSetROI.Name = "toolStripMenuItemSetROI";
-            this.toolStripMenuItemSetROI.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemSetROI.Size = new System.Drawing.Size(170, 22);
             this.toolStripMenuItemSetROI.Text = "Set Work ROI";
             // 
             // toolStripMenuItemClearWorkROI
             // 
             this.toolStripMenuItemClearWorkROI.Name = "toolStripMenuItemClearWorkROI";
-            this.toolStripMenuItemClearWorkROI.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemClearWorkROI.Size = new System.Drawing.Size(170, 22);
             this.toolStripMenuItemClearWorkROI.Text = "Clear Work ROI";
             // 
             // toolStripMenuItemVisionMove
             // 
             this.toolStripMenuItemVisionMove.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
             this.toolStripMenuItemVisionMove.Name = "toolStripMenuItemVisionMove";
-            this.toolStripMenuItemVisionMove.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemVisionMove.Size = new System.Drawing.Size(170, 22);
             this.toolStripMenuItemVisionMove.Text = "Set Vision Move";
             // 
             // timerImageUpdate
@@ -2010,6 +2013,12 @@
             this.openFileDialogImageFileOpen.Filter = "Bitmap Files (*.bmp)|*.bmp|Graphics Interange Format (*.gif)|*.gif|JPEG File Inte" +
     "rchange Format (*.jpg;*.jpeg)|*.jpg;*.jpeg|Icon Files (*.ico)|*.ico|Portable Net" +
     "work Graphics Format (*.png)|*.png";
+            // 
+            // barButtonItemConnectionPyrospot
+            // 
+            this.barButtonItemConnectionPyrospot.Id = 33;
+            this.barButtonItemConnectionPyrospot.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.disconnect_16x16;
+            this.barButtonItemConnectionPyrospot.Name = "barButtonItemConnectionPyrospot";
             // 
             // atLaserSoldering
             // 
@@ -2047,7 +2056,7 @@
             ((System.ComponentModel.ISupportInitialize)(swiftPlotDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(swiftPlotSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControlPyrospotData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMainCtrl)).EndInit();
             this.xtraTabControlMainCtrl.ResumeLayout(false);
             this.xtraTabPageMain.ResumeLayout(false);
@@ -2264,7 +2273,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup7;
         private CustomPages.SolderingControl laserSolderingControl;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraCharts.ChartControl chartControl1;
+        private DevExpress.XtraCharts.ChartControl chartControlPyrospotData;
         private DevExpress.XtraEditors.PictureEdit pictureEditSystemImage;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
@@ -2310,5 +2319,6 @@
         private DevExpress.XtraEditors.TextEdit textEditCalcPositoin1_X;
         private DevExpress.XtraEditors.LabelControl labelControlCalcPosition2;
         private DevExpress.XtraEditors.LabelControl labelControlCalcPosition1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemConnectionPyrospot;
     }
 }
