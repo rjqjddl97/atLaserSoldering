@@ -26,7 +26,7 @@ namespace RecipeManager
         static public string[] SerialParity = new string[] { "None", "Odd", "Even"};
         //static public string[] SerialEncoding = new string[] { "ASCII", "Unicode", "UTF8", "UTF32" };
 
-        static string[] SystemParamSections = new string[] { "Camera Parameters","Calibration Parameters", "Motion Parameters", "AiC Parameters", "RemoteIO Parameters", "AMDS Parameters","Save Results","Language", "Light Parameters", "Feeder Parameters", "Laser Parameters" };
+        static string[] SystemParamSections = new string[] { "Camera Parameters","Calibration Parameters", "Motion Parameters", "AiC Parameters", "RemoteIO Parameters", "AMDS Parameters","Save Results","Language", "Light Parameters", "Feeder Parameters", "Laser Parameters", "Pyrospot Parameters" };
         static string[] WorkParamSections = new string[] { "Recipe Information", "Product Infomation", "Vision Information", "Soldering Information", "Soldering Parameters" };
         static public string[] AlignInspectionMode = new string[] { "None", "TwoPoint", "All"};
         //static public string[] ProductSeries = new string[] {"BTS", "BTF", "BJ", "BJP", "BEN", "BPS" };        
@@ -346,6 +346,14 @@ namespace RecipeManager
             systemParam._LaserParams.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(systemData[SystemParamSections[10]]["SerialParity"]));
             systemParam._LaserParams.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(systemData[SystemParamSections[10]]["SerialStopBits"]));
             systemParam._LaserParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(systemData[SystemParamSections[10]]["SerialHandshake"]));
+            // Laser Parameters
+            systemParam._PyrospotParam.SerialParameters.PortName = Convert.ToString(systemData[SystemParamSections[11]]["SerialPortName"]);
+            systemParam._PyrospotParam.SerialParameters.BaudRates = Convert.ToInt32(systemData[SystemParamSections[11]]["SerialBaudRates"]);
+            systemParam._PyrospotParam.SerialParameters.DataBits = Convert.ToInt32(systemData[SystemParamSections[11]]["SerialDataBits"]);
+            systemParam._PyrospotParam.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(systemData[SystemParamSections[1]]["SerialParity"]));
+            systemParam._PyrospotParam.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(systemData[SystemParamSections[11]]["SerialStopBits"]));
+            systemParam._PyrospotParam.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(systemData[SystemParamSections[11]]["SerialHandshake"]));
+            systemParam._PyrospotParam.CommunicationID = Convert.ToInt32(systemData[SystemParamSections[11]]["ID"]);
         }
 
         static public void WriteSystemFile(SystemParams systemParam, string strFilePath)
@@ -480,6 +488,15 @@ namespace RecipeManager
             systemData[SystemParamSections[10]].AddKey("SerialParity", Enum.GetName(typeof(Parity), (Parity)systemParam._LaserParams.SerialParameters.Parity));
             systemData[SystemParamSections[10]].AddKey("SerialStopBits", Enum.GetName(typeof(StopBits), (StopBits)systemParam._LaserParams.SerialParameters.StopBits));
             systemData[SystemParamSections[10]].AddKey("SerialHandshake", Enum.GetName(typeof(Handshake), (Handshake)systemParam._LaserParams.SerialParameters.Handshake));
+
+            // Laser Parameters
+            systemData[SystemParamSections[11]].AddKey("SerialPortName", systemParam._PyrospotParam.SerialParameters.PortName);
+            systemData[SystemParamSections[11]].AddKey("SerialBaudRates", systemParam._PyrospotParam.SerialParameters.BaudRates.ToString());
+            systemData[SystemParamSections[11]].AddKey("SerialDataBits", systemParam._PyrospotParam.SerialParameters.DataBits.ToString());
+            systemData[SystemParamSections[11]].AddKey("SerialParity", Enum.GetName(typeof(Parity), (Parity)systemParam._PyrospotParam.SerialParameters.Parity));
+            systemData[SystemParamSections[11]].AddKey("SerialStopBits", Enum.GetName(typeof(StopBits), (StopBits)systemParam._PyrospotParam.SerialParameters.StopBits));
+            systemData[SystemParamSections[11]].AddKey("SerialHandshake", Enum.GetName(typeof(Handshake), (Handshake)systemParam._PyrospotParam.SerialParameters.Handshake));
+            systemData[SystemParamSections[11]].AddKey("ID", systemParam._PyrospotParam.CommunicationID.ToString());
             parser.WriteFile(strFilePath, systemData);
         }
         static public StatisticParams ReadInspectionStatisticsFile(string strFilePath, int arrayCount)

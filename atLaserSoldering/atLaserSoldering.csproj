@@ -257,6 +257,10 @@
       <Project>{d3f9449d-4dbe-4bc9-b24c-fac0934e862f}</Project>
       <Name>LogLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="Library\PyrospotLibrary\PyrospotLibrary\PyrospotLibrary.csproj">
+      <Project>{996aba5c-7432-46fb-8a27-73e0cd123b20}</Project>
+      <Name>PyrospotLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconsetredtoblack4_16x16.png" />

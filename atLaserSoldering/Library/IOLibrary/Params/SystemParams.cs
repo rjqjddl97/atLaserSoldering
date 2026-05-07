@@ -18,6 +18,7 @@ namespace RecipeManager
         public FeederParams _FeederParams = new FeederParams();
         public LightParams _LightParams = new LightParams();
         public LaserParams _LaserParams = new LaserParams();
+        public PyrospotParam _PyrospotParam = new PyrospotParam();
         public string LatestUsedRecipe = string.Empty;
 
         public bool _saveResultVisionProcessImage { get; set; } = false;

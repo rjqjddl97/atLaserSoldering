@@ -1,0 +1,6 @@
+D:\Work\C_Sharp\PyrospotLibrary\PyrospotLibrary\PyrospotLibrary\bin\Debug\PyrospotLibrary.dll
+D:\Work\C_Sharp\PyrospotLibrary\PyrospotLibrary\PyrospotLibrary\bin\Debug\PyrospotLibrary.pdb
+D:\Work\C_Sharp\PyrospotLibrary\PyrospotLibrary\PyrospotLibrary\obj\Debug\PyrospotLibrary.csprojAssemblyReference.cache
+D:\Work\C_Sharp\PyrospotLibrary\PyrospotLibrary\PyrospotLibrary\obj\Debug\PyrospotLibrary.csproj.CoreCompileInputs.cache
+D:\Work\C_Sharp\PyrospotLibrary\PyrospotLibrary\PyrospotLibrary\obj\Debug\PyrospotLibrary.dll
+D:\Work\C_Sharp\PyrospotLibrary\PyrospotLibrary\PyrospotLibrary\obj\Debug\PyrospotLibrary.pdb

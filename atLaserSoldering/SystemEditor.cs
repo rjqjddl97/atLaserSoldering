@@ -134,6 +134,15 @@ namespace atLaserSoldering
                 rowLaserCommunicationParity.Properties.Caption = "Parity";
                 rowLaserCommunicationStopBit.Properties.Caption = "Stop Bit";
                 rowLaserCommunicationFlowControl.Properties.Caption = "Flow Control";
+
+                categoryPyrospotParameter.Properties.Caption = "Laser Communication Parameter";
+                rowPyrospotCommunicationPortName.Properties.Caption = "ComPort";
+                rowPyrospotCommunicationBaudRate.Properties.Caption = "BaudRate[bps]";
+                rowPyrospotCommunicationDataBit.Properties.Caption = "Data Bit";
+                rowPyrospotCommunicationParity.Properties.Caption = "Parity";
+                rowPyrospotCommunicationStopBit.Properties.Caption = "Stop Bit";
+                rowPyrospotCommunicationFlowControl.Properties.Caption = "Flow Control";
+                rowPyrospotCommunicationIDNumber.Properties.Caption = "Slave ID";
             }
             else
             {
@@ -236,6 +245,14 @@ namespace atLaserSoldering
                 rowLaserCommunicationStopBit.Properties.Caption = "정지 비트";
                 rowLaserCommunicationFlowControl.Properties.Caption = "흐름 제어";
 
+                categoryPyrospotParameter.Properties.Caption = "Pyrospot 통신 설정";
+                rowPyrospotCommunicationPortName.Properties.Caption = "통신 포트";
+                rowPyrospotCommunicationBaudRate.Properties.Caption = "통신속도[bps]";
+                rowPyrospotCommunicationDataBit.Properties.Caption = "데이터 비트";
+                rowPyrospotCommunicationParity.Properties.Caption = "패리티";
+                rowPyrospotCommunicationStopBit.Properties.Caption = "정지 비트";
+                rowPyrospotCommunicationFlowControl.Properties.Caption = "흐름 제어";
+                rowPyrospotCommunicationIDNumber.Properties.Caption = "국번 ID";
             }
         }
 
@@ -252,6 +269,7 @@ namespace atLaserSoldering
                 repositoryItemComboBoxLaserCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
                 repositoryItemComboBoxFeederCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
                 repositoryItemComboBoxLightCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
+                repositoryItemComboBoxPyrospotCommunicationPortName.Items.Add(RecipeFileIO.SerialPortName[i]);
             }
 
             for (int i = 0; i < RecipeFileIO.SerialBaudRates.Length; ++i)
@@ -261,6 +279,7 @@ namespace atLaserSoldering
                 repositoryItemComboBoxLaserCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
                 repositoryItemComboBoxFeederCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
                 repositoryItemComboBoxLightCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
+                repositoryItemComboBoxPyrospotCommunicationBaudRate.Items.Add(RecipeFileIO.SerialBaudRates[i]);
             }
 
             for (int i = 0; i < RecipeFileIO.SerialDataBits.Length; ++i)
@@ -270,6 +289,7 @@ namespace atLaserSoldering
                 repositoryItemComboBoxLaserCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
                 repositoryItemComboBoxFeederCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
                 repositoryItemComboBoxLightCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
+                repositoryItemComboBoxPyrospotCommunicationDataBit.Items.Add(RecipeFileIO.SerialDataBits[i]);
             }
 
             foreach (string strParity in Enum.GetNames(typeof(Parity)))
@@ -279,6 +299,7 @@ namespace atLaserSoldering
                 repositoryItemComboBoxLaserCommunicationParity.Items.Add(strParity);
                 repositoryItemComboBoxFeederCommunicationParity.Items.Add(strParity);
                 repositoryItemComboBoxLightCommunicationParity.Items.Add(strParity);
+                repositoryItemComboBoxPyrospotCommunicationParity.Items.Add(strParity);
             }
 
             foreach (string strStopbits in Enum.GetNames(typeof(StopBits)))
@@ -288,6 +309,7 @@ namespace atLaserSoldering
                 repositoryItemComboBoxLaserCommunicationStopBit.Items.Add(strStopbits);
                 repositoryItemComboBoxFeederCommunicationStopBit.Items.Add(strStopbits);
                 repositoryItemComboBoxLightCommunicationStopBit.Items.Add(strStopbits);
+                repositoryItemComboBoxPyrospotCommunicationStopBit.Items.Add(strStopbits);
             }
 
             foreach (string strHandshake in Enum.GetNames(typeof(Handshake)))
@@ -297,6 +319,7 @@ namespace atLaserSoldering
                 repositoryItemComboBoxLaserCommunicationFlowControl.Items.Add(strHandshake);
                 repositoryItemComboBoxFeederCommunicationFlowControl.Items.Add(strHandshake);
                 repositoryItemComboBoxLightCommunicationFlowControl.Items.Add(strHandshake);
+                repositoryItemComboBoxPyrospotCommunicationFlowControl.Items.Add(strHandshake);
             }
             for (int i = 0; i < RecipeFileIO.TransitionCoordinate.Length; i++)
             {
@@ -449,6 +472,21 @@ namespace atLaserSoldering
             _systemParameters._LaserParams.SerialParameters.DataBits = Convert.ToInt32(rowLaserCommunicationDataBit.Properties.Value);
             _systemParameters._LaserParams.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowLaserCommunicationFlowControl.Properties.Value));
 
+            // System Parameter의 Pyrospot 파라미터 초기화        
+            rowPyrospotCommunicationPortName.Properties.Value = repositoryItemComboBoxPyrospotCommunicationPortName.Items[4].ToString();
+            rowPyrospotCommunicationBaudRate.Properties.Value = repositoryItemComboBoxPyrospotCommunicationBaudRate.Items[4].ToString();
+            rowPyrospotCommunicationDataBit.Properties.Value = repositoryItemComboBoxPyrospotCommunicationDataBit.Items[4].ToString();
+            rowPyrospotCommunicationParity.Properties.Value = repositoryItemComboBoxPyrospotCommunicationParity.Items[2].ToString();
+            rowPyrospotCommunicationStopBit.Properties.Value = repositoryItemComboBoxPyrospotCommunicationStopBit.Items[0].ToString();
+            rowPyrospotCommunicationFlowControl.Properties.Value = repositoryItemComboBoxPyrospotCommunicationFlowControl.Items[0].ToString();
+
+            _systemParameters._PyrospotParam.SerialParameters.PortName = Convert.ToString(rowPyrospotCommunicationPortName.Properties.Value);
+            _systemParameters._PyrospotParam.SerialParameters.BaudRates = Convert.ToInt32(rowPyrospotCommunicationBaudRate.Properties.Value);
+            _systemParameters._PyrospotParam.SerialParameters.Parity = (Parity)Enum.Parse(typeof(Parity), Convert.ToString(rowPyrospotCommunicationParity.Properties.Value));
+            _systemParameters._PyrospotParam.SerialParameters.StopBits = (StopBits)Enum.Parse(typeof(StopBits), Convert.ToString(rowPyrospotCommunicationStopBit.Properties.Value));
+            _systemParameters._PyrospotParam.SerialParameters.DataBits = Convert.ToInt32(rowPyrospotCommunicationDataBit.Properties.Value);
+            _systemParameters._PyrospotParam.SerialParameters.Handshake = (Handshake)Enum.Parse(typeof(Handshake), Convert.ToString(rowPyrospotCommunicationFlowControl.Properties.Value));
+            _systemParameters._PyrospotParam.CommunicationID = Convert.ToInt32(rowPyrospotCommunicationIDNumber.Properties.Value);
             // Save Result
             _systemParameters._saveResultVisionProcessImage = Convert.ToBoolean(rowSaveResultImageProcess.Properties.Value);
             _systemParameters._saveResultStatistics = Convert.ToBoolean(rowSaveResultStatistics.Properties.Value);

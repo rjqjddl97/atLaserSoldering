@@ -91,6 +91,7 @@
     <Compile Include="Params\FeederParams.cs" />
     <Compile Include="Params\LaserParams.cs" />
     <Compile Include="Params\LightParams.cs" />
+    <Compile Include="Params\PyrospotParam.cs" />
     <Compile Include="Params\RemoteIOParams.cs" />
     <Compile Include="Params\MotionParams.cs" />
     <Compile Include="Params\PositionParams.cs" />

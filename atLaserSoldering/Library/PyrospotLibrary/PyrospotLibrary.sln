@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.36617.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PyrospotLibrary", "PyrospotLibrary\PyrospotLibrary.csproj", "{996ABA5C-7432-46FB-8A27-73E0CD123B20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{996ABA5C-7432-46FB-8A27-73E0CD123B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{996ABA5C-7432-46FB-8A27-73E0CD123B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{996ABA5C-7432-46FB-8A27-73E0CD123B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{996ABA5C-7432-46FB-8A27-73E0CD123B20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {920876F6-DECA-4463-9FBB-341615C8AEA9}
+	EndGlobalSection
+EndGlobal

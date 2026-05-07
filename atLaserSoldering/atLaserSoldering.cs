@@ -49,6 +49,7 @@ namespace atLaserSoldering
         public FeederControlLibrary.SerialCommunication.Control.CommunicationManager _mFeederCommManager = null;
         public CoherentCompactMini.SerialCommunication.Control.CommunicationManager _mLaserCommManager = null;
         public LaserSoderingProcess _mLaserSoldering = null;
+        public PyrospotControlLibrary.SerialCommunication.Control.CommunicationManager _mPyrospotCommManager = null;
         //DBControl _JobWorkDbCtrl = new DBControl();
         public ADMSEquipmentInfo _admsEquipment = new ADMSEquipmentInfo();
         public ADMSProductInfo _admsProduct = new ADMSProductInfo();
@@ -114,6 +115,7 @@ namespace atLaserSoldering
             _mFeederCommManager = new FeederControlLibrary.SerialCommunication.Control.CommunicationManager();
             _mLaserCommManager = new CoherentCompactMini.SerialCommunication.Control.CommunicationManager();
             _mLaserSoldering = new LaserSoldering.LaserSoderingProcess();
+            _mPyrospotCommManager = new PyrospotControlLibrary.SerialCommunication.Control.CommunicationManager();
             //_mLaserSoldering.InitialCommunication(_mLaserCommManager, _mFeederCommManager);
             radioGroupCalibrationMode.SelectedIndex = 0;
         }
@@ -324,6 +326,7 @@ namespace atLaserSoldering
                 InitializeMotionDriveModule();
                 InitializeArioRemoteIOModule();
                 InitializeSolderingModule();
+                InitializePyrospotModule();
 
                 //InitializeStatistics();
                 //InitializeTackTimes();
@@ -577,6 +580,25 @@ namespace atLaserSoldering
             catch (Exception)
             {
                 mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Ario 모듈 초기화를 하지 못햇습니다.");
+                return false;
+            }
+        }
+        public bool InitializePyrospotModule()
+        {
+            try
+            {                
+                //_mPyrospotCommManager
+                byte[] _id = new byte[_systemParams._PyrospotParam.ConnectedNumber];
+
+                for (int i = 0; i < _systemParams._PyrospotParam.ConnectedNumber; i++)
+                {
+                    _id[i] = (byte)_systemParams._PyrospotParam.CommunicationID;
+                }
+                remoteIOControl.SetCommunicationData(_systemParams._remoteIOParams.ConnectedNumber, _id);
+                return true;
+            }
+            catch (Exception ex)
+            {
                 return false;
             }
         }

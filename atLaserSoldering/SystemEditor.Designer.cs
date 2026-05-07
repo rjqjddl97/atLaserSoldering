@@ -175,6 +175,20 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButtonSystemSaveCancel = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.categoryPyrospotParameter = new DevExpress.XtraVerticalGrid.Rows.CategoryRow();
+            this.rowPyrospotCommunicationPortName = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowPyrospotCommunicationBaudRate = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowPyrospotCommunicationDataBit = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowPyrospotCommunicationParity = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowPyrospotCommunicationStopBit = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.rowPyrospotCommunicationFlowControl = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
+            this.repositoryItemComboBoxPyrospotCommunicationPortName = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemComboBoxPyrospotCommunicationBaudRate = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemComboBoxPyrospotCommunicationDataBit = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemComboBoxPyrospotCommunicationParity = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemComboBoxPyrospotCommunicationStopBit = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.repositoryItemComboBoxPyrospotCommunicationFlowControl = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.rowPyrospotCommunicationIDNumber = new DevExpress.XtraVerticalGrid.Rows.EditorRow();
             ((System.ComponentModel.ISupportInitialize)(this.vGridControlSystemParameters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxAiCCommunicationPortName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxAiCCommunicationBaudRate)).BeginInit();
@@ -216,6 +230,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationPortName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationBaudRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationDataBit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationParity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationStopBit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationFlowControl)).BeginInit();
             this.SuspendLayout();
             // 
             // vGridControlSystemParameters
@@ -1111,12 +1131,19 @@
             this.repositoryItemComboBoxLaserCommunicationDataBit,
             this.repositoryItemComboBoxLaserCommunicationParity,
             this.repositoryItemComboBoxLaserCommunicationStopBit,
-            this.repositoryItemComboBoxLaserCommunicationFlowControl});
+            this.repositoryItemComboBoxLaserCommunicationFlowControl,
+            this.repositoryItemComboBoxPyrospotCommunicationPortName,
+            this.repositoryItemComboBoxPyrospotCommunicationBaudRate,
+            this.repositoryItemComboBoxPyrospotCommunicationDataBit,
+            this.repositoryItemComboBoxPyrospotCommunicationParity,
+            this.repositoryItemComboBoxPyrospotCommunicationStopBit,
+            this.repositoryItemComboBoxPyrospotCommunicationFlowControl});
             this.vGridControlSystemParametersSecond.RowHeaderWidth = 114;
             this.vGridControlSystemParametersSecond.Rows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
             this.categoryLightParameter,
             this.categoryFeederParameter,
-            this.categoryLaserParameter});
+            this.categoryLaserParameter,
+            this.categoryPyrospotParameter});
             this.vGridControlSystemParametersSecond.Size = new System.Drawing.Size(292, 721);
             this.vGridControlSystemParametersSecond.TabIndex = 6;
             this.vGridControlSystemParametersSecond.CellValueChanged += new DevExpress.XtraVerticalGrid.Events.CellValueChangedEventHandler(this.vGridControlSystemParameters_CellValueChanged);
@@ -1599,6 +1626,130 @@
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
+            // categoryPyrospotParameter
+            // 
+            this.categoryPyrospotParameter.ChildRows.AddRange(new DevExpress.XtraVerticalGrid.Rows.BaseRow[] {
+            this.rowPyrospotCommunicationPortName,
+            this.rowPyrospotCommunicationBaudRate,
+            this.rowPyrospotCommunicationDataBit,
+            this.rowPyrospotCommunicationParity,
+            this.rowPyrospotCommunicationStopBit,
+            this.rowPyrospotCommunicationFlowControl,
+            this.rowPyrospotCommunicationIDNumber});
+            this.categoryPyrospotParameter.Name = "categoryPyrospotParameter";
+            this.categoryPyrospotParameter.Properties.Caption = "온도센서 파라미터";
+            // 
+            // rowPyrospotCommunicationPortName
+            // 
+            this.rowPyrospotCommunicationPortName.Appearance.Options.UseTextOptions = true;
+            this.rowPyrospotCommunicationPortName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowPyrospotCommunicationPortName.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowPyrospotCommunicationPortName.Name = "rowPyrospotCommunicationPortName";
+            this.rowPyrospotCommunicationPortName.Properties.Caption = "통신 포트";
+            this.rowPyrospotCommunicationPortName.Properties.RowEdit = this.repositoryItemComboBoxPyrospotCommunicationPortName;
+            this.rowPyrospotCommunicationPortName.Properties.Value = "COM10";
+            // 
+            // rowPyrospotCommunicationBaudRate
+            // 
+            this.rowPyrospotCommunicationBaudRate.Appearance.Options.UseTextOptions = true;
+            this.rowPyrospotCommunicationBaudRate.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowPyrospotCommunicationBaudRate.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowPyrospotCommunicationBaudRate.Name = "rowPyrospotCommunicationBaudRate";
+            this.rowPyrospotCommunicationBaudRate.Properties.Caption = "통신 속도[bps]";
+            this.rowPyrospotCommunicationBaudRate.Properties.RowEdit = this.repositoryItemComboBoxPyrospotCommunicationBaudRate;
+            this.rowPyrospotCommunicationBaudRate.Properties.Value = 115200;
+            // 
+            // rowPyrospotCommunicationDataBit
+            // 
+            this.rowPyrospotCommunicationDataBit.Appearance.Options.UseTextOptions = true;
+            this.rowPyrospotCommunicationDataBit.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowPyrospotCommunicationDataBit.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowPyrospotCommunicationDataBit.Name = "rowPyrospotCommunicationDataBit";
+            this.rowPyrospotCommunicationDataBit.Properties.Caption = "데이터 비트";
+            this.rowPyrospotCommunicationDataBit.Properties.RowEdit = this.repositoryItemComboBoxPyrospotCommunicationDataBit;
+            this.rowPyrospotCommunicationDataBit.Properties.Value = 8;
+            // 
+            // rowPyrospotCommunicationParity
+            // 
+            this.rowPyrospotCommunicationParity.Appearance.Options.UseTextOptions = true;
+            this.rowPyrospotCommunicationParity.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowPyrospotCommunicationParity.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowPyrospotCommunicationParity.Name = "rowPyrospotCommunicationParity";
+            this.rowPyrospotCommunicationParity.Properties.Caption = "패리티";
+            this.rowPyrospotCommunicationParity.Properties.RowEdit = this.repositoryItemComboBoxPyrospotCommunicationParity;
+            this.rowPyrospotCommunicationParity.Properties.Value = "Even";
+            // 
+            // rowPyrospotCommunicationStopBit
+            // 
+            this.rowPyrospotCommunicationStopBit.Appearance.Options.UseTextOptions = true;
+            this.rowPyrospotCommunicationStopBit.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowPyrospotCommunicationStopBit.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowPyrospotCommunicationStopBit.Name = "rowPyrospotCommunicationStopBit";
+            this.rowPyrospotCommunicationStopBit.Properties.Caption = "정지 비트";
+            this.rowPyrospotCommunicationStopBit.Properties.RowEdit = this.repositoryItemComboBoxPyrospotCommunicationStopBit;
+            this.rowPyrospotCommunicationStopBit.Properties.Value = 1;
+            // 
+            // rowPyrospotCommunicationFlowControl
+            // 
+            this.rowPyrospotCommunicationFlowControl.Appearance.Options.UseTextOptions = true;
+            this.rowPyrospotCommunicationFlowControl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowPyrospotCommunicationFlowControl.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowPyrospotCommunicationFlowControl.Name = "rowPyrospotCommunicationFlowControl";
+            this.rowPyrospotCommunicationFlowControl.Properties.Caption = "흐름 제어";
+            this.rowPyrospotCommunicationFlowControl.Properties.RowEdit = this.repositoryItemComboBoxPyrospotCommunicationFlowControl;
+            this.rowPyrospotCommunicationFlowControl.Properties.Value = "None";
+            // 
+            // repositoryItemComboBoxPyrospotCommunicationPortName
+            // 
+            this.repositoryItemComboBoxPyrospotCommunicationPortName.AutoHeight = false;
+            this.repositoryItemComboBoxPyrospotCommunicationPortName.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBoxPyrospotCommunicationPortName.Name = "repositoryItemComboBoxPyrospotCommunicationPortName";
+            // 
+            // repositoryItemComboBoxPyrospotCommunicationBaudRate
+            // 
+            this.repositoryItemComboBoxPyrospotCommunicationBaudRate.AutoHeight = false;
+            this.repositoryItemComboBoxPyrospotCommunicationBaudRate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBoxPyrospotCommunicationBaudRate.Name = "repositoryItemComboBoxPyrospotCommunicationBaudRate";
+            // 
+            // repositoryItemComboBoxPyrospotCommunicationDataBit
+            // 
+            this.repositoryItemComboBoxPyrospotCommunicationDataBit.AutoHeight = false;
+            this.repositoryItemComboBoxPyrospotCommunicationDataBit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBoxPyrospotCommunicationDataBit.Name = "repositoryItemComboBoxPyrospotCommunicationDataBit";
+            // 
+            // repositoryItemComboBoxPyrospotCommunicationParity
+            // 
+            this.repositoryItemComboBoxPyrospotCommunicationParity.AutoHeight = false;
+            this.repositoryItemComboBoxPyrospotCommunicationParity.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBoxPyrospotCommunicationParity.Name = "repositoryItemComboBoxPyrospotCommunicationParity";
+            // 
+            // repositoryItemComboBoxPyrospotCommunicationStopBit
+            // 
+            this.repositoryItemComboBoxPyrospotCommunicationStopBit.AutoHeight = false;
+            this.repositoryItemComboBoxPyrospotCommunicationStopBit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBoxPyrospotCommunicationStopBit.Name = "repositoryItemComboBoxPyrospotCommunicationStopBit";
+            // 
+            // repositoryItemComboBoxPyrospotCommunicationFlowControl
+            // 
+            this.repositoryItemComboBoxPyrospotCommunicationFlowControl.AutoHeight = false;
+            this.repositoryItemComboBoxPyrospotCommunicationFlowControl.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBoxPyrospotCommunicationFlowControl.Name = "repositoryItemComboBoxPyrospotCommunicationFlowControl";
+            // 
+            // rowPyrospotCommunicationIDNumber
+            // 
+            this.rowPyrospotCommunicationIDNumber.Appearance.Options.UseTextOptions = true;
+            this.rowPyrospotCommunicationIDNumber.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.rowPyrospotCommunicationIDNumber.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.rowPyrospotCommunicationIDNumber.Name = "rowPyrospotCommunicationIDNumber";
+            this.rowPyrospotCommunicationIDNumber.Properties.Caption = "국번 ID";
+            this.rowPyrospotCommunicationIDNumber.Properties.Value = 6;
+            // 
             // SystemEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1650,6 +1801,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationPortName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationBaudRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationDataBit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationParity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationStopBit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxPyrospotCommunicationFlowControl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1802,5 +1959,19 @@
         private DevExpress.XtraEditors.SimpleButton simpleButtonSystemFileSave;
         private DevExpress.XtraEditors.SimpleButton simpleButtonSystemSaveCancel;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxPyrospotCommunicationPortName;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxPyrospotCommunicationBaudRate;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxPyrospotCommunicationDataBit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxPyrospotCommunicationParity;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxPyrospotCommunicationStopBit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBoxPyrospotCommunicationFlowControl;
+        private DevExpress.XtraVerticalGrid.Rows.CategoryRow categoryPyrospotParameter;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPyrospotCommunicationPortName;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPyrospotCommunicationBaudRate;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPyrospotCommunicationDataBit;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPyrospotCommunicationParity;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPyrospotCommunicationStopBit;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPyrospotCommunicationFlowControl;
+        private DevExpress.XtraVerticalGrid.Rows.EditorRow rowPyrospotCommunicationIDNumber;
     }
 }
