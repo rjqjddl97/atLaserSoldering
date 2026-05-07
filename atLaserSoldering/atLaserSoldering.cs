@@ -1713,16 +1713,19 @@ namespace atLaserSoldering
                 {
                     if (_IsMovementVision)
                     {
-                        float fMoveX = (float)Math.Round((fptTemp.X - (_systemParams._cameraParams.HResolution / 2f)) * _systemParams._cameraParams.OnePixelResolution,3);// * 0.001f;
-                        float fMoveY = (float)Math.Round((fptTemp.Y - (_systemParams._cameraParams.VResolution / 2f)) * _systemParams._cameraParams.OnePixelResolution,3);// * 0.001f;
+                        if (!_mLaserSoldering.IsAutoSoldering)
+                        {
+                            float fMoveX = (float)Math.Round((fptTemp.X - (_systemParams._cameraParams.HResolution / 2f)) * _systemParams._cameraParams.OnePixelResolution, 3);// * 0.001f;
+                            float fMoveY = (float)Math.Round((fptTemp.Y - (_systemParams._cameraParams.VResolution / 2f)) * _systemParams._cameraParams.OnePixelResolution, 3);// * 0.001f;
 
-                        // Robot Move Command
-                        double[] pos = new double[3];
-                        pos[0] = mRobotInformation.PositionX + (fMoveX * _systemParams._calibrationParams._imagetoSystemXcoordi);
-                        pos[1] = mRobotInformation.PositionY + (fMoveY * _systemParams._calibrationParams._imagetoSystemYcoordi);
-                        pos[2] = mRobotInformation.PositionZ;
-                        motionControl.SendCmdPosition(pos);
-                        mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("X:{0}mm, Y:{1}mm, Z:{2}mm 이동", pos[0], pos[1], pos[2]));
+                            // Robot Move Command
+                            double[] pos = new double[3];
+                            pos[0] = mRobotInformation.PositionX + (fMoveX * _systemParams._calibrationParams._imagetoSystemXcoordi);
+                            pos[1] = mRobotInformation.PositionY + (fMoveY * _systemParams._calibrationParams._imagetoSystemYcoordi);
+                            pos[2] = mRobotInformation.PositionZ;
+                            motionControl.SendCmdPosition(pos);
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("X:{0}mm, Y:{1}mm, Z:{2}mm 이동", pos[0], pos[1], pos[2]));
+                        }
                     }
                 }
                 else if (e.Button == MouseButtons.Right)

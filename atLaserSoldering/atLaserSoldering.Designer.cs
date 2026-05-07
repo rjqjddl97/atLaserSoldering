@@ -919,6 +919,7 @@
             swiftPlotDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             swiftPlotDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             this.chartControlPyrospotData.Diagram = swiftPlotDiagram1;
+            this.chartControlPyrospotData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControlPyrospotData.Legend.Name = "Default Legend";
             this.chartControlPyrospotData.Legend.TextVisible = false;
             this.chartControlPyrospotData.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;

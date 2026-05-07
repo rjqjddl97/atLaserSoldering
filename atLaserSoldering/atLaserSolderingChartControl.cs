@@ -38,6 +38,7 @@ namespace atLaserSoldering
     public partial class atLaserSoldering
     {
         public UInt32 _uiChartIndexCount = 0;
+        public bool _IsUpdateChartEnable = false;
         public void UpdatePyrospotChart(UInt32 index, double dValue)
         {
             try
@@ -45,7 +46,7 @@ namespace atLaserSoldering
                 if (index >= 100)
                 {
                     _uiChartIndexCount = 0;
-                    InitializeChart();
+                    chartControlPyrospotData.Series[0].Points.RemoveAt(0);
                 }
                 if (this.InvokeRequired)
                 {
@@ -71,6 +72,7 @@ namespace atLaserSoldering
                 _uiChartIndexCount = 0;
                 //chartControlPyrospotData.Series[0].Points.Add(new DevExpress.XtraCharts.SeriesPoint(_uiChartIndexCount, 0));
                 chartControlPyrospotData.Series[0].Points.Clear();                                
+                
             }
             catch (Exception ex)
             {
