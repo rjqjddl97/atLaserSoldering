@@ -206,6 +206,8 @@
             this.timerImageUpdate = new System.Windows.Forms.Timer(this.components);
             this.openFileDialogImageFileOpen = new System.Windows.Forms.OpenFileDialog();
             this.timerChartUpdate = new System.Windows.Forms.Timer(this.components);
+            this.ribbonPageGroupETCControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItemPyrospotDataSave = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -342,10 +344,11 @@
             this.barStaticItem1,
             this.barEditItemAutoSolderingResult,
             this.barListItemRecipeOpen,
-            this.barButtonItemConnectionPyrospot});
+            this.barButtonItemConnectionPyrospot,
+            this.barButtonItemPyrospotDataSave});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.ribbonControl.MaxItemId = 34;
+            this.ribbonControl.MaxItemId = 35;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageEquipementFunctions});
@@ -630,7 +633,8 @@
             this.ribbonPageGroupImageFile,
             this.ribbonPageGroupConnection,
             this.ribbonPageGroupMotionControl,
-            this.ribbonPageGroupInspection});
+            this.ribbonPageGroupInspection,
+            this.ribbonPageGroupETCControl});
             this.ribbonPageEquipementFunctions.Name = "ribbonPageEquipementFunctions";
             this.ribbonPageEquipementFunctions.Text = "기능 설정";
             // 
@@ -919,7 +923,6 @@
             swiftPlotDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             swiftPlotDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             this.chartControlPyrospotData.Diagram = swiftPlotDiagram1;
-            this.chartControlPyrospotData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControlPyrospotData.Legend.Name = "Default Legend";
             this.chartControlPyrospotData.Legend.TextVisible = false;
             this.chartControlPyrospotData.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
@@ -2026,6 +2029,21 @@
             // 
             this.timerChartUpdate.Tick += new System.EventHandler(this.timerChartUpdate_Tick);
             // 
+            // ribbonPageGroupETCControl
+            // 
+            this.ribbonPageGroupETCControl.ItemLinks.Add(this.barButtonItemPyrospotDataSave);
+            this.ribbonPageGroupETCControl.Name = "ribbonPageGroupETCControl";
+            this.ribbonPageGroupETCControl.Text = "기타 제어";
+            // 
+            // barButtonItemPyrospotDataSave
+            // 
+            this.barButtonItemPyrospotDataSave.Caption = "온도 저장";
+            this.barButtonItemPyrospotDataSave.Id = 34;
+            this.barButtonItemPyrospotDataSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemPyrospotDataSave.ImageOptions.Image")));
+            this.barButtonItemPyrospotDataSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemPyrospotDataSave.ImageOptions.LargeImage")));
+            this.barButtonItemPyrospotDataSave.Name = "barButtonItemPyrospotDataSave";
+            this.barButtonItemPyrospotDataSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPyrospotDataSave_ItemClick);
+            // 
             // atLaserSoldering
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2327,5 +2345,7 @@
         private DevExpress.XtraEditors.LabelControl labelControlCalcPosition1;
         private DevExpress.XtraBars.BarButtonItem barButtonItemConnectionPyrospot;
         private System.Windows.Forms.Timer timerChartUpdate;
+        private DevExpress.XtraBars.BarButtonItem barButtonItemPyrospotDataSave;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupETCControl;
     }
 }

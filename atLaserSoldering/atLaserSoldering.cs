@@ -440,6 +440,7 @@ namespace atLaserSoldering
                     barStaticItemAutoSolderingStatus.Caption = "Status";
                     barStaticAutoSolderingTime.Caption = "Time:";
                     barEditItemAutoSolderingResult.EditValue = "Ready";
+                    barButtonItemPyrospotDataSave.Caption = "Temp. Save Start";
                     //barEditItemTotalInspectionCount.EditValue = "Total Count: 00000";
                     //barEditItemTotalPassCount.EditValue = "Pass Count: 00000";
                     //barEditItemTotalFailCount.EditValue = "Fail Count: 00000";
@@ -490,6 +491,7 @@ namespace atLaserSoldering
                     barStaticItemAutoSolderingStatus.Caption = "진행";
                     barStaticAutoSolderingTime.Caption = "검사 시간:";
                     barEditItemAutoSolderingResult.EditValue = "Ready";
+                    barButtonItemPyrospotDataSave.Caption = "온도 저장 시작";
                     //barEditItemTotalInspectionCount.EditValue = "총 검사 수: 00000";
                     //barEditItemTotalPassCount.EditValue = "양품 개수: 00000";
                     //barEditItemTotalFailCount.EditValue = "불량 개수: 00000";
@@ -2606,6 +2608,44 @@ namespace atLaserSoldering
             catch (Exception ex)
             {
                 ;
+            }
+        }
+
+        private void barButtonItemPyrospotDataSave_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (!_IsPyrospotDataSaveEnable)
+                {
+                    CreatPyrospotDataFile();
+                    _IsPyrospotDataSaveEnable = true;
+
+                    if (!_systemParams._SystemLanguageKoreaUse)
+                    {
+                        barButtonItemPyrospotDataSave.Caption = "Temp. Save Stop";
+                    }
+                    else
+                    {
+                        barButtonItemPyrospotDataSave.Caption = "온도 저장 중지";
+                    }
+                }
+                else
+                {
+                    _IsPyrospotDataSaveEnable = false;
+
+                    if (!_systemParams._SystemLanguageKoreaUse)
+                    {
+                        barButtonItemPyrospotDataSave.Caption = "Temp. Save Start";
+                    }
+                    else
+                    {
+                        barButtonItemPyrospotDataSave.Caption = "온도 저장 시작";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
     }

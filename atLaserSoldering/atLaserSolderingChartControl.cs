@@ -41,6 +41,7 @@ namespace atLaserSoldering
         public bool _IsUpdateChartEnable = false;
         public int _iPyrospotDataSaveSeq = 0;
         public bool _IsPyrospotDataSaveEnable = false;
+        public bool _IsPyrospotDataAutoSaveEnable = false;
         DateTime _PyrospotDataTime = new DateTime();
         public string _PyrospotDataFilePath = string.Empty;
         private void PyrospotDataSaveWriteEvent(int iSeq)
@@ -50,11 +51,11 @@ namespace atLaserSoldering
                 _iPyrospotDataSaveSeq = iSeq;
                 if (_iPyrospotDataSaveSeq == 1)
                 {
-                    _IsPyrospotDataSaveEnable = true;
+                    _IsPyrospotDataAutoSaveEnable = true;
                     CreatPyrospotDataFile();
                 }
                 else if (_iPyrospotDataSaveSeq == 2)
-                    _IsPyrospotDataSaveEnable = false;
+                    _IsPyrospotDataAutoSaveEnable = false;
             }
             catch (Exception)
             {
@@ -64,11 +65,21 @@ namespace atLaserSoldering
         public void CreatPyrospotDataFile()
         {
             try
-            {
+            {                
                 _PyrospotDataTime = DateTime.Now;
-                string strFilePath = string.Format(@"{0}\Pyrospot\{1:0000}{2:00}{3:00}",
-                    SystemDirectoryParams.ResultFolderPath,
-                    _PyrospotDataTime.Year, _PyrospotDataTime.Month, _PyrospotDataTime.Day);
+                string strFilePath = string.Empty;
+                if (_workParams.RecipeName == string.Empty)
+                {
+                    strFilePath = string.Format(@"{0}\Pyrospot\{1:0000}-{2:00}-{3:00}",
+                        SystemDirectoryParams.ResultFolderPath,
+                        _PyrospotDataTime.Year, _PyrospotDataTime.Month, _PyrospotDataTime.Day);
+                }
+                else
+                {
+                    strFilePath = string.Format(@"{0}\Pyrospot\{1}\{2:0000}-{3:00}-{4:00}",
+                        SystemDirectoryParams.ResultFolderPath, _workParams.RecipeName,
+                        _PyrospotDataTime.Year, _PyrospotDataTime.Month, _PyrospotDataTime.Day);
+                }
 
                 string strDataPath = "";
 
@@ -90,7 +101,7 @@ namespace atLaserSoldering
         {
             try
             {                
-                if (_IsPyrospotDataSaveEnable)
+                if (_IsPyrospotDataAutoSaveEnable)
                 {
                     DateTime presettime = DateTime.Now;
                     using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
@@ -100,7 +111,17 @@ namespace atLaserSoldering
                         sw.WriteLine(strTemp);
                     }
                 }
-                if (index >= 100)
+                if (_IsPyrospotDataSaveEnable)
+                {
+                    DateTime presettime = DateTime.Now;
+                    using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
+                    {
+                        string strTemp = "";
+                        strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), dValue);
+                        sw.WriteLine(strTemp);
+                    }
+                }
+                if (index >= 50)
                 {
                     _uiChartIndexCount = 0;
                     chartControlPyrospotData.Series[0].Points.RemoveAt(0);
