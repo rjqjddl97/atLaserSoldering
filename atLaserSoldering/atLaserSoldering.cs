@@ -734,7 +734,7 @@ namespace atLaserSoldering
 
                     if (laserSolderingControl.IsOpenStatus)
                     {
-                        //laserSolderingControl.RobotInfomationUpdatedEvent += UpdateRobotInfomation;
+                        laserSolderingControl.TemperatureSaveEvent += PyrospotDataSaveWriteEvent;
                         mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Soldering 통신 연결 성공."));
                     }
                     else
@@ -743,6 +743,7 @@ namespace atLaserSoldering
                 else
                 {
                     laserSolderingControl.ConnectionClosed();
+                    laserSolderingControl.TemperatureSaveEvent -= PyrospotDataSaveWriteEvent;
                     mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Soldering 통신 연결 해제 성공."));
                 }
                 return laserSolderingControl.IsOpenStatus;
@@ -760,6 +761,7 @@ namespace atLaserSoldering
                 if ((_mLaserCommManager.IsOpen() && (_mLaserCommManager != null)) && (_mFeederCommManager.IsOpen() && (_mFeederCommManager != null)))
                 {
                     laserSolderingControl.ConnectionClosed();
+                    laserSolderingControl.TemperatureSaveEvent -= PyrospotDataSaveWriteEvent;
                     mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Soldering 통신 연결 해제 성공."));
                 }
                 return laserSolderingControl.IsOpenStatus;

@@ -150,6 +150,8 @@ namespace LaserSoldering
         public event Action<FeedData> ReceiveDataFeederUpdateEvent;
         public event Action<CompactMiniData> ReceiveDataLaserUpdateEvent;
         public event Action<string> LogWriteEvent;
+        public event Action<int> TemperatureSaveWriteEvent;
+
         public ManualResetEvent _waitHandle = new ManualResetEvent(false);
         public ManualResetEvent _waitHandelFeeder = new ManualResetEvent(false);
         public LaserSoderingProcess()
@@ -941,6 +943,7 @@ namespace LaserSoldering
                                     mCurrentReadyTime = 0;
                                     _IsCommandFlag = false;
                                     mSolderingEngineStep = LaserSolderStepType.Ready;
+                                    TemperatureSaveWriteEvent?.Invoke(1);
                                     LogWriteEvent?.Invoke(string.Format("레이저 솔더링 시작."));
                                 }
                                 break;
@@ -1364,7 +1367,7 @@ namespace LaserSoldering
                                     //_mFeederComm.SendData(data);
                                     LogWriteEvent?.Invoke(string.Format("레이저 솔더링 종료."));
                                     _waitHandle.Set();
-                                    
+                                    TemperatureSaveWriteEvent?.Invoke(2);
                                 }
                                 //_IsCommandFlag = false;
                                 //mSolderingEngineStep = LaserSolderStepType.Idle;

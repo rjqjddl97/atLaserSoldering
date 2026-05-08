@@ -38,6 +38,7 @@ namespace CustomPages
         public LaserSolderParameter _mMenualSolderingJob = new LaserSolderParameter();
 
         public event Action<string> LogWriteEvent;
+        public event Action<int> TemperatureSaveEvent;
 
         public bool IsOpenStatus = false;
         public bool _IsPilotSpot = false;
@@ -400,6 +401,7 @@ namespace CustomPages
                 IsOpenStatus = _mLaserSoldering.IsSolderingConnect;
                 _mLaserSoldering.ReceiveDataLaserUpdateEvent += UpdateReceiveLaserData;
                 _mLaserSoldering.ReceiveDataFeederUpdateEvent += UpdateReceiveFeederData;
+                _mLaserSoldering.TemperatureSaveWriteEvent += TemperatureSaveTrigger;
                 UpdateTimer.Start();
                 LogWriteEvent?.Invoke(string.Format("Feeder 제어 통신({0})과 레이저 제어 통신({1})이 연결 되었습니다", setPortFeed.PortName, setPortLaser.PortName));
             }
@@ -442,6 +444,7 @@ namespace CustomPages
                 _mLaserSoldering.DisconnectDeviceModule();
                 _mLaserSoldering.ReceiveDataLaserUpdateEvent -= UpdateReceiveLaserData;
                 _mLaserSoldering.ReceiveDataFeederUpdateEvent -= UpdateReceiveFeederData;
+                _mLaserSoldering.TemperatureSaveWriteEvent -= TemperatureSaveTrigger;
                 IsOpenStatus = _mLaserSoldering.IsSolderingConnect;
                 UpdateTimer.Stop();
                 LogWriteEvent?.Invoke(string.Format("Feeder 및 레이저 제어 통신이 연결해제 되었습니다"));
@@ -468,6 +471,17 @@ namespace CustomPages
             try
             {
                 LogWriteEvent?.Invoke(update);
+            }
+            catch (Exception ex)
+            {
+                ;
+            }
+        }
+        public void TemperatureSaveTrigger(int iSeq)
+        {
+            try
+            {
+                TemperatureSaveEvent?.Invoke(iSeq);
             }
             catch (Exception ex)
             {
