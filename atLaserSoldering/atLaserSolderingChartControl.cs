@@ -49,13 +49,16 @@ namespace atLaserSoldering
             try
             {
                 _iPyrospotDataSaveSeq = iSeq;
-                if (_iPyrospotDataSaveSeq == 1)
+                if (!_IsPyrospotDataSaveEnable)
                 {
-                    _IsPyrospotDataAutoSaveEnable = true;
-                    CreatPyrospotDataFile();
+                    if (_iPyrospotDataSaveSeq == 1)
+                    {
+                        _IsPyrospotDataAutoSaveEnable = true;
+                        CreatPyrospotDataFile();
+                    }
+                    else if (_iPyrospotDataSaveSeq == 2)
+                        _IsPyrospotDataAutoSaveEnable = false;
                 }
-                else if (_iPyrospotDataSaveSeq == 2)
-                    _IsPyrospotDataAutoSaveEnable = false;
             }
             catch (Exception)
             {
@@ -100,17 +103,7 @@ namespace atLaserSoldering
         public void UpdatePyrospotChart(UInt32 index, double dValue)
         {
             try
-            {                
-                if (_IsPyrospotDataAutoSaveEnable)
-                {
-                    DateTime presettime = DateTime.Now;
-                    using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
-                    {
-                        string strTemp = "";
-                        strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(),dValue);
-                        sw.WriteLine(strTemp);
-                    }
-                }
+            {
                 if (_IsPyrospotDataSaveEnable)
                 {
                     DateTime presettime = DateTime.Now;
@@ -121,6 +114,17 @@ namespace atLaserSoldering
                         sw.WriteLine(strTemp);
                     }
                 }
+                else if (_IsPyrospotDataAutoSaveEnable)
+                {
+                    DateTime presettime = DateTime.Now;
+                    using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
+                    {
+                        string strTemp = "";
+                        strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), dValue);
+                        sw.WriteLine(strTemp);
+                    }
+                }
+
                 if (index >= 50)
                 {
                     _uiChartIndexCount = 0;
