@@ -1526,7 +1526,7 @@ namespace atLaserSoldering
         {
             try
             {
-                _dPresentTemperature = (double)Math.Round((update / 16) - TEMPERATRE_UNIT_KELVIN,1);
+                _dPresentTemperature = (double)Math.Round((update / 16D) - TEMPERATRE_UNIT_KELVIN,1);
                 //UpdatePyrospotChart(_uiChartIndexCount++, _dPresentTemperature);
 
             }
@@ -1759,7 +1759,7 @@ namespace atLaserSoldering
                         {
                             _fMeasureEnd = fptTemp;
                             _IsMeasureStartFlag = false;
-                        }+
+                        }
                     }
                 }
                 else if (e.Button == MouseButtons.Right)
