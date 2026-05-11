@@ -15,3 +15,9 @@ D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\P
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\obj\Debug\PyrospotLibrary.csprojResolveAssemblyReference.cache
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\obj\Debug\PyrospotLibrary.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\obj\Debug\PyrospotLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\bin\Debug\PyrospotLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\bin\Debug\PyrospotLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\obj\Debug\PyrospotLibrary.csprojAssemblyReference.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\obj\Debug\PyrospotLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\obj\Debug\PyrospotLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\obj\Debug\PyrospotLibrary.pdb

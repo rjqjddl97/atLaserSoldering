@@ -248,7 +248,7 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
                 }
             }
         }
-        private void Run()
+        private async void Run()
         {
             byte[] data = null;
             int mContinuousCheckIndex = 0;
@@ -294,7 +294,7 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
                                 data = mDataTransferList.Dequeue();
                                 if (mDataTransferList.Count == 0)
                                 {
-                                    //IsDequeueData = false;                                    
+                                    IsDequeueData = false;                                    
                                 }
                             }
                             else if (mCommandList.Count != 0)
@@ -303,9 +303,12 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
                             }
                             else if (mContinuousCheckList.Count != 0)
                             {
-                                if (mContinuousCheckIndex >= mContinuousCheckList.Count)
-                                    mContinuousCheckIndex = 0;
-                                data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
+                                if (!IsReceiveStart)
+                                {
+                                    if (mContinuousCheckIndex >= mContinuousCheckList.Count)
+                                        mContinuousCheckIndex = 0;
+                                    data = mContinuousCheckList.ElementAt(mContinuousCheckIndex++);
+                                }
                             }
 
                             break;
@@ -324,7 +327,7 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
                 {
                     //Log.LogManager.AddSystemLog(Log.Log.LogType.Error, "CommunicateEngine::Run -> Fail to working.");
                 }
-                Thread.Sleep(EngineSleepTime);
+                await Task.Delay(EngineSleepTime);
             }
         }
     }

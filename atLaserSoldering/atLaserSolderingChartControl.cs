@@ -110,7 +110,7 @@ namespace atLaserSoldering
                     using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
                     {
                         string strTemp = "";
-                        strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), dValue);
+                        strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), _dPresentTemperature);
                         sw.WriteLine(strTemp);
                     }
                 }
@@ -120,7 +120,7 @@ namespace atLaserSoldering
                     using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
                     {
                         string strTemp = "";
-                        strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), dValue);
+                        strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), _dPresentTemperature);
                         sw.WriteLine(strTemp);
                     }
                 }
@@ -128,18 +128,20 @@ namespace atLaserSoldering
                 if (index >= 50)
                 {
                     _uiChartIndexCount = 0;
+                    index = 0;
                     chartControlPyrospotData.Series[0].Points.RemoveAt(0);
+                    chartControlPyrospotData.Series[0].Points.Clear();                    
                 }
                 if (this.InvokeRequired)
                 {
                     this.Invoke(new MethodInvoker(delegate ()
                     {
-                        chartControlPyrospotData.Series[0].Points.Add(new DevExpress.XtraCharts.SeriesPoint(index, dValue));
+                        chartControlPyrospotData.Series[0].Points.Add(new DevExpress.XtraCharts.SeriesPoint(index, _dPresentTemperature));
                     }));
                 }
                 else
                 {
-                    chartControlPyrospotData.Series[0].Points.Add(new DevExpress.XtraCharts.SeriesPoint(index, dValue));
+                    chartControlPyrospotData.Series[0].Points.Add(new DevExpress.XtraCharts.SeriesPoint(index, _dPresentTemperature));
                 }                
             }
             catch (Exception ex)
