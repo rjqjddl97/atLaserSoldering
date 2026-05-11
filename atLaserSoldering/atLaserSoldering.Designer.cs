@@ -67,6 +67,7 @@
             this.repositoryItemTextEditAutoSolderingResult = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barListItemRecipeOpen = new DevExpress.XtraBars.BarListItem();
             this.barButtonItemConnectionPyrospot = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemPyrospotDataSave = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageEquipementFunctions = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonSystemPage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupFile = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -75,6 +76,7 @@
             this.ribbonPageGroupConnection = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupMotionControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupInspection = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupETCControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManagerMainForm = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanelLogView = new DevExpress.XtraBars.Docking.DockPanel();
@@ -206,8 +208,7 @@
             this.timerImageUpdate = new System.Windows.Forms.Timer(this.components);
             this.openFileDialogImageFileOpen = new System.Windows.Forms.OpenFileDialog();
             this.timerChartUpdate = new System.Windows.Forms.Timer(this.components);
-            this.ribbonPageGroupETCControl = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barButtonItemPyrospotDataSave = new DevExpress.XtraBars.BarButtonItem();
+            this.toolStripMenuItemVisionCalculate = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -624,6 +625,15 @@
             this.barButtonItemConnectionPyrospot.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.disconnect_16x16;
             this.barButtonItemConnectionPyrospot.Name = "barButtonItemConnectionPyrospot";
             // 
+            // barButtonItemPyrospotDataSave
+            // 
+            this.barButtonItemPyrospotDataSave.Caption = "온도 저장";
+            this.barButtonItemPyrospotDataSave.Id = 34;
+            this.barButtonItemPyrospotDataSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemPyrospotDataSave.ImageOptions.Image")));
+            this.barButtonItemPyrospotDataSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemPyrospotDataSave.ImageOptions.LargeImage")));
+            this.barButtonItemPyrospotDataSave.Name = "barButtonItemPyrospotDataSave";
+            this.barButtonItemPyrospotDataSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPyrospotDataSave_ItemClick);
+            // 
             // ribbonPageEquipementFunctions
             // 
             this.ribbonPageEquipementFunctions.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -706,6 +716,12 @@
             this.ribbonPageGroupInspection.Name = "ribbonPageGroupInspection";
             this.ribbonPageGroupInspection.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
             this.ribbonPageGroupInspection.Text = "납땜 작업 및 결과";
+            // 
+            // ribbonPageGroupETCControl
+            // 
+            this.ribbonPageGroupETCControl.ItemLinks.Add(this.barButtonItemPyrospotDataSave);
+            this.ribbonPageGroupETCControl.Name = "ribbonPageGroupETCControl";
+            this.ribbonPageGroupETCControl.Text = "기타 제어";
             // 
             // ribbonStatusBar
             // 
@@ -1976,42 +1992,43 @@
             this.toolStripMenuItemSetFitSizeImage,
             this.toolStripMenuItemSetROI,
             this.toolStripMenuItemClearWorkROI,
-            this.toolStripMenuItemVisionMove});
+            this.toolStripMenuItemVisionMove,
+            this.toolStripMenuItemVisionCalculate});
             this.contextMenuStripImageViewControl.Name = "contextMenuStripImageViewControl";
-            this.contextMenuStripImageViewControl.Size = new System.Drawing.Size(171, 114);
+            this.contextMenuStripImageViewControl.Size = new System.Drawing.Size(198, 158);
             this.contextMenuStripImageViewControl.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStripImageViewControl_ItemClicked);
             // 
             // toolStripMenuItemViewCenterMark
             // 
             this.toolStripMenuItemViewCenterMark.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
             this.toolStripMenuItemViewCenterMark.Name = "toolStripMenuItemViewCenterMark";
-            this.toolStripMenuItemViewCenterMark.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemViewCenterMark.Size = new System.Drawing.Size(197, 22);
             this.toolStripMenuItemViewCenterMark.Text = "View Center Mark";
             // 
             // toolStripMenuItemSetFitSizeImage
             // 
             this.toolStripMenuItemSetFitSizeImage.Name = "toolStripMenuItemSetFitSizeImage";
-            this.toolStripMenuItemSetFitSizeImage.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemSetFitSizeImage.Size = new System.Drawing.Size(197, 22);
             this.toolStripMenuItemSetFitSizeImage.Text = "Fit Size Image";
             // 
             // toolStripMenuItemSetROI
             // 
             this.toolStripMenuItemSetROI.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
             this.toolStripMenuItemSetROI.Name = "toolStripMenuItemSetROI";
-            this.toolStripMenuItemSetROI.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemSetROI.Size = new System.Drawing.Size(197, 22);
             this.toolStripMenuItemSetROI.Text = "Set Work ROI";
             // 
             // toolStripMenuItemClearWorkROI
             // 
             this.toolStripMenuItemClearWorkROI.Name = "toolStripMenuItemClearWorkROI";
-            this.toolStripMenuItemClearWorkROI.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemClearWorkROI.Size = new System.Drawing.Size(197, 22);
             this.toolStripMenuItemClearWorkROI.Text = "Clear Work ROI";
             // 
             // toolStripMenuItemVisionMove
             // 
             this.toolStripMenuItemVisionMove.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
             this.toolStripMenuItemVisionMove.Name = "toolStripMenuItemVisionMove";
-            this.toolStripMenuItemVisionMove.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItemVisionMove.Size = new System.Drawing.Size(197, 22);
             this.toolStripMenuItemVisionMove.Text = "Set Vision Move";
             // 
             // timerImageUpdate
@@ -2029,20 +2046,12 @@
             // 
             this.timerChartUpdate.Tick += new System.EventHandler(this.timerChartUpdate_Tick);
             // 
-            // ribbonPageGroupETCControl
+            // toolStripMenuItemVisionCalculate
             // 
-            this.ribbonPageGroupETCControl.ItemLinks.Add(this.barButtonItemPyrospotDataSave);
-            this.ribbonPageGroupETCControl.Name = "ribbonPageGroupETCControl";
-            this.ribbonPageGroupETCControl.Text = "기타 제어";
-            // 
-            // barButtonItemPyrospotDataSave
-            // 
-            this.barButtonItemPyrospotDataSave.Caption = "온도 저장";
-            this.barButtonItemPyrospotDataSave.Id = 34;
-            this.barButtonItemPyrospotDataSave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItemPyrospotDataSave.ImageOptions.Image")));
-            this.barButtonItemPyrospotDataSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemPyrospotDataSave.ImageOptions.LargeImage")));
-            this.barButtonItemPyrospotDataSave.Name = "barButtonItemPyrospotDataSave";
-            this.barButtonItemPyrospotDataSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPyrospotDataSave_ItemClick);
+            this.toolStripMenuItemVisionCalculate.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
+            this.toolStripMenuItemVisionCalculate.Name = "toolStripMenuItemVisionCalculate";
+            this.toolStripMenuItemVisionCalculate.Size = new System.Drawing.Size(197, 22);
+            this.toolStripMenuItemVisionCalculate.Text = "Measurement Distance";
             // 
             // atLaserSoldering
             // 
@@ -2347,5 +2356,6 @@
         private System.Windows.Forms.Timer timerChartUpdate;
         private DevExpress.XtraBars.BarButtonItem barButtonItemPyrospotDataSave;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupETCControl;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVisionCalculate;
     }
 }

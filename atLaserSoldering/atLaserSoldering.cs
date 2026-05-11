@@ -76,6 +76,8 @@ namespace atLaserSoldering
         RectangleF _frtCrop = new RectangleF();
         PointF _fptAreaStart = new PointF();
         PointF _fptAreaEnd = new PointF();
+        PointF _fMeasureStart = new PointF();
+        PointF _fMeasureEnd = new PointF();
         RectangleF _frtArearect = new RectangleF();
 
         System.Drawing.Image _sourceImage = null;
@@ -104,6 +106,9 @@ namespace atLaserSoldering
         bool _IsAutoSolderingRunning = false;
         bool _IsAutoSolderingEnd = false;        
         bool _IsMovementVision = false;
+        bool _IsMeasurementDistance = false;
+        bool _IsMeasureStartFlag = false;
+
         int _CalibratoinMode = 0;
         double _dTotalElapsedTime = 0.0f;
         public double _dPresentTemperature = 0;
@@ -1691,6 +1696,18 @@ namespace atLaserSoldering
                         e.ClickedItem.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
                     }
                     break;
+                case "Measurement Distance":
+                    if (_IsMovementVision == false)
+                    {
+                        _IsMeasurementDistance = true;
+                        e.ClickedItem.Image = global::atLaserSoldering.Properties.Resources.Apply_16x16;
+                    }
+                    else
+                    {
+                        _IsMeasurementDistance = false;
+                        e.ClickedItem.Image = global::atLaserSoldering.Properties.Resources.cancel_16x16;
+                    }
+                    break;
 
             }
         }
@@ -1712,7 +1729,7 @@ namespace atLaserSoldering
                 path.AddRectangle(_frtArearect);
 
                 PointF fptTemp = Utils.PointDrawToReal(e.Location, fScale, fHScroll, fVScroll);
-
+                
                 if (_IsMovementVision && e.Button == MouseButtons.Left)
                 {
                     if (_IsMovementVision)
@@ -1730,6 +1747,19 @@ namespace atLaserSoldering
                             motionControl.SendCmdPosition(pos);
                             mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("X:{0}mm, Y:{1}mm, Z:{2}mm 이동", pos[0], pos[1], pos[2]));
                         }
+                    }
+                    else if (_IsMeasurementDistance)
+                    {
+                        if (!_IsMeasureStartFlag)
+                        {
+                            _fMeasureStart = fptTemp;
+                            _IsMeasureStartFlag = true;
+                        }
+                        else
+                        {
+                            _fMeasureEnd = fptTemp;
+                            _IsMeasureStartFlag = false;
+                        }+
                     }
                 }
                 else if (e.Button == MouseButtons.Right)
