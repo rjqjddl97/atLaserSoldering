@@ -176,8 +176,8 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\N
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\NLog.xsd
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\LogLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Debug\LogLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csprojAssemblyReference.cache
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csproj.CoreCompileInputs.cache
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csproj.CopyComplete
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.pdb
-D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Debug\LogLibrary.csprojAssemblyReference.cache

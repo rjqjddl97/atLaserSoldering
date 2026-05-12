@@ -129,8 +129,11 @@ namespace atLaserSoldering
                 {
                     _uiChartIndexCount = 0;
                     index = 0;
-                    chartControlPyrospotData.Series[0].Points.RemoveAt(0);
-                    chartControlPyrospotData.Series[0].Points.Clear();                    
+                    this.BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        chartControlPyrospotData.Series[0].Points.RemoveAt(0);
+                        chartControlPyrospotData.Series[0].Points.Clear();
+                    }));
                 }
                 if (this.InvokeRequired)
                 {
@@ -141,7 +144,11 @@ namespace atLaserSoldering
                 }
                 else
                 {
-                    chartControlPyrospotData.Series[0].Points.Add(new DevExpress.XtraCharts.SeriesPoint(index, _dPresentTemperature));
+                    //chartControlPyrospotData.Series[0].Points.Add(new DevExpress.XtraCharts.SeriesPoint(index, _dPresentTemperature));
+                    this.BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        chartControlPyrospotData.Series[0].Points.Add(new DevExpress.XtraCharts.SeriesPoint(index, _dPresentTemperature));
+                    }));
                 }                
             }
             catch (Exception ex)

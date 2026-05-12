@@ -175,71 +175,74 @@ namespace ArioModbusLibrary.SerialCommunication.Control
             UInt32 buffsize = (UInt32)m_SerialHandler._ReceiveDataQueue.Count;
             if (buffsize != 0)
             {
-                byte[] recvData = m_SerialHandler._ReceiveDataQueue.Dequeue();
-                
-                for (i = 0; i < recvData.Length; i++)
+                for (int k = 0; k < buffsize; k++)
                 {
-                    ReData = recvData[i];
-                    if ( (IsReceiveStart == false) && (ReData == _bID) )
-                    {
-                        IsReceiveStart = true;
-                        uiReceiveCount = 0;
-                    }
-                    if (IsReceiveStart)
-                    {
-                        ReceivePacketBuff[uiReceiveCount] = ReData;
-                        uiReceiveCount++;
-                    }
+                    byte[] recvData = m_SerialHandler._ReceiveDataQueue.Dequeue();
 
-                    if (uiReceiveCount > 2)
+                    for (i = 0; i < recvData.Length; i++)
                     {
-                        if (ReceivePacketBuff[1] > (byte)ModbusRTU.FunctionCodes.Exception)
+                        ReData = recvData[i];
+                        if ((IsReceiveStart == false) && (ReData == _bID))
                         {
-                            if (uiReceiveCount >= 5)
-                            {
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;
-                                IsReceiveAck = true;
-                            }
+                            IsReceiveStart = true;
+                            uiReceiveCount = 0;
                         }
-                        else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputs) || (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadHoldingRegisters) ||
-                                (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputRegisters))
+                        if (IsReceiveStart)
                         {
-                            if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
+                            ReceivePacketBuff[uiReceiveCount] = ReData;
+                            uiReceiveCount++;
+                        }
+
+                        if (uiReceiveCount > 2)
+                        {
+                            if (ReceivePacketBuff[1] > (byte)ModbusRTU.FunctionCodes.Exception)
                             {
-                                if (uiReceiveCount == ReceivePacketBuff[2] + 5)
+                                if (uiReceiveCount >= 5)
                                 {
-                                    byte[] MainData = new byte[uiReceiveCount];
-                                    Buffer.BlockCopy(ReceivePacketBuff, 0, MainData, 0, (int)uiReceiveCount);
-                                    ParsingData(MainData);
+                                    uiReceiveCount = 0;
+                                    IsReceiveStart = false;
+                                    IsReceiveAck = true;
                                 }
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;
-                                IsReceiveAck = true;
                             }
-                        }
-                        else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) ||
-                                (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
-                        {
-                            if (uiReceiveCount >= 8)
+                            else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputs) || (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadHoldingRegisters) ||
+                                    (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputRegisters))
                             {
-                                //ParsingData(MainData);
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;
-                                IsReceiveAck = true;
+                                if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
+                                {
+                                    if (uiReceiveCount == ReceivePacketBuff[2] + 5)
+                                    {
+                                        byte[] MainData = new byte[uiReceiveCount];
+                                        Buffer.BlockCopy(ReceivePacketBuff, 0, MainData, 0, (int)uiReceiveCount);
+                                        ParsingData(MainData);
+                                    }
+                                    uiReceiveCount = 0;
+                                    IsReceiveStart = false;
+                                    IsReceiveAck = true;
+                                }
                             }
-                        }
-                        else
-                        {
-                            //if (uiReceiveCount >= 5)
-                            {                                
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;
-                                IsReceiveAck = true;
+                            else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) ||
+                                    (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
+                            {
+                                if (uiReceiveCount >= 8)
+                                {
+                                    //ParsingData(MainData);
+                                    uiReceiveCount = 0;
+                                    IsReceiveStart = false;
+                                    IsReceiveAck = true;
+                                }
+                            }
+                            else
+                            {
+                                //if (uiReceiveCount >= 5)
+                                {
+                                    uiReceiveCount = 0;
+                                    IsReceiveStart = false;
+                                    IsReceiveAck = true;
+                                }
                             }
                         }
                     }
-                }
+                } 
             }
         }
         private async void Run()

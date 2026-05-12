@@ -31,3 +31,13 @@ D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\obj\Release\
 D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\obj\Release\LogLibrary.csproj.CopyComplete
 D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\obj\Release\LogLibrary.dll
 D:\Work\Visual_C++\Project\atPhotoInspect\atPhotoInspect\LogLibrary\obj\Release\LogLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Release\NLog.config
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Release\NLog.xsd
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Release\LogLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Release\LogLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\bin\Release\NLog.xml
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Release\LogLibrary.csprojAssemblyReference.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Release\LogLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Release\LogLibrary.csproj.CopyComplete
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Release\LogLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LogLibrary\obj\Release\LogLibrary.pdb

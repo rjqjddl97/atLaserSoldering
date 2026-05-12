@@ -1,0 +1,6 @@
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\bin\Release\ArioMudbusLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\bin\Release\ArioMudbusLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Release\ArioModbusLibrary.csprojAssemblyReference.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Release\ArioModbusLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Release\ArioMudbusLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\ArioMudbusLibrary\ArioMudbusLibrary\obj\Release\ArioMudbusLibrary.pdb

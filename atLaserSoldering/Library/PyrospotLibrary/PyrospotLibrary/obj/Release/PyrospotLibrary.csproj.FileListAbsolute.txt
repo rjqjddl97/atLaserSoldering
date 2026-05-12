@@ -1,0 +1,6 @@
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\bin\Release\PyrospotLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\bin\Release\PyrospotLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\obj\Release\PyrospotLibrary.csprojAssemblyReference.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\obj\Release\PyrospotLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\obj\Release\PyrospotLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\PyrospotLibrary\PyrospotLibrary\obj\Release\PyrospotLibrary.pdb

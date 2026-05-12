@@ -814,6 +814,10 @@ D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.Vi
 D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.QuickBuild.IO.xml
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.dll
 D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.pdb
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.dll
+D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.pdb
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.dll
+D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\NLog.config
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\NLog.xsd
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\DLL\FirmwareUpdate_MD_VC141_v3_1_Basler_pylon_v5_1.dll
@@ -882,6 +886,7 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\FeederControlLibrary
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LaserSoldering.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LogLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\RecipeManager.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Basler.Pylon.dll
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\SuperSimpleTcp.dll
@@ -911,6 +916,7 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\RecipeManager.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LaserSoldering.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LFineLightLibrary.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\LogLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.pdb
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.xml
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.Core.xml
 D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\Cognex.VisionPro.CorePlus.xml
@@ -1054,9 +1060,3 @@ D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csp
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.csproj.CopyComplete
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.exe
 D:\Work\Project\atLaserSoldering\atLaserSoldering\obj\Debug\atLaserSoldering.pdb
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.dll
-D:\Work\Visual_C++\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.pdb
-D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.dll
-D:\Work\Project\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.pdb
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.dll
-D:\Work\C_Sharp\2026\atLaserSoldering\atLaserSoldering\bin\Debug\PyrospotLibrary.pdb

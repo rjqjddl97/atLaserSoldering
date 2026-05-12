@@ -1,0 +1,6 @@
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\bin\Release\LFineLightLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\bin\Release\LFineLightLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Release\LFineLightLibrary.csprojAssemblyReference.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Release\LFineLightLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Release\LFineLightLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\LFineLightLibrary\LFineLightLibrary\obj\Release\LFineLightLibrary.pdb

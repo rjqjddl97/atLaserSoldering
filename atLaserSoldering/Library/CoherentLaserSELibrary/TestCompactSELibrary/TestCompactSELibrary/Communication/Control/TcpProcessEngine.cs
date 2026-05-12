@@ -268,42 +268,45 @@ namespace CompactSECommunication.Communication.Control
         {
             int buffsize = mTcpHandler._ReceiveDataQueue.Count;
             if (buffsize != 0)
-            {                
-                byte[] recvData = mTcpHandler._ReceiveDataQueue.Dequeue();                
-                //IsReceiveStart = true;                
-                for (int i = 0; i < recvData.Length; i++)
+            {
+                for (int k = 0; k < buffsize; k++)
                 {
-                    if (i >= 1)
+                    byte[] recvData = mTcpHandler._ReceiveDataQueue.Dequeue();
+                    //IsReceiveStart = true;                
+                    for (int i = 0; i < recvData.Length; i++)
                     {
-                        if ((recvData[i - 1] == 0x0D) && (recvData[i - 0] == 0x0A) && (IsReceiveStart))
+                        if (i >= 1)
                         {
-                            if (!IsResponseReceiveError)
+                            if ((recvData[i - 1] == 0x0D) && (recvData[i - 0] == 0x0A) && (IsReceiveStart))
                             {
-                                //ReceivePacketBuff[uiReceiveCount - 1] = 0;
-                                byte[] buff = new byte[uiReceiveCount - 1];
-                                //Array.Copy(ReceivePacketBuff, buff, uiReceiveCount - 1);
-                                Buffer.BlockCopy(ReceivePacketBuff, 1, buff, 0, (int)(uiReceiveCount - 1));
-                                ParsingData(buff);
-                                IsReceiveAck = true;
+                                if (!IsResponseReceiveError)
+                                {
+                                    //ReceivePacketBuff[uiReceiveCount - 1] = 0;
+                                    byte[] buff = new byte[uiReceiveCount - 1];
+                                    //Array.Copy(ReceivePacketBuff, buff, uiReceiveCount - 1);
+                                    Buffer.BlockCopy(ReceivePacketBuff, 1, buff, 0, (int)(uiReceiveCount - 1));
+                                    ParsingData(buff);
+                                    IsReceiveAck = true;
+                                }
+                                IsReceiveStart = false;
+                                uiReceiveCount = 0;
                             }
-                            IsReceiveStart = false;
-                            uiReceiveCount = 0;
-                        }
-                        else if ((recvData[i - 1] == 'r') && (recvData[i - 0] == 'v') && (IsReceiveStart == false))
-                        {
-                            IsReceiveStart = true;
-                            IsResponseReceiveError = false;
-                            uiReceiveCount = 0;
-                        }
-                        else if ((recvData[i - 1] == 'e') && (recvData[i - 0] == 'x') && (IsReceiveStart == false))
-                        {
-                            IsReceiveStart = true;
-                            IsResponseReceiveError = true;
-                            uiReceiveCount = 0;
-                        }
-                        else
-                        {                            
-                            ReceivePacketBuff[uiReceiveCount++] = recvData[i];
+                            else if ((recvData[i - 1] == 'r') && (recvData[i - 0] == 'v') && (IsReceiveStart == false))
+                            {
+                                IsReceiveStart = true;
+                                IsResponseReceiveError = false;
+                                uiReceiveCount = 0;
+                            }
+                            else if ((recvData[i - 1] == 'e') && (recvData[i - 0] == 'x') && (IsReceiveStart == false))
+                            {
+                                IsReceiveStart = true;
+                                IsResponseReceiveError = true;
+                                uiReceiveCount = 0;
+                            }
+                            else
+                            {
+                                ReceivePacketBuff[uiReceiveCount++] = recvData[i];
+                            }
                         }
                     }
                 }

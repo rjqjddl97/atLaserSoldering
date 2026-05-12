@@ -1,0 +1,6 @@
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\bin\Release\CoherentCompactMini.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\bin\Release\CoherentCompactMini.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\obj\Release\CoherentCompactMini.csprojAssemblyReference.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\obj\Release\CoherentCompactMini.csproj.CoreCompileInputs.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\obj\Release\CoherentCompactMini.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\CoherentLaserMiniLibrary\CoherentCompactMini\CoherentCompactMini\obj\Release\CoherentCompactMini.pdb

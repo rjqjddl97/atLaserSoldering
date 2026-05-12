@@ -183,69 +183,76 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
             byte ReData = 0;
             UInt32 buffsize = (UInt32)m_SerialHandler._ReceiveDataQueue.Count;
             if (buffsize != 0)
-            {                
-                byte[] recvData = m_SerialHandler._ReceiveDataQueue.Dequeue();
-                for (i = 0; i < recvData.Length; i++)
+            {
+                for (int k = 0; k < buffsize; k++)
                 {
-                    ReData = recvData[i];
-                    if ((IsReceiveStart == false) && ((ReData == _byAddres) ))
+                    byte[] recvData = m_SerialHandler._ReceiveDataQueue.Dequeue();
+                    for (i = 0; i < recvData.Length; i++)
                     {
-                        IsReceiveStart = true;
-                        uiReceiveCount = 0;
-                    }
-
-                    if (IsReceiveStart)
-                    {
-                        ReceivePacketBuff[uiReceiveCount] = ReData;
-                        uiReceiveCount++;
-                    }
-
-                    if (uiReceiveCount > 2)
-                    {
-                        if (ReceivePacketBuff[1] > (byte)ModbusRTU.FunctionCodes.Exception)
+                        ReData = recvData[i];
+                        if ((IsReceiveStart == false) && ((ReData == _byAddres)))
                         {
-                            if (uiReceiveCount >= 5)
-                            {
-                                //for (int j = 0; j < uiReceiveCount; j++) ReceivePacketBuff[j] = 0;
-                                uiReceiveCount = 0;
-                                IsReceiveAck = true;
-                                IsReceiveStart = false;
-                            }
-                        }
-                        else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputs) || (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadHoldingRegisters) ||
-                                (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputRegisters))
-                        {
-                            if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
-                            {
-                                if (uiReceiveCount == ReceivePacketBuff[2] + 5)
-                                {
-                                    byte[] MainBuffer = new byte[uiReceiveCount];
-                                    Buffer.BlockCopy(ReceivePacketBuff, 0, MainBuffer, 0, (int)uiReceiveCount);
-                                    ParsingData(MainBuffer);
-                                }
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;
-                                IsReceiveAck = true;
-                            }
-                        }
-                        else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) ||
-                                (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
-                        {
-                            if (uiReceiveCount >= 8)
-                            {                             
-                                uiReceiveCount = 0;
-                                IsReceiveStart = false;
-                                IsReceiveAck = true;
-                            }
-                        }
-                        else
-                        {                                                           
+                            IsReceiveStart = true;
                             uiReceiveCount = 0;
-                            IsReceiveAck = true;
-                            IsReceiveStart = false;                            
+                        }
+
+                        if (IsReceiveStart)
+                        {
+                            ReceivePacketBuff[uiReceiveCount] = ReData;
+                            uiReceiveCount++;
+                        }
+
+                        if (uiReceiveCount > 2)
+                        {
+                            if (ReceivePacketBuff[1] > (byte)ModbusRTU.FunctionCodes.Exception)
+                            {
+                                if (uiReceiveCount >= 5)
+                                {
+                                    //for (int j = 0; j < uiReceiveCount; j++) ReceivePacketBuff[j] = 0;
+                                    Array.Clear(ReceivePacketBuff, 0, (int)uiReceiveCount);
+                                    uiReceiveCount = 0;
+                                    IsReceiveAck = true;
+                                    IsReceiveStart = false;
+                                }
+                            }
+                            else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputs) || (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadHoldingRegisters) ||
+                                    (ReceivePacketBuff[1] == (byte)ModbusRTU.ReadFunctionCodes.ReadInputRegisters))
+                            {
+                                if (uiReceiveCount >= ReceivePacketBuff[2] + 5)
+                                {
+                                    if (uiReceiveCount == ReceivePacketBuff[2] + 5)
+                                    {
+                                        byte[] MainBuffer = new byte[uiReceiveCount];
+                                        Buffer.BlockCopy(ReceivePacketBuff, 0, MainBuffer, 0, (int)uiReceiveCount);
+                                        ParsingData(MainBuffer);
+                                    }
+                                    Array.Clear(ReceivePacketBuff, 0, (int)uiReceiveCount);
+                                    uiReceiveCount = 0;
+                                    IsReceiveStart = false;
+                                    IsReceiveAck = true;
+                                }
+                            }
+                            else if ((ReceivePacketBuff[1] == (byte)ModbusRTU.MultipleWriteFunctionCodes.WriteMultipleRegisters) || (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleCoil) ||
+                                    (ReceivePacketBuff[1] == (byte)ModbusRTU.WriteFunctionCodes.WriteSingleRegister))
+                            {
+                                if (uiReceiveCount >= 8)
+                                {
+                                    Array.Clear(ReceivePacketBuff, 0, (int)uiReceiveCount);
+                                    uiReceiveCount = 0;
+                                    IsReceiveStart = false;
+                                    IsReceiveAck = true;
+                                }
+                            }
+                            else
+                            {
+                                Array.Clear(ReceivePacketBuff, 0, (int)uiReceiveCount);
+                                uiReceiveCount = 0;
+                                IsReceiveAck = true;
+                                IsReceiveStart = false;
+                            }
                         }
                     }
-                }
+                } 
             }
         }
         private async void Run()
@@ -303,7 +310,7 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
                             }
                             else if (mContinuousCheckList.Count != 0)
                             {
-                                if (!IsReceiveStart)
+                                //if (IsReceiveAck)
                                 {
                                     if (mContinuousCheckIndex >= mContinuousCheckList.Count)
                                         mContinuousCheckIndex = 0;
@@ -319,8 +326,12 @@ namespace PyrospotControlLibrary.SerialCommunication.Control
 
                     if ((data != null) && (mSerialEngineStep != SerialEngineStep.Idle))
                     {
-                        RequestDataEventHandler?.Invoke(data, 0, data.Length);
-                        data = null;
+                        //if (IsReceiveAck)
+                        {
+                            RequestDataEventHandler?.Invoke(data, 0, data.Length);
+                            data = null;
+                            IsReceiveAck = false;
+                        }
                     }
                 }
                 catch (Exception)

@@ -446,6 +446,7 @@ namespace atLaserSoldering
                     barStaticAutoSolderingTime.Caption = "Time:";
                     barEditItemAutoSolderingResult.EditValue = "Ready";
                     barButtonItemPyrospotDataSave.Caption = "Temp. Save Start";
+                    barStaticItemPresentTemperature.Caption = "Present Temperature:";
                     //barEditItemTotalInspectionCount.EditValue = "Total Count: 00000";
                     //barEditItemTotalPassCount.EditValue = "Pass Count: 00000";
                     //barEditItemTotalFailCount.EditValue = "Fail Count: 00000";
@@ -497,6 +498,7 @@ namespace atLaserSoldering
                     barStaticAutoSolderingTime.Caption = "검사 시간:";
                     barEditItemAutoSolderingResult.EditValue = "Ready";
                     barButtonItemPyrospotDataSave.Caption = "온도 저장 시작";
+                    barStaticItemPresentTemperature.Caption = "현재 온도:";
                     //barEditItemTotalInspectionCount.EditValue = "총 검사 수: 00000";
                     //barEditItemTotalPassCount.EditValue = "양품 개수: 00000";
                     //barEditItemTotalFailCount.EditValue = "불량 개수: 00000";
@@ -801,6 +803,7 @@ namespace atLaserSoldering
                     {
                         //laserSolderingControl.RobotInfomationUpdatedEvent += UpdateRobotInfomation;
                         _mPyrospotCommManager.ReceiveDataUpdateEvent += UpdatePyrospotData;
+                        timerChartUpdate.Interval = 100;
                         timerChartUpdate.Start();
                         mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("Pyrospot 통신 연결 성공."));
                     }
@@ -1527,6 +1530,7 @@ namespace atLaserSoldering
             try
             {
                 _dPresentTemperature = (double)Math.Round((update / 16D) - TEMPERATRE_UNIT_KELVIN,1);
+                barStaticItemPresentTemperature.Caption = string.Format("현재 온도:{0:0000.0}",_dPresentTemperature);
                 //UpdatePyrospotChart(_uiChartIndexCount++, _dPresentTemperature);
 
             }

@@ -147,30 +147,33 @@ namespace LFineLightLibrary.SerialCommunication.Control
             UInt32 buffsize = (UInt32)m_SerialHandler._ReceiveDataQueue.Count;
             if (buffsize != 0)
             {
-                byte[] recvData = m_SerialHandler._ReceiveDataQueue.Dequeue();                
-                for (i = 0; i < buffsize; i++)
+                for (int k = 0; k < buffsize; k++)
                 {
-                    ReData = recvData[i];
-                    if ((IsReceiveStart == false) && (ReData == LFineData.STX))
+                    byte[] recvData = m_SerialHandler._ReceiveDataQueue.Dequeue();
+                    for (i = 0; i < buffsize; i++)
                     {
-                        IsReceiveStart = true;
-                        uiReceiveCount = 0;
-                    }
-                    if (IsReceiveStart)
-                    {
-                        if (ReData == LFineData.ETX)
+                        ReData = recvData[i];
+                        if ((IsReceiveStart == false) && (ReData == LFineData.STX))
                         {
-                            IsReceiveStart = false;
-                            IsReceiveAck = true;
+                            IsReceiveStart = true;
+                            uiReceiveCount = 0;
                         }
-                        else
+                        if (IsReceiveStart)
                         {
-                            ReceivePacketBuff[uiReceiveCount] = ReData;
-                            uiReceiveCount++;
-                        }
+                            if (ReData == LFineData.ETX)
+                            {
+                                IsReceiveStart = false;
+                                IsReceiveAck = true;
+                            }
+                            else
+                            {
+                                ReceivePacketBuff[uiReceiveCount] = ReData;
+                                uiReceiveCount++;
+                            }
 
+                        }
                     }
-                }                
+                }               
             }
         }
         private void Run()

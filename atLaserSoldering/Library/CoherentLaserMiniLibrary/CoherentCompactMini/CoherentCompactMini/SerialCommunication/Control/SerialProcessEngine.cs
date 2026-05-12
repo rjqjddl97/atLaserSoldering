@@ -257,25 +257,28 @@ namespace CoherentCompactMini.SerialCommunication.Control
             UInt32 buffsize = (UInt32)m_SerialHandler._ReceiveDataQueue.Count;
             if (buffsize != 0)
             {
-                byte[] recvData = m_SerialHandler._ReceiveDataQueue.Dequeue();
-                for (i = 0; i < recvData.Length; i++)
-                {                                 
-                    if (recvData[i] == 0x0D)                     // Carriage Return '\r'
+                for (int k = 0; k < buffsize; k++)
+                {
+                    byte[] recvData = m_SerialHandler._ReceiveDataQueue.Dequeue();
+                    for (i = 0; i < recvData.Length; i++)
                     {
-                        byte[] ParData = new byte[uiReceiveCount];
-                        Buffer.BlockCopy(ReceivePacketBuff, 0, ParData, 0, (int)uiReceiveCount);
-                        ParsingData(ParData);
-                        uiReceiveCount = 0;
-                        IsReceiveStart = false;
-                        IsReceiveAck = true;
+                        if (recvData[i] == 0x0D)                     // Carriage Return '\r'
+                        {
+                            byte[] ParData = new byte[uiReceiveCount];
+                            Buffer.BlockCopy(ReceivePacketBuff, 0, ParData, 0, (int)uiReceiveCount);
+                            ParsingData(ParData);
+                            uiReceiveCount = 0;
+                            IsReceiveStart = false;
+                            IsReceiveAck = true;
+                        }
+                        else if ((recvData[i] != 0x0D) && (recvData[i] != 0x0A))
+                        {
+                            ReceivePacketBuff[uiReceiveCount] = recvData[i];
+                            uiReceiveCount++;
+                            IsReceiveStart = true;
+                        }
                     }
-                    else if((recvData[i] != 0x0D) && (recvData[i] != 0x0A))
-                    {
-                        ReceivePacketBuff[uiReceiveCount] = recvData[i];
-                        uiReceiveCount++;
-                        IsReceiveStart = true;
-                    }
-                }                
+                }             
             }
         }
         private async void Run()

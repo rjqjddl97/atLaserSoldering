@@ -1,0 +1,17 @@
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\NLog.config
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\NLog.xsd
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\FeederControlLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\FeederControlLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\LogLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\RecipeManager.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\INIFileParser.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\NLog.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\RecipeManager.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\LogLibrary.pdb
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\INIFileParser.xml
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\bin\Release\NLog.xml
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\obj\Release\FeederControlLibrary.csprojAssemblyReference.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\obj\Release\FeederControlLibrary.csproj.CoreCompileInputs.cache
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\obj\Release\FeederControlLibrary.csproj.CopyComplete
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\obj\Release\FeederControlLibrary.dll
+D:\Work\Project\atLaserSoldering\atLaserSoldering\Library\FeederControlLibrary\FeederControlLibrary\obj\Release\FeederControlLibrary.pdb
