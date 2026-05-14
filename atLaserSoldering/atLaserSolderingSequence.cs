@@ -676,8 +676,8 @@ namespace atLaserSoldering
                 //_isInspecting = false;
                 //_InspectionWorking = false;
                 //UpdateProcessTime(false);
-                //barCheckItemInspectionStart.Caption = string.Format("검사 시작");
-                //barStaticItemInspectionStatus.Caption = string.Format("진행: 검사 완료");
+                barCheckItemLaserSolderingStart.Caption = string.Format("작업 시작");
+                barStaticItemAutoSolderingStatus.Caption = string.Format("진행: 작업 완료");
                 //if ((!_isInspectError) && (!_isInspectCancel))
                 //{
                 //    InpsectResultUpdate();

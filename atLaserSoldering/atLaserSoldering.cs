@@ -493,9 +493,9 @@ namespace atLaserSoldering
                     barButtonItemReset.Caption = "알람 리셋";
 
                     ribbonPageGroupInspection.Text = "납땜 작업 및 결과";
-                    barCheckItemLaserSolderingStart.Caption = "검사 시작";
+                    barCheckItemLaserSolderingStart.Caption = "작업 시작";
                     barStaticItemAutoSolderingStatus.Caption = "진행";
-                    barStaticAutoSolderingTime.Caption = "검사 시간:";
+                    barStaticAutoSolderingTime.Caption = "작업 시간:";
                     barEditItemAutoSolderingResult.EditValue = "Ready";
                     barButtonItemPyrospotDataSave.Caption = "온도 저장 시작";
                     barStaticItemPresentTemperature.Caption = "현재 온도:";
