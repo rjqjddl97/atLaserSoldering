@@ -162,6 +162,8 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.openFileDialogTemplateImage = new System.Windows.Forms.OpenFileDialog();
+            this.simpleButtonReadPosition = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductSeries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductType)).BeginInit();
@@ -245,6 +247,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -751,6 +754,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.simpleButtonReadPosition);
             this.layoutControl1.Controls.Add(this.buttonEditPCBLayoutFilePath);
             this.layoutControl1.Controls.Add(this.layoutControl5);
             this.layoutControl1.Controls.Add(this.simpleButtonReplaceUp);
@@ -1154,10 +1158,10 @@
             // 
             this.simpleButtonInspectionPositionEdit.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.scripts_16x16;
             this.simpleButtonInspectionPositionEdit.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            this.simpleButtonInspectionPositionEdit.Location = new System.Drawing.Point(351, 369);
+            this.simpleButtonInspectionPositionEdit.Location = new System.Drawing.Point(389, 369);
             this.simpleButtonInspectionPositionEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionEdit.Name = "simpleButtonInspectionPositionEdit";
-            this.simpleButtonInspectionPositionEdit.Size = new System.Drawing.Size(172, 22);
+            this.simpleButtonInspectionPositionEdit.Size = new System.Drawing.Size(134, 22);
             this.simpleButtonInspectionPositionEdit.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionEdit.TabIndex = 12;
             this.simpleButtonInspectionPositionEdit.Text = "수정";
@@ -1167,10 +1171,10 @@
             // 
             this.simpleButtonInspectionPositionDelete.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.clear_16x16;
             this.simpleButtonInspectionPositionDelete.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            this.simpleButtonInspectionPositionDelete.Location = new System.Drawing.Point(177, 369);
+            this.simpleButtonInspectionPositionDelete.Location = new System.Drawing.Point(251, 369);
             this.simpleButtonInspectionPositionDelete.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionDelete.Name = "simpleButtonInspectionPositionDelete";
-            this.simpleButtonInspectionPositionDelete.Size = new System.Drawing.Size(170, 22);
+            this.simpleButtonInspectionPositionDelete.Size = new System.Drawing.Size(134, 22);
             this.simpleButtonInspectionPositionDelete.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionDelete.TabIndex = 11;
             this.simpleButtonInspectionPositionDelete.Text = "삭제";
@@ -1180,10 +1184,10 @@
             // 
             this.simpleButtonInspectionPositionRegister.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.showtestreport_16x16;
             this.simpleButtonInspectionPositionRegister.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            this.simpleButtonInspectionPositionRegister.Location = new System.Drawing.Point(3, 369);
+            this.simpleButtonInspectionPositionRegister.Location = new System.Drawing.Point(94, 369);
             this.simpleButtonInspectionPositionRegister.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonInspectionPositionRegister.Name = "simpleButtonInspectionPositionRegister";
-            this.simpleButtonInspectionPositionRegister.Size = new System.Drawing.Size(170, 22);
+            this.simpleButtonInspectionPositionRegister.Size = new System.Drawing.Size(153, 22);
             this.simpleButtonInspectionPositionRegister.StyleController = this.layoutControl1;
             this.simpleButtonInspectionPositionRegister.TabIndex = 10;
             this.simpleButtonInspectionPositionRegister.Text = "등록";
@@ -1512,7 +1516,8 @@
             this.layoutControlItem11,
             this.layoutControlItem12,
             this.layoutControlItem13,
-            this.layoutControlItem14});
+            this.layoutControlItem14,
+            this.layoutControlItem9});
             this.layoutControlGroup5.Name = "Root";
             this.layoutControlGroup5.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutControlGroup5.Size = new System.Drawing.Size(712, 558);
@@ -1557,27 +1562,27 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.simpleButtonInspectionPositionRegister;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 366);
+            this.layoutControlItem10.Location = new System.Drawing.Point(91, 366);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(174, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(157, 26);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.simpleButtonInspectionPositionDelete;
-            this.layoutControlItem11.Location = new System.Drawing.Point(174, 366);
+            this.layoutControlItem11.Location = new System.Drawing.Point(248, 366);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(174, 26);
+            this.layoutControlItem11.Size = new System.Drawing.Size(138, 26);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.simpleButtonInspectionPositionEdit;
-            this.layoutControlItem12.Location = new System.Drawing.Point(348, 366);
+            this.layoutControlItem12.Location = new System.Drawing.Point(386, 366);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(176, 26);
+            this.layoutControlItem12.Size = new System.Drawing.Size(138, 26);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
             // 
@@ -1645,6 +1650,25 @@
             // 
             this.openFileDialogTemplateImage.FileName = "Template Image";
             this.openFileDialogTemplateImage.Filter = "Bitmap Files (*.bmp)|*.bmp";
+            // 
+            // simpleButtonReadPosition
+            // 
+            this.simpleButtonReadPosition.Location = new System.Drawing.Point(3, 369);
+            this.simpleButtonReadPosition.Name = "simpleButtonReadPosition";
+            this.simpleButtonReadPosition.Size = new System.Drawing.Size(87, 22);
+            this.simpleButtonReadPosition.StyleController = this.layoutControl1;
+            this.simpleButtonReadPosition.TabIndex = 18;
+            this.simpleButtonReadPosition.Text = "현재위치 읽기";
+            this.simpleButtonReadPosition.Click += new System.EventHandler(this.simpleButtonReadPosition_Click);
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.simpleButtonReadPosition;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 366);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(91, 26);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
             // 
             // RecipeEditor
             // 
@@ -1746,6 +1770,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1886,5 +1911,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnMeltingPowerRatio;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnMeltingTime;
+        private DevExpress.XtraEditors.SimpleButton simpleButtonReadPosition;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
     }
 }

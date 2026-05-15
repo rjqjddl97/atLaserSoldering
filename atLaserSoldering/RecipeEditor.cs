@@ -2195,5 +2195,19 @@ namespace atLaserSoldering
 
             //barButtonItemRecipeSave.Enabled = true;
         }
+
+        private void simpleButtonReadPosition_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                textEditPositionX.Text = Math.Round(GrobalVariableData.GrobalData.PresentPositionX, 3).ToString();
+                textEditPositionY.Text = Math.Round(GrobalVariableData.GrobalData.PresentPositionY, 3).ToString();
+                textEditPositionZ.Text = Math.Round(GrobalVariableData.GrobalData.PresentPositionZ, 3).ToString();
+            }
+            catch(Exception ex) 
+            {
+                ;
+            }
+        }
     }
 }

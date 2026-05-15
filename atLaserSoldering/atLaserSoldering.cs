@@ -61,8 +61,9 @@ namespace atLaserSoldering
         private LoginForm _mLogin = new LoginForm();
         private Log mLog = new Log();
         private List<LogData> mLogList = new List<LogData>();
-        public RobotInformation mRobotInformation = new RobotInformation();        
+        public RobotInformation mRobotInformation = new RobotInformation();
 
+        public GrobalVariableData _gvData;
         string _strTitle = "레이저 자동 솔더링 시스템";
         string Cameraname = "";
 
@@ -339,6 +340,8 @@ namespace atLaserSoldering
                 //InitializeTackTimes();
                 //InitializeChartPhotoInspect();
 
+                timerCurrentTime.Interval = 100;
+                timerCurrentTime.Start();
                 //// 검사 및 결과 UI의 구분자 추가
                 barEditItemAutoSolderingProgress.Links[0].BeginGroup = true;
 
@@ -1185,6 +1188,10 @@ namespace atLaserSoldering
                 }
                 else
                     _IsDrvErr = false;
+                
+                GrobalVariableData.GrobalData.PresentPositionX = Math.Round(mRobotInformation.PositionX, 3);
+                GrobalVariableData.GrobalData.PresentPositionY = Math.Round(mRobotInformation.PositionY, 3);
+                GrobalVariableData.GrobalData.PresentPositionZ = Math.Round(mRobotInformation.PositionZ, 3);
 
                 if ((Math.Round(mRobotInformation.PositionX, 3) == Math.Round(_RobotTargetPosition[0], 3)) &&
                     (Math.Round(mRobotInformation.PositionY, 3) == Math.Round(_RobotTargetPosition[1], 3)) &&
@@ -1213,11 +1220,7 @@ namespace atLaserSoldering
             try
             {
                 mRobotInformation.mInputData = update.mInputData;
-                mRobotInformation.mOutputData = update.mOutputData;
-                if (mRobotInformation.mInputData.B0)
-                {
-                    ;//
-                }
+                mRobotInformation.mOutputData = update.mOutputData;                
             }
             catch (Exception)
             {
@@ -1294,7 +1297,7 @@ namespace atLaserSoldering
                 _backgroundWorkerAutoSoldering.WorkerSupportsCancellation = true;
                 _backgroundWorkerAutoSoldering.DoWork += new DoWorkEventHandler(backgroundWorkerAutoSoldering_DoWork);
                 _backgroundWorkerAutoSoldering.ProgressChanged += new ProgressChangedEventHandler(backgroundWorkerAutoSoldering_ProgressChanged);
-                _backgroundWorkerAutoSoldering.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorkerAutoSoldering_RunWorkerCompleted);
+                _backgroundWorkerAutoSoldering.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorkerAutoSoldering_RunWorkerCompleted);                
                 _bwMotionHome.DoWork += new DoWorkEventHandler(backgroundWorkerMotionHome_DoWork);
                 _bwMotionHome.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backgroundWorkerMotionHome_RunWorkerCompleted);
             }
@@ -1749,7 +1752,7 @@ namespace atLaserSoldering
                             pos[1] = mRobotInformation.PositionY + (fMoveY * _systemParams._calibrationParams._imagetoSystemYcoordi);
                             pos[2] = mRobotInformation.PositionZ;
                             motionControl.SendCmdPosition(pos);
-                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("X:{0}mm, Y:{1}mm, Z:{2}mm 이동", pos[0], pos[1], pos[2]));
+                            //mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), string.Format("X:{0}mm, Y:{1}mm, Z:{2}mm 이동", pos[0], pos[1], pos[2]));
                         }
                     }
                     else if (_IsMeasurementDistance)
@@ -2567,7 +2570,7 @@ namespace atLaserSoldering
                     mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "카메라, 로봇, 레이저 모듈의 연결을 확인하십시오.");
                     return;
                 }
-                if (!_IsAutoSolderingRunning)
+                if ((!_IsAutoSolderingRunning))    //&& (!_backgroundWorkerAutoSoldering.IsBusy)
                 {
                     //if (_isContinuousShot)
                     //{
@@ -2618,11 +2621,13 @@ namespace atLaserSoldering
                 }
                 else
                 {
-                    _backgroundWorkerAutoSoldering.CancelAsync();
+                    _mLaserSoldering.LaserSolderingStop();
+                    _waitHandle.Reset();
+                    //_backgroundWorkerAutoSoldering.CancelAsync();      
+                    _IsAutoSequenceCancleRequest = true;
                     barCheckItemLaserSolderingStart.Enabled = true;
                     _IsAutoSolderingRunning = false;
-                    _IsAutoSolderingEnd = false;
-                    _mLaserSoldering.LaserSolderingStop();
+                    _IsAutoSolderingEnd = false;            
                     barCheckItemLaserSolderingStart.Caption = "작업 시작";
                     mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행을 중지 했습니다.");
                 }
@@ -2680,6 +2685,62 @@ namespace atLaserSoldering
             catch (Exception ex)
             {
 
+            }
+        }
+
+        private void timerCurrentTime_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_mMotionControlCommManager.IsOpen() && _mRemoteIOCommManager.IsOpen() && _mLaserSoldering.IsFeederConnect)
+                {
+                    if (mRobotInformation.mInputData.B0)
+                    {
+                        ;//
+                    }
+                    if (mRobotInformation.mInputData.B2)
+                    {
+                        if (_mLaserSoldering.IsFeederConnect)
+                        {
+                            _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
+                            _mLaserSoldering.ForwordFeeding();
+                        }
+                    }
+                    else if (mRobotInformation.mInputData.B3)
+                    {
+                        if (_mLaserSoldering.IsFeederConnect)
+                        {
+                            _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
+                            _mLaserSoldering.ReverseFeeding();
+                        }
+                    }
+                    else
+                    {
+                        if (_mLaserSoldering.IsFeederConnect)
+                            _mLaserSoldering.FeedingStop();
+                    }
+
+                    if (mRobotInformation.mInputData.B4)
+                    {
+                        if (!_bwMotionHome.IsBusy && !_IsAutoSolderingRunning)
+                        {
+                            _IsHommingFinished = false;
+                            mRobotInformation.SetStatus(RobotInformation.RobotStatus.OperationReady, _IsHommingFinished);
+                            _bwMotionHome.RunWorkerAsync(mRobotInformation);
+                            AutoStartButtonLock();
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "모션 원점 복귀 명령을 실행 하였습니다.");
+                        }
+                        else
+                        {
+                            mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "모션 원점 복귀중으로 명령을 생략합니다.");
+                        }
+                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ;
             }
         }
     }

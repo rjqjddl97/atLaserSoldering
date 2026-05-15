@@ -68,6 +68,7 @@
             this.barListItemRecipeOpen = new DevExpress.XtraBars.BarListItem();
             this.barButtonItemConnectionPyrospot = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemPyrospotDataSave = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItemPresentTemperature = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPageEquipementFunctions = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonSystemPage = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupFile = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -209,7 +210,6 @@
             this.timerImageUpdate = new System.Windows.Forms.Timer(this.components);
             this.openFileDialogImageFileOpen = new System.Windows.Forms.OpenFileDialog();
             this.timerChartUpdate = new System.Windows.Forms.Timer(this.components);
-            this.barStaticItemPresentTemperature = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemAutoSolderingProgress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
@@ -635,6 +635,12 @@
             this.barButtonItemPyrospotDataSave.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItemPyrospotDataSave.ImageOptions.LargeImage")));
             this.barButtonItemPyrospotDataSave.Name = "barButtonItemPyrospotDataSave";
             this.barButtonItemPyrospotDataSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPyrospotDataSave_ItemClick);
+            // 
+            // barStaticItemPresentTemperature
+            // 
+            this.barStaticItemPresentTemperature.Caption = "현재 온도 :";
+            this.barStaticItemPresentTemperature.Id = 35;
+            this.barStaticItemPresentTemperature.Name = "barStaticItemPresentTemperature";
             // 
             // ribbonPageEquipementFunctions
             // 
@@ -1984,6 +1990,10 @@
             this.openFileDialogRecipeOpen.FileName = "*.rcp";
             this.openFileDialogRecipeOpen.Filter = "RCP Files (*.rcp)|*.rcp";
             // 
+            // timerCurrentTime
+            // 
+            this.timerCurrentTime.Tick += new System.EventHandler(this.timerCurrentTime_Tick);
+            // 
             // xtraFolderBrowserDialogRecipeOpen
             // 
             this.xtraFolderBrowserDialogRecipeOpen.SelectedPath = "xtraFolderBrowserDialog1";
@@ -2055,12 +2065,6 @@
             // timerChartUpdate
             // 
             this.timerChartUpdate.Tick += new System.EventHandler(this.timerChartUpdate_Tick);
-            // 
-            // barStaticItemPresentTemperature
-            // 
-            this.barStaticItemPresentTemperature.Caption = "현재 온도 :";
-            this.barStaticItemPresentTemperature.Id = 35;
-            this.barStaticItemPresentTemperature.Name = "barStaticItemPresentTemperature";
             // 
             // atLaserSoldering
             // 

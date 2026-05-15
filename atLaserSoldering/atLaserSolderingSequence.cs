@@ -30,6 +30,7 @@ namespace atLaserSoldering
     {
         double[] _RobotTargetPosition = new double[3];
         public bool _IsRequestAutomovingCommand = false;
+        public bool _IsAutoSequenceCancleRequest = false; 
         private void OnLaserSolderingRecieveEnd(object sender, EventArgs e)
         {
             try
@@ -67,7 +68,8 @@ namespace atLaserSoldering
                                     e.Cancel = true;
                                     mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
                                 }
-                                if (!e.Cancel)
+                                //if (!e.Cancel)
+                                if (!_IsAutoSequenceCancleRequest) 
                                 {
                                     if (i == 0 && (_workParams.SolderPositionParams[i].ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE))
                                     {
@@ -226,46 +228,56 @@ namespace atLaserSoldering
                                         _IsRequestAutomovingCommand = true;
                                         _waitHandle.Reset();
                                         _waitHandle.WaitOne();
-                                        ///*
-                                        // Insert Laser soldering Sequence Start                                    
-                                        if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
+                                        if (!_IsAutoSequenceCancleRequest) //if (!e.Cancel)
                                         {
-                                            while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
-                                            if (!_mLaserSoldering.IsAutoSolderError)
+                                            ///*
+                                            // Insert Laser soldering Sequence Start                                    
+                                            if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
                                             {
-                                                _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
-                                                _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
-                                                _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
-                                                _mSolderingJob.MeltingPowerRatio = (int)_workParams.SolderPositionParams[i].MeltingPowerRatio;
-                                                _mSolderingJob.MeltingTime = _workParams.SolderPositionParams[i].MeltingTime;
-                                                _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
-                                                _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
-                                                _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
-                                                _mSolderingJob.ForwordingVelocity = _workParams.SolderPositionParams[i].ForwardFeedVelocity;
-                                                _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
-                                                _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
-                                                _mSolderingJob.LaserProfileEnable = _workParams._SolderingProfileEnable;
-                                                _mSolderingJob.FeederEnable = _workParams._UseFeederEnable;
-                                                _mSolderingJob.LaserEnable = _workParams._UseLaserEnable;
-                                                _mLaserSoldering.LaserSolderParam = _mSolderingJob;
-                                                _mLaserSoldering.LaserSolderingStart();
-                                                _waitHandle.Reset();
-                                                _waitHandle.WaitOne();
+                                                while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
+                                                if (!_mLaserSoldering.IsAutoSolderError)
+                                                {
+                                                    _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
+                                                    _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
+                                                    _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
+                                                    _mSolderingJob.MeltingPowerRatio = (int)_workParams.SolderPositionParams[i].MeltingPowerRatio;
+                                                    _mSolderingJob.MeltingTime = _workParams.SolderPositionParams[i].MeltingTime;
+                                                    _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
+                                                    _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
+                                                    _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
+                                                    _mSolderingJob.ForwordingVelocity = _workParams.SolderPositionParams[i].ForwardFeedVelocity;
+                                                    _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
+                                                    _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
+                                                    _mSolderingJob.LaserProfileEnable = _workParams._SolderingProfileEnable;
+                                                    _mSolderingJob.FeederEnable = _workParams._UseFeederEnable;
+                                                    _mSolderingJob.LaserEnable = _workParams._UseLaserEnable;
+                                                    _mLaserSoldering.LaserSolderParam = _mSolderingJob;
+                                                    _mLaserSoldering.LaserSolderingStart();
+                                                    _waitHandle.Reset();
+                                                    _waitHandle.WaitOne();
+                                                }
+                                                else
+                                                {
+                                                    e.Cancel = true;
+                                                    mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "레이저 에러에 의한 시퀀스 종료...");
+                                                }
                                             }
-                                            else
-                                            {
-                                                e.Cancel = true;
-                                                mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "레이저 에러에 의한 시퀀스 종료...");
-                                            }
-                                        }
 
-                                        //*/
+                                            //*/
+                                        }
+                                        else
+                                        {
+                                            _IsAutoSolderingRunning = false;
+                                            _IsAutoSolderingEnd = false;
+                                            break;
+                                        }
                                     }
                                 }
                                 else
                                 {
                                     _IsAutoSolderingRunning = false;
                                     _IsAutoSolderingEnd = false;
+                                    break;
                                 }
                             }
                             for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
@@ -275,7 +287,7 @@ namespace atLaserSoldering
                                     e.Cancel = true;
                                     mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
                                 }
-                                if (!e.Cancel)
+                                if (!_IsAutoSequenceCancleRequest) //if (!e.Cancel)
                                 {
                                     if (_workParams._SolderingInspectVisionEnable)
                                     {
@@ -347,6 +359,7 @@ namespace atLaserSoldering
                                 {
                                     _IsAutoSolderingRunning = false;
                                     _IsAutoSolderingEnd = false;
+                                    break;
                                 }
                             }
                         }
@@ -440,7 +453,105 @@ namespace atLaserSoldering
                                         _IsRequestAutomovingCommand = true;
                                         _waitHandle.Reset();
                                         _waitHandle.WaitOne();
+                                        if (!_IsAutoSequenceCancleRequest) //if (!e.Cancel)
+                                        {
+                                            ///*
+                                            // Insert Laser soldering Sequence Start                                    
+                                            if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
+                                            {
+                                                while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
+                                                if (!_mLaserSoldering.IsAutoSolderError)
+                                                {
+                                                    _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
+                                                    _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
+                                                    _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
+                                                    _mSolderingJob.MeltingPowerRatio = (int)_workParams.SolderPositionParams[i].MeltingPowerRatio;
+                                                    _mSolderingJob.MeltingTime = _workParams.SolderPositionParams[i].MeltingTime;
+                                                    _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
+                                                    _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
+                                                    _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
+                                                    _mSolderingJob.ForwordingVelocity = _workParams.SolderPositionParams[i].ForwardFeedVelocity;
+                                                    _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
+                                                    _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
+                                                    _mSolderingJob.LaserProfileEnable = _workParams._SolderingProfileEnable;
+                                                    _mSolderingJob.FeederEnable = _workParams._UseFeederEnable;
+                                                    _mSolderingJob.LaserEnable = _workParams._UseLaserEnable;
+                                                    _mLaserSoldering.LaserSolderParam = _mSolderingJob;
+                                                    _mLaserSoldering.LaserSolderingStart();
+                                                    _waitHandle.Reset();
+                                                    _waitHandle.WaitOne();
+                                                }
+                                                else
+                                                {
+                                                    e.Cancel = true;
+                                                    mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "레이저 에러에 의한 시퀀스 종료...");
+                                                }
+                                            }
+                                            //*/
+                                        }
+                                        else
+                                        {
+                                            _IsAutoSolderingRunning = false;
+                                            _IsAutoSolderingEnd = false;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                _IsAutoSolderingRunning = false;
+                                _IsAutoSolderingEnd = false;
+                            }
+                        }
+                        else
+                        {
+                            MotionParams _motParams = new MotionParams();
+                            AiCControlLibrary.SerialCommunication.Data.AiCData _mDrvData = new AiCControlLibrary.SerialCommunication.Data.AiCData();
+                            _mDrvData = _mMotionControlCommManager.mDrvCtrl;
+                            _motParams = _systemParams._motionParams;
+                            for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
+                            {  
+                                if (mRobotInformation.mError != 0)
+                                {
+                                    e.Cancel = true;
+                                    mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
+                                }
+                                if (!_IsAutoSequenceCancleRequest) //if (!e.Cancel)
+                                {
+                                    byte[] data = new byte[100];
+                                    while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
+                                    for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                    {
+                                        if (j == 0)
+                                        {
+                                            data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                            _mMotionControlCommManager.SendData(data);
+                                            _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
+                                        }
+                                        else if (j == 1)
+                                        {
+                                            data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                            _mMotionControlCommManager.SendData(data);
+                                            _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
+                                        }
+                                        else if (j == 2)
+                                        {
+                                            data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                            _mMotionControlCommManager.SendData(data);
+                                            _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
+                                        }
+                                        Thread.Sleep(50);
+                                    }
+                                    data = _mDrvData.MoveAbsoluteCommand(129);
+                                    _mMotionControlCommManager.SendData(data);
+                                    Thread.Sleep(1000);
+                                    _IsRequestAutomovingCommand = true;
+                                    _waitHandle.Reset();
+                                    _waitHandle.WaitOne();
 
+                                    if (!_IsAutoSequenceCancleRequest) //if (!e.Cancel)
+                                    {
                                         ///*
                                         // Insert Laser soldering Sequence Start                                    
                                         if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
@@ -475,63 +586,76 @@ namespace atLaserSoldering
                                         }
                                         //*/
                                     }
+                                    else
+                                    {
+                                        _IsAutoSolderingRunning = false;
+                                        _IsAutoSolderingEnd = false;
+                                        break;
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                _IsAutoSolderingRunning = false;
-                                _IsAutoSolderingEnd = false;
+                                else
+                                {
+                                    _IsAutoSolderingRunning = false;
+                                    _IsAutoSolderingEnd = false;
+                                    break;
+                                }
                             }
                         }
-                        else
+                    }
+                    else
+                    {
+                        MotionParams _motParams = new MotionParams();
+                        AiCControlLibrary.SerialCommunication.Data.AiCData _mDrvData = new AiCControlLibrary.SerialCommunication.Data.AiCData();
+                        _mDrvData = _mMotionControlCommManager.mDrvCtrl;
+                        _motParams = _systemParams._motionParams;
+                        for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
                         {
-                            MotionParams _motParams = new MotionParams();
-                            AiCControlLibrary.SerialCommunication.Data.AiCData _mDrvData = new AiCControlLibrary.SerialCommunication.Data.AiCData();
-                            _mDrvData = _mMotionControlCommManager.mDrvCtrl;
-                            _motParams = _systemParams._motionParams;
-                            for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
-                            {  
-                                if (mRobotInformation.mError != 0)
+                            if (mRobotInformation.mError != 0)
+                            {
+                                e.Cancel = true;
+                                mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
+                            }
+                            if (!_IsAutoSequenceCancleRequest) //if (!e.Cancel)
+                            {
+                                byte[] data = new byte[100];
+                                //while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
+                                while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
+                                for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
                                 {
-                                    e.Cancel = true;
-                                    mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
-                                }
-                                if (!e.Cancel)
-                                {
-                                    byte[] data = new byte[100];
-                                    while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
-                                    for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                    if (j == 0)
                                     {
-                                        if (j == 0)
-                                        {
-                                            data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
-                                            _mMotionControlCommManager.SendData(data);
-                                            _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
-                                        }
-                                        else if (j == 1)
-                                        {
-                                            data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
-                                            _mMotionControlCommManager.SendData(data);
-                                            _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
-                                        }
-                                        else if (j == 2)
-                                        {
-                                            data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
-                                            _mMotionControlCommManager.SendData(data);
-                                            _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
-                                        }
-                                        Thread.Sleep(50);
+                                        data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                        _mMotionControlCommManager.SendData(data);
+                                        _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
                                     }
-                                    data = _mDrvData.MoveAbsoluteCommand(129);
-                                    _mMotionControlCommManager.SendData(data);
-                                    Thread.Sleep(1000);
-                                    _IsRequestAutomovingCommand = true;
-                                    _waitHandle.Reset();
-                                    _waitHandle.WaitOne();
+                                    else if (j == 1)
+                                    {
+                                        data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                        _mMotionControlCommManager.SendData(data);
+                                        _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
+                                    }
+                                    else if (j == 2)
+                                    {
+                                        data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                        _mMotionControlCommManager.SendData(data);
+                                        _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
+                                    }
+                                    Thread.Sleep(50);
+                                }
+                                data = _mDrvData.MoveAbsoluteCommand(129);
+                                _mMotionControlCommManager.SendData(data);
+                                Thread.Sleep(1000);
+                                _IsRequestAutomovingCommand = true;
+                                _waitHandle.Reset();
+                                _waitHandle.WaitOne();
+
+                                if (!_IsAutoSequenceCancleRequest) //if (!e.Cancel)
+                                {
                                     ///*
                                     // Insert Laser soldering Sequence Start                                    
                                     if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
                                     {
+                                        //while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                         while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
                                         if (!_mLaserSoldering.IsAutoSolderError)
                                         {
@@ -566,96 +690,14 @@ namespace atLaserSoldering
                                 {
                                     _IsAutoSolderingRunning = false;
                                     _IsAutoSolderingEnd = false;
+                                    break;
                                 }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MotionParams _motParams = new MotionParams();
-                        AiCControlLibrary.SerialCommunication.Data.AiCData _mDrvData = new AiCControlLibrary.SerialCommunication.Data.AiCData();
-                        _mDrvData = _mMotionControlCommManager.mDrvCtrl;
-                        _motParams = _systemParams._motionParams;
-                        for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
-                        {
-                            if (mRobotInformation.mError != 0)
-                            {
-                                e.Cancel = true;
-                                mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
-                            }
-                            if (!e.Cancel)
-                            {
-                                byte[] data = new byte[100];
-                                //while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
-                                while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
-                                for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
-                                {
-                                    if (j == 0)
-                                    {
-                                        data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
-                                        _mMotionControlCommManager.SendData(data);
-                                        _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
-                                    }
-                                    else if (j == 1)
-                                    {
-                                        data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
-                                        _mMotionControlCommManager.SendData(data);
-                                        _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
-                                    }
-                                    else if (j == 2)
-                                    {
-                                        data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
-                                        _mMotionControlCommManager.SendData(data);
-                                        _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
-                                    }
-                                    Thread.Sleep(50);
-                                }
-                                data = _mDrvData.MoveAbsoluteCommand(129);
-                                _mMotionControlCommManager.SendData(data);
-                                Thread.Sleep(1000);
-                                _IsRequestAutomovingCommand = true;
-                                _waitHandle.Reset();
-                                _waitHandle.WaitOne();
-                                ///*
-                                // Insert Laser soldering Sequence Start                                    
-                                if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
-                                {
-                                    //while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
-                                    while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
-                                    if (!_mLaserSoldering.IsAutoSolderError)
-                                    {
-                                        _mSolderingJob.ReadyTime = _workParams.SolderPositionParams[i].ReadyTime;
-                                        _mSolderingJob.PreheatPowerRatio = (int)_workParams.SolderPositionParams[i].PreHeatPowerRatio;
-                                        _mSolderingJob.PreHeatTime = _workParams.SolderPositionParams[i].PreHeatTime;
-                                        _mSolderingJob.MeltingPowerRatio = (int)_workParams.SolderPositionParams[i].MeltingPowerRatio;
-                                        _mSolderingJob.MeltingTime = _workParams.SolderPositionParams[i].MeltingTime;
-                                        _mSolderingJob.HeatPowerRatio = (int)_workParams.SolderPositionParams[i].HeatPowerRatio;
-                                        _mSolderingJob.HeatTime = _workParams.SolderPositionParams[i].HeatTime;
-                                        _mSolderingJob.ForwordingWireLength = _workParams.SolderPositionParams[i].ForwardFeedLength;
-                                        _mSolderingJob.ForwordingVelocity = _workParams.SolderPositionParams[i].ForwardFeedVelocity;
-                                        _mSolderingJob.ReverseWireLength = _workParams.SolderPositionParams[i].ReverseFeedLength;
-                                        _mSolderingJob.ReverseVelocity = _workParams.SolderPositionParams[i].ReverseFeedVelocity;
-                                        _mSolderingJob.LaserProfileEnable = _workParams._SolderingProfileEnable;
-                                        _mSolderingJob.FeederEnable = _workParams._UseFeederEnable;
-                                        _mSolderingJob.LaserEnable = _workParams._UseLaserEnable;
-                                        _mLaserSoldering.LaserSolderParam = _mSolderingJob;
-                                        _mLaserSoldering.LaserSolderingStart();
-                                        _waitHandle.Reset();
-                                        _waitHandle.WaitOne();
-                                    }
-                                    else
-                                    {
-                                        e.Cancel = true;
-                                        mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "레이저 에러에 의한 시퀀스 종료...");
-                                    }
-                                }
-
-                                //*/
                             }
                             else
                             {
                                 _IsAutoSolderingRunning = false;
                                 _IsAutoSolderingEnd = false;
+                                break;
                             }
                         }
                     }
@@ -673,6 +715,7 @@ namespace atLaserSoldering
             {
                 _IsAutoSolderingRunning = false;
                 _IsAutoSolderingEnd = true;
+                _IsAutoSequenceCancleRequest = false;
                 //_isInspecting = false;
                 //_InspectionWorking = false;
                 //UpdateProcessTime(false);

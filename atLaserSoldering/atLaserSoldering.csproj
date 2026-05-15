@@ -131,6 +131,7 @@
     <Compile Include="CustomPages\VisionControl.Designer.cs">
       <DependentUpon>VisionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="GrobalVariableData.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
