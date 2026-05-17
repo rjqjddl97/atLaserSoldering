@@ -113,6 +113,7 @@ namespace atLaserSoldering
         int _CalibratoinMode = 0;
         double _dTotalElapsedTime = 0.0f;
         public double _dPresentTemperature = 0;
+        Stopwatch CheckTackTime = new Stopwatch();
         public atLaserSoldering()
         {
             InitializeComponent();
@@ -2529,39 +2530,47 @@ namespace atLaserSoldering
             {
                 if (_mMotionControlCommManager.IsOpen() & _mRemoteIOCommManager.IsOpen() & _mLaserSoldering.IsSolderingConnect & _Camera.IsAllocated)
                 {
-
-                    if (_workParams._AlignInspectionMode == 1)      // 0: None, 1: 2Point, 2: All
+                    if (_IsReciepLoad)
                     {
-                        if (_workParams._PCBAlignVisionEnable)
+                        if (_workParams._AlignInspectionMode == 1)      // 0: None, 1: 2Point, 2: All
                         {
-                            switch (_workParams.SolderPositionParams.Count)
+                            if (_workParams._PCBAlignVisionEnable)
                             {
-                                case 0:
-                                    MessageBox.Show("등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.");
-                                    break;
-                                default:
-                                    int alignmentconut = 0;
-                                    if (_workParams._AlignInspectionMode == 1)
-                                    {
-                                        for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
+                                switch (_workParams.SolderPositionParams.Count)
+                                {
+                                    case 0:
+                                        MessageBox.Show("등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.");
+                                        break;
+                                    default:
+                                        int alignmentconut = 0;
+                                        if (_workParams._AlignInspectionMode == 1)
                                         {
-                                            if (_workParams.SolderPositionParams[i].ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
+                                            for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
                                             {
-                                                alignmentconut++;
+                                                if (_workParams.SolderPositionParams[i].ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
+                                                {
+                                                    alignmentconut++;
+                                                }
+                                            }
+                                            if (alignmentconut != 2)
+                                            {
+                                                MessageBox.Show("Alignemnt가 등록되지 않았습니다.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Alignemnt가 등록되지 않았습니다.");
+                                                return;
                                             }
                                         }
-                                        if (alignmentconut != 2)
-                                        {
-                                            MessageBox.Show("Alignemnt가 등록되지 않았습니다.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Alignemnt가 등록되지 않았습니다.");
-                                            return;
-                                        }
-                                    }
-                                    break;
+                                        break;
+                                }
                             }
                         }
-                    }                    
+                    }
+                    else
+                    {                        
+                        mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "레시피가 선택되지 않아 자동 실행을 하지 못햇습니다.");
+                        return;
+                    }
+             
                 }
                 else
                 {
@@ -2580,8 +2589,8 @@ namespace atLaserSoldering
 
                     barEditItemAutoSolderingProgress.EditValue = 0;
                     repositoryItemAutoSolderingProgress.Maximum = 100;
-                    barStaticItemAutoSolderingStatus.Caption = "진행: 검사 준비";
-                    barStaticAutoSolderingTime.Caption = "검사 시간: 000.000 sec";
+                    barStaticItemAutoSolderingStatus.Caption = "진행: 납땜 준비";
+                    barStaticAutoSolderingTime.Caption = "작업 시간: 000.000 sec";
                     _dTotalElapsedTime = 0.0f;
 
                     if (_workParams._PCBAlignVisionEnable)
@@ -2612,17 +2621,19 @@ namespace atLaserSoldering
                             mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "납땜 검사 Vision 레시피 경로가 없습니다. 자동 납땜을 실행을 중지 했습니다.");
                         }
                     }
-
+                    CheckTackTime.Reset();
                     _IsAutoSolderingRunning = true;
                     _IsAutoSolderingEnd = false;
                     barCheckItemLaserSolderingStart.Caption = "작업 중지";
                     // 검사 쓰레드 시작
                     _backgroundWorkerAutoSoldering.RunWorkerAsync();
+                    CheckTackTime.Start();
                 }
                 else
                 {
                     _mLaserSoldering.LaserSolderingStop();
                     _waitHandle.Reset();
+                    CheckTackTime.Stop();
                     //_backgroundWorkerAutoSoldering.CancelAsync();      
                     _IsAutoSequenceCancleRequest = true;
                     barCheckItemLaserSolderingStart.Enabled = true;

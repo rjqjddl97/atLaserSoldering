@@ -279,7 +279,10 @@ namespace atLaserSoldering
                                     _IsAutoSolderingEnd = false;
                                     break;
                                 }
+                                _backgroundWorkerAutoSoldering.ReportProgress(((i + 1) * 100) / (2*_workParams.SolderPositionParams.Count - 2));
                             }
+                            // 납땜 검사 위치 이동.
+                            
                             for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
                             {
                                 if (mRobotInformation.mError != 0)
@@ -361,6 +364,7 @@ namespace atLaserSoldering
                                     _IsAutoSolderingEnd = false;
                                     break;
                                 }
+                                _backgroundWorkerAutoSoldering.ReportProgress(((i + 1) * 100) / (2 * _workParams.SolderPositionParams.Count - 2));
                             }
                         }
                         else if (_workParams._AlignInspectionMode == 2)
@@ -370,7 +374,7 @@ namespace atLaserSoldering
                                 e.Cancel = true;
                                 mLog.WriteLog(LogLevel.Fatal, LogClass.atLaser.ToString(), "모션 에러에 의한 시퀀스 종료...");
                             }
-                            if (!e.Cancel)
+                            if (!_IsAutoSequenceCancleRequest) //if (!e.Cancel)
                             {
                                 MotionParams _motParams = new MotionParams();
                                 AiCControlLibrary.SerialCommunication.Data.AiCData _mDrvData = new AiCControlLibrary.SerialCommunication.Data.AiCData();
@@ -495,7 +499,67 @@ namespace atLaserSoldering
                                             _IsAutoSolderingEnd = false;
                                             break;
                                         }
+
+                                        while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
+                                        // Insert Align Offset Position !!
+                                        for (int j = 0; j < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; j++)
+                                        {
+                                            if (j == 0)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionX * _motParams.MM2PulseRatioX));
+                                                _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionX;
+                                            }
+                                            else if (j == 1)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionY * _motParams.MM2PulseRatioY));
+                                                _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionY;
+                                            }
+                                            else if (j == 2)
+                                            {
+                                                data = _mDrvData.MoveTargetPositionSendData((byte)_mDrvData.DrvID[j], Convert.ToInt32(_workParams.SolderPositionParams[i].PositionZ * _motParams.MM2PulseRatioZ));
+                                                _mMotionControlCommManager.SendData(data);
+                                                _RobotTargetPosition[j] = _workParams.SolderPositionParams[i].PositionZ;
+                                            }
+                                            Thread.Sleep(50);
+                                        }
+                                        data = _mDrvData.MoveAbsoluteCommand(129);
+                                        _mMotionControlCommManager.SendData(data);
+                                        Thread.Sleep(1000);
+                                        _IsRequestAutomovingCommand = true;
+                                        _waitHandle.Reset();
+                                        _waitHandle.WaitOne();
+                                        while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
+                                        Thread.Sleep(_workParams._ImageAcquisitionDelaytime);
+                                        _Camera.OneShot(_waitHandle);
+                                        _waitHandle.Reset();
+                                        _waitHandle.WaitOne(_workParams._ImageAcquisitionDelaytime);
+
+                                        if (_InspectToolBlock != null)
+                                        {
+                                            // "InputImage"는 Job의 입력 터미널 이름입니다.
+                                            _InspectToolBlock.Inputs["InputImage"].Value = _sourceImage;
+
+                                        }
+                                        _InspectToolBlock.Run();
+
+                                        //if (_InspectToolBlock.RunStatus.Result == Cognex.VisionPro.CogToolResultConstants.Accept)
+                                        //{
+                                        //    textBoxResult.Text = "Pass";
+                                        //}
+                                        //else
+                                        //{
+                                        //    textBoxResult.Text = "Fail";
+                                        //}
+
+                                        /*      // Insert Soldering Vision Inspect Result
+
+                                         */
+                                        GC.Collect();
+
                                     }
+                                    _backgroundWorkerAutoSoldering.ReportProgress(((i + 1) * 100) / (2*_workParams.SolderPositionParams.Count));
                                 }
                             }
                             else
@@ -599,6 +663,7 @@ namespace atLaserSoldering
                                     _IsAutoSolderingEnd = false;
                                     break;
                                 }
+                                _backgroundWorkerAutoSoldering.ReportProgress(((i + 1) * 100) / _workParams.SolderPositionParams.Count);
                             }
                         }
                     }
@@ -699,6 +764,7 @@ namespace atLaserSoldering
                                 _IsAutoSolderingEnd = false;
                                 break;
                             }
+                            _backgroundWorkerAutoSoldering.ReportProgress(((i + 1) * 100) / _workParams.SolderPositionParams.Count);
                         }
                     }
 
@@ -719,6 +785,7 @@ namespace atLaserSoldering
                 //_isInspecting = false;
                 //_InspectionWorking = false;
                 //UpdateProcessTime(false);
+                CheckTackTime.Stop();
                 barCheckItemLaserSolderingStart.Caption = string.Format("작업 시작");
                 barStaticItemAutoSolderingStatus.Caption = string.Format("진행: 작업 완료");
                 //if ((!_isInspectError) && (!_isInspectCancel))
@@ -745,23 +812,10 @@ namespace atLaserSoldering
         {
             try
             {
-                //WorkingStateInfo mStateInfo = (WorkingStateInfo)e.UserState;
-                //barStaticItemInspectionStatus.Caption = string.Format("진행: ") + mStateInfo.CurrentStepName;
-                //if (mStateInfo.WorkingStatus == WorkingStateInfo.WorkingType.Checking)
-                //{
-                //}
-                //else if (mStateInfo.WorkingStatus == WorkingStateInfo.WorkingType.CorrectionAndInspection)
-                //{
-                //    int position = 0;
-                //    if ((mStateInfo.CurrentStep != 0) && (mStateInfo.LastStep != 0))
-                //        position = (int)(((double)mStateInfo.CurrentStep / (double)mStateInfo.LastStep) * 100);
-
-                //    barEditItemInspectionProgress.EditValue = position;
-                //}
-                //else if (mStateInfo.WorkingStatus == WorkingStateInfo.WorkingType.Error)
-                //{
-                //    ;
-                //}
+                TimeSpan ts = CheckTackTime.Elapsed;
+                barStaticItemAutoSolderingStatus.Caption = "진행: 납땜 작업중";
+                barStaticAutoSolderingTime.Caption = string.Format("작업 시간: {0:00:}.{1:00}.{2:000} sec",ts.TotalMinutes,ts.TotalSeconds,ts.TotalMilliseconds);
+                barEditItemAutoSolderingProgress.EditValue = e.ProgressPercentage;
             }
             catch (Exception)
             {
