@@ -780,6 +780,7 @@ namespace atLaserSoldering
             try
             {
                 _IsAutoSolderingRunning = false;
+                _IsRequestAutomovingCommand = false;
                 _IsAutoSolderingEnd = true;
                 _IsAutoSequenceCancleRequest = false;
                 //_isInspecting = false;
@@ -814,7 +815,7 @@ namespace atLaserSoldering
             {
                 TimeSpan ts = CheckTackTime.Elapsed;
                 barStaticItemAutoSolderingStatus.Caption = "진행: 납땜 작업중";
-                barStaticAutoSolderingTime.Caption = string.Format("작업 시간: {0:00:}.{1:00}.{2:000} sec",ts.TotalMinutes,ts.TotalSeconds,ts.TotalMilliseconds);
+                barStaticAutoSolderingTime.Caption = string.Format("작업 시간: {0:00:}{1:00}.{2:000} sec",ts.TotalMinutes,ts.TotalSeconds,ts.TotalMilliseconds);
                 barEditItemAutoSolderingProgress.EditValue = e.ProgressPercentage;
             }
             catch (Exception)

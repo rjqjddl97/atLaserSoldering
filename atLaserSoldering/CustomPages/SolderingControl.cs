@@ -42,6 +42,7 @@ namespace CustomPages
 
         public bool IsOpenStatus = false;
         public bool _IsPilotSpot = false;
+        public bool _IsMenaulFeeding = false;
         public System.Timers.Timer UpdateTimer = new System.Timers.Timer();
 
         public SolderingControl()
@@ -493,6 +494,10 @@ namespace CustomPages
             try
             {
                 _mFeederData = update;
+                if ((!_mLaserSoldering.IsFeederMoving) && _IsMenaulFeeding)
+                {
+                    _IsMenaulFeeding = false;
+                }
             }
             catch (Exception ex)
             {
@@ -745,6 +750,7 @@ namespace CustomPages
             {
                 if (_mLaserSoldering.IsSolderingConnect)
                 {
+                    _IsMenaulFeeding = true;
                     byte[] data = new byte[20];
                     data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)Math.Round(Convert.ToDouble(textEditMenualFeedLength.EditValue) * _mLaserSoldering._FeederParam.FeedermmToPulseRatio,1));
                     _mFeederCommunicationManager.SendData(data);

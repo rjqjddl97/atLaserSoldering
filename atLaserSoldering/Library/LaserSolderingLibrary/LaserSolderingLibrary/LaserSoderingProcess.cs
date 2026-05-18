@@ -86,6 +86,7 @@ namespace LaserSoldering
         private bool _IsCommandFlag = false;
         private bool _IsFeederSeqReady = false;
         private bool _IsReverseFeeding = false;
+        private bool _IsMenualFeeding = false;
         private double _LaserPresentCurrent = 0;
         private double _LaserPresentPower = 0;
         private double _FeederUsedLength = 0;
@@ -119,6 +120,7 @@ namespace LaserSoldering
         public bool IsFeederMoving { get { return _IsFeederMoving; } set { _IsFeederMoving = value; } }
         public bool IsFeederSeqReady { get { return _IsFeederSeqReady; } set { _IsFeederSeqReady = value; } }
         public bool IsReverseFeeding { get { return _IsReverseFeeding; } set { _IsReverseFeeding = value; } }
+        public bool IsMenualFeeding { get { return _IsMenualFeeding; } set { _IsMenualFeeding = value; } }
         public bool IsFeederInPosition { get { return _IsFeederInPosition; } set { _IsFeederInPosition = value; } }
         public bool IsInitialSoldering { get { return _IsInitialSoldering; } set { _IsInitialSoldering = value; } }
         public bool IsCommandFlag { get { return _IsCommandFlag; } set { _IsCommandFlag = value; } }
@@ -830,6 +832,7 @@ namespace LaserSoldering
                     byte[] data = new byte[20];
                     data = _mFeederData.MoveStopCommand(_mFeederData.DrvID[0]);
                     _mFeederComm.SendData(data);
+                    IsMenualFeeding = false;
                 }
             }
             catch (Exception ex)

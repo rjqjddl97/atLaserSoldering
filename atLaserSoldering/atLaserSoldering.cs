@@ -2579,7 +2579,7 @@ namespace atLaserSoldering
                     mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "카메라, 로봇, 레이저 모듈의 연결을 확인하십시오.");
                     return;
                 }
-                if ((!_IsAutoSolderingRunning))    //&& (!_backgroundWorkerAutoSoldering.IsBusy)
+                if ((!_IsAutoSolderingRunning) && (!_backgroundWorkerAutoSoldering.IsBusy))
                 {
                     //if (_isContinuousShot)
                     //{
@@ -2631,14 +2631,15 @@ namespace atLaserSoldering
                 }
                 else
                 {
-                    _mLaserSoldering.LaserSolderingStop();
-                    _waitHandle.Reset();
+                    _mLaserSoldering.LaserSolderingStop();                    
                     CheckTackTime.Stop();
                     //_backgroundWorkerAutoSoldering.CancelAsync();      
                     _IsAutoSequenceCancleRequest = true;
-                    barCheckItemLaserSolderingStart.Enabled = true;
-                    _IsAutoSolderingRunning = false;
-                    _IsAutoSolderingEnd = false;            
+                    _IsRequestAutomovingCommand = false;
+                    //barCheckItemLaserSolderingStart.Enabled = true;
+                    //_IsAutoSolderingRunning = false;
+                    //_IsAutoSolderingEnd = false;
+                    _waitHandle.Set();
                     barCheckItemLaserSolderingStart.Caption = "작업 시작";
                     mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행을 중지 했습니다.");
                 }
@@ -2709,27 +2710,30 @@ namespace atLaserSoldering
                     {
                         ;//
                     }
-                    if (mRobotInformation.mInputData.B2)
+                    if (!_IsAutoSolderingRunning && !_mLaserSoldering.IsAutoSoldering && !laserSolderingControl._IsMenaulFeeding)
                     {
-                        if (_mLaserSoldering.IsFeederConnect)
+                        if (mRobotInformation.mInputData.B2)
                         {
-                            _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
-                            _mLaserSoldering.ForwordFeeding();
+                            if (_mLaserSoldering.IsFeederConnect)
+                            {
+                                _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
+                                _mLaserSoldering.ForwordFeeding();
+                            }
                         }
-                    }
-                    else if (mRobotInformation.mInputData.B3)
-                    {
-                        if (_mLaserSoldering.IsFeederConnect)
+                        else if (mRobotInformation.mInputData.B3)
                         {
-                            _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
-                            _mLaserSoldering.ReverseFeeding();
+                            if (_mLaserSoldering.IsFeederConnect)
+                            {
+                                _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
+                                _mLaserSoldering.ReverseFeeding();
+                            }
                         }
-                    }
-                    else
-                    {
-                        if (_mLaserSoldering.IsFeederConnect)
-                            _mLaserSoldering.FeedingStop();
-                    }
+                        else
+                        {
+                            if (_mLaserSoldering.IsFeederConnect)
+                                _mLaserSoldering.FeedingStop();
+                        }
+                    } 
 
                     if (mRobotInformation.mInputData.B4)
                     {
@@ -2747,6 +2751,11 @@ namespace atLaserSoldering
                         }
                         
                     }
+                }
+                if (_IsAutoSolderingRunning)
+                {
+                    TimeSpan ts = CheckTackTime.Elapsed;
+                    barStaticAutoSolderingTime.Caption = string.Format("작업 시간: {0:00:}{1:00}.{2:000} sec", ts.TotalMinutes, ts.TotalSeconds, ts.TotalMilliseconds);
                 }
             }
             catch (Exception ex)
