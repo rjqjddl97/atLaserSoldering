@@ -109,6 +109,7 @@ namespace atLaserSoldering
         bool _IsMovementVision = false;
         bool _IsMeasurementDistance = false;
         bool _IsMeasureStartFlag = false;
+        bool _IsFeedingSwitchEnable = false;
 
         int _CalibratoinMode = 0;
         double _dTotalElapsedTime = 0.0f;
@@ -2718,6 +2719,7 @@ namespace atLaserSoldering
                             {
                                 _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
                                 _mLaserSoldering.ForwordFeeding();
+                                _IsFeedingSwitchEnable = true;
                             }
                         }
                         else if (mRobotInformation.mInputData.B3)
@@ -2726,12 +2728,19 @@ namespace atLaserSoldering
                             {
                                 _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
                                 _mLaserSoldering.ReverseFeeding();
+                                _IsFeedingSwitchEnable = true;
                             }
                         }
                         else
                         {
                             if (_mLaserSoldering.IsFeederConnect)
-                                _mLaserSoldering.FeedingStop();
+                            {
+                                if (_IsFeedingSwitchEnable)
+                                {
+                                    _mLaserSoldering.FeedingStop();
+                                    _IsFeedingSwitchEnable = false;
+                                }
+                            }
                         }
                     } 
 
