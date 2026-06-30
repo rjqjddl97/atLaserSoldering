@@ -42,6 +42,8 @@ namespace atLaserSoldering
         public int _iPyrospotDataSaveSeq = 0;
         public bool _IsPyrospotDataSaveEnable = false;
         public bool _IsPyrospotDataAutoSaveEnable = false;
+        public bool _IsAutoSequencePyrospotDataSaveEnable = false;
+
         DateTime _PyrospotDataTime = new DateTime();
         public string _PyrospotDataFilePath = string.Empty;
         private void PyrospotDataSaveWriteEvent(int iSeq)
@@ -92,6 +94,12 @@ namespace atLaserSoldering
                 {
                     Directory.CreateDirectory(strFilePath);
                 }
+                using (StreamWriter sw = new StreamWriter(strFilePath, true))
+                {
+                    string strTemp = "";
+                    strTemp = string.Format("Date;Time;1482543;");
+                    sw.WriteLine(strTemp);
+                }
             }
             catch (Exception ex)
             {
@@ -104,13 +112,24 @@ namespace atLaserSoldering
         {
             try
             {
-                if (_IsPyrospotDataSaveEnable)
+                if (_IsAutoSequencePyrospotDataSaveEnable)
                 {
                     DateTime presettime = DateTime.Now;
                     using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
                     {
                         string strTemp = "";
-                        strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), _dPresentTemperature);
+                        strTemp = string.Format("{0:00}.{1:00}.{2:0000};{3};{4:0000.0}",presettime.Day.ToString(),presettime.Month.ToString(),presettime.Year.ToString(),presettime.TimeOfDay.ToString(), _dPresentTemperature);
+                        sw.WriteLine(strTemp);
+                    }
+                }
+                else if (_IsPyrospotDataSaveEnable)
+                {
+                    DateTime presettime = DateTime.Now;
+                    using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
+                    {
+                        string strTemp = "";
+                        //strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), _dPresentTemperature);
+                        strTemp = string.Format("{0:00}.{1:00}.{2:0000};{3};{4:0000.0}", presettime.Day.ToString(), presettime.Month.ToString(), presettime.Year.ToString(), presettime.TimeOfDay.ToString(), _dPresentTemperature);
                         sw.WriteLine(strTemp);
                     }
                 }
@@ -120,7 +139,8 @@ namespace atLaserSoldering
                     using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
                     {
                         string strTemp = "";
-                        strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), _dPresentTemperature);
+                        //strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), _dPresentTemperature);
+                        strTemp = string.Format("{0:00}.{1:00}.{2:0000};{3};{4:0000.0}", presettime.Day.ToString(), presettime.Month.ToString(), presettime.Year.ToString(), presettime.TimeOfDay.ToString(), _dPresentTemperature);
                         sw.WriteLine(strTemp);
                     }
                 }

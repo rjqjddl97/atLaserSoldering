@@ -2650,7 +2650,132 @@ namespace atLaserSoldering
                 mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행에 오류가 있습니다.");
             }
         }
+        public void AutoSolderingSequeneStart()
+        {
+            try
+            {
+                if (_mMotionControlCommManager.IsOpen() & _mRemoteIOCommManager.IsOpen() & _mLaserSoldering.IsSolderingConnect & _Camera.IsAllocated)
+                {
+                    if (_IsReciepLoad)
+                    {
+                        if (_workParams._AlignInspectionMode == 1)      // 0: None, 1: 2Point, 2: All
+                        {
+                            if (_workParams._PCBAlignVisionEnable)
+                            {
+                                switch (_workParams.SolderPositionParams.Count)
+                                {
+                                    case 0:
+                                        MessageBox.Show("등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "등록된 검사 위치가 없습니다. 레시피를 확인 하십시오.");
+                                        break;
+                                    default:
+                                        int alignmentconut = 0;
+                                        if (_workParams._AlignInspectionMode == 1)
+                                        {
+                                            for (int i = 0; i < _workParams.SolderPositionParams.Count; i++)
+                                            {
+                                                if (_workParams.SolderPositionParams[i].ePositionType == INSPECTION_POSITION_MODE.POSITION_INSPECTION_ALIGN_MODE)
+                                                {
+                                                    alignmentconut++;
+                                                }
+                                            }
+                                            if (alignmentconut != 2)
+                                            {
+                                                MessageBox.Show("Alignemnt가 등록되지 않았습니다.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "Alignemnt가 등록되지 않았습니다.");
+                                                return;
+                                            }
+                                        }
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "레시피가 선택되지 않아 자동 실행을 하지 못햇습니다.");
+                        return;
+                    }
 
+                }
+                else
+                {
+                    MessageBox.Show("카메라, 로봇, 레이저 모듈의 연결을 확인하십시오.", "검사 시작 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "카메라, 로봇, 레이저 모듈의 연결을 확인하십시오.");
+                    return;
+                }
+                if ((!_IsAutoSolderingRunning) && (!_backgroundWorkerAutoSoldering.IsBusy))
+                {
+                    //if (_isContinuousShot)
+                    //{
+                    //    _Camera.Stop();
+                    //    _isContinuousShot = false;
+                    //}
+
+                    barEditItemAutoSolderingProgress.EditValue = 0;
+                    repositoryItemAutoSolderingProgress.Maximum = 100;
+                    barStaticItemAutoSolderingStatus.Caption = "진행: 납땜 준비";
+                    barStaticAutoSolderingTime.Caption = "작업 시간: 000.000 sec";
+                    _dTotalElapsedTime = 0.0f;
+
+                    if (_workParams._PCBAlignVisionEnable)
+                    {
+                        if (_workParams._InspectAlignVisionPath != string.Empty)
+                        {
+                            _AlignToolBlock = (CogToolBlock)CogSerializer.LoadObjectFromFile(_workParams._InspectAlignVisionPath);
+                        }
+                        else
+                        {
+                            _backgroundWorkerAutoSoldering.CancelAsync();
+                            barCheckItemLaserSolderingStart.Enabled = true;
+                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "PCB Align Vision 레시피 경로가 없습니다. 자동 납땜을 실행을 중지 했습니다.");
+                        }
+
+                    }
+
+                    if (_workParams._SolderingInspectVisionEnable)
+                    {
+                        if (_workParams._InspectSolderingVisionPath != string.Empty)
+                        {
+                            _InspectToolBlock = (CogToolBlock)CogSerializer.LoadObjectFromFile(_workParams._InspectAlignVisionPath);
+                        }
+                        else
+                        {
+                            _backgroundWorkerAutoSoldering.CancelAsync();
+                            barCheckItemLaserSolderingStart.Enabled = true;
+                            mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "납땜 검사 Vision 레시피 경로가 없습니다. 자동 납땜을 실행을 중지 했습니다.");
+                        }
+                    }
+                    CheckTackTime.Reset();
+                    _IsAutoSolderingRunning = true;
+                    _IsAutoSolderingEnd = false;
+                    _IsAutoSequencePyrospotDataSaveEnable = true;
+                    barCheckItemLaserSolderingStart.Caption = "작업 중지";
+                    // 검사 쓰레드 시작
+                    _backgroundWorkerAutoSoldering.RunWorkerAsync();
+                    CheckTackTime.Start();
+                }
+                else
+                {
+                    _mLaserSoldering.LaserSolderingStop();
+                    CheckTackTime.Stop();
+                    //_backgroundWorkerAutoSoldering.CancelAsync();      
+                    _IsAutoSequenceCancleRequest = true;
+                    _IsRequestAutomovingCommand = false;
+                    //barCheckItemLaserSolderingStart.Enabled = true;
+                    //_IsAutoSolderingRunning = false;
+                    //_IsAutoSolderingEnd = false;
+                    _waitHandle.Set();
+                    barCheckItemLaserSolderingStart.Caption = "작업 시작";
+                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행을 중지 했습니다.");
+                }
+            }
+            catch (Exception ex)
+            {
+                mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행에 오류가 있습니다.");
+            }
+        }
         private void timerChartUpdate_Tick(object sender, EventArgs e)
         {
             try
@@ -2759,6 +2884,12 @@ namespace atLaserSoldering
                             mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "모션 원점 복귀중으로 명령을 생략합니다.");
                         }
                         
+                    }
+
+                    if (mRobotInformation.mInputData.B5)
+                    {
+                        if (!_bwMotionHome.IsBusy)
+                            AutoSolderingSequeneStart();
                     }
                 }
                 if (_IsAutoSolderingRunning)
