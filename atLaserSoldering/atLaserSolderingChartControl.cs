@@ -118,8 +118,18 @@ namespace atLaserSoldering
                     using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
                     {
                         string strTemp = "";
-                        strTemp = string.Format("{0:00}.{1:00}.{2:0000};{3};{4:0000.0}",presettime.Day.ToString(),presettime.Month.ToString(),presettime.Year.ToString(),presettime.TimeOfDay.ToString(), _dPresentTemperature);
+                        strTemp = string.Format("{0:00}.{1:00}.{2:0000};{3};{4:0000.0}", presettime.Day.ToString(), presettime.Month.ToString(), presettime.Year.ToString(), presettime.TimeOfDay.ToString(), _dPresentTemperature);
                         sw.WriteLine(strTemp);
+                    }
+                    if (index >= 10000)
+                    {
+                        _uiChartIndexCount = 0;
+                        index = 0;
+                        this.BeginInvoke(new MethodInvoker(delegate ()
+                        {
+                            chartControlPyrospotData.Series[0].Points.RemoveAt(0);
+                            chartControlPyrospotData.Series[0].Points.Clear();
+                        }));
                     }
                 }
                 else if (_IsPyrospotDataSaveEnable)
@@ -132,6 +142,16 @@ namespace atLaserSoldering
                         strTemp = string.Format("{0:00}.{1:00}.{2:0000};{3};{4:0000.0}", presettime.Day.ToString(), presettime.Month.ToString(), presettime.Year.ToString(), presettime.TimeOfDay.ToString(), _dPresentTemperature);
                         sw.WriteLine(strTemp);
                     }
+                    if (index >= 200)
+                    {
+                        _uiChartIndexCount = 0;
+                        index = 0;
+                        this.BeginInvoke(new MethodInvoker(delegate ()
+                        {
+                            chartControlPyrospotData.Series[0].Points.RemoveAt(0);
+                            chartControlPyrospotData.Series[0].Points.Clear();
+                        }));
+                    }
                 }
                 else if (_IsPyrospotDataAutoSaveEnable)
                 {
@@ -143,18 +163,31 @@ namespace atLaserSoldering
                         strTemp = string.Format("{0:00}.{1:00}.{2:0000};{3};{4:0000.0}", presettime.Day.ToString(), presettime.Month.ToString(), presettime.Year.ToString(), presettime.TimeOfDay.ToString(), _dPresentTemperature);
                         sw.WriteLine(strTemp);
                     }
+                    if (index >= 100)
+                    {
+                        _uiChartIndexCount = 0;
+                        index = 0;
+                        this.BeginInvoke(new MethodInvoker(delegate ()
+                        {
+                            chartControlPyrospotData.Series[0].Points.RemoveAt(0);
+                            chartControlPyrospotData.Series[0].Points.Clear();
+                        }));
+                    }
+                }
+                else
+                {
+                    if (index >= 50)
+                    {
+                        _uiChartIndexCount = 0;
+                        index = 0;
+                        this.BeginInvoke(new MethodInvoker(delegate ()
+                        {
+                            chartControlPyrospotData.Series[0].Points.RemoveAt(0);
+                            chartControlPyrospotData.Series[0].Points.Clear();
+                        }));
+                    }
                 }
 
-                if (index >= 50)
-                {
-                    _uiChartIndexCount = 0;
-                    index = 0;
-                    this.BeginInvoke(new MethodInvoker(delegate ()
-                    {
-                        chartControlPyrospotData.Series[0].Points.RemoveAt(0);
-                        chartControlPyrospotData.Series[0].Points.Clear();
-                    }));
-                }
                 if (this.InvokeRequired)
                 {
                     this.Invoke(new MethodInvoker(delegate ()

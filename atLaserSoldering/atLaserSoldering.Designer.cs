@@ -350,7 +350,7 @@
             this.barButtonItemPyrospotDataSave,
             this.barStaticItemPresentTemperature});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ribbonControl.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.ribbonControl.MaxItemId = 36;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -359,7 +359,7 @@
             this.repositoryItemAutoSolderingProgress,
             this.repositoryItemTextEdit1,
             this.repositoryItemTextEditAutoSolderingResult});
-            this.ribbonControl.Size = new System.Drawing.Size(1014, 147);
+            this.ribbonControl.Size = new System.Drawing.Size(869, 147);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             // 
             // barButtonItemSystemFolderPathSetting
@@ -618,6 +618,7 @@
             this.barListItemRecipeOpen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barListItemRecipeOpen.ImageOptions.Image")));
             this.barListItemRecipeOpen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barListItemRecipeOpen.ImageOptions.LargeImage")));
             this.barListItemRecipeOpen.Name = "barListItemRecipeOpen";
+            this.barListItemRecipeOpen.ShowChecks = true;
             this.barListItemRecipeOpen.ListItemClick += new DevExpress.XtraBars.ListItemClickEventHandler(this.barListItemRecipeOpen_ListItemClick);
             this.barListItemRecipeOpen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barListItemRecipeOpen_ItemClick);
             // 
@@ -735,10 +736,10 @@
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 736);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1014, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(869, 31);
             // 
             // dockManagerMainForm
             // 
@@ -765,19 +766,19 @@
             this.dockPanelLogView.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
             this.dockPanelLogView.ID = new System.Guid("a748bb34-111e-41a4-b2ed-b6fe9390e8a8");
             this.dockPanelLogView.Location = new System.Drawing.Point(0, 603);
-            this.dockPanelLogView.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dockPanelLogView.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.dockPanelLogView.Name = "dockPanelLogView";
             this.dockPanelLogView.OriginalSize = new System.Drawing.Size(200, 133);
-            this.dockPanelLogView.Size = new System.Drawing.Size(1014, 133);
+            this.dockPanelLogView.Size = new System.Drawing.Size(869, 133);
             this.dockPanelLogView.Text = "로그";
             // 
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Controls.Add(this.layoutControl7);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 24);
-            this.dockPanel2_Container.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dockPanel2_Container.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(1006, 105);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(861, 105);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // layoutControl7
@@ -785,22 +786,22 @@
             this.layoutControl7.Controls.Add(this.gridControlLog);
             this.layoutControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl7.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.layoutControl7.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.layoutControl7.Name = "layoutControl7";
             this.layoutControl7.Root = this.layoutControlGroup6;
-            this.layoutControl7.Size = new System.Drawing.Size(1006, 105);
+            this.layoutControl7.Size = new System.Drawing.Size(861, 105);
             this.layoutControl7.TabIndex = 0;
             this.layoutControl7.Text = "layoutControl7";
             // 
             // gridControlLog
             // 
-            this.gridControlLog.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+            this.gridControlLog.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.gridControlLog.Location = new System.Drawing.Point(4, 4);
             this.gridControlLog.MainView = this.gridControlLogView;
-            this.gridControlLog.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gridControlLog.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.gridControlLog.MenuManager = this.ribbonControl;
             this.gridControlLog.Name = "gridControlLog";
-            this.gridControlLog.Size = new System.Drawing.Size(998, 97);
+            this.gridControlLog.Size = new System.Drawing.Size(853, 97);
             this.gridControlLog.TabIndex = 4;
             this.gridControlLog.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridControlLogView});
@@ -823,7 +824,7 @@
             // 
             this.gridColumn1.Caption = "레벨";
             this.gridColumn1.FieldName = "Level";
-            this.gridColumn1.MinWidth = 59;
+            this.gridColumn1.MinWidth = 51;
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.OptionsColumn.AllowFocus = false;
@@ -837,13 +838,13 @@
             this.gridColumn1.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 59;
+            this.gridColumn1.Width = 51;
             // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "시간";
             this.gridColumn2.FieldName = "DateTime";
-            this.gridColumn2.MinWidth = 100;
+            this.gridColumn2.MinWidth = 86;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.OptionsColumn.AllowFocus = false;
@@ -857,12 +858,13 @@
             this.gridColumn2.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 220;
+            this.gridColumn2.Width = 189;
             // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "위치";
             this.gridColumn3.FieldName = "Logger";
+            this.gridColumn3.MinWidth = 17;
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.OptionsColumn.AllowFocus = false;
@@ -876,12 +878,13 @@
             this.gridColumn3.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 64;
             // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "메세지";
             this.gridColumn4.FieldName = "Message";
-            this.gridColumn4.MinWidth = 100;
+            this.gridColumn4.MinWidth = 86;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.OptionsColumn.AllowFocus = false;
@@ -894,7 +897,7 @@
             this.gridColumn4.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 467;
+            this.gridColumn4.Width = 400;
             // 
             // layoutControlGroup6
             // 
@@ -904,7 +907,7 @@
             this.layoutControlItem7});
             this.layoutControlGroup6.Name = "layoutControlGroup6";
             this.layoutControlGroup6.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup6.Size = new System.Drawing.Size(1006, 105);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(861, 105);
             this.layoutControlGroup6.TextVisible = false;
             // 
             // layoutControlItem7
@@ -912,7 +915,7 @@
             this.layoutControlItem7.Control = this.gridControlLog;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(1002, 101);
+            this.layoutControlItem7.Size = new System.Drawing.Size(857, 101);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -921,10 +924,10 @@
             this.layoutControl1.Controls.Add(this.layoutControl2);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 147);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1014, 456);
+            this.layoutControl1.Size = new System.Drawing.Size(869, 456);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -934,10 +937,10 @@
             this.layoutControl2.Controls.Add(this.xtraTabControlMainCtrl);
             this.layoutControl2.Controls.Add(this.pictureEditSystemImage);
             this.layoutControl2.Location = new System.Drawing.Point(5, 6);
-            this.layoutControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup1;
-            this.layoutControl2.Size = new System.Drawing.Size(1004, 444);
+            this.layoutControl2.Size = new System.Drawing.Size(859, 444);
             this.layoutControl2.TabIndex = 4;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -951,24 +954,25 @@
             this.chartControlPyrospotData.Legend.Name = "Default Legend";
             this.chartControlPyrospotData.Legend.TextVisible = false;
             this.chartControlPyrospotData.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControlPyrospotData.Location = new System.Drawing.Point(12, 295);
+            this.chartControlPyrospotData.Location = new System.Drawing.Point(11, 295);
+            this.chartControlPyrospotData.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.chartControlPyrospotData.Name = "chartControlPyrospotData";
             series1.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
             series1.Name = "Temperature";
             series1.View = swiftPlotSeriesView1;
             this.chartControlPyrospotData.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chartControlPyrospotData.Size = new System.Drawing.Size(442, 137);
+            this.chartControlPyrospotData.Size = new System.Drawing.Size(377, 137);
             this.chartControlPyrospotData.TabIndex = 5;
             // 
             // xtraTabControlMainCtrl
             // 
             this.xtraTabControlMainCtrl.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Right;
-            this.xtraTabControlMainCtrl.Location = new System.Drawing.Point(458, 12);
-            this.xtraTabControlMainCtrl.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.xtraTabControlMainCtrl.Location = new System.Drawing.Point(392, 12);
+            this.xtraTabControlMainCtrl.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.xtraTabControlMainCtrl.Name = "xtraTabControlMainCtrl";
             this.xtraTabControlMainCtrl.SelectedTabPage = this.xtraTabPageMain;
-            this.xtraTabControlMainCtrl.Size = new System.Drawing.Size(534, 420);
+            this.xtraTabControlMainCtrl.Size = new System.Drawing.Size(456, 420);
             this.xtraTabControlMainCtrl.TabIndex = 4;
             this.xtraTabControlMainCtrl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPageMain,
@@ -981,19 +985,19 @@
             // xtraTabPageMain
             // 
             this.xtraTabPageMain.Controls.Add(this.layoutControl3);
-            this.xtraTabPageMain.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.xtraTabPageMain.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.xtraTabPageMain.Name = "xtraTabPageMain";
-            this.xtraTabPageMain.Size = new System.Drawing.Size(504, 414);
+            this.xtraTabPageMain.Size = new System.Drawing.Size(426, 414);
             this.xtraTabPageMain.Text = "Main";
             // 
             // layoutControl3
             // 
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.layoutControl3.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup2;
-            this.layoutControl3.Size = new System.Drawing.Size(504, 414);
+            this.layoutControl3.Size = new System.Drawing.Size(426, 414);
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
@@ -1002,16 +1006,16 @@
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup2.GroupBordersVisible = false;
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(504, 414);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(426, 414);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // xtraTabPageImageProcess
             // 
             this.xtraTabPageImageProcess.AutoScroll = true;
             this.xtraTabPageImageProcess.Controls.Add(this.layoutControl6);
-            this.xtraTabPageImageProcess.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.xtraTabPageImageProcess.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.xtraTabPageImageProcess.Name = "xtraTabPageImageProcess";
-            this.xtraTabPageImageProcess.Size = new System.Drawing.Size(504, 414);
+            this.xtraTabPageImageProcess.Size = new System.Drawing.Size(426, 414);
             this.xtraTabPageImageProcess.Text = "이미지 처리";
             // 
             // layoutControl6
@@ -1019,10 +1023,10 @@
             this.layoutControl6.Controls.Add(this.panelControl1);
             this.layoutControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl6.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.layoutControl6.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.layoutControl6.Name = "layoutControl6";
             this.layoutControl6.Root = this.layoutControlGroup5;
-            this.layoutControl6.Size = new System.Drawing.Size(504, 414);
+            this.layoutControl6.Size = new System.Drawing.Size(426, 414);
             this.layoutControl6.TabIndex = 0;
             // 
             // panelControl1
@@ -1030,10 +1034,10 @@
             this.panelControl1.Controls.Add(this.groupControlLight);
             this.panelControl1.Controls.Add(this.groupControlProcessing);
             this.panelControl1.Controls.Add(this.GroupControlCamera);
-            this.panelControl1.Location = new System.Drawing.Point(12, 12);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panelControl1.Location = new System.Drawing.Point(11, 12);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(480, 390);
+            this.panelControl1.Size = new System.Drawing.Size(404, 390);
             this.panelControl1.TabIndex = 4;
             // 
             // groupControlLight
@@ -1049,42 +1053,42 @@
             this.groupControlLight.Controls.Add(this.labelControlLedBright);
             this.groupControlLight.Controls.Add(this.labelControlLightChannel);
             this.groupControlLight.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControlLight.Location = new System.Drawing.Point(4, 265);
-            this.groupControlLight.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.groupControlLight.Location = new System.Drawing.Point(3, 265);
+            this.groupControlLight.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.groupControlLight.Name = "groupControlLight";
-            this.groupControlLight.Size = new System.Drawing.Size(248, 120);
+            this.groupControlLight.Size = new System.Drawing.Size(212, 120);
             this.groupControlLight.TabIndex = 3;
             this.groupControlLight.Text = "Light";
             // 
             // textEditLightBright
             // 
-            this.textEditLightBright.Location = new System.Drawing.Point(82, 85);
-            this.textEditLightBright.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textEditLightBright.Location = new System.Drawing.Point(70, 85);
+            this.textEditLightBright.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.textEditLightBright.Name = "textEditLightBright";
-            this.textEditLightBright.Size = new System.Drawing.Size(72, 20);
+            this.textEditLightBright.Size = new System.Drawing.Size(61, 20);
             this.textEditLightBright.TabIndex = 4;
             this.textEditLightBright.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditLightBright_KeyDown);
             // 
             // trackBarControlLedBright
             // 
             this.trackBarControlLedBright.EditValue = null;
-            this.trackBarControlLedBright.Location = new System.Drawing.Point(160, 73);
-            this.trackBarControlLedBright.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.trackBarControlLedBright.Location = new System.Drawing.Point(137, 73);
+            this.trackBarControlLedBright.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.trackBarControlLedBright.Name = "trackBarControlLedBright";
             this.trackBarControlLedBright.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.trackBarControlLedBright.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.trackBarControlLedBright.Size = new System.Drawing.Size(79, 45);
+            this.trackBarControlLedBright.Size = new System.Drawing.Size(67, 45);
             this.trackBarControlLedBright.TabIndex = 3;
             this.trackBarControlLedBright.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarControlLedBright_MouseUp);
             // 
             // comboBoxEditLightChannel
             // 
-            this.comboBoxEditLightChannel.Location = new System.Drawing.Point(82, 49);
-            this.comboBoxEditLightChannel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.comboBoxEditLightChannel.Location = new System.Drawing.Point(70, 49);
+            this.comboBoxEditLightChannel.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.comboBoxEditLightChannel.Name = "comboBoxEditLightChannel";
             this.comboBoxEditLightChannel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditLightChannel.Size = new System.Drawing.Size(157, 20);
+            this.comboBoxEditLightChannel.Size = new System.Drawing.Size(134, 20);
             this.comboBoxEditLightChannel.TabIndex = 1;
             // 
             // labelControlLightOnCh4
@@ -1093,8 +1097,8 @@
             this.labelControlLightOnCh4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControlLightOnCh4.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.labelControlLightOnCh4.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
-            this.labelControlLightOnCh4.Location = new System.Drawing.Point(223, 24);
-            this.labelControlLightOnCh4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlLightOnCh4.Location = new System.Drawing.Point(191, 24);
+            this.labelControlLightOnCh4.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlLightOnCh4.Name = "labelControlLightOnCh4";
             this.labelControlLightOnCh4.Size = new System.Drawing.Size(16, 16);
             this.labelControlLightOnCh4.TabIndex = 0;
@@ -1106,8 +1110,8 @@
             this.labelControlLightOnCh3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControlLightOnCh3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.labelControlLightOnCh3.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
-            this.labelControlLightOnCh3.Location = new System.Drawing.Point(176, 24);
-            this.labelControlLightOnCh3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlLightOnCh3.Location = new System.Drawing.Point(150, 24);
+            this.labelControlLightOnCh3.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlLightOnCh3.Name = "labelControlLightOnCh3";
             this.labelControlLightOnCh3.Size = new System.Drawing.Size(16, 16);
             this.labelControlLightOnCh3.TabIndex = 0;
@@ -1119,8 +1123,8 @@
             this.labelControlLightOnCh2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControlLightOnCh2.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.labelControlLightOnCh2.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
-            this.labelControlLightOnCh2.Location = new System.Drawing.Point(129, 24);
-            this.labelControlLightOnCh2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlLightOnCh2.Location = new System.Drawing.Point(110, 24);
+            this.labelControlLightOnCh2.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlLightOnCh2.Name = "labelControlLightOnCh2";
             this.labelControlLightOnCh2.Size = new System.Drawing.Size(16, 16);
             this.labelControlLightOnCh2.TabIndex = 0;
@@ -1132,8 +1136,8 @@
             this.labelControlLightOnCh1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControlLightOnCh1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.labelControlLightOnCh1.ImageOptions.Image = global::atLaserSoldering.Properties.Resources.iconsetredtoblack4_16x16;
-            this.labelControlLightOnCh1.Location = new System.Drawing.Point(82, 24);
-            this.labelControlLightOnCh1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlLightOnCh1.Location = new System.Drawing.Point(70, 24);
+            this.labelControlLightOnCh1.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlLightOnCh1.Name = "labelControlLightOnCh1";
             this.labelControlLightOnCh1.Size = new System.Drawing.Size(16, 16);
             this.labelControlLightOnCh1.TabIndex = 0;
@@ -1141,8 +1145,8 @@
             // 
             // labelControlLEDControl
             // 
-            this.labelControlLEDControl.Location = new System.Drawing.Point(6, 24);
-            this.labelControlLEDControl.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlLEDControl.Location = new System.Drawing.Point(5, 24);
+            this.labelControlLEDControl.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlLEDControl.Name = "labelControlLEDControl";
             this.labelControlLEDControl.Size = new System.Drawing.Size(44, 14);
             this.labelControlLEDControl.TabIndex = 0;
@@ -1150,8 +1154,8 @@
             // 
             // labelControlLedBright
             // 
-            this.labelControlLedBright.Location = new System.Drawing.Point(6, 88);
-            this.labelControlLedBright.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlLedBright.Location = new System.Drawing.Point(5, 88);
+            this.labelControlLedBright.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlLedBright.Name = "labelControlLedBright";
             this.labelControlLedBright.Size = new System.Drawing.Size(44, 14);
             this.labelControlLedBright.TabIndex = 0;
@@ -1159,8 +1163,8 @@
             // 
             // labelControlLightChannel
             // 
-            this.labelControlLightChannel.Location = new System.Drawing.Point(6, 52);
-            this.labelControlLightChannel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlLightChannel.Location = new System.Drawing.Point(5, 52);
+            this.labelControlLightChannel.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlLightChannel.Name = "labelControlLightChannel";
             this.labelControlLightChannel.Size = new System.Drawing.Size(43, 14);
             this.labelControlLightChannel.TabIndex = 0;
@@ -1176,10 +1180,10 @@
             this.groupControlProcessing.Controls.Add(this.labelControlVisionProcessing);
             this.groupControlProcessing.Controls.Add(this.labelControlVisionReceipe);
             this.groupControlProcessing.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControlProcessing.Location = new System.Drawing.Point(256, 4);
-            this.groupControlProcessing.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.groupControlProcessing.Location = new System.Drawing.Point(219, 4);
+            this.groupControlProcessing.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.groupControlProcessing.Name = "groupControlProcessing";
-            this.groupControlProcessing.Size = new System.Drawing.Size(220, 381);
+            this.groupControlProcessing.Size = new System.Drawing.Size(188, 381);
             this.groupControlProcessing.TabIndex = 4;
             this.groupControlProcessing.Text = "Image Process";
             // 
@@ -1193,6 +1197,7 @@
             this.cogRecordDisplayVisionResult.DoubleTapZoomCycleLength = 2;
             this.cogRecordDisplayVisionResult.DoubleTapZoomSensitivity = 2.5D;
             this.cogRecordDisplayVisionResult.Location = new System.Drawing.Point(8, 124);
+            this.cogRecordDisplayVisionResult.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cogRecordDisplayVisionResult.MouseWheelMode = Cognex.VisionPro.Display.CogDisplayMouseWheelModeConstants.Zoom1;
             this.cogRecordDisplayVisionResult.MouseWheelSensitivity = 1D;
             this.cogRecordDisplayVisionResult.Name = "cogRecordDisplayVisionResult";
@@ -1202,35 +1207,35 @@
             // 
             // simpleButtonVisionEdit
             // 
-            this.simpleButtonVisionEdit.Location = new System.Drawing.Point(100, 86);
-            this.simpleButtonVisionEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.simpleButtonVisionEdit.Location = new System.Drawing.Point(85, 86);
+            this.simpleButtonVisionEdit.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.simpleButtonVisionEdit.Name = "simpleButtonVisionEdit";
-            this.simpleButtonVisionEdit.Size = new System.Drawing.Size(111, 23);
+            this.simpleButtonVisionEdit.Size = new System.Drawing.Size(95, 23);
             this.simpleButtonVisionEdit.TabIndex = 1;
             this.simpleButtonVisionEdit.Text = "편집 하기";
             // 
             // simpleButtonImageProcessing
             // 
-            this.simpleButtonImageProcessing.Location = new System.Drawing.Point(100, 56);
-            this.simpleButtonImageProcessing.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.simpleButtonImageProcessing.Location = new System.Drawing.Point(85, 56);
+            this.simpleButtonImageProcessing.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.simpleButtonImageProcessing.Name = "simpleButtonImageProcessing";
-            this.simpleButtonImageProcessing.Size = new System.Drawing.Size(111, 23);
+            this.simpleButtonImageProcessing.Size = new System.Drawing.Size(95, 23);
             this.simpleButtonImageProcessing.TabIndex = 1;
             this.simpleButtonImageProcessing.Text = "실행 하기";
             // 
             // simpleButtonVisionReceipeOpen
             // 
-            this.simpleButtonVisionReceipeOpen.Location = new System.Drawing.Point(100, 23);
-            this.simpleButtonVisionReceipeOpen.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.simpleButtonVisionReceipeOpen.Location = new System.Drawing.Point(85, 23);
+            this.simpleButtonVisionReceipeOpen.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.simpleButtonVisionReceipeOpen.Name = "simpleButtonVisionReceipeOpen";
-            this.simpleButtonVisionReceipeOpen.Size = new System.Drawing.Size(111, 23);
+            this.simpleButtonVisionReceipeOpen.Size = new System.Drawing.Size(95, 23);
             this.simpleButtonVisionReceipeOpen.TabIndex = 1;
             this.simpleButtonVisionReceipeOpen.Text = "불러 오기";
             // 
             // labelControlVisionReceipeEdit
             // 
-            this.labelControlVisionReceipeEdit.Location = new System.Drawing.Point(7, 90);
-            this.labelControlVisionReceipeEdit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlVisionReceipeEdit.Location = new System.Drawing.Point(5, 90);
+            this.labelControlVisionReceipeEdit.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlVisionReceipeEdit.Name = "labelControlVisionReceipeEdit";
             this.labelControlVisionReceipeEdit.Size = new System.Drawing.Size(78, 14);
             this.labelControlVisionReceipeEdit.TabIndex = 0;
@@ -1238,8 +1243,8 @@
             // 
             // labelControlVisionProcessing
             // 
-            this.labelControlVisionProcessing.Location = new System.Drawing.Point(7, 60);
-            this.labelControlVisionProcessing.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlVisionProcessing.Location = new System.Drawing.Point(5, 60);
+            this.labelControlVisionProcessing.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlVisionProcessing.Name = "labelControlVisionProcessing";
             this.labelControlVisionProcessing.Size = new System.Drawing.Size(78, 14);
             this.labelControlVisionProcessing.TabIndex = 0;
@@ -1247,8 +1252,8 @@
             // 
             // labelControlVisionReceipe
             // 
-            this.labelControlVisionReceipe.Location = new System.Drawing.Point(7, 27);
-            this.labelControlVisionReceipe.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlVisionReceipe.Location = new System.Drawing.Point(5, 27);
+            this.labelControlVisionReceipe.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlVisionReceipe.Name = "labelControlVisionReceipe";
             this.labelControlVisionReceipe.Size = new System.Drawing.Size(54, 14);
             this.labelControlVisionReceipe.TabIndex = 0;
@@ -1272,113 +1277,113 @@
             this.GroupControlCamera.Controls.Add(this.labelControlExposureTime);
             this.GroupControlCamera.Controls.Add(this.labelControlCamera);
             this.GroupControlCamera.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.GroupControlCamera.Location = new System.Drawing.Point(4, 4);
-            this.GroupControlCamera.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.GroupControlCamera.Location = new System.Drawing.Point(3, 4);
+            this.GroupControlCamera.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.GroupControlCamera.Name = "GroupControlCamera";
-            this.GroupControlCamera.Size = new System.Drawing.Size(248, 261);
+            this.GroupControlCamera.Size = new System.Drawing.Size(212, 261);
             this.GroupControlCamera.TabIndex = 5;
             this.GroupControlCamera.Text = "Camera";
             // 
             // simpleButtonImageLoad
             // 
-            this.simpleButtonImageLoad.Location = new System.Drawing.Point(82, 229);
-            this.simpleButtonImageLoad.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.simpleButtonImageLoad.Location = new System.Drawing.Point(70, 229);
+            this.simpleButtonImageLoad.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.simpleButtonImageLoad.Name = "simpleButtonImageLoad";
-            this.simpleButtonImageLoad.Size = new System.Drawing.Size(157, 23);
+            this.simpleButtonImageLoad.Size = new System.Drawing.Size(134, 23);
             this.simpleButtonImageLoad.TabIndex = 5;
             this.simpleButtonImageLoad.Text = "이미지 불러오기";
             this.simpleButtonImageLoad.Click += new System.EventHandler(this.simpleButtonImageLoad_Click);
             // 
             // simpleButtonSingleGrab
             // 
-            this.simpleButtonSingleGrab.Location = new System.Drawing.Point(82, 200);
-            this.simpleButtonSingleGrab.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.simpleButtonSingleGrab.Location = new System.Drawing.Point(70, 200);
+            this.simpleButtonSingleGrab.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.simpleButtonSingleGrab.Name = "simpleButtonSingleGrab";
-            this.simpleButtonSingleGrab.Size = new System.Drawing.Size(157, 23);
+            this.simpleButtonSingleGrab.Size = new System.Drawing.Size(134, 23);
             this.simpleButtonSingleGrab.TabIndex = 5;
             this.simpleButtonSingleGrab.Text = "이미지 획득하기";
             this.simpleButtonSingleGrab.Click += new System.EventHandler(this.simpleButtonSingleGrab_Click);
             // 
             // textEditGain
             // 
-            this.textEditGain.Location = new System.Drawing.Point(82, 160);
-            this.textEditGain.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textEditGain.Location = new System.Drawing.Point(70, 160);
+            this.textEditGain.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.textEditGain.Name = "textEditGain";
-            this.textEditGain.Size = new System.Drawing.Size(72, 20);
+            this.textEditGain.Size = new System.Drawing.Size(61, 20);
             this.textEditGain.TabIndex = 4;
             this.textEditGain.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditGain_KeyDown);
             // 
             // textEditFrameRatio
             // 
-            this.textEditFrameRatio.Location = new System.Drawing.Point(82, 111);
-            this.textEditFrameRatio.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textEditFrameRatio.Location = new System.Drawing.Point(70, 111);
+            this.textEditFrameRatio.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.textEditFrameRatio.Name = "textEditFrameRatio";
-            this.textEditFrameRatio.Size = new System.Drawing.Size(72, 20);
+            this.textEditFrameRatio.Size = new System.Drawing.Size(61, 20);
             this.textEditFrameRatio.TabIndex = 4;
             this.textEditFrameRatio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditFrameRatio_KeyDown);
             // 
             // textEditExposureTime
             // 
-            this.textEditExposureTime.Location = new System.Drawing.Point(82, 62);
-            this.textEditExposureTime.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.textEditExposureTime.Location = new System.Drawing.Point(70, 62);
+            this.textEditExposureTime.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.textEditExposureTime.Name = "textEditExposureTime";
-            this.textEditExposureTime.Size = new System.Drawing.Size(72, 20);
+            this.textEditExposureTime.Size = new System.Drawing.Size(61, 20);
             this.textEditExposureTime.TabIndex = 4;
             this.textEditExposureTime.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditExposureTime_KeyDown);
             // 
             // trackBarControlGain
             // 
             this.trackBarControlGain.EditValue = null;
-            this.trackBarControlGain.Location = new System.Drawing.Point(160, 148);
-            this.trackBarControlGain.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.trackBarControlGain.Location = new System.Drawing.Point(137, 148);
+            this.trackBarControlGain.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.trackBarControlGain.Name = "trackBarControlGain";
             this.trackBarControlGain.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.trackBarControlGain.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.trackBarControlGain.Properties.Maximum = 1000;
-            this.trackBarControlGain.Size = new System.Drawing.Size(79, 45);
+            this.trackBarControlGain.Size = new System.Drawing.Size(67, 45);
             this.trackBarControlGain.TabIndex = 3;
             this.trackBarControlGain.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarControlGain_MouseUp);
             // 
             // trackBarControlFrameRatio
             // 
             this.trackBarControlFrameRatio.EditValue = null;
-            this.trackBarControlFrameRatio.Location = new System.Drawing.Point(160, 99);
-            this.trackBarControlFrameRatio.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.trackBarControlFrameRatio.Location = new System.Drawing.Point(137, 99);
+            this.trackBarControlFrameRatio.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.trackBarControlFrameRatio.Name = "trackBarControlFrameRatio";
             this.trackBarControlFrameRatio.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.trackBarControlFrameRatio.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.trackBarControlFrameRatio.Properties.Maximum = 100;
-            this.trackBarControlFrameRatio.Size = new System.Drawing.Size(79, 45);
+            this.trackBarControlFrameRatio.Size = new System.Drawing.Size(67, 45);
             this.trackBarControlFrameRatio.TabIndex = 3;
             this.trackBarControlFrameRatio.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarControlFrameRatio_MouseUp);
             // 
             // trackBarControlExposureTime
             // 
             this.trackBarControlExposureTime.EditValue = null;
-            this.trackBarControlExposureTime.Location = new System.Drawing.Point(160, 50);
-            this.trackBarControlExposureTime.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.trackBarControlExposureTime.Location = new System.Drawing.Point(137, 50);
+            this.trackBarControlExposureTime.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.trackBarControlExposureTime.Name = "trackBarControlExposureTime";
             this.trackBarControlExposureTime.Properties.LabelAppearance.Options.UseTextOptions = true;
             this.trackBarControlExposureTime.Properties.LabelAppearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.trackBarControlExposureTime.Properties.Maximum = 10000000;
-            this.trackBarControlExposureTime.Size = new System.Drawing.Size(79, 45);
+            this.trackBarControlExposureTime.Size = new System.Drawing.Size(67, 45);
             this.trackBarControlExposureTime.TabIndex = 3;
             this.trackBarControlExposureTime.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarControlExposureTime_MouseUp);
             // 
             // comboBoxEditCameraName
             // 
-            this.comboBoxEditCameraName.Location = new System.Drawing.Point(82, 24);
-            this.comboBoxEditCameraName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.comboBoxEditCameraName.Location = new System.Drawing.Point(70, 24);
+            this.comboBoxEditCameraName.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.comboBoxEditCameraName.Name = "comboBoxEditCameraName";
             this.comboBoxEditCameraName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditCameraName.Size = new System.Drawing.Size(157, 20);
+            this.comboBoxEditCameraName.Size = new System.Drawing.Size(134, 20);
             this.comboBoxEditCameraName.TabIndex = 1;
             // 
             // labelControlImageLoad
             // 
-            this.labelControlImageLoad.Location = new System.Drawing.Point(6, 233);
-            this.labelControlImageLoad.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlImageLoad.Location = new System.Drawing.Point(5, 233);
+            this.labelControlImageLoad.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlImageLoad.Name = "labelControlImageLoad";
             this.labelControlImageLoad.Size = new System.Drawing.Size(54, 14);
             this.labelControlImageLoad.TabIndex = 0;
@@ -1386,8 +1391,8 @@
             // 
             // labelControlSingleShot
             // 
-            this.labelControlSingleShot.Location = new System.Drawing.Point(6, 204);
-            this.labelControlSingleShot.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlSingleShot.Location = new System.Drawing.Point(5, 204);
+            this.labelControlSingleShot.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlSingleShot.Name = "labelControlSingleShot";
             this.labelControlSingleShot.Size = new System.Drawing.Size(54, 14);
             this.labelControlSingleShot.TabIndex = 0;
@@ -1395,8 +1400,8 @@
             // 
             // labelControlGain
             // 
-            this.labelControlGain.Location = new System.Drawing.Point(6, 163);
-            this.labelControlGain.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlGain.Location = new System.Drawing.Point(5, 163);
+            this.labelControlGain.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlGain.Name = "labelControlGain";
             this.labelControlGain.Size = new System.Drawing.Size(44, 14);
             this.labelControlGain.TabIndex = 0;
@@ -1404,8 +1409,8 @@
             // 
             // labelControlFrameRatio
             // 
-            this.labelControlFrameRatio.Location = new System.Drawing.Point(6, 114);
-            this.labelControlFrameRatio.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlFrameRatio.Location = new System.Drawing.Point(5, 114);
+            this.labelControlFrameRatio.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlFrameRatio.Name = "labelControlFrameRatio";
             this.labelControlFrameRatio.Size = new System.Drawing.Size(66, 14);
             this.labelControlFrameRatio.TabIndex = 0;
@@ -1413,8 +1418,8 @@
             // 
             // labelControlExposureTime
             // 
-            this.labelControlExposureTime.Location = new System.Drawing.Point(6, 65);
-            this.labelControlExposureTime.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlExposureTime.Location = new System.Drawing.Point(5, 65);
+            this.labelControlExposureTime.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlExposureTime.Name = "labelControlExposureTime";
             this.labelControlExposureTime.Size = new System.Drawing.Size(66, 14);
             this.labelControlExposureTime.TabIndex = 0;
@@ -1422,8 +1427,8 @@
             // 
             // labelControlCamera
             // 
-            this.labelControlCamera.Location = new System.Drawing.Point(6, 27);
-            this.labelControlCamera.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelControlCamera.Location = new System.Drawing.Point(5, 27);
+            this.labelControlCamera.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.labelControlCamera.Name = "labelControlCamera";
             this.labelControlCamera.Size = new System.Drawing.Size(40, 14);
             this.labelControlCamera.TabIndex = 0;
@@ -1436,7 +1441,7 @@
             this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem6});
             this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(504, 414);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(426, 414);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // layoutControlItem6
@@ -1444,16 +1449,16 @@
             this.layoutControlItem6.Control = this.panelControl1;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(484, 394);
+            this.layoutControlItem6.Size = new System.Drawing.Size(408, 394);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // xtraTabPageMotion
             // 
             this.xtraTabPageMotion.Controls.Add(this.layoutControl4);
-            this.xtraTabPageMotion.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.xtraTabPageMotion.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.xtraTabPageMotion.Name = "xtraTabPageMotion";
-            this.xtraTabPageMotion.Size = new System.Drawing.Size(504, 414);
+            this.xtraTabPageMotion.Size = new System.Drawing.Size(426, 414);
             this.xtraTabPageMotion.Text = "모션 제어";
             // 
             // layoutControl4
@@ -1462,30 +1467,30 @@
             this.layoutControl4.Controls.Add(this.motionControl);
             this.layoutControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.layoutControl4.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.layoutControl4.Name = "layoutControl4";
             this.layoutControl4.Root = this.layoutControlGroup3;
-            this.layoutControl4.Size = new System.Drawing.Size(504, 414);
+            this.layoutControl4.Size = new System.Drawing.Size(426, 414);
             this.layoutControl4.TabIndex = 0;
             this.layoutControl4.Text = "layoutControl4";
             // 
             // layoutControl5
             // 
             this.layoutControl5.Controls.Add(this.remoteIOControl);
-            this.layoutControl5.Location = new System.Drawing.Point(235, 12);
-            this.layoutControl5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.layoutControl5.Location = new System.Drawing.Point(188, 12);
+            this.layoutControl5.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.layoutControl5.Name = "layoutControl5";
             this.layoutControl5.Root = this.layoutControlGroup4;
-            this.layoutControl5.Size = new System.Drawing.Size(257, 390);
+            this.layoutControl5.Size = new System.Drawing.Size(227, 390);
             this.layoutControl5.TabIndex = 5;
             this.layoutControl5.Text = "layoutControl5";
             // 
             // remoteIOControl
             // 
             this.remoteIOControl.Location = new System.Drawing.Point(4, 4);
-            this.remoteIOControl.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+            this.remoteIOControl.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.remoteIOControl.Name = "remoteIOControl";
-            this.remoteIOControl.Size = new System.Drawing.Size(249, 382);
+            this.remoteIOControl.Size = new System.Drawing.Size(219, 382);
             this.remoteIOControl.TabIndex = 4;
             // 
             // layoutControlGroup4
@@ -1496,7 +1501,7 @@
             this.layoutControlItem5});
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlGroup4.Size = new System.Drawing.Size(257, 390);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(227, 390);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlItem5
@@ -1504,16 +1509,16 @@
             this.layoutControlItem5.Control = this.remoteIOControl;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(253, 386);
+            this.layoutControlItem5.Size = new System.Drawing.Size(223, 386);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // motionControl
             // 
-            this.motionControl.Location = new System.Drawing.Point(12, 12);
+            this.motionControl.Location = new System.Drawing.Point(11, 12);
             this.motionControl.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.motionControl.Name = "motionControl";
-            this.motionControl.Size = new System.Drawing.Size(219, 390);
+            this.motionControl.Size = new System.Drawing.Size(173, 390);
             this.motionControl.TabIndex = 4;
             // 
             // layoutControlGroup3
@@ -1524,7 +1529,7 @@
             this.layoutControlItem3,
             this.layoutControlItem4});
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(504, 414);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(426, 414);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem3
@@ -1532,25 +1537,25 @@
             this.layoutControlItem3.Control = this.motionControl;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(223, 394);
+            this.layoutControlItem3.Size = new System.Drawing.Size(177, 394);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.layoutControl5;
-            this.layoutControlItem4.Location = new System.Drawing.Point(223, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(177, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(261, 394);
+            this.layoutControlItem4.Size = new System.Drawing.Size(231, 394);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // xtraTabPageLaserSolder
             // 
             this.xtraTabPageLaserSolder.Controls.Add(this.layoutControl8);
-            this.xtraTabPageLaserSolder.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.xtraTabPageLaserSolder.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.xtraTabPageLaserSolder.Name = "xtraTabPageLaserSolder";
-            this.xtraTabPageLaserSolder.Size = new System.Drawing.Size(504, 414);
+            this.xtraTabPageLaserSolder.Size = new System.Drawing.Size(426, 414);
             this.xtraTabPageLaserSolder.Text = "레이저 납땜";
             // 
             // layoutControl8
@@ -1558,17 +1563,19 @@
             this.layoutControl8.Controls.Add(this.laserSolderingControl);
             this.layoutControl8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl8.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.layoutControl8.Name = "layoutControl8";
             this.layoutControl8.Root = this.layoutControlGroup7;
-            this.layoutControl8.Size = new System.Drawing.Size(504, 414);
+            this.layoutControl8.Size = new System.Drawing.Size(426, 414);
             this.layoutControl8.TabIndex = 0;
             this.layoutControl8.Text = "layoutControl8";
             // 
             // laserSolderingControl
             // 
-            this.laserSolderingControl.Location = new System.Drawing.Point(12, 12);
+            this.laserSolderingControl.Location = new System.Drawing.Point(11, 12);
+            this.laserSolderingControl.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.laserSolderingControl.Name = "laserSolderingControl";
-            this.laserSolderingControl.Size = new System.Drawing.Size(534, 487);
+            this.laserSolderingControl.Size = new System.Drawing.Size(526, 487);
             this.laserSolderingControl.TabIndex = 4;
             // 
             // layoutControlGroup7
@@ -1578,7 +1585,7 @@
             this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem8});
             this.layoutControlGroup7.Name = "layoutControlGroup7";
-            this.layoutControlGroup7.Size = new System.Drawing.Size(558, 511);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(548, 511);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // layoutControlItem8
@@ -1586,22 +1593,23 @@
             this.layoutControlItem8.Control = this.laserSolderingControl;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(538, 491);
+            this.layoutControlItem8.Size = new System.Drawing.Size(530, 491);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // xtraTabPageStatics
             // 
-            this.xtraTabPageStatics.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.xtraTabPageStatics.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.xtraTabPageStatics.Name = "xtraTabPageStatics";
-            this.xtraTabPageStatics.Size = new System.Drawing.Size(504, 414);
+            this.xtraTabPageStatics.Size = new System.Drawing.Size(426, 414);
             this.xtraTabPageStatics.Text = "통계";
             // 
             // xtraTabPageCalibration
             // 
             this.xtraTabPageCalibration.Controls.Add(this.layoutControl9);
+            this.xtraTabPageCalibration.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.xtraTabPageCalibration.Name = "xtraTabPageCalibration";
-            this.xtraTabPageCalibration.Size = new System.Drawing.Size(504, 414);
+            this.xtraTabPageCalibration.Size = new System.Drawing.Size(426, 414);
             this.xtraTabPageCalibration.Text = "위치 보정 테스트";
             // 
             // layoutControl9
@@ -1609,9 +1617,10 @@
             this.layoutControl9.Controls.Add(this.groupControlCalibration);
             this.layoutControl9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl9.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.layoutControl9.Name = "layoutControl9";
             this.layoutControl9.Root = this.layoutControlGroup8;
-            this.layoutControl9.Size = new System.Drawing.Size(504, 414);
+            this.layoutControl9.Size = new System.Drawing.Size(426, 414);
             this.layoutControl9.TabIndex = 0;
             this.layoutControl9.Text = "layoutControl9";
             // 
@@ -1646,24 +1655,27 @@
             this.groupControlCalibration.Controls.Add(this.textEditOffsetX);
             this.groupControlCalibration.Controls.Add(this.labelControlOffsetX);
             this.groupControlCalibration.GroupStyle = DevExpress.Utils.GroupStyle.Light;
-            this.groupControlCalibration.Location = new System.Drawing.Point(12, 12);
+            this.groupControlCalibration.Location = new System.Drawing.Point(11, 12);
+            this.groupControlCalibration.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControlCalibration.Name = "groupControlCalibration";
-            this.groupControlCalibration.Size = new System.Drawing.Size(480, 390);
+            this.groupControlCalibration.Size = new System.Drawing.Size(404, 390);
             this.groupControlCalibration.TabIndex = 4;
             this.groupControlCalibration.Text = "Calibration";
             // 
             // simpleButtonCalibration
             // 
-            this.simpleButtonCalibration.Location = new System.Drawing.Point(387, 99);
+            this.simpleButtonCalibration.Location = new System.Drawing.Point(331, 99);
+            this.simpleButtonCalibration.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.simpleButtonCalibration.Name = "simpleButtonCalibration";
-            this.simpleButtonCalibration.Size = new System.Drawing.Size(81, 46);
+            this.simpleButtonCalibration.Size = new System.Drawing.Size(69, 46);
             this.simpleButtonCalibration.TabIndex = 3;
             this.simpleButtonCalibration.Text = "Calibration";
             this.simpleButtonCalibration.Click += new System.EventHandler(this.simpleButtonCalibration_Click);
             // 
             // radioGroupCalibrationMode
             // 
-            this.radioGroupCalibrationMode.Location = new System.Drawing.Point(11, 59);
+            this.radioGroupCalibrationMode.Location = new System.Drawing.Point(9, 59);
+            this.radioGroupCalibrationMode.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.radioGroupCalibrationMode.MenuManager = this.ribbonControl;
             this.radioGroupCalibrationMode.Name = "radioGroupCalibrationMode";
             this.radioGroupCalibrationMode.Properties.Columns = 3;
@@ -1671,20 +1683,22 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "None"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "All Point"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Two Point")});
-            this.radioGroupCalibrationMode.Size = new System.Drawing.Size(457, 26);
+            this.radioGroupCalibrationMode.Size = new System.Drawing.Size(391, 26);
             this.radioGroupCalibrationMode.TabIndex = 2;
             this.radioGroupCalibrationMode.SelectedIndexChanged += new System.EventHandler(this.radioGroupCalibrationMode_SelectedIndexChanged);
             // 
             // textEditOffsetZ
             // 
-            this.textEditOffsetZ.Location = new System.Drawing.Point(387, 21);
+            this.textEditOffsetZ.Location = new System.Drawing.Point(331, 21);
+            this.textEditOffsetZ.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditOffsetZ.Name = "textEditOffsetZ";
-            this.textEditOffsetZ.Size = new System.Drawing.Size(81, 20);
+            this.textEditOffsetZ.Size = new System.Drawing.Size(69, 20);
             this.textEditOffsetZ.TabIndex = 1;
             // 
             // labelControlOffsetZ
             // 
-            this.labelControlOffsetZ.Location = new System.Drawing.Point(326, 24);
+            this.labelControlOffsetZ.Location = new System.Drawing.Point(279, 24);
+            this.labelControlOffsetZ.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControlOffsetZ.Name = "labelControlOffsetZ";
             this.labelControlOffsetZ.Size = new System.Drawing.Size(45, 14);
             this.labelControlOffsetZ.TabIndex = 0;
@@ -1692,14 +1706,16 @@
             // 
             // textEditCalcTargetPosY
             // 
-            this.textEditCalcTargetPosY.Location = new System.Drawing.Point(297, 152);
+            this.textEditCalcTargetPosY.Location = new System.Drawing.Point(254, 152);
+            this.textEditCalcTargetPosY.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditCalcTargetPosY.Name = "textEditCalcTargetPosY";
-            this.textEditCalcTargetPosY.Size = new System.Drawing.Size(81, 20);
+            this.textEditCalcTargetPosY.Size = new System.Drawing.Size(69, 20);
             this.textEditCalcTargetPosY.TabIndex = 1;
             // 
             // labelControlCalcTargetPosY
             // 
-            this.labelControlCalcTargetPosY.Location = new System.Drawing.Point(212, 155);
+            this.labelControlCalcTargetPosY.Location = new System.Drawing.Point(181, 155);
+            this.labelControlCalcTargetPosY.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControlCalcTargetPosY.Name = "labelControlCalcTargetPosY";
             this.labelControlCalcTargetPosY.Size = new System.Drawing.Size(54, 14);
             this.labelControlCalcTargetPosY.TabIndex = 0;
@@ -1707,85 +1723,97 @@
             // 
             // textEditDeltaY2
             // 
-            this.textEditDeltaY2.Location = new System.Drawing.Point(324, 125);
+            this.textEditDeltaY2.Location = new System.Drawing.Point(277, 125);
+            this.textEditDeltaY2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditDeltaY2.Name = "textEditDeltaY2";
-            this.textEditDeltaY2.Size = new System.Drawing.Size(54, 20);
+            this.textEditDeltaY2.Size = new System.Drawing.Size(46, 20);
             this.textEditDeltaY2.TabIndex = 1;
             // 
             // textEditDeltaY1
             // 
-            this.textEditDeltaY1.Location = new System.Drawing.Point(324, 99);
+            this.textEditDeltaY1.Location = new System.Drawing.Point(277, 99);
+            this.textEditDeltaY1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditDeltaY1.Name = "textEditDeltaY1";
-            this.textEditDeltaY1.Size = new System.Drawing.Size(54, 20);
+            this.textEditDeltaY1.Size = new System.Drawing.Size(46, 20);
             this.textEditDeltaY1.TabIndex = 1;
             // 
             // textEditCalcTargetPosX
             // 
-            this.textEditCalcTargetPosX.Location = new System.Drawing.Point(99, 152);
+            this.textEditCalcTargetPosX.Location = new System.Drawing.Point(84, 152);
+            this.textEditCalcTargetPosX.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditCalcTargetPosX.Name = "textEditCalcTargetPosX";
-            this.textEditCalcTargetPosX.Size = new System.Drawing.Size(81, 20);
+            this.textEditCalcTargetPosX.Size = new System.Drawing.Size(69, 20);
             this.textEditCalcTargetPosX.TabIndex = 1;
             // 
             // textEditCalcOffsetY
             // 
-            this.textEditCalcOffsetY.Location = new System.Drawing.Point(297, 178);
+            this.textEditCalcOffsetY.Location = new System.Drawing.Point(254, 178);
+            this.textEditCalcOffsetY.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditCalcOffsetY.Name = "textEditCalcOffsetY";
             this.textEditCalcOffsetY.Properties.ReadOnly = true;
-            this.textEditCalcOffsetY.Size = new System.Drawing.Size(81, 20);
+            this.textEditCalcOffsetY.Size = new System.Drawing.Size(69, 20);
             this.textEditCalcOffsetY.TabIndex = 1;
             // 
             // textEditCalcPositoin2_Y
             // 
-            this.textEditCalcPositoin2_Y.Location = new System.Drawing.Point(126, 125);
+            this.textEditCalcPositoin2_Y.Location = new System.Drawing.Point(107, 125);
+            this.textEditCalcPositoin2_Y.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditCalcPositoin2_Y.Name = "textEditCalcPositoin2_Y";
-            this.textEditCalcPositoin2_Y.Size = new System.Drawing.Size(54, 20);
+            this.textEditCalcPositoin2_Y.Size = new System.Drawing.Size(46, 20);
             this.textEditCalcPositoin2_Y.TabIndex = 1;
             // 
             // textEditCalcPositoin2_X
             // 
-            this.textEditCalcPositoin2_X.Location = new System.Drawing.Point(65, 125);
+            this.textEditCalcPositoin2_X.Location = new System.Drawing.Point(55, 125);
+            this.textEditCalcPositoin2_X.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditCalcPositoin2_X.Name = "textEditCalcPositoin2_X";
-            this.textEditCalcPositoin2_X.Size = new System.Drawing.Size(54, 20);
+            this.textEditCalcPositoin2_X.Size = new System.Drawing.Size(46, 20);
             this.textEditCalcPositoin2_X.TabIndex = 1;
             // 
             // textEditDeltaX2
             // 
-            this.textEditDeltaX2.Location = new System.Drawing.Point(263, 125);
+            this.textEditDeltaX2.Location = new System.Drawing.Point(225, 125);
+            this.textEditDeltaX2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditDeltaX2.Name = "textEditDeltaX2";
-            this.textEditDeltaX2.Size = new System.Drawing.Size(54, 20);
+            this.textEditDeltaX2.Size = new System.Drawing.Size(46, 20);
             this.textEditDeltaX2.TabIndex = 1;
             // 
             // textEditCalcPositoin1_Y
             // 
-            this.textEditCalcPositoin1_Y.Location = new System.Drawing.Point(126, 99);
+            this.textEditCalcPositoin1_Y.Location = new System.Drawing.Point(107, 99);
+            this.textEditCalcPositoin1_Y.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditCalcPositoin1_Y.Name = "textEditCalcPositoin1_Y";
-            this.textEditCalcPositoin1_Y.Size = new System.Drawing.Size(54, 20);
+            this.textEditCalcPositoin1_Y.Size = new System.Drawing.Size(46, 20);
             this.textEditCalcPositoin1_Y.TabIndex = 1;
             // 
             // textEditCalcPositoin1_X
             // 
-            this.textEditCalcPositoin1_X.Location = new System.Drawing.Point(65, 99);
+            this.textEditCalcPositoin1_X.Location = new System.Drawing.Point(55, 99);
+            this.textEditCalcPositoin1_X.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditCalcPositoin1_X.Name = "textEditCalcPositoin1_X";
-            this.textEditCalcPositoin1_X.Size = new System.Drawing.Size(54, 20);
+            this.textEditCalcPositoin1_X.Size = new System.Drawing.Size(46, 20);
             this.textEditCalcPositoin1_X.TabIndex = 1;
             // 
             // textEditOffsetY
             // 
-            this.textEditOffsetY.Location = new System.Drawing.Point(229, 21);
+            this.textEditOffsetY.Location = new System.Drawing.Point(196, 21);
+            this.textEditOffsetY.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditOffsetY.Name = "textEditOffsetY";
-            this.textEditOffsetY.Size = new System.Drawing.Size(81, 20);
+            this.textEditOffsetY.Size = new System.Drawing.Size(69, 20);
             this.textEditOffsetY.TabIndex = 1;
             // 
             // textEditDeltaX1
             // 
-            this.textEditDeltaX1.Location = new System.Drawing.Point(263, 99);
+            this.textEditDeltaX1.Location = new System.Drawing.Point(225, 99);
+            this.textEditDeltaX1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditDeltaX1.Name = "textEditDeltaX1";
-            this.textEditDeltaX1.Size = new System.Drawing.Size(54, 20);
+            this.textEditDeltaX1.Size = new System.Drawing.Size(46, 20);
             this.textEditDeltaX1.TabIndex = 1;
             // 
             // labelControlCalcTargetPosX
             // 
-            this.labelControlCalcTargetPosX.Location = new System.Drawing.Point(11, 155);
+            this.labelControlCalcTargetPosX.Location = new System.Drawing.Point(9, 155);
+            this.labelControlCalcTargetPosX.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControlCalcTargetPosX.Name = "labelControlCalcTargetPosX";
             this.labelControlCalcTargetPosX.Size = new System.Drawing.Size(53, 14);
             this.labelControlCalcTargetPosX.TabIndex = 0;
@@ -1793,7 +1821,8 @@
             // 
             // labelControlCalcPosition2
             // 
-            this.labelControlCalcPosition2.Location = new System.Drawing.Point(11, 128);
+            this.labelControlCalcPosition2.Location = new System.Drawing.Point(9, 128);
+            this.labelControlCalcPosition2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControlCalcPosition2.Name = "labelControlCalcPosition2";
             this.labelControlCalcPosition2.Size = new System.Drawing.Size(43, 14);
             this.labelControlCalcPosition2.TabIndex = 0;
@@ -1801,7 +1830,8 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(212, 181);
+            this.labelControl6.Location = new System.Drawing.Point(181, 181);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(75, 14);
             this.labelControl6.TabIndex = 0;
@@ -1809,7 +1839,8 @@
             // 
             // labelControlDeltaX2
             // 
-            this.labelControlDeltaX2.Location = new System.Drawing.Point(183, 128);
+            this.labelControlDeltaX2.Location = new System.Drawing.Point(156, 128);
+            this.labelControlDeltaX2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControlDeltaX2.Name = "labelControlDeltaX2";
             this.labelControlDeltaX2.Size = new System.Drawing.Size(75, 14);
             this.labelControlDeltaX2.TabIndex = 0;
@@ -1817,7 +1848,8 @@
             // 
             // labelControlOffsetY
             // 
-            this.labelControlOffsetY.Location = new System.Drawing.Point(168, 24);
+            this.labelControlOffsetY.Location = new System.Drawing.Point(143, 24);
+            this.labelControlOffsetY.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControlOffsetY.Name = "labelControlOffsetY";
             this.labelControlOffsetY.Size = new System.Drawing.Size(46, 14);
             this.labelControlOffsetY.TabIndex = 0;
@@ -1825,7 +1857,8 @@
             // 
             // labelControlCalcPosition1
             // 
-            this.labelControlCalcPosition1.Location = new System.Drawing.Point(11, 102);
+            this.labelControlCalcPosition1.Location = new System.Drawing.Point(9, 102);
+            this.labelControlCalcPosition1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControlCalcPosition1.Name = "labelControlCalcPosition1";
             this.labelControlCalcPosition1.Size = new System.Drawing.Size(43, 14);
             this.labelControlCalcPosition1.TabIndex = 0;
@@ -1833,15 +1866,17 @@
             // 
             // textEditCalcOffsetX
             // 
-            this.textEditCalcOffsetX.Location = new System.Drawing.Point(99, 178);
+            this.textEditCalcOffsetX.Location = new System.Drawing.Point(84, 178);
+            this.textEditCalcOffsetX.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditCalcOffsetX.Name = "textEditCalcOffsetX";
             this.textEditCalcOffsetX.Properties.ReadOnly = true;
-            this.textEditCalcOffsetX.Size = new System.Drawing.Size(81, 20);
+            this.textEditCalcOffsetX.Size = new System.Drawing.Size(69, 20);
             this.textEditCalcOffsetX.TabIndex = 1;
             // 
             // labelControlDeltaX1
             // 
-            this.labelControlDeltaX1.Location = new System.Drawing.Point(183, 102);
+            this.labelControlDeltaX1.Location = new System.Drawing.Point(156, 102);
+            this.labelControlDeltaX1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControlDeltaX1.Name = "labelControlDeltaX1";
             this.labelControlDeltaX1.Size = new System.Drawing.Size(75, 14);
             this.labelControlDeltaX1.TabIndex = 0;
@@ -1849,7 +1884,8 @@
             // 
             // labelControlCalcOffsetX
             // 
-            this.labelControlCalcOffsetX.Location = new System.Drawing.Point(11, 181);
+            this.labelControlCalcOffsetX.Location = new System.Drawing.Point(9, 181);
+            this.labelControlCalcOffsetX.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControlCalcOffsetX.Name = "labelControlCalcOffsetX";
             this.labelControlCalcOffsetX.Size = new System.Drawing.Size(74, 14);
             this.labelControlCalcOffsetX.TabIndex = 0;
@@ -1857,15 +1893,17 @@
             // 
             // textEditOffsetX
             // 
-            this.textEditOffsetX.Location = new System.Drawing.Point(72, 21);
+            this.textEditOffsetX.Location = new System.Drawing.Point(61, 21);
+            this.textEditOffsetX.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textEditOffsetX.MenuManager = this.ribbonControl;
             this.textEditOffsetX.Name = "textEditOffsetX";
-            this.textEditOffsetX.Size = new System.Drawing.Size(81, 20);
+            this.textEditOffsetX.Size = new System.Drawing.Size(69, 20);
             this.textEditOffsetX.TabIndex = 1;
             // 
             // labelControlOffsetX
             // 
-            this.labelControlOffsetX.Location = new System.Drawing.Point(11, 24);
+            this.labelControlOffsetX.Location = new System.Drawing.Point(9, 24);
+            this.labelControlOffsetX.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.labelControlOffsetX.Name = "labelControlOffsetX";
             this.labelControlOffsetX.Size = new System.Drawing.Size(45, 14);
             this.labelControlOffsetX.TabIndex = 0;
@@ -1878,7 +1916,7 @@
             this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem11});
             this.layoutControlGroup8.Name = "layoutControlGroup8";
-            this.layoutControlGroup8.Size = new System.Drawing.Size(504, 414);
+            this.layoutControlGroup8.Size = new System.Drawing.Size(426, 414);
             this.layoutControlGroup8.TextVisible = false;
             // 
             // layoutControlItem11
@@ -1886,13 +1924,14 @@
             this.layoutControlItem11.Control = this.groupControlCalibration;
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(484, 394);
+            this.layoutControlItem11.Size = new System.Drawing.Size(408, 394);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
             // pictureEditSystemImage
             // 
-            this.pictureEditSystemImage.Location = new System.Drawing.Point(12, 12);
+            this.pictureEditSystemImage.Location = new System.Drawing.Point(11, 12);
+            this.pictureEditSystemImage.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureEditSystemImage.MenuManager = this.ribbonControl;
             this.pictureEditSystemImage.Name = "pictureEditSystemImage";
             this.pictureEditSystemImage.Properties.PictureAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -1900,7 +1939,7 @@
             this.pictureEditSystemImage.Properties.ShowMenu = false;
             this.pictureEditSystemImage.Properties.ShowScrollBars = true;
             this.pictureEditSystemImage.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.False;
-            this.pictureEditSystemImage.Size = new System.Drawing.Size(442, 279);
+            this.pictureEditSystemImage.Size = new System.Drawing.Size(377, 279);
             this.pictureEditSystemImage.StyleController = this.layoutControl2;
             this.pictureEditSystemImage.TabIndex = 4;
             this.pictureEditSystemImage.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureEditSystemImage_Paint);
@@ -1916,15 +1955,15 @@
             this.layoutControlItem9,
             this.layoutControlItem10});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1004, 444);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(859, 444);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.xtraTabControlMainCtrl;
-            this.layoutControlItem2.Location = new System.Drawing.Point(446, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(381, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(538, 424);
+            this.layoutControlItem2.Size = new System.Drawing.Size(460, 424);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -1933,7 +1972,7 @@
             this.layoutControlItem9.Control = this.pictureEditSystemImage;
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(446, 283);
+            this.layoutControlItem9.Size = new System.Drawing.Size(381, 283);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
@@ -1942,7 +1981,7 @@
             this.layoutControlItem10.Control = this.chartControlPyrospotData;
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 283);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(446, 141);
+            this.layoutControlItem10.Size = new System.Drawing.Size(381, 141);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
@@ -1954,7 +1993,7 @@
             this.layoutControlItem1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(3, 3, 4, 4);
-            this.Root.Size = new System.Drawing.Size(1014, 456);
+            this.Root.Size = new System.Drawing.Size(869, 456);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -1962,7 +2001,7 @@
             this.layoutControlItem1.Control = this.layoutControl2;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1008, 448);
+            this.layoutControlItem1.Size = new System.Drawing.Size(863, 448);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -2068,14 +2107,14 @@
             // 
             // atLaserSoldering
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 767);
+            this.ClientSize = new System.Drawing.Size(869, 767);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.dockPanelLogView);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.Name = "atLaserSoldering";
             this.Ribbon = this.ribbonControl;
             this.StatusBar = this.ribbonStatusBar;
