@@ -2622,6 +2622,7 @@ namespace atLaserSoldering
                             mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "납땜 검사 Vision 레시피 경로가 없습니다. 자동 납땜을 실행을 중지 했습니다.");
                         }
                     }
+
                     CreatPyrospotDataFile();
                     CheckTackTime.Reset();
                     _IsAutoSolderingRunning = true;

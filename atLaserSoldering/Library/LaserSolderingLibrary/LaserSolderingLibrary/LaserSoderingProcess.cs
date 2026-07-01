@@ -310,8 +310,6 @@ namespace LaserSoldering
             {
                 if (!_IsLaserError && !_IsFeederError)
                 {
-                    _IsAutoSoldering = false;
-                    _IsAutoSolderEnd = true;
                     int datasize = 0;
                     byte[] data = null;
                     if (_LaserSource == LaserModule.CompactMini)
@@ -1044,7 +1042,7 @@ namespace LaserSoldering
                                 break;
                             case LaserSolderStepType.Ready:  
                                 CheckTackTime.Reset();                                    
-                                data = new byte[20];
+                                data = new byte[50];
 
                                 if (!_IsCommandFlag)
                                 {
@@ -1089,7 +1087,7 @@ namespace LaserSoldering
                                 {
                                     mCurrentReadyTime = (int)ts.TotalMilliseconds;
                                     CheckTackTime.Reset();
-                                    data = new byte[20];
+                                    data = new byte[50];
                                     if (JobSolder.LaserEnable)
                                     {
                                         datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
@@ -1143,7 +1141,7 @@ namespace LaserSoldering
                                         CheckTackTime.Reset();
                                         if (JobSolder.FeederEnable)
                                         {
-                                            data = new byte[20];
+                                            data = new byte[50];
                                             data = _mFeederData.MoveReleativeCommand(_mFeederData.DrvID[0]);
                                             _mFeederComm.SendData(data);
                                         }
@@ -1176,7 +1174,7 @@ namespace LaserSoldering
                                 break;
                             case LaserSolderStepType.Melting:
                                 
-                                data = new byte[20];
+                                data = new byte[50];
                                 if (!_IsCommandFlag)
                                 {                                    
                                     _IsCommandFlag = true;
@@ -1199,7 +1197,7 @@ namespace LaserSoldering
                                 }
                                 break;
                             case LaserSolderStepType.ReverseWire:
-                                data = new byte[20];
+                                data = new byte[50];
                                 if (JobSolder.LaserProfileEnable)
                                 {
                                     if (((int)ts.TotalMilliseconds) > JobSolder.MeltingTime)
@@ -1330,7 +1328,7 @@ namespace LaserSoldering
 
                                 if ((!_IsFeederMoving) && _IsFeederInPosition)
                                 {
-                                    data = new byte[20];
+                                    data = new byte[50];
                                     _IsCommandFlag = false;
                                     iSubSeqState = 0;
                                     CheckTackTime.Reset();
@@ -1364,7 +1362,7 @@ namespace LaserSoldering
                                     {
                                         if ((!_IsFeederMoving) && _IsFeederInPosition)
                                         {
-                                            data = new byte[20];
+                                            data = new byte[50];
                                             if (JobSolder.LaserEnable)
                                             {                                              
                                                 datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
@@ -1382,7 +1380,7 @@ namespace LaserSoldering
                                 {                                    
                                     if ((!_IsFeederMoving) && _IsFeederInPosition)
                                     {
-                                        data = new byte[20];
+                                        data = new byte[50];
                                         if (JobSolder.LaserEnable)
                                         {
                                             datasize = _mCompactMiniData.GetSetPowerOnPacketSize();
@@ -1396,7 +1394,7 @@ namespace LaserSoldering
                                 }
                                 break;
                             case LaserSolderStepType.PowerOff:
-                                data = new byte[20];
+                                data = new byte[50];
                                 if (JobSolder.LaserEnable)
                                 {
                                     datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
@@ -1417,7 +1415,7 @@ namespace LaserSoldering
                                     _IsCommandFlag = false;
                                     if (JobSolder.LaserEnable)
                                     {
-                                        data = new byte[20];
+                                        data = new byte[50];
                                         datasize = _mCompactMiniData.GetSetLaserPowerPacketSize(200);
                                         data = _mCompactMiniData.GetSetLaserPower(200);
                                         _mCompactMiniComm.SendData(data);

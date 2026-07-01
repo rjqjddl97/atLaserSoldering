@@ -53,6 +53,27 @@ namespace atLaserSoldering
                 {
                     LaserSolderParameter _mSolderingJob = new LaserSolderParameter();
 
+                    byte[] sedata = new byte[100];
+                    for (int k = 0; k < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; k++)
+                    {
+                        if (k == 0)
+                        {
+                            sedata = _mMotionControlCommManager.mDrvCtrl.SetMoveTargetVelocity((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[k], Convert.ToInt32(_systemParams._motionParams.MoveVelocity * _systemParams._motionParams.MM2PulseRatioX));
+                            _mMotionControlCommManager.SendData(sedata);
+                        }
+                        else if (k == 1)
+                        {
+                            sedata = _mMotionControlCommManager.mDrvCtrl.SetMoveTargetVelocity((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[k], Convert.ToInt32(_systemParams._motionParams.MoveVelocity * _systemParams._motionParams.MM2PulseRatioY));
+                            _mMotionControlCommManager.SendData(sedata);
+                        }
+                        else if (k == 2)
+                        {
+                            sedata = _mMotionControlCommManager.mDrvCtrl.SetMoveTargetVelocity((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[k], Convert.ToInt32(_systemParams._motionParams.MoveVelocity * _systemParams._motionParams.MM2PulseRatioZ));
+                            _mMotionControlCommManager.SendData(sedata);
+                        }
+                        Thread.Sleep(50);
+                    }
+
                     if (_workParams._PCBAlignVisionEnable)
                     {
                         if (_workParams._AlignInspectionMode == 1)      // 0: None, 1: 2Point, 2: All
@@ -875,26 +896,10 @@ namespace atLaserSoldering
                 _IsAutoSolderingEnd = true;
                 _IsAutoSequenceCancleRequest = false;
                 _IsAutoSequencePyrospotDataSaveEnable = false;
-                //_isInspecting = false;
-                //_InspectionWorking = false;
-                //UpdateProcessTime(false);
                 CheckTackTime.Stop();
                 barCheckItemLaserSolderingStart.Caption = string.Format("작업 시작");
                 barStaticItemAutoSolderingStatus.Caption = string.Format("진행: 작업 완료");
-                //if ((!_isInspectError) && (!_isInspectCancel))
-                //{
-                //    InpsectResultUpdate();
-                //    UpdateRadarChartResult();
-                //    CreateResultFile(mResultData.bTotalResult);
-                //    //UpdateChartAngle();
-                //    //UpdateChartDistance();
-                //    UpdateStaticsData();
-                //    System.Console.WriteLine("bacground work Photo Inspection run worker completed");
-                //}
-                //_isInspectCancel = false;
-                //barEditItemInspectionProgress.EditValue = 100;
-                AutoStartButtonRelease();
-                //barCheckItemInspectionStart.Checked = false;
+                AutoStartButtonRelease();                
                 mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "포토 센서 자동 검사 완료되었습니다.");
             }
             catch (Exception)
@@ -908,7 +913,7 @@ namespace atLaserSoldering
             {
                 TimeSpan ts = CheckTackTime.Elapsed;
                 barStaticItemAutoSolderingStatus.Caption = "진행: 납땜 작업중";
-                barStaticAutoSolderingTime.Caption = string.Format("작업 시간: {0:00:}{1:00}.{2:000} sec",ts.TotalMinutes,ts.TotalSeconds,ts.TotalMilliseconds);
+                barStaticAutoSolderingTime.Caption = string.Format("작업 시간: {0:00:}{1:00}.{2:000} sec",ts.Minutes,ts.Seconds,ts.Milliseconds);
                 barEditItemAutoSolderingProgress.EditValue = e.ProgressPercentage;
             }
             catch (Exception)
@@ -1016,108 +1021,6 @@ namespace atLaserSoldering
                         _IsHommingCancle = true;
                     }
                 }
-                //RobotInformation info = e.Argument as RobotInformation;
-                //int _homestep = 0;
-                //bool _motionflag = false;
-                //if (sender is BackgroundWorker worker)
-                //{
-                //    _IsHommingCancle = false;
-                //    if (_mMotionControlCommManager.IsOpen())
-                //    {
-                //        if (!_IsHommingFinished)
-                //        {
-                //            byte[] SeData = new byte[8];
-                //            if (MessageBox.Show("원점복귀를 진행을 합니다.", "원점복귀", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly) == DialogResult.Yes)
-                //            {
-                //                //SeData = _mRemteIOCommManager.mRemoteIOCtrl.Output1byteCommand(_mRemteIOCommManager.mRemoteIOCtrl.DrvID[0], ARMLibrary.SerialCommunication.Data.ARMData.OUTPUT_CONTROL_MAP.Output3, (ushort)0x0000);
-                //                _mRemteIOCommManager.SendData(SeData);
-                //                _HommingProcess = true;
-                //                _IsHommingCancle = false;
-                //                //mRobotInformation.SetStatus(RobotInformation.RobotStatus.OperationReady, _IsHommingFinished);
-                //                mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "실린더3 초기화");
-                //            }
-                //            else
-                //                _IsHommingCancle = true;
-
-                    //            while (_HommingProcess)
-                    //            {
-                    //                switch (_homestep)
-                    //                {
-                    //                    case 0:
-                    //                        if (mRobotInformation.mInputData.B12)
-                    //                        {
-                    //                            SeData = _mRemteIOCommManager.mRemoteIOCtrl.Output1byteCommand(_mRemteIOCommManager.mRemoteIOCtrl.DrvID[0], ARMLibrary.SerialCommunication.Data.ARMData.OUTPUT_CONTROL_MAP.Output1, (ushort)0x0000);
-                    //                            _mRemteIOCommManager.SendData(SeData);
-                    //                            SeData = _mRemteIOCommManager.mRemoteIOCtrl.Output1byteCommand(_mRemteIOCommManager.mRemoteIOCtrl.DrvID[0], ARMLibrary.SerialCommunication.Data.ARMData.OUTPUT_CONTROL_MAP.Output5, (ushort)0x0000);
-                    //                            _mRemteIOCommManager.SendData(SeData);
-                    //                            mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "실린더3 센서 점검완료 및 실린더1,5 초기화");
-                    //                            _homestep = 1;
-                    //                        }
-                    //                        break;
-                    //                    case 1:
-                    //                        if (mRobotInformation.mInputData.B8)
-                    //                        {
-                    //                            SeData = _mRemteIOCommManager.mRemoteIOCtrl.Output1byteCommand(_mRemteIOCommManager.mRemoteIOCtrl.DrvID[0], ARMLibrary.SerialCommunication.Data.ARMData.OUTPUT_CONTROL_MAP.Output2, (ushort)0x0000);
-                    //                            _mRemteIOCommManager.SendData(SeData);
-                    //                            _homestep = 2;
-                    //                            mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "실린더1,5 센서 점검완료 및 실린더2 초기화");
-                    //                        }
-                    //                        break;
-                    //                    case 2:
-                    //                        if (mRobotInformation.mInputData.B10)
-                    //                        {
-                    //                            SeData = _mRemteIOCommManager.mRemoteIOCtrl.Output1byteCommand(_mRemteIOCommManager.mRemoteIOCtrl.DrvID[0], ARMLibrary.SerialCommunication.Data.ARMData.OUTPUT_CONTROL_MAP.Output4, (ushort)0x0000);
-                    //                            _mRemteIOCommManager.SendData(SeData);
-                    //                            _homestep = 3;
-                    //                            mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "실린더2 센서 점검완료 및 실린더4 초기화");
-                    //                        }
-                    //                        break;
-                    //                    case 3:
-                    //                        if (mRobotInformation.mInputData.B14)
-                    //                        {
-                    //                            for (int i = 0; i < _mMotionControlCommManager.mDrvCtrl.DeviceIDCount; i++)
-                    //                            {
-                    //                                SeData = _mMotionControlCommManager.mDrvCtrl.HomeStartCommand((byte)_mMotionControlCommManager.mDrvCtrl.DrvID[i]);
-                    //                                _mMotionControlCommManager.SendData(SeData);
-                    //                            }
-                    //                            _homestep = 4;
-                    //                            mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "실린더4 센서 점검완료 및 모션 원점 복귀 시작");
-                    //                        }
-                    //                        break;
-                    //                    case 4:
-                    //                        if (!_motionflag)
-                    //                        {
-                    //                            _motionflag = true;
-                    //                        }
-                    //                        else
-                    //                        {
-                    //                            _homestep = 5;
-                    //                        }
-                    //                        break;
-                    //                    case 5:
-                    //                        if ((mRobotInformation.mStatus & 0x00000052) == 0x00000052)
-                    //                        {
-                    //                            _HommingProcess = false;
-                    //                            _IsHommingFinished = true;
-                    //                            mRobotInformation.SetStatus(RobotInformation.RobotStatus.OperationReady, _IsHommingFinished);
-                    //                        }
-                    //                        break;
-                    //                    default:
-                    //                        _HommingProcess = false;
-                    //                        _IsHommingCancle = true;
-                    //                        mLog.WriteLog(LogLevel.Info, LogClass.atPhoto.ToString(), "실린더 센서 점검 및 모션 원점 복귀 진행을 하지 못하였습니다.");
-                    //                        break;
-                    //                }
-                    //                Thread.Sleep(500);
-                    //            }
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        _IsHommingFinished = false;
-                    //        _IsHommingCancle = true;
-                    //    }
-                    //}
             }
             catch (Exception ex)
             {

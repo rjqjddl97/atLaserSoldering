@@ -88,6 +88,7 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.simpleButtonReadPosition = new DevExpress.XtraEditors.SimpleButton();
             this.buttonEditPCBLayoutFilePath = new DevExpress.XtraEditors.ButtonEdit();
             this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
             this.textEditMeltingTime = new DevExpress.XtraEditors.TextEdit();
@@ -157,13 +158,12 @@
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.openFileDialogTemplateImage = new System.Windows.Forms.OpenFileDialog();
-            this.simpleButtonReadPosition = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductSeries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxProductType)).BeginInit();
@@ -242,12 +242,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
             this.layoutControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -623,7 +623,7 @@
             // 
             // vGridControlInspectionParam
             // 
-            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.Default;
+            this.vGridControlInspectionParam.Cursor = System.Windows.Forms.Cursors.SizeNS;
             this.vGridControlInspectionParam.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControlInspectionParam.Location = new System.Drawing.Point(3, 3);
             this.vGridControlInspectionParam.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -774,6 +774,16 @@
             this.layoutControl1.Size = new System.Drawing.Size(712, 558);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // simpleButtonReadPosition
+            // 
+            this.simpleButtonReadPosition.Location = new System.Drawing.Point(3, 369);
+            this.simpleButtonReadPosition.Name = "simpleButtonReadPosition";
+            this.simpleButtonReadPosition.Size = new System.Drawing.Size(87, 22);
+            this.simpleButtonReadPosition.StyleController = this.layoutControl1;
+            this.simpleButtonReadPosition.TabIndex = 18;
+            this.simpleButtonReadPosition.Text = "현재위치 읽기";
+            this.simpleButtonReadPosition.Click += new System.EventHandler(this.simpleButtonReadPosition_Click);
             // 
             // buttonEditPCBLayoutFilePath
             // 
@@ -1604,6 +1614,15 @@
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.simpleButtonReadPosition;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 366);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(91, 26);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
+            // 
             // layoutControl4
             // 
             this.layoutControl4.Controls.Add(this.groupControl1);
@@ -1650,25 +1669,6 @@
             // 
             this.openFileDialogTemplateImage.FileName = "Template Image";
             this.openFileDialogTemplateImage.Filter = "Bitmap Files (*.bmp)|*.bmp";
-            // 
-            // simpleButtonReadPosition
-            // 
-            this.simpleButtonReadPosition.Location = new System.Drawing.Point(3, 369);
-            this.simpleButtonReadPosition.Name = "simpleButtonReadPosition";
-            this.simpleButtonReadPosition.Size = new System.Drawing.Size(87, 22);
-            this.simpleButtonReadPosition.StyleController = this.layoutControl1;
-            this.simpleButtonReadPosition.TabIndex = 18;
-            this.simpleButtonReadPosition.Text = "현재위치 읽기";
-            this.simpleButtonReadPosition.Click += new System.EventHandler(this.simpleButtonReadPosition_Click);
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.simpleButtonReadPosition;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 366);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(91, 26);
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextVisible = false;
             // 
             // RecipeEditor
             // 
@@ -1765,12 +1765,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
             this.layoutControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
