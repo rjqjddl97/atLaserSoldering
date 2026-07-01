@@ -2622,9 +2622,11 @@ namespace atLaserSoldering
                             mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "납땜 검사 Vision 레시피 경로가 없습니다. 자동 납땜을 실행을 중지 했습니다.");
                         }
                     }
+                    CreatPyrospotDataFile();
                     CheckTackTime.Reset();
                     _IsAutoSolderingRunning = true;
                     _IsAutoSolderingEnd = false;
+                    _IsAutoSequencePyrospotDataSaveEnable = true;
                     barCheckItemLaserSolderingStart.Caption = "작업 중지";
                     // 검사 쓰레드 시작
                     _backgroundWorkerAutoSoldering.RunWorkerAsync();
@@ -2747,6 +2749,7 @@ namespace atLaserSoldering
                             mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "납땜 검사 Vision 레시피 경로가 없습니다. 자동 납땜을 실행을 중지 했습니다.");
                         }
                     }
+                    CreatPyrospotDataFile();
                     CheckTackTime.Reset();
                     _IsAutoSolderingRunning = true;
                     _IsAutoSolderingEnd = false;

@@ -51,7 +51,7 @@ namespace atLaserSoldering
             try
             {
                 _iPyrospotDataSaveSeq = iSeq;
-                if (!_IsPyrospotDataSaveEnable)
+                if ((!_IsPyrospotDataSaveEnable) && (!_IsAutoSequencePyrospotDataSaveEnable))
                 {
                     if (_iPyrospotDataSaveSeq == 1)
                     {
@@ -94,7 +94,7 @@ namespace atLaserSoldering
                 {
                     Directory.CreateDirectory(strFilePath);
                 }
-                using (StreamWriter sw = new StreamWriter(strFilePath, true))
+                using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
                 {
                     string strTemp = "";
                     strTemp = string.Format("Date;Time;1482543;");
@@ -118,7 +118,8 @@ namespace atLaserSoldering
                     using (StreamWriter sw = new StreamWriter(_PyrospotDataFilePath, true))
                     {
                         string strTemp = "";
-                        strTemp = string.Format("{0:00}.{1:00}.{2:0000};{3};{4:0000.0}", presettime.Day.ToString(), presettime.Month.ToString(), presettime.Year.ToString(), presettime.TimeOfDay.ToString(), _dPresentTemperature);
+                        strTemp = string.Format("{0}.{1}.{2};{3}:{4}:{5}:{6};{7:0000.0};", presettime.Day.ToString(), presettime.Month.ToString(), presettime.Year.ToString(),
+                                                presettime.Hour.ToString(), presettime.Minute.ToString(), presettime.Second.ToString(), presettime.Millisecond.ToString(), _dPresentTemperature);
                         sw.WriteLine(strTemp);
                     }
                     if (index >= 10000)
@@ -139,7 +140,8 @@ namespace atLaserSoldering
                     {
                         string strTemp = "";
                         //strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), _dPresentTemperature);
-                        strTemp = string.Format("{0:00}.{1:00}.{2:0000};{3};{4:0000.0}", presettime.Day.ToString(), presettime.Month.ToString(), presettime.Year.ToString(), presettime.TimeOfDay.ToString(), _dPresentTemperature);
+                        strTemp = string.Format("{0}.{1}.{2};{3}:{4}:{5}:{6};{7:0000.0};", presettime.Day.ToString(), presettime.Month.ToString(), presettime.Year.ToString(), 
+                                                presettime.Hour.ToString(),presettime.Minute.ToString(),presettime.Second.ToString(),presettime.Millisecond.ToString(), _dPresentTemperature);
                         sw.WriteLine(strTemp);
                     }
                     if (index >= 200)
@@ -160,7 +162,8 @@ namespace atLaserSoldering
                     {
                         string strTemp = "";
                         //strTemp = string.Format("{0}, {1:0000.0}", presettime.TimeOfDay.ToString(), _dPresentTemperature);
-                        strTemp = string.Format("{0:00}.{1:00}.{2:0000};{3};{4:0000.0}", presettime.Day.ToString(), presettime.Month.ToString(), presettime.Year.ToString(), presettime.TimeOfDay.ToString(), _dPresentTemperature);
+                        strTemp = string.Format("{0}.{1}.{2};{3}:{4}:{5}:{6};{7:0000.0};", presettime.Day.ToString(), presettime.Month.ToString(), presettime.Year.ToString(),
+                                                presettime.Hour.ToString(), presettime.Minute.ToString(), presettime.Second.ToString(), presettime.Millisecond.ToString(), _dPresentTemperature);
                         sw.WriteLine(strTemp);
                     }
                     if (index >= 100)
