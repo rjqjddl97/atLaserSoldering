@@ -899,7 +899,7 @@ namespace atLaserSoldering
                 CheckTackTime.Stop();
                 barCheckItemLaserSolderingStart.Caption = string.Format("작업 시작");
                 barStaticItemAutoSolderingStatus.Caption = string.Format("진행: 작업 완료");
-                AutoStartButtonRelease();                
+                AutoStartButtonRelease();
                 mLog.WriteLog(LogLevel.Info, LogClass.atLaser.ToString(), "포토 센서 자동 검사 완료되었습니다.");
             }
             catch (Exception)
@@ -911,9 +911,10 @@ namespace atLaserSoldering
         {
             try
             {
-                TimeSpan ts = CheckTackTime.Elapsed;
+                TimeSpan ts = TimeSpan.FromMilliseconds(CheckTackTime.Elapsed.TotalMilliseconds);
                 barStaticItemAutoSolderingStatus.Caption = "진행: 납땜 작업중";
-                barStaticAutoSolderingTime.Caption = string.Format("작업 시간: {0:00:}{1:00}.{2:000} sec",ts.Minutes,ts.Seconds,ts.Milliseconds);
+                //barStaticAutoSolderingTime.Caption = string.Format("작업 시간: {0:00:}{1:00}.{2:000} sec",ts.Minutes,ts.Seconds,ts.Milliseconds);
+                barStaticAutoSolderingTime.Caption = string.Format("작업 시간: ") + ts.ToString(@"hh\:mm\:ss\.fff");
                 barEditItemAutoSolderingProgress.EditValue = e.ProgressPercentage;
             }
             catch (Exception)

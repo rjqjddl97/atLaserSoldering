@@ -2760,20 +2760,20 @@ namespace atLaserSoldering
                     _backgroundWorkerAutoSoldering.RunWorkerAsync();
                     CheckTackTime.Start();
                 }
-                else
-                {
-                    _mLaserSoldering.LaserSolderingStop();
-                    CheckTackTime.Stop();
-                    //_backgroundWorkerAutoSoldering.CancelAsync();      
-                    _IsAutoSequenceCancleRequest = true;
-                    _IsRequestAutomovingCommand = false;
-                    //barCheckItemLaserSolderingStart.Enabled = true;
-                    //_IsAutoSolderingRunning = false;
-                    //_IsAutoSolderingEnd = false;
-                    _waitHandle.Set();
-                    barCheckItemLaserSolderingStart.Caption = "작업 시작";
-                    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행을 중지 했습니다.");
-                }
+                //else
+                //{
+                //    _mLaserSoldering.LaserSolderingStop();
+                //    CheckTackTime.Stop();
+                //    //_backgroundWorkerAutoSoldering.CancelAsync();      
+                //    _IsAutoSequenceCancleRequest = true;
+                //    _IsRequestAutomovingCommand = false;
+                //    //barCheckItemLaserSolderingStart.Enabled = true;
+                //    //_IsAutoSolderingRunning = false;
+                //    //_IsAutoSolderingEnd = false;
+                //    _waitHandle.Set();
+                //    barCheckItemLaserSolderingStart.Caption = "작업 시작";
+                //    mLog.WriteLog(LogLevel.Error, LogClass.atLaser.ToString(), "자동 납땜을 실행을 중지 했습니다.");
+                //}
             }
             catch (Exception ex)
             {
@@ -2846,18 +2846,18 @@ namespace atLaserSoldering
                         {
                             if (_mLaserSoldering.IsFeederConnect)
                             {
-                                _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
-                                _mLaserSoldering.ForwordFeeding();
                                 _IsFeedingSwitchEnable = true;
+                                _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
+                                _mLaserSoldering.ForwordFeeding();                                
                             }
                         }
                         else if (mRobotInformation.mInputData.B3)
                         {
                             if (_mLaserSoldering.IsFeederConnect)
                             {
-                                _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
-                                _mLaserSoldering.ReverseFeeding();
                                 _IsFeedingSwitchEnable = true;
+                                _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
+                                _mLaserSoldering.ReverseFeeding();                                
                             }
                         }
                         else
