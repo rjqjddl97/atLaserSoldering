@@ -2899,7 +2899,8 @@ namespace atLaserSoldering
                 if (_IsAutoSolderingRunning)
                 {
                     TimeSpan ts = CheckTackTime.Elapsed;
-                    barStaticAutoSolderingTime.Caption = string.Format("작업 시간: {0:00:}{1:00}.{2:000} sec", ts.TotalMinutes, ts.TotalSeconds, ts.TotalMilliseconds);
+                    //barStaticAutoSolderingTime.Caption = string.Format("작업 시간: {0:00:}{1:00}.{2:000} sec", ts.TotalMinutes, ts.TotalSeconds, ts.TotalMilliseconds);
+                    barStaticAutoSolderingTime.Caption = string.Format("작업 시간: ") + ts.ToString(@"hh\:mm\:ss\.fff");
                 }
             }
             catch (Exception ex)
