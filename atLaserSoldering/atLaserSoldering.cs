@@ -2844,14 +2844,14 @@ namespace atLaserSoldering
                     {
                         if (mRobotInformation.mInputData.B2)
                         {
-                            if (_mLaserSoldering.IsFeederConnect)
+                            if (_mLaserSoldering.IsFeederConnect && !_IsFeedingSwitchEnable)
                             {
                                 _IsFeedingSwitchEnable = true;
                                 _mLaserSoldering.SetFeedingVelocity(_systemParams._FeederParams.FeederMoveVelocity);
                                 _mLaserSoldering.ForwordFeeding();                                
                             }
                         }
-                        else if (mRobotInformation.mInputData.B3)
+                        else if (mRobotInformation.mInputData.B3 && !_IsFeedingSwitchEnable)
                         {
                             if (_mLaserSoldering.IsFeederConnect)
                             {

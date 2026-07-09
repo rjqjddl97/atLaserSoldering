@@ -311,7 +311,7 @@ namespace LaserSoldering
                 if (!_IsLaserError && !_IsFeederError)
                 {
                     int datasize = 0;
-                    byte[] data = null;
+                    byte[] data = new byte[100];
                     if (_LaserSource == LaserModule.CompactMini)
                     {
                         datasize = _mCompactMiniData.GetSetLaserOnPacketSize();
@@ -331,6 +331,9 @@ namespace LaserSoldering
                     }
                     data = _mFeederData.MoveStopCommand(_mFeederData.DrvID[0]);
                     _mFeederComm.SendData(data);
+                    data = _mFeederData.MoveTargetPositionSendData(_mFeederData.DrvID[0], (int)0);
+                    _mFeederComm.SendData(data);
+
                     _IsAutoSoldering = false;
                     _IsAutoSolderEnd = true;
                     _waitHandle.Set();
