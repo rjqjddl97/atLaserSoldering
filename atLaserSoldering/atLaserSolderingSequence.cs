@@ -253,7 +253,7 @@ namespace atLaserSoldering
                                         {
                                             ///*
                                             // Insert Laser soldering Sequence Start                                    
-                                            if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
+                                            if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable || _workParams._UseFeederEnable)
                                             {
                                                 while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
                                                 if (!_mLaserSoldering.IsAutoSolderError)
@@ -482,7 +482,7 @@ namespace atLaserSoldering
                                         {
                                             ///*
                                             // Insert Laser soldering Sequence Start                                    
-                                            if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
+                                            if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable || _workParams._UseFeederEnable)
                                             {
                                                 while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
                                                 if (!_mLaserSoldering.IsAutoSolderError)
@@ -686,7 +686,7 @@ namespace atLaserSoldering
                                             {
                                                 ///*
                                                 // Insert Laser soldering Sequence Start                                    
-                                                if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
+                                                if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable || _workParams._UseFeederEnable)
                                                 {
                                                     while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
                                                     if (!_mLaserSoldering.IsAutoSolderError)
@@ -829,7 +829,7 @@ namespace atLaserSoldering
                                     {
                                         ///*
                                         // Insert Laser soldering Sequence Start                                    
-                                        if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable && _workParams._UseFeederEnable)
+                                        if (_workParams._SolderingProcessEnable && _workParams._UseLaserEnable || _workParams._UseFeederEnable)
                                         {
                                             //while (!Convert.ToBoolean((mRobotInformation.mStatus >> 6) & 0x01)) ;
                                             while ((mRobotInformation.mStatus & 0x00000052) != 0x00000052) ;
